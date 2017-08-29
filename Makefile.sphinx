@@ -1,0 +1,34 @@
+# Makefile to be included by other modules, from the TOPLEVEL/docs/ dir, to
+# automatically build sphinx documentation.
+
+APIDOC_DIR = apidoc
+APIDOC_OPTS = --implicit-namespaces
+SPHINX_OPTS =
+SPHINX_BUILDDIR = _build
+SPHINX_SRCDIR = .
+
+# relative to docs/ dir. Hence "." exclude the docs/ dir itself
+APIDOC_EXCLUDES = . ../setup.py '../swh/*/tests/*' '../swh/*/*/tests/*' '../swh/*/*/*/tests/*'
+
+html: sphinx/html
+help: sphinx/help
+
+sphinx/clean:
+	sphinx-build -M clean $(SPHINX_SRCDIR) $(SPHINX_BUILDDIR) $(SPHINXOPTS)
+sphinx/%: apidoc-stamp
+	sphinx-build -M $* $(SPHINX_SRCDIR) $(SPHINX_BUILDDIR) $(SPHINXOPTS)
+
+apidoc-stamp:
+	sphinx-apidoc $(APIDOC_OPTS) -o $(APIDOC_DIR) .. $(APIDOC_EXCLUDES)
+	touch $@
+
+.PHONY: clean clean-apidoc
+clean: sphinx/clean clean-apidoc
+clean-apidoc:
+	rm -rf $(APIDOC_DIR)
+	rm -f *-stamp
+
+
+# Local Variables:
+# mode: makefile
+# End:
