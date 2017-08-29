@@ -1,0 +1,30 @@
+#!/bin/bash
+set -e
+
+create_links () {
+    for pymodule in $(cd ../../ && bin/ls-py-modules) ; do
+	if [ "$pymodule" = 'swh-docs' ] ; then
+	    continue
+	fi
+	if [ ! -e "$pymodule" -a -d "../../${pymodule}/docs" ] ; then
+	    ln -s "../../${pymodule}/docs" "$pymodule"
+	fi
+    done
+}
+
+remove_links () {
+    for pymodule in $(cd ../../ && bin/ls-py-modules) ; do
+	if [ "$pymodule" = 'swh-docs' ] ; then
+	    continue
+	fi
+	if [ -L "$pymodule" ] ; then
+	    rm "$pymodule"
+	fi
+    done
+}
+
+if [ "$1" = "--remove" ] ; then
+    remove_links
+else
+    create_links
+fi
