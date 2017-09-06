@@ -8,7 +8,10 @@ SPHINX_BUILDDIR = _build
 SPHINX_SRCDIR = .
 
 # relative to docs/ dir. Hence "." exclude the docs/ dir itself
-APIDOC_EXCLUDES = . ../setup.py '../swh/*/tests/*' '../swh/*/*/tests/*' '../swh/*/*/*/tests/*'
+APIDOC_EXCLUDES =
+APIDOC_EXCLUDES += . ../setup.py
+APIDOC_EXCLUDES += '../swh/*/tests/*' '../swh/*/*/tests/*' '../swh/*/*/*/tests/*'
+APIDOC_EXCLUDES += '../bin/*'
 
 html: sphinx/html
 help: sphinx/help
