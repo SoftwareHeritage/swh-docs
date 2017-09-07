@@ -12,6 +12,7 @@ APIDOC_EXCLUDES =
 APIDOC_EXCLUDES += . ../setup.py
 APIDOC_EXCLUDES += '../swh/*/tests/*' '../swh/*/*/tests/*' '../swh/*/*/*/tests/*'
 APIDOC_EXCLUDES += '../bin/*'
+APIDOC_EXCLUDES += '../utils/*'
 
 html: sphinx/html
 help: sphinx/help
