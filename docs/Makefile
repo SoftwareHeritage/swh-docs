@@ -1,7 +1,13 @@
-SPHINXOPTS    =
-SPHINXBUILD   = sphinx-build
-SOURCEDIR     = .
-BUILDDIR      = _build
+SPHINXOPTS =
+SPHINXBUILD = sphinx-build
+SOURCEDIR = .
+BUILDDIR = _build
+HTMLDIR = $(BUILDDIR)/html
+
+INSTALL_HOST = pergamon.internal.softwareheritage.org
+INSTALL_DIR = /srv/softwareheritage/docs/webroot/devel
+INSTALL_GROUP = swhdev
+INSTALL_PERMS = g+rwX
 
 html: sphinx/html
 sphinx/html: links-stamp apidoc-stamp
@@ -27,4 +33,12 @@ help: sphinx/help
 sphinx/%:
 	@$(SPHINXBUILD) -M $* "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS)
 
-.PHONY: html help clean
+install: html
+	test -d $(HTMLDIR)
+	rsync -avuz $(BUILDDIR)/html/ $(INSTALL_HOST):$(INSTALL_DIR)/
+	ssh $(INSTALL_HOST) \
+		"chgrp -R $(INSTALL_GROUP) $(INSTALL_DIR) ; \
+		 chmod -R $(INSTALL_PERMS) $(INSTALL_DIR) ; \
+		 find $(INSTALL_DIR) -type d -exec chmod g+s {} +"
+
+.PHONY: help html clean distclean install

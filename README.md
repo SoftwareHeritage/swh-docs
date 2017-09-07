@@ -46,7 +46,7 @@ might need to clean up old cruft with:
 ### 2. Build the documentation
 
     $ cd swh-docs/docs
-    $ make html
+    $ make
 
 The HTML documentation is now available starting from `_build/html/index.html`.
 
@@ -61,3 +61,16 @@ Cleaning up
 The former (`make clean`) will only clean the local Sphinx build, without
 touching other modules. The latter (`make distclean`) will also clean Sphinx
 builds in all other modules.
+
+
+Publishing the doc
+------------------
+
+    $ cd docs
+	$ make install
+    $ xdg-open https://docs.softwareheritage.org/devel/
+
+For the above to work you need to have ssh access into the machine
+hosting <https://docs.softwareheritage.org> (currently `pergamon`), and write
+access do the document root directory of that virtual host (currently granted
+to all members of the `swhdev` UNIX group on Software Heritage machines).
