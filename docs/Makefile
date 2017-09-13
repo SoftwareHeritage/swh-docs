@@ -9,19 +9,25 @@ INSTALL_DIR = /srv/softwareheritage/docs/webroot/devel
 INSTALL_GROUP = swhdev
 INSTALL_PERMS = g+rwX
 
+
 html: sphinx/html
-sphinx/html: links-stamp apidoc-stamp
+sphinx/html: links-stamp apidoc-stamp images-stamp
 
 links-stamp:
 	bin/ln-sphinx-subprojects
 	touch $@
 
 apidoc-stamp:
-	make -C ../../ docs-apidoc
+	$(MAKE) -C ../../ docs-apidoc
+	touch $@
+
+images-stamp:
+	$(MAKE) -C images
 	touch $@
 
 clean: sphinx/clean
 	bin/ln-sphinx-subprojects --remove
+	$(MAKE) -C images clean
 	rm -f *-stamp
 
 distclean: clean

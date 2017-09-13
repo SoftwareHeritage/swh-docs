@@ -1,0 +1,65 @@
+#!/bin/bash
+
+# generate dependency graph (in DOT(1) format) for all known python modules
+#
+# include by default both internal and external dependencies, but can asked to
+# include either or none of them (see --help)
+
+if [ ! -d swh-core -o ! -f pythonpath.sh ] ; then
+    echo "Error: you do not appear to be located in swh-environment dir,"
+    echo "but this script should be run from there. Abort."
+    exit 2
+fi
+
+internal_modules=1
+external_modules=1
+while [ -n "$1" ] ; do
+    if [ "$1" = "--no-internal" ] ; then
+        internal_modules=0
+    elif [ "$1" = "--no-external" ] ; then
+        external_modules=0
+    elif [ "$1" = "--help" -o "$1" = "-h" ] ; then
+        echo "Usage: bin/py-depgraph [--no-internal] [--no-external] > FILE.dot"
+        exit 1
+    fi
+    shift 1
+done
+
+pyrepos=$(bin/ls-py-modules)  # available python repositories (with '-')
+
+declare -A pymods  # available python modules (with '.')
+for repo in $pyrepos ; do
+    pymod=${repo//-/.}
+    pymods[$pymod]=1
+done
+
+echo "digraph swh_py_deps {"
+
+for pymod in ${!pymods[@]} ; do
+    echo -e "\t\"$pymod\" ;"
+done
+
+getdeps() {
+    grep -E -v '(^#|^[[:space:]]*$)' "$1" | cut -f 1 -d ' ' | tr 'A-Z' 'a-z'
+}
+
+for repo in $pyrepos ; do
+    pymod=${repo//-/.}
+    reqs_int="${repo}/requirements-swh.txt"
+    reqs_ext="${repo}/requirements.txt"
+
+    if [ "$internal_modules" -eq 1 -a -f "$reqs_int" ]; then
+        for dep in $( getdeps "$reqs_int" ) ; do
+            echo -e "\t\"${pymod}\" -> \"${dep}\" ;"
+        done
+    fi
+
+    if [ "$external_modules" -eq 1 -a -f "$reqs_ext" ]; then
+        for dep in $( getdeps "$reqs_ext" ) ; do
+            echo -e "\t\"${dep}\" [style=dashed] ;"
+            echo -e "\t\"${pymod}\" -> \"${dep}\" ;"
+        done
+    fi
+done | sort -u
+
+echo "}"
