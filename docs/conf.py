@@ -5,5 +5,5 @@ from swh.docs.sphinx.conf import *  # NoQA
 # every module that uses the common Sphinx configuration.
 import os
 import django
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", "swh.web.settings")
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "swh.web.settings.development")
 django.setup()
