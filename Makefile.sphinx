@@ -3,6 +3,8 @@
 
 APIDOC_DIR = apidoc
 APIDOC_OPTS = --implicit-namespaces
+SPHINXBUILD = python3 -c 'import sphinx, sys; sys.exit(sphinx.main(sys.argv))'
+SPHINXAPIDOC = python3 -c 'import sphinx.apidoc, sys; sys.exit(sphinx.apidoc.main(sys.argv))'
 SPHINX_OPTS =
 SPHINX_BUILDDIR = _build
 SPHINX_SRCDIR = .
@@ -18,13 +20,13 @@ html: sphinx/html
 help: sphinx/help
 
 sphinx/clean:
-	sphinx-build -M clean $(SPHINX_SRCDIR) $(SPHINX_BUILDDIR) $(SPHINXOPTS)
+	$(SPHINXBUILD) -M clean $(SPHINX_SRCDIR) $(SPHINX_BUILDDIR) $(SPHINXOPTS)
 sphinx/%: apidoc-stamp
-	sphinx-build -M $* $(SPHINX_SRCDIR) $(SPHINX_BUILDDIR) $(SPHINXOPTS)
+	$(SPHINXBUILD) -M $* $(SPHINX_SRCDIR) $(SPHINX_BUILDDIR) $(SPHINXOPTS)
 
 apidoc: apidoc-stamp
 apidoc-stamp:
-	sphinx-apidoc $(APIDOC_OPTS) -o $(APIDOC_DIR) .. $(APIDOC_EXCLUDES)
+	$(SPHINXAPIDOC) $(APIDOC_OPTS) -o $(APIDOC_DIR) .. $(APIDOC_EXCLUDES)
 	touch $@
 
 .PHONY: clean clean-apidoc
