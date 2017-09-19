@@ -6,6 +6,11 @@ Software Heritage - Development Documentation
    :caption: Contents:
 
 
+Overview
+--------
+
+* :ref:`architecture`
+
 
 Indices and tables
 ==================
