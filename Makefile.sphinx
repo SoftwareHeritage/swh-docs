@@ -12,7 +12,7 @@ SPHINX_SRCDIR = .
 # relative to docs/ dir. Hence "." exclude the docs/ dir itself
 APIDOC_EXCLUDES =
 APIDOC_EXCLUDES += . ../setup.py
-APIDOC_EXCLUDES += '../swh/*/tests/*' '../swh/*/*/tests/*' '../swh/*/*/*/tests/*'
+APIDOC_EXCLUDES += '../swh/*/tests' '../swh/*/tests/*' '../swh/*/*/tests/*' '../swh/*/*/*/tests/*'
 APIDOC_EXCLUDES += '../bin/*'
 APIDOC_EXCLUDES += '../utils/*'
 
