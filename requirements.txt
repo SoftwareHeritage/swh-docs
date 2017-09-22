@@ -3,3 +3,4 @@
 # dependency lines, see https://pip.readthedocs.org/en/1.1/requirements.html
 vcversioner
 sphinx >= 1.3
+recommonmark
