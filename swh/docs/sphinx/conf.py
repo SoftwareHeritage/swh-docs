@@ -85,6 +85,7 @@ intersphinx_mapping = {'https://docs.python.org/3/': None}
 
 # -- autodoc configuration ----------------------------------------------
 autodoc_default_flags = ['members', 'undoc-members']
+autodoc_member_order = 'bysource'
 
 # Do not import django as it needs to load its configuration file (ref: T763)
 autodoc_mock_imports = [
