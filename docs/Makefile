@@ -41,10 +41,10 @@ sphinx/%:
 
 install: html
 	test -d $(HTMLDIR)
-	rsync -avuz $(BUILDDIR)/html/ $(INSTALL_HOST):$(INSTALL_DIR)/
+	rsync -rlvuz $(BUILDDIR)/html/ $(INSTALL_HOST):$(INSTALL_DIR)/
 	ssh $(INSTALL_HOST) \
-		"chgrp -R $(INSTALL_GROUP) $(INSTALL_DIR) ; \
-		 chmod -R $(INSTALL_PERMS) $(INSTALL_DIR) ; \
-		 find $(INSTALL_DIR) -type d -exec chmod g+s {} +"
+		"find $(INSTALL_DIR) -not -group $(INSTALL_GROUP) -exec chgrp -v $(INSTALL_GROUP) {} + ; \
+		 find $(INSTALL_DIR) -not -perm -ug=rw,o=r -exec chmod -v ug+rw,o+r {} + ; \
+		 find $(INSTALL_DIR) -type d -not -perm -g=xs,ou=x -exec chmod -v g+xs,ou+x {} +"
 
 .PHONY: help html clean distclean install
