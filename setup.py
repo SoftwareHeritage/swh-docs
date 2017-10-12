@@ -1,4 +1,4 @@
-from setuptools import setup
+from setuptools import setup, find_packages
 
 
 def parse_requirements():
@@ -19,8 +19,8 @@ setup(
     author='Software Heritage developers',
     author_email='swh-devel@inria.fr',
     url='https://forge.softwareheritage.org/source/swh-docs/',
-    packages=['swh.docs'],  # packages's modules
-    scripts=[],   # scripts to package
+    packages=find_packages(),
+    scripts=[],
     install_requires=parse_requirements(),
     setup_requires=['vcversioner'],
     vcversioner={},
