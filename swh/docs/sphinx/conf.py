@@ -72,12 +72,35 @@ html_theme = 'alabaster'
 # further.  For a list of options available for each theme, see the
 # documentation.
 #
-# html_theme_options = {}
+html_theme_options = {
+    'logo': 'software-heritage-logo.png',
+    'font_family': "'Alegreya Sans', sans-serif",
+    'head_font_family': "'Alegreya', serif",
+    #                     equivalent of alabaster's:
+    'gray_1': '#5b5e6f',  # dark gray
+    'gray_2': '#efeff2',  # light gray
+    'gray_3': '#b1b5ae',  # medium gray
+    'pink_1': '#e5d4cf',  # light pink
+    'pink_2': '#bd9f97',  # medium pink
+
+}
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ['_static']
+
+# make logo actually appear, avoiding gotcha due to alabaster default conf.
+# https://github.com/bitprophet/alabaster/issues/97#issuecomment-303722935
+html_sidebars = {
+    '**': [
+        'about.html',
+        'localtoc.html',
+        'relations.html',
+        'sourcelink.html',
+        'searchbox.html',
+    ]
+}
 
 
 # Example configuration for intersphinx: refer to the Python standard library.
