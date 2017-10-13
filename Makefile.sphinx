@@ -19,9 +19,17 @@ APIDOC_EXCLUDES += '../utils/*'
 html: sphinx/html
 help: sphinx/help
 
+# allow to skip apidoc generation, for modules where the overall documentation
+# structure, table of contents, etc., is manually curated
+ifeq ($(SKIP_APIDOC),yes)
+apidoc_dep =
+else
+apidoc_dep = apidoc-stamp
+endif
+
 sphinx/clean:
 	$(SPHINXBUILD) -M clean $(SPHINX_SRCDIR) $(SPHINX_BUILDDIR) $(SPHINXOPTS)
-sphinx/%: apidoc-stamp
+sphinx/%: $(apidoc_dep)
 	$(SPHINXBUILD) -M $* $(SPHINX_SRCDIR) $(SPHINX_BUILDDIR) $(SPHINXOPTS)
 
 apidoc: apidoc-stamp
