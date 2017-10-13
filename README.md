@@ -55,7 +55,6 @@ Cleaning up
 -----------
 
     $ cd docs
-    $ make clean
     $ make distclean
 
 The former (`make clean`) will only clean the local Sphinx build, without
