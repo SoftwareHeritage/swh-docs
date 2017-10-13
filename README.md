@@ -67,7 +67,7 @@ Publishing the doc
 ------------------
 
     $ cd docs
-	$ make install
+    $ make install
     $ xdg-open https://docs.softwareheritage.org/devel/
 
 For the above to work you need to have ssh access into the machine
