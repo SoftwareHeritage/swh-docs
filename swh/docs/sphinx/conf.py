@@ -14,7 +14,8 @@ author = 'the Software Heritage developers'
 # ones.
 extensions = ['sphinx.ext.autodoc',
               'sphinx.ext.napoleon',
-              'sphinx.ext.intersphinx']
+              'sphinx.ext.intersphinx',
+              'sphinxcontrib.httpdomain']
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
