@@ -33,7 +33,7 @@ sphinx/clean:
 sphinx/%: $(apidoc_dep)
 	$(SPHINXBUILD) -M $* $(SPHINX_SRCDIR) $(SPHINX_BUILDDIR) $(SPHINXOPTS)
 
-apidoc: apidoc-stamp
+apidoc: $(apidoc_dep)
 apidoc-stamp:
 	$(SPHINXAPIDOC) $(APIDOC_OPTS) -o $(APIDOC_DIR) .. $(APIDOC_EXCLUDES)
 	touch $@
