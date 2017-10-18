@@ -25,6 +25,9 @@ Heritage Python stack (each module name is linked to its API documentation).
      low-level utilities and helpers used by almost all other modules in the
      stack
 
+:mod:`swh.deposit`
+     SWORD 2.0 interface to Software Heritage
+
 :mod:`swh.docs`
      developer documentation (used to generate the docs you are reading)
 
