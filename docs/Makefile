@@ -34,7 +34,6 @@ distclean: clean
 	make -C ../../ docs-clean
 
 help: sphinx/help
-	@$(SPHINXBUILD) -M help "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS)
 
 sphinx/%:
 	@$(SPHINXBUILD) -M $* "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS)
