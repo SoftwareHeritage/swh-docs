@@ -2,6 +2,9 @@
 # -*- coding: utf-8 -*-
 #
 
+import django
+import os
+
 # General information about the project.
 project = 'Software Heritage - Development Documentation'
 copyright = '2015-2017, the Software Heritage developers'
@@ -15,7 +18,8 @@ author = 'the Software Heritage developers'
 extensions = ['sphinx.ext.autodoc',
               'sphinx.ext.napoleon',
               'sphinx.ext.intersphinx',
-              'sphinxcontrib.httpdomain']
+              'sphinxcontrib.httpdomain',
+              'sphinx.ext.extlinks']
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
@@ -111,6 +115,22 @@ intersphinx_mapping = {'https://docs.python.org/3/': None}
 autodoc_default_flags = ['members', 'undoc-members']
 autodoc_member_order = 'bysource'
 
-# Do not import django as it needs to load its configuration file (ref: T763)
-autodoc_mock_imports = [
-]
+# for the extlinks extension, sub-projects should fill that dict
+extlinks = {}
+
+
+# hack to set the adequate django settings when building global swh doc
+# to avoid build errors
+def source_read_handler(app, docname, source):
+    if 'swh-deposit' in docname:
+        os.environ.setdefault('DJANGO_SETTINGS_MODULE',
+                              'swh.deposit.settings.development')
+        django.setup()
+    elif 'swh-web' in docname:
+        os.environ.setdefault('DJANGO_SETTINGS_MODULE',
+                              'swh.web.settings.development')
+        django.setup()
+
+
+def setup(app):
+    app.connect('source-read', source_read_handler)
