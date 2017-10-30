@@ -77,7 +77,7 @@ html_theme = 'alabaster'
 # documentation.
 #
 html_theme_options = {
-    'logo': 'software-heritage-logo.png',
+    'logo': 'software-heritage-logo-title-motto-vertical.svg',
     'font_family': "'Alegreya Sans', sans-serif",
     'head_font_family': "'Alegreya', serif",
     #                     equivalent of alabaster's:
