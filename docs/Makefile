@@ -40,7 +40,7 @@ sphinx/%:
 
 install: html
 	test -d $(HTMLDIR)
-	rsync -rlvuz $(BUILDDIR)/html/ $(INSTALL_HOST):$(INSTALL_DIR)/
+	rsync -rlvuz --delete $(BUILDDIR)/html/ $(INSTALL_HOST):$(INSTALL_DIR)/
 	ssh $(INSTALL_HOST) \
 		"find $(INSTALL_DIR) -not -group $(INSTALL_GROUP) -exec chgrp -v $(INSTALL_GROUP) {} + ; \
 		 find $(INSTALL_DIR) -not -perm -ug=rw,o=r -exec chmod -v ug+rw,o+r {} + ; \
