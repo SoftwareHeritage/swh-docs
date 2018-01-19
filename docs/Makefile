@@ -11,7 +11,7 @@ INSTALL_PERMS = g+rwX
 
 
 html: sphinx/html
-sphinx/html: links-stamp apidoc-stamp images-stamp
+sphinx/html: links-stamp apidoc-stamp images-stamp rec-build-stamp
 
 links-stamp:
 	bin/ln-sphinx-subprojects
@@ -23,6 +23,13 @@ apidoc-stamp:
 
 images-stamp:
 	$(MAKE) -C images
+	touch $@
+
+# Build documentation recursively in all packages, to make sure that auxiliary,
+# non-sphinx managed documentation artifacts (e.g., schema diagrams) are also
+# built.
+rec-build-stamp: $(wildcard ../../swh-*/docs/*.rst)
+	$(MAKE) -C ../../ docs
 	touch $@
 
 clean: sphinx/clean
