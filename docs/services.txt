@@ -1,0 +1,14 @@
+# This file documents the attribution of the services ports in the SWH
+# infrastructure. When you add a service that adds a default listening port,
+# add it to this file.
+
+swh-storage: 5002
+swh-objstorage: 5003
+swh-web: 5004
+swh-vault: 5005
+swh-deposit: 5006
+# swh-indexer's storage api
+swh-indexer: 5007
+
+# Edit this line with your nick to get a merge conflict if there's an overlap
+# Next available ID (ardumont) : 5008
