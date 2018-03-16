@@ -87,7 +87,7 @@ swh.docs
 
 
 Dependencies
-~~~~~~~~~~~~
+------------
 
 The dependency relationships among the various modules are depicted below.
 

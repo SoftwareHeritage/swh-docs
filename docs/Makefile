@@ -9,8 +9,12 @@ INSTALL_DIR = /srv/softwareheritage/docs/webroot/devel
 INSTALL_GROUP = swhdev
 INSTALL_PERMS = g+rwX
 
+html: fix-indices-stamp sphinx/html
 
-html: sphinx/html
+fix-indices-stamp: sphinx/html
+	bin/copy-and-fix-subprojects-indices
+	touch $@
+
 sphinx/html: links-stamp apidoc-stamp images-stamp rec-build-stamp
 
 links-stamp:
