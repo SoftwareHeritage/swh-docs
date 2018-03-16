@@ -36,6 +36,8 @@ sphinx/%: $(apidoc_dep)
 apidoc: $(apidoc_dep)
 apidoc-stamp:
 	$(SPHINXAPIDOC) $(APIDOC_OPTS) -o $(APIDOC_DIR) .. $(APIDOC_EXCLUDES)
+	# to silent Sphinx warnings about apidoc documents not included in any toctree
+	find $(shell pwd)/apidoc -name "*.rst" | xargs sed -i '1i:orphan:\n'
 	touch $@
 
 .PHONY: clean clean-apidoc
