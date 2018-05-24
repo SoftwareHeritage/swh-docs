@@ -1,0 +1,44 @@
+@import url(https://fonts.googleapis.com/css?family=Alegreya:400,400italic,700,700italic);
+@import url(https://fonts.googleapis.com/css?family=Alegreya+Sans:400,400italic,500,500italic,700,700italic,100,300,100italic,300italic);
+
+a {
+    border-bottom-style: none;
+    outline: none;
+    text-decoration: none;
+}
+
+.swh-top-bar {
+    direction: ltr;
+    height: 32px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-width: 600px;
+    z-index: 99999;
+    background-color: #262626;
+    color: #fff;
+    text-align: center;
+    font-size: 16px;
+}
+
+.swh-top-bar ul {
+    margin: 0;
+    margin-top: 5px;
+}
+
+.swh-top-bar li {
+    display: inline;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.swh-top-bar a,
+.swh-top-bar a:visited {
+    color: #fecd1b;
+}
+
+.swh-top-bar a.swh-current-site,
+.swh-top-bar a.swh-current-site:visited {
+    color: #e20026;
+}

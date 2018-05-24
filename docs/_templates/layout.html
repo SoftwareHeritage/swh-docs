@@ -1,0 +1,18 @@
+{% extends "!layout.html" %}
+
+{% block content %}
+  <div class="swh-top-bar">
+    <ul>
+      <li>
+        <a href="https://www.softwareheritage.org">Project</a>
+      </li>
+      <li>
+          <a href="https://archive.softwareheritage.org">Archive</a>
+      </li>
+      <li>
+          <a class="swh-current-site" href="https://docs.softwareheritage.org/devel/">Documentation</a>
+      </li>
+    </ul>
+  </div>
+  {{ super() }}
+{% endblock %}
