@@ -16,6 +16,8 @@ APIDOC_EXCLUDES += '../swh/*/tests' '../swh/*/tests/*' '../swh/*/*/tests/*' '../
 APIDOC_EXCLUDES += '../swh/*/migrations' '../swh/*/migrations/*' '../swh/*/*/migrations/*' '../swh/*/*/*/migrations/*'
 APIDOC_EXCLUDES += '../bin/*'
 APIDOC_EXCLUDES += '../utils/*'
+APIDOC_EXCLUDES += '../node_modules/*'
+
 
 html: sphinx/html
 help: sphinx/help
