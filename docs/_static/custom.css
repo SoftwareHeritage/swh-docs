@@ -14,7 +14,6 @@ a {
     top: 0;
     left: 0;
     width: 100%;
-    min-width: 600px;
     z-index: 99999;
     background-color: #262626;
     color: #fff;
@@ -25,11 +24,11 @@ a {
 .swh-top-bar ul {
     margin: 0;
     margin-top: 6px;
-    margin-left: 77px;
+    white-space: nowrap;
 }
 
 .swh-top-bar li {
-    display: inline;
+    display: inline-block;
     margin-left: 10px;
     margin-right: 10px;
 }
@@ -43,15 +42,20 @@ a {
 .swh-top-bar a.swh-current-site:visited {
     color: #e20026;
 }
+
+.swh-donate-item {
+    position: absolute;
+    right: 0;
+}
+
 .swh-donate-link {
     border: 1px solid #fecd1b;
     background-color: #e20026;
     color: white !important;
     border-radius: 3px;
     margin-top: -2px;
-    margin-right: 10px;
-    padding-top: 1px;
+    padding-top: 3px;
     padding-left: 3px;
     padding-right: 3px;
-    padding-bottom: 2px;
+    padding-bottom: 3px;
 }
