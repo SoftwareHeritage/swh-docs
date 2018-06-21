@@ -2,7 +2,7 @@
 # automatically build sphinx documentation.
 
 APIDOC_DIR = apidoc
-APIDOC_OPTS = --implicit-namespaces
+APIDOC_OPTS =
 SPHINXBUILD = python3 -c 'import sphinx, sys; sys.exit(sphinx.main(sys.argv))'
 SPHINXAPIDOC = python3 -c 'import sphinx.apidoc, sys; sys.exit(sphinx.apidoc.main(sys.argv))'
 SPHINX_OPTS =
@@ -12,11 +12,11 @@ SPHINX_SRCDIR = .
 # relative to docs/ dir. Hence "." exclude the docs/ dir itself
 APIDOC_EXCLUDES =
 APIDOC_EXCLUDES += . ../setup.py
-APIDOC_EXCLUDES += '../swh/*/tests' '../swh/*/tests/*' '../swh/*/*/tests/*' '../swh/*/*/*/tests/*'
-APIDOC_EXCLUDES += '../swh/*/migrations' '../swh/*/migrations/*' '../swh/*/*/migrations/*' '../swh/*/*/*/migrations/*'
-APIDOC_EXCLUDES += '../bin/*'
-APIDOC_EXCLUDES += '../utils/*'
-APIDOC_EXCLUDES += '../node_modules/*'
+APIDOC_EXCLUDES += ../swh/*/tests ../swh/*/tests/* ../swh/*/*/tests/* ../swh/*/*/*/tests/*
+APIDOC_EXCLUDES += ../swh/*/migrations ../swh/*/migrations/* ../swh/*/*/migrations/* ../swh/*/*/*/migrations/*
+APIDOC_EXCLUDES += ../bin/*
+APIDOC_EXCLUDES += ../utils/*
+APIDOC_EXCLUDES += ../node_modules/*
 
 
 html: sphinx/html
@@ -33,7 +33,7 @@ endif
 sphinx/clean:
 	$(SPHINXBUILD) -M clean $(SPHINX_SRCDIR) $(SPHINX_BUILDDIR) $(SPHINXOPTS)
 sphinx/%: $(apidoc_dep)
-	$(SPHINXBUILD) -M $* $(SPHINX_SRCDIR) $(SPHINX_BUILDDIR) $(SPHINXOPTS)
+	$(SPHINXBUILD) -b $* $(SPHINX_SRCDIR) $(SPHINX_BUILDDIR)/$* $(SPHINXOPTS)
 
 apidoc: $(apidoc_dep)
 apidoc-stamp:

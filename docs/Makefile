@@ -46,8 +46,11 @@ distclean: clean
 
 help: sphinx/help
 
+sphinx/clean:
+	@$(SPHINXBUILD) -M clean "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS)
+
 sphinx/%:
-	@$(SPHINXBUILD) -M $* "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS)
+	@$(SPHINXBUILD) -b $* "$(SOURCEDIR)" "$(BUILDDIR)/$*" $(SPHINXOPTS)
 
 install: html
 	test -d $(HTMLDIR)
