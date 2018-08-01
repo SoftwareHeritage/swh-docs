@@ -9,6 +9,7 @@ swh-vault: 5005
 swh-deposit: 5006
 # swh-indexer's storage api
 swh-indexer: 5007
+swh-scheduler: 5008
 
 # Edit this line with your nick to get a merge conflict if there's an overlap
-# Next available ID (ardumont) : 5008
+# Next available ID (ardumont) : 5009
