@@ -17,7 +17,7 @@ author = 'the Software Heritage developers'
 # ones.
 extensions = ['sphinx.ext.autodoc',
               'sphinx.ext.napoleon',
-              'sphinx.ext.intersphinx',
+              # 'sphinx.ext.intersphinx',
               'sphinxcontrib.httpdomain',
               'sphinx.ext.extlinks']
 
@@ -107,8 +107,8 @@ html_sidebars = {
 }
 
 
-# Example configuration for intersphinx: refer to the Python standard library.
-intersphinx_mapping = {'https://docs.python.org/3/': None}
+# refer to the Python standard library.
+intersphinx_mapping = {'python': ('https://docs.python.org/3', None)}
 
 
 # -- autodoc configuration ----------------------------------------------
