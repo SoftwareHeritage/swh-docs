@@ -1,8 +1,5 @@
 .. _getting-started:
 
-.. highlight:: bash
-
-
 Run your own Software Heritage
 ==============================
 
@@ -12,6 +9,8 @@ archive source code and browse it on the web. To that end, just follow the
 steps detailed below:
 
 .. contents:: :local:
+
+.. highlight:: bash
 
 
 Step 0 --- get the code
