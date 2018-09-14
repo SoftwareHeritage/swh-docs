@@ -7,9 +7,11 @@ Run your own Software Heritage
 ==============================
 
 This walkthrough will guide from the basic step of obtaining the source code of
-the Software Heritage stack to running a local copy of it in which you can
-ingest source code of existing repositories and browse them using the archive
-web application.
+the Software Heritage stack to running a local copy of it with which you can
+archive source code and browse it on the web. To that end, just follow the
+steps detailed below:
+
+.. contents:: :local:
 
 
 Step 0 --- get the code
@@ -47,8 +49,8 @@ shell alias, e.g.::
   alias swh-pythonpath='cd /path/to/swh-environment/ ; source pythonpath.sh ; cd - > /dev/null'
 
 
-Step 1 --- install software dependencies
-----------------------------------------
+Step 1 --- install dependencies
+-------------------------------
 
 **TO BE WRITTEN**
 
