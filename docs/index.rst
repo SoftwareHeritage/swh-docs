@@ -8,6 +8,13 @@ Software Heritage - Development Documentation
    :caption: Contents:
 
 
+Getting started
+---------------
+
+* :ref:`getting-started` ← start here to hack on the Software Heritage software
+  stack
+
+
 Components
 ----------
 
