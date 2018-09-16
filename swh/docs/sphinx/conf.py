@@ -86,7 +86,7 @@ html_theme_options = {
     'gray_3': '#b1b5ae',  # medium gray
     'pink_1': '#e5d4cf',  # light pink
     'pink_2': '#bd9f97',  # medium pink
-
+    'fixed_sidebar': 'true',
 }
 
 # Add any paths that contain custom static files (such as style sheets) here,
