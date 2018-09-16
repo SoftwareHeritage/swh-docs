@@ -3,12 +3,10 @@
 Run your own Software Heritage
 ==============================
 
-This walkthrough will guide from the basic step of obtaining the source code of
+This tutorial will guide from the basic step of obtaining the source code of
 the Software Heritage stack to running a local copy of it with which you can
 archive source code and browse it on the web. To that end, just follow the
-steps detailed below:
-
-.. contents:: :local:
+steps detailed below.
 
 .. highlight:: bash
 
@@ -31,9 +29,13 @@ of swh-environment for more information::
   readlink -f .mrconfig >> ~/.mrtrust
   mr up
 
+.. IMPORTANT::
+
+   From now on this tutorial will assume that you **run commands listed below
+   from within the swh-environment** directory.
+
 For periodic code you can use the following helper::
 
-  cd swh-environment
   bin/update
 
 From now on you will need to have a ``PYTHONPATH`` environment variable that
@@ -51,7 +53,56 @@ shell alias, e.g.::
 Step 1 --- install dependencies
 -------------------------------
 
-**TO BE WRITTEN**
+You need to install three types of dependencies: Python modules, Node.js
+modules (for the web app), and Postgres (as storage backend).
+
+
+Python modules
+~~~~~~~~~~~~~~
+
+You can install Python modules using ``pip3`` via the following helper::
+
+  sudo bin/pip-install-deps
+
+``pip-install-deps`` accepts additional ``pip3 install`` options so, e.g., if
+you want to install Python modules as a user rather than system wide you can do
+something like this instead::
+
+  bin/pip-install-deps --user
+
+If you want to see the list of Python dependencies, e.g., to install them by
+hand or via your package manager, you can use a related helpe::
+
+  bin/pip-ls-deps
+
+
+Postgres
+~~~~~~~~
+
+You need a running Postgres instance with administrator access (e.g., to create
+databases). On Debian/Ubuntu based distributions it should be as easy as::
+
+  sudo apt install postgresql
+
+For other platforms and more details refer to the `PostgreSQL installation
+documnetation
+<https://www.postgresql.org/docs/current/static/tutorial-install.html>`_.
+
+
+Node.js modules
+~~~~~~~~~~~~~~~
+
+If you want to run the web app to browser your local archive you will need some
+Node.js modules, in particular to pack web resources into a single compact
+file. To that end the following should suffice::
+
+  sudo apt install nodejs npm
+  cd swh-web
+  npm install
+  cd -
+
+You are now good to go with all needed dependencies on your development
+machine!
 
 
 Step 2 --- set up storage
@@ -85,8 +136,9 @@ to your user, e.g.::
 
 You are done with object storage setup! Let's setup the database::
 
-  cd swh-environment/swh-storage/sql/
+  cd swh-storage/sql/
   sudo -u postgres  bin/db-init 5432 softwareheritage-dev swhdev
+  cd -
 
 Let's unpack the second line. You should have Postgres administrator privileges
 to be able to create databases, hence the ``sudo -u postgres``; if your user
@@ -154,8 +206,8 @@ occupy several GB on both the Postgres DB and the object storage)::
 Congratulations, you have just archived your first source code repositories!
 
 To re-archive the same repositories later on you can rerun the same commands:
-only objects *added* since the previous visit will be archived upon the next
-one.
+only *new* objects added since the previous visit will be archived upon the
+next one.
 
 
 Step 4 --- browse the archive
