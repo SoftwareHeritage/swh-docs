@@ -22,21 +22,18 @@ Clone it::
   git clone https://forge.softwareheritage.org/source/swh-environment.git
 
 then recursively clone all Python module repositories. For this step you will
-need the `mr <http://myrepos.branchable.com/>`_ tool, see the ``README`` file
-of swh-environment for more information::
+need the `mr <http://myrepos.branchable.com/>`_ tool. Once you have installed
+``mr``, just run::
 
   cd swh-environment
-  readlink -f .mrconfig >> ~/.mrtrust
-  mr up
-
+  bin/update
+  
 .. IMPORTANT::
 
    From now on this tutorial will assume that you **run commands listed below
    from within the swh-environment** directory.
 
-For periodic code you can use the following helper::
-
-  bin/update
+For periodic repository updates just re-run ``bin/update``.
 
 From now on you will need to have a ``PYTHONPATH`` environment variable that
 allows to find Python modules in the ``swh`` namespace. To that end you can
