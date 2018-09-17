@@ -224,16 +224,14 @@ it and fill it with something like::
 Nothing new here, the configuration just references the local storage server,
 which have been used before for repository ingestion.
 
-Before running the web app you need to compile various web assets into a
-compact webpack, like this::
-
-  cd swh-web
-  make build-webpack-dev
-
 You can now run the web app, and browse your local archive::
 
   make run-django-webpack-devserver
   xdg-open http://localhost:5004
+
+Note that the ``make`` target will first compile a `webpack
+<https://webpack.js.org/>`_ with various web assets and thenlaunch the web app;
+for webpack compilation you will need the Node.js dependencies discussed above.
 
 As an initial tour of the web app, try searching for one of the repositories
 you have ingested (e.g., entering the ``hylang`` or ``ocaml`` keywords in the
