@@ -211,8 +211,8 @@ Step 4 --- browse the archive
 -----------------------------
 
 You can now setup a local web app to browse what you have locally archived. The
-web app uses the configuration file ``~/.config/swh/webapp/webapp.yml``. Create
-it and fill it with something like:
+web app uses the configuration file ``~/.config/swh/web/web.yml``. Create it
+and fill it with something like:
 
 .. code-block:: yaml
 
