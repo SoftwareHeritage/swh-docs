@@ -36,8 +36,8 @@ need the `mr <http://myrepos.branchable.com/>`_ tool. Once you have installed
 For periodic repository updates just re-run ``bin/update``.
 
 
-Step 1 --- install base dependencies
-------------------------------------
+Step 1 --- install system dependencies
+--------------------------------------
 
 You need to install three types of dependencies: some base packages, Node.js
 modules (for the web app), and Postgres (as storage backend).
@@ -76,8 +76,8 @@ You are now good to go with all needed dependencies on your development
 machine!
 
 
-Step 2 --- install SWH in a virtualenv
---------------------------------------
+Step 2 --- install Python packages in a virtualenv
+--------------------------------------------------
 
 From now on you will need to work in a `virtualenv
 <https://docs.python.org/3/library/venv.html>`_ containing the Python
