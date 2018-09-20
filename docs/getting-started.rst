@@ -81,8 +81,8 @@ Step 2 --- install Python packages in a virtualenv
 
 From now on you will need to work in a `virtualenv
 <https://docs.python.org/3/library/venv.html>`_ containing the Python
-environment with all the Software Heritage modules and dependencies. To that
-end you can do (once)::
+environment with all the Software Heritage modules and their dependencies. To
+that end you can do (once)::
 
   python3 -m venv .venv
 
@@ -91,10 +91,8 @@ Heritage)::
 
   source .venv/bin/activate
 
-Python modules
-~~~~~~~~~~~~~~
-
-You can install the SWH Python modules and their dependencies using::
+You can now install Software Heritage Python modules and their dependencies
+using::
 
   pip install $( bin/pip-swh-packages )
 
