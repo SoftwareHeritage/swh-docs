@@ -61,6 +61,17 @@ For other platforms and more details refer to the `PostgreSQL installation
 documentation
 <https://www.postgresql.org/docs/current/static/tutorial-install.html>`_.
 
+You also need to have access to a superuser account on the database. For that,
+the easiest way is to create a PostgreSQL account that has the same name as
+your username::
+
+    sudo -u postgres createuser --createdb --superuser $USER
+
+You can check that this worked by doing, from your user (you should not be
+asked for a password)::
+
+    psql postgres
+
 Node.js modules
 ~~~~~~~~~~~~~~~
 
@@ -113,7 +124,7 @@ a YAML configuration file, located at
   storage:
     cls: local
     args:
-      db: "host=localhost port=5432 dbname=softwareheritage-dev user=swhdev password=foobar"
+      db: "dbname=softwareheritage-dev"
       objstorage:
         cls: pathslicing
         args:
@@ -128,32 +139,15 @@ to your user, e.g.::
 
 You are done with object storage setup! Let's setup the database::
 
-  cd swh-storage/sql/
-  sudo -u postgres  bin/db-init 5432 softwareheritage-dev swhdev
-  cd -
+  swh-storage/sql/bin/db-init softwareheritage-dev
 
-Let's unpack the second line. You should have Postgres administrator privileges
-to be able to create databases, hence the ``sudo -u postgres``; if your user
-has Postgres admin privileges, you can avoid ``sudo`` here. ``5432`` is the
-default port of the main Postgres cluster, adapt as needed.
 ``softwareheritage-dev`` is the name of the DB that will be created, it should
-match the ``db`` line in ``storage.yml``; same goes for ``swhdev``, the DB user
-name. You will be interactively asked for a password for the DB user; you
-should provide one that matches the ``db`` line value.
+match the ``db`` line in ``storage.yml``
 
-To check that you can successfully connect to the DB (you will be interactively
-asked for the DB password)::
+To check that you can successfully connect to the DB (you should not be asked
+for a password)::
 
-  psql -h localhost -p 5432 -U swhdev softwareheritage-dev
-
-Note that you can simplify interactive use and reduce configuration clutter
-using Postgres `password
-<https://www.postgresql.org/docs/current/static/libpq-pgpass.html>`_ and
-`service
-<https://www.postgresql.org/docs/current/static/libpq-pgservice.html>`_
-configuration files. Any valid `libpq connection string
-<https://www.postgresql.org/docs/current/static/libpq-connect.html#LIBPQ-CONNSTRING>`_
-will make the ``db`` line of ``storage.yml`` happy.
+  psql softwareheritage-dev
 
 You can now run the storage server like this::
 
