@@ -62,6 +62,9 @@ swh.docs
 :ref:`swh.loader-mercurial <swh-loader-mercurial>`
     loader for `Mercurial <https://www.mercurial-scm.org/>`_ repositories
 
+:ref:`swh.loader-pypi <swh-loader-pypi>`
+    loader for `PyPI <https://pypi.org/>`_ source code releases
+
 :ref:`swh.loader-svn <swh-loader-svn>`
     loader for `Subversion <https://subversion.apache.org/>`_ repositories
 
