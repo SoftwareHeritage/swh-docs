@@ -48,6 +48,7 @@ Package dependencies
 Software Heritage requires some dependencies that are usually packaged by your
 package manager. On Debian/Ubuntu-based distributions::
 
+  curl https://deb.nodesource.com/setup_8.x | sudo bash
   sudo apt install python3 python3-venv libsvn-dev postgresql nodejs npm \
                    libsystemd-dev
 
