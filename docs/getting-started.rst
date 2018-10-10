@@ -140,7 +140,7 @@ a YAML configuration file, located at
 Make sure that the object storage root exists on the filesystem and is writable
 to your user, e.g.::
 
-  sudo mkdir /srv/softwareheritage/objects
+  sudo mkdir -p /srv/softwareheritage/objects
   sudo chown "${USER}:" /srv/softwareheritage/objects
 
 You are done with object storage setup! Let's setup the database::
