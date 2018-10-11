@@ -59,3 +59,11 @@ a {
     padding-right: 3px;
     padding-bottom: 3px;
 }
+
+/* Prevent overlaps with top bar and anchors */
+:target::before {
+    content: "";
+    display: block;
+    height: 30px;
+    margin: -30px 0 0;
+}
