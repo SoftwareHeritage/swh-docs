@@ -108,10 +108,10 @@ Heritage)::
 
   source .venv/bin/activate
 
-You can now install Software Heritage Python modules and their dependencies
-using::
+You can now install Software Heritage Python modules, their dependencies and
+the testing-related dependencies using::
 
-  pip install $( bin/pip-swh-packages )
+  pip install $( bin/pip-swh-packages --with-testing )
 
 
 Step 3 --- set up storage
