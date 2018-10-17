@@ -145,7 +145,7 @@ to your user, e.g.::
 
 You are done with object storage setup! Let's setup the database::
 
-  swh-storage/sql/bin/db-init softwareheritage-dev
+  swh-db-init storage -d softwareheritage-dev
 
 ``softwareheritage-dev`` is the name of the DB that will be created, it should
 match the ``db`` line in ``storage.yml``
