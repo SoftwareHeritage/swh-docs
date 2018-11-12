@@ -116,3 +116,13 @@ Indices and tables
 * :ref:`modindex`
 * `URLs index <http-routingtable.html>`_
 * :ref:`search`
+
+
+.. ensure sphinx does not complain about index files not being included
+
+.. toctree::
+   :hidden:
+   :glob:
+
+   getting-started
+   swh-*/index
