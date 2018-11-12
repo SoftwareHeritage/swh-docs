@@ -116,6 +116,7 @@ Indices and tables
 * :ref:`modindex`
 * `URLs index <http-routingtable.html>`_
 * :ref:`search`
+* :ref:`glossary`
 
 
 .. ensure sphinx does not complain about index files not being included

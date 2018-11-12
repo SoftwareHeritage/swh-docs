@@ -119,7 +119,7 @@ Step 3 --- set up storage
 
 Then you will need a local storage service that will archive and serve source
 code artifacts via a REST API. The Software Heritage storage layer comes in two
-parts: a content-addressable object storage on your file system (for file
+parts: a content-addressable :term:`object storage` on your file system (for file
 contents) and a Postgres database (for the graph structure of the archive). See
 the :ref:`data-model` for more information. The storage layer is configured via
 a YAML configuration file, located at
@@ -137,13 +137,13 @@ a YAML configuration file, located at
           root: /srv/softwareheritage/objects/
           slicing: 0:2/2:4
 
-Make sure that the object storage root exists on the filesystem and is writable
+Make sure that the :term:`object storage` root exists on the filesystem and is writable
 to your user, e.g.::
 
   sudo mkdir -p /srv/softwareheritage/objects
   sudo chown "${USER}:" /srv/softwareheritage/objects
 
-You are done with object storage setup! Let's setup the database::
+You are done with :term:`object storage` setup! Let's setup the database::
 
   swh-db-init storage -d softwareheritage-dev
 
