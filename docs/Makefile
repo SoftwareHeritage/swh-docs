@@ -33,7 +33,7 @@ images-stamp:
 # non-sphinx managed documentation artifacts (e.g., schema diagrams) are also
 # built.
 rec-build-stamp: $(wildcard ../../swh-*/docs/*.rst)
-	$(MAKE) -C ../../ docs
+	$(MAKE) -C ../../ docs-assets
 	touch $@
 
 clean: sphinx/clean

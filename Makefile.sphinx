@@ -42,6 +42,8 @@ apidoc-stamp:
 	find $(shell pwd)/apidoc -name "*.rst" | xargs sed -i '1i:orphan:\n'
 	touch $@
 
+assets:
+
 .PHONY: clean clean-apidoc
 clean: sphinx/clean clean-apidoc
 clean-apidoc:
