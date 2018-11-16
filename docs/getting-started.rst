@@ -225,7 +225,7 @@ You can now run the web app, and browse your local archive::
   xdg-open http://localhost:5004
 
 Note that the ``make`` target will first compile a `webpack
-<https://webpack.js.org/>`_ with various web assets and thenlaunch the web app;
+<https://webpack.js.org/>`_ with various web assets and then launch the web app;
 for webpack compilation you will need the Node.js dependencies discussed above.
 
 As an initial tour of the web app, try searching for one of the repositories
