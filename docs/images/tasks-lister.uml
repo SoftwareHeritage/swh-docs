@@ -1,0 +1,61 @@
+@startuml
+  participant WEB as "swh-web"
+  participant SCH_API as "scheduler API" #ECECFF
+  participant SCH_DB as "scheduler DB" #B0C4DE
+  participant SCH_RUN as "scheduler runner"
+  participant RMQ as "Rabbit-MQ"
+  participant SCH_LS as "scheduler listener"
+  participant WORK_GITLAB as "worker@gitlab-lister"
+  participant GITLAB as "gitlab API"
+  participant STORAGE_API as "storage API" #ECECFF
+  participant STORAGE_DB as "storage DB" #B0C4DE
+
+  Note over WEB,SCH_API: Save gitlab forge 0xdeadbeef
+  WEB->>SCH_API: CREATE TASK lister-gitlab
+  activate WEB
+  activate SCH_API
+  SCH_API->>SCH_DB: INSERT TASK
+  activate SCH_DB
+  SCH_API-->>WEB: 201
+  deactivate SCH_API
+  deactivate WEB
+  loop Polling
+      SCH_RUN->>SCH_DB: GET TASK set state=scheduled
+      SCH_DB-->>SCH_RUN: TASK id=T1
+	  deactivate SCH_DB
+	  activate SCH_RUN
+      SCH_RUN->>RMQ: CREATE Celery Task CT1
+	  deactivate SCH_RUN
+	  activate RMQ
+  end
+
+  RMQ->>WORK_GITLAB: Start task CT1
+  deactivate RMQ
+  activate WORK_GITLAB
+  WORK_GITLAB->>GITLAB: Get git repos
+  activate GITLAB
+  GITLAB-->>WORK_GITLAB: Known git repos
+  deactivate GITLAB
+
+  loop For Each Repo
+      WORK_GITLAB->>STORAGE_API: CREATE ORIGIN
+	  activate STORAGE_API
+      WORK_GITLAB->>SCH_API: CREATE TASK loader-git
+	  activate SCH_API
+	  STORAGE_API->>STORAGE_DB: INSERT ORIGIN
+	  STORAGE_API-->>WORK_GITLAB: 201
+	  deactivate STORAGE_API
+	  SCH_API->>SCH_DB: INSERT TASK
+      SCH_API-->>WORK_GITLAB: 201
+	  deactivate SCH_API
+  end
+
+  WORK_GITLAB-->>RMQ: SET CT1 status=eventful
+  deactivate WORK_GITLAB
+  activate RMQ
+  RMQ->>SCH_LS: NOTIFY end of task CT1
+  activate SCH_LS
+  deactivate RMQ
+  SCH_LS->>SCH_DB: UPDATE T1 set state=end
+  deactivate SCH_LS
+@enduml

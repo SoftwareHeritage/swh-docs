@@ -1,0 +1,94 @@
+@startuml
+  participant SCH_DB as "scheduler DB" #B0C4DE
+  participant SCH_RUN as "scheduler runner"
+  participant SCH_LS as "scheduler listener"
+  participant RMQ as "Rabbit-MQ"
+  participant OBJSTORE as "object storage"
+  participant STORAGE_DB as "storage DB" #B0C4DE
+  participant STORAGE_API as "storage API"
+  participant WORK_GIT as "worker@loader-git"
+  participant GIT as "git server"
+
+  Note over SCH_DB,SCH_RUN: Task T2 created beforehand \n by the lister-gitlab task
+  loop Polling
+      SCH_RUN->>SCH_DB: GET TASK set state=scheduled
+      SCH_DB-->>SCH_RUN: TASK id=T2
+	  activate SCH_RUN
+      SCH_RUN->>RMQ: CREATE Celery Task CT2 loader-git
+	  deactivate SCH_RUN
+	  activate RMQ
+  end
+
+  RMQ->>WORK_GIT: Start task CT2
+  deactivate RMQ
+  activate WORK_GIT
+
+  WORK_GIT->>STORAGE_API: GET origin state
+  activate STORAGE_API
+  STORAGE_API-->>WORK_GIT: 200
+  deactivate STORAGE_API
+
+  WORK_GIT->>GIT: GET refs
+  activate GIT
+  GIT->>WORK_GIT: 200 / refs
+  deactivate GIT
+
+  WORK_GIT->>GIT: GET new_objects
+  activate GIT
+  GIT->>WORK_GIT: 200 / objects
+  deactivate GIT
+
+  WORK_GIT->>GIT: PACKFILE
+  activate GIT
+  GIT->>WORK_GIT: 200 / blobs
+  deactivate GIT
+
+  WORK_GIT->>STORAGE_API: LOAD NEW CONTENT
+  activate STORAGE_API
+  loop For each blob
+      STORAGE_API->>OBJSTORE: ADD BLOB
+  end
+  STORAGE_API-->>WORK_GIT: 200 / blobs
+  deactivate STORAGE_API
+
+  WORK_GIT->>STORAGE_API: NEW DIR
+  activate STORAGE_API
+  loop For each DIR
+    STORAGE_API->>STORAGE_DB: INSERT DIR
+  end
+  STORAGE_API-->>WORK_GIT: 201
+  deactivate STORAGE_API
+
+  WORK_GIT->>STORAGE_API: NEW REV
+  activate STORAGE_API
+  loop For each REV
+    STORAGE_API->>STORAGE_DB: INSERT REV
+  end
+  STORAGE_API-->>WORK_GIT: 201
+  deactivate STORAGE_API
+
+  WORK_GIT->>STORAGE_API: NEW REL
+  activate STORAGE_API
+  loop For each REL
+    STORAGE_API->>STORAGE_DB: INSERT REL
+  end
+  STORAGE_API-->>WORK_GIT: 201
+  deactivate STORAGE_API
+
+  WORK_GIT->>STORAGE_API: NEW SNAPSHOT
+  activate STORAGE_API
+  loop For each SNAPSHOT
+    STORAGE_API->>STORAGE_DB: INSERT SNAPSHOT
+  end
+  STORAGE_API-->>WORK_GIT: 201
+  deactivate STORAGE_API
+
+  WORK_GIT-->>RMQ: SET CT2 status=eventful
+  deactivate WORK_GIT
+  activate RMQ
+  RMQ->>SCH_LS: NOTIFY end of task CT2
+  deactivate RMQ
+  activate SCH_LS
+  SCH_LS->>SCH_DB: UPDATE T2 set state=end
+  deactivate SCH_LS
+@enduml

@@ -15,6 +15,13 @@ Getting started
   stack
 
 
+Architecture
+------------
+
+* :ref:`architecture` ← go there to have a glimpse on the Software Heritage software
+  architecture
+
+
 Components
 ----------
 
@@ -125,5 +132,6 @@ Indices and tables
    :hidden:
    :glob:
 
+   architecture
    getting-started
    swh-*/index

@@ -22,6 +22,17 @@ complete [Software Heritage development environment][2].
 How to build the doc
 --------------------
 
+Ensure you have the required tools to generate images ([graphviz][3]'s `dot`
+and [plantuml][4]). On a Debian system:
+
+    $ sudo apt install plantuml graphviz
+
+[3]: https://graphviz.org
+[4]: http://plantuml.com
+
+
+Then
+
     $ cd docs
 	$ make html
 

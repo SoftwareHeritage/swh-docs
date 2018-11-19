@@ -6,7 +6,10 @@ DEP_GRAPHS += $(patsubst %,%.pdf,$(DEP_GRAPHS_base))
 DEP_GRAPHS += $(patsubst %,%.svg,$(DEP_GRAPHS_base))
 PY_DEPGRAPH = ../bin/py-depgraph
 
-all: $(DEP_GRAPHS)
+UML_DIAGS_SRC = $(wildcard *.uml)
+UML_DIAGS = $(patsubst %.uml,%.svg,$(UML_DIAGS_SRC))
+
+all: $(DEP_GRAPHS) $(UML_DIAGS)
 
 py-deps-all.dot: $(PY_DEPGRAPH) $(PY_REQUIREMENTS)
 	cd ../../.. ; $(CURDIR)/$(PY_DEPGRAPH) > $(CURDIR)/$@
@@ -23,5 +26,8 @@ py-deps-ext.dot: $(PY_DEPGRAPH) $(PY_REQUIREMENTS)
 %.svg: %.dot
 	dot -T svg $< > $@
 
+%.svg: %.uml
+	plantuml -tsvg $<
+
 clean:
-	-rm -f $(DEP_GRAPHS)
+	-rm -f $(DEP_GRAPHS) $(UML_DIAGS)
