@@ -37,6 +37,12 @@ source_parsers = {
 # The master toctree document.
 master_doc = 'index'
 
+# A string of reStructuredText that will be included at the beginning of every
+# source file that is read.
+rst_prolog = '''
+.. include:: /swh_substitutions
+'''
+
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
 # built documents.
