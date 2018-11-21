@@ -1,1 +1,22 @@
 # Add here internal Software Heritage dependencies, one per line.
+swh-core
+swh-model
+swh-objstorage[testing]
+swh-scheduler
+swh-storage[schemadata]
+swh-loader-core
+swh-lister
+swh-journal
+swh-vault
+swh-loader-dir
+swh-loader-tar
+swh-loader-pypi
+swh-loader-debian
+swh-loader-mercurial
+swh-loader-svn
+swh-loader-git
+swh-archiver
+swh-web
+swh-deposit
+swh-indexer
+swh-mirror-forge

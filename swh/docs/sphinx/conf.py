@@ -20,6 +20,7 @@ extensions = ['sphinx.ext.autodoc',
               'sphinxcontrib.httpdomain',
               'sphinx.ext.extlinks',
               'sphinxcontrib.images',
+              'sphinx.ext.viewcode',
               ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -40,8 +41,9 @@ master_doc = 'index'
 
 # A string of reStructuredText that will be included at the beginning of every
 # source file that is read.
+# A bit hackish but should work both for each swh package and the whole swh-doc
 rst_prolog = '''
-.. include:: /swh_substitutions
+.. include:: /../../swh-docs/docs/swh_substitutions
 '''
 
 # The version info for the project you're documenting, acts as replacement for
@@ -130,14 +132,9 @@ extlinks = {}
 # hack to set the adequate django settings when building global swh doc
 # to avoid build errors
 def source_read_handler(app, docname, source):
-    if 'swh-deposit' in docname:
-        os.environ.setdefault('DJANGO_SETTINGS_MODULE',
-                              'swh.deposit.settings.development')
-        django.setup()
-    elif 'swh-web' in docname:
-        os.environ.setdefault('DJANGO_SETTINGS_MODULE',
-                              'swh.web.settings.development')
-        django.setup()
+    os.environ.setdefault('DJANGO_SETTINGS_MODULE',
+                          'swh.docs.django_settings')
+    django.setup()
 
 
 def setup(app):

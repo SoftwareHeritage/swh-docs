@@ -3,17 +3,23 @@ SPHINXBUILD = python3 -c 'import sphinx, sys; sys.exit(sphinx.main(sys.argv))'
 SOURCEDIR = .
 BUILDDIR = _build
 HTMLDIR = $(BUILDDIR)/html
+SWHPKGDIR = `python3 -c 'import swh; print(swh.__path__[0])'`
 
 INSTALL_HOST = pergamon.internal.softwareheritage.org
 INSTALL_DIR = /srv/softwareheritage/docs/webroot/devel
 INSTALL_GROUP = swhdev
 INSTALL_PERMS = g+rwX
 
-html: fix-indices-stamp sphinx/html
+SPHINXAPIDOC = sphinx-apidoc
+APIDOC_DIR = apidoc
+APIDOC_OPTS = --ext-viewcode
+APIDOC_EXCLUDES = */tests */tests/* */*/tests/* */*/*/tests/*
+APIDOC_EXCLUDES += */migrations */migrations/* */*/migrations/* */*/*/migrations/*
+APIDOC_SWH_EXCLUDES = $(patsubst %,$(SWHPKGDIR)/%,$(APIDOC_EXCLUDES))
 
-fix-indices-stamp: sphinx/html
-	bin/copy-and-fix-subprojects-indices
-	touch $@
+apidoc_dep = apidoc-stamp
+
+html: sphinx/html
 
 sphinx/html: links-stamp apidoc-stamp images-stamp rec-build-stamp
 
@@ -21,8 +27,9 @@ links-stamp:
 	bin/ln-sphinx-subprojects
 	touch $@
 
+apidoc: $(apidoc_dep)
 apidoc-stamp:
-	$(MAKE) -C ../../ docs-apidoc
+	$(SPHINXAPIDOC) $(APIDOC_OPTS) -o $(APIDOC_DIR) $(SWHPKGDIR) $(APIDOC_SWH_EXCLUDES)
 	touch $@
 
 images-stamp:
@@ -33,13 +40,14 @@ images-stamp:
 # non-sphinx managed documentation artifacts (e.g., schema diagrams) are also
 # built.
 rec-build-stamp: $(wildcard ../../swh-*/docs/*.rst)
-	$(MAKE) -C ../../ docs
+	$(MAKE) -C ../../ docs-assets
 	touch $@
 
 clean: sphinx/clean
 	bin/ln-sphinx-subprojects --remove
 	$(MAKE) -C images clean
 	rm -f *-stamp
+	rm -f $(APIDOC_DIR)/*
 
 distclean: clean
 	make -C ../../ docs-clean
