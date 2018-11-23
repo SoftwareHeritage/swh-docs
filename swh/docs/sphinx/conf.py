@@ -132,12 +132,8 @@ extlinks = {}
 
 
 # hack to set the adequate django settings when building global swh doc
-# to avoid build errors
-def source_read_handler(app, docname, source):
+# to avoid autodoc build errors
+def setup(app):
     os.environ.setdefault('DJANGO_SETTINGS_MODULE',
                           'swh.docs.django_settings')
     django.setup()
-
-
-def setup(app):
-    app.connect('source-read', source_read_handler)
