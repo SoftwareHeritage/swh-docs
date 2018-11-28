@@ -1,4 +1,4 @@
-SPHINXOPTS =
+SPHINXOPTS ?=
 SPHINXBUILD = python3 -c 'import sphinx, sys; sys.exit(sphinx.main(sys.argv))'
 SOURCEDIR = .
 BUILDDIR = _build
