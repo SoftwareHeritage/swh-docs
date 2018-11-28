@@ -134,4 +134,5 @@ Indices and tables
 
    architecture
    getting-started
+   apidoc/modules
    swh-*/index
