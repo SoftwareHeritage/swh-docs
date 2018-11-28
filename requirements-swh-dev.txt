@@ -3,7 +3,7 @@
 ../swh-model
 ../swh-objstorage[testing]
 ../swh-scheduler
-../swh-storage[schemadata]
+../swh-storage[schemata,listener]
 ../swh-loader-core
 ../swh-lister
 ../swh-journal
