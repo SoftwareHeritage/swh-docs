@@ -29,9 +29,10 @@ setup(
     url='https://forge.softwareheritage.org/source/swh-docs/',
     packages=find_packages(),
     scripts=[],
-    install_requires=parse_requirements() + parse_requirements('swh'),
+    install_requires=parse_requirements(),
     setup_requires=['vcversioner'],
-    extras_require={'testing': parse_requirements('test')},
+    extras_require={'testing': parse_requirements('test'),
+                    'building': parse_requirements('swh')},
     vcversioner={},
     include_package_data=True,
 )
