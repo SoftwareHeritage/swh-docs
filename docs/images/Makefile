@@ -27,7 +27,7 @@ py-deps-ext.dot: $(PY_DEPGRAPH) $(PY_REQUIREMENTS)
 	dot -T svg $< > $@
 
 %.svg: %.uml
-	plantuml -tsvg $<
+	DISPLAY="" plantuml -tsvg $<
 
 clean:
 	-rm -f $(DEP_GRAPHS) $(UML_DIAGS)
