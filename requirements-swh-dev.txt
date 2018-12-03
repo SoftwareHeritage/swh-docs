@@ -16,7 +16,7 @@
 ../swh-loader-svn
 ../swh-loader-git
 ../swh-archiver
+../swh-indexer
 ../swh-web
 ../swh-deposit
-../swh-indexer
 ../swh-mirror-forge
