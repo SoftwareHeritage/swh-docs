@@ -51,6 +51,12 @@ Glossary
      used to uniquely identify objects, standardized by the International
      Organization for Standardization (ISO).
 
+   extrinsic metadata
+
+     Non-executable information obtained outside source code artifacts,
+     such as from a forge API.
+     See also: :term:`intrinsic metadata`.
+
    journal
 
      The :ref:`journal <swh-journal>` is the persistent logger of the |swh| architecture in charge
@@ -83,6 +89,12 @@ Glossary
 
      A component of the |swh| architecture dedicated to producing metadata
      linked to the known :term:`blobs <blob>` in the :term:`archive`.
+
+   intrinsic metadata
+
+     Non-executable information extracted from code artifacts, such as
+     license headers, `debian/control`, or `package.json`.
+     See also: :term:`extrinsic metadata`.
 
    objstore
    objstorage
