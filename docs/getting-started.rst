@@ -167,7 +167,7 @@ You are now ready to ingest your first repository into your local Software
 Heritage. For the sake of example, we will ingest a few Git repositories. The
 module in charge of ingesting Git repositories is the *Git loader*, Python
 module ``swh.loader.git``. Its configuration file is at
-``~/.config/swh/loader/git-updater.yml``. Create it with a content like:
+``~/.config/swh/loader/git.yml``. Create it with a content like:
 
 .. code-block:: yaml
 
@@ -182,18 +182,18 @@ server.
 
 You can now ingest Git repository on the command line using the command::
 
-  python3 -m swh.loader.git.updater --origin-url GIT_CLONE_URL
+  python3 -m swh.loader.git.loader --origin-url GIT_CLONE_URL
 
 For instance, you can try ingesting the following repositories, in increasing
 size order (note that the last two might take a few hours to complete and will
 occupy several GB on both the Postgres DB and the object storage)::
 
-  python3 -m swh.loader.git.updater --origin-url https://github.com/SoftwareHeritage/swh-storage.git
-  python3 -m swh.loader.git.updater --origin-url https://github.com/hylang/hy.git
-  python3 -m swh.loader.git.updater --origin-url https://github.com/ocaml/ocaml.git
+  python3 -m swh.loader.git.loader --origin-url https://github.com/SoftwareHeritage/swh-storage.git
+  python3 -m swh.loader.git.loader --origin-url https://github.com/hylang/hy.git
+  python3 -m swh.loader.git.loader --origin-url https://github.com/ocaml/ocaml.git
 
   # WARNING: next repo is big
-  python3 -m swh.loader.git.updater --origin-url https://github.com/torvalds/linux.git
+  python3 -m swh.loader.git.loader --origin-url https://github.com/torvalds/linux.git
 
 Congratulations, you have just archived your first source code repositories!
 
