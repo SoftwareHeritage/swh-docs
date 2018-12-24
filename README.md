@@ -24,8 +24,8 @@ Install the [Software Heritage development environment][2]
 
     $ git clone https://forge.softwareheritage.org/source/swh-environment
 	$ cd swh-environment
-	$ ./bin/update  # this will clone needed git repos, inc. swh-doc
-	$ cd swh-doc
+	$ ./bin/update  # this will clone needed git repos, inc. swh-docs
+	$ cd swh-docs
 
 Ensure you have the required tools to generate images ([graphviz][3]'s `dot`
 and [plantuml][4]). On a Debian system:
@@ -39,7 +39,7 @@ installed, eg. on a Debian system:
     $ sudo apt install tox
 
 
-Then (from the `swh-environment/swh-doc/` directory):
+Then (from the `swh-environment/swh-docs/` directory):
 
     $ tox -e sphinx-dev
 
