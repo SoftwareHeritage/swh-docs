@@ -23,9 +23,9 @@ How to build the doc
 Install the [Software Heritage development environment][2]
 
     $ git clone https://forge.softwareheritage.org/source/swh-environment
-	$ cd swh-environment
-	$ ./bin/update  # this will clone needed git repos, inc. swh-docs
-	$ cd swh-docs
+    $ cd swh-environment
+    $ ./bin/update  # this will clone needed git repos, inc. swh-docs
+    $ cd swh-docs
 
 Ensure you have the required tools to generate images ([graphviz][3]'s `dot`
 and [plantuml][4]). On a Debian system:
@@ -54,7 +54,7 @@ mainly in 3 steps:
 ### 1. Generate documentation assets for all modules
 
     $ cd swh-environment
-	$ make docs-assets
+    $ make docs-assets
 
 This will *not* build the documentation in each module (there is `make docs`
 for that).
