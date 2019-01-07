@@ -54,7 +54,8 @@ package manager. On Debian/Ubuntu-based distributions::
   sudo sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt/ $(lsb_release -cs)-pgdg main" > /etc/apt/sources.list.d/pgdg.list'
   sudo apt update
   sudo apt install python3 python3-venv libsvn-dev postgresql-10 nodejs \
-                   libsystemd-dev libpython3-dev dia postgresql-autodoc
+                   libsystemd-dev libpython3-dev dia postgresql-autodoc \
+                   postgresql-server-dev-all
 
 Postgres
 ~~~~~~~~
