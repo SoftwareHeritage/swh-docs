@@ -17,8 +17,6 @@ APIDOC_EXCLUDES = */tests */tests/* */*/tests/* */*/*/tests/*
 APIDOC_EXCLUDES += */migrations */migrations/* */*/migrations/* */*/*/migrations/*
 APIDOC_SWH_EXCLUDES = $(patsubst %,$(SWHPKGDIR)/%,$(APIDOC_EXCLUDES))
 
-apidoc_dep = apidoc-stamp
-
 html: sphinx/html
 
 sphinx/html: links-stamp apidoc-stamp images-stamp rec-build-stamp
@@ -27,8 +25,8 @@ links-stamp:
 	bin/ln-sphinx-subprojects
 	touch $@
 
-apidoc: $(apidoc_dep)
-apidoc-stamp:
+apidoc: apidoc-stamp
+apidoc-stamp: images-stamp
 	$(SPHINXAPIDOC) $(APIDOC_OPTS) -o $(APIDOC_DIR) $(SWHPKGDIR) $(APIDOC_SWH_EXCLUDES)
 	touch $@
 
@@ -55,10 +53,10 @@ distclean: clean
 help: sphinx/help
 
 sphinx/clean:
-	@$(SPHINXBUILD) -M clean "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS)
+	$(SPHINXBUILD) -M clean "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS)
 
 sphinx/%:
-	@$(SPHINXBUILD) -b $* "$(SOURCEDIR)" "$(BUILDDIR)/$*" $(SPHINXOPTS)
+	$(SPHINXBUILD) -b $* "$(SOURCEDIR)" "$(BUILDDIR)/$*" $(SPHINXOPTS)
 
 install: html
 	test -d $(HTMLDIR)
