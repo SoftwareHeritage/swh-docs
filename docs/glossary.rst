@@ -53,8 +53,11 @@ Glossary
 
    extrinsic metadata
 
-     Non-executable information obtained outside source code artifacts,
-     such as from a forge API.
+     Metadata about software that is not shipped as part of the software source
+     code, but is available instead via out-of-band means. For example,
+     homepage, maintainer contact information, and popularity information
+     ("stars") as listed on GitHub/GitLab repository pages.
+
      See also: :term:`intrinsic metadata`.
 
    journal
@@ -92,8 +95,12 @@ Glossary
 
    intrinsic metadata
 
-     Non-executable information extracted from code artifacts, such as
-     license headers, `debian/control`, or `package.json`.
+     Metadata about software that is shipped as part of the source code of the
+     software itself or as part of related artifacts (e.g., revisions,
+     releases, etc). For example, metadata that is shipped in `PKG-INFO` files
+     for Python packages, `pom.xml` for Maven-based Java projects,
+     `debian/control` for Debian packages, `metadata.json` for NPM, etc.
+
      See also: :term:`extrinsic metadata`.
 
    objstore
