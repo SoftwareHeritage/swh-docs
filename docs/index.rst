@@ -11,7 +11,9 @@ Software Heritage - Development Documentation
 Getting started
 ---------------
 
-* :ref:`getting-started` ← start here to hack on the Software Heritage software
+* :ref:`getting-started` ← start here to get your own Software Heritage
+  platform running in less than 5 minutes, or
+* :ref:`developer-setup` ← here to hack on the Software Heritage software
   stack
 
 
@@ -134,5 +136,7 @@ Indices and tables
 
    architecture
    getting-started
+   developer-setup
+   manual-setup
    apidoc/modules
    swh-*/index
