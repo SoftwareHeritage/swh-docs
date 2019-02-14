@@ -49,7 +49,7 @@ Create a virtual env::
 Install all the swh packages (in develop mode)::
 
     (swh) ~/swh-environment$ pip install $(./bin/pip-swh-packages --with-testing) \
-	                         tox pifpaf
+	                         tox pifpaf flake8
     [...]
 
 
