@@ -64,7 +64,21 @@ Install docker-compose::
 Make your life easier::
 
     (swh) ~/swh-environment$ cat >>$VIRTUAL_ENV/bin/postactivate <<EOF
-    eval "$(_SWH_SCHEDULER_COMPLETE=source swh-scheduler)"
+    # unfortunately, the interface cmd for the click autocompletion
+    # depends on the shell
+    # https://click.palletsprojects.com/en/7.x/bashcomplete/#activation
+
+    shell=$(basename $SHELL)
+    case "$shell" in
+        "zsh")
+            autocomplete_cmd=source_zsh
+            ;;
+        *)
+            autocomplete_cmd=source
+            ;;
+    esac
+
+    eval "$(_SWH_SCHEDULER_COMPLETE=$autocomplete_cmd swh-scheduler)"
     export SWH_SCHEDULER_URL=http://127.0.0.1:5008/
     export CELERY_BROKER_URL=amqp://127.0.0.1:5072/
     export COMPOSE_FILE=~/swh-environment/swh-docker-dev/docker-compose.yml:~/swh-environment/swh-docker-dev/docker-compose.override.yml
