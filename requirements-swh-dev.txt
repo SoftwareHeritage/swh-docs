@@ -1,22 +1,22 @@
 # Add here internal Software Heritage dependencies, one per line.
-../swh-core
-../swh-model
-../swh-objstorage[testing]
-../swh-scheduler
-../swh-storage[schemata,listener]
-../swh-loader-core
-../swh-lister
-../swh-journal
-../swh-vault
-../swh-loader-dir
-../swh-loader-tar
-../swh-loader-pypi
-../swh-loader-debian
-../swh-loader-mercurial
-../swh-loader-svn
-../swh-loader-git
-../swh-archiver
-../swh-indexer
-../swh-web
-../swh-deposit
-../swh-mirror-forge
+-e ../swh-core
+-e ../swh-model
+-e ../swh-objstorage[testing]
+-e ../swh-scheduler
+-e ../swh-storage[schemata,listener]
+-e ../swh-loader-core
+-e ../swh-lister
+-e ../swh-journal
+-e ../swh-vault
+-e ../swh-loader-dir
+-e ../swh-loader-tar
+-e ../swh-loader-pypi
+-e ../swh-loader-debian
+-e ../swh-loader-mercurial
+-e ../swh-loader-svn
+-e ../swh-loader-git
+-e ../swh-archiver
+-e ../swh-indexer
+-e ../swh-web
+-e ../swh-deposit
+-e ../swh-mirror-forge
