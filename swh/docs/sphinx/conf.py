@@ -20,6 +20,7 @@ extensions = ['sphinx.ext.autodoc',
               'sphinxcontrib.httpdomain',
               'sphinx.ext.extlinks',
               'sphinxcontrib.images',
+              'sphinxcontrib.programoutput',
               'sphinx.ext.viewcode',
               ]
 

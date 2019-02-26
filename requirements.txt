@@ -5,4 +5,5 @@ vcversioner
 sphinx >= 1.3
 sphinxcontrib-httpdomain
 sphinxcontrib-images
+sphinxcontrib-programoutput
 recommonmark
