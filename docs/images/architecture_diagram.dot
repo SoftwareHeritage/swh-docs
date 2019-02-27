@@ -1,0 +1,88 @@
+digraph {
+	label="Databases and services relations"
+
+	scheduler_service -> scheduler_db [constraint=false]
+	scheduler_service -> rabbitmq_service
+
+	rabbitmq_service -> loader_services
+	loader_services -> rabbitmq_service
+
+	loader_services -> storage_service
+	storage_service -> objstorage_service
+	objstorage_service -> objstorage_service_replica [constraint=false]
+
+	rabbitmq_service -> indexer_services
+	indexer_services -> rabbitmq_service
+
+	indexer_services -> storage_index
+	storage_index -> indexer_services
+
+	deposit_service -> softwareheritage_db_replica
+	archive_service -> softwareheritage_db_replica
+
+	storage_service -> softwareheritage_db_main
+	softwareheritage_db_main -> storage_service
+
+	softwareheritage_db_main -> softwareheritage_db_replica
+
+	storage_index -> softwareheritage_indexer_db [constraint=false]
+
+	subgraph cluster_banco {
+		label="banco server"
+		color="black"
+
+		objstorage_service_replica
+	}
+
+	subgraph cluster_moma {
+		label="moma VM"
+		color="black"
+
+		deposit_service
+		archive_service
+	}
+
+/* prado container */
+	scheduler_db[shape="cylinder", color="blue",
+		label="scheduler_db\nprado container"]
+	softwareheritage_db_main[shape="cylinder", color="blue",
+		label="softwareheritage_db_main\nprado container"]
+
+	subgraph cluster_somerset {
+		label="somerset container"
+		color="black"
+
+		softwareheritage_db_replica[shape="cylinder"]
+		softwareheritage_indexer_db[shape="cylinder"]
+		swh_dedup_db[shape="cylinder"]
+		swh_dedup_cont_db[shape="cylinder"]
+	}
+
+	subgraph cluster_saatchi {
+		label="saatchi VM"
+		color="black"
+
+		rabbitmq_service
+		scheduler_service
+	}
+
+/* uffizi container */
+	storage_service[color=red, label="storage_service\nuffizi container"]
+	objstorage_service[color=red, label="objstorage_service\nuffizi container"]
+	storage_index[color=red, label="storage_index\nuffizi container"]
+
+	subgraph cluster_rocquencourt_workers {
+		label="Rocquencourt workers"
+		color="black"
+
+		loader_services
+	}
+
+	subgraph cluster_azure_workers {
+		label="Azure workers"
+		color="black"
+
+		indexer_services
+	}
+
+}
