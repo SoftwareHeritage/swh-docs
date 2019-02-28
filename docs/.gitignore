@@ -1,3 +1,4 @@
 *-stamp
 _build/
 /swh-*
+sources/

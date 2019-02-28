@@ -2,12 +2,16 @@
 set -e
 
 create_links () {
+    mkdir -p sources/swh/
     for pymodule in $(cd ../../ && bin/ls-py-modules) ; do
         if [ "$pymodule" = 'swh-docs' ] ; then
             continue
         fi
         if [ ! -e "$pymodule" -a -d "../../${pymodule}/docs" ] ; then
             ln -s "../../${pymodule}/docs" "$pymodule"
+        fi
+        if [ -d "../../${pymodule}/swh" ] ; then
+            cp -fr --link "../../${pymodule}/swh/" "sources/"
         fi
     done
 }
@@ -21,6 +25,7 @@ remove_links () {
             rm "$pymodule"
         fi
     done
+    rm -rf sources
 }
 
 if [ "$1" = "--remove" ] ; then

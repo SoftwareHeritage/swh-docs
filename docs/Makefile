@@ -3,7 +3,7 @@ SPHINXBUILD = python3 -c 'import sphinx, sys; sys.exit(sphinx.main(sys.argv))'
 SOURCEDIR = .
 BUILDDIR = _build
 HTMLDIR = $(BUILDDIR)/html
-SWHPKGDIR = `python3 -c 'import swh; print(swh.__path__[0])'`
+SWHPKGDIR = sources/swh/
 
 INSTALL_HOST = pergamon.internal.softwareheritage.org
 INSTALL_DIR = /srv/softwareheritage/docs/webroot/devel
@@ -27,8 +27,8 @@ links-stamp:
 	touch $@
 
 apidoc: apidoc-stamp
-apidoc-stamp: images-stamp
-	$(SPHINXAPIDOC) $(APIDOC_OPTS) -o $(APIDOC_DIR) $(SWHPKGDIR) $(APIDOC_SWH_EXCLUDES)
+apidoc-stamp: links-stamp images-stamp
+	$(SPHINXAPIDOC) --implicit-namespaces $(APIDOC_OPTS) -o $(APIDOC_DIR) $(SWHPKGDIR) $(APIDOC_SWH_EXCLUDES)
 	touch $@
 
 images-stamp:
