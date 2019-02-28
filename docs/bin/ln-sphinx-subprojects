@@ -2,7 +2,7 @@
 set -e
 
 create_links () {
-    mkdir -p sources/swh/
+    mkdir sources/
     for pymodule in $(cd ../../ && bin/ls-py-modules) ; do
         if [ "$pymodule" = 'swh-docs' ] ; then
             continue
