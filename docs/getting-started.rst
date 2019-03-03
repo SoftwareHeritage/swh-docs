@@ -24,11 +24,11 @@ Then::
   cd swh-docker-dev
   docker-compose up -d
 
-When all the containers are up and runnig, you have a running Software
+When all the containers are up and running, you have a running Software
 Heritage platform. You should open:
 
 - http://localhost:5080/ to navigate your (empty for now) SWH archive,
-- http://localhost:5080/rabbitmq to access the rabbitmq dashoard (guest/guest),
+- http://localhost:5080/rabbitmq to access the rabbitmq dashboard (guest/guest),
 - http://localhost:5080/prometheus to explore the platform's metrics,
 
 All the internal APIs are also exposed:
@@ -60,8 +60,8 @@ Such a setup is described in the :ref:`Perfect Developer Setup guide
 <developer-setup>`.
 
 
-Installing from sources (without a virtualenv)
-++++++++++++++++++++++++++++++++++++++++++++++
+Installing from sources (without Docker)
+++++++++++++++++++++++++++++++++++++++++
 
 If you prefer to run everything straight, you should refer to the :ref:`Manual
 Setup Guide <manual-setup>`
