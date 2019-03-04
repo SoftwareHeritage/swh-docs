@@ -1,0 +1,39 @@
+digraph {
+	label="Elasticsearch relations"
+
+	generic_host1 -> journalbeat
+	generic_host2 -> journalbeat
+	worker_host1 -> journalbeat
+	generic_host1[label="generic_host", shape="box"]
+	generic_host2[label="generic_host", shape="box"]
+
+	logstash -> elasticsearch_cluster
+	elasticsearch_cluster[shape="box",color="green"]
+
+	moma_apache -> filebeat
+	filebeat -> apache_logs_indices
+	apache_logs_indices -> logstash
+	moma_apache[shape="box"]
+
+	journalbeat -> system_logs_indices
+	journalbeat -> swh_workers_indices
+
+	swh_scheduler -> swh_tasks_indices
+	swh_tasks_indices -> elasticsearch_cluster
+
+	system_logs_indices -> logstash
+	swh_workers_indices -> logstash
+	worker_host1[label="worker host", shape="box"]
+
+
+	logstash[label="logstash\nlogstash0_vm"]
+	elasticsearch_cluster -> kibana0
+
+	apache_logs_indices[shape="note"]
+	system_logs_indices[shape="note"]
+	swh_tasks_indices[shape="note", label="swh-tasks indices"]
+	swh_workers_indices[shape="note", label="swh_workers indices\nsystemd_unit = swh-worker "]
+
+	{rank="same"; elasticsearch_cluster; kibana0}
+	{rank="same"; swh_tasks_indices; apache_logs_indices}
+}
