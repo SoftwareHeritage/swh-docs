@@ -29,7 +29,7 @@ Heritage platform. You should open:
 
 - http://localhost:5080/ to navigate your (empty for now) SWH archive,
 - http://localhost:5080/rabbitmq to access the rabbitmq dashboard (guest/guest),
-- http://localhost:5080/prometheus to explore the platform's metrics,
+- http://localhost:5080/grafana to explore the platform's metrics,
 
 All the internal APIs are also exposed:
 
@@ -53,15 +53,10 @@ Hacking the archive
 If you want to hack the code of the Software Heritage Archive, a bit more work
 will be required.
 
+To be able to write patches, you will need a development setup.
+
 The best way to have a development-friendly environment is to build a mixed
-docker/virtual env setup.
+docker/virtualenv setup.
 
-Such a setup is described in the :ref:`Perfect Developer Setup guide
-<developer-setup>`.
-
-
-Installing from sources (without Docker)
-++++++++++++++++++++++++++++++++++++++++
-
-If you prefer to run everything straight, you should refer to the :ref:`Manual
-Setup Guide <manual-setup>`
+Such a setup is described in the
+:ref:`Developer Setup Guide <developer-setup>`.
