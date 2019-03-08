@@ -2,7 +2,7 @@
 set -e
 
 create_links () {
-    mkdir sources/
+    mkdir -p sources
     for pymodule in $(cd ../../ && bin/ls-py-modules) ; do
         if [ "$pymodule" = 'swh-docs' ] ; then
             continue
@@ -11,7 +11,7 @@ create_links () {
             ln -s "../../${pymodule}/docs" "$pymodule"
         fi
         if [ -d "../../${pymodule}/swh" ] ; then
-            cp -fr --link "../../${pymodule}/swh/" "sources/"
+            rsync -a --include='*.py' --include='*/' --exclude='*' --prune-empty-dirs "../../${pymodule}/swh" "sources/"
         fi
     done
 }
