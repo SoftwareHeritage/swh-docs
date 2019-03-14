@@ -32,6 +32,7 @@ package manager. On Debian/Ubuntu-based distributions::
                    libsystemd-dev libpython3-dev graphviz postgresql-autodoc \
                    postgresql-server-dev-all virtualenvwrapper git build-essential
 
+Note: The ``lsb_release -cs`` command returns the name of your Ubuntu distribution. If you are using a flavor of Ubuntu like Mint, you'll need to manually change $(lsb_release -cs) to your parent Ubuntu distribution, for example - 'bionic'.
 
 Checkout the source code
 ------------------------
