@@ -124,7 +124,8 @@ intersphinx_mapping = {'python': ('https://docs.python.org/3', None)}
 
 
 # -- autodoc configuration ----------------------------------------------
-autodoc_default_flags = ['members', 'undoc-members']
+autodoc_default_flags = ['members', 'undoc-members', 'private-members',
+                         'special-members']
 autodoc_member_order = 'bysource'
 autodoc_mock_imports = ['rados']
 
