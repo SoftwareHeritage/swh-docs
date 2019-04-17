@@ -30,7 +30,8 @@ package manager. On Debian/Ubuntu-based distributions::
   sudo apt update
   sudo apt install python3 python3-venv libsvn-dev postgresql-11 \
                    libsystemd-dev libpython3-dev graphviz postgresql-autodoc \
-                   postgresql-server-dev-all virtualenvwrapper git build-essential
+                   postgresql-server-dev-all virtualenvwrapper git build-essential \
+                   pkg-config myrepos
 
 
 Checkout the source code
