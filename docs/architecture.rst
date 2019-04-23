@@ -30,7 +30,7 @@ occurs to perform all the required work to fill, maintain and update the |swh|
 
 The main components involved in this choreography are:
 
-- :term:`Listers <lister>`: a lister is a type of task aiming at scrapping a
+- :term:`Listers <lister>`: a lister is a type of task aiming at scraping a
   web site, a forge, etc. to gather all the source code repositories it can
   find. For each found source code repository, a :term:`loader` task is
   created.
