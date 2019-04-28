@@ -78,7 +78,7 @@ Unit tests are using the pytest_ framework, and can be executed directly or via
 tox_. The main difference between these 2 test execution environments is:
 
 - When executed via tox_, all the dependencies (including swh ones) are
-  installed from pypi_: you test yout modifications against the latest
+  installed from pypi_: you test your modifications against the latest
   published version of every swh package but the current one.
 
 - When you execute pytest_ directly, swh dependencies are used from your
