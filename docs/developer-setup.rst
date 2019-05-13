@@ -66,10 +66,9 @@ Create a virtualenv::
 
 Install all the swh packages (in develop mode)::
 
-    (swh) ~/swh-environment$ pip install $(./bin/pip-swh-packages --with-testing) \
-	                         tox pifpaf flake8
+    (swh) ~/swh-environment$ pip install flake8 pifpaf tox wheel
+    (swh) ~/swh-environment$ pip install $(./bin/pip-swh-packages --with-testing)
     [...]
-
 
 Executing unit tests
 --------------------
