@@ -1,5 +1,5 @@
 # Add here internal Software Heritage dependencies, one per line.
-swh.core
+swh.core[http,db]
 swh.model
 swh.objstorage[testing]
 swh.scheduler

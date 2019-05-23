@@ -1,5 +1,5 @@
 # Add here internal Software Heritage dependencies, one per line.
--e ../swh-core
+-e ../swh-core[http,db]
 -e ../swh-model
 -e ../swh-objstorage[testing]
 -e ../swh-scheduler
