@@ -38,6 +38,16 @@ Glossary
      :term:`directories <directory>` that :term:`contents <content>` acquire
      (local) names.
 
+   deposit
+
+     A :term:`software artifact` that was pushed to the Software Heritage
+     archive (unlike :term:`loaders <loader>`, which pull artifacts).
+     A deposit is useful when you want to ensure a software release's source
+     code is archived in SWH even if it is not published anywhere else.
+
+     See also: the :ref:`swh-deposit` component, which implements a deposit
+     client and server.
+
    directory
 
      A set of named pointers to contents (file entries), directories (directory
