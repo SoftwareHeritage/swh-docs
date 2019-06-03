@@ -15,7 +15,6 @@ swh.loader.debian
 swh.loader.mercurial
 swh.loader.svn
 swh.loader.git
-swh.archiver
 swh.web
 swh.deposit
 swh.indexer
