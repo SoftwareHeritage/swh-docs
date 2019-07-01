@@ -27,13 +27,13 @@ Install the [Software Heritage development environment][2]
     $ ./bin/update  # this will clone needed git repos, inc. swh-docs
     $ cd swh-docs
 
-Ensure you have the required tools to generate images ([graphviz][3]'s `dot`
-and [plantuml][4]). On a Debian system:
+Ensure you have the required tools to generate images ([graphviz][3]'s `dot`, 
+[plantuml][4] and [inkscape][5]). On a Debian system:
 
     $ sudo apt install plantuml graphviz
 
 
-It is also recomanded to build the doc using [tox][5], so ensure you have it
+It is also recomanded to build the doc using [tox][6], so ensure you have it
 installed, eg. on a Debian system:
 
     $ sudo apt install tox
@@ -47,7 +47,7 @@ This tox environment will build the documentation from the sources available in
 the parent directory (`swh-environment`).
 
 Behind the scene, this tox environment will run the sphinx documentation
-building process via [pifpaf][6] to encapsulate the need os Postgresql to
+building process via [pifpaf][7] to encapsulate the need os Postgresql to
 generate database schemas. The documentation building process itself consists
 mainly in 3 steps:
 
@@ -95,5 +95,6 @@ The publication of the documentation is now managed by the [CI][7].
 [2]: https://forge.softwareheritage.org/source/swh-environment/
 [3]: https://graphviz.org
 [4]: http://plantuml.com
-[5]: https://tox.readthedocs.io/
-[6]: https://github.com/jd/pifpaf
+[5]: https://inkscape.org/
+[6]: https://tox.readthedocs.io/
+[7]: https://github.com/jd/pifpaf
