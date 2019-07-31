@@ -31,10 +31,6 @@ Here is brief overview of the most relevant software components in the Software
 Heritage stack. Each component name is linked to the development documentation
 of the corresponding Python module.
 
-:ref:`swh.archiver <swh-archiver>`
-    orchestrator in charge of guaranteeing that object storage content is
-    pristine and available in a sufficient amount of copies
-
 :ref:`swh.core <swh-core>`
     low-level utilities and helpers used by almost all other modules in the
     stack

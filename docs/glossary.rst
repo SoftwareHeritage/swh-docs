@@ -11,11 +11,6 @@ Glossary
 
      An instance of the |swh| data store.
 
-   archiver
-
-     A component dedicated at replicating an :term:`archive` and ensure there
-     are enough copies of each element to ensure resiliency.
-
    ark
 
      `Archival Resource Key`_ (ARK) is a Uniform Resource Locator (URL) that is
