@@ -19,3 +19,4 @@ swh.web
 swh.deposit
 swh.indexer
 swh.mirror.forge
+swh.graph
