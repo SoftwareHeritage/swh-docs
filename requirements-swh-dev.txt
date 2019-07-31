@@ -19,3 +19,4 @@
 -e ../swh-web
 -e ../swh-deposit
 -e ../swh-mirror-forge
+-e ../swh-graph
