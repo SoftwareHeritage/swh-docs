@@ -45,6 +45,10 @@ of the corresponding Python module.
 swh.docs
     developer documentation (used to generate this doc you are reading)
 
+:ref:`swh.graph <swh-graph>`
+    Fast, compressed, in-memory representation of the archive, with tooling to
+    generate and query it.
+
 :ref:`swh.indexer <swh-indexer>`
     tools and workers used to crawl the content of the archive and extract
     derived information from any artifact stored in it
