@@ -50,6 +50,7 @@ Checkout all the swh packages source repositories::
 
 Create a virtualenv::
 
+    ~/swh-environment$ source /usr/share/virtualenvwrapper/virtualenvwrapper.sh
     ~/swh-environment$ mkvirtualenv -p /usr/bin/python3 -a $PWD swh
     [...]
     (swh) ~/swh-environment$
