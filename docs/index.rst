@@ -35,6 +35,10 @@ of the corresponding Python module.
     low-level utilities and helpers used by almost all other modules in the
     stack
 
+:ref:`swh.dataset <swh-dataset>`
+    public datasets and periodic data dumps of the archive released by Software
+    Heritage
+
 :ref:`swh.deposit <swh-deposit>`
     push-based deposit of software artifacts to the archive
 

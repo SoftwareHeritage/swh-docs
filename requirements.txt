@@ -6,4 +6,5 @@ sphinx >= 1.3, < 2
 sphinxcontrib-httpdomain
 sphinxcontrib-images
 sphinxcontrib-programoutput
+sphinx-tabs
 recommonmark
