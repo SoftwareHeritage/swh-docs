@@ -23,6 +23,7 @@ extensions = ['sphinx.ext.autodoc',
               'sphinxcontrib.programoutput',
               'sphinx.ext.viewcode',
               'sphinx_tabs.tabs',
+              'sphinx_rtd_theme',
               ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -81,7 +82,7 @@ todo_include_todos = True
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
 #
-html_theme = 'alabaster'
+html_theme = 'sphinx_rtd_theme'
 
 html_favicon = '_static/favicon.ico'
 
@@ -90,17 +91,11 @@ html_favicon = '_static/favicon.ico'
 # documentation.
 #
 html_theme_options = {
-    'logo': 'software-heritage-logo-title-motto-vertical.svg',
-    'font_family': "'Alegreya Sans', sans-serif",
-    'head_font_family': "'Alegreya', serif",
-    #                     equivalent of alabaster's:
-    'gray_1': '#5b5e6f',  # dark gray
-    'gray_2': '#efeff2',  # light gray
-    'gray_3': '#b1b5ae',  # medium gray
-    'pink_1': '#e5d4cf',  # light pink
-    'pink_2': '#bd9f97',  # medium pink
-    'fixed_sidebar': 'true',
+    'collapse_navigation': True,
+    'sticky_navigation': True,
 }
+
+html_logo = 'software-heritage-logo-title-motto-vertical-white.png'
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
@@ -112,7 +107,7 @@ html_static_path = ['_static']
 html_sidebars = {
     '**': [
         'about.html',
-        'localtoc.html',
+        'globaltoc.html',
         'relations.html',
         'sourcelink.html',
         'searchbox.html',

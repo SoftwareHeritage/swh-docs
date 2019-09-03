@@ -8,3 +8,4 @@ sphinxcontrib-images
 sphinxcontrib-programoutput
 sphinx-tabs
 recommonmark
+sphinx_rtd_theme

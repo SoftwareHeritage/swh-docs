@@ -3,10 +3,6 @@
 Software Heritage - Development Documentation
 =============================================
 
-.. toctree::
-   :maxdepth: 2
-   :caption: Contents:
-
 
 Getting started
 ---------------
@@ -135,12 +131,27 @@ Indices and tables
 .. ensure sphinx does not complain about index files not being included
 
 .. toctree::
+   :maxdepth: 2
+   :caption: Contents:
+   :titlesonly:
    :hidden:
-   :glob:
 
    architecture
    getting-started
    developer-setup
    manual-setup
-   apidoc/modules
-   swh-*/index
+   API documentation <apidoc/modules>
+   swh.core <swh-core/index>
+   swh.dataset <swh-dataset/index>
+   swh.deposit <swh-deposit/index>
+   swh.graph <swh-graph/index>
+   swh.indexer <swh-indexer/index>
+   swh.journal <swh-journal/index>
+   swh.lister <swh-lister/index>
+   swh.loader <swh-loader>
+   swh.model <swh-model/index>
+   swh.objstorage <swh-objstorage/index>
+   swh.scheduler <swh-scheduler/index>
+   swh.storage <swh-storage/index>
+   swh.vault <swh-vault/index>
+   swh.web <swh-web/index>
