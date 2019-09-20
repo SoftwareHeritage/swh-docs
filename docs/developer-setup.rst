@@ -67,7 +67,7 @@ Create a virtualenv::
 
 Install all the swh packages (in develop mode)::
 
-    (swh) ~/swh-environment$ pip install flake8 pifpaf tox wheel
+    (swh) ~/swh-environment$ pip install flake8 pifpaf tox wheel mypy
     (swh) ~/swh-environment$ pip install $(./bin/pip-swh-packages --with-testing)
     [...]
 
@@ -105,7 +105,7 @@ For example, running unit tests for the swh-loader-git_ package::
 	[...]
 	================== 25 passed, 12 warnings in 6.66 seconds ==================
 
-Running the same test, plus flake8 checks, using tox::
+Running the same test, plus code linting and static analysis, using tox::
 
     (swh) ~/swh-environment/swh-loader-git$ tox
     GLOB sdist-make: ~/swh-environment/swh-loader-git/setup.py
