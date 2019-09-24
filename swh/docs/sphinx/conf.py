@@ -117,7 +117,7 @@ html_sidebars = {
 # If not None, a 'Last updated on:' timestamp is inserted at every page
 # bottom, using the given strftime format.
 # The empty string is equivalent to '%b %d, %Y'.
-html_last_updated_fmt = "%Y-%m-%dT%H:%M:%S%z"
+html_last_updated_fmt = "%Y-%m-%d %H:%M:%S %Z"
 
 # refer to the Python standard library.
 intersphinx_mapping = {'python': ('https://docs.python.org/3', None)}
