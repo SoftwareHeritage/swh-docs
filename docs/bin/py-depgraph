@@ -40,7 +40,7 @@ for pymod in ${!pymods[@]} ; do
 done
 
 getdeps() {
-    grep -E -v '(^#|^[[:space:]]*$)' "$1" | cut -f 1 -d ' ' | tr 'A-Z' 'a-z'
+    grep -E -v '(^#|^[[:space:]]*$)' "$1" | cut -f 1 -d '[' | cut -f 1 -d ' ' | tr 'A-Z' 'a-z'
 }
 
 for repo in $pyrepos ; do
