@@ -7,8 +7,8 @@ import os
 
 # General information about the project.
 project = 'Software Heritage - Development Documentation'
-copyright = '2015-2018, the Software Heritage developers'
-author = 'the Software Heritage developers'
+copyright = '2015-2019  The Software Heritage developers'
+author = 'The Software Heritage developers'
 
 # -- General configuration ------------------------------------------------
 
