@@ -32,8 +32,15 @@ Ensure you have the required tools to generate images ([graphviz][3]'s `dot`,
 
     $ sudo apt install plantuml graphviz
 
+These additional packages are required on Debian 10.x systems:
+- libapr1-dev
+- libaprutil1-dev
+- libsvn-dev
+- postgresql-11
+- dia
+- postgresql-autodoc
 
-It is also recomanded to build the doc using [tox][6], so ensure you have it
+It is also recommended to build the doc using [tox][6], so ensure you have it
 installed, eg. on a Debian system:
 
     $ sudo apt install tox
