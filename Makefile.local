@@ -1,0 +1,3 @@
+
+typecheck:
+	@echo "no op - swh-docs does not need typechecking, skipping"
