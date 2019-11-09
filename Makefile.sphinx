@@ -2,7 +2,7 @@
 # automatically build sphinx documentation.
 
 APIDOC_DIR = apidoc
-APIDOC_OPTS = --separate
+APIDOC_OPTS = --ext-viewcode --separate
 SPHINXBUILD = python3 -c 'import sphinx, sys; sys.exit(sphinx.main(sys.argv))'
 SPHINXAPIDOC = python3 -c 'import sphinx.apidoc, sys; sys.exit(sphinx.apidoc.main(sys.argv))'
 SPHINX_OPTS =

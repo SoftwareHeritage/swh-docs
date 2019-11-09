@@ -12,7 +12,7 @@ INSTALL_PERMS = g+rwX
 
 SPHINXAPIDOC = sphinx-apidoc
 APIDOC_DIR = apidoc
-APIDOC_OPTS = --ext-viewcode
+APIDOC_OPTS = --ext-viewcode --separate
 APIDOC_EXCLUDES = */tests */tests/* */*/tests/* */*/*/tests/*
 APIDOC_EXCLUDES += */migrations */migrations/* */*/migrations/* */*/*/migrations/*
 APIDOC_EXCLUDES += */wsgi.py */*/wsgi.py */*/*/wsgi.py */*/*/wsgi.py
