@@ -6,7 +6,6 @@
 -e ../swh-journal
 -e ../swh-lister
 -e ../swh-loader-core
--e ../swh-loader-debian
 -e ../swh-loader-dir
 -e ../swh-loader-git
 -e ../swh-loader-mercurial
