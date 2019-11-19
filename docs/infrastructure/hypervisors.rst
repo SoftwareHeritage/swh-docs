@@ -9,6 +9,9 @@ List of Proxmox nodes
 
 - beaubourg:  Xeon E7-4809 server, 16 cores/512 GB RAM, bought in 2015
 - hypervisor3: EPYC 7301 server, 32 cores/256 GB RAM, bought in 2018
+- orsay: Opteron 6172, 48 cores/128 GB RAM, refurbished (2010 vintage)
+
+Orsay is not a production machine, its purpose is to run throw-away development/staging VMs.
 
 Per-node storage
 ================

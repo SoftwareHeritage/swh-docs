@@ -24,9 +24,9 @@ Containers and VMs with nfs storage:
   It serves as a host for the *softwareheritage* and *softwareheritage-indexer*
   databases.
 
-- worker01 to worker16.internal.softwareheritage.org
-- pergamon
-- moma
+- worker01 to worker16.internal.softwareheritage.org: loader and lister workers
+- pergamon: internal system administration services (puppet master, grafana, dns resolver, etc...)
+- moma: webapp and deposit services exposed publicly
 
 These VMs access one or more of these NFS volumes located on uffizi::
 
