@@ -140,6 +140,7 @@ Indices and tables
    getting-started
    developer-setup
    manual-setup
+   Infrastructure <infrastructure/index>
    API documentation <apidoc/modules>
    swh.core <swh-core/index>
    swh.dataset <swh-dataset/index>

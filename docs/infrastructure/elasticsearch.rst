@@ -1,3 +1,5 @@
+.. _elasticsearch:
+
 ==============
 Elasticsearch
 ==============
@@ -20,7 +22,7 @@ List of nodes
 Architecture diagram
 ====================
 
-.. graphviz:: images/elasticsearch.dot
+.. graphviz:: ../images/elasticsearch.dot
 
 Per-node storage
 ================
