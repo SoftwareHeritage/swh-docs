@@ -6,13 +6,9 @@ swh.indexer
 swh.journal
 swh.lister
 swh.loader.core
-swh.loader.debian
-swh.loader.dir
 swh.loader.git
 swh.loader.mercurial
-swh.loader.pypi
 swh.loader.svn
-swh.loader.tar
 swh.mirror.forge
 swh.model
 swh.objstorage[testing]
