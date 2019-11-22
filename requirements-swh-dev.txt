@@ -9,7 +9,6 @@
 -e ../swh-loader-git
 -e ../swh-loader-mercurial
 -e ../swh-loader-svn
--e ../swh-mirror-forge
 -e ../swh-model
 -e ../swh-objstorage[testing]
 -e ../swh-scheduler

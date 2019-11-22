@@ -9,7 +9,6 @@ swh.loader.core
 swh.loader.git
 swh.loader.mercurial
 swh.loader.svn
-swh.mirror.forge
 swh.model
 swh.objstorage[testing]
 swh.scheduler
