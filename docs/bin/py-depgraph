@@ -5,7 +5,7 @@
 # include by default both internal and external dependencies, but can asked to
 # include either or none of them (see --help)
 
-if [ ! -d swh-core -o ! -f pythonpath.sh ] ; then
+if [ ! -d swh-core -o ! -f .mrconfig ] ; then
     echo "Error: you do not appear to be located in swh-environment dir,"
     echo "but this script should be run from there. Abort."
     exit 2
