@@ -96,7 +96,7 @@ html_theme_options = {
     'sticky_navigation': True,
 }
 
-html_logo = 'software-heritage-logo-title-motto-vertical-white.png'
+html_logo = '_static/software-heritage-logo-title-motto-vertical-white.png'
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
