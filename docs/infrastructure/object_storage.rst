@@ -66,6 +66,7 @@ Architecture diagram
 ====================
 
 .. graph:: swh_archives
+
 	"Main archive" -- "Replica archive";
 	"Azure archive";
 	"AWS archive";

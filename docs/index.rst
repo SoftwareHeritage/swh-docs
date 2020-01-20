@@ -59,26 +59,14 @@ swh.docs
 :ref:`swh.loader-core <swh-loader-core>`
     low-level loading utilities and helpers used by all other loaders
 
-:ref:`swh.loader-debian <swh-loader-debian>`
-    loader for `Debian <https://www.debian.org/>`_ source packages
-
-:ref:`swh.loader-dir <swh-loader-dir>`
-    loader for source directories (e.g., expanded tarballs)
-
 :ref:`swh.loader-git <swh-loader-git>`
     loader for `Git <https://git-scm.com/>`_ repositories
 
 :ref:`swh.loader-mercurial <swh-loader-mercurial>`
     loader for `Mercurial <https://www.mercurial-scm.org/>`_ repositories
 
-:ref:`swh.loader-pypi <swh-loader-pypi>`
-    loader for `PyPI <https://pypi.org/>`_ source code releases
-
 :ref:`swh.loader-svn <swh-loader-svn>`
     loader for `Subversion <https://subversion.apache.org/>`_ repositories
-
-:ref:`swh.loader-tar <swh-loader-tar>`
-    loader for source tarballs (including Tar, ZIP and other archive formats)
 
 :ref:`swh.model <swh-model>`
     implementation of the :ref:`data-model` to archive source code artifacts
@@ -139,7 +127,6 @@ Indices and tables
    architecture
    getting-started
    developer-setup
-   manual-setup
    Infrastructure <infrastructure/index>
    API documentation <apidoc/modules>
    swh.core <swh-core/index>

@@ -5,7 +5,7 @@ hypervisors
 -----------
 
 The :doc:`hypervisors <hypervisors>` mostly use local storage on the form of internal
-SSDS but also have access to a :ref:`Ceph cluster`.
+SSDS but also have access to a :ref:`ceph_cluster`.
 
 NFS server
 ----------
