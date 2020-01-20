@@ -16,6 +16,7 @@ APIDOC_OPTS = --ext-viewcode --separate
 APIDOC_EXCLUDES = */tests */tests/* */*/tests/* */*/*/tests/*
 APIDOC_EXCLUDES += */migrations */migrations/* */*/migrations/* */*/*/migrations/*
 APIDOC_EXCLUDES += */wsgi.py */*/wsgi.py */*/*/wsgi.py */*/*/wsgi.py
+APIDOC_EXCLUDES += deposit/settings/* web/settings/* dataset/*
 APIDOC_SWH_EXCLUDES = $(patsubst %,$(SWHPKGDIR)/%,$(APIDOC_EXCLUDES))
 
 html: sphinx/html
