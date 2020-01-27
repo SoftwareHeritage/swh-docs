@@ -12,10 +12,9 @@ installed in 'develop' mode, this will allow you to navigate the source code,
 hack it, and run locally the unit tests.
 
 If you want to test the effect of your modifications in a running |swh|
-instance, you should check the `documentation`_ of the swh-docker-dev_ project.
+instance, you should check the swh-environment docker `documentation`_.
 
-.. _`documentation`: https://forge.softwareheritage.org/source/swh-docker-dev/browse/master/README.md?as=remarkup
-.. _`swh-docker-dev`: https://forge.softwareheritage.org/source/swh-docker-dev
+.. _`documentation`: https://forge.softwareheritage.org/source/swh-environment/browse/master/docker/README.md?as=remarkup
 .. _`virtualenv`: https://pypi.org/project/virtualenv/
 
 

@@ -20,8 +20,8 @@ docker-compose. Please refer to the `docker-compose documentation
 
 Then::
 
-  git clone https://forge.softwareheritage.org/source/swh-docker-dev.git
-  cd swh-docker-dev
+  git clone https://forge.softwareheritage.org/source/swh-environment.git
+  cd swh-environment/docker
   docker-compose up -d
 
 When all the containers are up and running, you have a running Software
