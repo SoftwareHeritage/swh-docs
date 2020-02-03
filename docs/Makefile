@@ -1,5 +1,5 @@
 SPHINXOPTS ?=
-SPHINXBUILD = python3 -c 'import sphinx, sys; sys.exit(sphinx.main(sys.argv))'
+SPHINXBUILD = sphinx-build
 SOURCEDIR = .
 BUILDDIR = _build
 HTMLDIR = $(BUILDDIR)/html

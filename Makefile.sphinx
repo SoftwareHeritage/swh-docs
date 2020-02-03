@@ -3,8 +3,8 @@
 
 APIDOC_DIR = apidoc
 APIDOC_OPTS = --ext-viewcode --separate
-SPHINXBUILD = python3 -c 'import sphinx, sys; sys.exit(sphinx.main(sys.argv))'
-SPHINXAPIDOC = python3 -c 'import sphinx.apidoc, sys; sys.exit(sphinx.apidoc.main(sys.argv))'
+SPHINXBUILD = sphinx-build
+SPHINXAPIDOC = sphinx-apidoc
 SPHINX_OPTS =
 SPHINX_BUILDDIR = _build
 SPHINX_SRCDIR = .
