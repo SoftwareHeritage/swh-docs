@@ -25,12 +25,23 @@ Software Heritage requires some dependencies that are usually packaged by your
 package manager. On Debian/Ubuntu-based distributions::
 
   sudo wget https://www.postgresql.org/media/keys/ACCC4CF8.asc -O /etc/apt/trusted.gpg.d/postgresql.asc
-  sudo sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt/ $(lsb_release -cs)-pgdg main" > /etc/apt/sources.list.d/pgdg.list'
+  echo "deb http://apt.postgresql.org/pub/repos/apt/ $(lsb_release -cs)-pgdg main" | sudo tee -a /etc/apt/sources.list.d/pgdg.list
+  sudo wget https://downloads.apache.org/cassandra/KEYS -O /etc/apt/trusted.gpg.d/cassandra.asc
+  echo "deb https://downloads.apache.org/cassandra/debian 40x main" | sudo tee -a /etc/apt/sources.list.d/cassandra.list
   sudo apt update
   sudo apt install python3 python3-venv libsvn-dev postgresql-11 \
                    libsystemd-dev libpython3-dev graphviz postgresql-autodoc \
                    postgresql-server-dev-all virtualenvwrapper git build-essential \
-                   pkg-config myrepos lzip
+                   pkg-config myrepos lzip cassandra
+
+
+Cassandra and postgresql will be started by tests when they need it, so you
+don't need them started globally (this will save you some RAM)::
+
+  sudo systemctl stop postgresql
+  sudo systemctl disable postgresql
+  sudo systemctl stop cassandra
+  sudo systemctl disable cassandra
 
 
 Checkout the source code
