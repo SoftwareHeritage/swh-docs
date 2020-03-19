@@ -92,6 +92,9 @@ swh.docs
     Web application(s) to browse the archive, for both interactive (HTML UI)
     and mechanized (REST API) use
 
+:ref:`swh.web.client <swh-web-client>`
+    Python client for :ref:`swh.web <swh-web>`
+
 
 Dependencies
 ------------
@@ -143,3 +146,4 @@ Indices and tables
    swh.storage <swh-storage/index>
    swh.vault <swh-vault/index>
    swh.web <swh-web/index>
+   swh.web.client <swh-web-client/index>
