@@ -19,3 +19,4 @@
 -e ../swh-search
 -e ../swh-vault
 -e ../swh-web
+-e ../swh-web-client
