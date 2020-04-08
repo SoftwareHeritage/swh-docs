@@ -27,7 +27,7 @@ Install the [Software Heritage development environment][2]
     $ ./bin/update  # this will clone needed git repos, inc. swh-docs
     $ cd swh-docs
 
-Ensure you have the required tools to generate images ([graphviz][3]'s `dot`, 
+Ensure you have the required tools to generate images ([graphviz][3]'s `dot`,
 [plantuml][4] and [inkscape][5]). On a Debian system:
 
     $ sudo apt install plantuml graphviz

@@ -36,7 +36,7 @@ AWS archive
 The AWS archive is stored in the *softwareheritage* Amazon S3 bucket, in the US-East
  (N. Virginia) region. That bucket is public.
 
-It is being continously populated by the :ref:`content_replayer` program.
+It is being continuously populated by the :ref:`content_replayer` program.
 
 Softwareheritage Python programs access it using a libcloud backend.
 
