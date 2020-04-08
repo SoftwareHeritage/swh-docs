@@ -11,4 +11,4 @@ for var in dir(web):
                 ns[var].append(elt)
 
 
-SECRET_KEY = 'change me'
+SECRET_KEY = "change me"
