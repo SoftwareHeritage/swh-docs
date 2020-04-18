@@ -65,10 +65,15 @@ Create a virtualenv::
     [...]
     (swh) ~/swh-environment$
 
-.. Note:: using virtualenvwrapper_ is not mandatory here. You can use plain
-   virtualenvs, or any other venv management tool (pipenv_ or poetry_
-   for example). Using a tool such as virtualenvwrapper_ just makes life
-   easier...
+In the future you can re-activate the created virtualenv with::
+
+   $ workon swh
+   (swh) ~/swh-environment$
+
+.. Note:: the above assumes you are using virtualenvwrapper_ to manage your
+   Python virtualenvs, but that is by no means mandatory. You can use plain
+   virtualenvs, or any other virtualenv management tool (pipenv_ or poetry_ for
+   example). virtualenvwrapper_ is our preference, but YMMV.
 
 .. _virtualenvwrapper: https://virtualenvwrapper.readthedocs.io/
 .. _poetry: https://poetry.eustace.io/
