@@ -1,3 +1,8 @@
+# Copyright (C) 2017-2020  The Software Heritage developers
+# See the AUTHORS file at the top-level directory of this distribution
+# License: GNU General Public License version 3, or any later version
+# See top-level LICENSE file for more information
+
 import os
 from setuptools import setup, find_packages
 
@@ -24,6 +29,7 @@ def parse_requirements(name=None):
 setup(
     name="swh.docs",
     description="Software Heritage development documentation",
+    python_requires=">=3.7",
     author="Software Heritage developers",
     author_email="swh-devel@inria.fr",
     url="https://forge.softwareheritage.org/source/swh-docs/",
