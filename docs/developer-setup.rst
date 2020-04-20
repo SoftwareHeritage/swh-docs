@@ -22,7 +22,7 @@ Install required dependencies
 -----------------------------
 
 Software Heritage requires some dependencies that are usually packaged by your
-package manager. On Debian/Ubuntu-based distributions::
+package manager [1]. On Debian/Ubuntu-based distributions::
 
   sudo wget https://www.postgresql.org/media/keys/ACCC4CF8.asc -O /etc/apt/trusted.gpg.d/postgresql.asc
   echo "deb http://apt.postgresql.org/pub/repos/apt/ $(lsb_release -cs)-pgdg main" | sudo tee -a /etc/apt/sources.list.d/pgdg.list
@@ -34,6 +34,7 @@ package manager. On Debian/Ubuntu-based distributions::
                    postgresql-server-dev-all virtualenvwrapper git build-essential \
                    pkg-config myrepos lzip cassandra
 
+[1] python3.7 runtime version is the minimum required
 
 Cassandra and postgresql will be started by tests when they need it, so you
 don't need them started globally (this will save you some RAM)::
@@ -170,8 +171,8 @@ Running the same test, plus code linting and static analysis, using tox::
 
 
     ============================= warnings summary =============================
-    .tox/py3/lib/python3.5/site-packages/psycopg2/__init__.py:144
-      ~/swh-environment/swh-loader-git/.tox/py3/lib/python3.5/site-packages/psycopg2/__init__.py:144: UserWarning: The psycopg2 wheel package will be renamed from release 2.8; in order to keep installing from binary please use "pip install psycopg2-binary" instead. For details see: <http://initd.org/psycopg/docs/install.html#binary-install-from-pypi>.
+    .tox/py3/lib/python3/site-packages/psycopg2/__init__.py:144
+      ~/swh-environment/swh-loader-git/.tox/py3/lib/python3/site-packages/psycopg2/__init__.py:144: UserWarning: The psycopg2 wheel package will be renamed from release 2.8; in order to keep installing from binary please use "pip install psycopg2-binary" instead. For details see: <http://initd.org/psycopg/docs/install.html#binary-install-from-pypi>.
         """)
 
     -- Docs: https://docs.pytest.org/en/latest/warnings.html
