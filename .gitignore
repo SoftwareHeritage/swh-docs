@@ -8,3 +8,4 @@ __pycache__
 version.txt
 .tox
 docs/apidoc
+.mypy_cache/

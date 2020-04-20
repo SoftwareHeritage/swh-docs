@@ -2,6 +2,8 @@
 # -*- coding: utf-8 -*-
 #
 
+from typing import Dict
+
 import django
 import os
 
@@ -139,7 +141,7 @@ autodoc_mock_imports = ["rados"]
 modindex_common_prefix = ["swh."]
 
 # for the extlinks extension, sub-projects should fill that dict
-extlinks = {}
+extlinks: Dict = {}
 
 
 # XXX Kill this ASA this PR is accepted and released
