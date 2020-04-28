@@ -6,6 +6,7 @@
 ../swh-journal
 ../swh-objstorage[testing]
 ../swh-storage[schemata]
+../swh-objstorage-replayer
 ../swh-scheduler
 ../swh-deposit
 ../swh-graph

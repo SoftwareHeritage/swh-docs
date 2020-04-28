@@ -74,6 +74,9 @@ swh.docs
 :ref:`swh.objstorage <swh-objstorage>`
     content-addressable object storage
 
+:ref:`swh.objstorage.replayer <swh-objstorage-replayer>`
+    Object storage replication tool
+
 :ref:`swh.scheduler <swh-scheduler>`
     task manager for asynchronous/delayed tasks, used for recurrent (e.g.,
     listing a forge, loading new stuff from a Git repository) and one-off
