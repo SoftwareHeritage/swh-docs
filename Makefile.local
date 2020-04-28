@@ -1,3 +1,9 @@
 
 check-mypy:
 	@echo "no op - swh-docs does not need typechecking, skipping"
+
+all:
+	@echo Building the whole documentation from source code repositories
+	@echo available in ../ via tox. This can take a while.
+	@echo Please be patient.
+	tox -r -e sphinx-dev
