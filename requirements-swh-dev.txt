@@ -1,23 +1,23 @@
 # Add here internal Software Heritage dependencies, one per line.
 # Dependencies need to be ordered in a way that ensure only
 # development versions will be used (not the release ones hosted on PyPI).
--e ../swh-core[http,db,logging]
--e ../swh-model
--e ../swh-objstorage[testing]
--e ../swh-storage[schemata]
--e ../swh-journal
--e ../swh-scheduler
--e ../swh-deposit
--e ../swh-graph
--e ../swh-icinga-plugins
--e ../swh-indexer
--e ../swh-lister
--e ../swh-loader-core
--e ../swh-loader-git
--e ../swh-loader-mercurial
--e ../swh-loader-svn
--e ../swh-search
--e ../swh-vault
--e ../swh-web
--e ../swh-web-client
--e ../swh-scanner
+../swh-core[http,db,logging]
+../swh-model
+../swh-journal
+../swh-objstorage[testing]
+../swh-storage[schemata]
+../swh-scheduler
+../swh-deposit
+../swh-graph
+../swh-icinga-plugins
+../swh-indexer
+../swh-lister
+../swh-loader-core
+../swh-loader-git
+../swh-loader-mercurial
+../swh-loader-svn
+../swh-search
+../swh-vault
+../swh-web
+../swh-web-client
+../swh-scanner

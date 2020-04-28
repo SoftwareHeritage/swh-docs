@@ -3,7 +3,7 @@ SPHINXBUILD = sphinx-build
 SOURCEDIR = .
 BUILDDIR = _build
 HTMLDIR = $(BUILDDIR)/html
-SWHPKGDIR = sources/swh/
+SWHPKGDIR ?= sources/swh/
 
 INSTALL_HOST = pergamon.internal.softwareheritage.org
 INSTALL_DIR = /srv/softwareheritage/docs/webroot/devel
@@ -21,14 +21,10 @@ APIDOC_SWH_EXCLUDES = $(patsubst %,$(SWHPKGDIR)/%,$(APIDOC_EXCLUDES))
 
 html: sphinx/html
 
-sphinx/html: links-stamp apidoc-stamp images-stamp rec-build-stamp
-
-links-stamp:
-	bin/ln-sphinx-subprojects
-	touch $@
+sphinx/html: apidoc-stamp images-stamp rec-build-stamp
 
 apidoc: apidoc-stamp
-apidoc-stamp: links-stamp images-stamp
+apidoc-stamp: images-stamp
 	$(SPHINXAPIDOC) --implicit-namespaces $(APIDOC_OPTS) -o $(APIDOC_DIR) $(SWHPKGDIR) $(APIDOC_SWH_EXCLUDES)
 	touch $@
 
@@ -44,7 +40,6 @@ rec-build-stamp: $(wildcard ../../swh-*/docs/*.rst)
 	touch $@
 
 clean: sphinx/clean
-	bin/ln-sphinx-subprojects --remove
 	$(MAKE) -C images clean
 	rm -f *-stamp
 	rm -f $(APIDOC_DIR)/*
