@@ -21,10 +21,14 @@ APIDOC_SWH_EXCLUDES = $(patsubst %,$(SWHPKGDIR)/%,$(APIDOC_EXCLUDES))
 
 html: sphinx/html
 
-sphinx/html: apidoc-stamp images-stamp rec-build-stamp
+sphinx/html: links-stamp apidoc-stamp images-stamp rec-build-stamp
+
+links-stamp:
+	bin/ln-sphinx-subprojects
+	touch $@
 
 apidoc: apidoc-stamp
-apidoc-stamp: images-stamp
+apidoc-stamp: links-stamp images-stamp
 	$(SPHINXAPIDOC) --implicit-namespaces $(APIDOC_OPTS) -o $(APIDOC_DIR) $(SWHPKGDIR) $(APIDOC_SWH_EXCLUDES)
 	touch $@
 
@@ -40,6 +44,7 @@ rec-build-stamp: $(wildcard ../../swh-*/docs/*.rst)
 	touch $@
 
 clean: sphinx/clean
+	bin/ln-sphinx-subprojects --remove
 	$(MAKE) -C images clean
 	rm -f *-stamp
 	rm -f $(APIDOC_DIR)/*
