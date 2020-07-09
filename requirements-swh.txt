@@ -14,7 +14,7 @@ swh.objstorage[testing]
 swh.objstorage.replayer
 swh.scanner
 swh.scheduler
-swh.storage[schemata,listener]
+swh.storage[schemata]
 swh.vault
 swh.web
 swh.web.client
