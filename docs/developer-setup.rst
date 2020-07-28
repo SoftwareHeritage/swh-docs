@@ -32,7 +32,7 @@ package manager [1]. On Debian/Ubuntu-based distributions::
   sudo apt install python3 python3-venv libsvn-dev postgresql-11 \
                    libsystemd-dev libpython3-dev graphviz postgresql-autodoc \
                    postgresql-server-dev-all virtualenvwrapper git build-essential \
-                   pkg-config myrepos lzip cassandra
+                   pkg-config myrepos lzip cassandra pre-commit
 
 [1] python3.7 runtime version is the minimum required
 
