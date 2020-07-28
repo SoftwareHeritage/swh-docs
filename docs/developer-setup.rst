@@ -208,6 +208,15 @@ For example, running pytest in the swh-core package::
     ======================== 79 passed in 6.59 seconds =========================
 
 
+Sending your changes
+--------------------
+
+After you are done making the changes you want, you can send them on our
+forge_. The best way to do that is to use Arcanist, so we recommend you read
+these two guides if you are not familiar with it:
+
+* https://wiki.softwareheritage.org/wiki/Arcanist_setup
+* https://wiki.softwareheritage.org/wiki/Code_review_in_Phabricator
 
 
 .. _pytest: https://pytest.org
@@ -215,3 +224,4 @@ For example, running pytest in the swh-core package::
 .. _pypi: https://pypi.org
 .. _swh-loader-git: https://forge.softwareheritage.org/source/swh-loader-git
 .. _pifpaf: https://github.com/jd/pifpaf
+.. _forge: https://forge.softwareheritage.org/
