@@ -29,7 +29,7 @@ package manager [1]. On Debian/Ubuntu-based distributions::
   sudo wget https://downloads.apache.org/cassandra/KEYS -O /etc/apt/trusted.gpg.d/cassandra.asc
   echo "deb https://downloads.apache.org/cassandra/debian 40x main" | sudo tee -a /etc/apt/sources.list.d/cassandra.list
   sudo apt update
-  sudo apt install python3 python3-venv libsvn-dev postgresql-11 \
+  sudo apt install python3 python3-venv libsvn-dev postgresql \
                    libsystemd-dev libpython3-dev graphviz postgresql-autodoc \
                    postgresql-server-dev-all virtualenvwrapper git build-essential \
                    pkg-config myrepos lzip cassandra pre-commit
