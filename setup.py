@@ -36,11 +36,11 @@ setup(
     packages=find_packages(),
     scripts=[],
     install_requires=parse_requirements(),
-    setup_requires=["vcversioner"],
+    setup_requires=["setuptools-scm"],
+    use_scm_version=True,
     extras_require={
         "testing": parse_requirements("test"),
         "building": parse_requirements("swh"),
     },
-    vcversioner={},
     include_package_data=True,
 )
