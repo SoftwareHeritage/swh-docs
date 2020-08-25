@@ -7,8 +7,6 @@
   participant SCH_LS as "scheduler listener"
   participant WORK_GITLAB as "worker@gitlab-lister"
   participant GITLAB as "gitlab API"
-  participant STORAGE_API as "storage API" #ECECFF
-  participant STORAGE_DB as "storage DB" #B0C4DE
 
   Note over WEB,SCH_API: Save gitlab forge 0xdeadbeef
   WEB->>SCH_API: CREATE TASK lister-gitlab
@@ -38,13 +36,8 @@
   deactivate GITLAB
 
   loop For Each Repo
-      WORK_GITLAB->>STORAGE_API: CREATE ORIGIN
-	  activate STORAGE_API
       WORK_GITLAB->>SCH_API: CREATE TASK loader-git
 	  activate SCH_API
-	  STORAGE_API->>STORAGE_DB: INSERT ORIGIN
-	  STORAGE_API-->>WORK_GITLAB: 201
-	  deactivate STORAGE_API
 	  SCH_API->>SCH_DB: INSERT TASK
       SCH_API-->>WORK_GITLAB: 201
 	  deactivate SCH_API
