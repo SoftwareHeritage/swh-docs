@@ -29,10 +29,10 @@ package manager [1]. On Debian/Ubuntu-based distributions::
   sudo wget https://downloads.apache.org/cassandra/KEYS -O /etc/apt/trusted.gpg.d/cassandra.asc
   echo "deb https://downloads.apache.org/cassandra/debian 40x main" | sudo tee -a /etc/apt/sources.list.d/cassandra.list
   sudo apt update
-  sudo apt install python3 python3-venv libsvn-dev postgresql \
+  sudo apt install python3 python3-pip python3-venv libsvn-dev postgresql \
                    libsystemd-dev libpython3-dev graphviz postgresql-autodoc \
                    postgresql-server-dev-all virtualenvwrapper git build-essential \
-                   pkg-config myrepos lzip cassandra pre-commit
+                   pkg-config myrepos lzip cassandra
 
 [1] python3.7 runtime version is the minimum required
 
@@ -83,7 +83,8 @@ In the future you can re-activate the created virtualenv with::
 
 Install all the swh packages (in develop mode)::
 
-    (swh) ~/swh-environment$ pip install flake8 pifpaf tox wheel mypy
+    (swh) ~/swh-environment$ pip install pre-commit flake8 pifpaf tox wheel mypy
+    (swh) ~/swh-environment$ pip install $(./bin/pip-swh-packages)
     (swh) ~/swh-environment$ pip install $(./bin/pip-swh-packages --with-testing)
     [...]
 
