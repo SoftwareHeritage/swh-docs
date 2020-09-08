@@ -78,8 +78,8 @@ swh.docs
     Object storage replication tool
 
 :ref:`swh.scanner <swh-scanner>`
-    scan-tool used to analyze any source code project in order to discover
-    contents already known to the archive
+    source code scanner to analyze code bases and compare them with source code
+    artifacts archived by Software Heritage
 
 :ref:`swh.scheduler <swh-scheduler>`
     task manager for asynchronous/delayed tasks, used for recurrent (e.g.,
