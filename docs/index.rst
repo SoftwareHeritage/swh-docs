@@ -77,6 +77,10 @@ swh.docs
 :ref:`swh.objstorage.replayer <swh-objstorage-replayer>`
     Object storage replication tool
 
+:ref:`swh.scanner <swh-scanner>`
+    scan-tool used to analyze any source code project in order to discover
+    contents already known to the archive
+
 :ref:`swh.scheduler <swh-scheduler>`
     task manager for asynchronous/delayed tasks, used for recurrent (e.g.,
     listing a forge, loading new stuff from a Git repository) and one-off
@@ -145,6 +149,7 @@ Indices and tables
    swh.loader <swh-loader>
    swh.model <swh-model/index>
    swh.objstorage <swh-objstorage/index>
+   swh.scanner <swh-scanner/index>
    swh.scheduler <swh-scheduler/index>
    swh.storage <swh-storage/index>
    swh.vault <swh-vault/index>
