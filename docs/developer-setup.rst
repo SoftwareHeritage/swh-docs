@@ -32,7 +32,7 @@ package manager [1]. On Debian/Ubuntu-based distributions::
   sudo apt install python3 python3-pip python3-venv libsvn-dev postgresql \
                    libsystemd-dev libpython3-dev graphviz postgresql-autodoc \
                    postgresql-server-dev-all virtualenvwrapper git build-essential \
-                   pkg-config myrepos lzip cassandra
+                   pkg-config myrepos lzip cassandra plantuml inkscape
 
 [1] python3.7 runtime version is the minimum required
 
