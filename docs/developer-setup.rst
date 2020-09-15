@@ -29,10 +29,14 @@ package manager [1]. On Debian/Ubuntu-based distributions::
   sudo wget https://downloads.apache.org/cassandra/KEYS -O /etc/apt/trusted.gpg.d/cassandra.asc
   echo "deb https://downloads.apache.org/cassandra/debian 40x main" | sudo tee -a /etc/apt/sources.list.d/cassandra.list
   sudo apt update
-  sudo apt install python3 python3-pip python3-venv libsvn-dev postgresql \
-                   libsystemd-dev libpython3-dev graphviz postgresql-autodoc \
-                   postgresql-server-dev-all virtualenvwrapper git build-essential \
-                   pkg-config myrepos lzip cassandra plantuml inkscape
+  sudo apt install \
+      python3 python3-pip python3-venv virtualenvwrapper \ # Python dev tools
+      build-essential pkg-config lzip \                    # basic system utilities
+      libpython3-dev libsystemd-dev libsvn-dev \           # Python libraries build deps
+      git myrepos \                                        # manage repositories
+      postgresql libpq-dev \                               # main database
+      cassandra \                                          # alternative main database
+      postgresql-autodoc graphviz plantuml inkscape        # for documentation
 
 [1] python3.7 runtime version is the minimum required
 
