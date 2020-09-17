@@ -1,7 +1,6 @@
 from swh.deposit.settings.development import *  # noqa
 import swh.web.settings.development as web
 
-
 # merge some config variables
 ns = globals()
 for var in dir(web):

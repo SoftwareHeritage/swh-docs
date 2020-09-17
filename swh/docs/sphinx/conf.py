@@ -2,10 +2,10 @@
 # -*- coding: utf-8 -*-
 #
 
+import os
 from typing import Dict
 
 import django
-import os
 
 # General information about the project.
 project = "Software Heritage - Development Documentation"
@@ -160,8 +160,9 @@ def register_routingtable_as_label(app, document):
 def setup(app):
     os.environ.setdefault("DJANGO_SETTINGS_MODULE", "swh.docs.django_settings")
     django.setup()
-    import pkg_resources  # noqa
     from distutils.version import StrictVersion  # noqa
+
+    import pkg_resources  # noqa
 
     httpdomain = pkg_resources.get_distribution("sphinxcontrib-httpdomain")
     if StrictVersion(httpdomain.version) <= StrictVersion("1.7.0"):
