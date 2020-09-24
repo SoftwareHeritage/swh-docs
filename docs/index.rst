@@ -41,6 +41,9 @@ of the corresponding Python module.
 swh.docs
     developer documentation (used to generate this doc you are reading)
 
+:ref:`swh.fuse <swh-fuse>`
+    Virtual FUSE file system to browse the Software Heritage archive
+
 :ref:`swh.graph <swh-graph>`
     Fast, compressed, in-memory representation of the archive, with tooling to
     generate and query it.
@@ -142,6 +145,7 @@ Indices and tables
    swh.core <swh-core/index>
    swh.dataset <swh-dataset/index>
    swh.deposit <swh-deposit/index>
+   swh.fuse <swh-fuse/index>
    swh.graph <swh-graph/index>
    swh.indexer <swh-indexer/index>
    swh.journal <swh-journal/index>

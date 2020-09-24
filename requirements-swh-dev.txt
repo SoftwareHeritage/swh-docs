@@ -22,3 +22,4 @@
 ../swh-web
 ../swh-web-client
 ../swh-scanner
+../swh-fuse

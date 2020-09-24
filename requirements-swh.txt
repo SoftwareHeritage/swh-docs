@@ -1,6 +1,7 @@
 # Add here internal Software Heritage dependencies, one per line.
 swh.core[http,db]
 swh.deposit
+swh.fuse
 swh.graph
 swh.indexer
 swh.journal
