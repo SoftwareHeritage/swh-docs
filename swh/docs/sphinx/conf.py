@@ -30,6 +30,7 @@ extensions = [
     "sphinx.ext.graphviz",
     "sphinx_click.ext",
     "myst_parser",
+    "sphinx.ext.todo",
 ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -135,6 +136,9 @@ autodoc_member_order = "bysource"
 autodoc_mock_imports = ["rados"]
 
 modindex_common_prefix = ["swh."]
+
+# For the todo extension. Todo and todolist produce output only if this is True
+todo_include_todos = True
 
 # for the extlinks extension, sub-projects should fill that dict
 extlinks: Dict = {}
