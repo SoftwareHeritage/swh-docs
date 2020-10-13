@@ -36,7 +36,8 @@ package manager [1]. On Debian/Ubuntu-based distributions::
       git myrepos \                                        # manage repositories
       postgresql libpq-dev \                               # main database
       cassandra \                                          # alternative main database
-      postgresql-autodoc graphviz plantuml inkscape        # for documentation
+      postgresql-autodoc graphviz plantuml inkscape \      # for documentation
+      fuse3 libfuse3-dev                                   # FUSE interface
 
 [1] python3.7 runtime version is the minimum required
 
