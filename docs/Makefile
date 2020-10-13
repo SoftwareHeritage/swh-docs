@@ -28,12 +28,13 @@ links-stamp:
 	touch $@
 
 apidoc: apidoc-stamp
-apidoc-stamp: links-stamp images-stamp
+apidoc-stamp: links-stamp
 	$(SPHINXAPIDOC) --implicit-namespaces $(APIDOC_OPTS) -o $(APIDOC_DIR) $(SWHPKGDIR) $(APIDOC_SWH_EXCLUDES)
 	touch $@
 
 images-stamp:
 	$(MAKE) -C images
+	$(MAKE) -C swh-deposit/images
 	touch $@
 
 # Build documentation recursively in all packages, to make sure that auxiliary,
@@ -68,4 +69,4 @@ install: html
 		 find $(INSTALL_DIR) -not -perm -ug=rw,o=r -exec chmod -v ug+rw,o+r {} + ; \
 		 find $(INSTALL_DIR) -type d -not -perm -g=xs,ou=x -exec chmod -v g+xs,ou+x {} +"
 
-.PHONY: help html clean distclean install
+.PHONY: help html clean distclean install images-stamp
