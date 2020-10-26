@@ -141,7 +141,6 @@ Indices and tables
    architecture
    getting-started
    developer-setup
-   Infrastructure <infrastructure/index>
    API documentation <apidoc/modules>
    swh.core <swh-core/index>
    swh.dataset <swh-dataset/index>
