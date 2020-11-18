@@ -120,6 +120,12 @@ The dependency relationships among the various modules are depicted below.
    Dependencies among top-level Python modules (click to zoom).
 
 
+Archive
+-------
+
+* :ref:`Notable archive changes <archive-journal>` over time
+
+
 Indices and tables
 ==================
 
