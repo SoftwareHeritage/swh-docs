@@ -13,7 +13,7 @@ document for historical reasons.
 2020
 ----
 
-* **2020-10-06 - current:** automatic crawling of source code has been paused
-  to avoid an out of disk condition, due to unexpected delay in the arrival of
-  new storage hardware. "Push" archival (deposit and "save code now") remains
-  in operation.
+* **2020-10-06 - 2020-11-23:** automatic crawling of source code has been
+  paused to avoid an out of disk condition, due to unexpected delay in the
+  arrival of new storage hardware. "Push" archival (both deposit and "save code
+  now") remained in operation.
