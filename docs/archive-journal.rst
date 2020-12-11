@@ -23,20 +23,20 @@ yet (tracking: `T2793 <https://forge.softwareheritage.org/T2793>`_).
   storage hardware. Push archival (both `deposit` and `save code now`) remained
   in operation. (tracking: `T2656 <https://forge.softwareheritage.org/T2656>`_)
 
-* **2020-06-11:** completed integration with the `IPOL`_ journal, allowing
-  paper authors to explicitly `deposit` source code to the archive (
-  (`announcement <https://www.softwareheritage.org/2020/06/11/ipol-and-swh/>`_)
+* **2020-06-11:** completed integration with the IPOL_ journal, allowing paper
+  authors to explicitly `deposit` source code to the archive (`announcement
+  <https://www.softwareheritage.org/2020/06/11/ipol-and-swh/>`_)
 
 
 2019
 ----
 
-* **2019-09-10:** completed first ingestion of `Bitbucket`_ Git repositories
-  and added Bitbucket as a regularly crawled forge (tracking: `T592
+* **2019-09-10:** completed first ingestion of Bitbucket_ Git repositories and
+  added Bitbucket as a regularly crawled forge (tracking: `T592
   <https://forge.softwareheritage.org/T592>`_)
 
-* **2019-06-12:** completed first ingestion of `CRAN`_ packages and added CRAN
-  as a regularly crawled package repository (tracking: `T1709
+* **2019-06-12:** completed first ingestion of CRAN_ packages and added CRAN as
+  a regularly crawled package repository (tracking: `T1709
   <https://forge.softwareheritage.org/T1709>`_)
 
 * **2019-01-10:** enabled the `save code now`_ service, allowing users to
@@ -48,18 +48,18 @@ yet (tracking: `T2793 <https://forge.softwareheritage.org/T2793>`_).
 2018
 ----
 
-* **2018-10-10:** completed first ingestion of `PyPI`_ packages and added PyPI
-  as a regularly crawled package repository (`announcement
+* **2018-10-10:** completed first ingestion of PyPI_ packages and added PyPI as
+  a regularly crawled package repository (`announcement
   <https://www.softwareheritage.org/2018/10/10/pypi-available-on-software-heritage/>`_)
 
-* **2018-09-25:** completed integration with `HAL`_, allowing paper authors to
+* **2018-09-25:** completed integration with HAL_, allowing paper authors to
   explicitly `deposit` source code to the archive (`announcement
   <https://www.softwareheritage.org/2018/09/28/depositing-scientific-software-into-software-heritage/>`_)
 
 * **2018-03-21:** completed import of `Google Code`_ Mercurial repositories.
   (tracking: `T682 <https://forge.softwareheritage.org/T682>`_)
 
-* **2018-02-20:** completed import of `Debian`_ packages and added Debian as a
+* **2018-02-20:** completed import of Debian_ packages and added Debian as a
   regularly crawled distribution (`announcement
   <https://www.softwareheritage.org/2018/02/20/listing-and-loading-of-debian-repositories-now-live/>`_)
 
@@ -77,14 +77,14 @@ yet (tracking: `T2793 <https://forge.softwareheritage.org/T2793>`_).
 2016
 ----
 
-* **2016-04-04:** completed import of the `Gitorious`_ (tracking: `T312
+* **2016-04-04:** completed import of the Gitorious_ (tracking: `T312
   <https://forge.softwareheritage.org/T312>`_)
 
 
 2015
 ----
 
-* **2015-07-28:** started archiving public `GitHub`_ repositories
+* **2015-07-28:** started archiving public GitHub_ repositories
 
 
 
