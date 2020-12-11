@@ -20,11 +20,11 @@ can follow the status of completing it on our development forge: `T2793
 
 * **2020-10-06 - 2020-11-23:** source code crawlers have been paused to avoid
   an out of disk condition, due to an unexpected delay in the arrival of new
-  storage hardware. Push archival (both `deposit` and `save code now`) remained
+  storage hardware. Push archival (both deposit_ and `save code now`_) remained
   in operation. (tracking: `T2656 <https://forge.softwareheritage.org/T2656>`_)
 
 * **2020-06-11:** completed integration with the IPOL_ journal, allowing paper
-  authors to explicitly `deposit` source code to the archive (`announcement
+  authors to explicitly deposit_ source code to the archive (`announcement
   <https://www.softwareheritage.org/2020/06/11/ipol-and-swh/>`_)
 
 
@@ -71,7 +71,7 @@ can follow the status of completing it on our development forge: `T2793
   <https://www.softwareheritage.org/2018/10/10/pypi-available-on-software-heritage/>`_)
 
 * **2018-09-25:** completed integration with HAL_, allowing paper authors to
-  explicitly `deposit` source code to the archive (`announcement
+  explicitly deposit_ source code to the archive (`announcement
   <https://www.softwareheritage.org/2018/09/28/depositing-scientific-software-into-software-heritage/>`_)
 
 * **2018-08-31:** completed first ingestion of public GitLab_ repositories from
@@ -115,15 +115,15 @@ can follow the status of completing it on our development forge: `T2793
 .. _Bitbucket: https://bitbucket.org
 .. _CRAN: https://cran.r-project.org
 .. _Debian: https://www.debian.org
-.. _ftp.gnu.org: http://ftp.gnu.org
+.. _GNU: https://en.wikipedia.org/wiki/Google_Code
 .. _GitHub: https://github.com
 .. _GitLab: https://gitlab.com
 .. _Gitorious: https://en.wikipedia.org/wiki/Gitorious
-.. _GNU: https://en.wikipedia.org/wiki/Google_Code
 .. _Google Code: https://en.wikipedia.org/wiki/Google_Code
 .. _HAL: https://hal.archives-ouvertes.fr
 .. _IPOL: http://www.ipol.im
 .. _NPM: https://www.npmjs.com
 .. _PyPI: https://pypi.org
 .. _deposit: https://deposit.softwareheritage.org
+.. _ftp.gnu.org: http://ftp.gnu.org
 .. _save code now: https://save.softwareheritage.org
