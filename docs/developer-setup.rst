@@ -30,16 +30,17 @@ package manager [1]. On Debian/Ubuntu-based distributions::
   echo "deb https://downloads.apache.org/cassandra/debian 40x main" | sudo tee -a /etc/apt/sources.list.d/cassandra.list
   sudo apt update
   sudo apt install \
-      python3 python3-pip python3-venv virtualenvwrapper \ # Python dev tools
-      build-essential pkg-config lzip \                    # basic system utilities
-      libpython3-dev libsystemd-dev libsvn-dev \           # Python libraries build deps
-      git myrepos \                                        # manage repositories
-      postgresql libpq-dev \                               # main database
-      cassandra \                                          # alternative main database
-      postgresql-autodoc graphviz plantuml inkscape \      # for documentation
-      fuse3 libfuse3-dev                                   # FUSE interface
+      build-essential pkg-config lzip rsync \
+      python3 python3-pip python3-venv virtualenvwrapper \
+      libpython3-dev libsystemd-dev libsvn-dev fuse3 libfuse3-dev \
+      git myrepos \
+      postgresql-autodoc graphviz plantuml inkscape \
+      postgresql libpq-dev cassandra
 
 [1] python3.7 runtime version is the minimum required
+
+This installs basic system utilities, Python library dependencies, development tools,
+documentation tools and our main database management systems.
 
 Cassandra and postgresql will be started by tests when they need it, so you
 don't need them started globally (this will save you some RAM)::
