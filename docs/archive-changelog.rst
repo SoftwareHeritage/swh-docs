@@ -23,9 +23,16 @@ can follow the status of completing it on our development forge: `T2793
   storage hardware. Push archival (both deposit_ and `save code now`_) remained
   in operation. (tracking: `T2656 <https://forge.softwareheritage.org/T2656>`_)
 
+* **2020-09-15:** completed first ingestion of, and added to regular crawling
+  `GNU Guix System`_ (tracking: `T2594
+  <https://forge.softwareheritage.org/T2594>`_)
+
 * **2020-06-11:** completed integration with the IPOL_ journal, allowing paper
   authors to explicitly deposit_ source code to the archive (`announcement
   <https://www.softwareheritage.org/2020/06/11/ipol-and-swh/>`_)
+
+* **2020-05-25:** completed first ingestion of, and added to regular crawling
+  NixOS_ (tracking: `T2411 <https://forge.softwareheritage.org/T2411>`_)
 
 
 2019
@@ -113,6 +120,7 @@ can follow the status of completing it on our development forge: `T2793
 .. _Bitbucket: https://bitbucket.org
 .. _CRAN: https://cran.r-project.org
 .. _Debian: https://www.debian.org
+.. _GNU Guix System: https://guix.gnu.org/
 .. _GNU: https://en.wikipedia.org/wiki/Google_Code
 .. _GitHub: https://github.com
 .. _GitLab: https://gitlab.com
@@ -121,6 +129,7 @@ can follow the status of completing it on our development forge: `T2793
 .. _HAL: https://hal.archives-ouvertes.fr
 .. _IPOL: http://www.ipol.im
 .. _NPM: https://www.npmjs.com
+.. _NixOS: https://nixos.org/
 .. _PyPI: https://pypi.org
 .. _deposit: https://deposit.softwareheritage.org
 .. _ftp.gnu.org: http://ftp.gnu.org
