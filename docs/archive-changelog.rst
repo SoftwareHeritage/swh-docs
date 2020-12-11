@@ -7,7 +7,7 @@ Software Heritage --- Archive ChangeLog
 Below you can find a time-indexed list of notable events and changes to
 archival policies in the Software Heritage Archive. Each of them might have
 (had) an impact on how content is archived and explain apparent statistical
-anomalies or other changes in archival behaviour over time. They are collected
+anomalies or other changes in archival behavior over time. They are collected
 in this document for historical reasons.
 
 **WARNING:** this document is **work in progress** and not complete yet. You
@@ -20,11 +20,11 @@ can follow the status of completing it on our development forge: `T2793
 
 * **2020-10-06 - 2020-11-23:** source code crawlers have been paused to avoid
   an out of disk condition, due to an unexpected delay in the arrival of new
-  storage hardware. Push archival (both `deposit` and `save code now`) remained
+  storage hardware. Push archival (both deposit_ and `save code now`_) remained
   in operation. (tracking: `T2656 <https://forge.softwareheritage.org/T2656>`_)
 
 * **2020-06-11:** completed integration with the IPOL_ journal, allowing paper
-  authors to explicitly `deposit` source code to the archive (`announcement
+  authors to explicitly deposit_ source code to the archive (`announcement
   <https://www.softwareheritage.org/2020/06/11/ipol-and-swh/>`_)
 
 
@@ -36,14 +36,12 @@ can follow the status of completing it on our development forge: `T2793
   <https://forge.softwareheritage.org/T592>`_)
 
 * **2019-06-30:** completed first ingestion of, and added to regular crawling,
-  several GitLab_ instances: `0xacab.org <https://0xacab.org/api/v4/>`_,
-  `framagit.org <https://framagit.org/api/v4/>`_, `gite.lirmm.fr
-  <https://gite.lirmm.fr/api/v4>`_, `gitlab.com <https://gitlab.com/api/v4>`_,
-  `gitlab.common-lisp.net <https://gitlab.common-lisp.net/api/v4>`_,
-  `gitlab.freedesktop.org <https://gitlab.freedesktop.org/api/v4/>`_,
-  `gitlab.gnome.org <https://gitlab.gnome.org/api/v4/>`_, `gitlab.inria.fr
-  <https://gitlab.inria.fr/api/v4/>`_, `salsa.debian.org
-  <https://salsa.debian.org/api/v4/>`_
+  several GitLab_ instances: `0xacab.org <https://0xacab.org>`_, `framagit.org
+  <https://framagit.org>`_, `gite.lirmm.fr <https://gite.lirmm.fr>`_,
+  `gitlab.common-lisp.net <https://gitlab.common-lisp.net>`_,
+  `gitlab.freedesktop.org <https://gitlab.freedesktop.org>`_, `gitlab.gnome.org
+  <https://gitlab.gnome.org>`_, `gitlab.inria.fr <https://gitlab.inria.fr>`_,
+  `salsa.debian.org <https://salsa.debian.org>`_
 
 * **2019-06-12:** completed first ingestion of CRAN_ packages and added CRAN as
   a regularly crawled package repository (tracking: `T1709
@@ -71,7 +69,7 @@ can follow the status of completing it on our development forge: `T2793
   <https://www.softwareheritage.org/2018/10/10/pypi-available-on-software-heritage/>`_)
 
 * **2018-09-25:** completed integration with HAL_, allowing paper authors to
-  explicitly `deposit` source code to the archive (`announcement
+  explicitly deposit_ source code to the archive (`announcement
   <https://www.softwareheritage.org/2018/09/28/depositing-scientific-software-into-software-heritage/>`_)
 
 * **2018-08-31:** completed first ingestion of public GitLab_ repositories from
@@ -115,15 +113,15 @@ can follow the status of completing it on our development forge: `T2793
 .. _Bitbucket: https://bitbucket.org
 .. _CRAN: https://cran.r-project.org
 .. _Debian: https://www.debian.org
-.. _ftp.gnu.org: http://ftp.gnu.org
+.. _GNU: https://en.wikipedia.org/wiki/Google_Code
 .. _GitHub: https://github.com
 .. _GitLab: https://gitlab.com
 .. _Gitorious: https://en.wikipedia.org/wiki/Gitorious
-.. _GNU: https://en.wikipedia.org/wiki/Google_Code
 .. _Google Code: https://en.wikipedia.org/wiki/Google_Code
 .. _HAL: https://hal.archives-ouvertes.fr
 .. _IPOL: http://www.ipol.im
 .. _NPM: https://www.npmjs.com
 .. _PyPI: https://pypi.org
 .. _deposit: https://deposit.softwareheritage.org
+.. _ftp.gnu.org: http://ftp.gnu.org
 .. _save code now: https://save.softwareheritage.org
