@@ -1,5 +1,6 @@
 .. _swh-docs:
 
+
 Software Heritage - Development Documentation
 =============================================
 
@@ -123,7 +124,8 @@ The dependency relationships among the various modules are depicted below.
 Archive
 -------
 
-* :ref:`Notable archive changes <archive-journal>` over time
+* :ref:`Archive ChangeLog <archive-changelog>`: notable changes to the archive
+  over time
 
 
 Indices and tables

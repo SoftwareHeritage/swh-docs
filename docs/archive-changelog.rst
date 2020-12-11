@@ -7,7 +7,7 @@ Software Heritage --- Archive ChangeLog
 Below you can find a time-indexed list of notable events and changes to
 archival policies in the Software Heritage Archive. Each of them might have
 (had) an impact on how content is archived and explain apparent statistical
-anomalies or other changes in archival behavior over time. They are collected
+anomalies or other changes in archival behaviour over time. They are collected
 in this document for historical reasons.
 
 **WARNING:** this document is **work in progress** and not complete yet. You
