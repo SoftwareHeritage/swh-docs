@@ -35,9 +35,27 @@ yet (tracking: `T2793 <https://forge.softwareheritage.org/T2793>`_).
   added Bitbucket as a regularly crawled forge (tracking: `T592
   <https://forge.softwareheritage.org/T592>`_)
 
+* **2019-06-30:** completed first ingestion of, and added to regular crawling,
+  several GitLab_ instances: `0xacab.org <https://0xacab.org/api/v4/>`_,
+  `framagit.org <https://framagit.org/api/v4/>`_, `gite.lirmm.fr
+  <https://gite.lirmm.fr/api/v4>`_, `gitlab.com <https://gitlab.com/api/v4>`_,
+  `gitlab.common-lisp.net <https://gitlab.common-lisp.net/api/v4>`_,
+  `gitlab.freedesktop.org <https://gitlab.freedesktop.org/api/v4/>`_,
+  `gitlab.gnome.org <https://gitlab.gnome.org/api/v4/>`_, `gitlab.inria.fr
+  <https://gitlab.inria.fr/api/v4/>`_, `salsa.debian.org
+  <https://salsa.debian.org/api/v4/>`_
+
 * **2019-06-12:** completed first ingestion of CRAN_ packages and added CRAN as
   a regularly crawled package repository (tracking: `T1709
   <https://forge.softwareheritage.org/T1709>`_)
+
+* **2019-06-11:** completed a full ingestion of GNU_ source code releases from
+  `ftp.gnu.org`_, and added it to regular crawling (tracking: `T1722
+  <https://forge.softwareheritage.org/T1722>`_)
+
+* **2019-05-27:** completed a full ingestion of NPM_ packages andded it as a
+  regularly crawled package repository (tracking: `T1378
+  <https://forge.softwareheritage.org/T1378>`_)
 
 * **2019-01-10:** enabled the `save code now`_ service, allowing users to
   explicitly request archival of a specific source code repository
@@ -55,6 +73,10 @@ yet (tracking: `T2793 <https://forge.softwareheritage.org/T2793>`_).
 * **2018-09-25:** completed integration with HAL_, allowing paper authors to
   explicitly `deposit` source code to the archive (`announcement
   <https://www.softwareheritage.org/2018/09/28/depositing-scientific-software-into-software-heritage/>`_)
+
+* **2018-08-31:** completed first ingestion of public GitLab_ repositories from
+  `gitlab.com <https://gitlab.com>`_ and added it as a regularly crawled forge
+  (tracking: `T1111 <https://forge.softwareheritage.org/T1111>`_)
 
 * **2018-03-21:** completed import of `Google Code`_ Mercurial repositories.
   (tracking: `T682 <https://forge.softwareheritage.org/T682>`_)
@@ -84,6 +106,8 @@ yet (tracking: `T2793 <https://forge.softwareheritage.org/T2793>`_).
 2015
 ----
 
+* **2015-11-06:** archived all GNU_ source code releases from `ftp.gnu.org`_
+  (tracking: `T90 <https://forge.softwareheritage.org/T90>`_)
 * **2015-07-28:** started archiving public GitHub_ repositories
 
 
@@ -91,11 +115,15 @@ yet (tracking: `T2793 <https://forge.softwareheritage.org/T2793>`_).
 .. _Bitbucket: https://bitbucket.org
 .. _CRAN: https://cran.r-project.org
 .. _Debian: https://www.debian.org
+.. _ftp.gnu.org: http://ftp.gnu.org
 .. _GitHub: https://github.com
+.. _GitLab: https://gitlab.com
 .. _Gitorious: https://en.wikipedia.org/wiki/Gitorious
+.. _GNU: https://en.wikipedia.org/wiki/Google_Code
 .. _Google Code: https://en.wikipedia.org/wiki/Google_Code
 .. _HAL: https://hal.archives-ouvertes.fr
 .. _IPOL: http://www.ipol.im
+.. _NPM: https://www.npmjs.com
 .. _PyPI: https://pypi.org
 .. _deposit: https://deposit.softwareheritage.org
-.. _save code now: http://save.softwareheritage.org/
+.. _save code now: https://save.softwareheritage.org
