@@ -10,10 +10,6 @@ archival policies in the Software Heritage Archive. Each of them might have
 anomalies or other changes in archival behavior over time. They are collected
 in this document for historical reasons.
 
-**WARNING:** this document is **work in progress** and not complete yet. You
-can follow the status of completing it on our development forge: `T2793
-<https://forge.softwareheritage.org/T2793>`_.
-
 
 2020
 ----
