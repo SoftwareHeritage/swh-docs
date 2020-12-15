@@ -23,6 +23,12 @@ Architecture
   one
 
 
+Data Model and Specifications
+-----------------------------
+
+* :ref:`persistent-identifiers` Specifications of the SoftWare Heritage persistent IDentifiers (SWHID).
+* :ref:`data-model` Documentation of the main |swh| archive data model.
+* :ref:`journal-specs` Documentation of the Kafka journal of the |swh| archive.
 
 Components
 ----------
@@ -155,8 +161,6 @@ Indices and tables
    architecture
    getting-started
    developer-setup
-   journal
-   mirror
    API documentation <apidoc/modules>
    swh.core <swh-core/index>
    swh.dataset <swh-dataset/index>
