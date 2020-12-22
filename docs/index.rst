@@ -91,6 +91,9 @@ swh.docs
     listing a forge, loading new stuff from a Git repository) and one-off
     activities (e.g., loading a specific version of a source package)
 
+:ref:`swh.search <swh-search>`
+    search engine for the archive
+
 :ref:`swh.storage <swh-storage>`
     abstraction layer over the archive, allowing to access all stored source
     code artifacts as well as their metadata
@@ -164,6 +167,7 @@ Indices and tables
    swh.objstorage <swh-objstorage/index>
    swh.scanner <swh-scanner/index>
    swh.scheduler <swh-scheduler/index>
+   swh.search <swh-search/index>
    swh.storage <swh-storage/index>
    swh.vault <swh-vault/index>
    swh.web <swh-web/index>
