@@ -98,7 +98,7 @@ with `branches` being a dictionary which keys are branch names [bytes], and valu
 
 Example:
 
-.. code:: json
+.. code:: python
 
    {
     'branches': {
@@ -149,7 +149,7 @@ Message format:
 
 Example:
 
-.. code:: json
+.. code:: python
 
    {
     'name': b'0.3',
@@ -201,7 +201,7 @@ Message format:
 
 Example:
 
-.. code:: json
+.. code:: python
 
    {
     'message': b'I now arrange to be able to create a prettyprinted version of the Pascal\ncode to make review of translation of it easier, and I have thought a bit\nmore about coping with Pastacl variant records and the like, but have yet to\nimplement everything. lufylib.red is a place for support code.\n',
@@ -259,7 +259,7 @@ Message format:
 
 Example:
 
-.. code:: json
+.. code:: python
 
    {
     'sha1': b'-\xe7\xc1`\x9d\xd7\x7fu+\x05l\x07\xd1}\x95\x16o-u\x1d',
@@ -299,7 +299,7 @@ Message format:
 
 Example:
 
-.. code:: json
+.. code:: python
 
    {
     'sha1': b'[\x0f\x19I-%+\xec\x9dS\x86\xffz\xcb\xa2\x9f\x15\xcc\xb4&',
@@ -333,7 +333,7 @@ with directory entries being dictionaries:
 
 Example:
 
-.. code:: json
+.. code:: python
 
    {
     'entries': [
@@ -378,7 +378,7 @@ Message format:
 
 Example:
 
-.. code:: json
+.. code:: python
 
    {
      "url": "https://github.com/vujkovicm/pml"
@@ -399,7 +399,7 @@ Message format:
 
 Example:
 
-.. code:: json
+.. code:: python
 
    {
     'origin': 'https://pypi.org/project/wasp-eureka/',
@@ -426,7 +426,7 @@ Message format:
 
 Example:
 
-.. code:: json
+.. code:: python
 
    {
     'origin': 'https://pypi.org/project/stricttype/',
@@ -460,7 +460,7 @@ Message format:
 
 Examples:
 
-.. code:: json
+.. code:: python
 
    {
     'type': 'forge',
@@ -489,7 +489,7 @@ Message format:
 
 Example:
 
-.. code:: json
+.. code:: python
 
    {
     'name': 'swh.loader.package.cran.loader.CRANLoader',
@@ -523,7 +523,7 @@ Message format:
 
 Example:
 
-.. code:: json
+.. code:: python
 
    {
     'type': 'snapshot',
@@ -605,7 +605,7 @@ There are 2 type of date that can be encoded in a kafka message:
 
   Example:
 
-  .. code:: json
+  .. code:: python
 
      {
        'timestamp': {'seconds': 1480432642, 'microseconds': 0},
@@ -622,7 +622,7 @@ There are 2 type of date that can be encoded in a kafka message:
 
   Note that these dates used to be encoded as a dictionary (beware: keys are bytes):
 
-  .. code:: json
+  .. code:: python
 
      {
       b"swhtype": "datetime",
@@ -639,7 +639,7 @@ or a :py:class:`swh.model.model.Release` author.
 
 :py:class:`swh.model.model.Person` objects are serialized as a dictionary like:
 
-.. code:: json
+.. code:: python
 
    {
     'fullname': 'John Doe <john.doe@example.com>',
@@ -651,7 +651,7 @@ For anonymized topics, :py:class:`swh.model.model.Person` entities have seen
 anonymized prior to being serialized. The anonymized
 :py:class:`swh.model.model.Person` object is a dictionary like:
 
-.. code:: json
+.. code:: python
 
    {
     'fullname': <hashed value>,
