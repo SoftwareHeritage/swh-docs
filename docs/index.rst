@@ -19,6 +19,9 @@ Architecture
 
 * :ref:`architecture` ← go there to have a glimpse on the Software Heritage software
   architecture
+* :ref:`mirror` ← go there to have learn what a Software Heritage mirror is and
+  how set up one
+
 
 
 Components
@@ -153,6 +156,7 @@ Indices and tables
    getting-started
    developer-setup
    journal
+   mirror
    API documentation <apidoc/modules>
    swh.core <swh-core/index>
    swh.dataset <swh-dataset/index>
