@@ -8,19 +8,19 @@ Software Heritage - Development Documentation
 Getting started
 ---------------
 
-* :ref:`getting-started` ← start here to get your own Software Heritage
-  platform running in less than 5 minutes, or
-* :ref:`developer-setup` ← here to hack on the Software Heritage software
-  stack
+* :ref:`getting-started` → deploy a local copy of the Software Heritage
+  software stack in less than 5 minutes, or
+* :ref:`developer-setup` → get a working development setup that allows to hack
+  on the Software Heritage software stack
 
 
 Architecture
 ------------
 
-* :ref:`architecture` ← go there to have a glimpse on the Software Heritage software
+* :ref:`architecture` → get a glimpse of the Software Heritage software
   architecture
-* :ref:`mirror` ← go there to have learn what a Software Heritage mirror is and
-  how set up one
+* :ref:`mirror` → learn what a Software Heritage mirror is and how to set up
+  one
 
 
 
