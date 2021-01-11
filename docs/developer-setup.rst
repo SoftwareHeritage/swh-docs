@@ -61,16 +61,17 @@ Clone the |swh| environment repository::
     ~$ cd swh-environment
     ~/swh-environment$
 
-Checkout all the swh packages source repositories::
-
-    ~/swh-environment$ ./bin/update
-
 Create a virtualenv::
 
     ~/swh-environment$ source /usr/share/virtualenvwrapper/virtualenvwrapper.sh
     ~/swh-environment$ mkvirtualenv -p /usr/bin/python3 -a $PWD swh
     [...]
     (swh) ~/swh-environment$
+
+Checkout all the swh packages source repositories::
+
+    (swh) ~/swh-environment$ pip install pre-commit
+    (swh) ~/swh-environment$ ./bin/update
 
 In the future you can re-activate the created virtualenv with::
 
@@ -89,7 +90,7 @@ In the future you can re-activate the created virtualenv with::
 
 Install all the swh packages (in develop mode)::
 
-    (swh) ~/swh-environment$ pip install pre-commit flake8 pifpaf tox wheel mypy
+    (swh) ~/swh-environment$ pip install flake8 pifpaf tox wheel mypy
     (swh) ~/swh-environment$ pip install $(./bin/pip-swh-packages)
     (swh) ~/swh-environment$ pip install $(./bin/pip-swh-packages --with-testing)
     [...]
