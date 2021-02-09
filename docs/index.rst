@@ -180,4 +180,5 @@ Indices and tables
    swh.vault <swh-vault/index>
    swh.web <swh-web/index>
    swh.web.client <swh-web-client/index>
+   testing
    issue-debugging-monitoring
