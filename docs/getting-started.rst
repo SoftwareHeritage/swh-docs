@@ -29,7 +29,7 @@ Heritage platform. You should open:
 
 - http://localhost:5080/ to navigate your (empty for now) SWH archive,
 - http://localhost:5080/rabbitmq to access the rabbitmq dashboard (guest/guest),
-- http://localhost:5080/grafana to explore the platform's metrics,
+- http://localhost:5080/grafana to explore the platform's metrics (admin/admin),
 
 All the internal APIs are also exposed:
 
