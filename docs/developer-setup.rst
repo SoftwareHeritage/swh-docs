@@ -88,19 +88,21 @@ In the future you can re-activate the created virtualenv with::
 .. _pipenv: https://pipenv.readthedocs.io/
 
 
-Install all the swh packages (in develop mode)::
+Install all the swh packages (in development mode, with testing dependencies)::
 
-    (swh) ~/swh-environment$ pip install flake8 pifpaf tox wheel mypy
-    (swh) ~/swh-environment$ pip install $(./bin/pip-swh-packages)
-    (swh) ~/swh-environment$ pip install $(./bin/pip-swh-packages --with-testing)
+    (swh) ~/swh-environment$ bin/install
     [...]
 
-.. Note:: If you experience issues in :program:`pip` package resolution, try using
-   ``--use-deprecated=legacy-resolver`` CLI option.
-   It can be set in :file:`~/.config/pip/pip.conf` until the issue is solved::
+.. note::
+
+   If you experience issues with :program:`pip` dependency resolution, try with
+   ``bin/install --use-deprecated=legacy-resolver`` (the flag will be passed on
+   to :program:`pip install`). The same flag can also be set globally in
+   :file:`~/.config/pip/pip.conf`::
 
       [install]
       use-deprecated=legacy-resolver
+
 
 Executing unit tests
 --------------------
