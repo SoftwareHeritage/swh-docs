@@ -91,13 +91,12 @@ In the future you can re-activate the created virtualenv with::
 Install all the swh packages (in development mode, with testing dependencies)::
 
     (swh) ~/swh-environment$ bin/install
-    [...]
 
 .. note::
 
    If you experience issues with :program:`pip` dependency resolution, try with
    ``bin/install --use-deprecated=legacy-resolver`` (the flag will be passed on
-   to :program:`pip install`). The same flag can also be set globally in
+   to ``pip install``). The same flag can also be set globally in
    :file:`~/.config/pip/pip.conf`::
 
       [install]
