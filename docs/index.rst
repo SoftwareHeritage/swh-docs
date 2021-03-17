@@ -13,6 +13,14 @@ Getting started
 * :ref:`developer-setup` → get a working development setup that allows to hack
   on the Software Heritage software stack
 
+Contributing
+------------
+
+* :ref:`patch-submission` → learn how to submit your patches to the
+  Software Heritage codebase
+* :ref:`code-review` → rules and guidelines to review code in
+  Software Heritage
+* :ref:`python-style-guide` → how to format the Python code you write
 
 Architecture
 ------------
@@ -161,6 +169,7 @@ Indices and tables
    architecture
    getting-started
    developer-setup
+   contributing/index
    API documentation <apidoc/modules>
    swh.core <swh-core/index>
    swh.dataset <swh-dataset/index>
