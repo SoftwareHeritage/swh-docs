@@ -1,3 +1,4 @@
+.. _testing-guide:
 
 Software testing guide
 ======================

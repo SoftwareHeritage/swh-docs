@@ -30,13 +30,18 @@ Architecture
 * :ref:`mirror` → learn what a Software Heritage mirror is and how to set up
   one
 
-
 Data Model and Specifications
 -----------------------------
 
 * :ref:`persistent-identifiers` Specifications of the SoftWare Heritage persistent IDentifiers (SWHID).
 * :ref:`data-model` Documentation of the main |swh| archive data model.
 * :ref:`journal-specs` Documentation of the Kafka journal of the |swh| archive.
+
+Tutorials
+---------
+
+* :ref:`testing-guide`
+* :doc:`/tutorials/issue-debugging-monitoring`
 
 Components
 ----------
@@ -170,6 +175,7 @@ Indices and tables
    getting-started
    developer-setup
    contributing/index
+   tutorials/index
    API documentation <apidoc/modules>
    swh.core <swh-core/index>
    swh.dataset <swh-dataset/index>
@@ -189,5 +195,3 @@ Indices and tables
    swh.vault <swh-vault/index>
    swh.web <swh-web/index>
    swh.web.client <swh-web-client/index>
-   testing
-   issue-debugging-monitoring
