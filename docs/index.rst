@@ -171,9 +171,8 @@ Indices and tables
    :titlesonly:
    :hidden:
 
-   architecture
-   getting-started
-   developer-setup
+   getting-started-index
+   architecture/index
    contributing/index
    tutorials/index
    API documentation <apidoc/modules>
