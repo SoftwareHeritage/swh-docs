@@ -29,7 +29,14 @@ links-stamp:
 
 apidoc: apidoc-stamp
 apidoc-stamp: links-stamp
-	$(SPHINXAPIDOC) --implicit-namespaces $(APIDOC_OPTS) -o $(APIDOC_DIR) $(SWHPKGDIR) $(APIDOC_SWH_EXCLUDES)
+	$(SPHINXAPIDOC) \
+		--implicit-namespaces \
+		--templatedir=../swh/docs/templates/ \
+		--maxdepth=3 \
+		$(APIDOC_OPTS) \
+		-o $(APIDOC_DIR) \
+		$(SWHPKGDIR) \
+		$(APIDOC_SWH_EXCLUDES)
 	touch $@
 
 images-stamp:
