@@ -47,5 +47,5 @@ Good reads on various angles of code review:
 See also
 --------
 
-* :ref:`phabricator-arcanist`_
-* :ref:`coding-guidelines`_
+* :ref:`phabricator-arcanist`
+* :ref:`coding-guidelines`
