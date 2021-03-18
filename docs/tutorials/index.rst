@@ -5,9 +5,7 @@ Tutorials
 
 .. toctree::
    :maxdepth: 2
-   :caption: Contents:
    :titlesonly:
-   :hidden:
 
    testing
    issue-debugging-monitoring
