@@ -39,13 +39,19 @@ Tests
 +++++
 
 * use ``pytest`` as test runner
+
 * put ``tests/`` dir down deep in the module hierarchy, near to the code being tested
+
 * naming conventions:
-** ``tests/test_mymodule.py``
-** ``class TestMyEntity(unittest.TestCase)``
-** ``def behavior(self):``
-*** do *not* prepend ``test_`` to all test methods;
-    use nose's ``@istest`` decorator instead
+
+  * ``tests/test_mymodule.py``
+
+  * ``class TestMyEntity(unittest.TestCase)``
+
+  * ``def behavior(self):``
+
+    * do *not* prepend ``test_`` to all test methods;
+      use nose's ``@istest`` decorator instead
 
 Classes
 +++++++
@@ -54,7 +60,7 @@ Classes
   `inherit from 'object' explicitly <http://google.github.io/styleguide/pyguide.html?showone=Classes#Classes>`_
 
 Docstrings
----------
+----------
 
 * docstrings should produce a nice API documentation when run through
   `Sphinx <http://www.sphinx-doc.org/en/stable/>`_, in particular:

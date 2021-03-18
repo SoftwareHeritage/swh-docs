@@ -7,5 +7,5 @@ Architecture
    :titlesonly:
    :hidden:
 
-   architecture
-   mirror
+   ../architecture
+   ../mirror
