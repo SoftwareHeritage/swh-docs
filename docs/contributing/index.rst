@@ -10,4 +10,5 @@ Contributing
    phabricator
    code-review
    python-style-guide
+   git-style-guide
    sphinx
