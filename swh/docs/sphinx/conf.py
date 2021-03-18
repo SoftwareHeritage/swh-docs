@@ -31,6 +31,7 @@ extensions = [
     "sphinx_click.ext",
     "myst_parser",
     "sphinx.ext.todo",
+    "swh.docs.sphinx.view_in_phabricator",
 ]
 
 # Add any paths that contain templates here, relative to this directory.
