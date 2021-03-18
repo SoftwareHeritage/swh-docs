@@ -42,6 +42,8 @@ Tutorials
 
 * :ref:`testing-guide`
 * :doc:`/tutorials/issue-debugging-monitoring`
+* :ref:`Listing the content of your favorite forge <lister-tutorial>`
+  and :ref:`running a lister in Docker <run-lister-tutorial>`
 
 Components
 ----------
