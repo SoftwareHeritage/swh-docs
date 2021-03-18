@@ -3,7 +3,7 @@
 Python style guide
 ==================
 
-Coding style and best practices for writing Python code for [[Software Heritage]].
+Coding style and best practices for writing Python code for Software Heritage.
 
 General rules
 -------------

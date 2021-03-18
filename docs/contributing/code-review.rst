@@ -3,7 +3,7 @@
 Code Review
 ===========
 
-This page documents code review practices used for [[Software Heritage]] development.
+This page documents code review practices used for Software Heritage development.
 
 Guidelines
 ----------
