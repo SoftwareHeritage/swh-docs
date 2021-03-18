@@ -57,11 +57,12 @@ Docstrings
 ---------
 
 * docstrings should produce a nice API documentation when run through
-  `Sphinx <http://www.sphinx-doc.org/en/stable/`_, in particular:
+  `Sphinx <http://www.sphinx-doc.org/en/stable/>`_, in particular:
 * docstrings should be written in
   `reStructuredText <http://www.sphinx-doc.org/en/stable/rest.html>`_
 * docstrings should use the
   `Napoleon style <http://www.sphinx-doc.org/en/stable/ext/napoleon.html>`_
   (Google variant) to document arguments, return values, etc.
-** see also: a `comprehensive style example <http://www.sphinx-doc.org/en/stable/ext/example_google.html#example-google>`_
-** see also: :ref:`sphinx-gotchas`
+
+* see also: a `comprehensive style example <http://www.sphinx-doc.org/en/stable/ext/example_google.html#example-google>`_
+* see also: :ref:`sphinx-gotchas`
