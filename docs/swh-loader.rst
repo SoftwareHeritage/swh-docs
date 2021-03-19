@@ -1,5 +1,7 @@
-Loaders
-=======
+.. _swh-loader:
+
+Software Heritage - Loaders
+===========================
 
 .. toctree::
    :maxdepth: 2
