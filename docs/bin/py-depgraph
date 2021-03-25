@@ -25,7 +25,7 @@ while [ -n "$1" ] ; do
     shift 1
 done
 
-pyrepos=$(bin/ls-py-modules)  # available python repositories (with '-')
+pyrepos=$(bin/ls-py-modules | grep -v '^swh-docs$')  # available python repositories (with '-')
 
 declare -A pymods  # available python modules (with '.')
 for repo in $pyrepos ; do
