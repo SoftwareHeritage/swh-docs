@@ -42,16 +42,8 @@ Tests
 
 * put ``tests/`` dir down deep in the module hierarchy, near to the code being tested
 
-* naming conventions:
-
-  * ``tests/test_mymodule.py``
-
-  * ``class TestMyEntity(unittest.TestCase)``
-
-  * ``def behavior(self):``
-
-    * do *not* prepend ``test_`` to all test methods;
-      use nose's ``@istest`` decorator instead
+* whenever possible, follow all the guidelines in
+  `Stargirl Flowers' Python testing style guide <https://blog.thea.codes/my-python-testing-style-guide/>`_
 
 Classes
 +++++++
