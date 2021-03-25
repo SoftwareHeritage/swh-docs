@@ -52,9 +52,16 @@ Here is brief overview of the most relevant software components in the Software
 Heritage stack. Each component name is linked to the development documentation
 of the corresponding Python module.
 
+:ref:`swh.auth <swh-auth>`
+    low-level library used by modules needing keycloak authentication
+
 :ref:`swh.core <swh-core>`
     low-level utilities and helpers used by almost all other modules in the
     stack
+
+:ref:`swh.counters <swh-counters>`
+    service providing efficient estimates of the number of objects in the SWH archive,
+    using Redis's Hyperloglog
 
 :ref:`swh.dataset <swh-dataset>`
     public datasets and periodic data dumps of the archive released by Software
@@ -178,7 +185,9 @@ Indices and tables
    contributing/index
    tutorials/index
    API documentation <apidoc/modules>
+   swh.auth <swh-auth/index>
    swh.core <swh-core/index>
+   swh.counters <swh-counters/index>
    swh.dataset <swh-dataset/index>
    swh.deposit <swh-deposit/index>
    swh.fuse <swh-fuse/index>
