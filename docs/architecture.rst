@@ -6,7 +6,7 @@ Software Architecture
 From an end-user point of view, the |swh| platform consists in the
 :term:`archive`, which can be accessed using the web interface or its REST API.
 Behind the scene (and the web app) are several components that expose
-different aspects of the |swh| :term:`archive` as internal REST APIs.
+different aspects of the |swh| :term:`archive` as internal RPC APIs.
 
 Each of these internal APIs have a dedicated (Postgresql) database.
 
