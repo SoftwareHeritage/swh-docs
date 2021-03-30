@@ -29,6 +29,7 @@ Architecture
   architecture
 * :ref:`mirror` → learn what a Software Heritage mirror is and how to set up
   one
+* :ref:`keycloak <keycloak>` → learn what keycloak is and how to register and configure users
 
 Data Model and Specifications
 -----------------------------

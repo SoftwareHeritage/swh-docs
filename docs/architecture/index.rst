@@ -7,3 +7,4 @@ Architecture
 
    ../architecture
    ../mirror
+   ../keycloak
