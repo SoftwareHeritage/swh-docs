@@ -199,6 +199,7 @@ Indices and tables
    swh.loader <swh-loader>
    swh.model <swh-model/index>
    swh.objstorage <swh-objstorage/index>
+   swh.objstorage.replayer <swh-objstorage-replayer/index>
    swh.scanner <swh-scanner/index>
    swh.scheduler <swh-scheduler/index>
    swh.search <swh-search/index>
@@ -206,3 +207,5 @@ Indices and tables
    swh.vault <swh-vault/index>
    swh.web <swh-web/index>
    swh.web.client <swh-web-client/index>
+   archive-changelog
+   journal
