@@ -39,12 +39,17 @@ All the internal APIs are also exposed:
 - http://localhost:5080/deposit
 - http://localhost:5080/objstorage
 
-At this point, the simplest way to start indexing software is to use the 'Save
+At this point, the simplest way to start loading software is to use the 'Save
 Code Now' feature of the archive web interface:
 
   http://localhost:5080/browse/origin/save/
 
+For details and an overview of what you can do with your Software Heritage,
+see `docker/README.md`_
+
 Enjoy filling your hard drives!
+
+.. _docker/README.md: https://forge.softwareheritage.org/source/swh-environment/browse/master/docker/
 
 
 Hacking the archive
