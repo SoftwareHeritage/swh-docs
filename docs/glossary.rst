@@ -108,6 +108,16 @@ Glossary
      A component of the |swh| architecture dedicated to producing metadata
      linked to the known :term:`blobs <blob>` in the :term:`archive`.
 
+   intrinsic identifier
+
+     A short character string that uniquely identifies an object,
+     that can be generated deterministically, using only the content of the object,
+     usually a :term:`cryptographic hash`.
+     This excludes network interaction and central authority.
+
+     Examples of intrinsic identifiers are: checksums (for files/strings only),
+     git hashes, and :ref:`SWHIDs <persistent-identifiers>`
+
    intrinsic metadata
 
      Metadata about software that is shipped as part of the source code of the
