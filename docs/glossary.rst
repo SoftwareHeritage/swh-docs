@@ -56,6 +56,16 @@ Glossary
      used to uniquely identify objects, standardized by the International
      Organization for Standardization (ISO).
 
+   extid
+   external identifier
+
+     An identifier used by a system that does not fit the |swh|
+     :ref:`data model <data-model>`, such as Mercurial's ``nodeid``,
+     or the hash of a tarball from a package manager.
+     They may be stored in the |swh| archive independently of the identified object,
+     to quickly match an external object (a changeset or tarball) to an object
+     in the archive without downloading it.
+
    extrinsic metadata
 
      Metadata about software that is not shipped as part of the software source
