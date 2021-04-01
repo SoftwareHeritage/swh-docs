@@ -54,7 +54,7 @@ in this document for historical reasons.
   `ftp.gnu.org`_, and added it to regular crawling (tracking: `T1722
   <https://forge.softwareheritage.org/T1722>`_)
 
-* **2019-05-27:** completed a full archival of NPM_ packages andded it as a
+* **2019-05-27:** completed a full archival of NPM_ packages and added it as a
   regularly crawled package repository (tracking: `T1378
   <https://forge.softwareheritage.org/T1378>`_)
 

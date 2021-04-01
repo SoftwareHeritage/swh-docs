@@ -66,7 +66,7 @@ Testing guidelines
 General considerations
 ^^^^^^^^^^^^^^^^^^^^^^
 
-We mostly do functional tests, and unit-testing when more ganularity is needed. By this,
+We mostly do functional tests, and unit-testing when more granularity is needed. By this,
 we mean that we test each functionality and invariants of a component, without isolating
 it from its dependencies systematically. The goal is to strike a balance between test
 effectiveness and test maintenance. However, the most critical parts, like the storage
@@ -80,7 +80,7 @@ Organize tests
 * One test may check multiples properties or commonly combined functionalities, if it can
   fit in a short descriptive name.
 * Organize tests in multiple modules, one for each aspect or subcomponent tested.
-  e.g.: initialization/configuration, db/backend, service API, utils, cli, etc.
+  e.g.: initialization/configuration, db/backend, service API, utils, CLI, etc.
 
 Test data
 ^^^^^^^^^

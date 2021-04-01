@@ -69,7 +69,7 @@ The main Kafka topics for the |swh| :ref:`data-model` are:
 
 In order to set up a mirror of the graph, one needs to deploy a stack capable
 of retrieving all these topics and store their content reliably. For example a
-kafka cluster configured as a replica of the main kafka broker hosted by |swh|
+Kafka cluster configured as a replica of the main Kafka broker hosted by |swh|
 would do the job (albeit not in a very useful manner by itself).
 
 A more useful mirror can be set up using the :ref:`storage <swh-storage>`
@@ -128,5 +128,5 @@ file of the `swh-docker <https://forge.softwareheritage.org/source/swh-docker>`_
 repository for details.
 
 
-.. _kafka: https://kafka.apache.org/
+.. _Kafka: https://kafka.apache.org/
 .. _msgpack: https://msgpack.org

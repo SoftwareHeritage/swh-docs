@@ -98,7 +98,7 @@ Related wiki page: <https://intranet.softwareheritage.org/wiki/Kibana>
 
 Official documentation: <https://www.elastic.co/guide/en/kibana/current/index.html>
 
-Kibana is a vizualization UI for searching through indexed logs. You can search through
+Kibana is a visualization UI for searching through indexed logs. You can search through
 different sources of logs in the "Discover" pane. The sources configured include
 application logs for SWH services and system logs. You can also access dashboards shared
 by other on a particular topic or create our own from a saved search.
@@ -136,8 +136,8 @@ includes the query, filters, selected columns, sorting and index pattern.
 
 Now you may want to have a customizable view of these logs, along with graphical
 presentations. In the "Dashboard" pane, create a new dashboard. Click "add" in the top
-toolbar and select your saved search. It will appear in resizeable panel. Now doing a
-search will restrict the search to the dataset cinfigured for the panels.
+toolbar and select your saved search. It will appear in resizable panel. Now doing a
+search will restrict the search to the dataset configured for the panels.
 
-To create more complete vizualizations including graphs, refer to:
+To create more complete visualizations including graphs, refer to:
 <https://www.elastic.co/guide/en/kibana/current/dashboard.html>

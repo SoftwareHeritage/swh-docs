@@ -246,7 +246,7 @@ Before doing so, you're encouraged to **clean up your git commit history**,
 reordering/splitting/merging commits as needed to have separate
 logical commits and an easy to bisect history.
 Update the diff :ref:`following the prior section <arc-update>`
-(It'd be good to let the ci build finish to make sure everything is still green).
+(It'd be good to let the CI build finish to make sure everything is still green).
 
 Once you're happy you can **push to origin/master** directly, e.g.::
 

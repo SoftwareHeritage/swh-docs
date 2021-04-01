@@ -80,7 +80,7 @@ Glossary
 
      A :ref:`loader <swh-loader-core>` is a component of the |swh| architecture
      responsible for reading a source code :term:`origin` (typically a git
-     reposiitory) and import or update its content in the :term:`archive` (ie.
+     repository) and import or update its content in the :term:`archive` (ie.
      add new file contents int :term:`object storage` and repository structure
      in the :term:`storage database`).
 

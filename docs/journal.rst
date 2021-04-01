@@ -3,7 +3,7 @@
 Software Heritage Journal --- Specifications
 ============================================
 
-The |swh| journal is a kafka_-based stream of events for every added object in
+The |swh| journal is a Kafka_-based stream of events for every added object in
 the |swh| Archive and some of its related services, especially indexers.
 
 Each topic_ will stream added elements for a given object type according to the
@@ -72,7 +72,7 @@ List of topics
 
 
 
-Topics for Merkel-DAG objects
+Topics for Merkle-DAG objects
 -----------------------------
 
 These topics are for the various objects stored in the |swh| Merkle DAG, see
@@ -551,7 +551,7 @@ Example:
 Kafka message format
 --------------------
 
-Each value of a kafka message in a topic is a dictionary-like structure
+Each value of a Kafka message in a topic is a dictionary-like structure
 encoded as a msgpack_ byte string.
 
 Keys are ASCII strings.
@@ -586,7 +586,7 @@ format for integers):
 Datetime
 ++++++++
 
-There are 2 type of date that can be encoded in a kafka message:
+There are 2 type of date that can be encoded in a Kafka message:
 
 - dates for git-like objects (:py:class:`swh.model.model.Revision` and
   :py:class:`swh.model.model.Release`): these dates are part of the hash
@@ -661,12 +661,12 @@ anonymized prior to being serialized. The anonymized
 
 
 where the `<hashed value>` is computed from original values as a sha256 of the
-orignal's `fullname`.
+original's `fullname`.
 
 
 
 
-.. _kafka: https://kafka.apache.org
+.. _Kafka: https://kafka.apache.org
 .. _topic: https://kafka.apache.org/documentation/#intro_concepts_and_terms
 .. _msgpack: https://msgpack.org/
 .. _`extended type`: https://github.com/msgpack/msgpack/blob/master/spec.md#extension-types
