@@ -78,7 +78,7 @@ Bad::
            return qux
 
 Good::
-<pre>
+
    a nice example of python code follows::
 
        def foo(bar, baz):
@@ -100,7 +100,8 @@ Good:
    you have to instantiate the method ``def foo(bar): pass``
    in order to use this abstract class
 
-=== ``**kwargs``, ``**args`` ===
+``**kwargs``, ``**args``
++++++++++++++++++++++++++
 
 `Asterisks needs to be escaped <http://www.sphinx-doc.org/en/stable/rest.html#inline-markup>`_
 to avoid capture by emphasis markup.
@@ -110,7 +111,7 @@ Bad::
 
    additional **kwargs are copied in the returned dictionary
 
-Good:
+Good::
 
    additional \**kwargs are copied in the returned dictionary
 
