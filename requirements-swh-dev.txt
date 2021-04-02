@@ -1,11 +1,14 @@
 # Add here internal Software Heritage dependencies, one per line.
 # Dependencies need to be ordered in a way that ensure only
 # development versions will be used (not the release ones hosted on PyPI).
-../swh-auth[django]
+#
+# This is NOT in alphabetical order
+
 ../swh-core[http,db,logging]
-../swh-counters
+../swh-auth[django]
 ../swh-model
 ../swh-journal
+../swh-counters
 ../swh-objstorage[testing]
 ../swh-storage[schemata]
 ../swh-objstorage-replayer
