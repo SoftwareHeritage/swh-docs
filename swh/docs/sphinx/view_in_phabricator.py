@@ -16,15 +16,18 @@ def html_page_context(app, pagename, templatename, context, doctree):
         return
     elif pagename.startswith("swh-"):
         # .rst from a package's docs/ directory
-        repository = pagename.split("/", 1)[0]
-        path = "docs/"
+        (repository, _, path) = pagename.partition("/")
     else:
         # .rst from swh-docs/docs/
         repository = "swh-docs"
-        path = "docs/"
-    context[
-        "source_url_prefix"
-    ] = f"https://forge.softwareheritage.org/source/{repository}/browse/master/{path}"
+        path = pagename
+    source_url = (
+        f"https://forge.softwareheritage.org/source/{repository}"
+        f"/browse/master/docs/{path}"
+    )
+
+    # Set a variable that can be used by swh-docs/docs/_templates/breadcrumbs.html:
+    context["swh_source_url"] = source_url
 
 
 def setup(app):
