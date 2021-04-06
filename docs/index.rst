@@ -46,6 +46,11 @@ Tutorials
 * :ref:`Listing the content of your favorite forge <lister-tutorial>`
   and :ref:`running a lister in Docker <run-lister-tutorial>`
 
+Roadmap
+-------
+
+* :ref:`roadmap-2021`
+
 Components
 ----------
 
@@ -186,6 +191,7 @@ Indices and tables
    contributing/index
    tutorials/index
    API documentation <apidoc/modules>
+   roadmap/roadmap-2021.rst
    swh.auth <swh-auth/index>
    swh.core <swh-core/index>
    swh.counters <swh-counters/index>
