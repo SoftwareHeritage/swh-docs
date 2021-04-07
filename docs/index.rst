@@ -186,7 +186,7 @@ Indices and tables
    :titlesonly:
    :hidden:
 
-   getting-started-index
+   getting-started/index
    architecture/index
    contributing/index
    tutorials/index

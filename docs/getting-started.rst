@@ -12,7 +12,7 @@ steps detailed below.
 
 
 Using Docker
-++++++++++++
+------------
 
 The easiest way to run a Software Heritage instance is to use Docker and
 docker-compose. Please refer to the `docker-compose documentation
@@ -45,15 +45,13 @@ Code Now' feature of the archive web interface:
   http://localhost:5080/browse/origin/save/
 
 For details and an overview of what you can do with your Software Heritage,
-see `docker/README.md`_
+see the full :ref:`docker-environment` documentation.
 
 Enjoy filling your hard drives!
 
-.. _docker/README.md: https://forge.softwareheritage.org/source/swh-environment/browse/master/docker/
-
 
 Hacking the archive
-+++++++++++++++++++
+-------------------
 
 If you want to hack the code of the Software Heritage Archive, a bit more work
 will be required.
