@@ -31,6 +31,7 @@ extensions = [
     "sphinx_click.ext",
     "myst_parser",
     "sphinx.ext.todo",
+    "sphinx_reredirects",
     "swh.docs.sphinx.view_in_phabricator",
 ]
 
@@ -124,6 +125,15 @@ html_last_updated_fmt = "%Y-%m-%d %H:%M:%S %Z"
 
 # refer to the Python standard library.
 intersphinx_mapping = {"python": ("https://docs.python.org/3", None)}
+
+# Redirects for pages that were moved, so we don't break external links.
+# Uses sphinx-reredirects
+redirects = {
+    "swh-deposit/spec-api": "api/api-documentation.html",
+    "swh-deposit/metadata": "api/metadata.html",
+    "swh-deposit/specs/blueprint": "../api/use-cases.html",
+    "swh-deposit/user-manual": "api/user-manual.html",
+}
 
 
 # -- autodoc configuration ----------------------------------------------

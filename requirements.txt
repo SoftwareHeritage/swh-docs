@@ -6,6 +6,7 @@ sphinxcontrib-httpdomain
 sphinxcontrib-images
 sphinxcontrib-programoutput
 sphinx-tabs
+sphinx-reredirects
 sphinx_rtd_theme
 sphinx-click
 myst-parser
