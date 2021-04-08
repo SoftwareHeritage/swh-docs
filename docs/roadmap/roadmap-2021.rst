@@ -3,7 +3,7 @@
 Roadmap 2021
 ============
 
-(Version 1.0, last modified 5/5/2021)
+(Version 1.0, last modified 05/04/2021)
 
 This document provides an overview of the technical roadmap of Software Heritage for
 2021.
