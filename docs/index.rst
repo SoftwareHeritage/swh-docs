@@ -29,7 +29,8 @@ Architecture
   architecture
 * :ref:`mirror` → learn what a Software Heritage mirror is and how to set up
   one
-* :ref:`keycloak <keycloak>` → learn what keycloak is and how to register and configure users
+* :ref:`Keycloak <keycloak>` → learn how to use Keycloak,
+  the authentication system used by |swh|'s web interface and public APIs
 
 Data Model and Specifications
 -----------------------------

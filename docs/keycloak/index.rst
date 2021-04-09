@@ -11,7 +11,9 @@ Keycloak
 
 Software Heritage uses `Keycloak <https://www.keycloak.org/>`__, an open
 source identity and access management solution, to identify and
-authenticate users on its services (for instance the Web API).
+authenticate users on its services (for instance the
+`archive's Web API <https://archive.softwareheritage.org/api/>`_
+and the :ref:`deposit server <swh-deposit>`).
 
 Keycloak implements the `OpenID Connect <https://openid.net/connect/>`__
 specification, a simple identity layer on top of the OAuth 2.0 protocol.
