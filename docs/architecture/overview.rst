@@ -13,7 +13,7 @@ Each of these internal APIs have a dedicated (Postgresql) database.
 
 A global (and incomplete) view of this architecture looks like:
 
-.. thumbnail:: images/general-architecture.svg
+.. thumbnail:: ../images/general-architecture.svg
 
    General view of the |swh| architecture.
 
