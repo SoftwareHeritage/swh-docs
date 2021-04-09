@@ -56,7 +56,11 @@ Components
 ----------
 
 Here is brief overview of the most relevant software components in the Software
-Heritage stack. Each component name is linked to the development documentation
+Heritage stack, in alphabetical order.
+For a better introduction to the architecture, see the :ref:`architecture-overview`,
+which presents each of them in a didactical order.
+
+Each component name is linked to the development documentation
 of the corresponding Python module.
 
 :ref:`swh.auth <swh-auth>`
