@@ -1,10 +1,13 @@
-Architecture
-============
+.. _architecture:
+
+Software Architecture
+=====================
+
 
 .. toctree::
    :maxdepth: 2
    :titlesonly:
 
-   ../architecture
-   ../mirror
+   overview
+   mirror
    ../keycloak/index

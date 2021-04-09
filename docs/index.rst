@@ -25,7 +25,7 @@ Contributing
 Architecture
 ------------
 
-* :ref:`architecture` → get a glimpse of the Software Heritage software
+* :ref:`architecture-overview` → get a glimpse of the Software Heritage software
   architecture
 * :ref:`mirror` → learn what a Software Heritage mirror is and how to set up
   one

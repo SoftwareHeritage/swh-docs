@@ -133,6 +133,8 @@ redirects = {
     "swh-deposit/metadata": "api/metadata.html",
     "swh-deposit/specs/blueprint": "../api/use-cases.html",
     "swh-deposit/user-manual": "api/user-manual.html",
+    "architecture": "architecture/overview.html",
+    "mirror": "architecture/mirror.html",
 }
 
 
