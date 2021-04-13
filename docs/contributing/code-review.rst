@@ -13,7 +13,7 @@ Please adhere to the following guidelines to perform and obtain code reviews
 
 1. **CRs are strongly recommended** for any non-trivial code change,
    but not mandatory (nor enforced at the VCS level).
-2. The CR `workflow <phabricator-arcanist>`_ is implemented using
+2. The CR :ref:`workflow <patch-submission>` is implemented using
    Phabricator/Differential.
 3. Explicitly **suggest reviewer(s)** when submitting new CR requests:
    either the most knowledgeable person(s) for the target code or the general
@@ -47,5 +47,6 @@ Good reads on various angles of code review:
 See also
 --------
 
-* :ref:`phabricator-arcanist`
-* :ref:`coding-guidelines`
+* :ref:`patch-submission`
+* :ref:`python-style-guide`
+* :ref:`git-style-guide`
