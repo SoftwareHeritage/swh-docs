@@ -10,3 +10,4 @@ sphinx-reredirects
 sphinx_rtd_theme
 sphinx-click
 myst-parser
+sphinx-celery

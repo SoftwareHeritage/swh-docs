@@ -16,7 +16,7 @@ swh.model
 swh.objstorage[testing]
 swh.objstorage.replayer
 swh.scanner
-swh.scheduler
+swh.scheduler[simulator]
 swh.search
 swh.storage
 swh.vault

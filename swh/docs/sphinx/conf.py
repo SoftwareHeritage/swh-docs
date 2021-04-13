@@ -33,6 +33,10 @@ extensions = [
     "sphinx.ext.todo",
     "sphinx_reredirects",
     "swh.docs.sphinx.view_in_phabricator",
+
+    # swh.scheduler inherits some attribute descriptions from celery that use
+    # custom crossrefs (eg. :setting:`task_ignore_result`)
+    "sphinx_celery.setting_crossref",
 ]
 
 # Add any paths that contain templates here, relative to this directory.

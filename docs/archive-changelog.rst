@@ -25,7 +25,7 @@ in this document for historical reasons.
 
 * **2020-06-11:** completed integration with the IPOL_ journal, allowing paper
   authors to explicitly deposit_ source code to the archive (`announcement
-  <https://www.softwareheritage.org/2020/06/11/ipol-and-swh/>`_)
+  <https://www.softwareheritage.org/2020/06/11/ipol-and-swh/>`__)
 
 * **2020-05-25:** completed first archival of, and added to regular crawling
   NixOS_ (tracking: `T2411 <https://forge.softwareheritage.org/T2411>`_)
@@ -61,7 +61,7 @@ in this document for historical reasons.
 * **2019-01-10:** enabled the `save code now`_ service, allowing users to
   explicitly request archival of a specific source code repository
   (`announcement
-  <https://www.softwareheritage.org/2019/01/10/save_code_now/>`_)
+  <https://www.softwareheritage.org/2019/01/10/save_code_now/>`__)
 
 
 2018
@@ -69,11 +69,11 @@ in this document for historical reasons.
 
 * **2018-10-10:** completed first archival of PyPI_ packages and added PyPI as
   a regularly crawled package repository (`announcement
-  <https://www.softwareheritage.org/2018/10/10/pypi-available-on-software-heritage/>`_)
+  <https://www.softwareheritage.org/2018/10/10/pypi-available-on-software-heritage/>`__)
 
 * **2018-09-25:** completed integration with HAL_, allowing paper authors to
   explicitly deposit_ source code to the archive (`announcement
-  <https://www.softwareheritage.org/2018/09/28/depositing-scientific-software-into-software-heritage/>`_)
+  <https://www.softwareheritage.org/2018/09/28/depositing-scientific-software-into-software-heritage/>`__)
 
 * **2018-08-31:** completed first archival of public GitLab_ repositories from
   `gitlab.com <https://gitlab.com>`_ and added it as a regularly crawled forge
@@ -84,7 +84,7 @@ in this document for historical reasons.
 
 * **2018-02-20:** completed archival of Debian_ packages and added Debian as a
   regularly crawled distribution (`announcement
-  <https://www.softwareheritage.org/2018/02/20/listing-and-loading-of-debian-repositories-now-live/>`_)
+  <https://www.softwareheritage.org/2018/02/20/listing-and-loading-of-debian-repositories-now-live/>`__)
 
 
 2017

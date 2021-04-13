@@ -63,7 +63,7 @@ The following sequence diagram shows the interactions between these components
 when a new forge needs to be archived. This example depicts the case of a
 gitlab_ forge, but any other supported source type would be very similar.
 
-.. thumbnail:: images/tasks-lister.svg
+.. thumbnail:: ../images/tasks-lister.svg
 
 As one might observe in this diagram, it does two things:
 
@@ -94,7 +94,7 @@ The sequence diagram below describe this second step of importing the content
 of a repository. Once again, we take the example of a git repository, but any
 other type of repository would be very similar.
 
-.. thumbnail:: images/tasks-git-loader.svg
+.. thumbnail:: ../images/tasks-git-loader.svg
 
 
 Journal
@@ -252,7 +252,7 @@ and because some databases need to follow the content of the Journal (mirrors),
 some places of the |swh| codebase contains tools known as "replayers" and "backfillers",
 designed to keep them in sync:
 
-* the :ref:`Object Storage Replayer <swh.objstorage.replayer>` copies the content
+* the :mod:`Object Storage Replayer <swh.objstorage.replayer>` copies the content
   of an objects storage to another one. It first performs a full copy, then streams
   new objects using the Journal to stay up to date
 * the Storage Replayer loads the entire content of the Journal into a Storage database,

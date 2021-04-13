@@ -36,7 +36,7 @@ blob objects (file content) from the |swh| :ref:`object storage <swh-objstorage>
    deployment using the |swh| software stack.
 
 
-.. thumbnail:: images/mirror-architecture.svg
+.. thumbnail:: ../images/mirror-architecture.svg
 
    General view of the |swh| mirroring architecture.
 
@@ -74,7 +74,7 @@ would do the job (albeit not in a very useful manner by itself).
 
 A more useful mirror can be set up using the :ref:`storage <swh-storage>`
 component with the help of the special service named `replayer` provided by the
-:doc:`apidoc/swh.storage.replay` module.
+:mod:`swh.storage.replay` module.
 
 .. TODO: replace this previous link by a link to the 'swh storage replay'
    command once available, and ideally once
@@ -110,9 +110,9 @@ software components must be installed (cf. architecture diagram above):
 - an object storage solution (can be cloud-based or on local filesystem like
   ZFS pools),
 - the :ref:`swh-objstorage` component,
-- the :ref:`swh.storage.replay` service (part of the :ref:`swh-storage`
+- the :mod:`swh.storage.replay` service (part of the :ref:`swh-storage`
   package)
-- the :ref:`swh.objstorage.replayer.replay` service (from the
+- the :mod:`swh.objstorage.replayer.replay` service (from the
   :ref:`swh-objstorage-replayer` package).
 
 A `docker-swarm <https://docs.docker.com/engine/swarm/>`_ based deployment

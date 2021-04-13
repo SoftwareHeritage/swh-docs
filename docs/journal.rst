@@ -65,7 +65,7 @@ List of topics
 - `swh.journal.objects.privileged_revision <swh.journal.objects.revision>`_
 - `swh.journal.objects.directory`_
 - `swh.journal.objects.content`_
-- `swh.journal.objects.skippedcontent`_
+- `swh.journal.objects.skipped_content`_
 - `swh.journal.objects.metadata_authority`_
 - `swh.journal.objects.metadata_fetcher`_
 - `swh.journal.objects.raw_extrinsic_metadata`_

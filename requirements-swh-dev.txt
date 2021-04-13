@@ -12,7 +12,7 @@
 ../swh-objstorage[testing]
 ../swh-storage
 ../swh-objstorage-replayer
-../swh-scheduler
+../swh-scheduler[simulator]
 ../swh-deposit
 ../swh-graph
 ../swh-icinga-plugins

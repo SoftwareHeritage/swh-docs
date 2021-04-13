@@ -35,9 +35,9 @@ Good reads
 
 Good reads on various angles of code review:
 
-* `Best practices <https://medium.com/palantir/code-review-best-practices-19e02780015f>`_ (Palantir) ← comprehensive and recommended read, especially if you're short on time
-* `Best practices <https://github.com/thoughtbot/guides/tree/master/code-review>`_ (Thoughtbot)
-* `Best practices <https://smartbear.com/learn/code-review/best-practices-for-peer-code-review/>`_ (Smart Bear)
+* `Best practices (Palantir) <https://medium.com/palantir/code-review-best-practices-19e02780015f>`_ ← comprehensive and recommended read, especially if you're short on time
+* `Best practices (Thoughtbot) <https://github.com/thoughtbot/guides/tree/master/code-review>`_
+* `Best practices (Smart Bear) <https://smartbear.com/learn/code-review/best-practices-for-peer-code-review/>`_
 * `Review checklist <https://www.codeproject.com/Articles/524235/Codeplusreviewplusguidelines>`_ (Code Project)
 * `Motivation: code quality <https://blog.codinghorror.com/code-reviews-just-do-it/>`_ (Coding Horror)
 * `Motivation: team culture <https://blog.fullstory.com/what-we-learned-from-google-code-reviews-arent-just-for-catching-bugs/>`_ (Google & FullStory)
