@@ -9,6 +9,7 @@ all:
 	tox -vv -r -e sphinx-dev
 
 pip-install-swh-dev:
+	python3 -m pip install -r requirements.txt
 	python3 -m pip install pifpaf
 	sed 's/#.*$$//;/^$$/d' requirements-swh-dev.txt | \
 	while IFS= read -r package; do \
