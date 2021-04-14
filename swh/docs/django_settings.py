@@ -9,5 +9,8 @@ for var in dir(web):
             if elt not in ns[var]:
                 ns[var].append(elt)
 
+# swh-web needs to find its static files when running autodoc
+STATIC_DIR = web.STATIC_DIR
+STATICFILES_DIRS = web.STATICFILES_DIRS
 
 SECRET_KEY = "change me"
