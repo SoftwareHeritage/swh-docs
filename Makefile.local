@@ -6,4 +6,11 @@ all:
 	@echo Building the whole documentation from source code repositories
 	@echo available in ../ via tox. This can take a while.
 	@echo Please be patient.
-	tox -r -e sphinx-dev
+	tox -vv -r -e sphinx-dev
+
+pip-install-swh-dev:
+	python3 -m pip install pifpaf
+	sed 's/#.*$$//;/^$$/d' requirements-swh-dev.txt | \
+	while IFS= read -r package; do \
+	  python3 -m pip install $$package ; \
+	done
