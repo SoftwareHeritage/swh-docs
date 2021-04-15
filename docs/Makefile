@@ -1,4 +1,5 @@
 SPHINXOPTS ?=
+SPHINXOPTCOLOR ?= --color
 SPHINXBUILD = sphinx-build
 SOURCEDIR = .
 BUILDDIR = _build
@@ -63,10 +64,10 @@ distclean: clean
 help: sphinx/help
 
 sphinx/clean:
-	$(SPHINXBUILD) -M clean "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS)
+	$(SPHINXBUILD) -M clean "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(SPHINXOPTCOLOR)
 
 sphinx/%:
-	$(SPHINXBUILD) -b $* "$(SOURCEDIR)" "$(BUILDDIR)/$*" $(SPHINXOPTS)
+	$(SPHINXBUILD) -b $* "$(SOURCEDIR)" "$(BUILDDIR)/$*" $(SPHINXOPTS) $(SPHINXOPTCOLOR)
 
 install: html
 	test -d $(HTMLDIR)
