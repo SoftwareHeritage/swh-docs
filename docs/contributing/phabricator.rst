@@ -214,10 +214,14 @@ When you're ready to **update your review request**::
 
    arc diff --update Dxx HEAD~
 
-Arc will prompt you for a message: describe what you've changed
-w.r.t. the previous review request, free form.
+Arc will prompt you for a message: **describe what you've changed
+w.r.t. the previous review request**, free form.
+This means you should not repeat the title of your diff (which is
+often the default if you squashed/amended your commits)
+
 Your message will become the changelog entry in Differential
-for this new version of the diff.
+for this new version of the diff, and will help reviewers
+understand what changes you made since they last read your diff.
 
 Differential only care about the code diff, and not about the commits
 or their order.
