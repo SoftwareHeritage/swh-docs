@@ -5,8 +5,9 @@
 import os
 from typing import Dict
 
-import django
 from sphinx.ext import autodoc
+
+from swh.docs.django_settings import force_django_settings
 
 # General information about the project.
 project = "Software Heritage - Development Documentation"
@@ -201,12 +202,24 @@ def register_routingtable_as_label(app, document):
     anonlabels["routingtable"] = "http-routingtable", ""
 
 
-def setup(app):
-    # hack to set the adequate django settings when building global swh doc
-    # to avoid autodoc build errors
-    os.environ.setdefault("DJANGO_SETTINGS_MODULE", "swh.docs.django_settings")
-    django.setup()
+# sphinx event handler to set adequate django settings prior reading
+# apidoc generated rst files when building doc to avoid autodoc errors
+def set_django_settings(app, env, docname):
+    package_settings = {
+        "auth": "swh.auth.tests.django.app.apptest.settings",
+        "deposit": "swh.deposit.settings.development",
+        "web": "swh.web.settings.development",
+    }
+    for package, settings in package_settings.items():
+        if any(
+            [pattern in docname for pattern in (f"swh.{package}", f"swh-{package}")]
+        ):
+            force_django_settings(settings)
 
+
+def setup(app):
+    # env-purge-doc event is fired before source-read
+    app.connect("env-purge-doc", set_django_settings)
     # add autosimple directive (used in swh-web)
     app.add_autodocumenter(SimpleDocumenter)
     # set an environment variable indicating we are currently building

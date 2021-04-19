@@ -1,16 +1,23 @@
-from swh.deposit.settings.development import *  # noqa
-import swh.web.settings.development as web
+# Copyright (C) 2021  The Software Heritage developers
+# See the AUTHORS file at the top-level directory of this distribution
+# License: GNU Affero General Public License version 3, or any later version
+# See top-level LICENSE file for more information
 
-# merge some config variables
-ns = globals()
-for var in dir(web):
-    if var.isupper() and var in ns and isinstance(ns[var], list):
-        for elt in getattr(web, var):
-            if elt not in ns[var]:
-                ns[var].append(elt)
+from importlib import reload
+import os
 
-# swh-web needs to find its static files when running autodoc
-STATIC_DIR = web.STATIC_DIR
-STATICFILES_DIRS = web.STATICFILES_DIRS
 
-SECRET_KEY = "change me"
+def force_django_settings(settings_module):
+    """
+    Enable to modify django settings module dynamically while
+    building sphinx documentation and force settings full reloading.
+    """
+    if os.environ.get("DJANGO_SETTINGS_MODULE") != settings_module:
+        os.environ["DJANGO_SETTINGS_MODULE"] = settings_module
+
+        import django
+        from django import conf as django_conf
+
+        # reset django settings to force their reloading
+        reload(django_conf)
+        django.setup()
