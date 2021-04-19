@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 #
 
+import logging
 import os
 from typing import Dict
 
@@ -168,6 +169,22 @@ extlinks: Dict = {
     "swh_web_browse": (f"{_swh_web_base_url}/browse/%s", None),
 }
 
+# SWH_PACKAGE_DOC_TOX_BUILD environment variable is set in a tox environment
+# named sphinx for each swh package (except the swh-docs package itself).
+swh_package_doc_tox_build = os.environ.get("SWH_PACKAGE_DOC_TOX_BUILD", False)
+
+# override some configuration when building a swh package
+# documentation with tox to remove warnings and suppress
+# those related to unresolved references
+if swh_package_doc_tox_build:
+    swh_substitutions = os.path.join(
+        os.path.dirname(__file__), "../../../docs/swh_substitutions"
+    )
+    rst_prolog = f".. include:: /{swh_substitutions}"
+    suppress_warnings = ["ref.ref"]
+    html_favicon = ""
+    html_logo = ""
+
 
 class SimpleDocumenter(autodoc.FunctionDocumenter):
     """
@@ -218,6 +235,18 @@ def set_django_settings(app, env, docname):
             force_django_settings(settings)
 
 
+# when building local package documentation with tox, insert glossary
+# content at the end of the index file in order to resolve references
+# to the terms it contains
+def add_glossary_to_index(app, docname, source):
+    if docname == "index":
+        glossary_path = os.path.join(
+            os.path.dirname(__file__), "../../../docs/glossary.rst"
+        )
+        with open(glossary_path, "r") as glossary:
+            source[0] += "\n" + glossary.read()
+
+
 def setup(app):
     # env-purge-doc event is fired before source-read
     app.connect("env-purge-doc", set_django_settings)
@@ -235,3 +264,20 @@ def setup(app):
     httpdomain = pkg_resources.get_distribution("sphinxcontrib-httpdomain")
     if StrictVersion(httpdomain.version) <= StrictVersion("1.7.0"):
         app.connect("doctree-read", register_routingtable_as_label)
+
+    if swh_package_doc_tox_build:
+        # ensure glossary will be available in package doc scope
+        app.connect("source-read", add_glossary_to_index)
+
+        # suppress httpdomain warnings in non web packages
+        if "swh-web" not in app.srcdir:
+
+            # filter out httpdomain unresolved reference warnings
+            # to not consider them as errors when using -W option of sphinx-build
+            class HttpDomainWarningFilter(logging.Filter):
+                def filter(self, record: logging.LogRecord) -> bool:
+                    return not record.msg.startswith("Cannot resolve reference to")
+
+            logger = logging.getLogger("sphinx")
+            # insert a custom filter in the warning log handler of sphinx
+            logger.handlers[1].filters.insert(0, HttpDomainWarningFilter())

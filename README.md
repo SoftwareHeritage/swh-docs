@@ -97,6 +97,23 @@ Publishing the doc
 The publication of the documentation is now managed by the [CI][7].
 
 
+Building standalone package documentation
+-----------------------------------------
+
+Each documentation local to a swh package can also be built with [tox][6].
+
+For instance to build the standalone documentation of ``swh-web``, proceed as
+follows:
+
+    $ cd swh-environment/swh-web
+    $ tox -e sphinx-dev
+
+Sphinx warnings related to unresolved references located in other swh packages are suppressed because expected.
+
+Please also note that Sphinx warnings are turned into errors in that case.
+
+The HTML documentation is now available starting from `docs/_build/html/index.html`.
+
 
 [1]: http://www.sphinx-doc.org/
 [2]: https://forge.softwareheritage.org/source/swh-environment/
@@ -104,4 +121,4 @@ The publication of the documentation is now managed by the [CI][7].
 [4]: http://plantuml.com
 [5]: https://inkscape.org/
 [6]: https://tox.readthedocs.io/
-[7]: https://github.com/jd/pifpaf
+[7]: https://jenkins.softwareheritage.org/job/DDOC/
