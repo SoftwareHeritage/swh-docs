@@ -95,7 +95,7 @@ Bad::
    you have to instantiate the method `def foo(bar): pass`
    in order to use this abstract class
 
-Good:
+Good::
 
    you have to instantiate the method ``def foo(bar): pass``
    in order to use this abstract class
