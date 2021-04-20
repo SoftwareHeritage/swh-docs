@@ -6,6 +6,7 @@ import os
 from typing import Dict
 
 import django
+from sphinx.ext import autodoc
 
 # General information about the project.
 project = "Software Heritage - Development Documentation"
@@ -33,7 +34,6 @@ extensions = [
     "sphinx.ext.todo",
     "sphinx_reredirects",
     "swh.docs.sphinx.view_in_phabricator",
-
     # swh.scheduler inherits some attribute descriptions from celery that use
     # custom crossrefs (eg. :setting:`task_ignore_result`)
     "sphinx_celery.setting_crossref",
@@ -157,8 +157,37 @@ modindex_common_prefix = ["swh."]
 # For the todo extension. Todo and todolist produce output only if this is True
 todo_include_todos = True
 
+_swh_web_base_url = "https://archive.softwareheritage.org"
+
 # for the extlinks extension, sub-projects should fill that dict
-extlinks: Dict = {}
+extlinks: Dict = {
+    "swh_web": (f"{_swh_web_base_url}/%s", None),
+    "swh_web_api": (f"{_swh_web_base_url}/api/1/%s", None),
+    "swh_web_browse": (f"{_swh_web_base_url}/browse/%s", None),
+}
+
+
+class SimpleDocumenter(autodoc.FunctionDocumenter):
+    """
+    Custom autodoc directive to inline the docstring of a function
+    in a document without the signature header and with no indentation.
+
+    Example of use::
+
+        .. autosimple:: swh.web.api.views.directory.api_directory
+    """
+
+    objtype = "simple"
+    # ensure the priority is lesser than the base FunctionDocumenter
+    # to avoid side effects with autodoc processing
+    priority = -1
+
+    # do not indent the content
+    content_indent = ""
+
+    # do not add a header to the docstring
+    def add_directive_header(self, sig):
+        pass
 
 
 # XXX Kill this ASA this PR is accepted and released
@@ -172,11 +201,19 @@ def register_routingtable_as_label(app, document):
     anonlabels["routingtable"] = "http-routingtable", ""
 
 
-# hack to set the adequate django settings when building global swh doc
-# to avoid autodoc build errors
 def setup(app):
+    # hack to set the adequate django settings when building global swh doc
+    # to avoid autodoc build errors
     os.environ.setdefault("DJANGO_SETTINGS_MODULE", "swh.docs.django_settings")
     django.setup()
+
+    # add autosimple directive (used in swh-web)
+    app.add_autodocumenter(SimpleDocumenter)
+    # set an environment variable indicating we are currently building
+    # the documentation
+    os.environ["SWH_DOC_BUILD"] = "1"
+
+    # register routingtable label for sphinxcontrib-httpdomain <= 1.7.0
     from distutils.version import StrictVersion  # noqa
 
     import pkg_resources  # noqa
