@@ -152,6 +152,7 @@ autodoc_default_flags = [
 ]
 autodoc_member_order = "bysource"
 autodoc_mock_imports = ["rados"]
+autoclass_content = "both"
 
 modindex_common_prefix = ["swh."]
 
