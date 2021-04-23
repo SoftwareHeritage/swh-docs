@@ -13,5 +13,5 @@ pip-install-swh-dev:
 	python3 -m pip install pifpaf
 	sed 's/#.*$$//;/^$$/d' requirements-swh-dev.txt | \
 	while IFS= read -r package; do \
-	  python3 -m pip install $$package ; \
+	  python3 -m pip install -e $$package ; \
 	done
