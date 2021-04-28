@@ -195,7 +195,6 @@ Indices and tables
    architecture/index
    contributing/index
    tutorials/index
-   API documentation <apidoc/modules>
    roadmap/roadmap-2021.rst
    swh.auth <swh-auth/index>
    swh.core <swh-core/index>
@@ -220,3 +219,4 @@ Indices and tables
    swh.web.client <swh-web-client/index>
    archive-changelog
    journal
+   Python modules autodocumentation <apidoc/modules>
