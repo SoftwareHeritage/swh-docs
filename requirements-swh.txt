@@ -1,6 +1,6 @@
 # Add here internal Software Heritage dependencies, one per line.
 swh.auth[django]
-swh.core[db,http]
+swh.core[db,http,logging]
 swh.counters
 swh.deposit[server]
 swh.fuse
