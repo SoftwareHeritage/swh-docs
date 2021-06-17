@@ -18,16 +18,13 @@ Tutorials
 
 ...
 
-* :ref:`faq` → Frequently Asked Questions
+Frequently Asked Questions
+---------------------------
 
-Contents
---------
+* :ref:`faq_savecodenow` Save Code Now related questions
+* :ref:`faq_search` Search questions
+* :ref:`faq_roadmap` Roadmap
 
-
-.. toctree::
-   :maxdepth: 1
-
-   faq
 
 Indices and tables
 ==================
@@ -36,3 +33,11 @@ Indices and tables
 * :ref:`modindex`
 * :ref:`search`
 
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Contents:
+   :titlesonly:
+   :hidden:
+
+   faq/index
