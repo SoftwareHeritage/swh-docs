@@ -1,9 +1,7 @@
-.. _swh-docs:
 
 
 Software Heritage - Development Documentation
 =============================================
-
 
 Getting started
 ---------------
@@ -46,6 +44,8 @@ Tutorials
 * :doc:`/tutorials/issue-debugging-monitoring`
 * :ref:`Listing the content of your favorite forge <lister-tutorial>`
   and :ref:`running a lister in Docker <run-lister-tutorial>`
+* :ref:`faq`
+
 
 Roadmap
 -------
@@ -200,6 +200,7 @@ Indices and tables
    architecture/index
    contributing/index
    tutorials/index
+   faq
    roadmap/roadmap-2021.rst
    infrastructure/index
    swh.auth <swh-auth/index>
