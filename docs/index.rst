@@ -44,8 +44,19 @@ Tutorials
 * :doc:`/tutorials/issue-debugging-monitoring`
 * :ref:`Listing the content of your favorite forge <lister-tutorial>`
   and :ref:`running a lister in Docker <run-lister-tutorial>`
-* :ref:`faq`
 
+Frequently Asked Questions
+--------------------------
+
+* :ref:`faq_prerequisites` Prerequisites to be a contributor
+* :ref:`faq_getting_started` Starter kit to contribute
+* :ref:`faq_run_swh` Starter kit to run your local swh instance
+* :ref:`faq_dataset` Getting some sample dataset
+* :ref:`faq_error_bugs` Stuck somewhere
+* :ref:`faq_legal` Legal and contributions
+* :ref:`faq_code_review` Related to Code review
+* :ref:`faq_api` General questions about the SWH API
+* :ref:`faq_sysadm` System Administration related questions
 
 Roadmap
 -------
@@ -200,7 +211,7 @@ Indices and tables
    architecture/index
    contributing/index
    tutorials/index
-   faq
+   faq/index
    roadmap/roadmap-2021.rst
    infrastructure/index
    swh.auth <swh-auth/index>
