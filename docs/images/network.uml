@@ -16,8 +16,6 @@ nwdiag {
         pergamon;
 
         group {
-            description = "<b>FIREWALLS</b>";
-
             pushkin;
             glyptotek;
         }
