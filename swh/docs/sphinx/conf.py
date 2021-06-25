@@ -23,6 +23,7 @@ author = "The Software Heritage developers"
 extensions = [
     "sphinx.ext.autodoc",
     "sphinx.ext.napoleon",
+    "sphinx.ext.intersphinx",
     "sphinxcontrib.httpdomain",
     "sphinx.ext.extlinks",
     "sphinxcontrib.images",
@@ -130,7 +131,10 @@ html_sidebars = {
 html_last_updated_fmt = "%Y-%m-%d %H:%M:%S %Z"
 
 # refer to the Python standard library.
-intersphinx_mapping = {"python": ("https://docs.python.org/3", None)}
+intersphinx_mapping = {
+    "python": ("https://docs.python.org/3", None),
+    "swh-devel": ("https://docs.softwareheritage.org/devel", None),
+}
 
 # Redirects for pages that were moved, so we don't break external links.
 # Uses sphinx-reredirects

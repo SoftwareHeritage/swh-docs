@@ -11,8 +11,7 @@ Roadmap
 Where can I find the SWH roadmap?
 ---------------------------------
 
-The roadmap is accessible on the `docs
-<https://docs.softwareheritage.org/devel/roadmap/roadmap-2021.html>`__.
+The roadmap is accessible on the :ref:`development docs <swh-devel:roadmap-2021>`.
 
 .. _faq_savecodenow:
 
