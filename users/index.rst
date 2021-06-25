@@ -21,9 +21,10 @@ Tutorials
 Frequently Asked Questions
 ---------------------------
 
-* :ref:`faq_savecodenow` Save Code Now related questions
-* :ref:`faq_search` Search questions
-* :ref:`faq_roadmap` Roadmap
+.. toctree::
+   :maxdepth: 2
+
+   faq/index
 
 
 Indices and tables
