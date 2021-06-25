@@ -1,4 +1,4 @@
-
+.. _swh-docs:
 
 Software Heritage - Development Documentation
 =============================================

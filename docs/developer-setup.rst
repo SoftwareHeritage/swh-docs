@@ -60,6 +60,7 @@ Debian-based distribution is lower, you can install node 12 using these commands
   sudo apt update
   sudo apt install nodejs
 
+.. _checkout-source-code:
 
 Checkout the source code
 ------------------------

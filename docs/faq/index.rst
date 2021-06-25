@@ -11,8 +11,8 @@ Prerequisites for code contributions
 What are the Skills required to be a code contributor?
 ------------------------------------------------------
 
-It depends on what area you want to work on. `Internships
-<https://wiki.softwareheritage.org/wiki/Internships>`__ postings list specific skills
+It depends on what area you want to work on. The `Internships postings <interships>`
+list specific skills
 required. Generally, only Python and basic Git knowledge are required. Feel free to
 contact us on one of the `development channels
 <https://www.softwareheritage.org/community/developers/>`__ for details.
@@ -20,9 +20,8 @@ contact us on one of the `development channels
 What are the minimum system requirements (hardware/software) to run SWH locally?
 --------------------------------------------------------------------------------
 
-Python3.7 or newer is required. See the `developer setup documentation
-<https://docs.softwareheritage.org/devel/developer-setup.html#developer-setup>`__ for
-more details.
+Python3.7 or newer is required. See the :ref:`developer setup documentation
+<developer-setup>` for more details.
 
 
 .. _faq_getting_started:
@@ -33,8 +32,8 @@ Getting Started
 What are the must read docs before I start contributing?
 --------------------------------------------------------
 
-We recommend you read the top links listed at from the `documentation home page
-<https://docs.softwareheritage.org/devel/index.html>`__ in order: getting started,
+We recommend you read the top links listed at from the :ref:`documentation home page
+<swh-docs>` in order: getting started,
 contributing, and architecture, as well as the data model.
 
 Where can I see the getting started guide for developers?
@@ -54,12 +53,12 @@ I am skilled in one specific technology, can I find tickets requiring that skill
 ---------------------------------------------------------------------------------
 
 Unfortunately, not at the moment. But you can look at the `Internship list
-<https://wiki.softwareheritage.org/wiki/Internships>`__ to look for something matching
+<interships>`_ to look for something matching
 this skill, and this may allow you to find topics to search for in the `bug tracking
-system <https://forge.softwareheritage.org/>`__.
+system`_.
 
-Either way, feel free to `contact our developers
-<https://www.softwareheritage.org/community/developers/>`__, we would love to work with
+Either way, feel free to contact our developers through any of the
+`development channels`_, we would love to work with
 you.
 
 Where should I ask for technical help?
@@ -67,8 +66,8 @@ Where should I ask for technical help?
 
 You can choose one of the following:
 
-* `development channels <https://www.softwareheritage.org/community/developers/>`__
-* `contact form for any enquiries <https://www.softwareheritage.org/contact/>`__
+* `development channels`_
+* `contact form` for any enquiries
 
 .. _faq_run_swh:
 
@@ -78,18 +77,16 @@ Running an SWH instance locally
 I have SWH stack running in my local. How do I get some initial data to play around?
 ------------------------------------------------------------------------------------
 
-You can setup a job on your local machine, for this you can `schedule a listing task
-<https://docs.softwareheritage.org/devel/getting-started/using-docker.html#inserting-a-new-lister-task>`__
+You can setup a job on your local machine, for this you can
+:ref:`schedule a listing task <docker-schedule-lister-task>`
 for example. Doing so on small forge, will allow you to load some repositories.
 
-Or you can also trigger directly `loading from the cli
-<https://docs.softwareheritage.org/devel/swh-loader-core/package-loader-tutorial.html#with-docker>`__.
+Or you can also trigger directly :ref:`loading from the cli <docker-run-loader-cli>`.
 
 I have a SWH stack running in local, How do I setup a lister/loader job?
 ------------------------------------------------------------------------
 
-See the `"Managing tasks" chapter
-<https://docs.softwareheritage.org/devel/getting-started/using-docker.html#managing-tasks>`__
+See the :ref:`"Managing tasks" chapter <docker-manage-tasks>`
 in the Docker environment documentation.
 
 How can I create a user in my local instance?
@@ -113,10 +110,9 @@ Getting sample datasets
 Is there a way to connect to SWH archived (production) database from my local machine?
 --------------------------------------------------------------------------------------
 
-We provide the archive as a dataset on public clouds, see the `swh-dataset
-documentation <https://docs.softwareheritage.org/devel/swh-dataset/index.html>`__. We can
-also provide read access to one of the main databases on request `contact
-us <https://www.softwareheritage.org/contact/>`__.
+We provide the archive as a dataset on public clouds, see the :ref:`swh-dataset
+documentation <swh-dataset>`. We can
+also provide read access to one of the main databases on request, `contact us`_.
 
 .. _faq_error_bugs:
 
@@ -126,10 +122,10 @@ Errors and bugs
 I found a bug/improvement in the system, where should I report it?
 ------------------------------------------------------------------
 
-Please report it on our `bug tracking system <https://forge.softwareheritage.org/>`__.
+Please report it on our `bug tracking system`_.
 First create an account, then create a bug report using the "Create task" button. You
 should get some feedback within a week (at least someone triaging your issue). If not,
-`get in touch with us <https://www.softwareheritage.org/community/developers/>`__ to
+`get in touch with us <development channels>`_ to
 make sure we did not miss it.
 
 .. _faq_legal:
@@ -157,9 +153,8 @@ I found a straightforward typo fix, should my fix go through the entire code rev
 --------------------------------------------------------------------------------------------
 
 You are welcome to drop us a message at one of the `development
-channels <https://www.softwareheritage.org/community/developers/>`__, we will pick it up
-and fix it so you don't have to follow the whole `code review
-process <https://docs.softwareheritage.org/devel/contributing/phabricator.html>`__.
+channels`_, we will pick it up
+and fix it so you don't have to follow the whole :ref:`code review process <patch-submission>`.
 
 What tests I should run before committing the code?
 ---------------------------------------------------
@@ -171,15 +166,15 @@ as well).
 I am getting errors while trying to commit. What is going wrong?
 ----------------------------------------------------------------
 
-Ensure you followed the proper guide to `setup your
-environment <https://docs.softwareheritage.org/devel/developer-setup.html#checkout-the-source-code>`__
+Ensure you followed the proper guide to :ref:`setup your
+environment <checkout-source-code>`
 and try again. If the error persists, you are welcome to drop us a message at one of the
-`development channels <https://www.softwareheritage.org/community/developers/>`__
+`development channels`_
 
 Is there a format/guideline for writing commit messages?
 --------------------------------------------------------
 
-See the `Git style guide <https://docs.softwareheritage.org/devel/contributing/git-style-guide.html>`__
+See the :ref:`git-style-guide`
 
 Is there some recommended git branching strategy?
 -------------------------------------------------
@@ -205,12 +200,12 @@ Software Heritage API
 How do I generate API usage credentials?
 ----------------------------------------
 
-See the `Authentication guide <https://docs.softwareheritage.org/devel/swh-web-client/index.html#authentication>`__.
+See the :ref:`Authentication guide <swh-web-client-auth>`.
 
 Is there a page where I can see all the API endpoints?
 ------------------------------------------------------
 
-See the `API endpoint listing page <https://archive.softwareheritage.org/api/1/>`__.
+See the `API endpoint listing page <API>`_.
 
 What are the usage limits for SWH APIs?
 ---------------------------------------
@@ -220,8 +215,7 @@ Maximum number of permitted requests per hour:
 * 120 for anonymous users
 * 1200 for authenticated users
 
-It's described in the `rate limit documentation page
-<https://archive.softwareheritage.org/api/#rate-limiting>`__.
+It's described in the `rate limit documentation page <API-rate-limit>`_.
 
 .. It's temporarily here but it should be moved into its own sphinx instance at some
    point in the future.
@@ -250,3 +244,11 @@ ready, depending on the module [1], sysadms deploy the package with the help of 
 internal state migration (dbs) often enters the release cycle and due to the data
 volume, that may need human intervention.
 
+
+.. _API: https://archive.softwareheritage.org/api/1/
+.. _API-rate-limit: https://archive.softwareheritage.org/api/#rate-limiting
+.. _bug tracking system: https://forge.softwareheritage.org/
+.. _contact form: https://www.softwareheritage.org/contact/
+.. _contact us: https://www.softwareheritage.org/contact/
+.. _development channels: https://www.softwareheritage.org/community/developers/
+.. _internships: https://wiki.softwareheritage.org/wiki/Internships
