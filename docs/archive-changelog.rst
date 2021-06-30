@@ -10,6 +10,12 @@ archival policies in the Software Heritage Archive. Each of them might have
 anomalies or other changes in archival behavior over time. They are collected
 in this document for historical reasons.
 
+2021
+----
+
+* **2021-07-22** Completed first archival of SourceForge Git and Subversion
+repositories; regular crawling for those repositories enabled (tracking: `T735
+<https://forge.softwareheritage.org/T735>`__)
 
 2020
 ----
