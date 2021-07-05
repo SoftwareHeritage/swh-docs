@@ -12,3 +12,4 @@ Software Heritage - Loaders
    swh.loader.git <swh-loader-git/index>
    swh.loader.mercurial <swh-loader-mercurial/index>
    swh.loader.svn <swh-loader-svn/index>
+   swh.loader.cvs <swh-loader-cvs/index>

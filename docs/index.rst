@@ -223,7 +223,6 @@ Indices and tables
    swh.journal <swh-journal/index>
    swh.lister <swh-lister/index>
    swh.loader <swh-loader>
-   swh.loader.cvs <swh-loader-cvs/index>
    swh.model <swh-model/index>
    swh.objstorage <swh-objstorage/index>
    swh.objstorage.replayer <swh-objstorage-replayer/index>
