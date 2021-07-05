@@ -9,3 +9,4 @@ Tutorials
 
    testing
    issue-debugging-monitoring
+   add-new-package
