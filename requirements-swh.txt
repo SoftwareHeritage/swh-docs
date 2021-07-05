@@ -12,6 +12,7 @@ swh.loader.core
 swh.loader.git
 swh.loader.mercurial
 swh.loader.svn
+swh.loader.cvs
 swh.model
 swh.objstorage[testing]
 swh.objstorage.replayer

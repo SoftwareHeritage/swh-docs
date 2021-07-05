@@ -126,6 +126,9 @@ swh.docs
 :ref:`swh.loader-svn <swh-loader-svn>`
     loader for `Subversion <https://subversion.apache.org/>`_ repositories
 
+:ref:`swh.loader-cvs <swh-loader-cvs>`
+    loader for `CVS <https://savannah.nongnu.org/projects/cvs>`_ repositories
+
 :ref:`swh.model <swh-model>`
     implementation of the :ref:`data-model` to archive source code artifacts
 

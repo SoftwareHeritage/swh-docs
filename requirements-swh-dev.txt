@@ -22,6 +22,7 @@
 ../swh-loader-git
 ../swh-loader-mercurial
 ../swh-loader-svn
+../swh-loader-cvs
 ../swh-search
 ../swh-vault
 ../swh-web
