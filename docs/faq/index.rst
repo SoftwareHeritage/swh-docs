@@ -11,7 +11,7 @@ Prerequisites for code contributions
 What are the Skills required to be a code contributor?
 ------------------------------------------------------
 
-It depends on what area you want to work on. The `Internships postings <interships>`
+It depends on what area you want to work on. The `internships`_ postings
 list specific skills
 required. Generally, only Python and basic Git knowledge are required. Feel free to
 contact us on one of the `development channels
@@ -52,8 +52,8 @@ details.
 I am skilled in one specific technology, can I find tickets requiring that skill?
 ---------------------------------------------------------------------------------
 
-Unfortunately, not at the moment. But you can look at the `Internship list
-<interships>`_ to look for something matching
+Unfortunately, not at the moment. But you can look at the `internships`_
+list to look for something matching
 this skill, and this may allow you to find topics to search for in the `bug tracking
 system`_.
 
@@ -67,7 +67,7 @@ Where should I ask for technical help?
 You can choose one of the following:
 
 * `development channels`_
-* `contact form` for any enquiries
+* `contact form`_ for any enquiries
 
 .. _faq_run_swh:
 
