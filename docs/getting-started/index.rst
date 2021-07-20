@@ -11,3 +11,5 @@ Getting started
    ../getting-started
    ../developer-setup
    using-docker
+   api
+
