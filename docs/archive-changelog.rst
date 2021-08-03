@@ -14,6 +14,10 @@ in this document for historical reasons.
 2021
 ----
 
+* **2021-08-03** Completed first archival of SourceForge Mercurial repositories; regular
+  crawling for those repositories enabled (tracking: `T3374
+  <https://forge.softwareheritage.org/T3374>`__)
+
 * **2021-07-22** Completed first archival of SourceForge Git and Subversion
   repositories; regular crawling for those repositories enabled (tracking:
   `T3374 <https://forge.softwareheritage.org/T3374>`__)
