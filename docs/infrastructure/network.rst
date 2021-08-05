@@ -40,6 +40,19 @@ They are sharing a virtual IP on each VLAN to act as the gateway. Only one of th
     - `https://glyptotek.internal.softwareheritage.org <https://glyptotek.internal.softwareheritage.org>`_
 
 
+Access to the gui of the secondary firewall
+----------------------------------------------
+
+The secondary firewall is not directly reachable for VPN user.
+As the OpenVPN service is also running when the firewall is a backup, the packets
+coming from tne VPN are routed to the local VPN on the secondary and lost.
+
+To access to GUI, a tunnel can be used:
+
+    ssh -L 8443:pushkin.internal.softwareheritage.org:443 pergamon.internal.softwareheritage.org
+
+Once the tunnel is created, the gui is accessible at https://localhost:8443 in any browser
+
 Configuration backup
 --------------------
 
