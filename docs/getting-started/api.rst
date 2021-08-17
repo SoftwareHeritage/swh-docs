@@ -98,9 +98,7 @@ Heritage server, we will use ``https://archive.softwareheritage.org/``
 as the basename. All API calls will be forged according to the same
 syntax:
 
-::
-
-   https://archive.softwareheritage.org/api/1/<endpoint>
+``https://archive.softwareheritage.org/api/1/<endpoint>``
 
 Request basic Information
 -------------------------
@@ -172,9 +170,7 @@ Documentation for the endpoint is
 `here <https://archive.softwareheritage.org/api/1/origin/search/doc/>`__
 and the complete syntax is:
 
-::
-
-   `/api/1/origin/search/<keyword>/`
+``/api/1/origin/search/<keyword>/``
 
 The server returns an array of hashes, with each item being formatted
 as:
