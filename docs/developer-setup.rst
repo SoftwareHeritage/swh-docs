@@ -60,6 +60,15 @@ Debian-based distribution is lower, you can install node 12 using these commands
   sudo apt update
   sudo apt install nodejs
 
+If you intend to work on |swh| archive search features, Elasticsearch must also be
+present in your development environment. Proceed as follows to install it::
+
+  sudo wget https://artifacts.elastic.co/GPG-KEY-elasticsearch -O /etc/apt/trusted.gpg.d/elasticsearch.asc
+  echo "deb https://artifacts.elastic.co/packages/7.x/apt stable main" | sudo tee -a /etc/apt/sources.list.d/elasticsearch.list
+  sudo apt update
+  sudo apt install elasticsearch
+
+
 .. _checkout-source-code:
 
 Checkout the source code
