@@ -12,6 +12,7 @@ swh-indexer: 5007
 swh-scheduler: 5008
 swh-graph: 5009
 swh-search: 5010
+swh-counters: 5011
 
 # Edit this line with your nick to get a merge conflict if there's an overlap
 # Next available ID (vlorentz) : 5011
