@@ -295,7 +295,7 @@ def setup(app):
         app.connect("source-read", add_glossary_to_index)
 
         # suppress some httpdomain warnings in non web packages
-        if "swh-web" not in app.srcdir:
+        if not any([pattern in app.srcdir for pattern in ("swh-web", "DWAPPS")]):
 
             # filter out httpdomain unresolved reference warnings
             # to not consider them as errors when using -W option of sphinx-build
