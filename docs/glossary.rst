@@ -73,7 +73,7 @@ Glossary
      homepage, maintainer contact information, and popularity information
      ("stars") as listed on GitHub/GitLab repository pages.
 
-     See also: :term:`intrinsic metadata`.
+     See also: :term:`intrinsic metadata` :ref:`architecture-metadata`.
 
    journal
 
@@ -126,7 +126,7 @@ Glossary
      for Python packages, `pom.xml` for Maven-based Java projects,
      `debian/control` for Debian packages, `metadata.json` for NPM, etc.
 
-     See also: :term:`extrinsic metadata`.
+     See also: :term:`extrinsic metadata`, :ref:`architecture-metadata`.
 
    objstore
    objstorage

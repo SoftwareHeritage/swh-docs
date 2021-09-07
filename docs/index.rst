@@ -27,6 +27,8 @@ Architecture
   architecture
 * :ref:`mirror` → learn what a Software Heritage mirror is and how to set up
   one
+* :ref:`Metadata workflow <architecture-metadata>` → learn how Software Heritage
+  stores and handles metadata
 * :ref:`Keycloak <keycloak>` → learn how to use Keycloak,
   the authentication system used by |swh|'s web interface and public APIs
 
