@@ -56,6 +56,7 @@ The main Kafka topics for the |swh| :ref:`data-model` are:
 
 - `swh.journal.objects.content`
 - `swh.journal.objects.directory`
+- `swh.journal.objects.extid`
 - `swh.journal.objects.metadata_authority`
 - `swh.journal.objects.metadata_fetcher`
 - `swh.journal.objects.origin_visit_status`
