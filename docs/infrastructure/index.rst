@@ -3,7 +3,7 @@
 Infrastructure
 ##############
 
-.. keep this in sync with the 'sysadm' section in swh-docs/docs/index.rst
+.. keep this in sync with the 'infrastructure' section in swh-docs/docs/index.rst
 
 This section regroups the knowledge base and procedures relative to the |swh| infrastructure management.
 
@@ -11,4 +11,5 @@ This section regroups the knowledge base and procedures relative to the |swh| in
    :maxdepth: 2
    :titlesonly:
 
+   service-urls
    network

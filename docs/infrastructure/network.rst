@@ -1,7 +1,7 @@
 Network documentation
 #####################
 
-.. keep this in sync with the 'sysadm' section in swh-docs/docs/index.rst
+.. keep this in sync with the 'infrastructure' section in swh-docs/docs/index.rst
 
 This section regroups the knowledge base for our network components.
 
