@@ -14,7 +14,11 @@ in this document for historical reasons.
 2021
 ----
 
-* **2021-09-22** Completed first archival of the `Heptapod GitLab instance
+* **2021-09-23** Completed first archival of the `Heptapod instance
+  <https://heptapod.host>_`. Regular crawling for those repositories enabled (tracking:
+  `T3581 <https://forge.softwareheritage.org/T3600>`_)
+
+* **2021-09-22** Completed first archival of the `Heptapod instance
   <https://foss.heptapod.net>_`. This is the first forge with mostly mercurial origins.
   Regular crawling for those repositories enabled (tracking: `T3581
   <https://forge.softwareheritage.org/T3581>`_)
