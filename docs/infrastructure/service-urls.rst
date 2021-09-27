@@ -26,7 +26,7 @@ Public urls
 +---------------------------------------+-------------------------------------------+
 | swh-objstorage read-only (for mirror) | https://objstorage.staging.swh.network    |
 +---------------------------------------+-------------------------------------------+
-| Journal TLS                           | broker1.journal.softwareheritage.org:9093 |
+| Journal TLS                           | broker0.journal.staging.swh.network:9093  |
 +---------------------------------------+-------------------------------------------+
 
 Internal services
