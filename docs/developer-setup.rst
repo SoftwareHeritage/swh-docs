@@ -14,7 +14,7 @@ hack it, and run locally the unit tests.
 If you want to test the effect of your modifications in a running |swh|
 instance, you should check the swh-environment docker `documentation`_.
 
-.. _`documentation`: https://forge.softwareheritage.org/source/swh-environment/browse/master/docker/README.md?as=remarkup
+.. _`documentation`: https://forge.softwareheritage.org/source/swh-environment/browse/master/docker/README.rst?as=remarkup
 .. _`virtualenv`: https://pypi.org/project/virtualenv/
 
 
