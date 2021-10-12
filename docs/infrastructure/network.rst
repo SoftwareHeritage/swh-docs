@@ -1,4 +1,4 @@
-
+.. _network_configuration:
 
 Network documentation
 #####################
