@@ -2,7 +2,7 @@ Server Architecture (Physical/Virtual)
 ======================================
 
 .. toctree::
-   :titlesonly:
+   :maxdepth: 1
 
    howto-provision-new-vm
    howto-install-new-physical-server
@@ -10,3 +10,4 @@ Server Architecture (Physical/Virtual)
    howto-search-inventory
    reference-inventory
    reference-baseline-hardware
+   backups/index
