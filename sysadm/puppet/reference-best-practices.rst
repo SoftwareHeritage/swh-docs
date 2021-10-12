@@ -1,0 +1,2 @@
+Reference: Puppet best practices
+================================
