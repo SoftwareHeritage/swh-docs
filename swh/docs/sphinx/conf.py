@@ -158,7 +158,10 @@ autodoc_default_flags = [
     "special-members",
 ]
 autodoc_member_order = "bysource"
-autodoc_mock_imports = ["rados"]
+autodoc_mock_imports = [
+    "rados",
+    "swh.loader.cvs.rcsparse",
+]
 autoclass_content = "both"
 
 modindex_common_prefix = ["swh."]
