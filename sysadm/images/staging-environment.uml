@@ -1,0 +1,231 @@
+' Related to T2920
+@startuml
+title Staging environment
+
+actor user
+actor mirror
+
+cloud VLAN1300 {
+    interface "archive.staging.swh.network" as publicarchive
+    interface "deposit.staging.swh.network" as publicdeposit
+    interface "broker0.journal.staging.swh.network" as publicjournal
+}
+
+node firewall {
+}
+
+node pompidou {
+    node "rp0.internal.staging.swh.network" as rp0 {
+        component varnish {
+            boundary 80
+        }
+
+        component hitch {
+            boundary 443
+        }
+    }
+    node "vault.internal.staging.swh.network"  {
+        component nginx as nginxvault {
+            boundary 5005 as vault
+        }
+        component "swh-vault" as vaultgunicorn
+        file "/srv/softwareheritage/vault_cache" as vaultcache
+
+        vaultgunicorn -right-> vault
+        vaultgunicorn --> vaultcache
+    }
+    together {
+        node "journal0.internal.staging.swh.network" as journal0 {
+            component kafka {
+                boundary 9094
+                boundary 9093
+                boundary 9092 as kafkainternal
+            }
+        }
+        node "webapp.internal.staging.swh.network" as webapp0 {
+            component apache as apacheservicewebapp {
+                boundary 9080 as apachewebapp
+            }
+            component webapp
+
+            apachewebapp -left- webapp
+        }
+
+        node "deposit.internal.staging.swh.network" as deposit {
+            component apache as apacheservicedeposit {
+                boundary 9080 as apachedeposit
+            }
+            component depositgunicorn
+
+            apachedeposit -right-> depositgunicorn
+        }
+
+        node "objstorage0.internal.staging.swh.network" as objstorage0 {
+            component nginx as nginxobjstoragero {
+                boundary 5003 as objstoragero
+            }
+            component "objstorage\nread-only" as objstoragerogunicorn
+            objstoragero --> objstoragerogunicorn
+        }
+        depositgunicorn -down-> apachewebapp
+        webapp0 -left-> journal0
+        objstorage0 -[hidden]right->deposit
+        deposit -[hidden]right->webapp0
+        journal0 -[hidden]right->webapp0
+        journal0 -[hidden]right->deposit
+    }
+
+
+    together {
+        component workers {
+            component "swh-loaders" as swhloader
+            component "swh-listers" as swhlister
+            component "swh-deposit" as swhdeposit
+            component "swh-indexer" as swhindexer
+            component "swh-vault-cooker" as swhvaultcooker
+        }
+
+        note top of workers: worker0.internal.staging.swh.network\nworker1.internal.staging.swh.network\nworker2.internal.staging.swh.network
+        node "scheduler0.internal.staging.swh.network" as scheduler {
+            component nginx as schedulernginx {
+                boundary 5008 as swhscheduler
+            }
+            component "swh-scheduler" as swhschedulergunicorn
+            component "swh-scheduler-runner" as swhschedulerrunner
+            component "swh-scheduler-listener" as swhschedulerlistener
+            component "swh-scheduler-journal-client" as swhschedulerjournalclient
+            queue rabbitmq
+
+            swhschedulergunicorn --> swhscheduler
+            swhschedulerrunner --> rabbitmq
+        }
+        workers -[hidden]--> scheduler
+    }
+    together {
+        node "search0.internal.staging.swh.network" as search {
+            component nginx as nginxsearch {
+                boundary 5010 as swhsearch
+            }
+            component "swh-search" as swhsearchinternal
+            component "swh-search-journal-objects" as searchjournalobjects
+            component "swh-search-journal-indexed" as searchjournalindexed
+
+            swhsearch -down-> swhsearchinternal
+            searchjournalobjects -[hidden]right-> swhsearchinternal
+
+        }
+
+        node "search-esnode0.internal.staging.swh.network" as esnode {
+            component elasticsearch {
+                boundary 9200 as essearch
+            }
+        }
+    }
+}
+note top of pompidou: Proxmox server dedicated to staging
+
+user --> publicarchive
+user --> publicdeposit
+mirror --> publicjournal
+publicarchive --> firewall
+publicdeposit --> firewall
+publicjournal --> firewall
+
+firewall -down-> 80
+firewall -down-> 443
+443 -left- 80
+firewall -down-> 9094
+' note top: Authenticated\nconnection
+
+
+together {
+    node "storage1.internal.staging.swh.network" as storage1 {
+        folder "/srv/softwareheritage/objects" as objects
+        component nginx {
+            boundary 5003 as objstorage
+            boundary 5002 as storage
+            boundary 5007 as indexerstorage
+        }
+
+        component "swh-objstorage" as objstoragegunicorn
+
+        component "swh-storage" as storagegunicorn
+        component "swh-indexer-storage" as indexerstoragegunicorn
+
+
+        objstoragegunicorn --> objects
+        objstorage --> objstoragegunicorn
+        storage --> storagegunicorn
+        indexerstorage --> indexerstoragegunicorn
+    }
+
+    node "db1internal.staging.swh.network" as db1 {
+        component postgresql {
+            database swh as swhdb
+            database "swh-scheduler" as schedulerdb
+            database "swh-deposit" as depositdb
+            database "swh-indexer" as indexerdb
+            database "swh-vault" as vaultdb
+            database "swh-lister" as listerdb
+        }
+    }
+}
+
+vaultgunicorn --> vaultdb
+vaultgunicorn --> swhscheduler
+vaultgunicorn --> storage
+
+swhschedulergunicorn --> schedulerdb
+
+varnish -down-> apachewebapp
+webapp -down-> storage
+webapp -down-> objstorage
+webapp -down-> swhsearch
+
+swhschedulerjournalclient --> kafkainternal
+swhschedulerjournalclient --> schedulerdb
+
+swhschedulerrunner --> schedulerdb
+swhschedulerlistener --> schedulerdb
+
+swhloader -down-> storage
+swhloader -up-> rabbitmq
+
+swhlister -up-> listerdb
+swhlister -up-> schedulerdb
+swhlister -up-> rabbitmq
+
+swhindexer -up-> indexerdb
+swhindexer -up-> rabbitmq
+
+swhvaultcooker -down-> storage
+swhvaultcooker --> vault
+swhvaultcooker -up-> rabbitmq
+
+swhdeposit --> storage
+
+objstoragerogunicorn --> objstorage
+varnish -down-> objstoragero
+
+storagegunicorn -up-> swhdb
+indexerstoragegunicorn -up-> indexerdb
+indexerstoragegunicorn -down-> kafkainternal
+
+storagegunicorn -down-> kafkainternal
+
+searchjournalobjects --> essearch
+searchjournalindexed -down-> essearch
+swhsearchinternal -down-> essearch
+searchjournalobjects -up-> kafkainternal
+searchjournalindexed -up-> kafkainternal
+search -[hidden]left-> objstorage0
+
+depositgunicorn --> depositdb
+depositgunicorn --> storage
+depositgunicorn --> swhscheduler
+varnish --> apachedeposit
+
+db1 -up->pompidou
+storage1 -up-> db1
+
+@enduml

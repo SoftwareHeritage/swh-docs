@@ -4,7 +4,7 @@ SWH Software Deployment
 .. toctree::
    :titlesonly:
 
-   software-deployment-overview
+   deployment-environments
    upgrade-swh-service
    deploy-lister
    data-migration
