@@ -4,5 +4,5 @@ Keycloak
 .. toctree::
    :titlesonly:
 
-  how-to-user-perms
-  authentification
+   how-to-user-perms
+   authentification
