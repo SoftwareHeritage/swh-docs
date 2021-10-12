@@ -1,4 +1,4 @@
-.. _empty_page:
+.. _how_to_user_perms:
 
 How to set user permissions in keycloak
 =======================================

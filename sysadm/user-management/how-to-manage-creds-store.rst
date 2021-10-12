@@ -1,4 +1,4 @@
-.. _creds_store:
+.. _how_to_manage_creds_store:
 
 How to manage the credentials store
 ===================================
