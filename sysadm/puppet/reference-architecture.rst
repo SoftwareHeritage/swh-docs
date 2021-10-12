@@ -1,2 +1,2 @@
-Reference: Architecture of the Software Heritage puppet deployment
+Reference: Architecture of the Software Heritage Puppet deployment
 ==================================================================

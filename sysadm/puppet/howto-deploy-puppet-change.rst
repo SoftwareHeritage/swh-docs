@@ -1,2 +1,2 @@
-How to deploy a puppet change
+How to deploy a Puppet change
 =============================
