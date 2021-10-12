@@ -1,20 +1,23 @@
-.. sysadm documentation master file, created by
-   sphinx-quickstart on Thu Oct  7 14:50:43 2021.
-   You can adapt this file completely to your liking, but it should at least
-   contain the root `toctree` directive.
-
-Welcome to sysadm's documentation!
-==================================
+Welcome to the Software Heritage sysadmin documentation
+=======================================================
 
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
 
+  puppet/index
+  network-architecture/index
+  server-architecture/index
+  data-silos/index
+  deployment/index
+  user-management/index
+  life-cycle-management/index
+  mirror-operations/index
+  support-services/index
 
 
 Indices and tables
 ==================
 
 * :ref:`genindex`
-* :ref:`modindex`
 * :ref:`search`
