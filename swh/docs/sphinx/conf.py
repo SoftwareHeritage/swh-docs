@@ -82,6 +82,7 @@ language = "en"
 exclude_patterns = [
     "_build", "swh-icinga-plugins/index.rst", "swh-perfecthash/index.rst",
     "swh-perfecthash/README.rst",
+    "swh-docs/docs/apidoc/swh.loader.cvs.rcsparse.setup.rst",
 ]
 
 # The name of the Pygments (syntax highlighting) style to use.
