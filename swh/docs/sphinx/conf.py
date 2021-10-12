@@ -80,7 +80,8 @@ language = "en"
 # directories to ignore when looking for source files.
 # This patterns also effect to html_static_path and html_extra_path
 exclude_patterns = [
-    "_build", "swh-icinga-plugins/index.rst", "swh-perfecthash/index.rst"
+    "_build", "swh-icinga-plugins/index.rst", "swh-perfecthash/index.rst",
+    "swh-perfecthash/README.rst",
 ]
 
 # The name of the Pygments (syntax highlighting) style to use.
