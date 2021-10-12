@@ -1,4 +1,8 @@
-.. _sysadm_mirror_monitor:
+.. _mirror_monitor:
 
-Monitor a Mirror
-----------------
+How to monitor a mirror
+=======================
+
+
+.. todo::
+   This page is a work in progress.

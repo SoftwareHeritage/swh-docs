@@ -1,4 +1,8 @@
-.. _sysadm_mirror_onboard:
+.. _mirror_onboard:
 
-How To Onboard a Mirror
------------------------
+How to onboard a mirror
+=======================
+
+
+.. todo::
+   This page is a work in progress.
