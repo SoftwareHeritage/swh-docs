@@ -1,4 +1,4 @@
-.. _upgrade-swh-service
+.. _upgrade-swh-service:
 
 How to upgrade swh service
 ==========================
