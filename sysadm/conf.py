@@ -1,3 +1,3 @@
 from swh.docs.sphinx.conf import *  # noqa
 
-project = "Software Heritage - System Adminitrator Documentation"
+project = "Software Heritage - sysadmin documentation"
