@@ -80,7 +80,9 @@ language = "en"
 # directories to ignore when looking for source files.
 # This patterns also effect to html_static_path and html_extra_path
 exclude_patterns = [
-    "_build", "swh-icinga-plugins/index.rst", "swh-perfecthash/index.rst",
+    "_build",
+    "swh-icinga-plugins/index.rst",
+    "swh-perfecthash/index.rst",
     "swh-perfecthash/README.rst",
     "swh-docs/docs/apidoc/swh.loader.cvs.rcsparse.setup.rst",
 ]
@@ -138,6 +140,7 @@ html_last_updated_fmt = "%Y-%m-%d %H:%M:%S %Z"
 intersphinx_mapping = {
     "python": ("https://docs.python.org/3", None),
     "swh-devel": ("https://docs.softwareheritage.org/devel", None),
+    "swh-sysadm": ("https://docs.softwareheritage.org/sysadm", None),
 }
 
 # Redirects for pages that were moved, so we don't break external links.
