@@ -8,4 +8,3 @@ SWH Software Deployment
   upgrade-swh-service
   deploy-lister
   data-migration
-
