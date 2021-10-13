@@ -47,7 +47,7 @@ software components must be installed and configured to interact woth each other
    consists in an object storage solution (can be cloud-based or on local
    filesystem like ZFS pools) and the :ref:`swh-objstorage` service,
 
-#. :ref:`How to deploy graph replayer services <mirror_content_replayer>`:
+#. :ref:`How to deploy graph replayer services <mirror_graph_replayer>`:
    :mod:`swh-devel:swh.objstorage.replayer.replay` service is responsible for
    consuming the ``content`` topic from the |swh| kafka broker and filling the mirror
    objstorage, retrieving blob objects from a |swh| objstarage,
