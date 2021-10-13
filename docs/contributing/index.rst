@@ -10,3 +10,4 @@ Contributing
    python-style-guide
    git-style-guide
    sphinx
+   tutorial-docs-contribution
