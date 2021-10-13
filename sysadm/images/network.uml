@@ -1,0 +1,48 @@
+@startuml
+
+nwdiag {
+    inet [ shape = cloud ];
+    inet -- inria_gw;
+
+    network VLAN1300 {
+        address = "128.93.166.0/26"
+        workers;
+        kafka;
+        inria_gw;
+        forge;
+        pergamon;
+        moma;
+
+        group {
+            pushkin [shape = boundary];
+            glyptotek [shape = boundary];
+        }
+
+    }
+    network VLAN440 {
+        address = "192.168.100.0/24"
+        workers;
+        pushkin;
+        glyptotek;
+        forge;
+        kafka;
+        pergamon;
+        moma;
+        production_nodes [description = "Production nodes"];
+    }
+
+    network VLAN443 {
+        address = "192.168.130.0/24"
+        pushkin;
+        glyptotek;
+        staging_nodes [description = "Staging nodes"];
+    }
+
+    network VLAN442 {
+        address = "192.168.50.0/24"
+        pushkin;
+        glyptotek;
+        admin_nodes [description = "Admin nodes"];
+    }
+}
+@enduml
