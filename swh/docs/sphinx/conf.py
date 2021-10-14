@@ -153,6 +153,7 @@ redirects = {
     "swh-deposit/user-manual": "api/user-manual.html",
     "architecture": "architecture/overview.html",
     "mirror": "architecture/mirror.html",
+    "users": "user",
 }
 
 
