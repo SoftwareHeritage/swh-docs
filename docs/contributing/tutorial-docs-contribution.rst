@@ -84,13 +84,12 @@ We are following Divio's approach with four major types of documentation:
 
 * Reference: theoretical/technical knowledge which is information oriented.
 
-* Explanation: theoretical knowledge which is understanding oriented to analyze, discuss
-and explain different decisions, including background and context.
+* Explanation: theoretical knowledge understanding-oriented to analyze, discuss and
+explain different decisions, including background and context.
 
-For more information:
-https://documentation.divio.com/
-And Daniele Procida presentation on:
-https://www.youtube.com/watch?v=t4vKPhjcMZg
+
+For more information see `the divio documentation <https://documentation.divio.com/>`_
+and/or `Daniele Procida's presentation <https://www.youtube.com/watch?v=t4vKPhjcMZg>`_
 
 .. note::
     We propose using in the following naming scheme depending on the type of document:
@@ -103,7 +102,7 @@ https://www.youtube.com/watch?v=t4vKPhjcMZg
 Step 4: Create a page or sub-section with multiple pages
 --------------------------------------------------------
 
-#. Create a *.rst* file with a short name of your doc in the approriate directory (see
+#. Create a *.rst* file with a short name of your doc in the appropriate directory (see
    step 2). If this is a sub-section, the first file should be an *index.rst* file
    containing the list of the current sub-section files.
 
