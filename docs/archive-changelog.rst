@@ -13,6 +13,9 @@ in this document for historical reasons.
 2021
 ----
 
+* **2021-10-14:** Completed archival of Bitbucket_ Mercurial repositories
+  (tracking: `T3338 <https://forge.softwareheritage.org/T3338>`_)
+
 * **2021-09-25** Completed first archival of the `Opam repository
   <https://opam.ocaml.org>_`. Regular crawling for those repositories
   enabled (tracking: `T3424 <https://forge.softwareheritage.org/T3424>`_)
