@@ -47,6 +47,7 @@ Tutorials
 * :ref:`Listing the content of your favorite forge <lister-tutorial>`
   and :ref:`running a lister in Docker <run-lister-tutorial>`
 * :ref:`Add a new swh package <tutorial-new-package>`
+* :ref:`doc-contribution`
 
 Frequently Asked Questions
 --------------------------
