@@ -85,6 +85,7 @@ exclude_patterns = [
     "swh-perfecthash/index.rst",
     "swh-perfecthash/README.rst",
     "swh.loader.cvs.rcsparse.setup.rst",
+    "apidoc/swh.loader.cvs.rcsparse.setup.rst",
 ]
 
 # The name of the Pygments (syntax highlighting) style to use.
