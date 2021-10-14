@@ -40,7 +40,7 @@ The detail of this range is available in this `VLAN440 inventory page <https://i
 For historical reasons, some admin nodes are deployed in this range (monitoring, ci, ...)
 and will be progressively moved into the admin network.
 
-The internal domain associted to ththis vlan is ``.internal.staging.swh.network``
+The internal domain associted to this vlan is ``.internal.staging.swh.network``
 
 VLAN443 - Staging network
 ~~~~~~~~~~~~~~~~~~~~~~~~~
