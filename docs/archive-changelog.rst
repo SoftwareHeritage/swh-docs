@@ -17,19 +17,19 @@ in this document for historical reasons.
   (tracking: `T3338 <https://forge.softwareheritage.org/T3338>`_)
 
 * **2021-09-25** Completed first archival of the `Opam repository
-  <https://opam.ocaml.org>_`. Regular crawling for those repositories
+  <https://opam.ocaml.org>`_. Regular crawling for those repositories
   enabled (tracking: `T3424 <https://forge.softwareheritage.org/T3424>`_)
 
 * **2021-09-23** Completed first archival of the `Heptapod instance
-  <https://forge.extranet.logilab.fr/>_`. Regular crawling for those repositories
+  <https://forge.extranet.logilab.fr/>`_. Regular crawling for those repositories
   enabled (tracking: `T3597 <https://forge.softwareheritage.org/T3597>`_)
 
 * **2021-09-23** Completed first archival of the `Heptapod instance
-  <https://heptapod.host>_`. Regular crawling for those repositories enabled (tracking:
+  <https://heptapod.host>`_. Regular crawling for those repositories enabled (tracking:
   `T3600 <https://forge.softwareheritage.org/T3600>`_)
 
 * **2021-09-22** Completed first archival of the `Heptapod instance
-  <https://foss.heptapod.net>_`. This is the first forge with mostly mercurial origins.
+  <https://foss.heptapod.net>`_. This is the first forge with mostly mercurial origins.
   Regular crawling for those repositories enabled (tracking: `T3581
   <https://forge.softwareheritage.org/T3581>`_)
 
