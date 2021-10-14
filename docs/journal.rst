@@ -1,7 +1,7 @@
 .. _journal-specs:
 
-Software Heritage Journal --- Specifications
-============================================
+Journal Specification
+=====================
 
 The |swh| journal is a Kafka_-based stream of events for every added object in
 the |swh| Archive and some of its related services, especially indexers.

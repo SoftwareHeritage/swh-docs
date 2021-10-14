@@ -1,8 +1,7 @@
 .. _archive-changelog:
 
-
-Software Heritage --- Archive ChangeLog
-=======================================
+Archive ChangeLog
+=================
 
 Below you can find a time-indexed list of notable events and changes to
 archival policies in the Software Heritage Archive. Each of them might have
