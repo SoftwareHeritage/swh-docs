@@ -85,7 +85,7 @@ We are following Divio's approach with four major types of documentation:
 * Reference: theoretical/technical knowledge which is information oriented.
 
 * Explanation: theoretical knowledge understanding-oriented to analyze, discuss and
-explain different decisions, including background and context.
+  explain different decisions, including background and context.
 
 
 For more information see `the divio documentation <https://documentation.divio.com/>`_
