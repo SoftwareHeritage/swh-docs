@@ -8,7 +8,7 @@ Tutorial: Best practices when writing SWH docs
 
    Members of the Software Heritage staff and external contributors
    who wish to contribute by writing documentation.
-   
+
 A tutorial on how to contribute documentation into the Software Heritage world.
 
 Step 1: Identify your audience
@@ -133,7 +133,7 @@ Empty page template
       :class: important
 
       add the audience target(s) of this page
-   
+
    .. todo::
       This page is a work in progress. For now, please refer to the `existing documentation <https://...>`_.
 

@@ -5,5 +5,5 @@ Keycloak
    :titlesonly:
 
    how-to-user-perms
-   authentification
+   authentication
 
