@@ -3,6 +3,11 @@
 Frequently Asked Questions
 **************************
 
+.. contents::
+   :depth: 3
+   :local:
+..
+
 .. _faq_prerequisites:
 
 Prerequisites for code contributions

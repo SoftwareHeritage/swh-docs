@@ -10,21 +10,12 @@ Software Heritage User documentation
 
 Getting started
 ---------------
-
-...
+* :ref:`faq`
 
 Tutorials
 ---------
 
 ...
-
-Frequently Asked Questions
----------------------------
-
-.. toctree::
-   :maxdepth: 2
-
-   faq/index
 
 
 Indices and tables

@@ -10,6 +10,7 @@ Getting started
   software stack in less than 5 minutes, or
 * :ref:`developer-setup` → get a working development setup that allows to hack
   on the Software Heritage software stack
+* :ref:`faq`
 
 Contributing
 ------------
@@ -48,14 +49,6 @@ Tutorials
   and :ref:`running a lister in Docker <run-lister-tutorial>`
 * :ref:`Add a new swh package <tutorial-new-package>`
 * :ref:`doc-contribution`
-
-Frequently Asked Questions
---------------------------
-
-.. toctree::
-   :maxdepth: 2
-
-   faq/index
 
 Roadmap
 -------
