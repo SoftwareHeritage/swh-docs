@@ -224,17 +224,6 @@ class SimpleDocumenter(autodoc.FunctionDocumenter):
         pass
 
 
-# XXX Kill this ASA this PR is accepted and released
-# https://github.com/sphinx-contrib/httpdomain/pull/19
-def register_routingtable_as_label(app, document):
-    from sphinx.locale import _  # noqa
-
-    labels = app.env.domaindata["std"]["labels"]
-    labels["routingtable"] = "http-routingtable", "", _("HTTP Routing Table")
-    anonlabels = app.env.domaindata["std"]["anonlabels"]
-    anonlabels["routingtable"] = "http-routingtable", ""
-
-
 # sphinx event handler to set adequate django settings prior reading
 # apidoc generated rst files when building doc to avoid autodoc errors
 def set_django_settings(app, env, docname):
@@ -275,31 +264,7 @@ def setup(app):
     # the documentation
     os.environ["SWH_DOC_BUILD"] = "1"
 
-    # register routingtable label for sphinxcontrib-httpdomain <= 1.7.0
-    from distutils.version import StrictVersion  # noqa
-
-    import pkg_resources  # noqa
-
-    httpdomain = pkg_resources.get_distribution("sphinxcontrib-httpdomain")
-    if StrictVersion(httpdomain.version) <= StrictVersion("1.7.0"):
-        app.connect("doctree-read", register_routingtable_as_label)
-
     logger = logging.getLogger("sphinx")
-
-    # filter out non critical warnings appeared with sphinx 4.1 release
-    # TODO: remove that hack when that pull request gets merged
-    #       https://github.com/sphinx-contrib/httpdomain/pull/51
-    class HttpDomainRoleWarningFilter(logging.Filter):
-        def filter(self, record: logging.LogRecord) -> bool:
-            return not (
-                record.args
-                and type(record.args) == tuple  # to keep mypy happy
-                and record.args[0] == "http"
-                and record.msg.endswith("but that role is not in the domain.")
-            )
-
-    # insert a custom filter in the warning log handler of sphinx
-    logger.handlers[1].filters.insert(0, HttpDomainRoleWarningFilter())
 
     if swh_package_doc_tox_build:
         # ensure glossary will be available in package doc scope
