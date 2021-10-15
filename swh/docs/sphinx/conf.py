@@ -167,7 +167,6 @@ autodoc_default_flags = [
 autodoc_member_order = "bysource"
 autodoc_mock_imports = [
     "rados",
-    "swh.loader.cvs.rcsparse",
 ]
 autoclass_content = "both"
 
