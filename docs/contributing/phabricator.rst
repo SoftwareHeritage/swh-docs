@@ -27,6 +27,8 @@ We use the Differential application of Phabricator to perform
 Configuration
 +++++++++++++
 
+.. _arcanist-configuration:
+
 Arcanist configuration
 ^^^^^^^^^^^^^^^^^^^^^^
 
