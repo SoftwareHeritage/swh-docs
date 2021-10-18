@@ -26,7 +26,7 @@ Public urls
 +---------------------------------------+-------------------------------------------+
 | swh-objstorage read-only (for mirror) | https://objstorage.staging.swh.network    |
 +---------------------------------------+-------------------------------------------+
-| Journal TLS                           | broker0.journal.staging.swh.network:9093  |
+| Journal TLS                           | broker1.journal.staging.swh.network:9093  |
 +---------------------------------------+-------------------------------------------+
 
 Internal services
@@ -53,9 +53,9 @@ Internal services
 +--------------------------+------------------------------------------------------+--------+------------+
 | swh-vault                | http://vault.internal.staging.swh.network:5005       |        | X          |
 +--------------------------+------------------------------------------------------+--------+------------+
-| Journal plaintext        | journal0.internal.staging.swh.network:9092           |        | X          |
+| Journal plaintext        | journal1.internal.staging.swh.network:9092           |        | X          |
 +--------------------------+------------------------------------------------------+--------+------------+
-| Journal internal TLS     | journal0.internal.staging.swh.network:9094           |        | X          |
+| Journal internal TLS     | journal1.internal.staging.swh.network:9094           |        | X          |
 +--------------------------+------------------------------------------------------+--------+------------+
 
 SWH backends

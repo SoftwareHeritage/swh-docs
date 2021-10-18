@@ -8,7 +8,7 @@ actor mirror
 cloud VLAN1300 {
     interface "archive.staging.swh.network" as publicarchive
     interface "deposit.staging.swh.network" as publicdeposit
-    interface "broker0.journal.staging.swh.network" as publicjournal
+    interface "broker1.journal.staging.swh.network" as publicjournal
 }
 
 node firewall {
@@ -35,13 +35,6 @@ node pompidou {
         vaultgunicorn --> vaultcache
     }
     together {
-        node "journal0.internal.staging.swh.network" as journal0 {
-            component kafka {
-                boundary 9094
-                boundary 9093
-                boundary 9092 as kafkainternal
-            }
-        }
         node "webapp.internal.staging.swh.network" as webapp0 {
             component apache as apacheservicewebapp {
                 boundary 9080 as apachewebapp
@@ -68,11 +61,8 @@ node pompidou {
             objstoragero --> objstoragerogunicorn
         }
         depositgunicorn -down-> apachewebapp
-        webapp0 -left-> journal0
         objstorage0 -[hidden]right->deposit
         deposit -[hidden]right->webapp0
-        journal0 -[hidden]right->webapp0
-        journal0 -[hidden]right->deposit
     }
 
 
@@ -134,7 +124,6 @@ publicjournal --> firewall
 firewall -down-> 80
 firewall -down-> 443
 443 -left- 80
-firewall -down-> 9094
 ' note top: Authenticated\nconnection
 
 
@@ -146,6 +135,13 @@ together {
             boundary 5002 as storage
             boundary 5007 as indexerstorage
         }
+
+        component kafka {
+            boundary 9094
+            boundary 9093
+            boundary 9092 as kafkainternal
+        }
+
 
         component "swh-objstorage" as objstoragegunicorn
 
@@ -170,6 +166,8 @@ together {
         }
     }
 }
+
+firewall -down-> 9094
 
 vaultgunicorn --> vaultdb
 vaultgunicorn --> swhscheduler
