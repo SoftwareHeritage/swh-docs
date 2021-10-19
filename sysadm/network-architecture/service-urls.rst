@@ -1,9 +1,14 @@
+.. _service-url:
+
 Service urls
-#####################
+============
 
+.. admonition:: Intended audience
+   :class: important
 
-This section regroups the urls of the services
+   Staff members
 
+This section regroups the urls of the services.
 
 .. toctree::
    :maxdepth: 2
