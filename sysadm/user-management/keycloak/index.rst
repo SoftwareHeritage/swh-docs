@@ -4,6 +4,6 @@ Keycloak
 .. toctree::
    :titlesonly:
 
-   how-to-user-perms
    authentication
+   how-to-set-user-perms
 
