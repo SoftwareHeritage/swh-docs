@@ -208,7 +208,6 @@ Indices and tables
    tutorials/index
    faq/index
    roadmap/roadmap-2021.rst
-   infrastructure/index
    swh.auth <swh-auth/index>
    swh.core <swh-core/index>
    swh.counters <swh-counters/index>
