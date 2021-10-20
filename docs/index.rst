@@ -58,7 +58,7 @@ Roadmap
 Engineering
 -----------
 
-* :ref:`infrastructure`
+* :ref:`swh-sysadm:infrastructure`
 
 Components
 ----------

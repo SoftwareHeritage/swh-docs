@@ -151,9 +151,9 @@ redirects = {
     "swh-deposit/metadata": "api/metadata.html",
     "swh-deposit/specs/blueprint": "../api/use-cases.html",
     "swh-deposit/user-manual": "api/user-manual.html",
-    "infrastructure/index.html": "sysadm/network-architecture/index.html",
-    "infrastructure/network.html": "sysadm/network-architecture/index.html",
-    "infrastructure/service-urls.html": "sysadm/network-architecture/service-urls.html",
+    "infrastructure/index.html": "../../sysadm/network-architecture/index.html",
+    "infrastructure/network.html": "../../sysadm/network-architecture/index.html",
+    "infrastructure/service-urls.html": "../../sysadm/network-architecture/service-urls.html",  # noqa
     "architecture": "architecture/overview.html",
     "mirror": "architecture/mirror.html",
     "users": "user",
