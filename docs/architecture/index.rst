@@ -11,4 +11,3 @@ Software Architecture
    overview
    mirror
    metadata
-   ../keycloak/index
