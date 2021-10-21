@@ -11,3 +11,4 @@ Network architecture
    how-to-access-firewall-settings
    how-to-upgrade-firewall-os
    service-urls
+   idrac
