@@ -7,4 +7,4 @@ SWH Software Deployment
    deployment-environments
    upgrade-swh-service
    deploy-lister
-   data-migration
+   storage-database-migration
