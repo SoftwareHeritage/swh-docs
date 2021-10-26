@@ -8,3 +8,4 @@ SWH Software Deployment
    upgrade-swh-service
    deploy-lister
    storage-database-migration
+   howto-debian-packaging
