@@ -12,3 +12,4 @@ Network architecture
    how-to-upgrade-firewall-os
    service-urls
    idrac
+   dns
