@@ -16,16 +16,20 @@ Prerequisites for code contributions
 What are the Skills required to be a code contributor?
 ------------------------------------------------------
 
-It depends on what area you want to work on. The `internships`_ postings
-list specific skills
-required. Generally, only Python and basic Git knowledge are required. Feel free to
-contact us on one of the `development channels
-<https://www.softwareheritage.org/community/developers/>`__ for details.
+Generally, only Python and basic Git knowledge are required to contribute.
+Other than that, it really depends on what technical areas you want to work on.
+
+For student internships, the `internships`_ page details specific prerequisites
+needed to pick up a topic.
+
+Feel free to contact us via our `development channels
+<https://www.softwareheritage.org/community/developers/>`__ to inquiry about
+specific skills needed to work on any topic of your interest.
 
 What are the minimum system requirements (hardware/software) to run SWH locally?
 --------------------------------------------------------------------------------
 
-Python3.7 or newer is required. See the :ref:`developer setup documentation
+Python 3.7 or newer is required. See the :ref:`developer setup documentation
 <developer-setup>` for more details.
 
 
@@ -44,10 +48,11 @@ contributing, and architecture, as well as the data model.
 Where can I see the getting started guide for developers?
 ---------------------------------------------------------
 
-See :ref:`getting-started` tutorial.
+For hacking on the Software Heritage code base you should start from the
+:ref:`developer-setup` tutorial.
 
-How do I find an easy ticket to get started?
---------------------------------------------
+How do I find an easy task to get started?
+------------------------------------------
 
 We maintain a `list of easy tickets
 <https://forge.softwareheritage.org/maniphest/query/WcCLxlHnXok9/>`__ to work on, see
@@ -78,6 +83,12 @@ You can choose one of the following:
 
 Running an SWH instance locally
 ===============================
+
+How do I run a local "toy version" of the archive?
+--------------------------------------------------
+
+The :ref:`getting-started` tutorial shows how to run a local instance of the
+Software Heritage software infrastructure, using Docker.
 
 I have SWH stack running in my local. How do I get some initial data to play around?
 ------------------------------------------------------------------------------------
