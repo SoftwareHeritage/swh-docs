@@ -9,3 +9,4 @@ SWH Software Deployment
    deploy-lister
    storage-database-migration
    howto-debian-packaging
+   jenkins
