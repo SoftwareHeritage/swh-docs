@@ -3,6 +3,11 @@
 Reference: Outboarding checklist
 ================================
 
+.. admonition:: Intended audience
+   :class: important
+
+   sysadm members
+
 This page describes outboarding process for staff people, i.e., what to do when they
 leave the project.
 

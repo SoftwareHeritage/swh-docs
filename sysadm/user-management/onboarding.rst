@@ -3,6 +3,11 @@
 Reference: Onboarding checklist
 ===============================
 
+.. admonition:: Intended audience
+   :class: important
+
+   staff members
+
 This page describes the onboarding process for new staff member on the project.
 
 .. _onboarding_goodies:
