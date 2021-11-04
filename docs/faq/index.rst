@@ -43,7 +43,7 @@ What are the must read docs before I start contributing?
 
 We recommend you read the top links listed at from the :ref:`documentation home page
 <swh-docs>` in order: getting started,
-contributing, and architecture, as well as the data model.
+contributing, and architecture overview, as well as the data model.
 
 Where can I see the getting started guide for developers?
 ---------------------------------------------------------
