@@ -13,6 +13,10 @@ in this document for historical reasons.
 2021
 ----
 
+* **2021-11-17:** Completed first archival of the `Opam Coq repository
+  <https://coq.inria.fr/opam/released/>`_. Regular cralwing of those repositories
+  enabled (tracking: `T3717 <https://forge.softwareheritage.org/T3717>`_)
+
 * **2021-10-14:** Completed archival of Bitbucket_ Mercurial repositories
   (tracking: `T3338 <https://forge.softwareheritage.org/T3338>`_)
 
