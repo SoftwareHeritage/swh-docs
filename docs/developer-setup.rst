@@ -36,7 +36,7 @@ package manager. On Debian/Ubuntu-based distributions::
       libpython3-dev libsystemd-dev libsvn-dev fuse3 libfuse3-dev \
       git myrepos \
       postgresql-autodoc graphviz plantuml inkscape \
-      postgresql libpq-dev cassandra
+      postgresql libpq-dev cassandra yarnpkg
 
 .. Note:: Python 3.7 or newer is required
 
