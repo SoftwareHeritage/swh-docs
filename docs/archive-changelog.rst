@@ -13,6 +13,9 @@ in this document for historical reasons.
 2021
 ----
 
+* **2021-11-22** Made the package loaders write release objects instead of revisions
+  (tracking: `T3638 <https://forge.softwareheritage.org/T3638>`)
+
 * **2021-11-17:** Completed first archival of the `Opam Coq repository
   <https://coq.inria.fr/opam/released/>`_. Regular cralwing of those repositories
   enabled (tracking: `T3717 <https://forge.softwareheritage.org/T3717>`_)
@@ -36,6 +39,9 @@ in this document for historical reasons.
   <https://foss.heptapod.net>`_. This is the first forge with mostly mercurial origins.
   Regular crawling for those repositories enabled (tracking: `T3581
   <https://forge.softwareheritage.org/T3581>`_)
+
+* **2021-09-22** Disabled insertion of Git objects with non-canonical representations
+  in the SWH data model (tracking: `T399 <https://forge.softwareheritage.org/T399>`)
 
 * **2021-08-03** Completed first archival of SourceForge Mercurial repositories; regular
   crawling for those repositories enabled (tracking: `T3374
