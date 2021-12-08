@@ -13,6 +13,10 @@ in this document for historical reasons.
 2021
 ----
 
+* **2021-12-11** Completed first archival of the current and historical `Ubuntu
+  <https://ubuntu.com/>`_ releases. Regular crawling of those repositories enabled
+  (tracking: `T2400 <https://forge.softwareheritage.org/T2400>`_)
+
 * **2021-11-22** Made the package loaders write release objects instead of revisions
   (tracking: `T3638 <https://forge.softwareheritage.org/T3638>`_)
 
