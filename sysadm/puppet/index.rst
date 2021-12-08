@@ -9,5 +9,6 @@ Puppet
    howto-manage-third-party-modules
    howto-test-changes-in-vagrant
    howto-deploy-puppet-change
+   howto-renew-agent-certificate
    reference-architecture
    reference-best-practices
