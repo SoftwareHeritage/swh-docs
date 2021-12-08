@@ -14,7 +14,7 @@ in this document for historical reasons.
 ----
 
 * **2021-11-22** Made the package loaders write release objects instead of revisions
-  (tracking: `T3638 <https://forge.softwareheritage.org/T3638>`)
+  (tracking: `T3638 <https://forge.softwareheritage.org/T3638>`_)
 
 * **2021-11-17:** Completed first archival of the `Opam Coq repository
   <https://coq.inria.fr/opam/released/>`_. Regular cralwing of those repositories
