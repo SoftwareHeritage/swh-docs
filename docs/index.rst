@@ -135,6 +135,10 @@ swh.docs
 :ref:`swh.objstorage.replayer <swh-objstorage-replayer>`
     Object storage replication tool
 
+:ref:`swh.perfecthash <swh-perfecthash>`
+     Low level management for read-only content-addressable object storage
+     indexed with a perfect hash table
+
 :ref:`swh.scanner <swh-scanner>`
     source code scanner to analyze code bases and compare them with source code
     artifacts archived by Software Heritage

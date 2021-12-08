@@ -16,6 +16,7 @@ swh.loader.cvs
 swh.model
 swh.objstorage[testing]
 swh.objstorage.replayer
+swh.perfecthash
 swh.scanner
 swh.scheduler[simulator]
 swh.search

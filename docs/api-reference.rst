@@ -20,6 +20,7 @@ API reference
    swh.model <swh-model/index>
    swh.objstorage <swh-objstorage/index>
    swh.objstorage.replayer <swh-objstorage-replayer/index>
+   swh.perfecthash <swh-perfecthash/index>
    swh.scanner <swh-scanner/index>
    swh.scheduler <swh-scheduler/index>
    swh.search <swh-search/index>

@@ -82,8 +82,6 @@ language = "en"
 exclude_patterns = [
     "_build",
     "swh-icinga-plugins/index.rst",
-    "swh-perfecthash/index.rst",
-    "swh-perfecthash/README.rst",
     "swh.loader.cvs.rcsparse.setup.rst",
     "apidoc/swh.loader.cvs.rcsparse.setup.rst",
 ]
