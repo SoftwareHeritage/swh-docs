@@ -45,7 +45,7 @@ in this document for historical reasons.
   <https://forge.softwareheritage.org/T3581>`_)
 
 * **2021-09-22** Disabled insertion of Git objects with non-canonical representations
-  in the SWH data model (tracking: `T399 <https://forge.softwareheritage.org/T399>`)
+  in the SWH data model (tracking: `T399 <https://forge.softwareheritage.org/T399>`_)
 
 * **2021-08-03** Completed first archival of SourceForge Mercurial repositories; regular
   crawling for those repositories enabled (tracking: `T3374
