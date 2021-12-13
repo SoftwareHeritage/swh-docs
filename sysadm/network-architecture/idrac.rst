@@ -77,6 +77,8 @@ can do its work:
        --method tproxy \
        -r ${username}@sesi-ssh.inria.fr 128.93.162.142 128.93.134.0/27
 
+.. _idrac_authentication:
+
 Authentication
 --------------
 
