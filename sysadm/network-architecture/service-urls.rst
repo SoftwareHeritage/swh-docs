@@ -28,7 +28,7 @@ Service                      URL
 swh-web                      https://webapp.staging.swh.network
 swh-deposit                  https://deposit.staging.swh.network
 swh-objstorage read-only [4] https://objstorage.staging.swh.network
-Journal TLS                  broker0.journal.staging.swh.network:9093
+Journal TLS                  broker1.journal.staging.swh.network:9093
 ============================ ========================================
 
 Internal services
