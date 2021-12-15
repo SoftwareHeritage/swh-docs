@@ -128,6 +128,31 @@ To merge changes from the upstream history, we add the following option to ``gbp
 
    upstream-vcs-tag=v%(version)s
 
+.. _bootstrapping_debian_branches_for_a_swh_package:
+
+Bootstrapping the Debian packaging branches for a SWH package
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+When introducing a new Python package in swh-environment, after the first release, one
+needs to bootstrap the Debian packaging branches to allow Jenkins to automatically build
+Debian packages.
+
+To do so, swh-environment contains a ``bin/debpkg-bootstrap-branches`` script, which
+generates a basic Debian branch structure from an existing tag, and files in the
+``debian-template/`` directory.
+
+Once the script has created the new unstable packaging branches, test the build locally
+following the instructions in the :ref:`local_package_building` section of this
+documentation. Once you've handled any build issues (e.g. missing build-dependencies),
+you can tag the first debian release and push all branches so that Jenkins can do a
+clean build. The backports branches will get created automatically by the Jenkins jobs
+once the unstable build succeeds.
+
+.. code::
+
+   gbp buildpackage --git-tag-only --git-sign-tags
+   git push origin --set-upstream --follow-tags pristine-tar:pristine-tar debian/upstream:debian/upstream debian/unstable-swh:debian/unstable-swh
+
 .. _bootstrapping_a_dependency_packaging_repository:
 
 Bootstrapping a dependency packaging repository
