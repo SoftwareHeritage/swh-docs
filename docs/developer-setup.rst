@@ -33,7 +33,8 @@ package manager. On Debian/Ubuntu-based distributions::
   sudo apt install \
       build-essential pkg-config lzip rsync \
       python3 python3-pip python3-venv virtualenvwrapper \
-      libpython3-dev libsystemd-dev libsvn-dev fuse3 libfuse3-dev \
+      libpython3-dev libsystemd-dev libsvn-dev libffi-dev librdkafka-dev \
+      fuse3 libfuse3-dev \
       git myrepos \
       postgresql-autodoc graphviz plantuml inkscape \
       postgresql libpq-dev cassandra yarnpkg
