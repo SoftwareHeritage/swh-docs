@@ -24,7 +24,7 @@ Install required dependencies
 Software Heritage requires some dependencies that are usually packaged by your
 package manager. On Debian/Ubuntu-based distributions::
 
-  sudo apt install lsb-release
+  sudo apt install lsb-release wget
   sudo wget https://www.postgresql.org/media/keys/ACCC4CF8.asc -O /etc/apt/trusted.gpg.d/postgresql.asc
   echo "deb http://apt.postgresql.org/pub/repos/apt/ $(lsb_release -cs)-pgdg main" | sudo tee -a /etc/apt/sources.list.d/pgdg.list
   sudo wget https://downloads.apache.org/cassandra/KEYS -O /etc/apt/trusted.gpg.d/cassandra.asc
