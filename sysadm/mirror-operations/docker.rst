@@ -3,6 +3,11 @@
 Deploy a Software Heritage stack with docker deploy
 ===================================================
 
+.. admonition:: Intended audience
+   :class: important
+
+   mirror operators
+
 Prerequisities
 --------------
 
@@ -27,8 +32,8 @@ In the following how-to, we will assume that the service `STACK` name is `swh`
 
 Several preparation steps will depend on this name.
 
-We also use [docker-compose](https://github.com/docker/compose) to merge
-compose files, so make sure it iavailable on your system.
+We also use `docker-compose <https://github.com/docker/compose>`_ to merge compose
+files, so make sure it iavailable on your system.
 
 You also need to clone the git  repository:
 
@@ -60,7 +65,7 @@ create the storage before starting the docker service. For example for the
 If you want to deploy services like the `swh-objstorage` on several hosts, you
 will need a shared storage area in which blob objects will be stored. Typically
 a NFS storage can be used for this, or any existing docker volume driver like
-[REX_Rey](https://rexray.readthedocs.io/). This is not covered in this doc.
+`REX-Ray <https://rexray.readthedocs.io/>`_. This is not covered in this doc.
 
 Please read the documentation of docker volumes to learn how to use such a
 device/driver as volume provider for docker.
@@ -153,10 +158,10 @@ The nginx frontend will listen on the 5081 port, so you can use:
 - http://localhost:5081/grafana/ to explore the monitoring probes
   (log in with admin/admin).
 
+.. warning::
 
->[!WARNING]
->the 'latest' docker images work, it is highly recommended to
->explicitly specify the version of the image you want to use.
+   the 'latest' docker images work, it is highly recommended to
+   explicitly specify the version of the image you want to use.
 
 Docker images for the Software Heritage stack are tagged with their build date:
 
@@ -176,11 +181,12 @@ To specify the tag to be used, simply set the SWH_IMAGE_TAG environment variable
    export SWH_IMAGE_TAG=20200819-112604
    docker deploy -c base-services.yml swh
 
->[!WARNING]
->make sure to have this variable properly set for any later `docker deploy`
->command you type, otherwise you running containers will be recreated using the
->':latest' image (which might **not** be the latest available version, nor
->consistent amond the docker nodes on you swarm cluster).
+.. warning::
+
+   make sure to have this variable properly set for any later `docker deploy`
+   command you type, otherwise you running containers will be recreated using the
+   ':latest' image (which might **not** be the latest available version, nor
+   consistent amond the docker nodes on you swarm cluster).
 
 Updating a configuration
 ------------------------
@@ -277,11 +283,12 @@ replayer service):
 Set up a mirror
 ===============
 
->[!WARNING] you cannot "upgrade" an existing docker stack built from the
->base-services.yml file to a mirror one; you need to recreate it; more
->precisely, you need to drop the storage database before. This is due to the
->fact the storage database for a mirror is not initialized the same way as
->the default storage database.
+.. warning::
+
+   you cannot "upgrade" an existing docker stack built from the base-services.yml file
+   to a mirror one; you need to recreate it; more precisely, you need to drop the
+   storage database before. This is due to the fact the storage database for a mirror is
+   not initialized the same way as the default storage database.
 
 A Software Heritage mirror consists in base Software Heritage services, as
 described above, without any worker related to web scraping nor source code
@@ -311,9 +318,9 @@ is up to date.) Parameters to check/update are:
 - `journal_client/sasl.password`: kafka authentication password.
 
 Then you need to merge the compose files "by hand" (due to this still
-[unresolved](https://github.com/docker/cli/issues/1651)
-[bugs](https://github.com/docker/cli/issues/1582)). For this we will use
-[docker-compose](https://github.com/docker/compose) as helper tool to merge the
+`unresolved <https://github.com/docker/cli/issues/1651>`_
+`bugs <https://github.com/docker/cli/issues/1582>`_). For this we will use
+`docker compose <https://github.com/docker/compose>`_ as helper tool to merge the
 compose files.
 
 To merge 2 (or more) compose files together, typically `base-services.yml` with
@@ -352,7 +359,7 @@ start these services with:
 
 .. code-block:: bash
 
-   ~/swh-docker$ docker-composer \
+   ~/swh-docker$ docker-compose \
        -f base-services.yml \
        -f graph-replayer-override.yml \
        config > graph-replayer.yml
@@ -416,7 +423,7 @@ start these services with:
 
 .. code-block:: bash
 
-   ~/swh-docker$ docker-composer \
+   ~/swh-docker$ docker-compose \
        -f base-services.yml \
        -f content-replayer-override.yml \
        config > content-replayer.yml
@@ -433,7 +440,7 @@ Putting all together is just a matter of merging the 3 compose files:
 
 .. code-block:: bash
 
-   ~/swh-docker$ docker-composer \
+   ~/swh-docker$ docker-compose \
        -f base-services.yml \
        -f graph-replayer-override.yml \
        -f content-replayer-override.yml \
