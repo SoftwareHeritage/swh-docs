@@ -9,5 +9,4 @@ Software Architecture
    :titlesonly:
 
    overview
-   mirror
    metadata
