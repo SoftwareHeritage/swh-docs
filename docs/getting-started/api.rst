@@ -15,21 +15,17 @@ started in 2015 with a rather impressive goal and purpose:
    organizing, preserving and sharing all the source code publicly
    available in the world.
 
-Yes, you read it well: all source code available in the world. It implies to
-build an equally impressive infrastructure to hold the huge amount of
-information represented, make the archive available to the public
-through a `nice web interface <https://archive.softwareheritage.org/>`__
-and even propose a :ref:`well-documented API <swh-web>` to access it
-seamlessly. For the records, there are also :ref:`various datasets
-available <swh-dataset>` for download, with detailed instructions
-about how to set it up. And, yes it’s huge: the full graph generated
-from the archive (with only metadata, content is not included) has more
-than 20b nodes and weights 1.2TB. Overall size of the archive is in the
-hundreds of TBs.
+Yes, all source code available in the world. It implies to build an equally impressive
+infrastructure to hold the huge amount of information represented, make the archive
+available to the public through a :swh_web:`nice web interface </>` and even propose a
+:ref:`well-documented API <swh-web>` to access it seamlessly. For the records, there are
+also :ref:`various datasets available <swh-dataset>` for download, with detailed
+instructions about how to set it up. And, yes it’s huge: the full graph generated from
+the archive (with only metadata, content is not included) has more than 20b nodes and
+weights 1.2TB. Overall size of the archive is in the hundreds of TBs.
 
-This article presents, and demonstrates the use of, the `Software
-Heritage API <https://archive.softwareheritage.org/api/1/>`__ to query
-basic information about archived content and fetch the content of a
+This article presents, and demonstrates the use of, the :swh_web:`Software Heritage API
+<api/1/>` to query basic information about archived content and fetch the content of a
 software project.
 
 Terms and Concepts
@@ -91,24 +87,20 @@ easily:
         print(json.dumps(obj, sort_keys=True, indent=4))
 
 
-The syntax mentioned in the `API
-documentation <https://archive.softwareheritage.org/api/1/>`__ is rather
-straightforward. Since we want to read it from the main Software
-Heritage server, we will use ``https://archive.softwareheritage.org/``
-as the basename. All API calls will be forged according to the same
-syntax:
+The syntax mentioned in the :swh_web:`API documentation <api/1/>` is rather
+straightforward. Since we want to read it from the main Software Heritage server, we
+will use ``https://archive.softwareheritage.org/`` as the basename. All API calls will
+be forged according to the same syntax:
 
 ``https://archive.softwareheritage.org/api/1/<endpoint>``
 
 Request basic Information
 -------------------------
 
-We want to get some basic information about the main server activity and
-content. The ``stat`` endpoint provides a summary of the main indexes and
-some statistics about the archive. We can request a GET on the main
-counters of the archive using the counters path, as described in the
-`endpoint
-documentation <https://archive.softwareheritage.org/api/1/stat/counters/>`__:
+We want to get some basic information about the main server activity and content. The
+``stat`` endpoint provides a summary of the main indexes and some statistics about the
+archive. We can request a GET on the main counters of the archive using the counters
+path, as described in the :swh_web:`endpoint documentation <api/1/stat/counters/>`:
 
 ``/api/1/stat/counters/``
 
@@ -164,11 +156,9 @@ Search the archive
 Search for a keyword
 ^^^^^^^^^^^^^^^^^^^^
 
-The easiest way to look for a keyword in the repositories analysed by
-the archive is to use the ``search`` feature of the ``origin`` endpoint.
-Documentation for the endpoint is
-`here <https://archive.softwareheritage.org/api/1/origin/search/doc/>`__
-and the complete syntax is:
+The easiest way to look for a keyword in the repositories analysed by the archive is to
+use the ``search`` feature of the ``origin`` endpoint. Documentation for the endpoint is
+:swh_web:`here <api/1/origin/search/doc/>` and the complete syntax is:
 
 ``/api/1/origin/search/<keyword>/``
 
@@ -226,11 +216,10 @@ If we want to know more about a specific origin, we can simply use the
 Search for a specific origin
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Now say that we want to query the database for the specific repository
-of Alambic, to know what information has been registered by the archive.
-The API endpoint can be found `in the swh-web
-documentation <https://archive.softwareheritage.org/api/1/origin/doc/>`__,
-and has the following syntax:
+Now say that we want to query the database for the specific repository of Alambic, to
+know what information has been registered by the archive. The API endpoint can be found
+:swh_web:`in the swh-web documentation <api/1/origin/doc/>`, and has the following
+syntax:
 
 ``/api/1/origin/<origin_url>/get/``
 
@@ -254,7 +243,7 @@ like this:
     jprint(found)
 
 
-.. parsed-literal::
+.. code::
 
     {
         "origin_visits_url": "https://archive.softwareheritage.org/api/1/origin/https://github.com/borisbaldassari/alambic/visits/",
@@ -265,11 +254,10 @@ like this:
 Get visits information
 ^^^^^^^^^^^^^^^^^^^^^^
 
-We can use the ``origin_visits_url`` attribute to know more about when
-the repository was analysed by the archive bots. The API endpoint is
-fully documented on the `Software Heritage doc
-site <https://archive.softwareheritage.org/api/1/origin/visits/doc/>`__,
-and has the following syntax:
+We can use the ``origin_visits_url`` attribute to know more about when the repository
+was analysed by the archive bots. The API endpoint is fully documented on the
+:swh_web:`Software Heritage doc site <api/1/origin/visits/doc/>`, and has the following
+syntax:
 
 ``/api/1/origin/<origin_url>/visits/``
 
@@ -288,7 +276,7 @@ We will use the same query as before about the main Alambic repository.
     jprint(found[0])
 
 
-.. parsed-literal::
+.. code::
 
     Number of visits found: 5.
     With dates:
@@ -327,32 +315,28 @@ by the previous command we executed.
     print(f"Snapshot is {format(snapshot)}.")
 
 
-.. parsed-literal::
+.. code::
 
     Snapshot is 6436d2c9b06cf9bd9efb0b4e463c3fe6b868eadc.
 
 
-Note that the latest visit to the repository can also be directly
-retrieved using the `dedicated
-endpoint <https://archive.softwareheritage.org/api/1/origin/visit/latest/doc/>`__
+Note that the latest visit to the repository can also be directly retrieved using the
+:swh_web:`dedicated endpoint <api/1/origin/visit/latest/doc/>`
 ``/api/1/origin/visit/latest/``.
 
 Get the snapshot
 ^^^^^^^^^^^^^^^^
 
-We want now to retrieve the content of the project at this snapshot. For
-that purpose there is the ``snapshot`` endpoint, and its documentation
-is `provided
-here <https://archive.softwareheritage.org/api/1/snapshot/doc/>`__. The
-complete syntax is:
+We want now to retrieve the content of the project at this snapshot. For that purpose
+there is the ``snapshot`` endpoint, and its documentation is :swh_web:`provided here
+<api/1/snapshot/doc/>`. The complete syntax is:
 
 ``/api/1/snapshot/<snapshot_id>/``
 
-The snapshot endpoint returns in the ``branches`` attribute a list of
-**revisions** (aka commits in a git context), which
-themselves point to the set of directories and files in the branch at
-the time of analysis. Let’s follow this chain of links, starting with
-the snapshot’s list of revisions (branches):
+The snapshot endpoint returns in the ``branches`` attribute a list of **revisions** (aka
+commits in a git context), which themselves point to the set of directories and files in
+the branch at the time of analysis. Let’s follow this chain of links, starting with the
+snapshot’s list of revisions (branches):
 
 .. code:: python
 
@@ -361,7 +345,7 @@ the snapshot’s list of revisions (branches):
     jprint(snapshotj)
 
 
-.. parsed-literal::
+.. code::
 
     {
         "branches": {
@@ -424,7 +408,7 @@ an ID and message.
     jprint(masterj)
 
 
-.. parsed-literal::
+.. code::
 
     Revision ID is 6436d2c9b06cf9bd9efb0b4e463c3fe6b868eadc
     {
@@ -460,12 +444,10 @@ an ID and message.
     }
 
 
-The revision references the root directory of the project. We can
-list all files and directories at the root by requesting more
-information from the ``directory_url`` attribute. The endpoint is
-documented
-`here <https://archive.softwareheritage.org/api/1/directory/doc/>`__ and
-has the following syntax:
+The revision references the root directory of the project. We can list all files and
+directories at the root by requesting more information from the ``directory_url``
+attribute. The endpoint is documented :swh_web:`here <api/1/directory/doc/>` and has the
+following syntax:
 
 ``/api/1/directory/<directory_id>/``
 
@@ -516,7 +498,7 @@ the repository at the time of analysis:
         print(f"- {f['name']}.")
 
 
-.. parsed-literal::
+.. code::
 
     - .dockerignore
     - .env
@@ -560,10 +542,10 @@ endpoint, and its complete syntax is:
 
 ``/api/1/vault/directory/<directory_id>/``
 
-The first POST request initiates the cooking, and subsequent GET
-requests can fetch the job result and download the archive. See the
-`Software Heritage documentation <vault-primer>` on this, with useful
-examples. The API endpoint is documented `here <https://archive.softwareheritage.org/api/1/vault/directory/doc/>`__.
+The first POST request initiates the cooking, and subsequent GET requests can fetch the
+job result and download the archive. See the `Software Heritage documentation
+<vault-primer>` on this, with useful examples. The API endpoint is documented
+:swh_web:`here <api/1/vault/directory/doc/>`.
 
 In this example we will fetch the content of the root directory that we
 previously identified.
@@ -575,7 +557,7 @@ previously identified.
     jprint(mealj)
 
 
-.. parsed-literal::
+.. code::
 
     {
         "fetch_url": "https://archive.softwareheritage.org/api/1/vault/directory/3ee1366c6dd0b7f4ba9536e9bcc300236ac8f200/raw/",
@@ -600,7 +582,7 @@ process status:
     jprint(statusj)
 
 
-.. parsed-literal::
+.. code::
 
     {
         "fetch_url": "https://archive.softwareheritage.org/api/1/vault/directory/3ee1366c6dd0b7f4ba9536e9bcc300236ac8f200/raw/",
@@ -645,12 +627,11 @@ extracted as a tar.gz archive:
 Conclusion
 ----------
 
-In this article, we learned **how to explore and use the Software
-Heritage archive using its API**: searching for a repository,
-identifying projects and downloading specific snapshots of a repository.
-There is a lot more to the Archive and its API than what we have seen,
-and all features are generously documented on the `Software Heritage web
-site <https://archive.softwareheritage.org/api/>`__.
+In this article, we learned **how to explore and use the Software Heritage archive using
+its API**: searching for a repository, identifying projects and downloading specific
+snapshots of a repository. There is a lot more to the Archive and its API than what we
+have seen, and all features are generously documented on the :swh_web:`Software Heritage
+web site <api/>`.
 
 
 

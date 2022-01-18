@@ -221,7 +221,7 @@ See the :ref:`Authentication guide <swh-web-client-auth>`.
 Is there a page where I can see all the API endpoints?
 ------------------------------------------------------
 
-See the `API endpoint listing page`_.
+See the :swh_web:`API endpoint listing page <save/>`.
 
 What are the usage limits for SWH APIs?
 ---------------------------------------
@@ -231,7 +231,7 @@ Maximum number of permitted requests per hour:
 * 120 for anonymous users
 * 1200 for authenticated users
 
-It's described in the `rate limit documentation page`_.
+It's described in the :swh_web:`rate limit documentation page <api/#rate-limiting>`.
 
 .. It's temporarily here but it should be moved into its own sphinx instance at some
    point in the future.
@@ -261,8 +261,6 @@ internal state migration (dbs) often enters the release cycle and due to the dat
 volume, that may need human intervention.
 
 
-.. _API endpoint listing page: https://archive.softwareheritage.org/api/1/
-.. _rate limit documentation page: https://archive.softwareheritage.org/api/#rate-limiting
 .. _bug tracking system: https://forge.softwareheritage.org/
 .. _contact form: https://www.softwareheritage.org/contact/
 .. _contact us: https://www.softwareheritage.org/contact/

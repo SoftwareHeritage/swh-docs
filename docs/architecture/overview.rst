@@ -129,15 +129,14 @@ Archive website and API
 First of all, the archive website and API, also known as :ref:`swh-web <swh-web>`,
 is the main entry point of the archive.
 
-This is the component that serves https://archive.softwareheritage.org/,
-which is the window into the entire archive, as it provides access to it
-through a web browser or the HTTP API.
+This is the component that serves https://archive.softwareheritage.org/, which is the
+window into the entire archive, as it provides access to it through a web browser or the
+HTTP API.
 
-It does so by querying most of the internal APIs of |swh|:
-the Data Storage (to display source code repositories and their content),
-the Scheduler (to allow manual scheduling of loader tasks through the
-`Save Code Now <https://archive.softwareheritage.org/save/>`_ feature),
-and many of the other services we will see below.
+It does so by querying most of the internal APIs of |swh|: the Data Storage (to display
+source code repositories and their content), the Scheduler (to allow manual scheduling
+of loader tasks through the :swh_web:`Save Code Now <save/>` feature), and many of the
+other services we will see below.
 
 Internal data mining
 ^^^^^^^^^^^^^^^^^^^^
@@ -196,10 +195,10 @@ entire graph, and provides fast implementations of graph traversal algorithms.
 Counters
 ^^^^^^^^
 
-The `archive's landing page <https://archive.softwareheritage.org/>`_ features
-counts of the total number of files/directories/revisions/... in the archive.
-Perhaps surprisingly, counting unique objects at |swh|'s scale is hard,
-and a performance bottleneck when implemented purely in the Storage's SQL database.
+The :swh_web:`archive's landing page </>` features counts of the total number of
+files/directories/revisions/... in the archive. Perhaps surprisingly, counting unique
+objects at |swh|'s scale is hard, and a performance bottleneck when implemented purely
+in the Storage's SQL database.
 
 :ref:`swh-counters <swh-counters>` provides an alternative design to solve this issue,
 by reading new objects from the Journal and counting them using Redis_' HyperLogLog_
