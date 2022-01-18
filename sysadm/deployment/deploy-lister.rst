@@ -49,13 +49,13 @@ Upgrade the puppet configuration
 --------------------------------
 
 Each type of task is associated to a rabbitmq queue. To have the listers watching to the
-new(s) queue(s), `the configuration deployed by puppet
-<https://archive.softwareheritage.org/browse/content/sha1_git:9f18b57eaa4f2300ef0a9a0fb7eebdf214f28e8b/#L1891>`__
+new(s) queue(s), :swh_web:`the configuration deployed by puppet
+<browse/content/sha1_git:9f18b57eaa4f2300ef0a9a0fb7eebdf214f28e8b/#L1891>`
 must be updated to reference them.
 
-The exact name of the task to add is the package name and `the name declared on the
+The exact name of the task to add is the package name and :swh_web:`the name declared on the
 tasks
-<https://archive.softwareheritage.org/swh:1:cnt:9e57081f70bf0b73370738a80aaa13be5bcc1c9c;origin=https://github.com/SoftwareHeritage/swh-lister;visit=swh:1:snp:33f02eb3570f02bc94027e606f835d13f48f3d3a;anchor=swh:1:rev:4b27f9d9c4076d3b2aa4e6e6903a41ec7967d724;path=/swh/lister/gitlab/tasks.py;lines=24/>`__
+<swh:1:cnt:9e57081f70bf0b73370738a80aaa13be5bcc1c9c;origin=https://github.com/SoftwareHeritage/swh-lister;visit=swh:1:snp:33f02eb3570f02bc94027e606f835d13f48f3d3a;anchor=swh:1:rev:4b27f9d9c4076d3b2aa4e6e6903a41ec7967d724;path=/swh/lister/gitlab/tasks.py;lines=24/>`
 themselves.
 
 The puppet master must be refreshed and the configuration deployed.
