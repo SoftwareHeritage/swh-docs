@@ -457,8 +457,11 @@ Putting all together is just a matter of merging the 3 compose files:
    [...]
 
 
-Scaling up services
--------------------
+Getting your deployment production-ready
+========================================
+
+docker-stack scaling
+--------------------
 
 In order to scale up a replayer service, you can use the `docker scale` command. For example:
 
@@ -470,12 +473,8 @@ In order to scale up a replayer service, you can use the `docker scale` command.
 
 will start 4 copies of the graph replayer service.
 
-Notes:
-
-- The overall throughput of the graph replayer will depend heavily on the `swh_storage`
-  service, and on the performance of the underlying `swh_db-storage` database. You will
-  need to make sure that your database is `properly tuned
-  <https://wiki.postgresql.org/wiki/Tuning_Your_PostgreSQL_Server>`_.
+Notes on the throughput of the mirroring process
+------------------------------------------------
 
 - One graph replayer service requires a steady 500MB to 1GB of RAM to run, so
   make sure you have properly sized machines for running these replayer
@@ -487,3 +486,21 @@ Notes:
 
 - The biggest kafka topics are directory, revision and content, and will take the
   longest to initially replay.
+
+Operational concerns for the Storage database
+---------------------------------------------
+
+The overall throughput of the mirroring process will depend heavily on the `swh_storage`
+service, and on the performance of the underlying `swh_db-storage` database. You will
+need to make sure that your database is `properly tuned
+<https://wiki.postgresql.org/wiki/Tuning_Your_PostgreSQL_Server>`_.
+
+You may also want to deploy your database directly to a bare-metal server rather than
+have it managed within the docker stack. To do so, you will have to:
+
+- modify the (merged) configuration of the docker stack to drop references to the
+  `db-storage` service (itself, and as dependency for the `storage` service)
+- ensure that docker containers deployed in your swarm are able to connect to your
+  external database server
+- override the environment variables of the `storage` service to reference the external
+  database server and dbname
