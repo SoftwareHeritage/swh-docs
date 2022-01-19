@@ -41,6 +41,10 @@ blob objects (file content) from the |swh| :ref:`object storage <swh-objstorage>
 
    General view of the |swh| mirroring architecture.
 
+See the :ref:`planning-a-mirror` for a complete description of the requirements
+to host a mirror.
+
+
 Mirroring the Graph Storage
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -117,7 +121,7 @@ production-like deployment.
 .. _msgpack: https://msgpack.org
 
 
-You may also want to read:
+You may want to read:
 
 - :ref:`mirror_monitor` to learn how to monitor your mirror and how to report
   its health back the |swh|.
@@ -127,6 +131,7 @@ You may also want to read:
 .. toctree::
    :hidden:
 
+   planning
    deploy
    onboard
    monitor
