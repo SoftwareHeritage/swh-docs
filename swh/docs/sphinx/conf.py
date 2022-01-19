@@ -153,6 +153,7 @@ redirects = {
     "infrastructure/network.html": "../../sysadm/network-architecture/index.html",
     "infrastructure/service-urls.html": "../../sysadm/network-architecture/service-urls.html",  # noqa
     "architecture": "architecture/overview.html",
+    "architecture/mirror": "../../sysadm/mirror-operations/index.html",
     "keycloak": "../../sysadm/user-management/keycloak/index.html",
     "mirror": "architecture/mirror.html",
     "users": "user",

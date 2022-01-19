@@ -4,6 +4,8 @@
 Mirror Operations
 =================
 
+.. _mirror:
+
 Description
 -----------
 

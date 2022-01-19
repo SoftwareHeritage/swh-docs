@@ -51,10 +51,14 @@ Roadmap
 
 * :ref:`roadmap-2021`
 
-Engineering
------------
+System Administration
+---------------------
 
-* :ref:`Infrastructure <swh-sysadm:infrastructure>`
+* :ref:`Network Infrastructure <swh-sysadm:infrastructure>`
+* :ref:`swh-sysadm:mirror` → learn what a Software Heritage mirror is and how to set up
+  one
+* :ref:`Keycloak <swh-sysadm:keycloak>` → learn how to use Keycloak,
+  the authentication system used by |swh|'s web interface and public APIs
 
 Components
 ----------
