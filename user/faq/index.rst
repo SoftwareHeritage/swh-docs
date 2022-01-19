@@ -38,7 +38,7 @@ No.
 How are Save code now requests handled?
 ---------------------------------------
 
-`Save code now <https://archive.softwareheritage.org/save/>`__ requests on known forges
+:swh_web:`Save code now <save/>` requests on known forges
 for origins are scheduled as soon as possible. Unknown origins are put in a moderation
 queue waiting for human vetting (Ambassadors or staff).
 
