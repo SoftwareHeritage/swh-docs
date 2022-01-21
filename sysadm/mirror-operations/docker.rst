@@ -28,8 +28,8 @@ Note: on some systems (centos for example), making docker swarm work requires so
 permission tuning regarding the firewall and selinux. Please refer to `the upstream
 docker-swarm documentation <https://docs.docker.com/engine/swarm/swarm-tutorial/>`_.
 
-In the following how-to, we will assume that the service `STACK` name is `swh`
-(this name is the last argument of the `docker stack deploy` command below).
+In the following how-to, we will assume that the service ``STACK`` name is ``swh``
+(this name is the last argument of the :command:`docker stack deploy` command below).
 
 Several preparation steps will depend on this name.
 
@@ -44,15 +44,15 @@ You also need to clone the git  repository:
 Set up volumes
 --------------
 
-Before starting the `swh` service, you will certainly want to specify where the
+Before starting the ``swh`` service, you will certainly want to specify where the
 data should be stored on your docker hosts.
 
 By default docker will use docker volumes for storing databases and the content of
-the objstorage (thus put them in `/var/lib/docker/volumes`).
+the objstorage (thus put them in :file:`/var/lib/docker/volumes`).
 
 **Optional:** if you want to specify a different location to put the data in,
 you should create the docker volumes before starting the docker service. For
-example, the `objstorage` service uses a volume named `<STACK>_objstorage`:
+example, the ``objstorage`` service uses a volume named ``<STACK>_objstorage``:
 
 .. code-block:: bash
 
@@ -63,7 +63,7 @@ example, the `objstorage` service uses a volume named `<STACK>_objstorage`:
      swh_objstorage
 
 
-If you want to deploy services like the `objstorage` on several hosts, you will need a
+If you want to deploy services like the ``objstorage`` on several hosts, you will need a
 shared storage area in which blob objects will be stored. Typically a NFS storage can be
 used for this, or any existing docker volume driver like `REX-Ray
 <https://rexray.readthedocs.io/>`_. This is not covered in this documentation.
@@ -71,12 +71,12 @@ used for this, or any existing docker volume driver like `REX-Ray
 Please read the documentation of docker volumes to learn how to use such a
 device/driver as volume provider for docker.
 
-Note that the provided `base-services.yaml` file has placement constraints for the
-`db-storage`, `db-web` and `objstorage` containers, that depend on the availability of
-specific volumes (respectively `<STACK>_storage-db`, `<STACK>_web-db` and
-`<STACK>_objstorage`). These services are pinned to specific nodes using labels named
-`org.softwareheritage.mirror.volumes.<base volume name>` (e.g.
-`org.softwareheritage.mirror.volumes.objstorage`).
+Note that the provided :file:`base-services.yaml` file has placement constraints for the
+``db-storage``, ``db-web`` and ``objstorage`` containers, that depend on the availability of
+specific volumes (respectively ``<STACK>_storage-db``, ``<STACK>_web-db`` and
+``<STACK>_objstorage``). These services are pinned to specific nodes using labels named
+``org.softwareheritage.mirror.volumes.<base volume name>`` (e.g.
+``org.softwareheritage.mirror.volumes.objstorage``).
 
 When you create a local volume for a given container, you should add the relevant label
 to the docker swarm node metadata with:
@@ -93,13 +93,13 @@ requirements, for the services to start.
 Managing secrets
 ----------------
 
-Shared passwords (between services) are managed via `docker secret`. Before
+Shared passwords (between services) are managed via :command:`docker secret`. Before
 being able to start services, you need to define these secrets.
 
-Namely, you need to create a `secret` for:
+Namely, you need to create a ``secret`` for:
 
-- `swh-mirror-db-postgres-password`
-- `swh-mirror-web-postgres-password`
+- ``swh-mirror-db-postgres-password``
+- ``swh-mirror-web-postgres-password``
 
 For example:
 
@@ -126,11 +126,11 @@ services.
 
    These manifests use a set of docker images `published in the docker hub
    <https://hub.docker.com/r/softwareheritage/base/tags>`_. By default, the manifests
-   will use the `latest` version of these images, but for production uses, you should
-   set the `SWH_IMAGE_TAG` environment variable to pin them to a specific version.
+   will use the ``latest`` version of these images, but for production uses, you should
+   set the ``SWH_IMAGE_TAG`` environment variable to pin them to a specific version.
 
-To specify the tag to be used, simply set the SWH_IMAGE_TAG environment variable, like
-so:
+To specify the tag to be used, simply set the :envvar:`SWH_IMAGE_TAG`
+environment variable:
 
 .. code-block:: bash
 
@@ -193,23 +193,23 @@ The nginx frontend will listen on the 5081 port, so you can use:
 
 .. warning::
 
-   Please make sure that the `SWH_IMAGE_TAG` variable is properly set for any later
-   `docker stack deploy` command you type, otherwise all the running containers will be
-   recreated using the ':latest' image (which might **not** be the latest available
+   Please make sure that the :envvar:`SWH_IMAGE_TAG` variable is properly set for any later
+   :command:`docker stack deploy` command you type, otherwise all the running containers will be
+   recreated using the ``:latest`` image (which might **not** be the latest available
    version, nor consistent among the docker nodes on your swarm cluster).
 
 Updating a configuration
 ------------------------
 
-Configuration files are exposed to docker services via the ``docker
-config`` system. Unfortunately, docker does not support updating these config
+Configuration files are exposed to docker services via the :command:`docker config`
+system. Unfortunately, docker does not support updating these config
 objects. The usual method to update a config in a service is:
 
 - create a new config entry with updated config content,
 - update targeted running services to replace the original config entry by the new one,
 - destroy old (now unused) docker config objects.
 
-For example, if you edit the file `conf/storage.yml`:
+For example, if you edit the file :file:`conf/storage.yml`:
 
 .. code-block:: bash
 
@@ -227,17 +227,18 @@ For example, if you edit the file `conf/storage.yml`:
 .. Warning:: this procedure will update the live configuration of the service
              stack, which will then be out of sync with the stack described in
              the compose file used to create the stack. This needs to be kept
-             in mind if you try to apply the stack configuration using ``docker
-             stack deploy`` later on. However if you destroy the unused config
-             entry as suggested above, an execution of the ``docker stack
-             deploy`` will not break anything (just recreate containers) since
-             it will recreate original config object with the proper content.
+             in mind if you try to apply the stack configuration using
+             :command:`docker stack deploy` later on. However if you destroy
+             the unused config entry as suggested above, an execution of the
+             :command:`docker stack deploy` will not break anything (just recreate
+             containers) since it will recreate original config object with the
+             proper content.
 
 See https://docs.docker.com/engine/swarm/configs/ for more details on
 how to use the config system in a docker swarm cluster.
 
 
-Note that the ``docker service update`` command can be used for many other
+Note that the :command:`docker service update` command can be used for many other
 things, for example it can be used to change the debug level of a service:
 
 .. code-block:: bash
@@ -250,9 +251,9 @@ Then you can revert to the previous setup using:
 
    ~/swh-docker$ docker service update --rollback swh_storage
 
-See the documentation of the `swh service update command
+See the documentation of the `swh service update
 <https://docs.docker.com/engine/reference/commandline/service_update/>`_
-for more details.
+command for more details.
 
 Updating an image
 -----------------
@@ -291,29 +292,29 @@ Set up the mirroring components
 A Software Heritage mirror consists in base Software Heritage services, as
 described above, without any worker related to web scraping nor source code
 repository loading. Instead, filling local storage and objstorage is the
-responsibility of kafka based `replayer` services:
+responsibility of kafka based ``replayer`` services:
 
-- the `graph replayer` which is in charge of filling the storage (aka the
+- the ``graph replayer`` which is in charge of filling the storage (aka the
   graph), and
 
-- the `content replayer` which is in charge of filling the object storage.
+- the ``content replayer`` which is in charge of filling the object storage.
 
 Examples of docker deploy files and configuration files are provided in
-the `graph-replayer.yml` deploy file for replayer services
-using configuration from yaml files in `conf/graph-replayer.yml`.
+the :file:`graph-replayer.yml` deploy file for replayer services
+using configuration from yaml files in :file:`conf/graph-replayer.yml`.
 
 Copy these example files as plain yaml ones then modify them to replace
 the XXX markers with proper values (also make sure the kafka server list
 is up to date). The parameters to check/update are:
 
-- `journal_client.brokers`: list of kafka brokers.
-- `journal_client.group_id`: unique identifier for this mirroring session;
+- ``journal_client.brokers``: list of kafka brokers.
+- ``journal_client.group_id``: unique identifier for this mirroring session;
   you can choose whatever you want, but changing this value will make kafka
   start consuming messages from the beginning; kafka messages are dispatched
-  among consumers with the same `group_id`, so in order to distribute the
-  load among workers, they must share the same `group_id`.
-- `journal_client."sasl.username"`: kafka authentication username.
-- `journal_client."sasl.password"`: kafka authentication password.
+  among consumers with the same ``group_id``, so in order to distribute the
+  load among workers, they must share the same ``group_id``.
+- ``journal_client.sasl.username``: kafka authentication username.
+- ``journal_client.sasl.password``: kafka authentication password.
 
 Then you need to merge the compose files "by hand" (due to this still
 `unresolved <https://github.com/docker/cli/issues/1651>`_
@@ -321,7 +322,7 @@ Then you need to merge the compose files "by hand" (due to this still
 `docker compose <https://github.com/docker/compose>`_ as helper tool to merge the
 compose files.
 
-To merge 2 (or more) compose files together, typically `base-services.yml` with
+To merge 2 (or more) compose files together, typically :file:`base-services.yml` with
 a mirror-related file:
 
 .. code-block:: bash
@@ -332,7 +333,8 @@ a mirror-related file:
        config > mirror.yml
 
 
-Then use this generated file as argument of the `docker stack deploy` command, e.g.:
+Then use this generated file as argument of the :command:`docker stack deploy`
+command, e.g.:
 
 .. code-block:: bash
 
@@ -352,8 +354,8 @@ To run the graph replayer component of a mirror:
    ~/swh-docker/conf$ cd ..
 
 
-Once you have properly edited the `conf/graph-replayer.yml` config file, you can
-start these services with:
+Once you have properly edited the :file:`conf/graph-replayer.yml` config file,
+you can start these services with:
 
 .. code-block:: bash
 
@@ -419,7 +421,7 @@ Similarly, to run the content replayer:
    ~/swh-docker/conf$ cd ..
 
 
-Once you have properly edited the `conf/content-replayer.yml` config file, you can
+Once you have properly edited the :file:`conf/content-replayer.yml` config file, you can
 start these services with:
 
 .. code-block:: bash
@@ -458,7 +460,8 @@ Getting your deployment production-ready
 docker-stack scaling
 --------------------
 
-In order to scale up a replayer service, you can use the `docker scale` command. For example:
+In order to scale up a replayer service, you can use the :command:`docker
+scale` command. For example:
 
 .. code-block:: bash
 
@@ -485,8 +488,8 @@ Notes on the throughput of the mirroring process
 Operational concerns for the Storage database
 ---------------------------------------------
 
-The overall throughput of the mirroring process will depend heavily on the `swh_storage`
-service, and on the performance of the underlying `swh_db-storage` database. You will
+The overall throughput of the mirroring process will depend heavily on the ``swh_storage``
+service, and on the performance of the underlying ``swh_db-storage`` database. You will
 need to make sure that your database is `properly tuned
 <https://wiki.postgresql.org/wiki/Tuning_Your_PostgreSQL_Server>`_.
 
@@ -494,8 +497,8 @@ You may also want to deploy your database directly to a bare-metal server rather
 have it managed within the docker stack. To do so, you will have to:
 
 - modify the (merged) configuration of the docker stack to drop references to the
-  `db-storage` service (itself, and as dependency for the `storage` service)
+  ``db-storage`` service (itself, and as dependency for the ``storage`` service)
 - ensure that docker containers deployed in your swarm are able to connect to your
   external database server
-- override the environment variables of the `storage` service to reference the external
+- override the environment variables of the ``storage`` service to reference the external
   database server and dbname
