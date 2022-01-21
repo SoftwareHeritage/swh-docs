@@ -597,13 +597,34 @@ There are 2 type of date that can be encoded in a Kafka message:
   - ``timestamp`` [dict] POSIX timestamp of the date, as a dictionary with 2 keys
     (``seconds`` and ``microseconds``)
 
+  - ``offset_bytes`` [bytes] offset of the date, in Git format (``[+-]HHMM``)
+
   - ``offset`` [int] offset of the date (in minutes)
 
   - ``negative_utc`` [bool] only True for the very edge case where the date has a
     zero but negative offset value (which does not makes much sense, but
     technically the git format permits)
 
-  Example:
+  Depending on the version of ``swh-model`` used to create these objects, they may
+  have either:
+
+  * ``offset_bytes`` for objects created by ``swh-model >= 4.3.0``
+  * ``offset`` and ``negative_utc`` for objects created by ``swh-model < 5.0.0``
+
+  As a transitional format, ``swh-model >= 4.3.0, < 5.0.0`` included all fields;
+  the former should be preferred when reading, as ``offset`` and ``negative_utc``
+  are lossy.
+
+  Example of the **new** format:
+
+  .. code:: python
+
+     {
+       'timestamp': {'seconds': 1480432642, 'microseconds': 0},
+       'offset_bytes': b"+0300"
+     }
+
+  Example of the **old** format:
 
   .. code:: python
 
