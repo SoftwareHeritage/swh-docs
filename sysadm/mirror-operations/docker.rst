@@ -201,66 +201,61 @@ The nginx frontend will listen on the 5081 port, so you can use:
 Updating a configuration
 ------------------------
 
-Configuration files are exposed to docker services via the `docker
-config` system. Unfortunately, docker does not support updating these config
-objects, so you will need to either:
+Configuration files are exposed to docker services via the ``docker
+config`` system. Unfortunately, docker does not support updating these config
+objects. The usual method to update a config in a service is:
 
-- destroy the old config before being able to recreate them. That also means
-  you need to recreate every docker service using this config, or
-- adapt the `name:` field in the compose file.
-
+- create a new config entry with updated config content,
+- update targeted running services to replace the original config entry by the new one,
+- destroy old (now unused) docker config objects.
 
 For example, if you edit the file `conf/storage.yml`:
 
 .. code-block:: bash
 
-   ~/swh-docker$ docker service rm swh_storage
+   ~/swh-docker$ docker config create storage-2 conf/storage.yml
+   h0m8jvsacvpl71zdcq3wnud6c
+   ~/swh-docker$ docker service update \
+                   --config-rm storage \
+                   --config-add source=storage-2,target=/etc/softwareheritage/config.yml \
+                   swh_storage
    swh_storage
-   ~/swh-docker$ docker config rm swh_storage
-   swh_storage
-   ~/swh-docker$ docker stack deploy -c base-services.yml swh
-   Creating config swh_storage
-   Creating service swh_storage
-   Updating service swh_nginx (id: l52hxxl61ijjxnj9wg6ddpaef)
-   Updating service swh_memcache (id: 2ujcw3dg8f9dm4r6qmgy0sb1e)
-   Updating service swh_db-storage (id: bkn2bmnapx7wgvwxepume71k1)
-   Updating service swh_web (id: 7sm6g5ecff1979t0jd3dmsvwz)
-   Updating service swh_objstorage (id: 3okk2njpbopxso3n3w44ydyf9)
-   [...]
+   overall progress: 2 out of 2 tasks
+   verify: Service converged
+   ~/swh-docker$ docker config rm storage
 
-
-Note: since persistent data (databases and objects) are stored in volumes, you
-can safely destoy and recreate any container you want, you will not lose any
-data.
-
-Or you can change the compose file like:
-
-.. code-block:: yaml
-
-   [...]
-   configs:
-     storage:
-       file: conf/storage.yml
-       name: storage-updated  # change this as desired
-
-
-then it's just a matter of redeploying the stack:
-
-.. code-block:: bash
-
-   ~/swh-docker$ docker stack deploy -c base-services.yml swh
-   [...]
-
+.. Warning:: this procedure will update the live configuration of the service
+             stack, which will then be out of sync with the stack described in
+             the compose file used to create the stack. This needs to be kept
+             in mind if you try to apply the stack configuration using ``docker
+             stack deploy`` later on. However if you destroy the unused config
+             entry as suggested above, an execution of the ``docker stack
+             deploy`` will not break anything (just recreate containers) since
+             it will recreate original config object with the proper content.
 
 See https://docs.docker.com/engine/swarm/configs/ for more details on
 how to use the config system in a docker swarm cluster.
 
-See https://blog.sunekeller.dk/2019/01/docker-stack-deploy-update-configs/ for
-an example of scripting this second solution.
 
+Note that the ``docker service update`` command can be used for many other
+things, for example it can be used to change the debug level of a service:
 
-Updating a service
-------------------
+.. code-block:: bash
+
+   ~/swh-docker$ docker service update --env-add LOG_LEVEL=DEBUG swh_storage
+
+Then you can revert to the previous setup using:
+
+.. code-block:: bash
+
+   ~/swh-docker$ docker service update --rollback swh_storage
+
+See the documentation of the `swh service update command
+<https://docs.docker.com/engine/reference/commandline/service_update/>`_
+for more details.
+
+Updating an image
+-----------------
 
 When a new version of the softwareheritage image is published, running
 services must updated to use it.
