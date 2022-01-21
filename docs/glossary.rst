@@ -123,8 +123,8 @@ Glossary
      Metadata about software that is shipped as part of the source code of the
      software itself or as part of related artifacts (e.g., revisions,
      releases, etc). For example, metadata that is shipped in `PKG-INFO` files
-     for Python packages, `pom.xml` for Maven-based Java projects,
-     `debian/control` for Debian packages, `metadata.json` for NPM, etc.
+     for Python packages, :file:`pom.xml` for Maven-based Java projects,
+     :file:`debian/control` for Debian packages, :file:`metadata.json` for NPM, etc.
 
      See also: :term:`extrinsic metadata`, :ref:`architecture-metadata`.
 

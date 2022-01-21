@@ -175,8 +175,8 @@ and fix it so you don't have to follow the whole :ref:`code review process <patc
 What tests I should run before committing the code?
 ---------------------------------------------------
 
-Mostly run `tox` (or `pytest`) to run the unit tests suite. When you will propose a
-patch in our forge, the continuous integration factory will trigger a build (using `tox`
+Mostly run ``tox`` (or ``pytest``) to run the unit tests suite. When you will propose a
+patch in our forge, the continuous integration factory will trigger a build (using ``tox``
 as well).
 
 I am getting errors while trying to commit. What is going wrong?
@@ -204,8 +204,8 @@ how should I document the code I contribute to SWH?
 ---------------------------------------------------
 
 Any new feature should include documentation in the form of comments and/or docstrings.
-Ideally, they should also be documented in plain English in the repository's `docs/`
-folder if relevant to a single package, or in the main `swh-docs` repository if it is a
+Ideally, they should also be documented in plain English in the repository's :file:`docs/`
+folder if relevant to a single package, or in the main ``swh-docs`` repository if it is a
 transversal feature.
 
 .. _faq_api:

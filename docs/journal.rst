@@ -184,19 +184,19 @@ This topics is anonymized. The non-anonymized version of this topic is
 
 Message format:
 
-- `message` [bytes] the commit message for the revision
-- `author` [dict] the author of the revision
-- `committer` [dict] the committer of the revision
-- `date` [gitdate] the revision date
-- `committer_date` [gitdate] the revision commit date
-- `type` [string] the type of the revision (can be "git", "tar", "dsc", "svn", "hg")
-- `directory` [bytes] the intrinsic identifier of the directory this revision links to
-- `synthetic` [bool] whether this :py:class:`swh.model.model.Revision` is synthetic or not,
-- `metadata` [bytes] the metadata linked to this :py:class:`swh.model.model.Revision` (not part of the
+- ``message`` [bytes] the commit message for the revision
+- ``author`` [dict] the author of the revision
+- ``committer`` [dict] the committer of the revision
+- ``date`` [gitdate] the revision date
+- ``committer_date`` [gitdate] the revision commit date
+- ``type`` [string] the type of the revision (can be "git", "tar", "dsc", "svn", "hg")
+- ``directory`` [bytes] the intrinsic identifier of the directory this revision links to
+- ``synthetic`` [bool] whether this :py:class:`swh.model.model.Revision` is synthetic or not,
+- ``metadata`` [bytes] the metadata linked to this :py:class:`swh.model.model.Revision` (not part of the
   intrinsic identifier computation),
-- `parents` [list[bytes]] list of parent :py:class:`swh.model.model.Revision` intrinsic identifiers
-- `id` [bytes] intrinsic identifier of the :py:class:`swh.model.model.Revision`
-- `extra_headers` [list[(bytes, bytes)]] TODO
+- ``parents`` [list[bytes]] list of parent :py:class:`swh.model.model.Revision` intrinsic identifiers
+- ``id`` [bytes] intrinsic identifier of the :py:class:`swh.model.model.Revision`
+- ``extra_headers`` [list[(bytes, bytes)]] TODO
 
 
 Example:
@@ -248,13 +248,13 @@ Topic for :py:class:`swh.model.model.Content` objects.
 
 Message format:
 
-- `sha1` [bytes] SHA1 of the :py:class:`swh.model.model.Content`
-- `sha1_git` [bytes] SHA1_GIT of the :py:class:`swh.model.model.Content`
-- `sha256` [bytes] SHA256 of the :py:class:`swh.model.model.Content`
-- `blake2s256` [bytes] Blake2S256 hash of the :py:class:`swh.model.model.Content`
-- `length` [int] length of the :py:class:`swh.model.model.Content`
-- `status` [string] visibility status of the :py:class:`swh.model.model.Content` (can be "visible" or "hidden")
-- `ctime` [timestamp] creation date of the :py:class:`swh.model.model.Content` (i.e. date at which this
+- ``sha1`` [bytes] SHA1 of the :py:class:`swh.model.model.Content`
+- ``sha1_git`` [bytes] SHA1_GIT of the :py:class:`swh.model.model.Content`
+- ``sha256`` [bytes] SHA256 of the :py:class:`swh.model.model.Content`
+- ``blake2s256`` [bytes] Blake2S256 hash of the :py:class:`swh.model.model.Content`
+- ``length`` [int] length of the :py:class:`swh.model.model.Content`
+- ``status`` [string] visibility status of the :py:class:`swh.model.model.Content` (can be "visible" or "hidden")
+- ``ctime`` [timestamp] creation date of the :py:class:`swh.model.model.Content` (i.e. date at which this
   :py:class:`swh.model.model.Content` has been seen for the first time in the |swh| Archive).
 
 Example:
@@ -273,25 +273,25 @@ Example:
 
 
 
-`swh.journal.objects.skipped_content`
-+++++++++++++++++++++++++++++++++++++
+``swh.journal.objects.skipped_content``
++++++++++++++++++++++++++++++++++++++++
 
 Topic for :py:class:`swh.model.model.SkippedContent` objects.
 
 
 Message format:
 
-- `sha1` [bytes] SHA1 of the :py:class:`swh.model.model.SkippedContent`
-- `sha1_git` [bytes] SHA1 of the :py:class:`swh.model.model.SkippedContent`
-- `sha256` [bytes] SHA1 of the :py:class:`swh.model.model.SkippedContent`
-- `blake2s256` [bytes] SHA1 of the :py:class:`swh.model.model.SkippedContent`
-- `length` [int] length of the :py:class:`swh.model.model.SkippedContent`
-- `status` [string] visibility status of the
+- ``sha1`` [bytes] SHA1 of the :py:class:`swh.model.model.SkippedContent`
+- ``sha1_git`` [bytes] SHA1 of the :py:class:`swh.model.model.SkippedContent`
+- ``sha256`` [bytes] SHA1 of the :py:class:`swh.model.model.SkippedContent`
+- ``blake2s256`` [bytes] SHA1 of the :py:class:`swh.model.model.SkippedContent`
+- ``length`` [int] length of the :py:class:`swh.model.model.SkippedContent`
+- ``status`` [string] visibility status of the
   :py:class:`swh.model.model.SkippedContent` (can only be "absent")
-- `reason` [string] message indicating the reason for this content to be a
+- ``reason`` [string] message indicating the reason for this content to be a
   :py:class:`swh.model.model.SkippedContent` (rather than a
   :py:class:`swh.model.model.Content`)
-- `ctime` [timestamp] creation date of the
+- ``ctime`` [timestamp] creation date of the
   :py:class:`swh.model.model.SkippedContent` (i.e. date at which this
   :py:class:`swh.model.model.SkippedContent` has been seen for the first time in
   the |swh| Archive)
@@ -321,14 +321,14 @@ Topic for :py:class:`swh.model.model.Directory` objects.
 
 Message format:
 
-- `entries` [list[dict]] list of directory entries
-- `id` [bytes] intrinsic identifier of this :py:class:`swh.model.model.Directory`
+- ``entries`` [list[dict]] list of directory entries
+- ``id`` [bytes] intrinsic identifier of this :py:class:`swh.model.model.Directory`
 
 with directory entries being dictionaries:
 
-- `name` [bytes] name of the directory entry
-- `type` [string] type of directory entry (can be "file", "dir" or "rev")
-- `perms` [int] permissions for this directory entry
+- ``name`` [bytes] name of the directory entry
+- ``type`` [string] type of directory entry (can be "file", "dir" or "rev")
+- ``perms`` [int] permissions for this directory entry
 
 
 Example:
@@ -367,14 +367,14 @@ Merkle DAG but are essential parts of the archive; see the :ref:`data model
 <swh-model>` for more details.
 
 
-`swh.journal.objects.origin`
-++++++++++++++++++++++++++++
+``swh.journal.objects.origin``
+++++++++++++++++++++++++++++++
 
 Topic for :py:class:`swh.model.model.Origin` objects.
 
 Message format:
 
-- `url` [string] URL of the :py:class:`swh.model.model.Origin`
+- ``url`` [string] URL of the :py:class:`swh.model.model.Origin`
 
 Example:
 
@@ -385,17 +385,17 @@ Example:
    }
 
 
-`swh.journal.objects.origin_visit`
-++++++++++++++++++++++++++++++++++
+``swh.journal.objects.origin_visit``
+++++++++++++++++++++++++++++++++++++
 
 Topic for :py:class:`swh.model.model.OriginVisit` objects.
 
 Message format:
 
-- `origin` [string] URL of the visited :py:class:`swh.model.model.Origin`
-- `date` [timestamp] date of the visit
-- `type` [string] type of the loader used to perform the visit
-- `visit` [int] number of the visit for this `origin`
+- ``origin`` [string] URL of the visited :py:class:`swh.model.model.Origin`
+- ``date`` [timestamp] date of the visit
+- ``type`` [string] type of the loader used to perform the visit
+- ``visit`` [int] number of the visit for this ``origin``
 
 Example:
 
@@ -409,20 +409,20 @@ Example:
    }
 
 
-`swh.journal.objects.origin_visit_status`
-+++++++++++++++++++++++++++++++++++++++++
+``swh.journal.objects.origin_visit_status``
++++++++++++++++++++++++++++++++++++++++++++
 
 Topic for :py:class:`swh.model.model.OriginVisitStatus` objects.
 
 Message format:
 
-- `origin` [string] URL of the visited :py:class:`swh.model.model.Origin`
-- `visit` [int] number of the visit for this `origin` this status concerns
-- `date` [timestamp] date of the visit status update
-- `status` [string] status (can be "created", "ongoing", "full" or "partial"),
-- `snapshot` [bytes] identifier of the :py:class:`swh.model.model.Snaphot` this
-  visit resulted in (if `status` is "full" or "partial")
-- `metadata`: deprecated
+- ``origin`` [string] URL of the visited :py:class:`swh.model.model.Origin`
+- ``visit`` [int] number of the visit for this ``origin`` this status concerns
+- ``date`` [timestamp] date of the visit status update
+- ``status`` [string] status (can be "created", "ongoing", "full" or "partial"),
+- ``snapshot`` [bytes] identifier of the :py:class:`swh.model.model.Snaphot` this
+  visit resulted in (if ``status`` is "full" or "partial")
+- ``metadata``: deprecated
 
 Example:
 
@@ -447,16 +447,16 @@ code itself but still closely related to the software. See
 :ref:`extrinsic-metadata-specification` for more details on the Extrinsic
 Metadata model.
 
-`swh.journal.objects.metadata_authority`
-++++++++++++++++++++++++++++++++++++++++
+``swh.journal.objects.metadata_authority``
+++++++++++++++++++++++++++++++++++++++++++
 
 Topic for :py:class:`swh.model.model.MetadataAuthority` objects.
 
 Message format:
 
-- `type` [string]
-- `url` [string]
-- `metadata` [dict]
+- ``type`` [string]
+- ``url`` [string]
+- ``metadata`` [dict]
 
 Examples:
 
@@ -476,16 +476,16 @@ Examples:
 
 
 
-`swh.journal.objects.metadata_fetcher`
-++++++++++++++++++++++++++++++++++++++
+``swh.journal.objects.metadata_fetcher``
+++++++++++++++++++++++++++++++++++++++++
 
 Topic for :py:class:`swh.model.model.MetadataFetcher` objects.
 
 Message format:
 
-- `type` [string]
-- `version` [string]
-- `metadata` [dict]
+- ``type`` [string]
+- ``version`` [string]
+- ``metadata`` [dict]
 
 Example:
 
@@ -499,27 +499,27 @@ Example:
 
 
 
-`swh.journal.objects.raw_extrinsic_metadata`
-++++++++++++++++++++++++++++++++++++++++++++
+``swh.journal.objects.raw_extrinsic_metadata``
+++++++++++++++++++++++++++++++++++++++++++++++
 
 Topic for :py:class:`swh.model.model.RawExtrinsicMetadata` objects.
 
 Message format:
 
-- `type` [string]
-- `target` [string]
-- `discovery_date` [timestamp]
-- `authority` [dict]
-- `fetcher` [dict]
-- `format` [string]
-- `metadata` [bytes]
-- `origin` [string]
-- `visit` [int]
-- `snapshot` [SWHID]
-- `release` [SWHID]
-- `revision` [SWHID]
-- `path` [bytes]
-- `directory` [SWHID]
+- ``type`` [string]
+- ``target`` [string]
+- ``discovery_date`` [timestamp]
+- ``authority`` [dict]
+- ``fetcher`` [dict]
+- ``format`` [string]
+- ``metadata`` [bytes]
+- ``origin`` [string]
+- ``visit`` [int]
+- ``snapshot`` [SWHID]
+- ``release`` [SWHID]
+- ``revision`` [SWHID]
+- ``path`` [bytes]
+- ``directory`` [SWHID]
 
 Example:
 
@@ -564,13 +564,13 @@ prevent overflow while packing some objects.
 Integer
 +++++++
 
-For long integers (that do not fit in the `[-(2**63), 2 ** 64 - 1]` range), a
+For long integers (that do not fit in the ``[-(2**63), 2 ** 64 - 1]`` range), a
 custom `extended type`_ based encoding scheme is used.
 
-The `type` information can be:
+The ``type`` information can be:
 
-- `1` for positive (possibly long) integers,
-- `2` for negative (possibly long) integers.
+- ``1`` for positive (possibly long) integers,
+- ``2`` for negative (possibly long) integers.
 
 The payload is simply the bytes (big endian) representation of the absolute
 value (always positive).
@@ -579,8 +579,8 @@ For example (adapted to standard integers for the sake of readability; these
 values are small so they will actually be encoded using the default msgpack
 format for integers):
 
-- `12345` would be encoded as the extension value `[1, [0x30, 0x39]]` (aka `0xd5013039`)
-- `-42` would be encoded as the extension value `[2, [0x2A]]` (aka `0xd4022a`)
+- ``12345`` would be encoded as the extension value ``[1, [0x30, 0x39]]`` (aka ``0xd5013039``)
+- ``-42`` would be encoded as the extension value ``[2, [0x2A]]`` (aka ``0xd4022a``)
 
 
 Datetime
@@ -594,12 +594,12 @@ There are 2 type of date that can be encoded in a Kafka message:
   git repositories, a custom encoding is required. These dates (coming from the
   git data model) are encoded as a dictionary with:
 
-  - `timestamp` [dict] POSIX timestamp of the date, as a dictionary with 2 keys
-    (`seconds` and `microseconds`)
+  - ``timestamp`` [dict] POSIX timestamp of the date, as a dictionary with 2 keys
+    (``seconds`` and ``microseconds``)
 
-  - `offset` [int] offset of the date (in minutes)
+  - ``offset`` [int] offset of the date (in minutes)
 
-  - `negative_utc` [bool] only True for the very edge case where the date has a
+  - ``negative_utc`` [bool] only True for the very edge case where the date has a
     zero but negative offset value (which does not makes much sense, but
     technically the git format permits)
 
@@ -613,12 +613,12 @@ There are 2 type of date that can be encoded in a Kafka message:
        'negative_utc': False
      }
 
-  These are denoted as `gitdate` below.
+  These are denoted as ``gitdate`` below.
 
 - other dates (resulting of the |swh| processing stack) are encoded using
   msgpack's Timestamp_ extended type.
 
-  These are denoted as `timestamp` below.
+  These are denoted as ``timestamp`` below.
 
   Note that these dates used to be encoded as a dictionary (beware: keys are bytes):
 
@@ -660,8 +660,8 @@ anonymized prior to being serialized. The anonymized
    }
 
 
-where the `<hashed value>` is computed from original values as a sha256 of the
-original's `fullname`.
+where the ``<hashed value>`` is computed from original values as a sha256 of the
+original's ``fullname``.
 
 
 
