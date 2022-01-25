@@ -12,7 +12,7 @@ from swh.docs.django_settings import force_django_settings
 
 # General information about the project.
 project = "Software Heritage - Development Documentation"
-copyright = "2015-2021  The Software Heritage developers"
+copyright = "2015-2022  The Software Heritage developers"
 author = "The Software Heritage developers"
 
 # -- General configuration ------------------------------------------------
