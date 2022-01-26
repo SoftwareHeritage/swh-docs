@@ -71,10 +71,17 @@ used for this, or any existing docker volume driver like `REX-Ray
 Please read the documentation of docker volumes to learn how to use such a
 device/driver as volume provider for docker.
 
-Note that the provided :file:`base-services.yaml` file has placement constraints for the
-``db-storage``, ``db-web`` and ``objstorage`` containers, that depend on the availability of
-specific volumes (respectively ``<STACK>_storage-db``, ``<STACK>_web-db`` and
-``<STACK>_objstorage``). These services are pinned to specific nodes using labels named
+
+Node labels
+-----------
+
+Note that the provided :file:`base-services.yaml` file has label-based
+placement constraints for several services.
+
+The ``db-storage``, ``db-web``, ``objstorage`` and ``redis`` containers, which
+depend on the availability of specific volumes (respectively
+``<STACK>_storage-db``, ``<STACK>_web-db`` and ``<STACK>_objstorage``) are
+pinned to specific nodes using labels named
 ``org.softwareheritage.mirror.volumes.<base volume name>`` (e.g.
 ``org.softwareheritage.mirror.volumes.objstorage``).
 
@@ -89,6 +96,44 @@ to the docker swarm node metadata with:
 
 You have to set the node labels, or to adapt the placement constraints to your local
 requirements, for the services to start.
+
+The monitoring services, ``prometheus``, ``prometheus-statsd-exporter`` and
+``grafana`` also have placement constraints based on the label
+``org.softwareheritage.mirror.monitoring``. So make sure to add this label to
+one (and only one) node of the cluster:
+
+.. code-block:: bash
+
+   docker node update \
+       --label-add org.softwareheritage.mirror.monitoring=true \
+       <node_name>
+
+To check labels defined on a specific node, one can use the ``docker node
+inspect`` command:
+
+.. code-block:: bash
+
+   docker node inspect \
+       -f '{{ .ID }} [{{ .Description.Hostname}}]: \
+	       {{ range $k, $v := .Spec.Labels }}{{ $k }}={{ $v }}
+       {{end}}' <node_name>
+
+Labels that need to be defined are:
+
+- ``org.softwareheritage.mirror.volumes.objstorage=true``: node that will host
+  the objstorage service, on which the ``swh_objstorage`` volume must be
+  defined.
+
+- ``org.softwareheritage.mirror.volumes.redis=true``: node that will host the
+  redis service on which the ``swh_redis`` volume must be defined.
+
+- ``org.softwareheritage.mirror.volumes.storage-db=true``: node that will host
+  the swh-storage Postgresql database, on which the ``swh_storage-db`` volume must
+  be defined.
+
+- ``org.softwareheritage.mirror.volumes.web-db=true``: node that will host the
+  swh-web Postgresql database, on which the ``swh_web-db`` must be defined.
+
 
 Managing secrets
 ----------------
@@ -136,40 +181,57 @@ environment variable:
 
    ~/swh-mirror$ export SWH_IMAGE_TAG=20211022-121751
 
-You can then spawn the base services using the following command:
+Make sure you have node labels attributed properly. Then you can spawn the
+base services using the following command:
 
 .. code-block:: bash
 
-   ~/swh-mirror$ docker stack deploy -c base-services.yml swh
+   ~/swh-mirror$ docker stack deploy -c mirror.yml swh
 
    Creating network swh_default
+   Creating config swh_content-replayer
+   Creating config swh_grafana-provisioning-datasources-prometheus
+   Creating config swh_graph-replayer
+   Creating config swh_grafana-provisioning-dashboards-all
+   Creating config swh_grafana-dashboards-content-replayer
+   Creating config swh_grafana-dashboards-backend-stats
+   Creating config swh_prometheus
+   Creating config swh_prometheus-statsd-exporter
    Creating config swh_storage
-   Creating config swh_objstorage
    Creating config swh_nginx
    Creating config swh_web
-   Creating service swh_grafana
-   Creating service swh_prometheus-statsd-exporter
-   Creating service swh_web
-   Creating service swh_objstorage
-   Creating service swh_db-storage
-   Creating service swh_memcache
+   Creating config swh_grafana-dashboards-graph-replayer
+   Creating config swh_objstorage
    Creating service swh_storage
+   Creating service swh_redis
+   Creating service swh_content-replayer
    Creating service swh_nginx
    Creating service swh_prometheus
+   Creating service swh_web
+   Creating service swh_prometheus-statsd-exporter
+   Creating service swh_db-web
+   Creating service swh_objstorage
+   Creating service swh_db-storage
+   Creating service swh_graph-replayer
+   Creating service swh_memcache
+   Creating service swh_grafana
 
    ~/swh-mirror$ docker service ls
 
-   ID             NAME                             MODE         REPLICAS   IMAGE                                       PORTS
-   tc93talbe2tg   swh_db-storage                   global       1/1        postgres:13
-   42q5jtxsh029   swh_db-web                       global       1/1        postgres:13
-   rtlz62ok6s96   swh_grafana                      replicated   1/1        grafana/grafana:latest
-   jao3rt0et17n   swh_memcache                     replicated   1/1        memcached:latest
-   rulxakqgu2ko   swh_nginx                        replicated   1/1        nginx:latest                                *:5081->5081/tcp
-   q560pvw3q3ls   swh_objstorage                   replicated   2/2        softwareheritage/base:20211022-121751
-   a2h3ltaqdt56   swh_prometheus                   global       1/1        prom/prometheus:latest
-   lm24et9gjn2k   swh_prometheus-statsd-exporter   replicated   1/1        prom/statsd-exporter:latest
-   gwqinrao5win   swh_storage                      replicated   2/2        softwareheritage/base:20211022-121751
-   7g46blmphfb4   swh_web                          replicated   1/1        softwareheritage/web:20211022-121751
+   ID             NAME                             MODE         REPLICAS               IMAGE                                       PORTS
+   ptlhzue025zm   swh_content-replayer             replicated   0/0                    softwareheritage/replayer:20220225-101454
+   ycyanvhh0jnt   swh_db-storage                   replicated   1/1 (max 1 per node)   postgres:13
+   qlaf9tcyimz7   swh_db-web                       replicated   1/1 (max 1 per node)   postgres:13
+   aouw9j8uovr2   swh_grafana                      replicated   1/1 (max 1 per node)   grafana/grafana:latest
+   uwqe13udgyqt   swh_graph-replayer               replicated   0/0                    softwareheritage/replayer:20220225-101454
+   mepbxllcxctu   swh_memcache                     replicated   1/1                    memcached:latest
+   kfzirv0h298h   swh_nginx                        global       3/3                    nginx:latest                                *:5081->5081/tcp
+   t7med8frg9pr   swh_objstorage                   replicated   2/2                    softwareheritage/base:20220225-101454
+   5s34wzo29ukl   swh_prometheus                   replicated   1/1 (max 1 per node)   prom/prometheus:latest
+   rwom7r3yv5ql   swh_prometheus-statsd-exporter   replicated   1/1 (max 1 per node)   prom/statsd-exporter:latest
+   wuwydthechea   swh_redis                        replicated   1/1 (max 1 per node)   redis:6.2.6
+   jztolbmjp1vi   swh_storage                      replicated   2/2                    softwareheritage/base:20220225-101454
+   xxc4c66x0uj1   swh_web                          replicated   1/1                    softwareheritage/web:20220225-101454
 
 
 This will start a series of containers with:
@@ -182,6 +244,9 @@ This will start a series of containers with:
 - a prometeus-statsd exporter,
 - a grafana server,
 - an nginx server serving as reverse proxy for grafana and swh-web.
+- a swh_content-replayer service (initially set to 0 replica, see below)
+- a swh_graph-replayer service (initially set to 0 replica, see below)
+- a redis for the replication error logs,
 
 using the pinned version of the docker images.
 
@@ -275,7 +340,6 @@ This can be done as follow:
 
 Note that this will reset the replicas config to their default values.
 
-
 If you want to update only a specific service, you can also use (here for a
 replayer service):
 
@@ -284,6 +348,20 @@ replayer service):
    ~/swh-mirror$ docker service update --image \
           softwareheritage/replayer:${SWH_IMAGE_TAG} \
           swh_graph-replayer
+
+.. warning::
+
+   Updating the image of a storage service may come with a database migration
+   script. So we strongly recommend you scale the service back to one before
+   updating the image:
+
+   .. code-block:: bash
+
+	  ~/swh-mirror$ docker service scale swh_storage=1
+	  ~/swh-mirror$ docker service update --image \
+          softwareheritage/base:${SWH_IMAGE_TAG} \
+          swh_storage
+	  ~/swh-mirror$ docker service scale swh_storage=16
 
 
 Set up the mirroring components
@@ -299,13 +377,18 @@ responsibility of kafka based ``replayer`` services:
 
 - the ``content replayer`` which is in charge of filling the object storage.
 
-Examples of docker deploy files and configuration files are provided in
-the :file:`graph-replayer.yml` deploy file for replayer services
-using configuration from yaml files in :file:`conf/graph-replayer.yml`.
+The examples docker deploy file ``mirror.yml`` already define these 2
+services, but they are not deployed by default (their ``replicas`` is set to
+0). This allows to first deploy core components and check they are properly
+started and running.
 
-Copy these example files as plain yaml ones then modify them to replace
-the XXX markers with proper values (also make sure the kafka server list
-is up to date). The parameters to check/update are:
+To start the replayers, first their configuration files need to be adjusted to
+your setup.
+
+Edit the provided example files ``conf/graph-replayer.yml`` and
+``conf/content-replayer.yml`` to modify fields with an XXX markers with proper
+values (also make sure the kafka server list is up to date). The parameters to
+check/update are:
 
 - ``journal_client.brokers``: list of kafka brokers.
 - ``journal_client.group_id``: unique identifier for this mirroring session;
@@ -316,81 +399,44 @@ is up to date). The parameters to check/update are:
 - ``journal_client.sasl.username``: kafka authentication username.
 - ``journal_client.sasl.password``: kafka authentication password.
 
-Then you need to merge the compose files "by hand" (due to this still
-`unresolved <https://github.com/docker/cli/issues/1651>`_
-`bugs <https://github.com/docker/cli/issues/1582>`_). For this we will use
-`docker compose <https://github.com/docker/compose>`_ as helper tool to merge the
-compose files.
-
-To merge 2 (or more) compose files together, typically :file:`base-services.yml` with
-a mirror-related file:
+Then you need to update the configuration, as described above:
 
 .. code-block:: bash
 
-   ~/swh-mirror$ docker-compose \
-       -f base-services.yml \
-       -f graph-replayer-override.yml \
-       config > mirror.yml
+   ~/swh-mirror$ docker config create swh_graph-replayer-2 conf/graph-replayer.yml
+   ~/swh-mirror$ docker service update \
+                   --config-rm swh_graph-replayer \
+                   --config-add source=swh_graph-replayer-2,target=/etc/softwareheritage/config.yml \
+                   swh_graph-replayer
 
-
-Then use this generated file as argument of the :command:`docker stack deploy`
-command, e.g.:
+and
 
 .. code-block:: bash
 
-   ~/swh-mirror$ docker stack deploy -c mirror.yml swh
+   ~/swh-mirror$ docker config create swh_content-replayer-2 conf/content-replayer.yml
+   ~/swh-mirror$ docker service update \
+                   --config-rm swh_content-replayer \
+                   --config-add source=swh_content-replayer-2,target=/etc/softwareheritage/config.yml \
+                   swh_content-replayer
 
 
 Graph replayer
 --------------
 
-To run the graph replayer component of a mirror:
+To run the graph replayer component of a mirror is just a matter of scaling its service:
 
 .. code-block:: bash
 
-   ~/swh-mirror$ cd conf
-   ~/swh-mirror/conf$ cp graph-replayer.yml.example graph-replayer.yml
-   ~/swh-mirror/conf$ $EDITOR graph-replayer.yml
-   ~/swh-mirror/conf$ cd ..
-
-
-Once you have properly edited the :file:`conf/graph-replayer.yml` config file,
-you can start these services with:
-
-.. code-block:: bash
-
-   ~/swh-mirror$ docker-compose \
-       -f base-services.yml \
-       -f graph-replayer-override.yml \
-       config > stack-with-graph-replayer.yml
-   ~/swh-mirror$ docker stack deploy \
-       -c stack-with-graph-replayer.yml \
-       swh
-   [...]
+   ~/swh-mirror$ docker service scale swh_graph-replayer=1
 
 You can check everything is running with:
 
 .. code-block:: bash
 
-   ~/swh-mirror$ docker stack ls
+   ~/swh-mirror$ docker service ps swh_graph-replayer
 
-   NAME         SERVICES            ORCHESTRATOR
-   swh          11                  Swarm
-
-   ~/swh-mirror$ docker service ls
-
-   ID             NAME                             MODE         REPLICAS   IMAGE                                       PORTS
-   tc93talbe2tg   swh_db-storage                   global       1/1        postgres:13
-   42q5jtxsh029   swh_db-web                       global       1/1        postgres:13
-   rtlz62ok6s96   swh_grafana                      replicated   1/1        grafana/grafana:latest
-   7hvn66um77wr   swh_graph-replayer               replicated   4/4        softwareheritage/replayer:20211022-121751
-   jao3rt0et17n   swh_memcache                     replicated   1/1        memcached:latest
-   rulxakqgu2ko   swh_nginx                        replicated   1/1        nginx:latest                                *:5081->5081/tcp
-   q560pvw3q3ls   swh_objstorage                   replicated   2/2        softwareheritage/base:20211022-121751
-   a2h3ltaqdt56   swh_prometheus                   global       1/1        prom/prometheus:latest
-   lm24et9gjn2k   swh_prometheus-statsd-exporter   replicated   1/1        prom/statsd-exporter:latest
-   gwqinrao5win   swh_storage                      replicated   2/2        softwareheritage/base:20211022-121751
-   7g46blmphfb4   swh_web                          replicated   1/1        softwareheritage/web:20211022-121751
+   ID             NAME                   IMAGE                                       NODE   DESIRED STATE   CURRENT STATE            ERROR     PORTS
+   ioyt34ok118a   swh_graph-replayer.1   softwareheritage/replayer:20220225-101454   node1  Running         Running 17 minutes ago
 
 
 If everything is OK, you should have your mirror filling. Check docker logs:
@@ -415,43 +461,7 @@ Similarly, to run the content replayer:
 
 .. code-block:: bash
 
-   ~/swh-mirror$ cd conf
-   ~/swh-mirror/conf$ cp content-replayer.yml.example content-replayer.yml
-   ~/swh-mirror/conf$ # edit content-replayer.yml files
-   ~/swh-mirror/conf$ cd ..
-
-
-Once you have properly edited the :file:`conf/content-replayer.yml` config file, you can
-start these services with:
-
-.. code-block:: bash
-
-   ~/swh-mirror$ docker-compose \
-       -f base-services.yml \
-       -f content-replayer-override.yml \
-       config > content-replayer.yml
-   ~/swh-mirror$ docker stack deploy \
-       -c content-replayer.yml \
-       swh
-   [...]
-
-
-Full mirror
------------
-
-Putting all together is just a matter of merging the 3 compose files:
-
-.. code-block:: bash
-
-   ~/swh-mirror$ docker-compose \
-       -f base-services.yml \
-       -f graph-replayer-override.yml \
-       -f content-replayer-override.yml \
-       config > mirror.yml
-   ~/swh-mirror$ docker stack deploy \
-       -c mirror.yml \
-       swh
-   [...]
+   ~/swh-mirror$ docker service scale swh_content-replayer=1
 
 
 Getting your deployment production-ready
@@ -460,16 +470,27 @@ Getting your deployment production-ready
 docker-stack scaling
 --------------------
 
-In order to scale up a replayer service, you can use the :command:`docker
-scale` command. For example:
+Once the replayer services have been checked, started and are working
+properly, you can increase the replication to speed up the replication process.
 
 .. code-block:: bash
 
-   ~/swh-mirror$ docker service scale swh_graph-replayer=4
-   [...]
+   ~/swh-mirror$ docker service scale swh_graph-replayer=64
+   ~/swh-mirror$ docker service scale swh_content-replayer=64
 
+A proper replication factor value will depend on your infrastructure
+capabilities and needs to be adjusted watching the load of the core services
+(mainly the swh_storage-db and swh_objstorage services).
 
-will start 4 copies of the graph replayer service.
+Acceptable range should be between 32 to 64 (for staging) or 256 (for production).
+
+Note that when you increase the replication of the replayers, you also need to
+increase the replication factor for the core services ``swh_storage`` and
+``swh_objstorage`` otherwise they will become the limiting factor of the replaying
+process. A factor of 4 between the number of replayer of a type (graph,
+content) and the backend service (swh_storage, swh_objstorage) is probably a
+good starting point (i.e. have at least one core service for 4 replayer
+services). You may have to play a bit with these values to find the right balance.
 
 Notes on the throughput of the mirroring process
 ------------------------------------------------
@@ -502,3 +523,19 @@ have it managed within the docker stack. To do so, you will have to:
   external database server
 - override the environment variables of the ``storage`` service to reference the external
   database server and dbname
+
+
+Operational concerns for the monitoring
+---------------------------------------
+
+You may want to use a prometheus server running directly on one of the docker
+swarm nodes so that it can easily also monitor the swarm cluster itself and the
+running docker services.
+
+See the `prometheus guide <https://prometheus.io/docs/guides/dockerswarm>`_ on
+how to configure a Prometheus server to monitor a docker swarm cluster.
+
+In this case, the ``prometheus`` service should be removed from the docker
+deploy compose file, and the configuration files should be updated accordingly.
+You would probably want to move ``grafana`` from the docker swarm, and rework
+the ``prometheus-statsd-exporter`` node setup accordingly.
