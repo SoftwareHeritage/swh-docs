@@ -418,6 +418,9 @@ Some useful options are the following:
 - ``--no-clean-source`` doesn't run debian/rules clean outside of the chroot, so you
   don't have to clutter your dev machine with all build dependencies
 
+- ``--build-dep-resolver=aptitude`` can be necessary when using extra
+  repositories, especially backports.
+
 - ``--extra-repository="repository specification"`` adds the given repository in the
   chroot before building.
 
@@ -433,20 +436,47 @@ Some useful options are the following:
 
 See ``gbp help buildpackage`` and ``man sbuild`` for a full description of all options
 
-for example:
+For **sid**, it would be:
 
 .. code::
 
-   gbp buildpackage --git-builder=sbuild -As --no-clean-source --force-orig-source \
+   git checkout debian/unstable-swh
+   gbp buildpackage --git-builder=sbuild -As \
+     --no-clean-source --force-orig-source \
+     --extra-repository='deb [trusted=yes] https://debian.softwareheritage.org/ unstable main'
+
+or if you need some third-party repository, say cassandra (for swh-storage):
+
+.. code::
+
+   gbp buildpackage --git-builder=sbuild -As \
+     --no-clean-source --force-orig-source \
+     --extra-repository='deb [trusted=yes] https://debian.softwareheritage.org/ unstable main' \
+     --extra-repository='deb [arch=amd64 trusted=yes] https://downloads.apache.org/cassandra/debian/ 40x main'
+
+For **buster**, it would be (note the usage of aptitude as resolver as the
+backports repository is used):
+
+.. code::
+
+   git checkout debian/buster-swh
+   gbp buildpackage --git-builder=sbuild -As --build-dep-resolver=aptitude \
+     --no-clean-source --force-orig-source \
+     --extra-repository='deb https://deb.debian.org/ buster-backports main' \
      --extra-repository='deb [trusted=yes] https://debian.softwareheritage.org/ buster-swh main'
 
-or if you need some third-party repository, say for cassandra:
+For **bullseye**, it would be (also note the usage of aptitude as resolver as the
+backports repository is used):
 
 .. code::
 
-   gbp buildpackage --git-builder=sbuild -As --no-clean-source --force-orig-source \
-     --extra-repository='deb [trusted=yes] https://debian.softwareheritage.org/ buster-swh main' \
-     --extra-repository='deb [arch=amd64 trusted=yes] https://downloads.apache.org/cassandra/debian/ 40x main'
+   git checkout debian/bullseye-swh
+   gbp buildpackage --git-builder=sbuild -As --build-dep-resolver=aptitude \
+     --no-clean-source --force-orig-source \
+     --extra-repository='deb https://deb.debian.org/ bullseye-backports main' \
+     --extra-repository='deb [trusted=yes] https://debian.softwareheritage.org/ bullseye-swh main'
+
+.. Warning:: At time of writing, most software packages have no bullseye branch yet.
 
 **TODO**: Rewrite bin/make-package as bin/swh-gbp-buildpackage wrapping ``gbp
 buildpackage`` with the most common options.
