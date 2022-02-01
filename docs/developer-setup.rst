@@ -94,6 +94,10 @@ Checkout all the swh packages source repositories::
     (swh) ~/swh-environment$ pip install pre-commit
     (swh) ~/swh-environment$ ./bin/update
 
+Use the same mypy version our tox containers use:
+
+    (swh) ~/swh-environment$ pip install mypy==0.920
+
 In the future you can re-activate the created virtualenv with::
 
    $ workon swh
