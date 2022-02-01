@@ -17,7 +17,7 @@ On the puppet master (pergamon):
 ::
 
   root@pergamon:~# cd /var/lib/puppet/ssl/ca/signed
-  root@pergamon:/var/lib/puppet/ssl/ca/signed# openssl x509 -text -in worker01.softwareheritage.org.pem | grep -i 'not after'
+  root@pergamon:/var/lib/puppet/ssl/ca/signed# openssl x509 -text -in beaubourg.softwareheritage.org.pem | grep -i 'not after'
           Not After : Oct 29 18:37:49 2022 GMT
 
 Check the certificate statuses
@@ -27,11 +27,7 @@ On the puppet master (pergamon):
 
 ::
 
-  root@pergamon:~# puppet cert --list --all
-  Warning: `puppet cert` is deprecated and will be removed in a future release.
-    (location: /usr/lib/ruby/vendor_ruby/puppet/application.rb:370:in `run')
-  ...
-  + "worker3.internal.staging.swh.network"                          (SHA256) A5:0C:46:21:C9:C6:B2:...:10:D3:C4:24:90:55:1D:56
+  root@pergamon:~# puppet cert list --all 2>/dev/null | grep expired
   - "beaubourg.softwareheritage.org"                                (SHA256) 24:50:2E:7F:8B:B0:C7:...:D9:AB:5A:45:46:4D:17:51 (certificate has expired)
   ...
 
@@ -46,9 +42,7 @@ On the puppet master (pergamon):
 
 ::
 
-  root@pergamon:~# puppet cert clean beaubourg.softwareheritage.org
-  Warning: `puppet cert` is deprecated and will be removed in a future release.
-    (location: /usr/lib/ruby/vendor_ruby/puppet/application.rb:370:in `run')
+  root@pergamon:~# puppet cert clean beaubourg.softwareheritage.org 2>/dev/null
   Notice: Revoked certificate with serial 49
   Notice: Removing file Puppet::SSL::Certificate beaubourg.softwareheritage.org at '/var/lib/puppet/ssl/ca/signed/beaubourg.softwareheritage.org.pem'
   Notice: Removing file Puppet::SSL::Certificate beaubourg.softwareheritage.org at '/var/lib/puppet/ssl/certs/beaubourg.softwareheritage.org.pem'
