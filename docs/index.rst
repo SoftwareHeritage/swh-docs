@@ -215,4 +215,3 @@ Indices and tables
    api-reference
    archive-changelog
    journal
-   Python modules autodocumentation <apidoc/modules>
