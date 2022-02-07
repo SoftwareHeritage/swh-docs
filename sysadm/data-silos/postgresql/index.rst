@@ -5,3 +5,4 @@ PostgreSQL
 
 .. toctree::
    howto-connect
+   backup
