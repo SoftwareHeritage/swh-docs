@@ -114,6 +114,10 @@ swh.docs
 :ref:`swh.loader-core <swh-loader-core>`
     low-level loading utilities and helpers used by all other loaders
 
+:ref:`swh.loader-bzr <swh-loader-bzr>`
+    loader for `Bazaar <http://bazaar.canonical.com/en/>`_ and
+    `Breezy <https://www.breezy-vcs.org/>`_ repositories
+
 :ref:`swh.loader-git <swh-loader-git>`
     loader for `Git <https://git-scm.com/>`_ repositories
 
