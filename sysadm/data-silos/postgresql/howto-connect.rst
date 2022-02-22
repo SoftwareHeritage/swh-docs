@@ -45,10 +45,11 @@ Sample |pg_service|
   user=guest
   port=5432
 
-  [swh-archiver]
-  dbname=softwareheritage-archiver
+  [swh-deposit]
+  dbname=softwareheritage-deposit
   host=db.internal.softwareheritage.org
   user=guest
+  port=5432
 
   [swh-indexer]
   dbname=softwareheritage-indexer
