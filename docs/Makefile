@@ -13,7 +13,7 @@ INSTALL_PERMS = g+rwX
 
 SPHINXAPIDOC = sphinx-apidoc
 APIDOC_DIR = apidoc
-APIDOC_OPTS = --ext-viewcode --separate
+APIDOC_OPTS = --ext-viewcode --separate --no-toc
 APIDOC_EXCLUDES = */tests */tests/* */*/tests/* */*/*/tests/*
 APIDOC_EXCLUDES += */migrations */migrations/* */*/migrations/* */*/*/migrations/*
 APIDOC_EXCLUDES += */wsgi.py */*/wsgi.py */*/*/wsgi.py */*/*/wsgi.py
@@ -39,6 +39,8 @@ apidoc-stamp: links-stamp
 		$(SWHPKGDIR) \
 		$(APIDOC_SWH_EXCLUDES)
 	touch $@
+	# remove warning about swh.rst not being included in any toctree
+	sed -i '1s/^/:orphan:\n\n/' $(APIDOC_DIR)/swh.rst
 
 images-stamp:
 	$(MAKE) -C images
