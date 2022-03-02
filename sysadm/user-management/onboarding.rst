@@ -58,7 +58,7 @@ Technical setup
 
 - `VPN <https://intranet.softwareheritage.org/wiki/VPN>`_ access
 - HTTP auth credentials for the `intranet wiki`_
-- Create account on the `intranet wiki`_
+- Create account on the `intranet wiki`_ and ask someone to give you the shared auth credentials
 - Create account on the `public wiki`_
 
 Extra steps for sysadm:
