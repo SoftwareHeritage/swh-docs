@@ -49,6 +49,7 @@ Tutorials
 Roadmap
 -------
 
+* :ref:`roadmap-2022`
 * :ref:`roadmap-2021`
 
 System Administration
