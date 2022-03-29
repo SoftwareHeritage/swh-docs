@@ -152,6 +152,10 @@ swh.docs
     listing a forge, loading new stuff from a Git repository) and one-off
     activities (e.g., loading a specific version of a source package)
 
+:ref:`swh.scrubber <swh-scrubber>`
+    Tooling to check integrity of various data stores (swh.journal, swh.objstorage,
+    swh.storage) and fix corrupt objects they contain.
+
 :ref:`swh.search <swh-search>`
     search engine for the archive
 

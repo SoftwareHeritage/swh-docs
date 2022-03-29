@@ -23,6 +23,7 @@ API reference
    swh.perfecthash <swh-perfecthash/index>
    swh.scanner <swh-scanner/index>
    swh.scheduler <swh-scheduler/index>
+   swh.scrubber <swh-scrubber/index>
    swh.search <swh-search/index>
    swh.storage <swh-storage/index>
    swh.vault <swh-vault/index>

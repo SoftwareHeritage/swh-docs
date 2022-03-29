@@ -25,6 +25,7 @@
 ../swh-loader-svn
 ../swh-loader-cvs
 ../swh-perfecthash
+../swh-scrubber
 ../swh-search
 ../swh-vault
 ../swh-web

@@ -20,6 +20,7 @@ swh.objstorage.replayer
 swh.perfecthash
 swh.scanner
 swh.scheduler[simulator]
+swh.scrubber
 swh.search
 swh.storage
 swh.vault
