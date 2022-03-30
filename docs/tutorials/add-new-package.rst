@@ -76,6 +76,15 @@ Unless specified otherwise, the following commands need to run from the base dir
 
    bin/init-py-repo swh-new-repo
 
+- Within that new repository, replace the ``swh-py-template`` entry in
+  ``docs/index.rst`` with the new package name ``swh-<package>`` (e.g:
+  ``swh-scrubber``).
+
+.. code:: bash
+
+   REPO_NAME=swh-new-repo  # edit this part, keep the "swh-" prefix
+   sed -i -e "s/swh-py-template/$REPO_NAME/g" docs/index.rst
+
 - Edit the default content of the template (`Example <https://forge.softwareheritage.org/rDCNT142fff84305b793974e6f7b837988e5fb95d8db1>`__)
 
 -  Configure **your local** pre-commit hook
@@ -91,7 +100,8 @@ Unless specified otherwise, the following commands need to run from the base dir
    - Edit the ``.mrconfig`` file and declare the new repository (just
      duplicate one existing entry and adapt with the new package name)
 
-   - Commit file modification (`Example <https://forge.softwareheritage.org/rCJSWHede4a65bc9e103db99dd8b0690caa3a769b378bd>`__)
+   - Commit file modification (`Example
+     <https://forge.softwareheritage.org/rCJSWHede4a65bc9e103db99dd8b0690caa3a769b378bd>`__)
 
 Install CI jobs
 ---------------
@@ -118,11 +128,14 @@ Documentation updates
 
 - Documentation repository is located in the swh-docs_ repository.
 
-- Add the new package dependency in the top-level ``requirements-swh.txt`` and
-  ``requirements-swh-dev.txt``
+- Add the package dependency in the top-level ``requirements-swh.txt`` (publication
+  build) and ``requirements-swh-dev.txt`` (documentation development build).
 
-- Add the new package entry in ``docs/index.rst`` with a concise description of the
-  package
+- Reference the package in the toc tree located in :ref:`docs/api-reference.rst
+  <api-reference>`.
+
+- Reference the package in the index with its concise description located in
+  :ref:`docs/index.rst <components>`.
 
 ::
 
@@ -135,7 +148,8 @@ Documentation updates
 
 - ensure this builds fine locally (e.g run `tox`, then `make -C docs`)
 
-- Then open a diff to advertise the new documentation entrypoints (`Example <https://forge.softwareheritage.org/D5327>`__)
+- Then open a diff to advertise the new documentation entrypoints (`Example
+  <https://forge.softwareheritage.org/D7448>`__)
 
 
 .. _`swh phabricator instance`: https://forge.softwareheritage.org/

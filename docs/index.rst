@@ -60,6 +60,8 @@ System Administration
 * :ref:`Keycloak <swh-sysadm:keycloak>` → learn how to use Keycloak,
   the authentication system used by |swh|'s web interface and public APIs
 
+.. _components:
+
 Components
 ----------
 
