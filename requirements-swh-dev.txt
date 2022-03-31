@@ -13,7 +13,7 @@
 ../swh-storage
 ../swh-objstorage-replayer
 ../swh-scheduler[simulator]
-../swh-deposit
+../swh-deposit[server]
 ../swh-graph
 ../swh-icinga-plugins
 ../swh-indexer
