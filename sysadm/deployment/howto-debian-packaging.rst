@@ -298,10 +298,11 @@ trigger on tag pushes
 
 Note:
 
-- there exists 2 types of :
+- there exists 3 types of hooks:
 
    - *post-receive-swh-modules* for swh modules developed by the team
    - *post-receive-debian-deps* for external modules packaged by the team
+   - *post-receive-swh-docker-image-modules* for modules which creates docker images
 
 - remember that access to tate is on port 2222.
 
