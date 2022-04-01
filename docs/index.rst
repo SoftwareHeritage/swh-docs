@@ -49,8 +49,10 @@ Tutorials
 Roadmap
 -------
 
-* :ref:`roadmap-2022`
-* :ref:`roadmap-2021`
+* Current roadmap: :ref:`roadmap-current`
+* Previous roadmaps
+
+  * :ref:`roadmap-2021`
 
 System Administration
 ---------------------
@@ -223,7 +225,7 @@ Indices and tables
    tutorials/index
    faq/index
    roadmap/roadmap-2022
-   roadmap/roadmap-2021
+   roadmap/index
    api-reference
    archive-changelog
    journal
