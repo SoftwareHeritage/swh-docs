@@ -222,6 +222,7 @@ Indices and tables
    contributing/index
    tutorials/index
    faq/index
+   roadmap/roadmap-2022
    roadmap/roadmap-2021
    api-reference
    archive-changelog
