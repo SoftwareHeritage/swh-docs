@@ -4,12 +4,14 @@
 Roadmap 2022
 ============
 
-(Version 1.0, last modified 28/03/2022)
+(Version 1.0, last modified 2022-04-01)
 
-This document provides an overview of the technical roadmap of Software Heritage for 2021
+This document provides an overview of the technical roadmap of the Software
+Heritage initiative for the year 2022.
 
-The `Kanban board <https://forge.softwareheritage.org/project/view/176/>`_
-is seen through our forge.
+Live tracking of the roadmap implementation progress during the year is
+available from a dedicated `Kanban board
+<https://forge.softwareheritage.org/project/view/176/>`_.
 
 .. contents::
    :depth: 3
