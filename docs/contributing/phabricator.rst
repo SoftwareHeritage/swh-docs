@@ -100,20 +100,20 @@ forge.softwareheritage.org over https.
 VCS password for pushes
 ~~~~~~~~~~~~~~~~~~~~~~~
 
-If you're not comfortable setting up SSH to upload your changes,
-you have the option of setting a VCS password.
-This password, *separate from your account password*,
-allows Phabricator to authenticate your uploads over HTTPS.
+.. warning:: Please, only use this if you're completely unable to use ssh.
 
-In your forge User settings page (On the top right, click on your avatar,
-then click *Settings*), you need to use the *Authentication* > *VCS Password*
-section to set your VCS password (Direct link:
-``hxxps://forge.softwareheritage.org/settings/user/<your username>/page/vcspassword/``).
+As a fallback to the ssh setup, you have the option of setting a VCS password. This
+password, *separate from your account password*, allows Phabricator to authenticate your
+uploads over HTTPS.
 
-If you still get a 403 error on push, this means you need
-a forge administrator to enable HTTPS pushes for the repository
-(which wasn't done by default in historical repositories).
-Please drop by on IRC and let us know!
+In your forge User settings page (On the top right, click on your avatar, then click
+*Settings*), you need to use the *Authentication* > *VCS Password* section to set your
+VCS password (Direct link: ``hxxps://forge.softwareheritage.org/settings/user/<your
+username>/page/vcspassword/``).
+
+If you still get a 403 error on push, this means you need a forge administrator to
+enable HTTPS pushes for the repository (which wasn't done by default in historical
+repositories). Please drop by on IRC and let us know!
 
 Workflow
 ++++++++
