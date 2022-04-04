@@ -1,5 +1,10 @@
 .. highlight:: bash
 
+.. admonition:: Intended audience
+   :class: important
+
+   Contributors
+
 .. _patch-submission:
 
 Submitting patches
