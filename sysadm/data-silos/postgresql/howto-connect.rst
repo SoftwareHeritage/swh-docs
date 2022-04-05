@@ -74,6 +74,18 @@ Sample |pg_service|
   port=5432
   user=swh
 
+  [staging-swh-deposit]
+  dbname=swh-deposit
+  host=db1.internal.staging.swh.network
+  port=5432
+  user=guest
+
+  [admin-staging-swh-deposit]
+  dbname=swh-deposit
+  host=db1.internal.staging.swh.network
+  port=5432
+  user=swh-deposit
+
   [staging-swh-indexer]
   dbname=swh-indexer
   host=db1.internal.staging.swh.network
@@ -98,17 +110,17 @@ Sample |pg_service|
   port=5432
   user=swh-scheduler
 
-  [staging-swh-deposit]
-  dbname=swh-deposit
+  [staging-swh-scrubber]
+  dbname=swh-scrubber
   host=db1.internal.staging.swh.network
   port=5432
   user=guest
 
-  [admin-staging-swh-deposit]
-  dbname=swh-deposit
+  [admin-staging-swh-scrubber]
+  dbname=swh-scrubber
   host=db1.internal.staging.swh.network
   port=5432
-  user=swh-deposit
+  user=swh-scrubber
 
   [staging-swh-vault]
   dbname=swh-vault
