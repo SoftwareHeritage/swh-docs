@@ -119,7 +119,7 @@ Obtaining a client certificate
 For users
 ~~~~~~~~~
 
-Generate a keypair (key + certificate signing request) using the following command:
+Generate a key pair (key + certificate signing request) using the following command:
 
 .. code::
 
