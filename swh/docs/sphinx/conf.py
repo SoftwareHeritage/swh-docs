@@ -120,6 +120,7 @@ html_logo = "_static/software-heritage-logo-title-motto-vertical-white.png"
 html_static_path = ["_static"]
 
 html_js_files = ["custom.js"]
+html_css_files = ["custom.css"]
 
 # make logo actually appear, avoiding gotcha due to alabaster default conf.
 # https://github.com/bitprophet/alabaster/issues/97#issuecomment-303722935

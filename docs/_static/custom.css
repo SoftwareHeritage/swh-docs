@@ -379,3 +379,17 @@ a {
     url(fonts/alegreya-sans-latin-900italic.woff2) format('woff2'),
     url(fonts/alegreya-sans-latin-900italic.woff) format('woff'); /* Modern Browsers */
 }
+
+table.swh-logos-table td,
+table.swh-logos-table th {
+  text-align: center;
+}
+
+table.swh-logos-table img {
+  margin-bottom: 5px;
+}
+
+table.swh-logos-table ul {
+  text-align: left;
+  margin-bottom: auto;
+}
