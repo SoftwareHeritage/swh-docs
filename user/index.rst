@@ -6,6 +6,7 @@ Software Heritage User documentation
 Getting started
 ---------------
 * :ref:`faq`
+* :ref:`listers`
 * :ref:`loaders`
 
 
@@ -24,4 +25,5 @@ Indices and tables
   :hidden:
 
   faq/index
+  listers/index
   loaders/index
