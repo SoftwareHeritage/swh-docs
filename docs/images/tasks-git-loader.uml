@@ -1,20 +1,21 @@
 @startuml
-  participant SCH_DB as "scheduler DB" #B0C4DE
-  participant SCH_RUN as "scheduler runner"
-  participant SCH_LS as "scheduler listener"
-  participant RMQ as "Rabbit-MQ"
-  participant OBJSTORE as "object storage"
-  participant STORAGE_DB as "storage DB" #B0C4DE
+  participant SCH_DB as "scheduler visits API" #B0C4DE
+  participant SCH_RUN as "scheduler schedule-recurrent"
+  participant SCH_JC as "scheduler journal-client"
+  participant RMQ as "Celery queues"
+  participant JOURNAL as "Kafka journal"
+  participant STORAGE_DB as "storage DB"
   participant STORAGE_API as "storage API"
+  participant OBJSTORE as "object storage"
   participant WORK_GIT as "worker@loader-git"
   participant GIT as "git server"
 
-  Note over SCH_DB,SCH_RUN: Task T2 created beforehand \n by the lister-gitlab task
+  Note over SCH_DB,SCH_RUN: Listed-Origin O1 created beforehand \n by the lister-gitlab task
   loop Polling
-      SCH_RUN->>SCH_DB: GET TASK set state=scheduled
-      SCH_DB-->>SCH_RUN: TASK id=T2
 	  activate SCH_RUN
-      SCH_RUN->>RMQ: CREATE Celery Task CT2 loader-git
+      SCH_RUN->>SCH_DB: GET origins/grab_next visit-type=git
+      SCH_DB-->>SCH_RUN: ORIGIN url=O1
+      SCH_RUN->>RMQ: CREATE Celery Task CT2 loader-git url=O1
 	  deactivate SCH_RUN
 	  activate RMQ
   end
@@ -22,6 +23,18 @@
   RMQ->>WORK_GIT: Start task CT2
   deactivate RMQ
   activate WORK_GIT
+
+  WORK_GIT->>STORAGE_API: ADD origin-visit url=O1
+  activate STORAGE_API
+  STORAGE_API->>STORAGE_DB: INSERT Origin
+  STORAGE_API->>JOURNAL: publish message in 'origin' topic
+  STORAGE_API->>STORAGE_DB: INSERT OriginVisit url=O1
+  STORAGE_API->>JOURNAL: publish message in 'origin-visit' topic
+  STORAGE_DB-->>STORAGE_API: OriginVisit id=V1
+  STORAGE_API->>JOURNAL: publish message in 'origin-visit-status' topic
+  STORAGE_API->>STORAGE_DB: INSERT OriginVisitStatus url=O1 visit=V1 status=created date=now
+  STORAGE_API-->>WORK_GIT: 201
+  deactivate STORAGE_API
 
   WORK_GIT->>STORAGE_API: GET origin state
   activate STORAGE_API
@@ -46,31 +59,36 @@
   WORK_GIT->>STORAGE_API: LOAD NEW CONTENT
   activate STORAGE_API
   loop For each blob
+      STORAGE_API->>STORAGE_DB: ADD CONTENT
       STORAGE_API->>OBJSTORE: ADD BLOB
+      STORAGE_API->>JOURNAL: publish message in 'content' topic
   end
   STORAGE_API-->>WORK_GIT: 200 / blobs
   deactivate STORAGE_API
 
-  WORK_GIT->>STORAGE_API: NEW DIR
+  WORK_GIT->>STORAGE_API: NEW DIREcTORY
   activate STORAGE_API
-  loop For each DIR
-    STORAGE_API->>STORAGE_DB: INSERT DIR
+  loop For each DIRECTORY
+    STORAGE_API->>STORAGE_DB: INSERT DIRECTORY
+    STORAGE_API->>JOURNAL: publish message in 'directory' topic
   end
   STORAGE_API-->>WORK_GIT: 201
   deactivate STORAGE_API
 
-  WORK_GIT->>STORAGE_API: NEW REV
+  WORK_GIT->>STORAGE_API: NEW REVISION
   activate STORAGE_API
-  loop For each REV
-    STORAGE_API->>STORAGE_DB: INSERT REV
+  loop For each REVISION
+    STORAGE_API->>STORAGE_DB: INSERT REVISION
+	STORAGE_API->>JOURNAL: publish message in 'revision' topic
   end
   STORAGE_API-->>WORK_GIT: 201
   deactivate STORAGE_API
 
-  WORK_GIT->>STORAGE_API: NEW REL
+  WORK_GIT->>STORAGE_API: NEW RELEASE
   activate STORAGE_API
-  loop For each REL
-    STORAGE_API->>STORAGE_DB: INSERT REL
+  loop For each RELEASE
+    STORAGE_API->>STORAGE_DB: INSERT RELSEASE
+	STORAGE_API->>JOURNAL: publish message in 'release' topic
   end
   STORAGE_API-->>WORK_GIT: 201
   deactivate STORAGE_API
@@ -79,16 +97,23 @@
   activate STORAGE_API
   loop For each SNAPSHOT
     STORAGE_API->>STORAGE_DB: INSERT SNAPSHOT
+	STORAGE_API->>JOURNAL: publish message in 'snapshot' topic
   end
   STORAGE_API-->>WORK_GIT: 201
   deactivate STORAGE_API
 
-  WORK_GIT-->>RMQ: SET CT2 status=eventful
+  WORK_GIT->>STORAGE_API: ADD origin-visit-status url=O1 visit=V1 snapshot=S1 status=full
+  activate STORAGE_API
+  STORAGE_API->>STORAGE_DB: INSERT OriginVisitStatus url=O1 visit=V1 status=full date=now
+  activate JOURNAL
+  STORAGE_API->>JOURNAL: publish message in 'origin-visit-status' topic
+  STORAGE_API-->>WORK_GIT: 201
+  deactivate STORAGE_API
   deactivate WORK_GIT
-  activate RMQ
-  RMQ->>SCH_LS: NOTIFY end of task CT2
-  deactivate RMQ
-  activate SCH_LS
-  SCH_LS->>SCH_DB: UPDATE T2 set state=end
-  deactivate SCH_LS
+
+  activate SCH_JC
+  JOURNAL->>SCH_JC: consume message from 'origin-visit-status' topic
+  deactivate JOURNAL
+  SCH_JC->>SCH_DB: UPDATE VISIT url=O1
+  deactivate SCH_JC
 @enduml

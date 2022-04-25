@@ -40,24 +40,130 @@ and Cassandra (a more scalable option we are exploring).
 The latter supports a large variety of "cloud" object storage as backends,
 as well as a simple local filesystem.
 
-Task management
-^^^^^^^^^^^^^^^
 
-The :ref:`Scheduler <swh-scheduler>` manages the entire choreography of jobs/tasks
-in |swh|, from detecting and ingesting repositories, to extracting metadata from them,
-to repackaging repositories into small downloadable archives.
-
-It does this by managing its own database of tasks that need to run
-(either periodically or only once),
-and passing them to celery_ for execution on dedicated workers.
-
-Listers
+Journal
 ^^^^^^^
 
-:term:`Listers <lister>` are type of task, run by the Scheduler, aiming at scraping a
-web site, a forge, etc. to gather all the source code repositories it can
-find, also known as :term:`origins <origin>`.
-For each found source code repository, a :term:`loader` task is created.
+The :term:`Journal <journal>`, which is a persistent logger of every change in
+the archive, with publish-subscribe_ support, using Kafka.
+
+The Storage publishes a kafka message in the journal each time a new object is
+added to the archive; and many components consumes them to be notified of these
+changes. For example, it allows the Scheduler to know when an origin has been
+visited and what was the resulting status of that visit, which helps to decide
+when to visit again these repositories.
+
+It is also the foundation of the :ref:`mirror` infrastructure, as it allows
+mirrors to stay up to date.
+
+Source code scraping
+^^^^^^^^^^^^^^^^^^^^
+
+The infrastructure aiming at finding new source code origins (git, mercurial
+and other type of VCS, source packages, etc.) and regularly visiting them is
+build around a few components based on a task scheduling scaffolding and using
+a Celery-based asynchronous task execution framework. The scheduler itself
+consists in 2 parts: a generic asynchronous task management system and a
+specific management database aiming at gathering and keeping up to date
+liveness information of listed origins that can be used to choose which of
+them should be visited in priority.
+
+To summarize, the parts involved in this carousel are:
+
+:term:`Listers <lister>`:
+     tasks aiming at scraping a web site like a forge, etc. to gather all the
+     source code repositories it can find, also known as :term:`origins
+     <origin>`. Lister tasks are triggered by the scheduler, via Celery, and
+     will fill the listed origins table of the listing and visit statistics
+     database (see below).
+
+:term:`Loaders <loader>`:
+     tasks dedicated to importing source code from a source code repository (an
+     origin). It is the component that will insert :term:`blob` objects in the
+     :term:`object storage`, and insert nodes and edges in the :ref:`graph
+     <swh-merkle-dag>`.
+
+:ref:`Scheduler <swh-scheduler>`'s generic task management:
+     manages the choreography of listing tasks in |swh|, as well as a few other
+     utility tasks (save code now, deposit, vault, indexers). Note that this
+     component will not handle the scheduling of loading tasks any more. It
+     consists in a database and API allowing to define task types and to create
+     tasks to be scheduled (recurring or one shot), as well as a tool (the
+     ``scheduler-runner``) dedicated to spawn these tasks via the Celery
+     asynchronous execution framework, as well as another tool (the
+     ``scheduler-listener``) dedicated to keeping the scheduler database in
+     sync with executed tasks (task execution status, execution timestamps,
+     etc.).
+
+:ref:`Scheduler <swh-scheduler>`'s listing and visit statistics:
+     database and API allowing to store information about liveness of a listed
+     origin as well as statistics about the loading of said origin. The visit
+     statistics are updated from the main :ref:`storage <swh-storage>` kafka
+     journal.
+
+:ref:`Scheduler <swh-scheduler>`'s origin visit scheduling:
+     tool that will use the statistics about listed origins and previous visits
+     stored in the database to apply scheduling policies to select the next
+     pool origins to visit. This does not use the generic task management
+     system, but instead directly spawn loading Celery tasks.
+
+
+.. thumbnail:: ../images/lister-loader-scheduling-architecture.svg
+
+
+The Scheduler
+~~~~~~~~~~~~~
+
+The :ref:`Scheduler <swh-scheduler>` manages the generic choreography of
+jobs/tasks in |swh|, namely listing origins of software source code, loading
+them, extracting metadata from loaded origins and repackaging repositories into
+small downloadable archives for the :term:`Vault <vault>`.
+
+It consists in a database where all the scheduling information is stored, an
+API allowing unified access to this database, and a set of services and tools
+to orchestrate the actual scheduling of tasks. Their execution being delegated
+to a Celery-based set of asynchronous workers.
+
+While initially a single generic scheduling utility for all asynchronous task
+types, the scheduling of origin visits has now been extracted in a new,
+dedicated part of the Scheduler. These loading tasks used to be managed by this
+generic task scheduler as recurrent tasks, but the number of these loading
+tasks baceame a problem to handle then efficiently, as well as some of their
+specificities could not be accounted for to help better and more efficient
+scheduling of origin visits.
+
+There are now 2 parts in the scheduler: the original SWH Task management
+system, and the new Origin Visit scheduling utility.
+
+Both have a similar architecture at first sight: a database, an API, a celery
+based execution system. The main difference of the new visit-centric system it
+is dedicated to origin visits, and thus can use specific information and
+metadata on origins to optimise the scheduling policy; statstics about known
+origins resulting from the listing of a forge can be used as entry point for
+the scheduling of origin visits according to scheduling policies that can take
+several metrics into considerations, like:
+
+- have the origin already been visited,
+
+- if not, how "old" is the origin (what is the timestamp of its first sign of
+  activity, e.g. creation date, timestamp of the first revision, etc.),
+
+- how long since the origin has last been visited,
+
+- how active is the origin (and thus how often it should be visited),
+
+- etc.
+
+For each new source code repository, a ``listed origin`` entry is added in the
+scheduler database, as well as the timestamp of last known activity for this
+origin as reported by the forge. For already known origins, only this last
+activity timestamp is updated, if need be.
+
+It is then the responsibility of the ``schedule-recurrent`` scheduler service
+to check listed origins, as well as visit statistics (see below), in order to
+regularly select the next origins to visit. This service also uses live data
+from Celery to choose an appropriate number of visits to schedule (keeping the
+Celery queues filled at a constant and controlled level).
 
 The following sequence diagram shows the interactions between these components
 when a new forge needs to be archived. This example depicts the case of a
@@ -68,48 +174,16 @@ gitlab_ forge, but any other supported source type would be very similar.
 As one might observe in this diagram, it does two things:
 
 - it asks the forge (a gitlab_ instance in this case) the list of known
-  repositories, and
+  repositories as well as some metadata (especially last update timestamp), and
 
-- it insert one :term:`loader` task for each source code repository that will
-  be in charge of importing the content of that repository.
-
-Note that most listers usually work in incremental mode, meaning they store in a
-dedicated database the current state of the listing of the forge. Then, on a subsequent
-execution of the lister, it will ask only for new repositories.
-
-Also note that if the lister inserts a new loading task for a repository for which a
-loading task already exists, the existing task will be updated (if needed) instead of
-creating a new task.
-
-Loaders
-^^^^^^^
-
-:term:`Loaders <loader>` are also a type of task, but aim at importing or
-updating a source code repository. It is the one that inserts :term:`blob`
-objects in the :term:`object storage`, and inserts nodes and edges in the
-:ref:`graph <swh-merkle-dag>`.
-
+- it inserts one ``listed origin`` for each new source code repository found or
+  update the ``last update`` timestamp for the origin.
 
 The sequence diagram below describe this second step of importing the content
 of a repository. Once again, we take the example of a git repository, but any
 other type of repository would be very similar.
 
 .. thumbnail:: ../images/tasks-git-loader.svg
-
-
-Journal
-^^^^^^^
-
-The last core component is the :term:`Journal <journal>`, which is a persistent logger
-of every change in the archive, with publish-subscribe_ support, using Kafka.
-
-The Storage writes to it every time a new object is added to the archive;
-and many components read from it to be notified of these changes.
-For example, it allows the Scheduler to know how often software repositories are
-updated by their developers, to decide when next to visit these repositories.
-
-It is also the foundation of the :ref:`mirror` infrastructure, as it allows
-mirrors to stay up to date.
 
 
 .. _architecture-tier-2:

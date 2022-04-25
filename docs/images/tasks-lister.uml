@@ -2,6 +2,7 @@
   participant WEB as "swh-web"
   participant SCH_API as "scheduler API" #ECECFF
   participant SCH_DB as "scheduler DB" #B0C4DE
+  participant SCH_VST_DB as "scheduler visits DB" #B0C4DE
   participant SCH_RUN as "scheduler runner"
   participant RMQ as "Rabbit-MQ"
   participant SCH_LS as "scheduler listener"
@@ -36,9 +37,10 @@
   deactivate GITLAB
 
   loop For Each Repo
-      WORK_GITLAB->>SCH_API: CREATE TASK loader-git
+      WORK_GITLAB->>SCH_API: CREATE LISTED_ORIGIN Repo.URL
 	  activate SCH_API
-	  SCH_API->>SCH_DB: INSERT TASK
+	  SCH_API->>SCH_VST_DB: [IF NEEDED] INSERT LISTED_ORIGIN Repo.URL
+	  SCH_API->>SCH_VST_DB: UPDATE LISTED_ORIGIN(LAST_UPDATE)
       SCH_API-->>WORK_GITLAB: 201
 	  deactivate SCH_API
   end
