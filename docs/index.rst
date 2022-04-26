@@ -129,6 +129,10 @@ swh.docs
 :ref:`swh.loader-mercurial <swh-loader-mercurial>`
     loader for `Mercurial <https://www.mercurial-scm.org/>`_ repositories
 
+:ref:`swh.loader-metadata <swh-loader-metadata>`
+    pseudo-loader, which fetches :term:`extrinsic metadata` from forges instead
+    of software artifacts
+
 :ref:`swh.loader-svn <swh-loader-svn>`
     loader for `Subversion <https://subversion.apache.org/>`_ repositories
 

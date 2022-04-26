@@ -22,6 +22,7 @@
 ../swh-loader-bzr
 ../swh-loader-git
 ../swh-loader-mercurial
+../swh-loader-metadata
 ../swh-loader-svn
 ../swh-loader-cvs
 ../swh-perfecthash
