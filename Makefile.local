@@ -7,10 +7,26 @@ all:
 	@echo Please be patient.
 	tox -vv -r -e sphinx-dev
 
+
+# inline *build* dependencies to allow installing requirements-swh-dev.txt without build
+# isolation
+BUILD_DEPS :=
+
+# swh.perfecthash
+BUILD_DEPS += cffi
+
+# swh.search
+BUILD_DEPS += tree-sitter
+
+# swh.loader.bzr>breezy
+BUILD_DEPS += configobj
+
+# swh.docs
+BUILD_DEPS += pifpaf
+
 pip-install-swh-dev:
+	python3 -m pip install --upgrade pip wheel setuptools setuptools-scm
+	python3 -m pip install --upgrade $(BUILD_DEPS)
+
+	python3 -m pip install -r requirements-swh-dev.txt --no-build-isolation
 	python3 -m pip install .
-	python3 -m pip install pifpaf
-	sed 's/#.*$$//;/^$$/d' requirements-swh-dev.txt | \
-	while IFS= read -r package; do \
-	  python3 -m pip install $$package ; \
-	done

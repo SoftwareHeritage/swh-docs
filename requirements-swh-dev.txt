@@ -1,35 +1,35 @@
 # Add here internal Software Heritage dependencies, one per line.
-# Dependencies need to be ordered in a way that ensure only
-# development versions will be used (not the release ones hosted on PyPI).
 #
-# This is NOT in alphabetical order
+# You can keep this list sorted alphabetically, the pip dependency resolver can sort
+# this out.
 
-../swh-core[http,db,logging]
 ../swh-auth[django]
-../swh-model
-../swh-journal
+../swh-core[http,db,logging]
 ../swh-counters
-../swh-objstorage[testing]
-../swh-storage
-../swh-objstorage-replayer
-../swh-scheduler[simulator]
+../swh-dataset
 ../swh-deposit[server]
+../swh-fuse
 ../swh-graph
 ../swh-icinga-plugins
 ../swh-indexer
+../swh-journal
 ../swh-lister
-../swh-loader-core
 ../swh-loader-bzr
+../swh-loader-core
+../swh-loader-cvs
 ../swh-loader-git
 ../swh-loader-mercurial
 ../swh-loader-metadata
 ../swh-loader-svn
-../swh-loader-cvs
+../swh-model
+../swh-objstorage-replayer
+../swh-objstorage[testing]
 ../swh-perfecthash
+../swh-scanner
+../swh-scheduler[simulator]
 ../swh-scrubber
 ../swh-search
+../swh-storage
 ../swh-vault
 ../swh-web
 ../swh-web-client
-../swh-scanner
-../swh-fuse
