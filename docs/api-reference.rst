@@ -13,6 +13,7 @@ API reference
    swh.deposit <swh-deposit/index>
    swh.fuse <swh-fuse/index>
    swh.graph <swh-graph/index>
+   swh.graphql <swh-graphql/index>
    swh.indexer <swh-indexer/index>
    swh.journal <swh-journal/index>
    swh.lister <swh-lister/index>

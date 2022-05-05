@@ -105,6 +105,10 @@ swh.docs
     Fast, compressed, in-memory representation of the archive, with tooling to
     generate and query it.
 
+:ref:`swh.graphql <swh-graphql>`
+    GraphQL API to request archive data offering more precise and flexible queries
+    than the REST API.
+
 :ref:`swh.indexer <swh-indexer>`
     tools and workers used to crawl the content of the archive and extract
     derived information from any artifact stored in it
