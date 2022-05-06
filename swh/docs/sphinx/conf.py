@@ -119,6 +119,8 @@ html_logo = "_static/software-heritage-logo-title-motto-vertical-white.png"
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ["_static"]
 
+html_js_files = ["custom.js"]
+
 # make logo actually appear, avoiding gotcha due to alabaster default conf.
 # https://github.com/bitprophet/alabaster/issues/97#issuecomment-303722935
 html_sidebars = {
