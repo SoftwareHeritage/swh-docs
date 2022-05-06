@@ -158,6 +158,7 @@ redirects = {
     "keycloak": "../../sysadm/user-management/keycloak/index.html",
     "mirror": "architecture/mirror.html",
     "users": "user",
+    "swh-web/uri-scheme-identifiers": "uri-scheme-swhids.html",
 }
 
 
