@@ -6,3 +6,4 @@ build/
 /swh/docs/__pycache__/
 /swh/docs/sphinx/__pycache__/
 /version.txt
+apidoc/
