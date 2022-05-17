@@ -223,7 +223,7 @@ This page references all available loaders and links to their high-level documen
 .. _crates_loader_status: https://forge.softwareheritage.org/T4104
 
 .. |crates_loader_grant| replace:: Alfred P. Sloan Foundation
-.. _crates_loader_grant: ttps://www.softwareheritage.org/2022/02/03/hashbang-expanding-coverage-software-heritage-archive/
+.. _crates_loader_grant: https://www.softwareheritage.org/2022/02/03/hashbang-expanding-coverage-software-heritage-archive/
 
 
 .. |cvs_loader_source| replace:: Source code
