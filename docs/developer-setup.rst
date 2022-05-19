@@ -53,11 +53,11 @@ don't need them started globally (this will save you some RAM)::
   sudo systemctl disable cassandra
 
 If you intend to hack on the frontend part of |swh| Web Applications, you will also
-need to have nodejs >= 12 in your development environment. If the version in your
-Debian-based distribution is lower, you can install node 12 using these commands::
+need to have nodejs >= 14 in your development environment. If the version in your
+Debian-based distribution is lower, you can install node 14 using these commands::
 
   sudo wget https://deb.nodesource.com/gpgkey/nodesource.gpg.key -O /etc/apt/trusted.gpg.d/nodesource.asc
-  echo "deb https://deb.nodesource.com/node_12.x $(lsb_release -cs) main" | sudo tee -a /etc/apt/sources.list.d/nodesource.list
+  echo "deb https://deb.nodesource.com/node_14.x $(lsb_release -cs) main" | sudo tee -a /etc/apt/sources.list.d/nodesource.list
   sudo apt update
   sudo apt install nodejs
 
