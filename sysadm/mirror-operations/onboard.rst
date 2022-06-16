@@ -107,6 +107,11 @@ For example, to add a user ``new-mirror-stg`` in the staging's journal:
        (principal=User:mirror-test-stg, host=*, operation=READ, permissionType=ALLOW)
 
 
+How to use the credentials
+--------------------------
+
+Refer to the :ref:`journal client authentication configuration <swh-devel:journal-client-authentication>`.
+
 How to create the objstorage credentials
 ----------------------------------------
 
