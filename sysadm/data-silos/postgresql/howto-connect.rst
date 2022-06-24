@@ -62,6 +62,18 @@ Sample |pg_service|
   host=db.internal.softwareheritage.org
   user=guest
 
+  [swh-scrubber]
+  dbname=swh-scrubber
+  host=db.internal.softwareheritage.org
+  port=5432
+  user=guest
+
+  [admin-swh-scrubber]
+  dbname=swh-scrubber
+  host=db.internal.softwareheritage.org
+  port=5432
+  user=swh-scrubber
+
   [staging-swh]
   dbname=swh
   host=db1.internal.staging.swh.network
