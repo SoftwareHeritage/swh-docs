@@ -37,7 +37,7 @@ help to start the configuration of a mirror, a `docker-swarm
 <https://docs.docker.com/engine/swarm/>`_ based deployment solution is provided
 as a working example of the mirror stack:
 
-  https://forge.softwareheritage.org/source/swh-docker
+  https://forge.softwareheritage.org/source/swh-mirror
 
 It is strongly recommended to :ref:`start from there <mirror_docker>` in a test
 environment before planning a production-like deployment.

@@ -18,7 +18,7 @@ e.g.:
 
 .. code-block:: bash
 
-   ~/swh-docker$ docker node ls
+   ~/swh-mirror$ docker node ls
    ID                            HOSTNAME  STATUS   AVAILABILITY  MANAGER STATUS  ENGINE VERSION
    py47518uzdb94y2sb5yjurj22     host2     Ready    Active                        18.09.7
    n9mfw08gys0dmvg5j2bb4j2m7 *   host1     Ready    Active        Leader          18.09.7
@@ -38,7 +38,7 @@ files, so make sure it is available on your system.
 
 You also need to clone the git  repository:
 
-  https://forge.softwareheritage.org/source/swh-docker
+  https://forge.softwareheritage.org/source/swh-mirror
 
 
 Set up volumes
@@ -56,7 +56,7 @@ example, the ``objstorage`` service uses a volume named ``<STACK>_objstorage``:
 
 .. code-block:: bash
 
-   ~/swh-docker$ docker volume create -d local \
+   ~/swh-mirror$ docker volume create -d local \
      --opt type=none \
      --opt o=bind \
      --opt device=/data/docker/swh-objstorage \
@@ -105,7 +105,7 @@ For example:
 
 .. code-block:: bash
 
-   ~/swh-docker$ xkcdpass -d- | docker secret create swh-mirror-db-postgres-password -
+   ~/swh-mirror$ xkcdpass -d- | docker secret create swh-mirror-db-postgres-password -
    [...]
 
 
@@ -116,8 +116,8 @@ If you haven't done it yet, clone this git repository:
 
 .. code-block:: bash
 
-   ~$ git clone https://forge.softwareheritage.org/source/swh-docker.git
-   ~$ cd swh-docker
+   ~$ git clone https://forge.softwareheritage.org/source/swh-mirror.git
+   ~$ cd swh-mirror
 
 This repository provides the docker compose/stack manifests to deploy all the relevant
 services.
@@ -134,13 +134,13 @@ environment variable:
 
 .. code-block:: bash
 
-   ~/swh-docker$ export SWH_IMAGE_TAG=20211022-121751
+   ~/swh-mirror$ export SWH_IMAGE_TAG=20211022-121751
 
 You can then spawn the base services using the following command:
 
 .. code-block:: bash
 
-   ~/swh-docker$ docker stack deploy -c base-services.yml swh
+   ~/swh-mirror$ docker stack deploy -c base-services.yml swh
 
    Creating network swh_default
    Creating config swh_storage
@@ -157,7 +157,7 @@ You can then spawn the base services using the following command:
    Creating service swh_nginx
    Creating service swh_prometheus
 
-   ~/swh-docker$ docker service ls
+   ~/swh-mirror$ docker service ls
 
    ID             NAME                             MODE         REPLICAS   IMAGE                                       PORTS
    tc93talbe2tg   swh_db-storage                   global       1/1        postgres:13
@@ -213,16 +213,16 @@ For example, if you edit the file :file:`conf/storage.yml`:
 
 .. code-block:: bash
 
-   ~/swh-docker$ docker config create storage-2 conf/storage.yml
+   ~/swh-mirror$ docker config create storage-2 conf/storage.yml
    h0m8jvsacvpl71zdcq3wnud6c
-   ~/swh-docker$ docker service update \
+   ~/swh-mirror$ docker service update \
                    --config-rm storage \
                    --config-add source=storage-2,target=/etc/softwareheritage/config.yml \
                    swh_storage
    swh_storage
    overall progress: 2 out of 2 tasks
    verify: Service converged
-   ~/swh-docker$ docker config rm storage
+   ~/swh-mirror$ docker config rm storage
 
 .. Warning:: this procedure will update the live configuration of the service
              stack, which will then be out of sync with the stack described in
@@ -243,13 +243,13 @@ things, for example it can be used to change the debug level of a service:
 
 .. code-block:: bash
 
-   ~/swh-docker$ docker service update --env-add LOG_LEVEL=DEBUG swh_storage
+   ~/swh-mirror$ docker service update --env-add LOG_LEVEL=DEBUG swh_storage
 
 Then you can revert to the previous setup using:
 
 .. code-block:: bash
 
-   ~/swh-docker$ docker service update --rollback swh_storage
+   ~/swh-mirror$ docker service update --rollback swh_storage
 
 See the documentation of the `swh service update
 <https://docs.docker.com/engine/reference/commandline/service_update/>`_
@@ -269,8 +269,8 @@ This can be done as follow:
 
 .. code-block:: bash
 
-   ~/swh-docker$ export SWH_IMAGE_TAG=<new version>
-   ~/swh-docker$ docker stack deploy -c base-services.yml swh
+   ~/swh-mirror$ export SWH_IMAGE_TAG=<new version>
+   ~/swh-mirror$ docker stack deploy -c base-services.yml swh
 
 
 Note that this will reset the replicas config to their default values.
@@ -281,7 +281,7 @@ replayer service):
 
 .. code-block:: bash
 
-   ~/swh-docker$ docker service update --image \
+   ~/swh-mirror$ docker service update --image \
           softwareheritage/replayer:${SWH_IMAGE_TAG} \
           swh_graph-replayer
 
@@ -327,7 +327,7 @@ a mirror-related file:
 
 .. code-block:: bash
 
-   ~/swh-docker$ docker-compose \
+   ~/swh-mirror$ docker-compose \
        -f base-services.yml \
        -f graph-replayer-override.yml \
        config > mirror.yml
@@ -338,7 +338,7 @@ command, e.g.:
 
 .. code-block:: bash
 
-   ~/swh-docker$ docker stack deploy -c mirror.yml swh
+   ~/swh-mirror$ docker stack deploy -c mirror.yml swh
 
 
 Graph replayer
@@ -348,10 +348,10 @@ To run the graph replayer component of a mirror:
 
 .. code-block:: bash
 
-   ~/swh-docker$ cd conf
-   ~/swh-docker/conf$ cp graph-replayer.yml.example graph-replayer.yml
-   ~/swh-docker/conf$ $EDITOR graph-replayer.yml
-   ~/swh-docker/conf$ cd ..
+   ~/swh-mirror$ cd conf
+   ~/swh-mirror/conf$ cp graph-replayer.yml.example graph-replayer.yml
+   ~/swh-mirror/conf$ $EDITOR graph-replayer.yml
+   ~/swh-mirror/conf$ cd ..
 
 
 Once you have properly edited the :file:`conf/graph-replayer.yml` config file,
@@ -359,11 +359,11 @@ you can start these services with:
 
 .. code-block:: bash
 
-   ~/swh-docker$ docker-compose \
+   ~/swh-mirror$ docker-compose \
        -f base-services.yml \
        -f graph-replayer-override.yml \
        config > stack-with-graph-replayer.yml
-   ~/swh-docker$ docker stack deploy \
+   ~/swh-mirror$ docker stack deploy \
        -c stack-with-graph-replayer.yml \
        swh
    [...]
@@ -372,12 +372,12 @@ You can check everything is running with:
 
 .. code-block:: bash
 
-   ~/swh-docker$ docker stack ls
+   ~/swh-mirror$ docker stack ls
 
    NAME         SERVICES            ORCHESTRATOR
    swh          11                  Swarm
 
-   ~/swh-docker$ docker service ls
+   ~/swh-mirror$ docker service ls
 
    ID             NAME                             MODE         REPLICAS   IMAGE                                       PORTS
    tc93talbe2tg   swh_db-storage                   global       1/1        postgres:13
@@ -397,14 +397,14 @@ If everything is OK, you should have your mirror filling. Check docker logs:
 
 .. code-block:: bash
 
-   ~/swh-docker$ docker service logs swh_graph-replayer
+   ~/swh-mirror$ docker service logs swh_graph-replayer
    [...]
 
 or:
 
 .. code-block:: bash
 
-   ~/swh-docker$ docker service logs --tail 100 --follow swh_graph-replayer
+   ~/swh-mirror$ docker service logs --tail 100 --follow swh_graph-replayer
    [...]
 
 
@@ -415,10 +415,10 @@ Similarly, to run the content replayer:
 
 .. code-block:: bash
 
-   ~/swh-docker$ cd conf
-   ~/swh-docker/conf$ cp content-replayer.yml.example content-replayer.yml
-   ~/swh-docker/conf$ # edit content-replayer.yml files
-   ~/swh-docker/conf$ cd ..
+   ~/swh-mirror$ cd conf
+   ~/swh-mirror/conf$ cp content-replayer.yml.example content-replayer.yml
+   ~/swh-mirror/conf$ # edit content-replayer.yml files
+   ~/swh-mirror/conf$ cd ..
 
 
 Once you have properly edited the :file:`conf/content-replayer.yml` config file, you can
@@ -426,11 +426,11 @@ start these services with:
 
 .. code-block:: bash
 
-   ~/swh-docker$ docker-compose \
+   ~/swh-mirror$ docker-compose \
        -f base-services.yml \
        -f content-replayer-override.yml \
        config > content-replayer.yml
-   ~/swh-docker$ docker stack deploy \
+   ~/swh-mirror$ docker stack deploy \
        -c content-replayer.yml \
        swh
    [...]
@@ -443,12 +443,12 @@ Putting all together is just a matter of merging the 3 compose files:
 
 .. code-block:: bash
 
-   ~/swh-docker$ docker-compose \
+   ~/swh-mirror$ docker-compose \
        -f base-services.yml \
        -f graph-replayer-override.yml \
        -f content-replayer-override.yml \
        config > mirror.yml
-   ~/swh-docker$ docker stack deploy \
+   ~/swh-mirror$ docker stack deploy \
        -c mirror.yml \
        swh
    [...]
@@ -465,7 +465,7 @@ scale` command. For example:
 
 .. code-block:: bash
 
-   ~/swh-docker$ docker service scale swh_graph-replayer=4
+   ~/swh-mirror$ docker service scale swh_graph-replayer=4
    [...]
 
 
