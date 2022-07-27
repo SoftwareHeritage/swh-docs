@@ -49,23 +49,24 @@ The detail of this range is available in this `VLAN440 inventory page
 For historical reasons, some admin nodes are deployed in this range (monitoring, ci,
 ...) and will be progressively moved into the admin network.
 
-The internal domain associted to this vlan is ``.internal.staging.swh.network``
+The internal domain associated to this vlan is ``.internal.softwareheritage.org``
 
 VLAN443 - Staging network
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
 All the nodes dedicated to the staging version of the archive are deployed on this
-network. POCs and temporary nodes can also take place in the range.
+network (POCs and temporary nodes as well).
 
 The detail of this range is visible in this `VLAN443 inventory page
 <https://inventory.internal.softwareheritage.org/ipam/prefixes/8/>`_
 
-The internal domain associted to this vlan is ``.internal.staging.swh.network``
+The internal domain associated to this vlan is ``.internal.staging.swh.network``
 
 VLAN442 - Admin network
 ~~~~~~~~~~~~~~~~~~~~~~~
 
-This network is dedicated for admin and support nodes.
+This network is dedicated for admin and support nodes (e.g firewall, grafana, sentry,
+...).
 
 The detail of this range is visible in this `VLAN442 inventory page
 <https://inventory.internal.softwareheritage.org/ipam/prefixes/10/>`_.
