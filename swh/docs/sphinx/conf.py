@@ -85,6 +85,9 @@ exclude_patterns = [
     "swh-icinga-plugins/index.rst",
     "swh.loader.cvs.rcsparse.setup.rst",
     "apidoc/swh.loader.cvs.rcsparse.setup.rst",
+    "**/swh/lister/maven/README.md",
+    "**/swh/loader/cvs/cvs2gitdump/README.md",
+    "**/swh/web/tests/resources/contents/code/extensions/test.md",
 ]
 
 # The name of the Pygments (syntax highlighting) style to use.

@@ -10,6 +10,9 @@ create_links () {
         if [ ! -e "$pymodule" -a -d "../../${pymodule}/docs" ] ; then
             ln -s "../../${pymodule}/docs" "$pymodule"
         fi
+        if [ -d "../../${pymodule}/swh" ] ; then
+            cp -r -f --symbolic-link $(realpath ../../${pymodule}/swh/*) sources/swh/
+        fi
     done
 }
 
@@ -22,6 +25,7 @@ remove_links () {
             rm "$pymodule"
         fi
     done
+    rm -rf sources/swh/
 }
 
 if [ "$1" = "--remove" ] ; then

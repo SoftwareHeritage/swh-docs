@@ -25,6 +25,7 @@ html: sphinx/html
 sphinx/html: links-stamp apidoc-stamp images-stamp rec-build-stamp
 
 links-stamp:
+	mkdir -p sources/swh
 	bin/ln-sphinx-subprojects
 	touch $@
 
