@@ -248,6 +248,13 @@ For example, running pytest in the swh-core package::
 
     ======================== 79 passed in 6.59 seconds =========================
 
+Setup the databases (optional)
+------------------------------
+
+If you want to run some packages manually, you may need to setup their databases.
+
+The different databases for each subproject that requires one (like ``storage`` or ``scheduler``) should be setup through the ``swh db create`` or ``swh db init`` command. See their help for more information.
+
 
 Sending your changes
 --------------------
