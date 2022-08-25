@@ -23,7 +23,7 @@ To simplify connections we rely on:
 
 Sample content for both files follows, referencing actual databases that you might need to access.
 
-.. |pg_service| replace:: ``~/pg_service.conf``
+.. |pg_service| replace:: ``~/.pg_service.conf``
 .. _pg_service: https://www.postgresql.org/docs/current/static/libpq-pgservice.html
 
 .. |pgpass| replace:: ``~/.pgpass``
