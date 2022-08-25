@@ -1,3 +1,5 @@
+.. _swh-software-deployment:
+
 SWH Software Deployment
 -----------------------
 

@@ -147,6 +147,8 @@ intersphinx_mapping = {
     "python": ("https://docs.python.org/3", None),
     "swh-devel": ("https://docs.softwareheritage.org/devel", None),
     "swh-sysadm": ("https://docs.softwareheritage.org/sysadm", None),
+    "swh-users": ("https://docs.softwareheritage.org/user", None),
+    #    "swh-general": ("https://docs.softwareheritage.org/general", None),
 }
 
 # Redirects for pages that were moved, so we don't break external links.

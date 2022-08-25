@@ -1,3 +1,5 @@
+.. _server-architecture:
+
 Server Architecture (Physical/Virtual)
 ======================================
 

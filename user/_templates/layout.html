@@ -1,21 +1,5 @@
 {% extends "!layout.html" %}
 
-{% block extrahead %}
-<!-- Matomo -->
-<script type="text/javascript">
-  var _paq = window._paq = window._paq || [];
-  _paq.push(['trackPageView']);
-  (function() {
-    var u="https://piwik.inria.fr/";
-    _paq.push(['setTrackerUrl', u+'matomo.php']);
-    _paq.push(['setSiteId', '59']);
-    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
-    g.type='text/javascript'; g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
-  })();
-</script>
-<!-- End Matomo Code -->
-{% endblock %}
-
 {# copied from sphinx_rtd_theme/layout.html, with the logo link pointing to General (landing page) #}
 {%- block sidebartitle %}
 {%- if logo and theme_logo_only %}
@@ -52,7 +36,8 @@
 
 {%- endblock %}
 
-{# copied from sphinx_rtd_theme/layout.html, with the extra System Administration & "user documentation" links #}
+
+{# copied from sphinx_rtd_theme/layout.html, with the extra "Development Documentation" and "System Administration" links #}
 {%- block menu %}
   {%- set toctree = toctree(maxdepth=theme_navigation_depth|int,
                             collapse=theme_collapse_navigation|tobool,
@@ -68,7 +53,7 @@
   <hr />
 
   <ul>
-      <li class="toctree-l1"><a href="/user/">User Documentation</a></li>
-      <li class="toctree-l1"><a href="/sysadm/">System Administration</a></li>
+        <li class="toctree-l1"><a href="/devel/">Development Documentation</a></li>
+        <li class="toctree-l1"><a href="/sysadm/">System Administration</a></li>
   </ul>
 {%- endblock %}

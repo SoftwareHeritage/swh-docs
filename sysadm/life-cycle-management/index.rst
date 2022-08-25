@@ -1,3 +1,5 @@
+.. _lifecycle-management:
+
 Life-cycle management
 =====================
 

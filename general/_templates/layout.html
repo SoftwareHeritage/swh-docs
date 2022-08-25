@@ -16,7 +16,6 @@
 <!-- End Matomo Code -->
 {% endblock %}
 
-{# copied from sphinx_rtd_theme/layout.html, with the logo link pointing to General (landing page) #}
 {%- block sidebartitle %}
 {%- if logo and theme_logo_only %}
   <a href="/general/">
@@ -52,23 +51,3 @@
 
 {%- endblock %}
 
-{# copied from sphinx_rtd_theme/layout.html, with the extra System Administration & "user documentation" links #}
-{%- block menu %}
-  {%- set toctree = toctree(maxdepth=theme_navigation_depth|int,
-                            collapse=theme_collapse_navigation|tobool,
-                            includehidden=theme_includehidden|tobool,
-                            titles_only=theme_titles_only|tobool) %}
-  {%- if toctree %}
-    {{ toctree }}
-  {%- else %}
-    <!-- Local TOC -->
-    <div class="local-toc">{{ toc }}</div>
-  {%- endif %}
-
-  <hr />
-
-  <ul>
-      <li class="toctree-l1"><a href="/user/">User Documentation</a></li>
-      <li class="toctree-l1"><a href="/sysadm/">System Administration</a></li>
-  </ul>
-{%- endblock %}

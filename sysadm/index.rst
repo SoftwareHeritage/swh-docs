@@ -1,3 +1,5 @@
+.. _swh-docs:
+
 Welcome to the Software Heritage sysadmin documentation
 =======================================================
 
