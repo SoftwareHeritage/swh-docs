@@ -10,3 +10,4 @@ SWH Software Deployment
    storage-database-migration
    howto-debian-packaging
    jenkins
+   argocd
