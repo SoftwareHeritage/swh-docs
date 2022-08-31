@@ -1,4 +1,4 @@
-.. _argocd:
+.. _argocd-config:
 
 ArgoCD
 =======
@@ -58,8 +58,8 @@ ArgoCD is able to manage its own configuration.
 
 To do so some manual installation steps are needed:
 
-- Clone the `k8s-private-data` and `k8s-clusters-conf` repositories locally (or directly the `sysadm-environment repository <https://forge.softwareheritage.org/source/sysadm-environment/>`__)
-- Configure the `k8s-private-data` repository credentials in ArgoCD:
+- Clone the ``k8s-private-data`` and ``k8s-clusters-conf`` repositories locally (or directly the `sysadm-environment repository <https://forge.softwareheritage.org/source/sysadm-environment/>`__)
+- Configure the ``k8s-private-data`` repository credentials in ArgoCD:
 
 .. code:: bash
 
@@ -80,39 +80,43 @@ Manage a new kubernetes cluster
 -------------------------------
 
 As we saw, ArgoCD can take care of automatically applying and synchronizing the cluster configurations
-and secrets based on what is committed in the `k8s-clusters-conf` and `k8s-private-data` repositories.
+and secrets based on what is committed in the ``k8s-clusters-conf`` and ``k8s-private-data`` repositories.
 
 A couple of steps are needed to add a new cluster and its associated management applications:
 
-- Declare the cluster in `k8s-private-data/argocd/clusters`
+- Declare the cluster in ``k8s-private-data/argocd/clusters``
 
   - Copy an existing cluster file and adapt to use the new cluster credentials
 
-- If this cluster has some secrets, create a directory matching the cluster name at the root of the `k8s-private-data` repository too
+- If this cluster has some secrets, create a directory matching the cluster name at the root of the ``k8s-private-data`` repository too
 
     - Put the secret configurations in the directory in kubernetes yaml files.
 
 .. warning::  Only the secrets and private data must be put in this repository
 
-- In the `k8s-clusters-conf` repository, create a new application in the `argocd/applications/cluster-secrets`
-  named `<cluster-name>.yaml` to manage the new cluster secrets
-  under `argocd/applications`
-    Check other applications in this directory and adapt the following properties:
-  - metadata.name: change to <cluster-name>-secrets
-  - spec.source.path: change to <cluster-name>, it must match the directory created in the `k8s-private-data` repository
-  - spec.destination.server: change to the server url, it must match the `stringData.server` value in the
-    cluster configuration created in `k8s-private-data/argocd/clusters/<cluster-name>.yaml`
+- In the ``k8s-clusters-conf`` repository, create a new application in the ``argocd/applications/cluster-secrets``
+  named ``<cluster-name>.yaml`` to manage the new cluster secrets
+  under ``argocd/applications``
 
-- Create a new directory `k8s-clusters-conf/<cluster-name>` and add the yaml for the static
+  Check other applications in this directory and adapt the following properties:
+
+  - metadata.name: change to <cluster-name>-secrets
+  - spec.source.path: change to <cluster-name>, it must match the directory created in the ``k8s-private-data`` repository
+  - spec.destination.server: change to the server url, it must match the ``stringData.server`` value in the
+    cluster configuration created in ``k8s-private-data/argocd/clusters/<cluster-name>.yaml``
+
+- Create a new directory ``k8s-clusters-conf/<cluster-name>`` and add the yaml for the static
   configurations of the cluster (namespace, crd, ...)
-- Create a new directory `argocd/<cluster-name>`
-- Create a new `configuration-application.yaml` to manage the static
+- Create a new directory ``argocd/<cluster-name>``
+- Create a new ``configuration-application.yaml`` to manage the static
   configurations
-    Copy another configuration application and adapt the following properties:
-  - metadata.name: Change to `<cluster-name>-configuration`
-  - spec.source.path: Change to `<cluster-name>`, it must match the directory name created earlier
+
+  Copy another configuration application and adapt the following properties:
+
+  - metadata.name: Change to ``<cluster-name>-configuration``
+  - spec.source.path: Change to ``<cluster-name>``, it must match the directory name created earlier
   - spec.destination.server: Change to the url of the server as declared in the cluster configuration
-    created in `k8s-private-data`
+    created in ``k8s-private-data``
 
 Commit and push, ArgoCD will apply all the configurations and will keep it in sync
 
@@ -123,7 +127,7 @@ The deployments of the services with kubernetes are also managed by ArgoCD.
 
 To create a new application:
   - Identify the cluster on which the service will be deployed
-  - Declare a new ArgoCD application in `k8s-clusters-conf/argocd/application/<cluster-name>/<application>-application.yaml`
+  - Declare a new ArgoCD application in ``k8s-clusters-conf/argocd/application/<cluster-name>/<application>-application.yaml``
 
 .. warning:: We are trying when it's possible to always use helm charts to deploy a service.
 
