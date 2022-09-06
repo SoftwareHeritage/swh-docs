@@ -17,13 +17,29 @@ This page references all available listers and links to their high-level documen
   +---------------------------+--------------------------------+------------------------------+------------------------------------+
   | Lister name               | Related links                  | Current status               | Related `grants`_                  |
   +===========================+================================+==============================+====================================+
+  | |arch_logo|               | * |arch_lister_source|_        | |arch_lister_status|_        | |arch_lister_grant|_               |
+  |                           | * |arch_lister_dev|_           |                              |                                    |
+  | :ref:`arch_lister`        |                                |                              | (awarded to `Hashbang`_)           |
+  +---------------------------+--------------------------------+------------------------------+------------------------------------+
+  | |aur_logo|                | * |aur_lister_source|_         | |aur_lister_status|_         | |aur_lister_grant|_                |
+  |                           | * |aur_lister_dev|_            |                              |                                    |
+  | :ref:`aur_lister`         |                                |                              | (awarded to `Hashbang`_)           |
+  +---------------------------+--------------------------------+------------------------------+------------------------------------+
   | |bitbucket_logo|          | * |bitbucket_lister_source|_   | |bitbucket_lister_status|_   |                                    |
   |                           | * |bitbucket_lister_devdoc|_   |                              |                                    |
   | :ref:`bitbucket_lister`   | * |bitbucket_lister_dev|_      |                              |                                    |
   +---------------------------+--------------------------------+------------------------------+------------------------------------+
+  | |bower_logo|              | * |bower_lister_source|_       | |bower_lister_status|_       | |bower_lister_grant|_              |
+  |                           | * |bower_lister_dev|_          |                              |                                    |
+  | :ref:`bower_lister`       |                                |                              | (awarded to `Octobus`_)            |
+  +---------------------------+--------------------------------+------------------------------+------------------------------------+
   | |cgit_logo|               | * |cgit_lister_source|_        | |cgit_lister_status|_        |                                    |
   |                           | * |cgit_lister_devdoc|_        |                              |                                    |
   | :ref:`cgit_lister`        | * |cgit_lister_dev|_           |                              |                                    |
+  +---------------------------+--------------------------------+------------------------------+------------------------------------+
+  | |cpan_logo|               | * |cpan_lister_dev|_           | |cpan_lister_status|_        | |cpan_lister_grant|_               |
+  |                           |                                |                              |                                    |
+  | :ref:`cpan_lister`        |                                |                              | (awarded to `Octobus`_)            |
   +---------------------------+--------------------------------+------------------------------+------------------------------------+
   | |cran_logo|               | * |cran_lister_source|_        | |cran_lister_status|_        |                                    |
   |                           | * |cran_lister_devdoc|_        |                              |                                    |
@@ -53,6 +69,18 @@ This page references all available listers and links to their high-level documen
   |                           | * |gnu_lister_devdoc|_         |                              |                                    |
   | :ref:`gnu_lister`         | * |gnu_lister_dev|_            |                              |                                    |
   +---------------------------+--------------------------------+------------------------------+------------------------------------+
+  | |gogs_logo|               | * |gogs_lister_source|_        | |gogs_lister_status|_        |                                    |
+  |                           | * |gogs_lister_dev|_           |                              |                                    |
+  | :ref:`gogs_lister`        |                                |                              |                                    |
+  +---------------------------+--------------------------------+------------------------------+------------------------------------+
+  | |golang_logo|             | * |golang_lister_source|_      | |golang_lister_status|_      | |golang_lister_grant|_             |
+  |                           | * |golang_lister_dev|_         |                              |                                    |
+  | :ref:`golang_lister`      |                                |                              | (awarded to `Octobus`_)            |
+  +---------------------------+--------------------------------+------------------------------+------------------------------------+
+  | |hackage_logo|            | * |hackage_lister_dev|_        | |hackage_lister_status|_     | |hackage_lister_grant|_            |
+  |                           |                                |                              |                                    |
+  | :ref:`hackage_lister`     |                                |                              | (awarded to `Octobus`_)            |
+  +---------------------------+--------------------------------+------------------------------+------------------------------------+
   | |launchpad_logo|          | * |launchpad_lister_source|_   | |launchpad_lister_status|_   |                                    |
   |                           | * |launchpad_lister_devdoc|_   |                              |                                    |
   | :ref:`launchpad_lister`   |                                |                              |                                    |
@@ -73,9 +101,21 @@ This page references all available listers and links to their high-level documen
   |                           | * |packagist_lister_devdoc|_   |                              |                                    |
   | :ref:`packagist_lister`   |                                |                              |                                    |
   +---------------------------+--------------------------------+------------------------------+------------------------------------+
+  | |pubdev_logo|             | * |pubdev_lister_source|_      | |pubdev_lister_status|_      | |pubdev_lister_grant|_             |
+  |                           | * |pubdev_lister_dev|_         |                              |                                    |
+  | :ref:`pubdev_lister`      |                                |                              | (awarded to `Octobus`_)            |
+  +---------------------------+--------------------------------+------------------------------+------------------------------------+
+  | |puppet_logo|             | * |puppet_lister_dev|_         | |puppet_lister_status|_      | |puppet_lister_grant|_             |
+  |                           |                                |                              |                                    |
+  | :ref:`puppet_lister`      |                                |                              | (awarded to `Octobus`_)            |
+  +---------------------------+--------------------------------+------------------------------+------------------------------------+
   | |pypi_logo|               | * |pypi_lister_source|_        | |pypi_lister_status|_        |                                    |
   |                           | * |pypi_lister_devdoc|_        |                              |                                    |
   | :ref:`pypi_lister`        | * |pypi_lister_dev|_           |                              |                                    |
+  +---------------------------+--------------------------------+------------------------------+------------------------------------+
+  | |rubygems_logo|           | * |rubygems_lister_dev|_       | |rubygems_lister_status|_    | |rubygems_lister_grant|_           |
+  |                           |                                |                              |                                    |
+  | :ref:`rubygems_lister`    |                                |                              | (awarded to `Octobus`_)            |
   +---------------------------+--------------------------------+------------------------------+------------------------------------+
   | |sourceforge_logo|        | * |sourceforge_lister_source|_ | |sourceforge_lister_status|_ | |sourceforge_lister_grant|_        |
   |                           | * |sourceforge_lister_devdoc|_ |                              |                                    |
@@ -92,8 +132,12 @@ This page references all available listers and links to their high-level documen
   :maxdepth: 2
   :hidden:
 
+  arch
+  aur
   bitbucket
+  bower
   cgit
+  cpan
   cran
   crates
   debian
@@ -101,25 +145,51 @@ This page references all available listers and links to their high-level documen
   github
   gitlab
   gnu
+  gogs
+  golang
+  hackage
   launchpad
   maven
   npm
   opam
   packagist
   phabricator
+  pubdev
+  puppet
   pypi
+  rubygems
   sourceforge
   tuleap
+
+.. |arch_logo| image:: ../logos/arch.png
+  :width: 50%
+  :target: arch.html
+  :alt: Arch lister
+
+.. |aur_logo| image:: ../logos/aur.png
+  :width: 50%
+  :target: aur.html
+  :alt: AUR lister
 
 .. |bitbucket_logo| image:: ../logos/bitbucket.png
   :width: 50%
   :target: bitbucket.html
   :alt: Bitbucket lister
 
+.. |bower_logo| image:: ../logos/bower.png
+  :width: 50%
+  :target: bower.html
+  :alt: Bower lister
+
 .. |cgit_logo| image:: ../logos/cgit.png
   :width: 50%
   :target: cgit.html
   :alt: Cgit lister
+
+.. |cpan_logo| image:: ../logos/cpan.png
+  :width: 50%
+  :target: cpan.html
+  :alt: CPAN lister
 
 .. |cran_logo| image:: ../logos/cran.png
   :width: 50%
@@ -156,6 +226,21 @@ This page references all available listers and links to their high-level documen
   :target: gnu.html
   :alt: GNU lister
 
+.. |gogs_logo| image:: ../logos/gogs.png
+  :width: 50%
+  :target: gogs.html
+  :alt: Gogs lister
+
+.. |golang_logo| image:: ../logos/golang.png
+  :width: 50%
+  :target: golang.html
+  :alt: Golang lister
+
+.. |hackage_logo| image:: ../logos/hackage.png
+  :width: 50%
+  :target: hackage.html
+  :alt: Hackage lister
+
 .. |launchpad_logo| image:: ../logos/launchpad.png
   :width: 50%
   :target: launchpad.html
@@ -186,10 +271,25 @@ This page references all available listers and links to their high-level documen
   :target: phabricator.html
   :alt: Phabricator lister
 
+.. |pubdev_logo| image:: ../logos/pubdev.png
+  :width: 50%
+  :target: pubdev.html
+  :alt: PubDev lister
+
+.. |puppet_logo| image:: ../logos/puppet.png
+  :width: 50%
+  :target: puppet.html
+  :alt: Puppet lister
+
 .. |pypi_logo| image:: ../logos/pypi.png
   :width: 50%
   :target: pypi.html
   :alt: PyPI lister
+
+.. |rubygems_logo| image:: ../logos/rubygems.png
+  :width: 50%
+  :target: rubygems.html
+  :alt: RubyGems lister
 
 .. |sourceforge_logo| image:: ../logos/sourceforge.png
   :width: 50%
@@ -200,6 +300,32 @@ This page references all available listers and links to their high-level documen
   :width: 50%
   :target: tuleap.html
   :alt: Tuleap lister
+
+.. |arch_lister_source| replace:: Source code
+.. _arch_lister_source: https://forge.softwareheritage.org/source/swh-lister/browse/master/swh/lister/arch/
+
+.. |arch_lister_dev| replace:: Development
+.. _arch_lister_dev: https://forge.softwareheritage.org/project/profile/188/
+
+.. |arch_lister_status| replace:: in development
+.. _arch_lister_status: https://forge.softwareheritage.org/T4233
+
+.. |arch_lister_grant| replace:: Alfred P. Sloan Foundation
+.. _arch_lister_grant: https://www.softwareheritage.org/2022/02/03/hashbang-expanding-coverage-software-heritage-archive/
+
+
+.. |aur_lister_source| replace:: Source code
+.. _aur_lister_source: https://forge.softwareheritage.org/source/swh-lister/browse/master/swh/lister/aur/
+
+.. |aur_lister_dev| replace:: Development
+.. _aur_lister_dev: https://forge.softwareheritage.org/project/profile/190/
+
+.. |aur_lister_status| replace:: in development
+.. _aur_lister_status: https://forge.softwareheritage.org/T4466
+
+.. |aur_lister_grant| replace:: Alfred P. Sloan Foundation
+.. _aur_lister_grant: https://www.softwareheritage.org/2022/02/03/hashbang-expanding-coverage-software-heritage-archive/
+
 
 .. |bitbucket_lister_source| replace:: Source code
 .. _bitbucket_lister_source: https://forge.softwareheritage.org/source/swh-lister/browse/master/swh/lister/bitbucket/
@@ -214,6 +340,19 @@ This page references all available listers and links to their high-level documen
 .. _bitbucket_lister_status: https://archive.softwareheritage.org/coverage/?focus=bitbucket#bitbucket
 
 
+.. |bower_lister_source| replace:: Source code
+.. _bower_lister_source: https://forge.softwareheritage.org/source/swh-lister/browse/master/swh/lister/bower/
+
+.. |bower_lister_dev| replace:: Development
+.. _bower_lister_dev: https://forge.softwareheritage.org/project/profile/194/
+
+.. |bower_lister_status| replace:: in development
+.. _bower_lister_status: https://forge.softwareheritage.org/T4475
+
+.. |bower_lister_grant| replace:: NLnet Foundation
+.. _bower_lister_grant: https://nlnet.nl/project/SWH-PackageManagers/index.html
+
+
 .. |cgit_lister_source| replace:: Source code
 .. _cgit_lister_source: https://forge.softwareheritage.org/source/swh-lister/browse/master/swh/lister/cgit/
 
@@ -225,6 +364,16 @@ This page references all available listers and links to their high-level documen
 
 .. |cgit_lister_status| replace:: in production
 .. _cgit_lister_status: https://archive.softwareheritage.org/coverage/?focus=cgit#cgit
+
+
+.. |cpan_lister_dev| replace:: Development
+.. _cpan_lister_dev: https://forge.softwareheritage.org/project/profile/199/
+
+.. |cpan_lister_status| replace:: in development
+.. _cpan_lister_status: https://forge.softwareheritage.org/T2833
+
+.. |cpan_lister_grant| replace:: NLnet Foundation
+.. _cpan_lister_grant: https://nlnet.nl/project/SWH-PackageManagers/index.html
 
 
 .. |cran_lister_source| replace:: Source code
@@ -315,6 +464,39 @@ This page references all available listers and links to their high-level documen
 .. _gnu_lister_status: https://archive.softwareheritage.org/coverage/?focus=GNU#GNU
 
 
+.. |gogs_lister_source| replace:: Source code
+.. _gogs_lister_source: https://forge.softwareheritage.org/source/swh-lister/browse/master/swh/lister/gogs/
+
+.. |gogs_lister_dev| replace:: Development
+.. _gogs_lister_dev: https://forge.softwareheritage.org/project/profile/197/
+
+.. |gogs_lister_status| replace:: in development
+.. _gogs_lister_status: https://forge.softwareheritage.org/T1721
+
+
+.. |golang_lister_source| replace:: Source code
+.. _golang_lister_source: https://forge.softwareheritage.org/source/swh-lister/browse/master/swh/lister/golang/
+
+.. |golang_lister_dev| replace:: Development
+.. _golang_lister_dev: https://forge.softwareheritage.org/project/profile/195/
+
+.. |golang_lister_status| replace:: in development
+.. _golang_lister_status: https://forge.softwareheritage.org/T4124
+
+.. |golang_lister_grant| replace:: NLnet Foundation
+.. _golang_lister_grant: https://nlnet.nl/project/SWH-PackageManagers/index.html
+
+
+.. |hackage_lister_dev| replace:: Development
+.. _hackage_lister_dev: https://forge.softwareheritage.org/project/profile/202/
+
+.. |hackage_lister_status| replace:: in development
+.. _hackage_lister_status: https://forge.softwareheritage.org/T4494
+
+.. |hackage_lister_grant| replace:: NLnet Foundation
+.. _hackage_lister_grant: https://nlnet.nl/project/SWH-PackageManagers/index.html
+
+
 .. |launchpad_lister_source| replace:: Source code
 .. _launchpad_lister_source: https://forge.softwareheritage.org/source/swh-lister/browse/master/swh/lister/launchpad/
 
@@ -387,6 +569,29 @@ This page references all available listers and links to their high-level documen
 .. _phabricator_lister_status: https://archive.softwareheritage.org/coverage/?focus=phabricator#phabricator
 
 
+.. |pubdev_lister_source| replace:: Source code
+.. _pubdev_lister_source: https://forge.softwareheritage.org/source/swh-lister/browse/master/swh/lister/pubdev/
+
+.. |pubdev_lister_dev| replace:: Development
+.. _pubdev_lister_dev: https://forge.softwareheritage.org/project/profile/192/
+
+.. |pubdev_lister_status| replace:: in development
+.. _pubdev_lister_status: https://forge.softwareheritage.org/T4465
+
+.. |pubdev_lister_grant| replace:: NLnet Foundation
+.. _pubdev_lister_grant: https://nlnet.nl/project/SWH-PackageManagers/index.html
+
+
+.. |puppet_lister_dev| replace:: Development
+.. _puppet_lister_dev: https://forge.softwareheritage.org/project/profile/200/
+
+.. |puppet_lister_status| replace:: in development
+.. _puppet_lister_status: https://forge.softwareheritage.org/T4519
+
+.. |puppet_lister_grant| replace:: NLnet Foundation
+.. _puppet_lister_grant: https://nlnet.nl/project/SWH-PackageManagers/index.html
+
+
 .. |pypi_lister_source| replace:: Source code
 .. _pypi_lister_source: https://forge.softwareheritage.org/source/swh-lister/browse/master/swh/lister/pypi/
 
@@ -398,6 +603,16 @@ This page references all available listers and links to their high-level documen
 
 .. |pypi_lister_status| replace:: in production
 .. _pypi_lister_status: https://archive.softwareheritage.org/coverage/?focus=pypi#pypi
+
+
+.. |rubygems_lister_dev| replace:: Development
+.. _rubygems_lister_dev: https://forge.softwareheritage.org/project/profile/201/
+
+.. |rubygems_lister_status| replace:: in development
+.. _rubygems_lister_status: https://forge.softwareheritage.org/T1777
+
+.. |rubygems_lister_grant| replace:: NLnet Foundation
+.. _rubygems_lister_grant: https://nlnet.nl/project/SWH-PackageManagers/index.html
 
 
 .. |sourceforge_lister_source| replace:: Source code
