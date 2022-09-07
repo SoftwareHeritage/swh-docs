@@ -38,6 +38,7 @@ Technical setup
 - revoke `VPN
   <https://intranet.softwareheritage.org/wiki/VPN#Revoking_a_client_certificate>`_
   certificate
+- remove "staff" role (and others) from production and staging user accounts on Keycloak
 
 .. _outboarding_development:
 

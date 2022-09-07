@@ -60,6 +60,7 @@ Technical setup
 - HTTP auth credentials for the `intranet wiki`_
 - Create account on the `intranet wiki`_ and ask someone to give you the shared auth credentials
 - Create account on the `public wiki`_
+- add "staff" role from production and staging user accounts on Keycloak
 
 Extra steps for sysadm:
 
