@@ -15,9 +15,17 @@ This page references all available loaders and links to their high-level documen
   +--------------------------+-------------------------------+-----------------------------+------------------------------------+
   | Loader name              | Related links                 | Current status              | Related `grants`_                  |
   +==========================+===============================+=============================+====================================+
+  | |arch_logo|              | * |arch_loader_source|_       | |arch_loader_status|_       | |arch_loader_grant|_               |
+  |                          | * |arch_loader_dev|_          |                             |                                    |
+  | :ref:`arch_loader`       |                               |                             | (awarded to `Hashbang`_)           |
+  +--------------------------+-------------------------------+-----------------------------+------------------------------------+
   | |archive_logo|           | * |archive_loader_source|_    | |archive_loader_status|_    |                                    |
   |                          | * |archive_loader_devdoc|_    |                             |                                    |
   | :ref:`archive_loader`    |                               |                             |                                    |
+  +--------------------------+-------------------------------+-----------------------------+------------------------------------+
+  | |aur_logo|               | * |aur_loader_source|_        | |aur_loader_status|_        | |aur_loader_grant|_                |
+  |                          | * |aur_loader_dev|_           |                             |                                    |
+  | :ref:`aur_loader`        |                               |                             | (awarded to `Hashbang`_)           |
   +--------------------------+-------------------------------+-----------------------------+------------------------------------+
   | |bzr_logo|               | * |bzr_loader_source|_        | |bzr_loader_status|_        | |bzr_loader_grant|_                |
   |                          | * |bzr_loader_devdoc|_        |                             |                                    |
@@ -28,8 +36,8 @@ This page references all available loaders and links to their high-level documen
   | :ref:`cran_loader`       | * |cran_loader_dev|_          |                             |                                    |
   +--------------------------+-------------------------------+-----------------------------+------------------------------------+
   | |crates_logo|            | * |crates_loader_source|_     | |crates_loader_status|_     | |crates_loader_grant|_             |
-  |                          | * |crates_loader_source|_     |                             |                                    |
-  | :ref:`crates_loader`     | * |crates_loader_dev|_        |                             | (awarded to `Hashbang`_)           |
+  |                          | * |crates_loader_dev|_        |                             |                                    |
+  | :ref:`crates_loader`     |                               |                             | (awarded to `Hashbang`_)           |
   +--------------------------+-------------------------------+-----------------------------+------------------------------------+
   | |cvs_logo|               | * |cvs_loader_source|_        | |cvs_loader_status|_        | |cvs_loader_grant|_                |
   |                          | * |cvs_loader_devdoc|_        |                             |                                    |
@@ -46,6 +54,14 @@ This page references all available loaders and links to their high-level documen
   | |git_logo|               | * |git_loader_source|_        | |git_loader_status|_        |                                    |
   |                          | * |git_loader_devdoc|_        |                             |                                    |
   | :ref:`git_loader`        | * |git_loader_dev|_           |                             |                                    |
+  +--------------------------+-------------------------------+-----------------------------+------------------------------------+
+  | |golang_logo|            | * |golang_loader_source|_     | |golang_loader_status|_     | |golang_loader_grant|_             |
+  |                          | * |golang_loader_dev|_        |                             |                                    |
+  | :ref:`golang_loader`     |                               |                             | (awarded to `Octobus`_)            |
+  +--------------------------+-------------------------------+-----------------------------+------------------------------------+
+  | |hackage_logo|           | * |hackage_loader_dev|_       | |hackage_loader_status|_    | |hackage_loader_grant|_            |
+  |                          |                               |                             |                                    |
+  | :ref:`hackage_loader`    |                               |                             | (awarded to `Octobus`_)            |
   +--------------------------+-------------------------------+-----------------------------+------------------------------------+
   | |maven_logo|             | * |maven_loader_source|_      | |maven_loader_status|_      | |maven_loader_grant|_              |
   |                          | * |maven_loader_devdoc|_      |                             |                                    |
@@ -67,6 +83,10 @@ This page references all available loaders and links to their high-level documen
   |                          | * |opam_loader_devdoc|_       |                             |                                    |
   | :ref:`opam_loader`       | * |opam_loader_dev|_          |                             | (awarded to `OCamlPro`_)           |
   +--------------------------+-------------------------------+-----------------------------+------------------------------------+
+  | |pubdev_logo|            | * |pubdev_loader_source|_     | |pubdev_loader_status|_     | |pubdev_loader_grant|_             |
+  |                          | * |pubdev_loader_dev|_        |                             |                                    |
+  | :ref:`pubdev_loader`     |                               |                             | (awarded to `Octobus`_)            |
+  +--------------------------+-------------------------------+-----------------------------+------------------------------------+
   | |pypi_logo|              | * |pypi_loader_source|_       | |pypi_loader_status|_       |                                    |
   |                          | * |pypi_loader_devdoc|_       |                             |                                    |
   | :ref:`pypi_loader`       | * |pypi_loader_dev|_          |                             |                                    |
@@ -80,7 +100,9 @@ This page references all available loaders and links to their high-level documen
   :maxdepth: 2
   :hidden:
 
+  arch
   archive
+  aur
   bazaar
   cran
   crates
@@ -88,18 +110,31 @@ This page references all available loaders and links to their high-level documen
   debian
   deposit
   git
+  golang
+  hackage
   maven
   mercurial
   nixguix
   npm
   opam
+  pubdev
   pypi
   subversion
+
+.. |arch_logo| image:: ../logos/arch.png
+  :width: 50%
+  :target: arch.html
+  :alt: Arch loader
 
 .. |archive_logo| image:: ../logos/archive.png
   :width: 50%
   :target: archive.html
   :alt: Archive loader
+
+.. |aur_logo| image:: ../logos/aur.png
+  :width: 50%
+  :target: aur.html
+  :alt: AUR loader
 
 .. |bzr_logo| image:: ../logos/bazaar.png
   :width: 50%
@@ -136,6 +171,16 @@ This page references all available loaders and links to their high-level documen
   :target: git.html
   :alt: Git loader
 
+.. |golang_logo| image:: ../logos/golang.png
+  :width: 50%
+  :target: golang.html
+  :alt: Golang loader
+
+.. |hackage_logo| image:: ../logos/hackage.png
+  :width: 50%
+  :target: hackage.html
+  :alt: Hackage loader
+
 .. |maven_logo| image:: ../logos/maven.png
   :width: 50%
   :target: maven.html
@@ -161,6 +206,11 @@ This page references all available loaders and links to their high-level documen
   :target: opam.html
   :alt: Opam loader
 
+.. |pubdev_logo| image:: ../logos/pubdev.png
+  :width: 50%
+  :target: pubdev.html
+  :alt: PubDev loader
+
 .. |pypi_logo| image:: ../logos/pypi.png
   :width: 50%
   :target: pypi.html
@@ -171,6 +221,20 @@ This page references all available loaders and links to their high-level documen
   :target: subversion.html
   :alt: Subversion loader
 
+
+.. |arch_loader_source| replace:: Source code
+.. _arch_loader_source: https://forge.softwareheritage.org/source/swh-loader-core/browse/master/swh/loader/package/arch/
+
+.. |arch_loader_dev| replace:: Development
+.. _arch_loader_dev: https://forge.softwareheritage.org/project/profile/189/
+
+.. |arch_loader_status| replace:: in development
+.. _arch_loader_status: https://forge.softwareheritage.org/T4233
+
+.. |arch_loader_grant| replace:: Alfred P. Sloan Foundation
+.. _arch_loader_grant: https://www.softwareheritage.org/2022/02/03/hashbang-expanding-coverage-software-heritage-archive/
+
+
 .. |archive_loader_source| replace:: Source code
 .. _archive_loader_source: https://forge.softwareheritage.org/source/swh-loader-core/browse/master/swh/loader/package/archive/
 
@@ -179,6 +243,19 @@ This page references all available loaders and links to their high-level documen
 
 .. |archive_loader_status| replace:: in production
 .. _archive_loader_status: https://archive.softwareheritage.org/browse/search/?with_visit=true&with_content=true&visit_type=tar
+
+
+.. |aur_loader_source| replace:: Source code
+.. _aur_loader_source: https://forge.softwareheritage.org/source/swh-loader-core/browse/master/swh/loader/package/aur/
+
+.. |aur_loader_dev| replace:: Development
+.. _aur_loader_dev: https://forge.softwareheritage.org/project/profile/191/
+
+.. |aur_loader_status| replace:: in development
+.. _aur_loader_status: https://forge.softwareheritage.org/T4466
+
+.. |aur_loader_grant| replace:: Alfred P. Sloan Foundation
+.. _aur_loader_grant: https://www.softwareheritage.org/2022/02/03/hashbang-expanding-coverage-software-heritage-archive/
 
 
 .. |bzr_loader_source| replace:: Source code
@@ -281,6 +358,29 @@ This page references all available loaders and links to their high-level documen
 .. _git_loader_status: https://archive.softwareheritage.org/browse/search/?with_visit=true&with_content=true&visit_type=git
 
 
+.. |golang_loader_source| replace:: Source code
+.. _golang_loader_source: https://forge.softwareheritage.org/source/swh-loader-core/browse/master/swh/loader/package/golang/
+
+.. |golang_loader_dev| replace:: Development
+.. _golang_loader_dev: https://forge.softwareheritage.org/project/profile/196/
+
+.. |golang_loader_status| replace:: in development
+.. _golang_loader_status: https://forge.softwareheritage.org/T4124
+
+.. |golang_loader_grant| replace:: NLnet Foundation
+.. _golang_loader_grant: https://nlnet.nl/project/SWH-PackageManagers/index.html
+
+
+.. |hackage_loader_dev| replace:: Development
+.. _hackage_loader_dev: https://forge.softwareheritage.org/project/profile/203/
+
+.. |hackage_loader_status| replace:: in development
+.. _hackage_loader_status: https://forge.softwareheritage.org/T4494
+
+.. |hackage_loader_grant| replace:: NLnet Foundation
+.. _hackage_loader_grant: https://nlnet.nl/project/SWH-PackageManagers/index.html
+
+
 .. |maven_loader_source| replace:: Source code
 .. _maven_loader_source: https://forge.softwareheritage.org/source/swh-loader-core/browse/master/swh/loader/package/maven/
 
@@ -356,6 +456,19 @@ This page references all available loaders and links to their high-level documen
 
 .. |opam_loader_grant| replace:: Alfred P. Sloan Foundation
 .. _opam_loader_grant: https://www.softwareheritage.org/2021/04/20/connecting-ocaml/
+
+
+.. |pubdev_loader_source| replace:: Source code
+.. _pubdev_loader_source: https://forge.softwareheritage.org/source/swh-loader-core/browse/master/swh/loader/package/pubdev/
+
+.. |pubdev_loader_dev| replace:: Development
+.. _pubdev_loader_dev: https://forge.softwareheritage.org/project/profile/193/
+
+.. |pubdev_loader_status| replace:: in development
+.. _pubdev_loader_status: https://forge.softwareheritage.org/T4465
+
+.. |pubdev_loader_grant| replace:: NLnet Foundation
+.. _pubdev_loader_grant: https://nlnet.nl/project/SWH-PackageManagers/index.html
 
 
 .. |pypi_loader_source| replace:: Source code
