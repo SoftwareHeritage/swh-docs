@@ -44,13 +44,10 @@ package manager. On Debian/Ubuntu-based distributions::
 This installs basic system utilities, Python library dependencies, development tools,
 documentation tools and our main database management systems.
 
-Cassandra and postgresql will be started by tests when they need it, so you
+Cassandra and PostgreSQL will be started by tests when they need it, so you
 don't need them started globally (this will save you some RAM)::
 
-  sudo systemctl stop postgresql
-  sudo systemctl disable postgresql
-  sudo systemctl stop cassandra
-  sudo systemctl disable cassandra
+  sudo systemctl disable --now cassandra postgresql
 
 If you intend to hack on the frontend part of |swh| Web Applications, you will also
 need to have nodejs >= 14 in your development environment. If the version in your
