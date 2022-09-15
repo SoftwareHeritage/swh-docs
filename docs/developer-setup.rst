@@ -7,15 +7,15 @@ In this guide we describe how to set up a developer environment in which one
 can easily navigate the source code, make modifications, write and execute unit
 tests.
 
-For this, we will use a `virtualenv`_ in which all the |swh| packages will be
+For this, we will use a `virtual environment`_ in which all the |swh| packages will be
 installed in 'develop' mode, this will allow you to navigate the source code,
 hack it, and run locally the unit tests.
 
-If you want to test the effect of your modifications in a running |swh|
-instance, you should check the swh-environment docker `documentation`_.
+To test the effect of your modifications, you can :ref:`install your own local
+Software Heritage instance <getting-started>` using Docker.
 
 .. _`documentation`: https://forge.softwareheritage.org/source/swh-environment/browse/master/docker/README.rst?as=remarkup
-.. _`virtualenv`: https://pypi.org/project/virtualenv/
+.. _`virtual environment`: https://packaging.python.org/en/latest/guides/installing-using-pip-and-virtual-environments/#creating-a-virtual-environment
 
 
 Install required dependencies
@@ -253,20 +253,20 @@ If you want to run some packages manually, you may need to setup their databases
 The different databases for each subproject that requires one (like ``storage`` or ``scheduler``) should be setup through the ``swh db create`` or ``swh db init`` command. See their help for more information.
 
 
+Test changes using a local instance
+-----------------------------------
+
+How to test your changes with a local instance is explained in the :ref:`documentation about our Docker setup <docker-environment>`.
+
+
 Sending your changes
 --------------------
 
 After you are done making the changes you want, you can send them on our
-forge_. The best way to do that is to use Arcanist, so we recommend you read
-these two guides if you are not familiar with it:
-
-* https://wiki.softwareheritage.org/wiki/Arcanist_setup
-* https://wiki.softwareheritage.org/wiki/Code_review_in_Phabricator
-
+forge. See the guide on :ref:`how to submit patches <patch-submission>`.
 
 .. _pytest: https://pytest.org
 .. _tox: https://tox.readthedocs.io
 .. _pypi: https://pypi.org
 .. _swh-loader-git: https://forge.softwareheritage.org/source/swh-loader-git
 .. _pifpaf: https://github.com/jd/pifpaf
-.. _forge: https://forge.softwareheritage.org/
