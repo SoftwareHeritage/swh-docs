@@ -36,7 +36,7 @@ package manager. On Debian/Ubuntu-based distributions::
       libpython3-dev libsystemd-dev libsvn-dev libffi-dev librdkafka-dev \
       fuse3 libfuse3-dev libcmph-dev libleveldb-dev \
       git myrepos \
-      postgresql-autodoc graphviz plantuml inkscape \
+      graphviz plantuml inkscape \
       postgresql libpq-dev cassandra
 
 .. Note:: Python 3.7 or newer is required
@@ -75,6 +75,9 @@ present in your development environment. Proceed as follows to install it::
   sudo apt update
   sudo apt install elasticsearch
 
+If you intend to build the full |swh| documentation, the ``postgresql-autodoc`` utility must
+also be installed, follow these `instructions <https://github.com/cbbrowne/autodoc#installation>`_
+to do so.
 
 .. _checkout-source-code:
 
