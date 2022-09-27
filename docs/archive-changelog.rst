@@ -10,6 +10,52 @@ anomalies or other changes in archival behavior over time. They are collected
 in this document for historical reasons.
 
 
+2022
+----
+
+* **2022-09-27** Completed first archival of the `Gitgud forge
+  <https://gitgud.io/>`_, as requested via `Add forge now`_.
+  Regular crawling of its repositories enabled
+  (tracking: `T4498 <https://forge.softwareheritage.org/T4498>`_)
+
+* **2022-09-27** Completed first archival of the `Madhouse project forge
+  <https://git.madhouse-project.org/>`_, as requested via `Add forge now`_.
+  Regular crawling of its repositories enabled
+  (tracking: `T4500 <https://forge.softwareheritage.org/T4500>`_)
+
+* **2022-09-27** Completed first archival of the `OpenGeoSys forge
+  <https://gitlab.opengeosys.org/>`_, as requested via `Add forge now`_.
+  Regular crawling of its repositories enabled
+  (tracking: `T4499 <https://forge.softwareheritage.org/T4499>`_)
+
+* **2022-09-27** Completed first archival of the `Spork forge
+  <https://git.spork.org/>`_, as requested via `Add forge now`_.
+  Regular crawling of its repositories enabled
+  (tracking: `T4501 <https://forge.softwareheritage.org/T4501>`_)
+
+* **2022-09-27** Completed first archival of `Alex Schroeder's forge
+  <https://alexschroeder.ch/cgit>`_, as requested via `Add forge now`_.
+  Regular crawling of its repositories enabled
+  (tracking: `T4502 <https://forge.softwareheritage.org/T4502>`_)
+
+* **2022-09-27** Completed first archival of the `RWTH Aachen University
+  secondary forge <https://git-ce.rwth-aachen.de>`_, as requested via
+  `Add forge now`_. Regular crawling of its repositories enabled
+  (tracking: `T4504 <https://forge.softwareheritage.org/T4504>`_)
+
+* **2022-09-27** Completed first archival of the `RWTH Aachen University
+  forge <https://git.rwth-aachen.de>`_, as requested via `Add forge now`_.
+  Regular crawling of its repositories enabled
+  (tracking: `T4503 <https://forge.softwareheritage.org/T4503>`_)
+
+* **2022-09-21** Completed first archival of `Case Duckworth's forge
+  <https://git.acdw.net/>`_, as requested via `Add forge now`_.
+  Regular crawling of its repositories enabled
+  (tracking: `T4505 <https://forge.softwareheritage.org/T4505>`_)
+
+.. _Add forge now: https://archive.softwareheritage.org/add-forge/request/list/
+
+
 2021
 ----
 
