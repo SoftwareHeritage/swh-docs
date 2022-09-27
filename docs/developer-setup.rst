@@ -37,7 +37,7 @@ package manager. On Debian/Ubuntu-based distributions::
       fuse3 libfuse3-dev libcmph-dev libleveldb-dev \
       git myrepos \
       postgresql-autodoc graphviz plantuml inkscape \
-      postgresql libpq-dev cassandra yarnpkg
+      postgresql libpq-dev cassandra
 
 .. Note:: Python 3.7 or newer is required
 
@@ -50,13 +50,22 @@ don't need them started globally (this will save you some RAM)::
   sudo systemctl disable --now cassandra postgresql
 
 If you intend to hack on the frontend part of |swh| Web Applications, you will also
-need to have nodejs >= 14 in your development environment. If the version in your
+need to have ``nodejs >= 14`` in your development environment. If the version in your
 Debian-based distribution is lower, you can install node 14 using these commands::
 
   sudo wget https://deb.nodesource.com/gpgkey/nodesource.gpg.key -O /etc/apt/trusted.gpg.d/nodesource.asc
   echo "deb https://deb.nodesource.com/node_14.x $(lsb_release -cs) main" | sudo tee -a /etc/apt/sources.list.d/nodesource.list
   sudo apt update
   sudo apt install nodejs
+
+Also related to Web Applications development, |swh| uses the ``yarn`` package manager
+to retrieve frontend dependencies and development tools. It is recommended to install its
+latest classic version using these commands::
+
+  sudo wget https://dl.yarnpkg.com/debian/pubkey.gpg -O /etc/apt/trusted.gpg.d/yarn.asc
+  echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+  sudo apt update
+  sudo apt install yarn
 
 If you intend to work on |swh| archive search features, Elasticsearch must also be
 present in your development environment. Proceed as follows to install it::
