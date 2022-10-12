@@ -31,6 +31,10 @@ This page references all available loaders and links to their high-level documen
   |                          | * |bzr_loader_devdoc|_        |                             |                                    |
   | :ref:`bzr_loader`        | * |bzr_loader_dev|_           |                             | (awarded to `Octobus`_)            |
   +--------------------------+-------------------------------+-----------------------------+------------------------------------+
+  | |conda_logo|             | * |conda_loader_dev|_         | |conda_loader_status|_      | |conda_loader_grant|_              |
+  |                          |                               |                             |                                    |
+  | :ref:`conda_loader`      |                               |                             | (awarded to `Octobus`_)            |
+  +--------------------------+-------------------------------+-----------------------------+------------------------------------+
   | |cran_logo|              | * |cran_loader_source|_       | |cran_loader_status|_       |                                    |
   |                          | * |cran_loader_devdoc|_       |                             |                                    |
   | :ref:`cran_loader`       | * |cran_loader_dev|_          |                             |                                    |
@@ -87,9 +91,17 @@ This page references all available loaders and links to their high-level documen
   |                          | * |pubdev_loader_dev|_        |                             |                                    |
   | :ref:`pubdev_loader`     |                               |                             | (awarded to `Octobus`_)            |
   +--------------------------+-------------------------------+-----------------------------+------------------------------------+
+  | |puppet_logo|            | * |puppet_loader_source|_     | |puppet_loader_status|_     | |puppet_loader_grant|_             |
+  |                          | * |puppet_loader_dev|_        |                             |                                    |
+  | :ref:`puppet_loader`     |                               |                             | (awarded to `Octobus`_)            |
+  +--------------------------+-------------------------------+-----------------------------+------------------------------------+
   | |pypi_logo|              | * |pypi_loader_source|_       | |pypi_loader_status|_       |                                    |
   |                          | * |pypi_loader_devdoc|_       |                             |                                    |
   | :ref:`pypi_loader`       | * |pypi_loader_dev|_          |                             |                                    |
+  +--------------------------+-------------------------------+-----------------------------+------------------------------------+
+  | |rubygems_logo|          | * |rubygems_loader_dev|_      | |rubygems_loader_status|_   | |rubygems_loader_grant|_           |
+  |                          |                               |                             |                                    |
+  | :ref:`rubygems_loader`   |                               |                             | (awarded to `Octobus`_)            |
   +--------------------------+-------------------------------+-----------------------------+------------------------------------+
   | |subversion_logo|        | * |subversion_loader_source|_ | |subversion_loader_status|_ |                                    |
   |                          | * |subversion_loader_devdoc|_ |                             |                                    |
@@ -104,6 +116,7 @@ This page references all available loaders and links to their high-level documen
   archive
   aur
   bazaar
+  conda
   cran
   crates
   cvs
@@ -118,7 +131,9 @@ This page references all available loaders and links to their high-level documen
   npm
   opam
   pubdev
+  puppet
   pypi
+  rubygems
   subversion
 
 .. |arch_logo| image:: ../logos/arch.png
@@ -140,6 +155,11 @@ This page references all available loaders and links to their high-level documen
   :width: 50%
   :target: bazaar.html
   :alt: Bazaar loader
+
+.. |conda_logo| image:: ../logos/conda.png
+  :width: 50%
+  :target: conda.html
+  :alt: Conda loader
 
 .. |cran_logo| image:: ../logos/cran.png
   :width: 50%
@@ -211,10 +231,20 @@ This page references all available loaders and links to their high-level documen
   :target: pubdev.html
   :alt: PubDev loader
 
+.. |puppet_logo| image:: ../logos/puppet.png
+  :width: 50%
+  :target: puppet.html
+  :alt: Puppet loader
+
 .. |pypi_logo| image:: ../logos/pypi.png
   :width: 50%
   :target: pypi.html
   :alt: PyPI loader
+
+.. |rubygems_logo| image:: ../logos/rubygems.png
+  :width: 50%
+  :target: rybugems.html
+  :alt: RubyGems loader
 
 .. |subversion_logo| image:: ../logos/subversion.png
   :width: 50%
@@ -272,6 +302,16 @@ This page references all available loaders and links to their high-level documen
 
 .. |bzr_loader_grant| replace:: Alfred P. Sloan Foundation
 .. _bzr_loader_grant: https://www.softwareheritage.org/2021/01/21/archiving-sourceforge-and-supporting-bazaar/
+
+
+.. |conda_loader_dev| replace:: Development
+.. _conda_loader_dev: https://forge.softwareheritage.org/project/profile/205/
+
+.. |conda_loader_status| replace:: in development
+.. _conda_loader_status: https://forge.softwareheritage.org/T4579
+
+.. |conda_loader_grant| replace:: NLnet Foundation
+.. _conda_loader_grant: https://nlnet.nl/project/SWH-PackageManagers/index.html
 
 
 .. |cran_loader_source| replace:: Source code
@@ -364,8 +404,8 @@ This page references all available loaders and links to their high-level documen
 .. |golang_loader_dev| replace:: Development
 .. _golang_loader_dev: https://forge.softwareheritage.org/project/profile/196/
 
-.. |golang_loader_status| replace:: in development
-.. _golang_loader_status: https://forge.softwareheritage.org/T4124
+.. |golang_loader_status| replace:: in staging
+.. _golang_loader_status: https://webapp.staging.swh.network/browse/search/?with_visit=true&with_content=true&visit_type=golang
 
 .. |golang_loader_grant| replace:: NLnet Foundation
 .. _golang_loader_grant: https://nlnet.nl/project/SWH-PackageManagers/index.html
@@ -390,8 +430,8 @@ This page references all available loaders and links to their high-level documen
 .. |maven_loader_dev| replace:: Development
 .. _maven_loader_dev: https://forge.softwareheritage.org/project/profile/185/
 
-.. |maven_loader_status| replace:: in staging
-.. _maven_loader_status: https://webapp.staging.swh.network/browse/search/?with_visit=true&with_content=true&visit_type=maven
+.. |maven_loader_status| replace:: in production
+.. _maven_loader_status: https://archive.softwareheritage.org/browse/search/?with_visit=true&with_content=true&visit_type=maven
 
 .. |maven_loader_grant| replace:: Alfred P. Sloan Foundation
 .. _maven_loader_grant: https://www.softwareheritage.org/2021/07/22/archiving-the-maven-ecosystem/
@@ -464,11 +504,24 @@ This page references all available loaders and links to their high-level documen
 .. |pubdev_loader_dev| replace:: Development
 .. _pubdev_loader_dev: https://forge.softwareheritage.org/project/profile/193/
 
-.. |pubdev_loader_status| replace:: in development
-.. _pubdev_loader_status: https://forge.softwareheritage.org/T4465
+.. |pubdev_loader_status| replace:: in staging
+.. _pubdev_loader_status: https://webapp.staging.swh.network/browse/search/?with_visit=true&with_content=true&visit_type=pubdev
 
 .. |pubdev_loader_grant| replace:: NLnet Foundation
 .. _pubdev_loader_grant: https://nlnet.nl/project/SWH-PackageManagers/index.html
+
+
+.. |puppet_loader_source| replace:: Source code
+.. _puppet_loader_source: https://forge.softwareheritage.org/source/swh-loader-core/browse/master/swh/loader/package/puppet/
+
+.. |puppet_loader_dev| replace:: Development
+.. _puppet_loader_dev: https://forge.softwareheritage.org/project/profile/207/
+
+.. |puppet_loader_status| replace:: in development
+.. _puppet_loader_status: https://forge.softwareheritage.org/T4580
+
+.. |puppet_loader_grant| replace:: NLnet Foundation
+.. _puppet_loader_grant: https://nlnet.nl/project/SWH-PackageManagers/index.html
 
 
 .. |pypi_loader_source| replace:: Source code
@@ -482,6 +535,16 @@ This page references all available loaders and links to their high-level documen
 
 .. |pypi_loader_status| replace:: in production
 .. _pypi_loader_status: https://archive.softwareheritage.org/browse/search/?with_visit=true&with_content=true&visit_type=pypi
+
+
+.. |rubygems_loader_dev| replace:: Development
+.. _rubygems_loader_dev: https://forge.softwareheritage.org/project/profile/206/
+
+.. |rubygems_loader_status| replace:: in development
+.. _rubygems_loader_status: https://forge.softwareheritage.org/T4581
+
+.. |rubygems_loader_grant| replace:: NLnet Foundation
+.. _rubygems_loader_grant: https://nlnet.nl/project/SWH-PackageManagers/index.html
 
 
 .. |subversion_loader_source| replace:: Source code
