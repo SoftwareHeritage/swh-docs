@@ -26,16 +26,16 @@ This page references all available listers and links to their high-level documen
   | :ref:`aur_lister`         |                                |                              | (awarded to `Hashbang`_)           |
   +---------------------------+--------------------------------+------------------------------+------------------------------------+
   | |bitbucket_logo|          | * |bitbucket_lister_source|_   | |bitbucket_lister_status|_   |                                    |
-  |                           | * |bitbucket_lister_devdoc|_   |                              |                                    |
-  | :ref:`bitbucket_lister`   | * |bitbucket_lister_dev|_      |                              |                                    |
+  |                           | * |bitbucket_lister_dev|_      |                              |                                    |
+  | :ref:`bitbucket_lister`   |                                |                              |                                    |
   +---------------------------+--------------------------------+------------------------------+------------------------------------+
   | |bower_logo|              | * |bower_lister_source|_       | |bower_lister_status|_       | |bower_lister_grant|_              |
   |                           | * |bower_lister_dev|_          |                              |                                    |
   | :ref:`bower_lister`       |                                |                              | (awarded to `Octobus`_)            |
   +---------------------------+--------------------------------+------------------------------+------------------------------------+
   | |cgit_logo|               | * |cgit_lister_source|_        | |cgit_lister_status|_        |                                    |
-  |                           | * |cgit_lister_devdoc|_        |                              |                                    |
-  | :ref:`cgit_lister`        | * |cgit_lister_dev|_           |                              |                                    |
+  |                           | * |cgit_lister_dev|_           |                              |                                    |
+  | :ref:`cgit_lister`        |                                |                              |                                    |
   +---------------------------+--------------------------------+------------------------------+------------------------------------+
   | |conda_logo|              | * |conda_lister_source|_       | |conda_lister_status|_       | |conda_lister_grant|_              |
   |                           | * |conda_lister_dev|_          |                              |                                    |
@@ -46,32 +46,32 @@ This page references all available listers and links to their high-level documen
   | :ref:`cpan_lister`        |                                |                              | (awarded to `Octobus`_)            |
   +---------------------------+--------------------------------+------------------------------+------------------------------------+
   | |cran_logo|               | * |cran_lister_source|_        | |cran_lister_status|_        |                                    |
-  |                           | * |cran_lister_devdoc|_        |                              |                                    |
-  | :ref:`cran_lister`        | * |cran_lister_dev|_           |                              |                                    |
+  |                           | * |cran_lister_dev|_           |                              |                                    |
+  | :ref:`cran_lister`        |                                |                              |                                    |
   +---------------------------+--------------------------------+------------------------------+------------------------------------+
   | |crates_logo|             | * |crates_lister_source|_      | |crates_lister_status|_      | |crates_lister_grant|_             |
-  |                           | * |crates_lister_devdoc|_      |                              |                                    |
-  | :ref:`crates_lister`      | * |crates_lister_dev|_         |                              | (awarded to `Hashbang`_)           |
+  |                           | * |crates_lister_dev|_         |                              |                                    |
+  | :ref:`crates_lister`      |                                |                              | (awarded to `Hashbang`_)           |
   +---------------------------+--------------------------------+------------------------------+------------------------------------+
   | |debian_logo|             | * |debian_lister_source|_      | |debian_lister_status|_      |                                    |
-  |                           | * |debian_lister_devdoc|_      |                              |                                    |
+  |                           |                                |                              |                                    |
   | :ref:`debian_lister`      |                                |                              |                                    |
   +---------------------------+--------------------------------+------------------------------+------------------------------------+
   | |gitea_logo|              | * |gitea_lister_source|_       | |gitea_lister_status|_       |                                    |
-  |                           | * |gitea_lister_devdoc|_       |                              |                                    |
+  |                           |                                |                              |                                    |
   | :ref:`gitea_lister`       |                                |                              |                                    |
   +---------------------------+--------------------------------+------------------------------+------------------------------------+
   | |github_logo|             | * |github_lister_source|_      | |github_lister_status|_      |                                    |
-  |                           | * |github_lister_devdoc|_      |                              |                                    |
-  | :ref:`github_lister`      | * |github_lister_dev|_         |                              |                                    |
+  |                           | * |github_lister_dev|_         |                              |                                    |
+  | :ref:`github_lister`      |                                |                              |                                    |
   +---------------------------+--------------------------------+------------------------------+------------------------------------+
   | |gitlab_logo|             | * |gitlab_lister_source|_      | |gitlab_lister_status|_      |                                    |
-  |                           | * |gitlab_lister_devdoc|_      |                              |                                    |
-  | :ref:`gitlab_lister`      | * |gitlab_lister_dev|_         |                              |                                    |
+  |                           | * |gitlab_lister_dev|_         |                              |                                    |
+  | :ref:`gitlab_lister`      |                                |                              |                                    |
   +---------------------------+--------------------------------+------------------------------+------------------------------------+
   | |gnu_logo|                | * |gnu_lister_source|_         | |gnu_lister_status|_         |                                    |
-  |                           | * |gnu_lister_devdoc|_         |                              |                                    |
-  | :ref:`gnu_lister`         | * |gnu_lister_dev|_            |                              |                                    |
+  |                           | * |gnu_lister_dev|_            |                              |                                    |
+  | :ref:`gnu_lister`         |                                |                              |                                    |
   +---------------------------+--------------------------------+------------------------------+------------------------------------+
   | |gogs_logo|               | * |gogs_lister_source|_        | |gogs_lister_status|_        |                                    |
   |                           | * |gogs_lister_dev|_           |                              |                                    |
@@ -86,23 +86,23 @@ This page references all available listers and links to their high-level documen
   | :ref:`hackage_lister`     |                                |                              | (awarded to `Octobus`_)            |
   +---------------------------+--------------------------------+------------------------------+------------------------------------+
   | |launchpad_logo|          | * |launchpad_lister_source|_   | |launchpad_lister_status|_   |                                    |
-  |                           | * |launchpad_lister_devdoc|_   |                              |                                    |
+  |                           |                                |                              |                                    |
   | :ref:`launchpad_lister`   |                                |                              |                                    |
   +---------------------------+--------------------------------+------------------------------+------------------------------------+
   | |maven_logo|              | * |maven_lister_source|_       | |maven_lister_status|_       | |maven_lister_grant|_              |
-  |                           | * |maven_lister_devdoc|_       |                              |                                    |
-  | :ref:`maven_lister`       | * |maven_lister_dev|_          |                              | (awarded to `Castalia Solutions`_) |
+  |                           | * |maven_lister_dev|_          |                              |                                    |
+  | :ref:`maven_lister`       |                                |                              | (awarded to `Castalia Solutions`_) |
   +---------------------------+--------------------------------+------------------------------+------------------------------------+
   | |npm_logo|                | * |npm_lister_source|_         | |npm_lister_status|_         |                                    |
-  |                           | * |npm_lister_devdoc|_         |                              |                                    |
-  | :ref:`npm_lister`         | * |npm_lister_dev|_            |                              |                                    |
+  |                           | * |npm_lister_dev|_            |                              |                                    |
+  | :ref:`npm_lister`         |                                |                              |                                    |
   +---------------------------+--------------------------------+------------------------------+------------------------------------+
   | |opam_logo|               | * |opam_lister_source|_        | |opam_lister_status|_        | |opam_lister_grant|_               |
-  |                           | * |opam_lister_devdoc|_        |                              |                                    |
+  |                           | * |opam_lister_dev|_           |                              |                                    |
   | :ref:`opam_lister`        |                                |                              | (awarded to `OCamlPro`_)           |
   +---------------------------+--------------------------------+------------------------------+------------------------------------+
   | |packagist_logo|          | * |packagist_lister_source|_   | |packagist_lister_status|_   |                                    |
-  |                           | * |packagist_lister_devdoc|_   |                              |                                    |
+  |                           |                                |                              |                                    |
   | :ref:`packagist_lister`   |                                |                              |                                    |
   +---------------------------+--------------------------------+------------------------------+------------------------------------+
   | |pubdev_logo|             | * |pubdev_lister_source|_      | |pubdev_lister_status|_      | |pubdev_lister_grant|_             |
@@ -114,19 +114,19 @@ This page references all available listers and links to their high-level documen
   | :ref:`puppet_lister`      |                                |                              | (awarded to `Octobus`_)            |
   +---------------------------+--------------------------------+------------------------------+------------------------------------+
   | |pypi_logo|               | * |pypi_lister_source|_        | |pypi_lister_status|_        |                                    |
-  |                           | * |pypi_lister_devdoc|_        |                              |                                    |
-  | :ref:`pypi_lister`        | * |pypi_lister_dev|_           |                              |                                    |
+  |                           | * |pypi_lister_dev|_           |                              |                                    |
+  | :ref:`pypi_lister`        |                                |                              |                                    |
   +---------------------------+--------------------------------+------------------------------+------------------------------------+
   | |rubygems_logo|           | * |rubygems_lister_source|_    | |rubygems_lister_status|_    | |rubygems_lister_grant|_           |
   |                           | * |rubygems_lister_dev|_       |                              |                                    |
   | :ref:`rubygems_lister`    |                                |                              | (awarded to `Octobus`_)            |
   +---------------------------+--------------------------------+------------------------------+------------------------------------+
   | |sourceforge_logo|        | * |sourceforge_lister_source|_ | |sourceforge_lister_status|_ | |sourceforge_lister_grant|_        |
-  |                           | * |sourceforge_lister_devdoc|_ |                              |                                    |
-  | :ref:`sourceforge_lister` | * |sourceforge_lister_dev|_    |                              | (awarded to `Octobus`_)            |
+  |                           | * |sourceforge_lister_dev|_    |                              |                                    |
+  | :ref:`sourceforge_lister` |                                |                              | (awarded to `Octobus`_)            |
   +---------------------------+--------------------------------+------------------------------+------------------------------------+
   | |tuleap_logo|             | * |tuleap_lister_source|_      | |tuleap_lister_status|_      |                                    |
-  |                           | * |tuleap_lister_devdoc|_      |                              |                                    |
+  |                           |                                |                              |                                    |
   | :ref:`tuleap_lister`      |                                |                              |                                    |
   +---------------------------+--------------------------------+------------------------------+------------------------------------+
 
@@ -340,9 +340,6 @@ This page references all available listers and links to their high-level documen
 .. |bitbucket_lister_source| replace:: Source code
 .. _bitbucket_lister_source: https://forge.softwareheritage.org/source/swh-lister/browse/master/swh/lister/bitbucket/
 
-.. |bitbucket_lister_devdoc| replace:: Developer doc
-.. _bitbucket_lister_devdoc: https://docs.softwareheritage.org/devel/apidoc/swh.lister.bitbucket.html
-
 .. |bitbucket_lister_dev| replace:: Development
 .. _bitbucket_lister_dev: https://forge.softwareheritage.org/project/profile/67/
 
@@ -365,9 +362,6 @@ This page references all available listers and links to their high-level documen
 
 .. |cgit_lister_source| replace:: Source code
 .. _cgit_lister_source: https://forge.softwareheritage.org/source/swh-lister/browse/master/swh/lister/cgit/
-
-.. |cgit_lister_devdoc| replace:: Developer doc
-.. _cgit_lister_devdoc: https://docs.softwareheritage.org/devel/apidoc/swh.lister.cgit.html
 
 .. |cgit_lister_dev| replace:: Development
 .. _cgit_lister_dev: https://forge.softwareheritage.org/project/profile/22/
@@ -405,9 +399,6 @@ This page references all available listers and links to their high-level documen
 .. |cran_lister_source| replace:: Source code
 .. _cran_lister_source: https://forge.softwareheritage.org/source/swh-lister/browse/master/swh/lister/cran/
 
-.. |cran_lister_devdoc| replace:: Developer doc
-.. _cran_lister_devdoc: https://docs.softwareheritage.org/devel/apidoc/swh.lister.cran.html
-
 .. |cran_lister_dev| replace:: Development
 .. _cran_lister_dev: https://forge.softwareheritage.org/project/profile/132/
 
@@ -417,9 +408,6 @@ This page references all available listers and links to their high-level documen
 
 .. |crates_lister_source| replace:: Source code
 .. _crates_lister_source: https://forge.softwareheritage.org/source/swh-lister/browse/master/swh/lister/crates/
-
-.. |crates_lister_devdoc| replace:: Developer doc
-.. _crates_lister_devdoc: https://docs.softwareheritage.org/devel/apidoc/swh.lister.crates.html
 
 .. |crates_lister_dev| replace:: Development
 .. _crates_lister_dev: https://forge.softwareheritage.org/project/profile/183/
@@ -434,9 +422,6 @@ This page references all available listers and links to their high-level documen
 .. |debian_lister_source| replace:: Source code
 .. _debian_lister_source: https://forge.softwareheritage.org/source/swh-lister/browse/master/swh/lister/debian/
 
-.. |debian_lister_devdoc| replace:: Developer doc
-.. _debian_lister_devdoc: https://docs.softwareheritage.org/devel/apidoc/swh.lister.debian.html
-
 .. |debian_lister_status| replace:: in production
 .. _debian_lister_status: https://archive.softwareheritage.org/coverage/?focus=debian#debian
 
@@ -444,18 +429,12 @@ This page references all available listers and links to their high-level documen
 .. |gitea_lister_source| replace:: Source code
 .. _gitea_lister_source: https://forge.softwareheritage.org/source/swh-lister/browse/master/swh/lister/gitea/
 
-.. |gitea_lister_devdoc| replace:: Developer doc
-.. _gitea_lister_devdoc: https://docs.softwareheritage.org/devel/apidoc/swh.lister.gitea.html
-
 .. |gitea_lister_status| replace:: in production
 .. _gitea_lister_status: https://archive.softwareheritage.org/coverage/?focus=gitea#gitea
 
 
 .. |github_lister_source| replace:: Source code
 .. _github_lister_source: https://forge.softwareheritage.org/source/swh-lister/browse/master/swh/lister/github/
-
-.. |github_lister_devdoc| replace:: Developer doc
-.. _github_lister_devdoc: https://docs.softwareheritage.org/devel/apidoc/swh.lister.github.html
 
 .. |github_lister_dev| replace:: Development
 .. _github_lister_dev: https://forge.softwareheritage.org/project/profile/21/
@@ -467,9 +446,6 @@ This page references all available listers and links to their high-level documen
 .. |gitlab_lister_source| replace:: Source code
 .. _gitlab_lister_source: https://forge.softwareheritage.org/source/swh-lister/browse/master/swh/lister/gitlab/
 
-.. |gitlab_lister_devdoc| replace:: Developer doc
-.. _gitlab_lister_devdoc: https://docs.softwareheritage.org/devel/apidoc/swh.lister.gitlab.html
-
 .. |gitlab_lister_dev| replace:: Development
 .. _gitlab_lister_dev: https://forge.softwareheritage.org/project/profile/83/
 
@@ -479,9 +455,6 @@ This page references all available listers and links to their high-level documen
 
 .. |gnu_lister_source| replace:: Source code
 .. _gnu_lister_source: https://forge.softwareheritage.org/source/swh-lister/browse/master/swh/lister/gnu/
-
-.. |gnu_lister_devdoc| replace:: Developer doc
-.. _gnu_lister_devdoc: https://docs.softwareheritage.org/devel/apidoc/swh.lister.gnu.html
 
 .. |gnu_lister_dev| replace:: Development
 .. _gnu_lister_dev: https://forge.softwareheritage.org/project/profile/70/
@@ -529,18 +502,12 @@ This page references all available listers and links to their high-level documen
 .. |launchpad_lister_source| replace:: Source code
 .. _launchpad_lister_source: https://forge.softwareheritage.org/source/swh-lister/browse/master/swh/lister/launchpad/
 
-.. |launchpad_lister_devdoc| replace:: Developer doc
-.. _launchpad_lister_devdoc: https://docs.softwareheritage.org/devel/apidoc/swh.lister.launchpad.html
-
 .. |launchpad_lister_status| replace:: in production
 .. _launchpad_lister_status: https://archive.softwareheritage.org/coverage/?focus=launchpad#launchpad
 
 
 .. |maven_lister_source| replace:: Source code
 .. _maven_lister_source: https://forge.softwareheritage.org/source/swh-lister/browse/master/swh/lister/maven/
-
-.. |maven_lister_devdoc| replace:: Developer doc
-.. _maven_lister_devdoc: https://docs.softwareheritage.org/devel/apidoc/swh.lister.maven.html
 
 .. |maven_lister_dev| replace:: Development
 .. _maven_lister_dev: https://forge.softwareheritage.org/project/profile/184/
@@ -555,9 +522,6 @@ This page references all available listers and links to their high-level documen
 .. |npm_lister_source| replace:: Source code
 .. _npm_lister_source: https://forge.softwareheritage.org/source/swh-lister/browse/master/swh/lister/npm/
 
-.. |npm_lister_devdoc| replace:: Developer doc
-.. _npm_lister_devdoc: https://docs.softwareheritage.org/devel/apidoc/swh.lister.npm.html
-
 .. |npm_lister_dev| replace:: Development
 .. _npm_lister_dev: https://forge.softwareheritage.org/project/profile/111/
 
@@ -568,8 +532,8 @@ This page references all available listers and links to their high-level documen
 .. |opam_lister_source| replace:: Source code
 .. _opam_lister_source: https://forge.softwareheritage.org/source/swh-lister/browse/master/swh/lister/opam/
 
-.. |opam_lister_devdoc| replace:: Developer doc
-.. _opam_lister_devdoc: https://docs.softwareheritage.org/devel/apidoc/swh.lister.opam.html
+.. |opam_lister_dev| replace:: Developer doc
+.. _opam_lister_dev: https://forge.softwareheritage.org/project/profile/167/
 
 .. |opam_lister_status| replace:: in production
 .. _opam_lister_status: https://archive.softwareheritage.org/coverage/?focus=opam#opam
@@ -581,18 +545,12 @@ This page references all available listers and links to their high-level documen
 .. |packagist_lister_source| replace:: Source code
 .. _packagist_lister_source: https://forge.softwareheritage.org/source/swh-lister/browse/master/swh/lister/packagist/
 
-.. |packagist_lister_devdoc| replace:: Developer doc
-.. _packagist_lister_devdoc: https://docs.softwareheritage.org/devel/apidoc/swh.lister.packagist.html
-
 .. |packagist_lister_status| replace:: in staging
 .. _packagist_lister_status: https://webapp.staging.swh.network/coverage/?focus=Packagist#Packagist
 
 
 .. |phabricator_lister_source| replace:: Source code
 .. _phabricator_lister_source: https://forge.softwareheritage.org/source/swh-lister/browse/master/swh/lister/phabricator/
-
-.. |phabricator_lister_devdoc| replace:: Developer doc
-.. _phabricator_lister_devdoc: https://docs.softwareheritage.org/devel/apidoc/swh.lister.phabricator.html
 
 .. |phabricator_lister_status| replace:: in production
 .. _phabricator_lister_status: https://archive.softwareheritage.org/coverage/?focus=phabricator#phabricator
@@ -627,9 +585,6 @@ This page references all available listers and links to their high-level documen
 .. |pypi_lister_source| replace:: Source code
 .. _pypi_lister_source: https://forge.softwareheritage.org/source/swh-lister/browse/master/swh/lister/pypi/
 
-.. |pypi_lister_devdoc| replace:: Developer doc
-.. _pypi_lister_devdoc: https://docs.softwareheritage.org/devel/apidoc/swh.lister.pypi.html
-
 .. |pypi_lister_dev| replace:: Development
 .. _pypi_lister_dev: https://forge.softwareheritage.org/project/profile/54/
 
@@ -653,9 +608,6 @@ This page references all available listers and links to their high-level documen
 .. |sourceforge_lister_source| replace:: Source code
 .. _sourceforge_lister_source: https://forge.softwareheritage.org/source/swh-lister/browse/master/swh/lister/sourceforge/
 
-.. |sourceforge_lister_devdoc| replace:: Developer doc
-.. _sourceforge_lister_devdoc: https://docs.softwareheritage.org/devel/apidoc/swh.lister.sourceforge.html
-
 .. |sourceforge_lister_dev| replace:: Development
 .. _sourceforge_lister_dev: https://forge.softwareheritage.org/project/profile/75/
 
@@ -668,9 +620,6 @@ This page references all available listers and links to their high-level documen
 
 .. |tuleap_lister_source| replace:: Source code
 .. _tuleap_lister_source: https://forge.softwareheritage.org/source/swh-lister/browse/master/swh/lister/tuleap/
-
-.. |tuleap_lister_devdoc| replace:: Developer doc
-.. _tuleap_lister_devdoc: https://docs.softwareheritage.org/devel/apidoc/swh.lister.tuleap.html
 
 .. |tuleap_lister_status| replace:: in development
 .. _tuleap_lister_status: https://forge.softwareheritage.org/T3334

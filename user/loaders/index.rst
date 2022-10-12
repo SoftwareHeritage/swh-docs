@@ -20,7 +20,7 @@ This page references all available loaders and links to their high-level documen
   | :ref:`arch_loader`       |                               |                             | (awarded to `Hashbang`_)           |
   +--------------------------+-------------------------------+-----------------------------+------------------------------------+
   | |archive_logo|           | * |archive_loader_source|_    | |archive_loader_status|_    |                                    |
-  |                          | * |archive_loader_devdoc|_    |                             |                                    |
+  |                          |                               |                             |                                    |
   | :ref:`archive_loader`    |                               |                             |                                    |
   +--------------------------+-------------------------------+-----------------------------+------------------------------------+
   | |aur_logo|               | * |aur_loader_source|_        | |aur_loader_status|_        | |aur_loader_grant|_                |
@@ -28,36 +28,36 @@ This page references all available loaders and links to their high-level documen
   | :ref:`aur_loader`        |                               |                             | (awarded to `Hashbang`_)           |
   +--------------------------+-------------------------------+-----------------------------+------------------------------------+
   | |bzr_logo|               | * |bzr_loader_source|_        | |bzr_loader_status|_        | |bzr_loader_grant|_                |
-  |                          | * |bzr_loader_devdoc|_        |                             |                                    |
-  | :ref:`bzr_loader`        | * |bzr_loader_dev|_           |                             | (awarded to `Octobus`_)            |
+  |                          | * |bzr_loader_dev|_           |                             |                                    |
+  | :ref:`bzr_loader`        |                               |                             | (awarded to `Octobus`_)            |
   +--------------------------+-------------------------------+-----------------------------+------------------------------------+
   | |conda_logo|             | * |conda_loader_dev|_         | |conda_loader_status|_      | |conda_loader_grant|_              |
   |                          |                               |                             |                                    |
   | :ref:`conda_loader`      |                               |                             | (awarded to `Octobus`_)            |
   +--------------------------+-------------------------------+-----------------------------+------------------------------------+
   | |cran_logo|              | * |cran_loader_source|_       | |cran_loader_status|_       |                                    |
-  |                          | * |cran_loader_devdoc|_       |                             |                                    |
-  | :ref:`cran_loader`       | * |cran_loader_dev|_          |                             |                                    |
+  |                          | * |cran_loader_dev|_          |                             |                                    |
+  | :ref:`cran_loader`       |                               |                             |                                    |
   +--------------------------+-------------------------------+-----------------------------+------------------------------------+
   | |crates_logo|            | * |crates_loader_source|_     | |crates_loader_status|_     | |crates_loader_grant|_             |
   |                          | * |crates_loader_dev|_        |                             |                                    |
   | :ref:`crates_loader`     |                               |                             | (awarded to `Hashbang`_)           |
   +--------------------------+-------------------------------+-----------------------------+------------------------------------+
   | |cvs_logo|               | * |cvs_loader_source|_        | |cvs_loader_status|_        | |cvs_loader_grant|_                |
-  |                          | * |cvs_loader_devdoc|_        |                             |                                    |
-  | :ref:`cvs_loader`        | * |cvs_loader_dev|_           |                             | (awarded to `Stefan Sperling`_)    |
+  |                          | * |cvs_loader_dev|_           |                             |                                    |
+  | :ref:`cvs_loader`        |                               |                             | (awarded to `Stefan Sperling`_)    |
   +--------------------------+-------------------------------+-----------------------------+------------------------------------+
   | |debian_logo|            | * |debian_loader_source|_     | |debian_loader_status|_     |                                    |
-  |                          | * |debian_loader_devdoc|_     |                             |                                    |
-  | :ref:`debian_loader`     | * |debian_loader_dev|_        |                             |                                    |
+  |                          | * |debian_loader_dev|_        |                             |                                    |
+  | :ref:`debian_loader`     |                               |                             |                                    |
   +--------------------------+-------------------------------+-----------------------------+------------------------------------+
   | |deposit_logo|           | * |deposit_loader_source|_    | |deposit_loader_status|_    |                                    |
-  |                          | * |deposit_loader_devdoc|_    |                             |                                    |
-  | :ref:`deposit_loader`    | * |deposit_loader_dev|_       |                             |                                    |
+  |                          | * |deposit_loader_dev|_       |                             |                                    |
+  | :ref:`deposit_loader`    |                               |                             |                                    |
   +--------------------------+-------------------------------+-----------------------------+------------------------------------+
   | |git_logo|               | * |git_loader_source|_        | |git_loader_status|_        |                                    |
-  |                          | * |git_loader_devdoc|_        |                             |                                    |
-  | :ref:`git_loader`        | * |git_loader_dev|_           |                             |                                    |
+  |                          | * |git_loader_dev|_           |                             |                                    |
+  | :ref:`git_loader`        |                               |                             |                                    |
   +--------------------------+-------------------------------+-----------------------------+------------------------------------+
   | |golang_logo|            | * |golang_loader_source|_     | |golang_loader_status|_     | |golang_loader_grant|_             |
   |                          | * |golang_loader_dev|_        |                             |                                    |
@@ -68,24 +68,24 @@ This page references all available loaders and links to their high-level documen
   | :ref:`hackage_loader`    |                               |                             | (awarded to `Octobus`_)            |
   +--------------------------+-------------------------------+-----------------------------+------------------------------------+
   | |maven_logo|             | * |maven_loader_source|_      | |maven_loader_status|_      | |maven_loader_grant|_              |
-  |                          | * |maven_loader_devdoc|_      |                             |                                    |
-  | :ref:`maven_loader`      | * |maven_loader_dev|_         |                             | (awarded to `Castalia Solutions`_) |
+  |                          | * |maven_loader_dev|_         |                             |                                    |
+  | :ref:`maven_loader`      |                               |                             | (awarded to `Castalia Solutions`_) |
   +--------------------------+-------------------------------+-----------------------------+------------------------------------+
   | |mercurial_logo|         | * |mercurial_loader_source|_  | |mercurial_loader_status|_  | |mercurial_loader_grant|_          |
-  |                          | * |mercurial_loader_devdoc|_  |                             |                                    |
-  | :ref:`mercurial_loader`  | * |mercurial_loader_dev|_     |                             | (awarded to `Octobus`_)            |
+  |                          | * |mercurial_loader_dev|_     |                             |                                    |
+  | :ref:`mercurial_loader`  |                               |                             | (awarded to `Octobus`_)            |
   +--------------------------+-------------------------------+-----------------------------+------------------------------------+
   | |nixguix_logo|           | * |nixguix_loader_source|_    | |nixguix_loader_status|_    | |nixguix_loader_grant|_            |
-  |                          | * |nixguix_loader_devdoc|_    |                             |                                    |
-  | :ref:`nixguix_loader`    | * |nixguix_loader_dev|_       |                             | (awarded to `Tweag`_)              |
+  |                          | * |nixguix_loader_dev|_       |                             |                                    |
+  | :ref:`nixguix_loader`    |                               |                             | (awarded to `Tweag`_)              |
   +--------------------------+-------------------------------+-----------------------------+------------------------------------+
   | |npm_logo|               | * |npm_loader_source|_        | |npm_loader_status|_        |                                    |
-  |                          | * |npm_loader_devdoc|_        |                             |                                    |
-  | :ref:`npm_loader`        | * |npm_loader_dev|_           |                             |                                    |
+  |                          | * |npm_loader_dev|_           |                             |                                    |
+  | :ref:`npm_loader`        |                               |                             |                                    |
   +--------------------------+-------------------------------+-----------------------------+------------------------------------+
   | |opam_logo|              | * |opam_loader_source|_       | |opam_loader_status|_       | |opam_loader_grant|_               |
-  |                          | * |opam_loader_devdoc|_       |                             |                                    |
-  | :ref:`opam_loader`       | * |opam_loader_dev|_          |                             | (awarded to `OCamlPro`_)           |
+  |                          | * |opam_loader_dev|_          |                             |                                    |
+  | :ref:`opam_loader`       |                               |                             | (awarded to `OCamlPro`_)           |
   +--------------------------+-------------------------------+-----------------------------+------------------------------------+
   | |pubdev_logo|            | * |pubdev_loader_source|_     | |pubdev_loader_status|_     | |pubdev_loader_grant|_             |
   |                          | * |pubdev_loader_dev|_        |                             |                                    |
@@ -96,16 +96,16 @@ This page references all available loaders and links to their high-level documen
   | :ref:`puppet_loader`     |                               |                             | (awarded to `Octobus`_)            |
   +--------------------------+-------------------------------+-----------------------------+------------------------------------+
   | |pypi_logo|              | * |pypi_loader_source|_       | |pypi_loader_status|_       |                                    |
-  |                          | * |pypi_loader_devdoc|_       |                             |                                    |
-  | :ref:`pypi_loader`       | * |pypi_loader_dev|_          |                             |                                    |
+  |                          | * |pypi_loader_dev|_          |                             |                                    |
+  | :ref:`pypi_loader`       |                               |                             |                                    |
   +--------------------------+-------------------------------+-----------------------------+------------------------------------+
   | |rubygems_logo|          | * |rubygems_loader_dev|_      | |rubygems_loader_status|_   | |rubygems_loader_grant|_           |
   |                          |                               |                             |                                    |
   | :ref:`rubygems_loader`   |                               |                             | (awarded to `Octobus`_)            |
   +--------------------------+-------------------------------+-----------------------------+------------------------------------+
   | |subversion_logo|        | * |subversion_loader_source|_ | |subversion_loader_status|_ |                                    |
-  |                          | * |subversion_loader_devdoc|_ |                             |                                    |
-  | :ref:`subversion_loader` | * |subversion_loader_dev|_    |                             |                                    |
+  |                          | * |subversion_loader_dev|_    |                             |                                    |
+  | :ref:`subversion_loader` |                               |                             |                                    |
   +--------------------------+-------------------------------+-----------------------------+------------------------------------+
 
 .. toctree::
@@ -268,9 +268,6 @@ This page references all available loaders and links to their high-level documen
 .. |archive_loader_source| replace:: Source code
 .. _archive_loader_source: https://forge.softwareheritage.org/source/swh-loader-core/browse/master/swh/loader/package/archive/
 
-.. |archive_loader_devdoc| replace:: Developer doc
-.. _archive_loader_devdoc: https://docs.softwareheritage.org/devel/apidoc/swh.loader.package.archive.html
-
 .. |archive_loader_status| replace:: in production
 .. _archive_loader_status: https://archive.softwareheritage.org/browse/search/?with_visit=true&with_content=true&visit_type=tar
 
@@ -290,9 +287,6 @@ This page references all available loaders and links to their high-level documen
 
 .. |bzr_loader_source| replace:: Source code
 .. _bzr_loader_source: https://forge.softwareheritage.org/source/swh-loader-bzr/
-
-.. |bzr_loader_devdoc| replace:: Developer doc
-.. _bzr_loader_devdoc: https://docs.softwareheritage.org/devel/swh-loader-bzr/index.html
 
 .. |bzr_loader_dev| replace:: Development
 .. _bzr_loader_dev: https://forge.softwareheritage.org/project/profile/164/
@@ -317,9 +311,6 @@ This page references all available loaders and links to their high-level documen
 .. |cran_loader_source| replace:: Source code
 .. _cran_loader_source: https://forge.softwareheritage.org/source/swh-loader-core/browse/master/swh/loader/package/cran/
 
-.. |cran_loader_devdoc| replace:: Developer doc
-.. _cran_loader_devdoc: https://docs.softwareheritage.org/devel/apidoc/swh.loader.package.cran.html
-
 .. |cran_loader_dev| replace:: Development
 .. _cran_loader_dev: https://forge.softwareheritage.org/project/profile/132/
 
@@ -329,9 +320,6 @@ This page references all available loaders and links to their high-level documen
 
 .. |crates_loader_source| replace:: Source code
 .. _crates_loader_source: https://forge.softwareheritage.org/source/swh-loader-core/browse/master/swh/loader/package/crates/
-
-.. |crates_loader_devdoc| replace:: Developer doc
-.. _crates_loader_devdoc: https://docs.softwareheritage.org/devel/apidoc/swh.loader.package.crates.html
 
 .. |crates_loader_dev| replace:: Development
 .. _crates_loader_dev: https://forge.softwareheritage.org/project/profile/182/
@@ -346,9 +334,6 @@ This page references all available loaders and links to their high-level documen
 .. |cvs_loader_source| replace:: Source code
 .. _cvs_loader_source: https://forge.softwareheritage.org/source/swh-loader-cvs/
 
-.. |cvs_loader_devdoc| replace:: Developer doc
-.. _cvs_loader_devdoc: https://docs.softwareheritage.org/devel/swh-loader-cvs/index.html
-
 .. |cvs_loader_dev| replace:: Development
 .. _cvs_loader_dev: https://forge.softwareheritage.org/project/profile/166/
 
@@ -362,9 +347,6 @@ This page references all available loaders and links to their high-level documen
 .. |debian_loader_source| replace:: Source code
 .. _debian_loader_source: https://forge.softwareheritage.org/source/swh-loader-core/browse/master/swh/loader/package/debian/
 
-.. |debian_loader_devdoc| replace:: Developer doc
-.. _debian_loader_devdoc: https://docs.softwareheritage.org/devel/apidoc/swh.loader.package.debian.html
-
 .. |debian_loader_dev| replace:: Development
 .. _debian_loader_dev: https://forge.softwareheritage.org/project/profile/25/
 
@@ -375,9 +357,6 @@ This page references all available loaders and links to their high-level documen
 .. |deposit_loader_source| replace:: Source code
 .. _deposit_loader_source: https://forge.softwareheritage.org/source/swh-loader-core/browse/master/swh/loader/package/deposit/
 
-.. |deposit_loader_devdoc| replace:: Developer doc
-.. _deposit_loader_devdoc: https://docs.softwareheritage.org/devel/apidoc/swh.loader.package.deposit.html
-
 .. |deposit_loader_dev| replace:: Development
 .. _deposit_loader_dev: https://forge.softwareheritage.org/project/profile/77/
 
@@ -387,9 +366,6 @@ This page references all available loaders and links to their high-level documen
 
 .. |git_loader_source| replace:: Source code
 .. _git_loader_source: https://forge.softwareheritage.org/source/swh-loader-git/
-
-.. |git_loader_devdoc| replace:: Developer doc
-.. _git_loader_devdoc: https://docs.softwareheritage.org/devel/swh-loader-git/index.html
 
 .. |git_loader_dev| replace:: Development
 .. _git_loader_dev: https://forge.softwareheritage.org/project/profile/17/
@@ -424,9 +400,6 @@ This page references all available loaders and links to their high-level documen
 .. |maven_loader_source| replace:: Source code
 .. _maven_loader_source: https://forge.softwareheritage.org/source/swh-loader-core/browse/master/swh/loader/package/maven/
 
-.. |maven_loader_devdoc| replace:: Developer doc
-.. _maven_loader_devdoc: https://docs.softwareheritage.org/devel/apidoc/swh.loader.package.maven.html
-
 .. |maven_loader_dev| replace:: Development
 .. _maven_loader_dev: https://forge.softwareheritage.org/project/profile/185/
 
@@ -439,9 +412,6 @@ This page references all available loaders and links to their high-level documen
 
 .. |mercurial_loader_source| replace:: Source code
 .. _mercurial_loader_source: https://forge.softwareheritage.org/source/swh-loader-mercurial/
-
-.. |mercurial_loader_devdoc| replace:: Developer doc
-.. _mercurial_loader_devdoc: https://docs.softwareheritage.org/devel/swh-loader-mercurial/index.html
 
 .. |mercurial_loader_dev| replace:: Development
 .. _mercurial_loader_dev: https://forge.softwareheritage.org/project/profile/66/
@@ -456,9 +426,6 @@ This page references all available loaders and links to their high-level documen
 .. |nixguix_loader_source| replace:: Source code
 .. _nixguix_loader_source: https://forge.softwareheritage.org/source/swh-loader-core/browse/master/swh/loader/package/nixguix/
 
-.. |nixguix_loader_devdoc| replace:: Developer doc
-.. _nixguix_loader_devdoc: https://docs.softwareheritage.org/devel/apidoc/swh.loader.package.nixguix.html
-
 .. |nixguix_loader_dev| replace:: Development
 .. _nixguix_loader_dev: https://forge.softwareheritage.org/project/profile/152/
 
@@ -472,9 +439,6 @@ This page references all available loaders and links to their high-level documen
 .. |npm_loader_source| replace:: Source code
 .. _npm_loader_source: https://forge.softwareheritage.org/source/swh-loader-core/browse/master/swh/loader/package/npm/
 
-.. |npm_loader_devdoc| replace:: Developer doc
-.. _npm_loader_devdoc: https://docs.softwareheritage.org/devel/apidoc/swh.loader.package.npm.html
-
 .. |npm_loader_dev| replace:: Development
 .. _npm_loader_dev: https://forge.softwareheritage.org/project/profile/121/
 
@@ -484,9 +448,6 @@ This page references all available loaders and links to their high-level documen
 
 .. |opam_loader_source| replace:: Source code
 .. _opam_loader_source: https://forge.softwareheritage.org/source/swh-loader-core/browse/master/swh/loader/package/opam/
-
-.. |opam_loader_devdoc| replace:: Developer doc
-.. _opam_loader_devdoc: https://docs.softwareheritage.org/devel/apidoc/swh.loader.package.opam.html
 
 .. |opam_loader_dev| replace:: Development
 .. _opam_loader_dev: https://forge.softwareheritage.org/project/profile/167/
@@ -527,9 +488,6 @@ This page references all available loaders and links to their high-level documen
 .. |pypi_loader_source| replace:: Source code
 .. _pypi_loader_source: https://forge.softwareheritage.org/source/swh-loader-core/browse/master/swh/loader/package/pypi/
 
-.. |pypi_loader_devdoc| replace:: Developer doc
-.. _pypi_loader_devdoc: https://docs.softwareheritage.org/devel/apidoc/swh.loader.package.pypi.html
-
 .. |pypi_loader_dev| replace:: Development
 .. _pypi_loader_dev: https://forge.softwareheritage.org/project/profile/88/
 
@@ -549,9 +507,6 @@ This page references all available loaders and links to their high-level documen
 
 .. |subversion_loader_source| replace:: Source code
 .. _subversion_loader_source: https://forge.softwareheritage.org/source/swh-loader-svn/
-
-.. |subversion_loader_devdoc| replace:: Developer doc
-.. _subversion_loader_devdoc: https://docs.softwareheritage.org/devel/swh-loader-svn/index.html
 
 .. |subversion_loader_dev| replace:: Development
 .. _subversion_loader_dev: https://forge.softwareheritage.org/project/profile/37/
