@@ -37,8 +37,12 @@ This page references all available listers and links to their high-level documen
   |                           | * |cgit_lister_devdoc|_        |                              |                                    |
   | :ref:`cgit_lister`        | * |cgit_lister_dev|_           |                              |                                    |
   +---------------------------+--------------------------------+------------------------------+------------------------------------+
-  | |cpan_logo|               | * |cpan_lister_dev|_           | |cpan_lister_status|_        | |cpan_lister_grant|_               |
-  |                           |                                |                              |                                    |
+  | |conda_logo|              | * |conda_lister_source|_       | |conda_lister_status|_       | |conda_lister_grant|_              |
+  |                           | * |conda_lister_dev|_          |                              |                                    |
+  | :ref:`conda_lister`       |                                |                              | (awarded to `Octobus`_)            |
+  +---------------------------+--------------------------------+------------------------------+------------------------------------+
+  | |cpan_logo|               | * |cpan_lister_source|_        | |cpan_lister_status|_        | |cpan_lister_grant|_               |
+  |                           | * |cpan_lister_dev|_           |                              |                                    |
   | :ref:`cpan_lister`        |                                |                              | (awarded to `Octobus`_)            |
   +---------------------------+--------------------------------+------------------------------+------------------------------------+
   | |cran_logo|               | * |cran_lister_source|_        | |cran_lister_status|_        |                                    |
@@ -77,8 +81,8 @@ This page references all available listers and links to their high-level documen
   |                           | * |golang_lister_dev|_         |                              |                                    |
   | :ref:`golang_lister`      |                                |                              | (awarded to `Octobus`_)            |
   +---------------------------+--------------------------------+------------------------------+------------------------------------+
-  | |hackage_logo|            | * |hackage_lister_dev|_        | |hackage_lister_status|_     | |hackage_lister_grant|_            |
-  |                           |                                |                              |                                    |
+  | |hackage_logo|            | * |hackage_lister_source|_     | |hackage_lister_status|_     | |hackage_lister_grant|_            |
+  |                           | * |hackage_lister_dev|_        |                              |                                    |
   | :ref:`hackage_lister`     |                                |                              | (awarded to `Octobus`_)            |
   +---------------------------+--------------------------------+------------------------------+------------------------------------+
   | |launchpad_logo|          | * |launchpad_lister_source|_   | |launchpad_lister_status|_   |                                    |
@@ -105,16 +109,16 @@ This page references all available listers and links to their high-level documen
   |                           | * |pubdev_lister_dev|_         |                              |                                    |
   | :ref:`pubdev_lister`      |                                |                              | (awarded to `Octobus`_)            |
   +---------------------------+--------------------------------+------------------------------+------------------------------------+
-  | |puppet_logo|             | * |puppet_lister_dev|_         | |puppet_lister_status|_      | |puppet_lister_grant|_             |
-  |                           |                                |                              |                                    |
+  | |puppet_logo|             | * |puppet_lister_source|_      | |puppet_lister_status|_      | |puppet_lister_grant|_             |
+  |                           | * |puppet_lister_dev|_         |                              |                                    |
   | :ref:`puppet_lister`      |                                |                              | (awarded to `Octobus`_)            |
   +---------------------------+--------------------------------+------------------------------+------------------------------------+
   | |pypi_logo|               | * |pypi_lister_source|_        | |pypi_lister_status|_        |                                    |
   |                           | * |pypi_lister_devdoc|_        |                              |                                    |
   | :ref:`pypi_lister`        | * |pypi_lister_dev|_           |                              |                                    |
   +---------------------------+--------------------------------+------------------------------+------------------------------------+
-  | |rubygems_logo|           | * |rubygems_lister_dev|_       | |rubygems_lister_status|_    | |rubygems_lister_grant|_           |
-  |                           |                                |                              |                                    |
+  | |rubygems_logo|           | * |rubygems_lister_source|_    | |rubygems_lister_status|_    | |rubygems_lister_grant|_           |
+  |                           | * |rubygems_lister_dev|_       |                              |                                    |
   | :ref:`rubygems_lister`    |                                |                              | (awarded to `Octobus`_)            |
   +---------------------------+--------------------------------+------------------------------+------------------------------------+
   | |sourceforge_logo|        | * |sourceforge_lister_source|_ | |sourceforge_lister_status|_ | |sourceforge_lister_grant|_        |
@@ -137,6 +141,7 @@ This page references all available listers and links to their high-level documen
   bitbucket
   bower
   cgit
+  conda
   cpan
   cran
   crates
@@ -185,6 +190,11 @@ This page references all available listers and links to their high-level documen
   :width: 50%
   :target: cgit.html
   :alt: Cgit lister
+
+.. |conda_logo| image:: ../logos/conda.png
+  :width: 50%
+  :target: conda.html
+  :alt: Conda lister
 
 .. |cpan_logo| image:: ../logos/cpan.png
   :width: 50%
@@ -346,8 +356,8 @@ This page references all available listers and links to their high-level documen
 .. |bower_lister_dev| replace:: Development
 .. _bower_lister_dev: https://forge.softwareheritage.org/project/profile/194/
 
-.. |bower_lister_status| replace:: in development
-.. _bower_lister_status: https://forge.softwareheritage.org/T4475
+.. |bower_lister_status| replace:: in staging
+.. _bower_lister_status: https://webapp.staging.swh.network/coverage/?focus=bower#bower
 
 .. |bower_lister_grant| replace:: NLnet Foundation
 .. _bower_lister_grant: https://nlnet.nl/project/SWH-PackageManagers/index.html
@@ -365,6 +375,22 @@ This page references all available listers and links to their high-level documen
 .. |cgit_lister_status| replace:: in production
 .. _cgit_lister_status: https://archive.softwareheritage.org/coverage/?focus=cgit#cgit
 
+
+.. |conda_lister_source| replace:: Source code
+.. _conda_lister_source: https://forge.softwareheritage.org/source/swh-lister/browse/master/swh/lister/conda/
+
+.. |conda_lister_dev| replace:: Development
+.. _conda_lister_dev: https://forge.softwareheritage.org/project/profile/204/
+
+.. |conda_lister_status| replace:: in development
+.. _conda_lister_status: https://forge.softwareheritage.org/T4547
+
+.. |conda_lister_grant| replace:: NLnet Foundation
+.. _conda_lister_grant: https://nlnet.nl/project/SWH-PackageManagers/index.html
+
+
+.. |cpan_lister_source| replace:: Source code
+.. _cpan_lister_source: https://forge.softwareheritage.org/source/swh-lister/browse/master/swh/lister/cpan/
 
 .. |cpan_lister_dev| replace:: Development
 .. _cpan_lister_dev: https://forge.softwareheritage.org/project/profile/199/
@@ -480,12 +506,15 @@ This page references all available listers and links to their high-level documen
 .. |golang_lister_dev| replace:: Development
 .. _golang_lister_dev: https://forge.softwareheritage.org/project/profile/195/
 
-.. |golang_lister_status| replace:: in development
-.. _golang_lister_status: https://forge.softwareheritage.org/T4124
+.. |golang_lister_status| replace:: in staging
+.. _golang_lister_status: https://webapp.staging.swh.network/coverage/?focus=golang#golang
 
 .. |golang_lister_grant| replace:: NLnet Foundation
 .. _golang_lister_grant: https://nlnet.nl/project/SWH-PackageManagers/index.html
 
+
+.. |hackage_lister_source| replace:: Source code
+.. _hackage_lister_source: https://forge.softwareheritage.org/source/swh-lister/browse/master/swh/lister/hackage/
 
 .. |hackage_lister_dev| replace:: Development
 .. _hackage_lister_dev: https://forge.softwareheritage.org/project/profile/202/
@@ -516,8 +545,8 @@ This page references all available listers and links to their high-level documen
 .. |maven_lister_dev| replace:: Development
 .. _maven_lister_dev: https://forge.softwareheritage.org/project/profile/184/
 
-.. |maven_lister_status| replace:: in staging
-.. _maven_lister_status: https://webapp.staging.swh.network/coverage/?focus=maven#maven
+.. |maven_lister_status| replace:: in production
+.. _maven_lister_status: https://archive.softwareheritage.org/coverage/?focus=maven#maven
 
 .. |maven_lister_grant| replace:: Alfred P. Sloan Foundation
 .. _maven_lister_grant: https://www.softwareheritage.org/2021/07/22/archiving-the-maven-ecosystem/
@@ -575,12 +604,15 @@ This page references all available listers and links to their high-level documen
 .. |pubdev_lister_dev| replace:: Development
 .. _pubdev_lister_dev: https://forge.softwareheritage.org/project/profile/192/
 
-.. |pubdev_lister_status| replace:: in development
-.. _pubdev_lister_status: https://forge.softwareheritage.org/T4465
+.. |pubdev_lister_status| replace:: in staging
+.. _pubdev_lister_status: https://webapp.staging.swh.network/coverage/?focus=pubdev#pubdev
 
 .. |pubdev_lister_grant| replace:: NLnet Foundation
 .. _pubdev_lister_grant: https://nlnet.nl/project/SWH-PackageManagers/index.html
 
+
+.. |puppet_lister_source| replace:: Source code
+.. _puppet_lister_source: https://forge.softwareheritage.org/source/swh-lister/browse/master/swh/lister/puppet/
 
 .. |puppet_lister_dev| replace:: Development
 .. _puppet_lister_dev: https://forge.softwareheritage.org/project/profile/200/
@@ -604,6 +636,9 @@ This page references all available listers and links to their high-level documen
 .. |pypi_lister_status| replace:: in production
 .. _pypi_lister_status: https://archive.softwareheritage.org/coverage/?focus=pypi#pypi
 
+
+.. |rubygems_lister_source| replace:: Source code
+.. _rubygems_lister_source: https://forge.softwareheritage.org/source/swh-lister/browse/master/swh/lister/rubygems/
 
 .. |rubygems_lister_dev| replace:: Development
 .. _rubygems_lister_dev: https://forge.softwareheritage.org/project/profile/201/
