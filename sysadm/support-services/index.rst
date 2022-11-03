@@ -1,7 +1,7 @@
 Support services
 ================
 
+.. toctree::
+   :maxdepth: 2
 
-
-.. todo::
-   This page is a work in progress.
+   gitlab/index
