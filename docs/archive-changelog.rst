@@ -9,14 +9,46 @@ archival policies in the Software Heritage Archive. Each of them might have
 anomalies or other changes in archival behavior over time. They are collected
 in this document for historical reasons.
 
+2023
+----
+
+* **2023-01-03** Completed first archival of `DeuxFleurs's gitea forge
+  <https://git.deuxfleurs.fr>`_, as requested via `Add forge now`_.
+  Regular crawling of its repositories enabled
+  (tracking: `#4686 <https://gitlab.softwareheritage.org/infra/sysadm-environment/-/issues/4686>`_)
+
+* **2023-01-03** Completed first archival of `Minetest Land's gitea forge
+  <https://git.minetest.land>`_, as requested via `Add forge now`_.
+  Regular crawling of its repositories enabled
+  (tracking: `#4684 <https://gitlab.softwareheritage.org/infra/sysadm-environment/-/issues/4684>`_)
 
 2022
 ----
+
+* **2022-11-13** Completed first archival of `Jey Hess's git repositories
+  <https://git.joeyh.name/>`_, as requested via `Add forge now`_.
+  Regular crawling of its repositories enabled
+  (tracking: `#4666 <https://gitlab.softwareheritage.org/infra/sysadm-environment/-/issues/4666>`_)
+
+* **2022-11-13** Completed first archival of `Gitlab forge of Université de Lille
+  <https://gitlab.univ-lille.fr/explore>`_, as requested via `Add forge now`_.
+  Regular crawling of its repositories enabled
+  (tracking: `#4668 <https://gitlab.softwareheritage.org/infra/sysadm-environment/-/issues/4668>`_)
+
+* **2022-11-13** Completed first archival of `OpenWork Ltd's and Adrian Cochrane's projects
+  <https://git.adrian.geek.nz/>`_, as requested via `Add forge now`_.
+  Regular crawling of its repositories enabled
+  (tracking: `#4667 <https://gitlab.softwareheritage.org/infra/sysadm-environment/-/issues/4667>`_)
 
 * **2022-11-04** Deployed improvements to the Git loader that result in a 3-5x
   increase in the throughput of Git repository archival. As a result of this
   the crawling frequency of Git repositories will also increase.
   (tracking: `D8808 <https://forge.softwareheritage.org/D8808>`_)
+
+* **2022-11-03** Completed first archival of the `Gentoo forge
+  <https://gitweb.gentoo.org/>`_, as requested via `Add forge now`_.
+  Regular crawling of its repositories enabled
+  (tracking: `#4648 <https://gitlab.softwareheritage.org/infra/sysadm-environment/-/issues/4648>`_)
 
 * **2022-09-27** Completed first archival of the `Gitgud forge
   <https://gitgud.io/>`_, as requested via `Add forge now`_.
