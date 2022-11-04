@@ -135,3 +135,72 @@ You can find some other applications used to deploy helm based services in the r
 
 More information about the application configuration can also be found in the `official ArgoCD documentation <https://argo-cd.readthedocs.io/en/stable/operator-manual/declarative-setup/>`__
 
+Manage users
+------------
+
+This documentation is based on the `official user management documentation <https://archive.softwareheritage.org/swh:1:cnt:c0a70eae47429de31f5eb3eb707ad2a498bee0ab;origin=https://github.com/argoproj/argo-cd;visit=swh:1:snp:2ea44c7c86241d081851907e778a41260304d898;anchor=swh:1:rev:a773b1effb6f59be14176c6402a9a69c4b480275;path=/docs/operator-manual/user-management/index.md>`__ (archived link)
+
+Prerequisite
+~~~~~~~~~~~~
+
+The argocd cli will be necessary to perform some action relative to the user management.
+
+Add a user
+~~~~~~~~~~
+
+- Add the user on the `argo-cm.yaml <https://gitlab.softwareheritage.org/infra/ci-cd/k8s-clusters-conf/-/blob/87aa53624d61601b31697d312254aa3c57a6227d/argocd/configmaps/argocd-cm.yaml>`__ file
+- Add the user role on the `argocd-rbac-cm.yaml <https://gitlab.softwareheritage.org/infra/ci-cd/k8s-clusters-conf/-/blob/87aa53624d61601b31697d312254aa3c57a6227d/argocd/configmaps/argocd-rbac-cm.yaml>`__ file
+  If no role is specified, the user will only have a read-only access
+
+.. code:: yaml
+
+  g, <user>, role:admin
+
+- Commit and push your changes, wait a couple of minutes to let ArgoCD apply the changes
+- Modify the user password with the cli
+
+.. code:: bash
+
+    $ # Check the user is created
+    $ argocd --grpc-web account list
+    NAME      ENABLED  CAPABILITIES
+    admin     true     login
+    newuser   true     apiKey, login
+    $ # update its password
+    $ argocd --grpc-web account update-password --account newuser
+    *** Enter password of currently logged in user (admin):
+    *** Enter new password for user newuser: XXX
+    *** Confirm new password for user newuser: XXX
+    Password updated
+
+Disable a user
+~~~~~~~~~~~~~~
+
+- Add the following line in the `argocd-cm.yaml <https://gitlab.softwareheritage.org/infra/ci-cd/k8s-clusters-conf/-/blob/87aa53624d61601b31697d312254aa3c57a6227d/argocd/configmaps/argocd-cm.yaml>`__ file
+
+.. code:: yaml
+
+    accounts.usertodisable.enabled: "false"
+
+- Commit and push your change, wait a couple of minutes to let ArgoCD apply the changes
+- Ensure the user is disabled
+
+.. code:: bash
+
+    $ argocd --grpc-web account list
+    NAME           ENABLED  CAPABILITIES
+    admin          true     login
+    usertodisable  false    apiKey, login
+
+Delete a user
+~~~~~~~~~~~~~
+
+- Remove the changes committed in the `Add a user` procedure
+- Commit and push your changes, wait a couple of minutes to let ArgoCD apply the changes
+- Ensure the user is deleted
+
+.. code:: bash
+
+    $ argocd --grpc-web account list
+    NAME           ENABLED  CAPABILITIES
+    admin          true     login
