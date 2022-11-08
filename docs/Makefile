@@ -16,7 +16,8 @@ APIDOC_DIR = apidoc
 APIDOC_OPTS = --ext-viewcode --separate --no-toc
 APIDOC_EXCLUDES = */tests */tests/* */*/tests/* */*/*/tests/*
 APIDOC_EXCLUDES += */migrations */migrations/* */*/migrations/* */*/*/migrations/*
-APIDOC_EXCLUDES += */wsgi.py */*/wsgi.py */*/*/wsgi.py */*/*/wsgi.py
+APIDOC_EXCLUDES += */wsgi.py */*/wsgi.py */*/*/wsgi.py
+APIDOC_EXCLUDES += */conftest.py */*/conftest.py */*/*/conftest.py
 APIDOC_EXCLUDES += deposit/settings/* web/settings/* dataset/*
 APIDOC_SWH_EXCLUDES = $(patsubst %,$(SWHPKGDIR)/%,$(APIDOC_EXCLUDES))
 
