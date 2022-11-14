@@ -167,7 +167,7 @@ KPIs
 Up-to-date anonymized archive copy on Amazon S3 (except blobs)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-- Lead: seirl
+- Lead: vlorentz (originally seirl)
 - Tags: 2021, archivecopy
 - Task: `T3085 <https://forge.softwareheritage.org/T3085>`__
 - Effort: 3 PM
@@ -761,7 +761,7 @@ KPIs:
 Graph compression in production
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-- Lead: seirl
+- Lead: vlorentz (originally seirl)
 - Tags: 2021, graph compression
 - Task:`T2220 <https://forge.softwareheritage.org/T2220>`__
 - Effort: 2 PM
