@@ -13,6 +13,11 @@ in this document for historical reasons.
 2022
 ----
 
+* **2022-11-04** Deployed improvements to the Git loader that result in a 3-5x
+  increase in the throughput of Git repository archival. As a result of this
+  the crawling frequency of Git repositories will also increase.
+  (tracking: `D8808 <https://forge.softwareheritage.org/D8808>`_)
+
 * **2022-09-27** Completed first archival of the `Gitgud forge
   <https://gitgud.io/>`_, as requested via `Add forge now`_.
   Regular crawling of its repositories enabled
