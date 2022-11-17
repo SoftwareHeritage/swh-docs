@@ -10,10 +10,11 @@ SPHINX_BUILDDIR = _build
 SPHINX_SRCDIR = .
 
 # relative to docs/ dir. Hence "." exclude the docs/ dir itself
-APIDOC_EXCLUDES = . ../setup.py ../conftest.py ../swh/*/conftest.py
-APIDOC_EXCLUDES += ../swh/*/tests ../swh/*/tests/* ../swh/*/*/tests/* ../swh/*/*/*/tests/*
-APIDOC_EXCLUDES += ../swh/*/migrations ../swh/*/migrations/* ../swh/*/*/migrations/* ../swh/*/*/*/migrations/*
-APIDOC_EXCLUDES += ../bin ../dist ../utils ../node_modules
+APIDOC_EXCLUDES = conftest.py setup.py
+APIDOC_EXCLUDES += */tests/* */migrations/* */wsgi.py */conftest.py
+APIDOC_EXCLUDES += deposit/settings/* web/settings/* dataset/*
+APIDOC_EXCLUDES += bin build dist utils node_modules
+APIDOC_SWH_EXCLUDES = $(patsubst %,"../%",$(APIDOC_EXCLUDES))
 
 html: sphinx/html
 help: sphinx/help
@@ -27,13 +28,13 @@ apidoc_dep = apidoc-stamp
 endif
 
 sphinx/clean:
-	$(SPHINXBUILD) -M clean $(SPHINX_SRCDIR) $(SPHINX_BUILDDIR) $(SPHINXOPTS)
+	$(SPHINXBUILD) -M clean $(SPHINX_SRCDIR) $(SPHINX_BUILDDIR) $(SPHINX_OPTS)
 sphinx/%: $(apidoc_dep)
-	$(SPHINXBUILD) -b $* $(SPHINX_SRCDIR) $(SPHINX_BUILDDIR)/$* $(SPHINXOPTS)
+	$(SPHINXBUILD) -b $* $(SPHINX_SRCDIR) $(SPHINX_BUILDDIR)/$* $(SPHINX_OPTS)
 
 apidoc: $(apidoc_dep)
 apidoc-stamp:
-	$(SPHINXAPIDOC) $(APIDOC_OPTS) -o $(APIDOC_DIR) .. $(APIDOC_EXCLUDES)
+	$(SPHINXAPIDOC) $(APIDOC_OPTS) -o $(APIDOC_DIR) .. $(APIDOC_SWH_EXCLUDES)
 	# to silent Sphinx warnings about apidoc documents not included in any toctree
 	find $(shell pwd)/apidoc -name "*.rst" | xargs sed -i '1i:orphan:\n'
 	touch $@
