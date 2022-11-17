@@ -1,5 +1,16 @@
 .. _puppet_integration_of_third_party_puppet_modules:
 
+.. admonition:: Intended audience
+   :class: important
+
+   staff members with enough permissions to deploy
+
+.. admonition:: Warning
+   :class: warning
+
+   Deprecated documentation. Since we migrated to gitlab, the referenced script must be
+   adapted to work with it.
+
 How to manage Third-Party modules
 =================================
 
@@ -17,6 +28,7 @@ specifier.
 
 Adding a new external puppet module
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 
 In the *puppet-environment* repository, the ``bin/import-puppet-module`` takes care of
 the following tasks:
@@ -49,7 +61,7 @@ Example usage to pull the `elastic/elasticsearch
    git push
 
 Once the module is added, you need to register it in the *swh-site* `Puppetfile
-<https://forge.softwareheritage.org/source/puppet-swh-site/browse/production/Puppetfile>`_.
+<https://gitlab.softwareheritage.org/infra/puppet/puppet-swh-site/-/blob/production/Puppetfile>`_.
 
 You should also check in the module metadata whether any dependencies need importing as
 well, which you should do using the same procedure.
