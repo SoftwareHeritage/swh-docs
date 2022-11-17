@@ -21,7 +21,7 @@ README file.
 
 ::
 
-   $ git clone ssh://git@forge.softwareheritage.org/diffusion/SENV/puppet-environment.git
+   $ git clone git@gitlab.softwareheritage.org:infra/puppet/puppet-environment.git
 
 Then, use that configuration to clone all the repositories:
 
@@ -40,7 +40,7 @@ repositories come from other sources and have an *upstream* remote allowing upda
 
 Our puppet workflow is documented in `the README.md file in the puppet-environment
 repository
-<https://forge.softwareheritage.org/diffusion/SENV/browse/master/README.md>`_.
+<https://gitlab.softwareheritage.org/infra/puppet/puppet-environment/-/blob/master/README.md>`_.
 
 .. _configure_octocatalog_diff:
 
@@ -82,4 +82,4 @@ Limitations
 Our setup for octocatalog-diff doesn't support exported resources, so you won't see your
 fancy icinga checks there. For more evolved checks as those, use our `vagrant vms
 definitions
-<https://forge.softwareheritage.org/source/puppet-environment/browse/master/README.md$187>`_.
+<https://gitlab.softwareheritage.org/infra/puppet/puppet-environment/-/blob/master/README.md?plain=1#L187>`_.
