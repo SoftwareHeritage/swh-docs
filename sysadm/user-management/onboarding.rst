@@ -56,6 +56,11 @@ Technical setup
    - add user to phabricator `projects <https://forge.softwareheritage.org/project/>`_:
      Developers, Staff, Reviewers, Interns (if applicable)
 
+- Create `Gitlab`_ account
+
+    - add user to the `Staff group <https://gitlab.softwareheritage.org/groups/teams/staff/-/group_members>`_
+    - TODO: Define further group memberships for new users
+
 - `VPN <https://intranet.softwareheritage.org/wiki/VPN>`_ access
 - HTTP auth credentials for the `intranet wiki`_
 - Create account on the `intranet wiki`_ and ask someone to give you the shared auth credentials
@@ -108,3 +113,4 @@ See also
 .. _intranet wiki: https://intranet.softwareheritage.org
 .. _public wiki: https://wiki.softwareheritage.org
 .. _Phabricator: https://forge.softwareheritage.org
+.. _Gitlab: https://gitlab.softwareheritage.org
