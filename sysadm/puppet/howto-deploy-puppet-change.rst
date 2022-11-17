@@ -34,7 +34,7 @@ Semi-automated
    you@localhost$ cd puppet-environment
    you@localhost$ bin/deploy-on machine1 machine2...
 
-Note: `puppet-environment <https://forge.softwareheritage.org/diffusion/SENV/>`_
+Note: `puppet-environment <https://gitlab.softwareheritage.org/infra/puppet/puppet-environment>`_
 
 Remember to pass ``--apt`` to ``bin/deploy-on`` if freshly uploaded Software Heritage
 packages are to be deployed. Also, ``bin/deploy-on --help`` is your friend.

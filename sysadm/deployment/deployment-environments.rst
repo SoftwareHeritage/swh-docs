@@ -26,7 +26,7 @@ Provisioning source
 
 The source for the provisioning of those nodes is declared in the
 `swh-sysadmin-provisioning
-<https://forge.softwareheritage.org/source/swh-sysadmin-provisioning/browse/master/proxmox/terraform/staging/>`__
+<https://gitlab.softwareheritage.org/infra/swh-sysadmin-provisioning/-/tree/master/proxmox/terraform/staging/>`__
 repository. Its source code is a mix of `terraform <https://www.terraform.io/>`__ with
 `terraform-proxmox <https://github.com/Telmate/terraform-provider-proxmox>`__ plugin
 DSL.
@@ -37,7 +37,7 @@ Configuration source
 ^^^^^^^^^^^^^^^^^^^^
 
 The source for the configuration of those nodes is our `puppet manifest swh-site
-repository <https://forge.softwareheritage.org/source/puppet-swh-site/>`__ on the
+repository <https://gitlab.softwareheritage.org/infra/puppet/puppet-swh-site/>`__ on the
 *staging* branch (for the production nodes, it's the *production* branch).
 
 Access
