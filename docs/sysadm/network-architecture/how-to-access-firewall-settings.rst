@@ -33,7 +33,7 @@ Access to the gui of the secondary firewall
 -------------------------------------------
 
 The secondary firewall is not directly reachable for VPN user. As the OpenVPN service is
-also running when the firewall is a backup, the packets coming from tne VPN are routed
+also running when the firewall is a backup, the packets coming from the VPN are routed
 to the local VPN on the secondary and lost.
 
 To access to GUI, a tunnel can be used:

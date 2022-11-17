@@ -7,6 +7,8 @@ all:
 	@echo Please be patient.
 	tox -vv -r -e sphinx-dev
 
+clean:
+	make -C docs clean
 
 # inline *build* dependencies to allow installing requirements-swh-dev.txt without build
 # isolation

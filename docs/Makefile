@@ -1,74 +1,44 @@
-SPHINXOPTS ?=
-SPHINXOPTCOLOR ?= --color
-SPHINXBUILD = sphinx-build
-SOURCEDIR = .
-BUILDDIR = _build
-HTMLDIR = $(BUILDDIR)/html
-SWHPKGDIR ?= sources/swh/
+# Minimal makefile for Sphinx documentation
+#
 
-INSTALL_HOST = pergamon.internal.softwareheritage.org
-INSTALL_DIR = /srv/softwareheritage/docs/webroot/devel
+# You can set these variables from the command line, and also
+# from the environment for the first two.
+SPHINXOPTS  ?=
+SPHINXBUILD ?= sphinx-build
+SOURCEDIR    = .
+BUILDDIR     = _build
+HTMLDIR      = $(BUILDDIR)/html
+
+INSTALL_HOST  = pergamon.internal.softwareheritage.org
+INSTALL_DIR   = /srv/softwareheritage/docs/webroot
 INSTALL_GROUP = swhdev
 INSTALL_PERMS = g+rwX
 
-SPHINXAPIDOC = sphinx-apidoc
-APIDOC_DIR = apidoc
-APIDOC_OPTS = --ext-viewcode --separate --no-toc
-APIDOC_EXCLUDES = */tests */migrations */wsgi.py */conftest.py */setup.py
-APIDOC_EXCLUDES += deposit/settings/* web/settings/* dataset/*
-APIDOC_SWH_EXCLUDES = $(patsubst %,"$(SWHPKGDIR)/%",$(APIDOC_EXCLUDES))
+.PHONY: help images apidoc html clean install
+
+all: html
+
+# Catch-all target: route all unknown targets to Sphinx using the new
+# "make mode" option.  $(O) is meant as a shortcut for $(SPHINXOPTS).
+sphinx/%: Makefile images apidoc
+	@$(SPHINXBUILD) -M $* "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
+
+sphinx/clean:
+	@$(SPHINXBUILD) -M clean "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
+
+images:
+	$(MAKE) -C devel images-stamp
+	$(MAKE) -C sysadm images-stamp
+
+apidoc:
+	$(MAKE) -C devel apidoc
 
 html: sphinx/html
 
-sphinx/html: links-stamp apidoc-stamp images-stamp rec-build-stamp
-
-links-stamp:
-	mkdir -p sources/swh
-	bin/ln-sphinx-subprojects
-	touch $@
-
-apidoc: apidoc-stamp
-apidoc-stamp: links-stamp
-	$(SPHINXAPIDOC) \
-		--implicit-namespaces \
-		--templatedir=../swh/docs/templates/ \
-		--maxdepth=3 \
-		$(APIDOC_OPTS) \
-		-o $(APIDOC_DIR) \
-		$(SWHPKGDIR) \
-		$(APIDOC_SWH_EXCLUDES)
-	touch $@
-	# remove warning about swh.rst not being included in any toctree
-	sed -i '1s/^/:orphan:\n\n/' $(APIDOC_DIR)/swh.rst
-
-images-stamp:
-	$(MAKE) -C images
-	$(MAKE) -C swh-deposit/images
-	touch $@
-
-# Build documentation recursively in all packages, to make sure that auxiliary,
-# non-sphinx managed documentation artifacts (e.g., schema diagrams) are also
-# built.
-rec-build-stamp: $(wildcard ../../swh-*/docs/*.rst)
-	$(MAKE) -C ../../ docs-assets
-	touch $@
-
 clean: sphinx/clean
-	bin/ln-sphinx-subprojects --remove
-	$(MAKE) -C images clean
-	rm -f *-stamp
-	rm -f $(APIDOC_DIR)/*
-
-distclean: clean
-	make -C ../../ docs-clean
-
-help: sphinx/help
-
-sphinx/clean:
-	$(SPHINXBUILD) -M clean "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(SPHINXOPTCOLOR)
-
-sphinx/%:
-	$(SPHINXBUILD) -b $* "$(SOURCEDIR)" "$(BUILDDIR)/$*" $(SPHINXOPTS) $(SPHINXOPTCOLOR)
+	$(MAKE) -C devel clean
+	$(MAKE) -C sysadm clean
+	$(MAKE) -C user clean
 
 install: html
 	test -d $(HTMLDIR)
@@ -77,5 +47,3 @@ install: html
 		"find $(INSTALL_DIR) -not -group $(INSTALL_GROUP) -exec chgrp -v $(INSTALL_GROUP) {} + ; \
 		 find $(INSTALL_DIR) -not -perm -ug=rw,o=r -exec chmod -v ug+rw,o+r {} + ; \
 		 find $(INSTALL_DIR) -type d -not -perm -g=xs,ou=x -exec chmod -v g+xs,ou+x {} +"
-
-.PHONY: help html clean distclean install images-stamp

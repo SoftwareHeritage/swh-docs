@@ -8,8 +8,8 @@ Deploy a Software Heritage stack with docker deploy
 
    mirror operators
 
-Prerequisities
---------------
+Prerequisites
+-------------
 
 We assume that you have a properly set up docker swarm cluster with support for
 the `docker stack deploy

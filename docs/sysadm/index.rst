@@ -1,5 +1,7 @@
-Welcome to the Software Heritage sysadmin documentation
-=======================================================
+.. _swh-docs-sysadm:
+
+Software Heritage - Sysadmin Documentation
+==========================================
 
 .. toctree::
    :maxdepth: 2
@@ -16,9 +18,10 @@ Welcome to the Software Heritage sysadmin documentation
    mirror-operations/index
    support-services/index
 
+.. only:: sysadm_doc
 
-Indices and tables
-==================
+   Indices and tables
+   ------------------
 
-* :ref:`genindex`
-* :ref:`search`
+   * :ref:`genindex`
+   * :ref:`search`

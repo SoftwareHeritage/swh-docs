@@ -10,6 +10,7 @@
 ../swh-deposit[server]
 ../swh-fuse
 ../swh-graph[luigi]
+../swh-graphql
 ../swh-icinga-plugins
 ../swh-indexer
 ../swh-journal

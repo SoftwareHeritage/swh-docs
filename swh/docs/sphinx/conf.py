@@ -1,6 +1,7 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-#
+# Copyright (C) 2017-2022  The Software Heritage developers
+# See the AUTHORS file at the top-level directory of this distribution
+# License: GNU Affero General Public License version 3, or any later version
+# See top-level LICENSE file for more information
 
 import logging
 import os
@@ -11,7 +12,7 @@ from sphinx.ext import autodoc
 from swh.docs.django_settings import force_django_settings
 
 # General information about the project.
-project = "Software Heritage - Development Documentation"
+project = "Software Heritage - Documentation"
 copyright = "2015-2022  The Software Heritage developers"
 author = "The Software Heritage developers"
 
@@ -56,9 +57,14 @@ master_doc = "index"
 # A string of reStructuredText that will be included at the beginning of every
 # source file that is read.
 # A bit hackish but should work both for each swh package and the whole swh-doc
-rst_prolog = """
-.. include:: /../../swh-docs/docs/swh_substitutions
-"""
+if os.path.exists("../../docs/swh_substitutions"):
+    rst_prolog = """
+    .. include:: /../../docs/swh_substitutions
+    """
+elif os.path.exists("../../swh-docs/docs/swh_substitutions"):
+    rst_prolog = """
+    .. include:: /../../swh-docs/docs/swh_substitutions
+    """
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
@@ -81,9 +87,8 @@ language = "en"
 # This patterns also effect to html_static_path and html_extra_path
 exclude_patterns = [
     "_build",
-    "swh-icinga-plugins/index.rst",
-    "swh.loader.cvs.rcsparse.setup.rst",
-    "apidoc/swh.loader.cvs.rcsparse.setup.rst",
+    "**swh-icinga-plugins/index.rst",
+    "**swh.loader.cvs.rcsparse.setup.rst",
     "**/swh/lister/maven/README.md",
     "**/swh/loader/cvs/cvs2gitdump/README.md",
     "**/swh/web/tests/resources/contents/code/extensions/test.md",
@@ -202,10 +207,6 @@ swh_package_doc_tox_build = os.environ.get("SWH_PACKAGE_DOC_TOX_BUILD", False)
 # documentation with tox to remove warnings and suppress
 # those related to unresolved references
 if swh_package_doc_tox_build:
-    swh_substitutions = os.path.join(
-        os.path.dirname(__file__), "../../../docs/swh_substitutions"
-    )
-    rst_prolog = f".. include:: /{swh_substitutions}"
     suppress_warnings = ["ref.ref"]
     html_favicon = ""
     html_logo = ""
@@ -259,7 +260,7 @@ def set_django_settings(app, env, docname):
 def add_glossary_to_index(app, docname, source):
     if docname == "index":
         glossary_path = os.path.join(
-            os.path.dirname(__file__), "../../../docs/glossary.rst"
+            os.path.dirname(__file__), "../../../docs/devel/glossary.rst"
         )
         with open(glossary_path, "r") as glossary:
             source[0] += "\n" + glossary.read()

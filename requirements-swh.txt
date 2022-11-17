@@ -6,6 +6,7 @@ swh.dataset[luigi]
 swh.deposit[server]
 swh.fuse
 swh.graph[luigi]
+swh.graphql
 swh.indexer
 swh.journal
 swh.lister

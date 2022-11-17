@@ -1,0 +1,39 @@
+#!/bin/bash
+set -e
+
+create_links () {
+    mkdir -p sources
+    for pymodule in $(cd ../../../ && bin/ls-py-modules) ; do
+        if [ "$pymodule" = 'swh-docs' ] ; then
+            continue
+        fi
+        if [ ! -e "$pymodule" -a -d "../../../${pymodule}/docs" ] ; then
+            ln -s "../../../${pymodule}/docs" "$pymodule"
+        fi
+        if [ -f "$pymodule/images/Makefile" ] ; then
+            make -C $pymodule images
+        fi
+        if [ -d "../../../${pymodule}/swh" ] ; then
+            cp -r -f --symbolic-link $(realpath ../../../${pymodule}/swh/*) sources/swh/
+        fi
+    done
+}
+
+remove_links () {
+    for pymodule in $(cd ../../../ && bin/ls-py-modules) ; do
+        if [ "$pymodule" = 'swh-docs' ] ; then
+            continue
+        fi
+        if [ -L "$pymodule" ] ; then
+            make -C $pymodule clean
+            rm "$pymodule"
+        fi
+    done
+    rm -rf sources/swh/
+}
+
+if [ "$1" = "--remove" ] ; then
+    remove_links
+else
+    create_links
+fi

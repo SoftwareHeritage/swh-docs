@@ -1,5 +1,5 @@
 *-stamp
 _build/
-/swh-*
+devel/swh-*
 !/swh-loader.rst
 sources/
