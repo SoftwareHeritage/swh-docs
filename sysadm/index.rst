@@ -5,6 +5,7 @@ Welcome to the Software Heritage sysadmin documentation
    :maxdepth: 2
    :caption: Contents:
 
+   getting-started/index
    puppet/index
    network-architecture/index
    server-architecture/index

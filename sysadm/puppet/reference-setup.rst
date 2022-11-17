@@ -8,31 +8,12 @@ Puppet setup
 
    sysadm members
 
-.. _mutiple_repository_setup:
+.. _puppet_multiple_repository_setup:
 
 Multiple repository setup
 -------------------------
 
-Our puppet environment is split into multiple repos (one repo per module), plus one
-"root" repository for multi-repository management.
-
-First, clone the base repository, containing the configuration file for myrepos and a
-README file.
-
-::
-
-   $ git clone git@gitlab.softwareheritage.org:infra/puppet/puppet-environment.git
-
-Then, use that configuration to clone all the repositories:
-
-::
-
-   $ cd puppet-environment
-   $ readlink -f .mrconfig >> ~/.mrtrust
-   $ mr up
-
-(the *mr* command is in the `myrepos Debian package
-<https://packages.debian.org/buster/myrepos>`_).
+Report to :ref:`setup-repositories` to prepare your machine with puppet-environment.
 
 All the swh-specific repositories are in *swh-*-prefixed repositories. The other
 repositories come from other sources and have an *upstream* remote allowing updates (the
