@@ -6,4 +6,4 @@ How to provision a new VM
 .. todo::
    This page is a work in progress. Please refer to the `existing documentation`_.
 
-.. _existing documentation: https://forge.softwareheritage.org/source/swh-sysadmin-provisioning/browse/master/proxmox/terraform/
+.. _existing documentation: https://gitlab.softwareheritage.org/infra/swh-sysadmin-provisioning/-/tree/master/proxmox/terraform
