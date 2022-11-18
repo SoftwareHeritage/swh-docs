@@ -8,7 +8,7 @@ Reference: Deployment Environments
 
    sysadm staff members
 
-We have 2 main environments for deployment:
+We have 2 deployment environments:
 
 - staging
 - production
@@ -20,7 +20,7 @@ Staging nodes are currently running in the `hypervisor pompidou
 <https://pompidou.internal.softwareheritage.org:8006/#v1:0:18:4:::::::>`__.
 
 The environment components are listed in `the inventory
-<https://inventory.internal.softwareheritage.org/tenancy/tenants/swh-staging/>`__
+<https://inventory.internal.admin.swh.network/tenancy/tenants/1/>`__
 
 |staging_environment|
 
@@ -58,6 +58,9 @@ are ssh accessible like the production ones as long as you have `vpn access
 
 Production Environment
 ----------------------
+
+The environment components are listed in `the inventory
+<https://inventory.internal.admin.swh.network/tenancy/tenants/2/>`__
 
 .. todo::
    This section is a work in progress.
