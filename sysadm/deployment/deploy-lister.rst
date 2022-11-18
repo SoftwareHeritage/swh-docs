@@ -3,6 +3,11 @@
 How to deploy a new lister
 ==========================
 
+.. admonition:: Intended audience
+   :class: important
+
+   sysadm staff members
+
 This page describes step by step how to deploy and initialize a new lister on the
 staging infractucture.
 

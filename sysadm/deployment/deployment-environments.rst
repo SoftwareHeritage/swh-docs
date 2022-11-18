@@ -3,6 +3,11 @@
 Reference: Deployment Environments
 ==================================
 
+.. admonition:: Intended audience
+   :class: important
+
+   sysadm staff members
+
 We have 2 main environments for deployment:
 
 - staging
