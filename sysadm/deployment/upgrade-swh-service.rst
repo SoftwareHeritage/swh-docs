@@ -18,10 +18,10 @@ There exists currently 2 ways (as we are transitioning from the first to the sec
 - elastic: From git tag to deployment through kubernetes.
 
 
-The following will first describe the :ref:`common deployment part <code-and-publish>`.
-This involves some python packaging out of a git tag which will be built and push to
-`PyPI <https://pypi.org>`_ and our :ref:`swh debian repositories
-<howto-debian-packaging>`.
+The following will first describe the :ref:`common deployment part
+<code-and-publish-a-release>`. This involves some python packaging out of a git tag
+which will be built and push to `PyPI <https://pypi.org>`_ and our :ref:`swh debian
+repositories <howto-debian-packaging>`.
 
 Then follows the actual :ref:`deployment with debian packaging
 <deployment-with-debian-packaging>`. It concludes with the :ref:`deployment with
@@ -38,22 +38,24 @@ Distinct Services
 - rpc services (scheduler, objstorage, storage, web, ...)
 - journal client services (search, scheduler, indexer)
 
-.. _code-and-publish:
+.. _code-and-publish-a-release:
 
 
-Code and publish
-----------------
+Code and publish a release
+--------------------------
 
-Code an evolution of fix an issue in the python code within the git repository's master
-branch. Open a diff for review, land it when accepted, and start back at :ref:`tag and
-push <tag-and-push>`.
+It's usually up to the developers.
+
+Code an evolution or a bugfix in the impacted git repository (usually the master
+branch). Open a diff for review. Land it when accepted. And then release it following
+the :ref:`tag and push <tag-and-push>` part.
 
 .. _tag-and-push:
 
 Tag and push
 ~~~~~~~~~~~~
 
-When ready, `git tag` and `git push` the new tag of the module. And let jenkins
+When ready, `git tag` and `git push` the new tag of the module. Then let jenkins
 :ref:`publish the artifact <publish-artifacts>`.
 
 .. code::
@@ -66,8 +68,8 @@ When ready, `git tag` and `git push` the new tag of the module. And let jenkins
 Publish artifacts
 ~~~~~~~~~~~~~~~~~
 
-Jenkins is in charge to publishing to `PyPI <https://pypi.org>`_ the new release (out of
-the tag). And then building the debian packaging and push it package to our :ref:`swh
+Jenkins is in charge of publishing the new release to `PyPI <https://pypi.org>`_ (out of
+the tag just pushed). It then builds the debian package and pushes it to our :ref:`swh
 debian repositories <howto-debian-packaging>`.
 
 
@@ -81,6 +83,7 @@ If jenkins fails for some reason, fix the module be it :ref:`python code
 
 
 .. _deployment-with-debian-packaging:
+
 
 Deployment with debian packaging
 --------------------------------
@@ -127,7 +130,7 @@ Debian package troubleshoot
 Update and checkout the *debian/unstable-swh* branch (in the impacted git repository),
 then fix whatever is not updated or broken due to a change.
 
-It's usually a missing new package dependency to fix in *debian/control*). Add a new
+It's usually a missing new package dependency to fix in *debian/control*. Add a new
 entry in *debian/changelog*. Make sure gbp builds fine locally. Then tag it and push.
 Jenkins will build the package anew.
 
@@ -220,12 +223,122 @@ Then:
 Deployment with Kubernetes
 --------------------------
 
-.. warning:: FIXME Enter into details + add a small summary graph
+This new deployment involves docker images which are exposing script/services which are
+running in a virtual python frozen environment. Those versioned images are then
+referenced in a specific helm chart which is deployed in a kubernetes rancher cluster.
 
-- swh-apps: Add new apps (new Dockerfile)
-- swh-apps: Build frozen requirements for a new release of a swh service
-- swh-apps: Build impacted docker images with that frozen set of requirements
-- Commit and tag
-- Push built docker image into our gitlab registry
-- swh-charts: Add/Update the image versions
-- Commit and push
+Those docker images are built out of a declared Dockerfile in in the `swh-apps`_
+repository.
+
+Add a new app
+~~~~~~~~~~~~~
+
+From the repository `swh-apps`_, create a new Dockerfile.
+
+Depending on the :ref:`services <distinct-services>` to package, other existing
+applications can serve as template:
+
+- loader: use `git loader <https://gitlab.softwareheritage.org/infra/swh-apps/-/blob/master/apps/swh-loader-git/>`_.
+- rpc service: use `graphql <https://gitlab.softwareheritage.org/infra/swh-apps/-/blob/master/apps/swh-graphql/>`_
+- journal client: use `storage replayer <https://gitlab.softwareheritage.org/infra/swh-apps/-/blob/master/apps/swh-storage-replayer>`_
+
+.. _update-app-frozen-requirements:
+
+Update app's frozen requirements
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Once the application is registered. We need to build the frozen environment:
+
+We'll first need a "build-deps" container with some dependencies set (due to some
+limitations in our stack):
+
+.. code::
+
+   $ cd swh-apps
+   $ docker run -ti --rm -v $PWD:/src --user root --name build-deps python:3.9 bash
+   # inside the container 'build-deps'
+   root@834faba6202b:/# apt update; apt upgrade -y; apt install -y libcmph-dev
+
+Out of this container, we are able to generate the frozen requirements for the
+$APP_NAME (e.g. *loader_{git, svn, cvs, ...}*, *lister*, *indexer* ...):
+
+.. code::
+
+   $ cd swh-apps
+   $ docker exec --user 1000 build-deps \
+     /src/scripts/generate-frozen-requirements $APP_NAME
+
+You have built your frozen requirements that can be committed. Next, we will
+:ref:`generate the image updated with that frozen environment <generate-image>`.
+
+.. _generate-image:
+
+Generate image
+~~~~~~~~~~~~~~
+
+Build the docker image with the frozen environment and then :ref:`publish it
+<publish-image>`:
+
+.. code::
+
+   $ IMAGE_NAME=<application>  # e.g. loader_git, loader_svn, ...
+   $ IMAGE_VERSION=YYYYMMDD.1  # Template of the day, e.g. `$(date '+%Y%m%d')`
+   $ REGISTRY=container-registry.softwareheritage.org/infra/swh-apps
+   $ FULL_IMAGE_VERSION=$REGISTRY/$IMAGE_NAME:$IMAGE_VERSION
+   $ FULL_IMAGE_LATEST=$REGISTRY/$IMAGE_NAME:latest
+   $ cd swh-apps/apps/<application-name>/
+   # This will create the versioned image locally
+   $ docker build -t $FULL_IMAGE .
+   # Tag with the latest version
+   $ docker tag $FULL_IMAGE_VERSION $FULL_IMAGE_LATEST
+
+.. _gitlab-registry:
+
+Gitlab registry
+~~~~~~~~~~~~~~~
+
+You must have a gitlab account and generate a personal access token with at least
+`write` access to the `gitlab registry
+<https://gitlab.softwareheritage.org/infra/swh-apps/container_registry/>`_.
+
+.. _publish-image:
+
+Publish image
+~~~~~~~~~~~~~
+
+You must first login your docker to the swh :ref:`gitlab registry <gitlab-registry>` and
+then push the image:
+
+.. code::
+
+   $ docker login  # login to the gitlab registry (prompted for personal access token)
+   passwd: **********
+   $ docker push $FULL_IMAGE
+   $ docker push $FULL_IMAGE_LATEST
+
+Do not forget to :ref:`commit the changes and tag <commit-changes-and-tag>`.
+
+Finally, let's :ref:`update the impacted chart <update-impacted-chart>` with the new
+docker image version.
+
+.. _commit-changes-and-tag:
+
+Commit and tag
+~~~~~~~~~~~~~~
+
+Commit and tag the changes.
+
+.. _update-impacted-chart:
+
+Update impacted chart
+~~~~~~~~~~~~~~~~~~~~~
+
+In the `swh-chart`_ repository, update the `values file
+<https://gitlab.softwareheritage.org/infra/ci-cd/swh-charts/-/blob/production/values-swh-application-versions.yaml>`_
+with the corresponding new changed version.
+
+:ref:`ArgoCD <argocd-config>` will be in charge of deploying the changes in a rolling
+upgrade fashion.
+
+.. _swh-apps: https://gitlab.softwareheritage.org/infra/swh-apps/
+.. _swh-chart: https://gitlab.softwareheritage.org/infra/ci-cd/swh-charts
