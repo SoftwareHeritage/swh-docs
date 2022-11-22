@@ -8,6 +8,7 @@ Getting started
 * :ref:`faq`
 * :ref:`listers`
 * :ref:`loaders`
+* :ref:`using-swh-data`
 
 
 Indices and tables
