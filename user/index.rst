@@ -9,6 +9,7 @@ Getting started
 * :ref:`listers`
 * :ref:`loaders`
 * :ref:`swh_scn_webhooks`
+* :ref:`using-swh-data`
 
 
 Indices and tables

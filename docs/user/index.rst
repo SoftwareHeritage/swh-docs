@@ -11,6 +11,7 @@ Software Heritage - User Documentation
    listers/index
    loaders/index
    save_code_now/webhooks/index
+   using_data/index
 
 .. only:: user_doc
 
