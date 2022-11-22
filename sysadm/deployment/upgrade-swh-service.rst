@@ -254,10 +254,8 @@ limitations in our stack):
 
 .. code::
 
-   $ cd swh-apps
-   $ docker run -ti --rm -v $PWD:/src --user root --name build-deps python:3.9 bash
-   # inside the container 'build-deps'
-   root@834faba6202b:/# apt update; apt upgrade -y; apt install -y libcmph-dev
+   $ cd swh-apps/scripts
+   $ docker build -t build-deps .
 
 Out of this container, we are able to generate the frozen requirements for the
 $APP_NAME (e.g. *loader_{git, svn, cvs, ...}*, *lister*, *indexer* ...):
@@ -265,8 +263,7 @@ $APP_NAME (e.g. *loader_{git, svn, cvs, ...}*, *lister*, *indexer* ...):
 .. code::
 
    $ cd swh-apps
-   $ docker exec --user 1000 build-deps \
-     /src/scripts/generate-frozen-requirements $APP_NAME
+   $ docker run --rm -v $PWD:/src build-deps $APP_NAME
 
 You have built your frozen requirements that can be committed. Next, we will
 :ref:`generate the image updated with that frozen environment <generate-image>`.
