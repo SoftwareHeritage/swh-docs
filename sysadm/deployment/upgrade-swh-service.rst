@@ -79,7 +79,7 @@ Troubleshoot
 ~~~~~~~~~~~~
 
 If jenkins fails for some reason, fix the module be it :ref:`python code
-<fix-or-evolve-code>` or the :ref:`debian packaging <troubleshoot-debian-package>`.
+<code-and-publish-a-release>` or the :ref:`debian packaging <troubleshoot-debian-package>`.
 
 
 .. _deployment-with-debian-packaging:
