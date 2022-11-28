@@ -141,6 +141,8 @@ html_context = {
     "gitlab_repo": "swh-docs",
     "gitlab_version": "master",
     "doc_path": "docs",
+    # Use light mode by default until the landing page better supports dark mode
+    "default_mode": "light",
 }
 
 # Add any paths that contain custom static files (such as style sheets) here,
