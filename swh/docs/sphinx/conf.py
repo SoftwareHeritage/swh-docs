@@ -40,7 +40,7 @@ extensions = [
     # swh.scheduler inherits some attribute descriptions from celery that use
     # custom crossrefs (eg. :setting:`task_ignore_result`)
     "sphinx_celery.setting_crossref",
-    "sphinx_panels",
+    "sphinx_design",
 ]
 
 # Add any paths that contain templates here, relative to this directory.

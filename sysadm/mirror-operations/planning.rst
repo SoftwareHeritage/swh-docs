@@ -117,65 +117,68 @@ vault            rabbitmq               1         8GB   regular        10GB
 Storage backend
 ^^^^^^^^^^^^^^^
 
-.. tabbed:: Postgresql
+.. tab-set::
 
-   ================ ====================== ========= ===== ============== ==============
-   SWH Service      Tool                   Instances RAM   Storage Type   Storage Volume
-   ================ ====================== ========= ===== ============== ==============
-   storage          postgresql             1         512GB fast+zfs (lz4) 40TB
-   ================ ====================== ========= ===== ============== ==============
+  .. tab-item:: Postgresql
 
-.. tabbed:: Cassandra (min.)*
+    ================ ====================== ========= ===== ============== ==============
+    SWH Service      Tool                   Instances RAM   Storage Type   Storage Volume
+    ================ ====================== ========= ===== ============== ==============
+    storage          postgresql             1         512GB fast+zfs (lz4) 40TB
+    ================ ====================== ========= ===== ============== ==============
 
-   ================ ====================== ========= ===== ============== ==============
-   SWH Service      Tool                   Instances RAM   Storage Type   Storage Volume
-   ================ ====================== ========= ===== ============== ==============
-   storage          cassandra              3         32GB  fast           30TB
-   ================ ====================== ========= ===== ============== ==============
+  .. tab-item:: Cassandra (min.)*
 
-.. tabbed:: Cassandra (typ.)*
+    ================ ====================== ========= ===== ============== ==============
+    SWH Service      Tool                   Instances RAM   Storage Type   Storage Volume
+    ================ ====================== ========= ===== ============== ==============
+    storage          cassandra              3         32GB  fast           30TB
+    ================ ====================== ========= ===== ============== ==============
 
-   ================ ====================== ========= ===== ============== ==============
-   SWH Service      Tool                   Instances RAM   Storage Type   Storage Volume
-   ================ ====================== ========= ===== ============== ==============
-   storage          cassandra              6+        32GB  fast           20TB
-   ================ ====================== ========= ===== ============== ==============
+  .. tab-item:: Cassandra (typ.)*
+
+    ================ ====================== ========= ===== ============== ==============
+    SWH Service      Tool                   Instances RAM   Storage Type   Storage Volume
+    ================ ====================== ========= ===== ============== ==============
+    storage          cassandra              6+        32GB  fast           20TB
+    ================ ====================== ========= ===== ============== ==============
 
 
 Objstorage backend
 ^^^^^^^^^^^^^^^^^^
 
+.. tab-set::
 
-.. tabbed:: FS
+  .. tab-item:: FS
 
-   ================ ====================== ========= ===== ============== ==============
-   SWH Service      Tool                   Instances RAM   Storage Type   Storage Volume
-   ================ ====================== ========= ===== ============== ==============
-   objstorage       swh-objstorage         1 [#f1]_  512GB zfs (with lz4) 1PB
-   ================ ====================== ========= ===== ============== ==============
+    ================ ====================== ========= ===== ============== ==============
+    SWH Service      Tool                   Instances RAM   Storage Type   Storage Volume
+    ================ ====================== ========= ===== ============== ==============
+    objstorage       swh-objstorage         1 [#f1]_  512GB zfs (with lz4) 1PB
+    ================ ====================== ========= ===== ============== ==============
 
-.. tabbed:: Winery - Ceph*
+  .. tab-item:: Winery - Ceph*
 
-   ================ ====================== ========= ===== ============== ==============
-   SWH Service      Tool                   Instances RAM   Storage Type   Storage Volume
-   ================ ====================== ========= ===== ============== ==============
-   objstorage       swh-objstorage         2 [#f2]_  32GB  standard       100GB
-   winery-db        postgresql             2 [#f2]_  512GB fast           10TB
-   ceph-mon         ceph                   3         4GB   fast           60GB
-   ceph-osd         ceph                   12+       4GB   mix fast+HDD   1PB (total)
-   ================ ====================== ========= ===== ============== ==============
+    ================ ====================== ========= ===== ============== ==============
+    SWH Service      Tool                   Instances RAM   Storage Type   Storage Volume
+    ================ ====================== ========= ===== ============== ==============
+    objstorage       swh-objstorage         2 [#f2]_  32GB  standard       100GB
+    winery-db        postgresql             2 [#f2]_  512GB fast           10TB
+    ceph-mon         ceph                   3         4GB   fast           60GB
+    ceph-osd         ceph                   12+       4GB   mix fast+HDD   1PB (total)
+    ================ ====================== ========= ===== ============== ==============
 
-.. tabbed:: Seaweedfs*
+  .. tab-item:: Seaweedfs*
 
-   ================ ====================== ========= ===== ============== ==============
-   SWH Service      Tool                   Instances RAM   Storage Type   Storage Volume
-   ================ ====================== ========= ===== ============== ==============
-   objstorage       swh-objstorage         3         32GB  standard       100GB
-   seaweed LB       nginx                  1         32GB  fast           100GB
-   seaweed-master   seaweedfs              3         8GB   standard       10GB
-   seaweed-filer    seaweedfs              3         32GB  fast           1TB
-   seaweed-volume   seaweedfs              3+        32GB  standard       1PB (total)
-   ================ ====================== ========= ===== ============== ==============
+    ================ ====================== ========= ===== ============== ==============
+    SWH Service      Tool                   Instances RAM   Storage Type   Storage Volume
+    ================ ====================== ========= ===== ============== ==============
+    objstorage       swh-objstorage         3         32GB  standard       100GB
+    seaweed LB       nginx                  1         32GB  fast           100GB
+    seaweed-master   seaweedfs              3         8GB   standard       10GB
+    seaweed-filer    seaweedfs              3         32GB  fast           1TB
+    seaweed-volume   seaweedfs              3+        32GB  standard       1PB (total)
+    ================ ====================== ========= ===== ============== ==============
 
 .. rubric:: Notes
 

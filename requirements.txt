@@ -6,7 +6,7 @@ sphinxcontrib-httpdomain >= 1.8.0
 sphinxcontrib-images
 sphinxcontrib-programoutput
 sphinx-tabs
-sphinx-panels
+sphinx-design
 sphinx-reredirects
 sphinx_rtd_theme
 sphinx-click
