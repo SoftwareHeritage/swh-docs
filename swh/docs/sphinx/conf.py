@@ -29,7 +29,6 @@ extensions = [
     "sphinxcontrib.images",
     "sphinxcontrib.programoutput",
     "sphinx.ext.viewcode",
-    "sphinx_tabs.tabs",
     "sphinx_rtd_theme",
     "sphinx.ext.graphviz",
     "sphinx_click.ext",
