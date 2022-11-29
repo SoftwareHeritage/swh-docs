@@ -2,9 +2,10 @@
 swh.auth[django]
 swh.core[db,http,logging]
 swh.counters
+swh.dataset[luigi]
 swh.deposit[server]
 swh.fuse
-swh.graph
+swh.graph[luigi]
 swh.indexer
 swh.journal
 swh.lister

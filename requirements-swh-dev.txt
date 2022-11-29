@@ -6,10 +6,10 @@
 ../swh-auth[django]
 ../swh-core[http,db,logging]
 ../swh-counters
-../swh-dataset
+../swh-dataset[luigi]
 ../swh-deposit[server]
 ../swh-fuse
-../swh-graph
+../swh-graph[luigi]
 ../swh-icinga-plugins
 ../swh-indexer
 ../swh-journal
