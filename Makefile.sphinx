@@ -28,9 +28,9 @@ apidoc_dep = apidoc-stamp
 endif
 
 sphinx/clean:
-	$(SPHINXBUILD) -M clean $(SPHINX_SRCDIR) $(SPHINX_BUILDDIR) $(SPHINX_OPTS)
+	$(SPHINXBUILD) -M clean $(SPHINX_SRCDIR) $(SPHINX_BUILDDIR) $(SPHINX_OPTS) $(SPHINXOPTS)
 sphinx/%: $(apidoc_dep)
-	$(SPHINXBUILD) -b $* $(SPHINX_SRCDIR) $(SPHINX_BUILDDIR)/$* $(SPHINX_OPTS)
+	$(SPHINXBUILD) -b $* $(SPHINX_SRCDIR) $(SPHINX_BUILDDIR)/$* $(SPHINX_OPTS) $(SPHINXOPTS)
 
 apidoc: $(apidoc_dep)
 apidoc-stamp:
