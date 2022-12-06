@@ -1,7 +1,7 @@
 .. _argocd-config:
 
 ArgoCD
-=======
+======
 
 .. admonition:: Intended audience
    :class: important
