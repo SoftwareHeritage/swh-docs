@@ -11,3 +11,4 @@ SWH Software Deployment
    howto-debian-packaging
    jenkins
    argocd
+   howto-process-add-forge-now-requests
