@@ -237,3 +237,4 @@ Indices and tables
    api-reference
    archive-changelog
    journal
+   statsd
