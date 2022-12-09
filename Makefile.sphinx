@@ -5,7 +5,7 @@ APIDOC_DIR = apidoc
 APIDOC_OPTS = --ext-viewcode --separate
 SPHINXBUILD = sphinx-build
 SPHINXAPIDOC = sphinx-apidoc
-SPHINX_OPTS =
+SPHINX_OPTS = -t standalone_package_doc
 SPHINX_BUILDDIR = _build
 SPHINX_SRCDIR = .
 
