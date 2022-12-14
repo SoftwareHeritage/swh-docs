@@ -69,7 +69,8 @@ Still on a staging node, we trigger the first ingestion for those origins:
 
 .. code::
 
-   swh scheduler --preset staging add-forge-now \
+   swh scheduler --url http://scheduler0.internal.staging.swh.network:5008/ \
+     add-forge-now --preset staging \
      schedule-first-visits \
        --visit-type <visit-type> \
        --visit-type <another-visit-type> \
@@ -80,7 +81,8 @@ For our particular instance:
 
 .. code::
 
-   swh scheduler --preset staging add-forge-now \
+   swh scheduler --url http://scheduler0.internal.staging.swh.network:5008/ \
+     add-forge-now --preset staging \
      schedule-first-visits \
        --visit-type git \
        --lister-name gitea \
@@ -146,7 +148,7 @@ For example:
 .. code::
 
    swh scheduler --url http://saatchi.internal.softwareheritage.org:5008/ \
-     add-forge-now \
+     add-forge-now ( --preset production ) \
        schedule-first-visits \
          --visit-type git \
          --lister-name gitea \
