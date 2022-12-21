@@ -8,6 +8,7 @@ Getting started
 * :ref:`faq`
 * :ref:`listers`
 * :ref:`loaders`
+* :ref:`swh_scn_webhooks`
 
 
 Indices and tables
@@ -27,3 +28,4 @@ Indices and tables
   faq/index
   listers/index
   loaders/index
+  save_code_now/webhooks/index
