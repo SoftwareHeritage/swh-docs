@@ -14,51 +14,44 @@ We use `gitlab <https://gitlab.softwareheritage.org/>`__ (`Community
 Edition <https://gitlab.com/gitlab-org/gitlab-foss>`__) as the
 coding/collaboration forge.
 
-For a new contributor
----------------------
+Getting started
+---------------
 
-*  `Signup <https://gitlab.softwareheritage.org/users/sign_up>`__ to
+* `Signup <https://gitlab.softwareheritage.org/users/sign_up>`__ to
    create a new gitlab user and wait for approval
-*  Once approved, you will get notified
-*  If you are not already, familiarize with git and gitlab `gitlab
+* Once approved, you will get notified
+* If you are not already, familiarize with git and gitlab `gitlab
    basics <https://docs.gitlab.com/ee/tutorials/make_your_first_git_commit.html>`__
-*  Create a
+* Create a
    `fork <https://docs.gitlab.com/ee/user/project/repository/forking_workflow.html#creating-a-fork>`__
    of the project you wish to work on
-*  Setup `ssh keys <https://docs.gitlab.com/ee/user/ssh.html>`__ to
+* Setup `ssh keys <https://docs.gitlab.com/ee/user/ssh.html>`__ to
    communicate with Gitlab
-*  Sign the Software Heritage Contributor License Agreement
-*  [Optional] Install gitlab cli tools
-*  Create a local `feature
+* Sign the Software Heritage Contributor License Agreement
+* [Optional] Install gitlab cli tools
+* Create a local `feature
    branch <https://docs.gitlab.com/ee/gitlab-basics/feature_branch_workflow.html>`__
    for the feature you are trying to add
-*  Commit code following the commit guidelines
-*  Push your branch to your fork
-*  Create a `merge
+* Commit code following the commit guidelines
+* Push your branch to your fork
+* Create a `merge
    request <https://docs.gitlab.com/ee/user/project/merge_requests/creating_merge_requests.html#when-you-work-in-a-fork>`__
    against the SWH project master branch for your branch
-*  Make sure the merge request passes all the steps in the build
-*  Address the review comments, if any
-*  Once ready, wait for a team member to merge your code
+* Make sure the merge request passes all the steps in the build
+* Address the review comments, if any
+* Once ready, wait for a team member to merge your code
 
 SSH key for pushes
 ~~~~~~~~~~~~~~~~~~
 
 In your forge User Settings page (on the top right, click on your
-avatar, then click *Preferences*), you have access to a *SSH Keys*
-section (Direct link:
-``https://gitlab.softwareheritage.org/-/profile/keys``). You then have
+avatar, then click *Preferences*), you have access to the `SSH Keys
+section <https://gitlab.softwareheritage.org/-/profile/keys>`__. You then have
 the option to upload a SSH public key, which will authenticate your
 pushes from git.
 
-Note: if you use a dedicated SSH key for this (which is recommended),
-create key pair using recommended algorithm; ED25519 as of today; see
-`this gitlab help
-page <https://gitlab.softwareheritage.org/help/user/ssh.md>`__ for more
-details).
-
-You also need to configure ssh/git to use that key pair, for instance by
-editing the ``~/.ssh/config`` file:
+For more convenience (but not mandatory), you can also configure your ssh/git
+to use that key pair, for instance by editing the ``~/.ssh/config`` file:
 
 .. code-block::
 
@@ -91,61 +84,64 @@ Code Review in Gitlab
 
 As mentioned above, you can use the standard gitlab contribution
 workflow. This is based on having your own copy (fork) of the project
-you wan to hack on in your projects. The way you manage this fork of
-yours is up to you, but we strongly recommend the process described
-below.
+you want to hack on in your projects. The way you manage your fork is
+up to you, but we strongly recommend the process described below.
 
 Workflow
 ~~~~~~~~
 
-*  fork the project on https://gitlab.softwareheritage.org (clicking the
+* fork the project on https://gitlab.softwareheritage.org (clicking the
    “Fork” button)
 
-*  clone the forked repository on your machine:
+* clone the forked repository on your machine:
 
-.. code-block::
+   .. code-block::
 
       git clone https://gitlab.softwareheritage.org/<username>/swh-xxx.git
       cd swh-xxx
 
-*  add the upstream repository:
+* add the upstream repository:
 
-.. code-block::
+   .. code-block::
 
       git remote add upstream https://gitlab.softwareheritage.org/modules/swh-xxx.git
+      git fetch upstream
 
 this allows you to easily fetch new upstream revisions in your local
 repository
 
-*  work in a feature branch: ``git checkout -b my-feature``
+* work in a feature branch: ``git checkout -b my-feature``
 
-*  hack; add tests; commit; hack; rework git history;
+* hack; add tests; commit; hack; rework git history;
 
-*  initial review request:
+* initial review request:
 
-   *  push your branch in your forked repository:
-      ``git push origin my-feature     [...]     remote:     To gitlab.softwareheritage.org:<username>/swh-xxx.git     * [new branch]      my-feature -> my-feature``
+   * push your branch in your forked repository:
+      ``git push origin my-feature     [...]     remote:
+      To gitlab.softwareheritage.org:<username>/swh-xxx.git
+      * [new branch]      my-feature -> my-feature``
 
-   *  create a Merge Request from this branch in the gitlab web UI
+   * create a Merge Request from this branch in the gitlab web UI
 
-*  react to change requests: hack/commit/hack/commit;
+* react to change requests: hack/commit/hack/commit;
 
-*  update your merge request:
+.. _workflow-update-merge-request:
+* update your merge request:
 
-.. code-block::
+   .. code-block::
 
       git push origin my-feature
 
-   or, if you have reworked or rebased the git history of the
-   ``my-feature`` branch:
+or, if you have reworked or rebased the git history of the
+``my-feature`` branch:
 
-.. code-block::
+   .. code-block::
 
       git push --force-with-lease origin my-feature
 
-*  landing change: once the merge request has been approved, it will be
+* landing change: once the merge request has been approved, it will be
    merged in the upstream main branch ([name=david]: *by who?*); it will
-   be merge if and only if the git branch behind the merge request can
+   be merged if and only if the git branch behind the merge request can
    be pushed directly on the upstream main branch (without an actual
    merge) and the resulting revisions all pass CI, to keep the upstream
    git history as clean and linear as possible.
@@ -184,8 +180,8 @@ merge request size to a minimum.
 To **submit your code for review** the first time, you need to create a
 merge request. This is a 2 steps process:
 
-*  first you need to push your branch in your forked project,
-*  then you need to create the merge request from that branch against
+* first you need to push your branch in your forked project,
+* then you need to create the merge request from that branch against
    the main branch upstream.
 
 This is typically a matter of:
@@ -233,10 +229,10 @@ changes; no big deal!
 To implement requested changes in the code, hack on your branch as usual
 by:
 
-*  adding new commits, and/or
-*  rewriting old commits with git rebase (to preserve a nice, easy to
+* adding new commits, and/or
+* rewriting old commits with git rebase (to preserve a nice, easy to
    bisect history)
-*  pulling on master and rebasing your branch against it if meanwhile
+* pulling on master and rebasing your branch against it if meanwhile
    someone landed commits on master:
 
 .. code-block::
@@ -279,7 +275,7 @@ Landing your change onto master
 
 xxx
 
-Reviewing locally / landing someone else’s changes
+Reviewing locally / landing someone else's changes
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 xxx
@@ -287,5 +283,5 @@ xxx
 See also
 --------
 
-*  :ref:`code-review` for guidelines on how code is reviewed when
+* :ref:`code-review` for guidelines on how code is reviewed when
    developing for Software Heritage
