@@ -91,6 +91,24 @@ In addition to :ref:`swh_statsd_metrics_rpc`,
 * ``swh_objstorage_in_bytes_total``
 * ``swh_objstorage_out_bytes_total``
 
+.. _swh_statsd_metrics_outgoing:
+
+Outgoing requests
+-----------------
+
+All these metrics are labelled with ``api_type`` and ``api_instance``, which
+should match values used for ``lister_name`` and ``lister_instance`` used elsewhere.
+Currently, it is only ``github`` for both.
+They are also labelled with ``username``, which is either ``anonymous`` or the name of
+the user owning the token used to make the request.
+
+* ``swh_outbound_api_requests_total``: total number of requests
+* ``swh_outbound_api_responses_total``: total number of responses (excluding low-level failures: DNS, TCP, TLS, ...), with ``http_status`` label
+* ``swh_outbound_api_remaining_requests``: gauge of the value of ``X-Ratelimit-Remaining``
+* ``swh_outbound_api_reset_seconds``: gauge of the value of ``X-Ratelimit-Reset``
+* ``swh_outbound_api_rate_limited_responses_total``
+* ``swh_outbound_api_sleep_seconds_total``: number of seconds spent waiting for rate limits to reset
+
 .. _swh_statsd_metrics_provenance:
 
 Provenance
