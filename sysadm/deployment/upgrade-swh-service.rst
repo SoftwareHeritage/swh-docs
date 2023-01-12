@@ -238,9 +238,9 @@ From the repository `swh-apps`_, create a new Dockerfile.
 Depending on the :ref:`services <distinct-services>` to package, other existing
 applications can serve as template:
 
-- loader: use `git loader <https://gitlab.softwareheritage.org/infra/swh-apps/-/blob/master/apps/swh-loader-git/>`_.
-- rpc service: use `graphql <https://gitlab.softwareheritage.org/infra/swh-apps/-/blob/master/apps/swh-graphql/>`_
-- journal client: use `storage replayer <https://gitlab.softwareheritage.org/infra/swh-apps/-/blob/master/apps/swh-storage-replayer>`_
+- loader: use `git loader <https://gitlab.softwareheritage.org/swh/infra/swh-apps/-/blob/master/apps/swh-loader-git/>`_.
+- rpc service: use `graphql <https://gitlab.softwareheritage.org/swh/infra/swh-apps/-/blob/master/apps/swh-graphql/>`_
+- journal client: use `storage replayer <https://gitlab.softwareheritage.org/swh/infra/swh-apps/-/blob/master/apps/swh-storage-replayer>`_
 
 .. _update-app-frozen-requirements:
 
@@ -280,7 +280,7 @@ Build the docker image with the frozen environment and then :ref:`publish it
 
    $ IMAGE_NAME=<application>  # e.g. loader_git, loader_svn, ...
    $ IMAGE_VERSION=YYYYMMDD.1  # Template of the day, e.g. `$(date '+%Y%m%d')`
-   $ REGISTRY=container-registry.softwareheritage.org/infra/swh-apps
+   $ REGISTRY=container-registry.softwareheritage.org/swh/infra/swh-apps
    $ FULL_IMAGE_VERSION=$REGISTRY/$IMAGE_NAME:$IMAGE_VERSION
    $ FULL_IMAGE_LATEST=$REGISTRY/$IMAGE_NAME:latest
    $ cd swh-apps/apps/<application-name>/
@@ -296,7 +296,7 @@ Gitlab registry
 
 You must have a gitlab account and generate a personal access token with at least
 `write` access to the `gitlab registry
-<https://gitlab.softwareheritage.org/infra/swh-apps/container_registry/>`_.
+<https://gitlab.softwareheritage.org/swh/infra/swh-apps/container_registry/>`_.
 
 .. _publish-image:
 
@@ -331,11 +331,11 @@ Update impacted chart
 ~~~~~~~~~~~~~~~~~~~~~
 
 In the `swh-chart`_ repository, update the `values file
-<https://gitlab.softwareheritage.org/infra/ci-cd/swh-charts/-/blob/production/values-swh-application-versions.yaml>`_
+<https://gitlab.softwareheritage.org/swh/infra/ci-cd/swh-charts/-/blob/production/values-swh-application-versions.yaml>`_
 with the corresponding new changed version.
 
 :ref:`ArgoCD <argocd-config>` will be in charge of deploying the changes in a rolling
 upgrade fashion.
 
-.. _swh-apps: https://gitlab.softwareheritage.org/infra/swh-apps/
+.. _swh-apps: https://gitlab.softwareheritage.org/swh/infra/swh-apps/
 .. _swh-chart: https://gitlab.softwareheritage.org/infra/ci-cd/swh-charts
