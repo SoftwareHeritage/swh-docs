@@ -5,6 +5,14 @@
 
    Contributors
 
+Important
+=========
+
+We have moved our development from Phabricator to a GitLab instance at
+https://gitlab.softwareheritage.org/
+
+The content below is no longer relevant and will be updated soon.
+
 .. _patch-submission:
 
 Submitting patches
