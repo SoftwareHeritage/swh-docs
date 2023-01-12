@@ -53,7 +53,7 @@ For packages to be accepted, they need to be :
 
 #. Targeted at one of the supported distributions (unstable, unstable-swh, buster,
    buster-backports, buster-backports-swh), stretch, stretch-backports,
-   strech-backports-swh)
+   stretch-backports-swh)
 
 #. Signed by one of the keys listed in
    ``/srv/softwareheritage/repository/conf/uploaders``
