@@ -4,7 +4,7 @@ Software Heritage documentation
 ===============================
 
 .. toctree::
-  :maxdepth: 1
+  :maxdepth: 2
   :caption: Contents:
 
   devel/index
