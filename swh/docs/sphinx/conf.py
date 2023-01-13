@@ -149,8 +149,6 @@ html_last_updated_fmt = "%Y-%m-%d %H:%M:%S %Z"
 # refer to the Python standard library.
 intersphinx_mapping = {
     "python": ("https://docs.python.org/3", None),
-    "swh-devel": ("https://docs.softwareheritage.org/devel", None),
-    "swh-sysadm": ("https://docs.softwareheritage.org/sysadm", None),
 }
 
 # Redirects for pages that were moved, so we don't break external links.
