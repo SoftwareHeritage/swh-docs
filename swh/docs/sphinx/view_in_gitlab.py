@@ -1,10 +1,10 @@
-# Copyright (C) 2021  The Software Heritage developers
+# Copyright (C) 2021-2023  The Software Heritage developers
 # See the AUTHORS file at the top-level directory of this distribution
 # License: GNU General Public License version 3, or any later version
 # See top-level LICENSE file for more information
 
 """
-Shows a link 'View this page in Phabricator' on top of each page.
+Shows a link 'View page source' on top of each page.
 """
 
 
@@ -22,8 +22,8 @@ def html_page_context(app, pagename, templatename, context, doctree):
         repository = "swh-docs"
         path = pagename
     source_url = (
-        f"https://forge.softwareheritage.org/source/{repository}"
-        f"/browse/master/docs/{path}"
+        f"https://gitlab.softwareheritage.org/swh/devel/{repository}"
+        f"/-/blob/master/docs/{path}"
     )
 
     # Set a variable that can be used by swh-docs/docs/_templates/breadcrumbs.html:

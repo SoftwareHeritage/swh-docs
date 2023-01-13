@@ -3,13 +3,13 @@
 {# Overrides RTD's default "View page source" link formatting, which
    forces the full page name in the link; but we don't want it because
    page names include the repo, eg. "swh-model/index".
-   The view_in_phabricator.py extension sets swh_source_url to
+   The view_in_gitlab.py extension sets swh_source_url to
    ".../source/swh-model/browse/master/docs/index"
 #}
 {%- block breadcrumbs_aside %}
   <li class="wy-breadcrumbs-aside">
     {%- if hasdoc(pagename) and display_vcs_links %}
-      <a href="{{ swh_source_url }}{{ page_source_suffix }}">{{ _('View page source') }}</a>
+      <a href="{{ swh_source_url }}{{ page_source_suffix }}?plain=1">{{ _('View page source') }}</a>
     {% endif %}
   </li>
 {%- endblock %}

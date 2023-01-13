@@ -35,7 +35,7 @@ extensions = [
     "myst_parser",
     "sphinx.ext.todo",
     "sphinx_reredirects",
-    "swh.docs.sphinx.view_in_phabricator",
+    "swh.docs.sphinx.view_in_gitlab",
     # swh.scheduler inherits some attribute descriptions from celery that use
     # custom crossrefs (eg. :setting:`task_ignore_result`)
     "sphinx_celery.setting_crossref",
