@@ -263,7 +263,7 @@ $APP_NAME (e.g. *loader_{git, svn, cvs, ...}*, *lister*, *indexer* ...):
 .. code::
 
    $ cd swh-apps
-   $ docker run --rm -v $PWD:/src build-deps $APP_NAME
+   $ docker run --rm -v $PWD:/src build-deps generate-frozen-requirements $APP_NAME
 
 You have built your frozen requirements that can be committed. Next, we will
 :ref:`generate the image updated with that frozen environment <generate-image>`.
