@@ -45,7 +45,7 @@ To be able to use the script, you need:
 
 - Be a member of the `System Administrators
   <https://forge.softwareheritage.org/project/members/7/>`_ Phabricator group
-- Have the :ref:`Arcanist <swh-devel:arcanist-configuration>` API key setup
+- Have the :ref:`Arcanist <arcanist-configuration>` API key setup
 - A pair of python dependencies: ``python3-phabricator`` and ``python3-requests`` (pull
   them from testing if needed).
 

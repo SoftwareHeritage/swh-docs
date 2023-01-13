@@ -153,7 +153,7 @@ Register a new task
 -------------------
 
 The listers and the scheduler are now ready to work together. Use the `swh scheduler
-task add` command. Check ref:`swh-devel:register-task-type` for more details.
+task add` command. Check ref:`register-task-type` for more details.
 
 .. _check-logs:
 

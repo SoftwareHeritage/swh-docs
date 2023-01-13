@@ -60,10 +60,10 @@ Roadmap
 System Administration
 ^^^^^^^^^^^^^^^^^^^^^
 
-* :ref:`Network Infrastructure <swh-sysadm:infrastructure>`
-* :ref:`swh-sysadm:mirror` → learn what a Software Heritage mirror is and how to set up
+* :ref:`Network Infrastructure <infrastructure>`
+* :ref:`mirror` → learn what a Software Heritage mirror is and how to set up
   one
-* :ref:`Keycloak <swh-sysadm:keycloak>` → learn how to use Keycloak,
+* :ref:`Keycloak <keycloak>` → learn how to use Keycloak,
   the authentication system used by |swh|'s web interface and public APIs
 
 .. _components:

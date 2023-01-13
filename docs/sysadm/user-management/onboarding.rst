@@ -91,14 +91,14 @@ Communication
 Training
 --------
 
-- Read  `data model <swh-devel:data-model>`_
+- Read  `data model <data-model>`_
 - Read `python modules structure
   <https://docs.softwareheritage.org/devel/#dependencies>`_
 - Follow `getting started tutorial
   <https://docs.softwareheritage.org/devel/getting-started.html>`_
 - Have ``make check`` and ``make test`` pass there in swh-environment
-- `Configure arcanist <swh-devel:arcanist-configuration>`_ and submit a first diff
-  following the `code review <swh-devel:code-review>`_ workflow
+- `Configure arcanist <arcanist-configuration>`_ and submit a first diff
+  following the `code review <code-review>`_ workflow
 
 .. _onboarding_see_also:
 

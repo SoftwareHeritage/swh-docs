@@ -1,3 +1,3 @@
 :orphan:
 
-This page was moved to: :ref:`swh-sysadm:infrastructure`.
+This page was moved to: :ref:`infrastructure`.
