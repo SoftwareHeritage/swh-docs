@@ -57,14 +57,9 @@ master_doc = "index"
 # A string of reStructuredText that will be included at the beginning of every
 # source file that is read.
 # A bit hackish but should work both for each swh package and the whole swh-doc
-if os.path.exists("../../docs/swh_substitutions"):
-    rst_prolog = """
-    .. include:: /../../docs/swh_substitutions
-    """
-elif os.path.exists("../../swh-docs/docs/swh_substitutions"):
-    rst_prolog = """
-    .. include:: /../../swh-docs/docs/swh_substitutions
-    """
+rst_prolog = """
+.. |swh| replace:: *Software Heritage*
+"""
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
