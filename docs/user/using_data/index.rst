@@ -65,11 +65,12 @@ The APIs are:
 
 The latter two are currently not hosted publicly.
 However, you can run your own using the same data we have on your own computers,
-by download the "Compressed graph" files from the :ref:`swh-graph-dataset`.
+by downloading the "Compressed graph" files from the :ref:`swh-graph-dataset`.
 
 Beware that this is resource-intensive, as the full dataset takes about 150GB
 of disk and RAM for each of the two graphs (forward and backward edges);
-and swapping severely affects its performance.
+and swapping severely affects its performance, which defeats the purpose of
+swh-graph.
 
 Producing this dataset is computationally intensive, and is not yet automated;
 so it is currently published only once a year.
@@ -85,9 +86,9 @@ The :ref:`swh-graph-dataset` also includes a raw export of all of
 the archive's database tables (as ORC files) and graph structure (as compressed CSV).
 It does not include file content.
 
-The ORC dataset takes about 11TB on disk.
+As of 2022-12, the ORC dataset takes about 11TB on disk.
 
-Producing this dataset is not yet automated; so it is currently published
+Producing this dataset is also not yet automated; so it is currently published
 only once a year.
 
 Author/committer name and email are pseudonymized.
@@ -131,8 +132,8 @@ Large objects
 
 Some source code repositories, such as Chromium's and Linux's git repositories
 and their clones, are particularly large.
-This is a challenge for loaders, which may fail to load them at a higher frequency
-than smaller repositories.
+This is a challenge for :term:`loaders <loader>`, which may fail to load them
+at a higher frequency than smaller repositories.
 
 Software Heritage also does not archive any object larger than 300MB, as they
 are unlikely to be source code, and would put unreasonable load on the archive.
