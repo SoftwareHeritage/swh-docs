@@ -111,6 +111,7 @@ html_favicon = "_static/favicon.ico"
 #
 html_theme_options = {
     "collapse_navigation": True,
+    "navigation_depth": 5,
     "sticky_navigation": True,
     "titles_only": True,
 }
