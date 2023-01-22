@@ -3,11 +3,23 @@
 Software Heritage - Development Documentation
 =============================================
 
-Important documentation links
------------------------------
+.. toctree::
+   :hidden:
+
+   getting-started/index
+   architecture/index
+   contributing/index
+   tutorials/index
+   faq/index
+   roadmap/roadmap-2022
+   roadmap/index
+   api-reference
+   archive-changelog
+   journal
+   statsd
 
 Getting started
-^^^^^^^^^^^^^^^
+---------------
 
 * :ref:`getting-started` → deploy a local copy of the Software Heritage
   software stack in less than 5 minutes, or
@@ -16,7 +28,7 @@ Getting started
 * :ref:`faq`
 
 Contributing
-^^^^^^^^^^^^
+------------
 
 * :ref:`patch-submission` → learn how to submit your patches to the
   Software Heritage codebase
@@ -25,7 +37,7 @@ Contributing
 * :ref:`python-style-guide` → how to format the Python code you write
 
 Architecture
-^^^^^^^^^^^^
+------------
 
 * :ref:`architecture-overview` → get a glimpse of the Software Heritage software
   architecture
@@ -33,14 +45,14 @@ Architecture
   stores and handles metadata
 
 Data Model and Specifications
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+-----------------------------
 
 * :ref:`persistent-identifiers` Specifications of the SoftWare Heritage persistent IDentifiers (SWHID).
 * :ref:`data-model` Documentation of the main |swh| archive data model.
 * :ref:`journal-specs` Documentation of the Kafka journal of the |swh| archive.
 
 Tutorials
-^^^^^^^^^
+---------
 
 * :ref:`testing-guide`
 * :doc:`tutorials/issue-debugging-monitoring`
@@ -50,7 +62,7 @@ Tutorials
 * :ref:`doc-contribution`
 
 Roadmap
-^^^^^^^
+-------
 
 * Current roadmap: :ref:`roadmap-current`
 * Previous roadmaps
@@ -58,7 +70,7 @@ Roadmap
   * :ref:`roadmap-2021`
 
 System Administration
-^^^^^^^^^^^^^^^^^^^^^
+---------------------
 
 * :ref:`Network Infrastructure <infrastructure>`
 * :ref:`mirror` → learn what a Software Heritage mirror is and how to set up
@@ -69,7 +81,7 @@ System Administration
 .. _components:
 
 Components
-^^^^^^^^^^
+----------
 
 Here is brief overview of the most relevant software components in the Software
 Heritage stack, in alphabetical order.
@@ -193,7 +205,7 @@ swh.docs
 
 
 Dependencies
-^^^^^^^^^^^^
+------------
 
 The dependency relationships among the various modules are depicted below.
 
@@ -206,28 +218,10 @@ The dependency relationships among the various modules are depicted below.
 
 
 Archive
-^^^^^^^
+-------
 
 * :ref:`Archive ChangeLog <archive-changelog>`: notable changes to the archive
   over time
-
-Contents
---------
-
-.. toctree::
-   :maxdepth: 2
-
-   getting-started/index
-   architecture/index
-   contributing/index
-   tutorials/index
-   faq/index
-   roadmap/roadmap-2022
-   roadmap/index
-   api-reference
-   archive-changelog
-   journal
-   statsd
 
 
 .. only:: devel_doc
