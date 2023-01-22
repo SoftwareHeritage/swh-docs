@@ -112,6 +112,7 @@ html_favicon = "_static/favicon.ico"
 html_theme_options = {
     "collapse_navigation": True,
     "sticky_navigation": True,
+    "titles_only": True,
 }
 
 html_logo = "_static/software-heritage-logo-title-motto-vertical-white.png"
