@@ -7,7 +7,7 @@ sphinxcontrib-images
 sphinxcontrib-programoutput
 sphinx-design
 sphinx-reredirects
-sphinx_rtd_theme
+pydata-sphinx-theme
 sphinx-click
 myst-parser
 sphinx-celery

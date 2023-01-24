@@ -1,7 +1,7 @@
 .. _swh-docs-devel:
 
-Software Heritage - Development Documentation
-=============================================
+Development
+===========
 
 .. toctree::
    :hidden:
@@ -13,7 +13,6 @@ Software Heritage - Development Documentation
    faq/index
    roadmap/roadmap-2022
    roadmap/index
-   api-reference
    archive-changelog
    journal
    statsd

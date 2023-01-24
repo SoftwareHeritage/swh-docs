@@ -12,8 +12,8 @@ from sphinx.ext import autodoc
 from swh.docs.django_settings import force_django_settings
 
 # General information about the project.
-project = "Software Heritage - Documentation"
-copyright = "2015-2023  The Software Heritage developers"
+project = "Software Heritage"
+copyright = "2015-2023 The Software Heritage developers"
 author = "The Software Heritage developers"
 
 # -- General configuration ------------------------------------------------
@@ -30,7 +30,6 @@ extensions = [
     "sphinxcontrib.images",
     "sphinxcontrib.programoutput",
     "sphinx.ext.viewcode",
-    "sphinx_rtd_theme",
     "sphinx.ext.graphviz",
     "sphinx_click.ext",
     "myst_parser",
@@ -101,22 +100,48 @@ todo_include_todos = True
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
 #
-html_theme = "sphinx_rtd_theme"
+html_theme = "pydata_sphinx_theme"
 
 html_favicon = "_static/favicon.ico"
 
 # Theme options are theme-specific and customize the look and feel of a theme
-# further.  For a list of options available for each theme, see the
-# documentation.
+# further. See: https://pydata-sphinx-theme.readthedocs.io/en/stable/user_guide/
 #
 html_theme_options = {
-    "collapse_navigation": True,
-    "navigation_depth": 5,
-    "sticky_navigation": True,
-    "titles_only": True,
+    "show_prev_next": True,
+    "use_edit_page_button": True,
+    "icon_links": [
+        {
+            "name": "GitLab",
+            "url": "https://gitlab.softwareheritage.org/swh/devel",
+            "icon": "fa-brands fa-square-gitlab",
+            "type": "fontawesome",
+        },
+        {
+            "name": "PyPI",
+            "url": "https://pypi.org/user/swh/",
+            "icon": "fa-solid fa-box",
+            "type": "fontawesome",
+        },
+        {
+            "name": "System Status",
+            "url": "https://status.softwareheritage.org/",
+            "icon": "fa-solid fa-heart-pulse",
+            "type": "fontawesome",
+        },
+    ],
+    "navbar_persistent": ["search-button"],
 }
 
-html_logo = "_static/software-heritage-logo-title-motto-vertical-white.png"
+html_logo = "_static/software-heritage-logo-title.svg"
+
+html_context = {
+    "gitlab_url": "https://gitlab.softwareheritage.org",
+    "gitlab_user": "swh/devel",
+    "gitlab_repo": "swh-docs",
+    "gitlab_version": "master",
+    "doc_path": "docs",
+}
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
@@ -126,17 +151,9 @@ html_static_path = ["_static"]
 html_js_files = ["custom.js"]
 html_css_files = ["custom.css"]
 
-# make logo actually appear, avoiding gotcha due to alabaster default conf.
-# https://github.com/bitprophet/alabaster/issues/97#issuecomment-303722935
-html_sidebars = {
-    "**": [
-        "about.html",
-        "globaltoc.html",
-        "relations.html",
-        "sourcelink.html",
-        "searchbox.html",
-    ]
-}
+# Possible sidebar configuration is explained at:
+# https://pydata-sphinx-theme.readthedocs.io/en/latest/user_guide/layout.html
+# html_sidebars = {}
 
 # If not None, a 'Last updated on:' timestamp is inserted at every page
 # bottom, using the given strftime format.

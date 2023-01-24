@@ -1,11 +1,10 @@
 .. _swh-docs-user:
 
-Software Heritage - User Documentation
-======================================
+Usage
+=====
 
 .. toctree::
    :maxdepth: 2
-   :caption: Contents:
 
    faq/index
    listers/index

@@ -1,11 +1,10 @@
 .. _swh-docs-sysadm:
 
-Software Heritage - Sysadmin Documentation
-==========================================
+Infrastructure
+==============
 
 .. toctree::
    :maxdepth: 2
-   :caption: Contents:
 
    getting-started/index
    puppet/index
