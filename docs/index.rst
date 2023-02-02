@@ -348,7 +348,7 @@ Use in your applications
 
    .. grid-item::
 
-      .. image:: images/card_outreach_undraw_engineering_team.svg
+      .. image:: images/card_interface_undraw_futuristic_interface.svg
          :align: right
 
 Browse API
