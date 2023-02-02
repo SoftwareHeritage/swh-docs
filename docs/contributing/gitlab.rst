@@ -10,36 +10,54 @@
 Submitting code to SWH
 ======================
 
-We use `gitlab <https://gitlab.softwareheritage.org/>`__ (`Community
-Edition <https://gitlab.com/gitlab-org/gitlab-foss>`__) as the
-coding/collaboration forge.
+We use [gitlab](https://gitlab.softwareheritage.org/) ([Community Edition](https://gitlab.com/gitlab-org/gitlab-foss)) as the coding/collaboration forge.
 
-Getting started
----------------
+## For a new contributor
 
-* `Signup <https://gitlab.softwareheritage.org/users/sign_up>`__ to
-   create a new gitlab user and wait for approval
-* Once approved, you will get notified
-* If you are not already, familiarize with git and gitlab `gitlab
-   basics <https://docs.gitlab.com/ee/tutorials/make_your_first_git_commit.html>`__
-* Create a
-   `fork <https://docs.gitlab.com/ee/user/project/repository/forking_workflow.html#creating-a-fork>`__
-   of the project you wish to work on
-* Setup `ssh keys <https://docs.gitlab.com/ee/user/ssh.html>`__ to
-   communicate with Gitlab
-* Sign the Software Heritage Contributor License Agreement
+You will need an account in SWH gitlab for contributing code. Please follow the steps below to setup your account.
+
+* [Signup](https://gitlab.softwareheritage.org/users/sign_up) to create a new gitlab user and wait for approval
+* Once approved, you will get a notification
+* If you are not already, familiarize with git and [gitlab](https://docs.gitlab.com/ee/tutorials/make_your_first_git_commit.html)
+* Setup [ssh keys](https://docs.gitlab.com/ee/user/ssh.html) to communicate with Gitlab
 * [Optional] Install gitlab cli tools
-* Create a local `feature
-   branch <https://docs.gitlab.com/ee/gitlab-basics/feature_branch_workflow.html>`__
-   for the feature you are trying to add
-* Commit code following the commit guidelines
-* Push your branch to your fork
-* Create a `merge
-   request <https://docs.gitlab.com/ee/user/project/merge_requests/creating_merge_requests.html#when-you-work-in-a-fork>`__
-   against the SWH project master branch for your branch
+* Sign the Software Heritage Contributor License Agreement
+
+## Development workflow
+We use a [fork based workflow](https://docs.gitlab.com/ee/user/project/repository/forking_workflow.html) and [merge requests](https://docs.gitlab.com/ee/user/project/merge_requests/) for code contributions. In order to submit a feature or even a small edit in the code, please adhere to the steps below
+
+* Create a fork of the project you wish to contribute to in your personal namespace
+* Clone your forked repository and start working. It is strongly recommended to work on a [feature branch](https://docs.gitlab.com/ee/gitlab-basics/feature_branch_workflow.html)
+* Make commits following the [SWH best practices](https://docs.softwareheritage.org/devel/contributing/python-style-guide.html)
+* Push your branch to your forked repository
+* Create a merge request against the SWH project master branch
 * Make sure the merge request passes all the steps in the build
-* Address the review comments, if any
-* Once ready, wait for a team member to merge your code
+* Address the review comments, if any, and wait for an approval
+* Once approved, a team member will merge your changes to the master branch
+
+## Quick start script
+
+A [script](https://gitlab.softwareheritage.org/swh/devel/swh-environment/-/blob/master/bin/fork-gitlab-repo) using python-gitlab is available to partially automate the above workflow. Using this script is recommended as it simplifies the complexities associated with the build pipelines and multiple remotes. The workflow using this quick start script is as follows:
+
+Configure your python-gitlab access token
+This is required because <>
+
+```
+How to get the access token
+```
+
+If you haven't done already, checkout the swh-environment. Refer to the <running SWH locally> document for details
+```
+$ cd swh-environment
+```
+
+Run the script
+```
+$ bin/<>
+```
+
+This will create a new fork of the SWH repository in your namespace and add a Jenkins user to perform automatic builds. Apart from that, the script will add an extra git remote called 'forked' which can be used to pull update from the original SWH repository.
+
 
 SSH key for pushes
 ~~~~~~~~~~~~~~~~~~
