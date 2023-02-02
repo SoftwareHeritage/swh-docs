@@ -141,6 +141,31 @@ html_context = {
     "gitlab_repo": "swh-docs",
     "gitlab_version": "master",
     "doc_path": "docs",
+    # The swh-docs building process symlinks the documentation for
+    # individual modules into the swh-docs tree to generate a single Sphinx
+    # project. The “Edit this page” link therefore needs to point to the right
+    # repository on GitLab in these case.
+    # We implement this using the `edit_page_url_template` option, see:
+    # https://pydata-sphinx-theme.readthedocs.io/en/stable/user_guide/source-buttons.html#custom-edit-url
+    # We can take advantage that it’s a Jinja2 template to recognize
+    # that API documentation file path starts with `devel/swh-` and adjust
+    # accordingly. This is a bit of a hack, but we can hope it’ll be enough as
+    # long as we stay consistent for module paths.
+    # Please note the usage of `{%-` and `-%}` used to trim spaces from the
+    # generated string. See:
+    # https://jinja.palletsprojects.com/en/3.1.x/templates/#whitespace-control
+    "edit_page_url_template": """
+        {%- if file_name.startswith('devel/swh-') -%}
+          {% set path = file_name.split('/') -%}
+          {% set gitlab_repo = path[1] -%}
+          {% set doc_path -%}
+            docs/{{ path[2:-1] | join('/') }}
+          {%- endset -%}
+          {% set file_name = path[-1] -%}
+        {% endif -%}
+        {{ gitlab_url }}/{{ gitlab_user }}/{{ gitlab_repo -}}
+        /-/edit/{{ gitlab_version }}/{{ doc_path }}{{ file_name -}}
+    """,
     # Use light mode by default until the landing page better supports dark mode
     "default_mode": "light",
 }

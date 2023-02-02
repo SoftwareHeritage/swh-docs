@@ -13,6 +13,7 @@ Development
    faq/index
    roadmap/roadmap-2022
    roadmap/index
+   api-reference
    archive-changelog
    journal
    statsd
