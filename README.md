@@ -22,7 +22,7 @@ How to build the doc
 
 Install the [Software Heritage development environment][2]
 
-    $ git clone https://forge.softwareheritage.org/source/swh-environment
+    $ git clone https://gitlab.softwareheritage.org/swh/devel/swh-environment.git
     $ cd swh-environment
     $ ./bin/update  # this will clone needed git repos, inc. swh-docs
     $ cd swh-docs
@@ -116,7 +116,7 @@ The HTML documentation is now available starting from `docs/_build/html/index.ht
 
 
 [1]: http://www.sphinx-doc.org/
-[2]: https://forge.softwareheritage.org/source/swh-environment/
+[2]: https://gitlab.softwareheritage.org/swh/devel/swh-environment.git
 [3]: https://graphviz.org
 [4]: http://plantuml.com
 [5]: https://inkscape.org/

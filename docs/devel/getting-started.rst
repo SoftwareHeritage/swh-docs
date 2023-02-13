@@ -31,7 +31,7 @@ Quick start
 First, retrieve Software Heritage development environment to get the
 Docker configuration::
 
-   ~$ git clone https://forge.softwareheritage.org/source/swh-environment.git
+   ~$ git clone https://gitlab.softwareheritage.org/swh/devel/swh-environment.git
    ~$ cd swh-environment/docker
 
 Then, start containers::

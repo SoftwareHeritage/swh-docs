@@ -14,7 +14,7 @@ hack it, and run locally the unit tests.
 To test the effect of your modifications, you can :ref:`install your own local
 Software Heritage instance <getting-started>` using Docker.
 
-.. _`documentation`: https://forge.softwareheritage.org/source/swh-environment/browse/master/docker/README.rst?as=remarkup
+.. _`documentation`: https://gitlab.softwareheritage.org/swh/devel/swh-environment/-/blob/master/docker/README.rst
 .. _`virtual environment`: https://packaging.python.org/en/latest/guides/installing-using-pip-and-virtual-environments/#creating-a-virtual-environment
 
 
@@ -86,7 +86,7 @@ Checkout the source code
 
 Clone the |swh| environment repository::
 
-    ~$ git clone https://forge.softwareheritage.org/source/swh-environment.git
+    ~$ git clone https://gitlab.softwareheritage.org/swh/devel/swh-environment.git
     [...]
     ~$ cd swh-environment
     ~/swh-environment$
@@ -280,5 +280,5 @@ forge. See the guide on :ref:`how to submit patches <patch-submission>`.
 .. _pytest: https://pytest.org
 .. _tox: https://tox.readthedocs.io
 .. _pypi: https://pypi.org
-.. _swh-loader-git: https://forge.softwareheritage.org/source/swh-loader-git
+.. _swh-loader-git: https://gitlab.softwareheritage.org/swh/devel/swh-loader-git
 .. _pifpaf: https://github.com/jd/pifpaf
