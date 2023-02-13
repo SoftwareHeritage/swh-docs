@@ -129,6 +129,12 @@ html_theme_options = {
             "icon": "fa-solid fa-heart-pulse",
             "type": "fontawesome",
         },
+        {
+            "name": "Software Heritage Homepage",
+            "url": "https://www.softwareheritage.org/",
+            "icon": "fa-solid fa-house",
+            "type": "fontawesome",
+        },
     ],
     "navbar_persistent": ["search-button"],
 }
