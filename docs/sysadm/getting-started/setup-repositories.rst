@@ -31,9 +31,9 @@ Clone each of those repositories. They each contain a .mrconfig file and a READM
 
 ::
 
-   $ git clone git@gitlab.softwareheritage.org:infra/sysadm-environment.git
-   $ git clone git@gitlab.softwareheritage.org:infra/puppet/puppet-environment.git
-   $ git clone ssh://git@forge.softwareheritage.org/source/ci-environment.git
+   $ git clone https://gitlab.softwareheritage.org/swh/infra/sysadm-environment.git
+   $ git clone https://gitlab.softwareheritage.org/swh/infra/puppet/puppet-environment.git
+   $ git clone https://gitlab.softwareheritage.org/swh/infra/ci-cd/ci-environment.git
 
 Then, use the `mr` (myrepos) command that uses the .mrconfig file to clone the
 repositories managed by myrepos:
@@ -53,4 +53,4 @@ repositories managed by myrepos:
 
 .. _puppet-environment: https://gitlab.softwareheritage.org/infra/puppet/puppet-environment
 .. _sysadm-environment: https://gitlab.softwareheritage.org/infra/sysadm-environment
-.. _ci-environment: https://forge.softwareheritage.org/source/ci-environment
+.. _ci-environment: https://gitlab.softwareheritage.org/swh/infra/ci-cd/ci-environment

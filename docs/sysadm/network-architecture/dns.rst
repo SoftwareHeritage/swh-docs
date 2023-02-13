@@ -172,8 +172,8 @@ If you rather not use a DNS, a (ad-hoc maintained) sample /etc/hosts is availabl
 SSH configuration
 ~~~~~~~~~~~~~~~~~
 
-The only host with public (internet) SSH access, ``forge.softwareheritage.org``, doesn't
-need any specific configuration.
+The only host with public (internet) SSH access, ``gitlab.softwareheritage.org``, does
+not need any specific configuration.
 
 All other hosts (``*.internal.softwareheritage.org``,
 ``*.internal.staging.swh.network``, ``*.internal.admin.swh.network``) are only (but

@@ -47,8 +47,8 @@ Configuration backup
 --------------------
 
 The configuration is automatically committed on a `git repository
-<https://forge.softwareheritage.org/source/iFWCFG/branches/master/>`_. Each firewall
-regularly pushes its configuration on a dedicated branch of the repository.
+<https://gitlab.softwareheritage.org/infra-private/iFWCFG/-/tree/master/>`_. Each
+firewall regularly pushes its configuration on a dedicated branch of the repository.
 
 The configuration is visible on the `System / Configuration / Backups
 <https://pushkin.internal.softwareheritage.org/diag_backup.php>`_ page of each one.

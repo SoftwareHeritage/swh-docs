@@ -29,6 +29,11 @@ specifier.
 Adding a new external puppet module
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+.. admonition:: Deprecation notice
+   :class: important
+
+   This needs refactoring as the script mentioned in this section is not yet ported to
+   use our new gitlab instance
 
 In the *puppet-environment* repository, the ``bin/import-puppet-module`` takes care of
 the following tasks:

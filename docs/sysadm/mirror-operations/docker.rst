@@ -36,9 +36,9 @@ Several preparation steps will depend on this name.
 We also use `docker-compose <https://github.com/docker/compose>`_ to merge compose
 files, so make sure it is available on your system.
 
-You also need to clone the git  repository:
+You also need to clone the git repository:
 
-  https://forge.softwareheritage.org/source/swh-mirror
+  https://gitlab.softwareheritage.org/swh/infra/swh-mirror.git
 
 
 Set up volumes
@@ -116,7 +116,7 @@ If you haven't done it yet, clone this git repository:
 
 .. code-block:: bash
 
-   ~$ git clone https://forge.softwareheritage.org/source/swh-mirror.git
+   ~$ git clone https://gitlab.softwareheritage.org/swh/infra/swh-mirror.git
    ~$ cd swh-mirror
 
 This repository provides the docker compose/stack manifests to deploy all the relevant

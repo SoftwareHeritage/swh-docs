@@ -36,7 +36,7 @@ Jobs definition
 Most of the jobs are created using `Jenkins Job Builder
 <https://docs.openstack.org/infra/jenkins-job-builder/>`_ (aka JJB). The jobs are
 declared in the `dedicated source repository
-<https://forge.softwareheritage.org/source/swh-jenkins-jobs/>`_.
+<https://gitlab.softwareheritage.org/swh/infra/ci-cd/swh-jenkins-jobs>`_.
 
 Each time a new revision is pushed on this repo, the `JJB job
 <https://jenkins.softwareheritage.org/job/jenkins-tools/job/swh-jenkins-job-builder/>`_
@@ -53,7 +53,7 @@ for `jenkins-tools <https://jenkins.softwareheritage.org/job/jenkins-tools/>`_ j
 in a docker jenkins slave.
 
 Docker images used by Jenkins are created and updated using the `Dockerfiles
-<https://forge.softwareheritage.org/source/swh-jenkins-dockerfiles/>`_.
+<https://gitlab.softwareheritage.org/swh/infra/ci-cd/swh-jenkins-dockerfiles>`_.
 
 For now, there are 2 different images:
 
@@ -75,10 +75,10 @@ in which all dedicated jobs to this package are defined.
 For building, there are 2 jenkins jobs dedicated for each swh package:
 
 - `Phab. Diff <https://jenkins.softwareheritage.org/job/DCORE/job/tests-on-diff/>`_
-  (e.g. `swh-core <https://forge.softwareheritage.org/source/swh-core/>`_): these jobs
-  are executed each time a Phabricator Diff is created or updated.
+  (e.g. `swh-core <https://gitlab.softwareheritage.org/swh/devel/swh-core>`_): these
+  jobs are executed each time a Phabricator Diff is created or updated.
 - `master branch <https://jenkins.softwareheritage.org/job/DCORE/job/tests/>`_ (e.g.
-  `swh-core <https://forge.softwareheritage.org/source/swh-core/>`_): these jobs are
+  `swh-core <https://gitlab.softwareheritage.org/swh/devel/swh-core>`_): these jobs are
   executed when git revisions are pushed to the master branch.
 
 Note: the *master branch* and *diff* builds trigger the unit tests and the documentation

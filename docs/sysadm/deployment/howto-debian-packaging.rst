@@ -270,6 +270,11 @@ tag for Jenkins to autobuild.
 Setting up the repository on Phabricator
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+.. admonition:: Deprecation notice
+   :class: warning
+
+   This is no longer necessary as we migrated to gitlab
+
 The repository on Phabricator needs the following settings:
 
 - Callsign: non-empty; prefix should be P according to `Phabricator callsign convention
@@ -320,7 +325,7 @@ The Jenkins `jobs are accessible through the ui
 
 
 They are declared in the `swh-jenkins-jobs repository
-<https://forge.softwareheritage.org/source/swh-jenkins-jobs>`_.
+<https://gitlab.softwareheritage.org/swh/infra/ci-cd/swh-jenkins-jobs>`_.
 
 Jobs for dependency packages are configured in ``jobs/dependency-packages.yaml``. You
 can add a section as follows:
@@ -350,8 +355,8 @@ For example:
 
 Other samples can be found in the dedicated repository.
 
-- usual swh package: `swh.core <https://forge.softwareheritage.org/source/swh-jenkins-jobs/browse/master/jobs/swh-packages.yaml$15-22>`_
-- peculiar swh package (with name divergences): `swh.icinga_plugins <https://forge.softwareheritage.org/source/swh-jenkins-jobs/browse/master/jobs/swh-packages.yaml$51-58>`_
+- usual swh package: `swh.core <https://gitlab.softwareheritage.org/swh/infra/ci-cd/swh-jenkins-jobs/-/blob/master/jobs/swh-packages.yaml#L15-22>`_
+- peculiar swh package (with name divergences): `swh.icinga_plugins <https://gitlab.softwareheritage.org/swh/infra/ci-cd/swh-jenkins-jobs/-/blob/master/jobs/swh-packages.yaml#L88-95>`_
 
 Use the regular review process to land your changes. Once your changes are pushed, a
 dedicated Jenkins job will generate the jobs from the configuration.

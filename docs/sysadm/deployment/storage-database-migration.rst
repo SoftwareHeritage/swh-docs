@@ -26,7 +26,7 @@ Say, for example that the result is 159 here.
 
 Check the migration script folder in swh-storage:/sql/upgrades/ (and find the next one,
 for example `160.sql
-<https://forge.softwareheritage.org/source/swh-storage/browse/master/sql/upgrades/160.sql>`_).
+<https://gitlab.softwareheritage.org/swh/devel/swh-storage/-/blob/master/swh/storage/sql/upgrades/160.sql>`_).
 It's previous version number + 1 from the given db version retrieved (so 160 with the
 current example).
 
@@ -63,8 +63,8 @@ Hopefully, in production, the script runs as is without adaptation…
 
 Otherwise, if the data volume for a given table is large, you may want to adapt. See
 `160.sql
-<https://forge.softwareheritage.org/source/swh-storage/browse/master/sql/upgrades/160.sql>`_
-and `its adaptation <https://forge.softwareheritage.org/P747>`_
+<https://gitlab.softwareheritage.org/swh/devel/swh-storage/-/blob/master/swh/storage/sql/upgrades/160.sql>`_
+and `its adaptation <https://gitlab.softwareheritage.org/swh/meta/-/snippets/744>`_
 
 For such a case, consider working on ranges on the table id instead. So it uses index
 and keep the transaction short. Long-standing migration query (translates to long

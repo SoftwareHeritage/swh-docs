@@ -4,4 +4,4 @@ How to test Puppet changes in Vagrant
 =====================================
 
 .. todo:: This page is a work in progress. Please refer to the `existing documentation
-   <https://forge.softwareheritage.org/source/puppet-environment/browse/master/README.md$187>`_.
+   <https://gitlab.softwareheritage.org/swh/infra/puppet/puppet-environment/-/blob/master/README.md#local-tests-with-vagrant>`_.

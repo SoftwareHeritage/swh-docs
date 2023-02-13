@@ -15,7 +15,7 @@ Repository
 ^^^^^^^^^^
 
 The repository location is `in the forge
-<https://forge.softwareheritage.org/source/credentials/>`_.
+<https://gitlab.softwareheritage.org/swh/infra/credentials>`_.
 
 Configuration
 ^^^^^^^^^^^^^
@@ -41,4 +41,4 @@ Information
 ^^^^^^^^^^^
 
 More information can be found at `the repository
-<https://forge.softwareheritage.org/source/credentials/browse/master/README>`_.
+<https://gitlab.softwareheritage.org/swh/infra/credentials/-/blob/master/README>`_.
