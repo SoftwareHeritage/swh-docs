@@ -3,162 +3,145 @@
 Add a new package
 =================
 
-The following document demonstrates how to create a new swh package in the current `swh
-phabricator instance`_ and reference it so the `Continuous Integration (CI)`_ is able to
-build the new package.
+The following document demonstrates how to create a new Python package for
+Software Heritage, hereafter named ``swh-foo``.
 
-We will need to (optionally) create a project, then create a repository, reference it in
-the CI and finally update the documentation repository so the docs get built with that
-new package. Optionally, we can also create the necessary debian branches for the debian
-build deployment process to work. That's not something immediately urgent when
-bootstraping a package though.
+We will need to create a project, initialize the new repository, reference
+the project in the Continuous Integration system and finally add the
+project to the documentation.
 
 .. _create-new-project:
 
 Create a project
 ----------------
 
-Create a `new Project`_ (seen also as a ``Tag``) and fill in the form:
+Creating the project should be done using the ``gitlab`` command-line tool
+provided by the `python-gitlab <https://python-gitlab.readthedocs.io/>`_ module.
+Make sure to have the configuration working and an access token with ``api`` as
+scope.
 
-  - Fill in the "name" field (e.g. ``Origin Sourceforge``, ``Loader XYZ``, ...)
+To create the project:
 
-  - Additional hashtags should be filled in with easy to remember hashtags (e.g.
-    ``#sourceforge``, ``#loader-xyz``)
+.. code:: bash
 
-  - Add a small description about what the project is about
+   PROJECT_NAME=swh-foo
+   DESCRIPTION="Software Heritage Foo management library"
+   NAMESPACE_ID="$(gitlab --output json namespace get --id 'swh/devel' | jq .id)"
+   gitlab project create \
+       --name "$PROJECT_NAME" \
+       --path "$PROJECT_NAME" \
+       --namespace "$NAMESPACE_ID" \
+       --description "$DESCRIPTION" \
+       --issues-access-level enabled \
+       --auto-devops-enabled false \
+       --wiki-access-level disabled \
+       --requirements-access-level disabled \
+       --pages-access-level disabled \
+       --operations-access-level disabled \
+       --container-registry-access-level disabled \
+       --visibility public
 
-Create a repository
--------------------
+Initialize the repository with our template
+-------------------------------------------
 
-- Create a `new Git repository`_ and fill in the form:
+The following commands need to run from the base directory
+``swh-environment``.
 
-- ``name`` of the repository should be human readable (e.g. ``Git Loader``, ``Gitlab Lister``)
+1. Clone the new repository:
 
-- ``callsign`` should follow the current `naming convention`_
+   .. code:: bash
 
-- ``short-name`` should be lower case and dash separated (e.g. ``swh-loader-git``,
-  ``swh-lister``, ...)
+      git clone https://gitlab.softwareheritage.org/swh/devel/swh-foo.git
 
-- ``Tags`` should be filled with:
+2. Use ``bin/init-py-repo`` to initialize the repository with a project template:
 
-   - the first project/tag :ref:`you created <create-new-project>`
+   .. code:: bash
 
-   - ``Language-Python``: Enable unit tests execution on commit
+      bin/init-py-repo swh-foo
 
-   - ``Has debian packaging branches``: Activate debian builds in the CI
+3. Install the pre-commit hook:
 
-   -  ``Sync to github``: (optional) Activate mirroring sync to github
+   .. code:: bash
 
-- Add the staging area, click in order from ``BUILDS`` (left menu) > ``Staging Area`` >
-  ``Edit staging`` > fill in ``Staging Area URI`` with
-  https://forge.softwareheritage.org/source/staging.git
+      pre-commit install
 
-- Finally, activate the repository
+Customize the template
+----------------------
+
+Now look for the string ``foo`` in all files and file names and replace it with
+the name of the new package. Push these commits directly to the repository as
+initial content.
+
+For an example, you can see `what was done for swh-counters <https://gitlab.softwareheritage.org/swh/devel/swh-counters/-/commit/142fff84305b>`__.
 
 Add the repo on the swh-environment project
 -------------------------------------------
 
-(Only if necessary)
+Declare the repository on the *mr* configuration:
 
-Unless specified otherwise, the following commands need to run from the base directory
-``swh-environment``.
+- Edit the ``.mrconfig`` file and declare the new repository. For an example, `look
+  at the addition of swh-graphql
+  <https://gitlab.softwareheritage.org/swh/devel/swh-environment/-/commit/d812839f02ae6d0f20891a0f14391a94a359d611>`__.
 
--  clone the new repository
+- Create a merge request with the changes.
 
-.. code:: bash
-
-   git clone https://forge.softwareheritage.org/source/swh-my-new-repo.git
-
-- launch the command ``bin/init-py-repo`` to initialize the repository with a project
-  template
-
-.. code:: bash
-
-   bin/init-py-repo swh-new-repo
-
-- Within that new repository, replace the ``swh-py-template`` entry in
-  ``docs/index.rst`` with the new package name ``swh-<package>`` (e.g:
-  ``swh-scrubber``).
-
-.. code:: bash
-
-   REPO_NAME=swh-new-repo  # edit this part, keep the "swh-" prefix
-   sed -i -e "s/swh-py-template/$REPO_NAME/g" docs/index.rst
-
-- Edit the default content of the template (`Example <https://forge.softwareheritage.org/rDCNT142fff84305b793974e6f7b837988e5fb95d8db1>`__)
-
--  Configure **your local** pre-commit hook
-
-   -  In the ``swh-environment/swh-my-new-repo`` directory, execute:
-
-   .. code:: bash
-
-      grep -q pre-commit.com .git/hooks/pre-commit || pre-commit install
-
--  Declare the repository on the mr configuration
-
-   - Edit the ``.mrconfig`` file and declare the new repository (just
-     duplicate one existing entry and adapt with the new package name)
-
-   - Commit file modification (`Example
-     <https://forge.softwareheritage.org/rCJSWHede4a65bc9e103db99dd8b0690caa3a769b378bd>`__)
+.. note::
+   Adding the repository in ``.mrconfig`` will break ``swh-docs`` builds until
+   the new module is registered in the documentation as explained below.
 
 Install CI jobs
 ---------------
 
-- In the swh-jenkins-jobs_ repository, open the
-  ``jobs/swh-packages.yaml`` and add a section for the new repository as for the others
-  (`Example <https://forge.softwareheritage.org/rCJSWHdd5b3a1192cb45c07103be199af8c2a74478746e>`__)
+- In  swh-jenkins-jobs_, open `jobs/swh-packages.yaml <https://gitlab.softwareheritage.org/swh/infra/ci-cd/swh-jenkins-jobs/-/blob/master/jobs/swh-packages.yaml>`__ and add a section like the others for the new repository.
 
--  Configure the `post-receive hook`_ on the phabricator instance
+.. note::
+   Jobs will automatically be recreated when changes are pushed to the
+   ``swh-jenkins-jobs`` repository. See `Jenkins documentation <ci_jenkins>`_
+   for details.
 
-- `Setting up the debian jenkins jobs`_
+Make an initial release
+-----------------------
 
-Setting up debian builds
+Releases are made automatically by Jenkins when a tag is pushed to a module
+repository. Making an initial release is thus done by doing:
+
+.. code:: bash
+
+   git tag v0.0.0
+   git push origin --tags v0.0.0
+
+.. note::
+   Before adding a new module to the documentation, at least one release must
+   have been made. Otherwise, the documentation will not build as it won’t be
+   able to fetch the Python package from PyPI nor determine the version number.
+   This is why we need to make an initial release before moving forward.
+
+Update the documentation
 ------------------------
 
-As mentioned early in the introduction, this configuration can be delayed for when the
-package is actually ready to be deployed.
+The documentation is in the swh-docs_ project. Each Python module get a section
+of the documentation automatically generated from its source code.
 
-If you want to attend immedialy, follow through the `Setting up the debian build`_
-documentation.
+To add a new module to the documentation:
 
-Documentation updates
----------------------
-
-- Documentation repository is located in the swh-docs_ repository.
-
-- Add the package dependency in the top-level ``requirements-swh.txt`` (publication
+- Add the package to the dependencies in ``requirements-swh.txt`` (publication
   build) and ``requirements-swh-dev.txt`` (documentation development build).
 
-- Reference the package in the toc tree located in :ref:`docs/api-reference.rst
-  <api-reference>`.
+- Reference the package in the ``toctree`` located in ``docs/devel/api-reference.rst``
 
-- Reference the package in the index with its concise description located in
-  :ref:`docs/index.rst <components>`.
+- Add the package with a concise description to the index of the development part, located in
+  ``docs/devel/index.rst``.
 
-::
+  ::
 
-   :ref:`swh.my_new_repo <swh-my-new-repo>`
-       short description of the repository
-   ...
+     :ref:`swh.foo <swh-foo>`
+         short description of the repository
 
-   # at the end of the index page
-      swh.my_new_repo <swh-my-new-repo/index>
+- Ensure this builds fine locally (run ``tox run`` and ``tox run -e sphinx-dev``)
 
-- ensure this builds fine locally (e.g run `tox`, then `make -C docs`)
-
-- Then open a diff to advertise the new documentation entrypoints (`Example
-  <https://forge.softwareheritage.org/D7448>`__)
+- Open a merge request with the above changes.
 
 
-.. _`swh phabricator instance`: https://forge.softwareheritage.org/
 .. _`Continuous Integration (CI)`: https://jenkins.softwareheritage.org
-.. _`new Project`: https://forge.softwareheritage.org/project/edit/form/3/
-.. _`new Git repository`: https://forge.softwareheritage.org/diffusion/edit/form/default/?vcs=git
-.. _`naming convention`: https://wiki.softwareheritage.org/wiki/Phabricator_callsign_naming_convention
-.. _swh-jenkins-jobs: https://forge.softwareheritage.org/source/swh-jenkins-jobs
-.. _`post-receive hook`: https://wiki.softwareheritage.org/wiki/Debian_packaging#Setting_up_the_repository_on_Phabricator
-.. _`Setting up the debian jenkins jobs`: https://wiki.softwareheritage.org/wiki/Debian_packaging#Setting_up_the_Jenkins_jobs
-.. _`Setting up the debian build`: https://wiki.softwareheritage.org/wiki/Debian_packaging#Git_repositories_for_Debian_packages
-.. _swh-docs: https://forge.softwareheritage.org/source/swh-docs/
+.. _swh-jenkins-jobs: https://gitlab.softwareheritage.org/swh/infra/ci-cd/swh-jenkins-jobs
+.. _swh-docs: https://gitlab.softwareheritage.org/swh/devel/swh-docs
