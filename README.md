@@ -48,7 +48,7 @@ installed, eg. on a Debian system:
 
 Then (from the `swh-environment/swh-docs/` directory):
 
-    $ tox -e sphinx-dev
+    $ tox run -e sphinx-dev
 
 This tox environment will build the documentation from the sources available in
 the parent directory (`swh-environment`).
@@ -106,7 +106,7 @@ For instance to build the standalone documentation of ``swh-web``, proceed as
 follows:
 
     $ cd swh-environment/swh-web
-    $ tox -e sphinx-dev
+    $ tox run -e sphinx-dev
 
 Sphinx warnings related to unresolved references located in other swh packages are suppressed because expected.
 
