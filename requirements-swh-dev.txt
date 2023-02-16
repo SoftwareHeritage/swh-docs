@@ -3,7 +3,7 @@
 # You can keep this list sorted alphabetically, the pip dependency resolver can sort
 # this out.
 
-../swh-auth[django]
+../swh-auth[django,starlette]
 ../swh-core[http,db,logging]
 ../swh-counters
 ../swh-dataset[luigi]
