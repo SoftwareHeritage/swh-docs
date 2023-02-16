@@ -12,7 +12,7 @@ First, please familiarize yourself with:
 * the `content policy`_,
 * your local data protection legislation, and
 * if relevant, your employer's/university's
-guidelines regarding research data.
+  guidelines regarding research data.
 
 .. _content policy: https://www.softwareheritage.org/legal/content-policy/
 
