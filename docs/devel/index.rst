@@ -30,7 +30,7 @@ Getting started
 Contributing
 ------------
 
-* :ref:`patch-submission` → learn how to submit your patches to the
+* :ref:`gitlab-code-submission` → learn how to submit your code to the
   Software Heritage codebase
 * :ref:`code-review` → rules and guidelines to review code in
   Software Heritage

@@ -5,7 +5,7 @@ Contributing
    :maxdepth: 2
    :titlesonly:
 
-   phabricator
+   gitlab
    code-review
    python-style-guide
    git-style-guide
