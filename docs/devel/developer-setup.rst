@@ -105,7 +105,7 @@ Checkout all the swh packages source repositories::
 
 Use the same mypy version our tox containers use::
 
-    (swh) ~/swh-environment$ pip install mypy==0.942
+    (swh) ~/swh-environment$ pip install mypy==1.0.1
 
 In the future you can re-activate the created virtualenv with::
 
