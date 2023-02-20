@@ -61,7 +61,7 @@ mainly in 3 steps:
 ### 1. Generate documentation assets for all modules
 
     $ cd swh-environment
-    $ make docs-assets
+    $ pifpaf run postgresql -- make docs-assets
 
 This will *not* build the documentation in each module (there is `make docs`
 for that).
@@ -70,7 +70,7 @@ for that).
 ### 2. Build the api docs for all swh python packages
 
     $ cd swh-docs/docs
-    $ make apidoc
+    $ pifpaf run postgresql -- make apidoc
 
 ### 3. Build the documentation
 
