@@ -72,10 +72,11 @@ can do its work:
 
 .. code::
 
-   $ ssh-add .ssh/id_ed25519.inria # or whatever your ssh key is
+   $ ssh-add ~/.ssh/<user-key>
+   $ username=<user-name>
    $ sudo SSH_AUTH_SOCK="$SSH_AUTH_SOCK" sshuttle --python python3 \
        --method tproxy \
-       -r ${username}@sesi-ssh.inria.fr 128.93.162.142 128.93.134.0/27
+       -r ${username}@sesi-ssh.inria.fr 128.93.162.142 128.93.134.0/26
 
 .. _idrac_authentication:
 
@@ -97,9 +98,9 @@ Look up the hostname of the management interface you want to access in the `inve
 <https://inventory.internal.softwareheritage.org/ipam/prefixes/9/ip-addresses/>`_.
 
 The machines hosted in the main Software Heritage bay at Rocquencourt use the
-128.93.134.0/27 network.
+128.93.134.0/26 network.
 
-The first usable IP address is **128.93.134.1** and the last one **128.93.134.29**.
+The first usable IP address is **128.93.134.1** and the last one **128.93.134.62**.
 
 **128.93.134.30** is a gateway.
 
