@@ -400,7 +400,7 @@ Improve the universal archive
 
 -  :ref:`Our
    roadmap <roadmap-current>`
--  :ref:`Developper documentation <swh-docs-devel>`. Where
+-  :ref:`Developer documentation <swh-docs-devel>`. Where
    you will find developer-oriented documentation to understand the SWH
    environment.
 -  `Get started <devel/getting-started>`__
