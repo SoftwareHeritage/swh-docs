@@ -32,6 +32,8 @@ documentation. Please follow the steps below to setup your account.
 -  Sign the Software Heritage Contributor License Agreement. Please
    contact us to know more about this.
 
+.. _patch-submission:
+
 Development workflow
 --------------------
 

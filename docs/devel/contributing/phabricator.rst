@@ -15,8 +15,6 @@ https://gitlab.softwareheritage.org/
 
 The content below is no longer relevant and will be updated soon.
 
-.. _patch-submission:
-
 Submitting patches
 ==================
 
