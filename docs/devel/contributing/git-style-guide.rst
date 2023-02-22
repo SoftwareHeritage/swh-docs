@@ -5,29 +5,21 @@ Git style guide
 
 Various information about how we use Git to develop Software Heritage.
 
-Commits
--------
+Commit messages
+---------------
 
-Make your commits adhere to this `How to Write a Git Commit Message <http://chris.beams.io/posts/git-commit/>`_
+Good commit messages are essentials in a project as large as Software Heritage.
+They are crucial to those who will review your changes and important to anyone else
+who will interact with the codebase at a later time. This includes your future self!
 
-Link commits to tasks
-+++++++++++++++++++++
+Make sure to follow the recommandations from `How to write a Git
+commit message <http://chris.beams.io/posts/git-commit/>`_
 
-You can reference Phabricator tasks from your commits,
-using a `dedicated syntax <https://secure.phabricator.com/T5132>`_
-When you do so, please put the task action on a separate line,
-so that it is clearly visible.
+Closing or referencing issues
+-----------------------------
 
-Make sure commits that are enough to close a bug do so using a line like::
+You can reference issues in commit messages (or merge requests). When using the
+right formats, GitLab will automatically link or close related issues:
 
-   Closes T123456
-
-If you just want to "ping" a task, updating it with the fact that
-a related commit has been pushed, use::
-
-   Related to T123456
-
-References
-----------
-
-* `special syntax you can use in commit messages to cause effects <https://secure.phabricator.com/T5132>`_
+- `Crosslinking issues from commit messages <https://docs.gitlab.com/ee/user/project/issues/crosslinking_issues.html#from-commit-messages>`_
+- `Closing issues automatically <https://docs.gitlab.com/ee/user/project/issues/managing_issues.html#closing-issues-automatically>`_
