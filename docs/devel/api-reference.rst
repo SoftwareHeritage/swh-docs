@@ -6,6 +6,7 @@ API reference
 .. toctree::
    :maxdepth: 2
 
+   swh.alter <swh-alter/index>
    swh.auth <swh-auth/index>
    swh.core <swh-core/index>
    swh.counters <swh-counters/index>

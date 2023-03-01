@@ -91,6 +91,9 @@ which presents each of them in a didactical order.
 Each component name is linked to the development documentation
 of the corresponding Python module.
 
+:ref:`swh.alter <swh-alter>`
+    archive alteration facilities
+
 :ref:`swh.auth <swh-auth>`
     low-level library used by modules needing keycloak authentication
 

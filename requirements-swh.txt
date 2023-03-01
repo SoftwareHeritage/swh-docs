@@ -1,4 +1,5 @@
 # Add here internal Software Heritage dependencies, one per line.
+swh.alter
 swh.auth[django,starlette]
 swh.core[db,http,logging]
 swh.counters
