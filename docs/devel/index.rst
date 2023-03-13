@@ -11,7 +11,7 @@ Development
    contributing/index
    tutorials/index
    faq/index
-   roadmap/roadmap-2022
+   roadmap/roadmap-2023
    roadmap/index
    api-reference
    archive-changelog
@@ -67,6 +67,7 @@ Roadmap
 * Current roadmap: :ref:`roadmap-current`
 * Previous roadmaps
 
+  * :ref:`roadmap-2022`
   * :ref:`roadmap-2021`
 
 System Administration
