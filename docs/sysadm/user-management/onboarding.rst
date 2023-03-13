@@ -80,6 +80,7 @@ Communication
 
 - Subscribe to `mailing lists`_: swh-devel, swh-team
 - Invite to `IRC channels`_
+- Give staff role on IRC (`/msg ChanServ FLAGS #swh-team <username> Staff`, which applies on all channels)
 - Create user page on the intranet (see `example
   <https://intranet.softwareheritage.org/wiki/User:StefanoZacchiroli>`_) with personal
   contact information
