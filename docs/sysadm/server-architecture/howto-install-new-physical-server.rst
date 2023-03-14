@@ -10,7 +10,8 @@ How to install a new physical server
 
 .. note::
 
-   This page is based on **cassandra07** server installation. Obviously replace the hostname and IP address.
+   This page is based on **cassandra07** server installation. Replace the
+   hostname and IP address according to your need.
 
 .. _build_the_iso_image:
 
@@ -23,15 +24,19 @@ Build the ISO image
    .. code::
 
       sudo apt build-dep ipxe
-      sudo apt install whois j2cli
+      sudo apt install whois j2cli isolinux
 
-Clone the SWH `ipxe <https://gitlab.softwareheritage.org/swh/infra/ipxe>`_ repository.
+Clone the SWH `ipxe <https://gitlab.softwareheritage.org/swh/infra/ipxe>`_
+repository.
 
 .. code::
 
    git clone git@gitlab.softwareheritage.org:swh/infra/ipxe.git
 
-Create the variables template in ``ipxe/configs`` (you can find the `IPADDRESS` in the `inventory <https://inventory.internal.admin.swh.network/ipam/ip-addresses/>`_).
+
+Create the variables template in ``ipxe/configs`` (you can find the
+`IPADDRESS` in the `inventory
+<https://inventory.internal.admin.swh.network/ipam/ip-addresses/>`_).
 
 ``cassandra07.yaml``
 
@@ -49,7 +54,8 @@ Create the variables template in ``ipxe/configs`` (you can find the `IPADDRESS` 
    SUBNET: sesi_rocquencourt
    BOOT_DISK_ID_PATTERN: "*_Boot_Controller_*"
 
-When the server you install has no dedicated boot disk, replace the `BOOT_DISK_ID_PATTERN` variable with these ones [1]_:
+When the server you install has no dedicated boot disk, replace the
+`BOOT_DISK_ID_PATTERN` variable with these ones [1]_:
 
 .. code:: yaml
 
@@ -68,14 +74,16 @@ When the server you install has no dedicated boot disk, replace the `BOOT_DISK_I
    .. figure:: ../images/infrastructure/iLO_boot-controller.png
       :alt: iLO_boot-controller.png
 
-Then build the ISO image, the debian installer file and the finish_install script with the script ``build_iso.sh``.
+Then build the ISO image, the debian installer file and the finish_install
+script with the script ``build_iso.sh``.
 
 .. code::
 
    cd ipxe/configs
    ./build_iso.sh cassandra07
 
-Copy only the necessary files on **preseed.internal.softwareheritage.org** which is hosted on **pergamon**.
+Copy only the necessary files on **preseed.internal.softwareheritage.org**
+which is hosted on **pergamon**.
 
 .. code::
 
@@ -121,27 +129,39 @@ Then start the server and let the installation complete.
 IPMI serial console access
 --------------------------
 
-You need to enable ``iLO Service Port`` if you want to launch an ``IPMI`` console.
+You need to enable ``iLO Service Port`` to access the ``IPMI`` console. Go to
+Security > column Network > click on the "pencil" (edit) icon.
+
+.. figure:: ../images/infrastructure/iLO_security_access_settings.png
+   :alt: Edit network access security
 
 .. figure:: ../images/infrastructure/iLO_allow_serial_console.png
-   :alt: iLO_allow_serial_console.png
+   :alt: Allow ipmi remote access
 
 Then you can follow the installation from a serial console.
 
 .. code::
 
-   IPADDRESS=$(pass show infra/cassandra07/idrac | awk -F/ '/^Url/{print $NF}')
-   LOGIN=$(pass show infra/cassandra07/idrac | awk '/^User/{print $2}')
-   PASSWORD=$(pass show infra/cassandra07/idrac | head -1)
+   HOSTNAME=cassandra07
+   IPADDRESS=$(pass show infra/$HOSTNAME/idrac | awk -F/ '/^Url/{print $NF}')
+   LOGIN=$(pass show infra/$HOSTNAME/idrac | awk '/^User/{print $2}')
+   PASSWORD=$(pass show infra/$HOSTNAME/idrac | head -1)
 
    ipmitool -I lanplus -H "$IPADDRESS" -U "$LOGIN" -P "$PASSWORD" sol activate
+
+
+Note: Use ``~.`` to exit the session.
 
 .. _post_installation:
 
 Post installation
 -----------------
 
-The temporary root password is in the `ipxe <https://gitlab.softwareheritage.org/swh/infra/ipxe>`_ repository.
+The temporary root password is generated and stored in `ipxe
+<https://gitlab.softwareheritage.org/swh/infra/ipxe>`_ repository under the
+``gitignored`` file ``configs/passwords``.
+
+Reference it in the credentials repository under ``infra/$HOSTNAME/root``.
 
 .. code::
 
@@ -150,11 +170,11 @@ The temporary root password is in the `ipxe <https://gitlab.softwareheritage.org
    awk -F: "/$HOSTNAME/ "'{print $2}' passwords
    xxxxx-xxxxxx-xxxxxxxx-xxxxxx
 
-Finally run the Puppet agent.
+Prepare the node if need be (e.g. zfs preparation) and finally run the Puppet
+agent.
 
 .. code::
 
    sudo apt install tmux puppet gnupg
    sudo puppet agent --vardir /var/lib/puppet \
-   --server pergamon.internal.softwareheritage.org -t
-
+     --server pergamon.internal.softwareheritage.org -t
