@@ -9,7 +9,7 @@ SPHINXAPIDOC = sphinx-apidoc
 APIDOC_DIR = apidoc
 APIDOC_OPTS = --ext-viewcode --separate --no-toc
 APIDOC_EXCLUDES = */tests */migrations */wsgi.py */conftest.py */setup.py
-APIDOC_EXCLUDES += deposit/settings/* web/settings/* dataset/*
+APIDOC_EXCLUDES += deposit/settings/* web/settings/*
 APIDOC_SWH_EXCLUDES = $(patsubst %,"$(SWHPKGDIR)/%",$(APIDOC_EXCLUDES))
 
 all: html

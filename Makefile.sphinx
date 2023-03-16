@@ -12,7 +12,7 @@ SPHINX_SRCDIR = .
 # relative to docs/ dir. Hence "." exclude the docs/ dir itself
 APIDOC_EXCLUDES = conftest.py setup.py
 APIDOC_EXCLUDES += */tests/* */migrations/* */wsgi.py */conftest.py
-APIDOC_EXCLUDES += */deposit/settings/* */web/settings/* */dataset/*
+APIDOC_EXCLUDES += */deposit/settings/* */web/settings/*
 APIDOC_EXCLUDES += bin build dist utils node_modules
 APIDOC_SWH_EXCLUDES = $(patsubst %,"../%",$(APIDOC_EXCLUDES))
 
