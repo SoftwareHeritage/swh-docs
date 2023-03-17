@@ -227,11 +227,19 @@ This new deployment involves docker images which are exposing script/services wh
 running in a virtual python frozen environment. Those versioned images are then
 referenced in a specific helm chart which is deployed in a kubernetes rancher cluster.
 
-Those docker images are built out of a declared Dockerfile in in the `swh-apps`_
+Those docker images are built out of a declared Dockerfile in the `swh-apps`_
 repository.
 
-Add a new app
-~~~~~~~~~~~~~
+You can either:
+
+- :ref:`Add a new application<add-new-swh-application>`
+- :ref:`Update an application<update-swh-application>`
+- :ref:`Release a new version of an application<build-and-publish-docker-image-app>`
+
+.. _add-new-swh-application:
+
+Add new swh application
+~~~~~~~~~~~~~~~~~~~~~~~
 
 From the repository `swh-apps`_, create a new Dockerfile.
 
@@ -242,20 +250,65 @@ applications can serve as template:
 - rpc service: use `graphql <https://gitlab.softwareheritage.org/swh/infra/swh-apps/-/blob/master/apps/swh-graphql/>`_
 - journal client: use `storage replayer <https://gitlab.softwareheritage.org/swh/infra/swh-apps/-/blob/master/apps/swh-storage-replayer>`_
 
+It's time to build and publish a docker image. It's a multiple steps process that can be
+executed locally starting with the :ref:`frozen set of dependencies requirements to
+generate <update-app-frozen-requirements>`.
+
+.. _update-swh-application:
+
+Update swh application
+~~~~~~~~~~~~~~~~~~~~~~
+
+If you need to update the swh application, edit its ``swh-apps/apps/$app/Dockerfile`` or
+``swh-apps/apps/$app/entrypoint.sh`` to adapt according to change.
+
+Note:
+If a new requirement is necessary, update the ``swh-apps/apps/$app/requirements.txt``
+(source of the generated ``requirements-frozen.txt``). Note that those should be kept to
+a minimal and it may be that such change should happen upstream in the swh modules
+instead.
+
+Once your update is done, commit and push the change, then :ref:`build and publish the
+new docker image <build-and-publish-docker-image-app>`.
+
+.. _build-and-publish-docker-image-app:
+
+Build and publish docker image (recommended)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Use the `dedicated jenkins job
+<https://jenkins.softwareheritage.org/job/swh-apps/job/build-docker-image/build?delay=0sec>`_
+to update the app's frozen requirements, build the docker image with that set and
+publish that image to the swh gitlab registry.
+
+Once the application image is published in the registry, you need to :ref:`update the
+impacted chart <update-impacted-chart>`.
+
+.. _update-impacted-chart:
+
+Update impacted chart
+~~~~~~~~~~~~~~~~~~~~~
+
+In the `swh-chart`_ repository, update the `values file
+<https://gitlab.softwareheritage.org/swh/infra/ci-cd/swh-charts/-/blob/production/values-swh-application-versions.yaml>`_
+with the corresponding new changed version.
+
+:ref:`ArgoCD <argocd-config>` will be in charge of deploying the changes in a rolling
+upgrade fashion.
+
+
 .. _update-app-frozen-requirements:
 
 Update app's frozen requirements
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Once the application is registered. We need to build the frozen environment:
-
-We'll first need a "build-deps" container with some dependencies set (due to some
+We'll first need a "app-manager" container with some dependencies set (due to some
 limitations in our stack):
 
 .. code::
 
    $ cd swh-apps/scripts
-   $ docker build -t build-deps .
+   $ docker build -t app-manager .
 
 Out of this container, we are able to generate the frozen requirements for the
 $APP_NAME (e.g. *loader_{git, svn, cvs, ...}*, *lister*, *indexer* ...):
@@ -263,7 +316,7 @@ $APP_NAME (e.g. *loader_{git, svn, cvs, ...}*, *lister*, *indexer* ...):
 .. code::
 
    $ cd swh-apps
-   $ docker run --rm -v $PWD:/src build-deps generate-frozen-requirements $APP_NAME
+   $ docker run --rm -v $PWD:/src app-manager generate-frozen-requirements $APP_NAME
 
 You have built your frozen requirements that can be committed. Next, we will
 :ref:`generate the image updated with that frozen environment <generate-image>`.
@@ -324,18 +377,6 @@ Commit and tag
 ~~~~~~~~~~~~~~
 
 Commit and tag the changes.
-
-.. _update-impacted-chart:
-
-Update impacted chart
-~~~~~~~~~~~~~~~~~~~~~
-
-In the `swh-chart`_ repository, update the `values file
-<https://gitlab.softwareheritage.org/swh/infra/ci-cd/swh-charts/-/blob/production/values-swh-application-versions.yaml>`_
-with the corresponding new changed version.
-
-:ref:`ArgoCD <argocd-config>` will be in charge of deploying the changes in a rolling
-upgrade fashion.
 
 .. _swh-apps: https://gitlab.softwareheritage.org/swh/infra/swh-apps/
 .. _swh-chart: https://gitlab.softwareheritage.org/infra/ci-cd/swh-charts
