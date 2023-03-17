@@ -227,6 +227,10 @@ This new deployment involves docker images which are exposing script/services wh
 running in a virtual python frozen environment. Those versioned images are then
 referenced in a specific helm chart which is deployed in a kubernetes rancher cluster.
 
+That cluster runs on machines nodes (with :ref:`specific labels <labels-on-nodes>`) onto which are scheduled pods
+with containers inside. Those containers are the ones spawning the docker image as
+applications.
+
 Those docker images are built out of a declared Dockerfile in the `swh-apps`_
 repository.
 
@@ -293,9 +297,9 @@ In the `swh-chart`_ repository, update the `values file
 <https://gitlab.softwareheritage.org/swh/infra/ci-cd/swh-charts/-/blob/production/values-swh-application-versions.yaml>`_
 with the corresponding new changed version.
 
-:ref:`ArgoCD <argocd-config>` will be in charge of deploying the changes in a rolling
-upgrade fashion.
-
+Check that the nodes are properly labelled to receive the application. Then :ref:`ArgoCD
+<argocd-config>` will be in charge of deploying the changes in a rolling upgrade
+fashion.
 
 .. _update-app-frozen-requirements:
 
@@ -377,6 +381,37 @@ Commit and tag
 ~~~~~~~~~~~~~~
 
 Commit and tag the changes.
+
+.. _labels-on-nodes:
+
+Labels on nodes
+~~~~~~~~~~~~~~~
+
+For now, we are using dedicated labels on nodes to run specific applications:
+
+- swh/rpc=true: rpc services, e.g. graphql
+- swh/cooker=true: cooker worker
+- swh/indexer=true: indexer journal client
+- swh/lister=true: lister worker
+- swh/loader=true: loader worker
+- swh/loader-metadata=true: loader-metadata worker
+
+In the following example:
+
+- cluster in {archive-staging-rke2, archive-production-rke2})
+- $node is an actual node hostname e.g. rancher-node-staging-rke2-worker[1, ...] or
+  rancher-node-metal0{1,2} (for production)
+- $new-label is a label of the form: ``swh/$service=true``
+
+To check the actual list of labels
+
+    kubectl --context $cluster get nodes --show-labels
+
+To install a label on a node:
+
+    kubectl --context $cluster label --overwrite node \
+      $node $new-label
+
 
 .. _swh-apps: https://gitlab.softwareheritage.org/swh/infra/swh-apps/
 .. _swh-chart: https://gitlab.softwareheritage.org/infra/ci-cd/swh-charts
