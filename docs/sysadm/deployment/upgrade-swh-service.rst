@@ -1,4 +1,4 @@
-.. _upgrade-swh-service:
+.. _deployment-upgrade-swh-service:
 
 Upgrade swh service
 ===================
@@ -27,7 +27,7 @@ Then follows the actual :ref:`deployment with debian packaging
 <deployment-with-debian-packaging>`. It concludes with the :ref:`deployment with
 kubernetes<deployment-with-kubernetes>` chapter.
 
-.. _distinct-services:
+.. _deployment-upgrade-swh-service-distinct-services:
 
 Distinct Services
 -----------------
@@ -38,7 +38,7 @@ Distinct Services
 - rpc services (scheduler, objstorage, storage, web, ...)
 - journal client services (search, scheduler, indexer)
 
-.. _code-and-publish-a-release:
+.. _deployment-upgrade-swh-service-code-and-publish-a-release:
 
 
 Code and publish a release
@@ -50,7 +50,7 @@ Code an evolution or a bugfix in the impacted git repository (usually the master
 branch). Open a diff for review. Land it when accepted. And then release it following
 the :ref:`tag and push <tag-and-push>` part.
 
-.. _tag-and-push:
+.. _deployment-upgrade-swh-service-tag-and-push:
 
 Tag and push
 ~~~~~~~~~~~~
@@ -63,7 +63,7 @@ When ready, `git tag` and `git push` the new tag of the module. Then let jenkins
    $ git tag -a vA.B.C  # (optionally) `git tag -a -s` to sign the tag too
    $ git push origin --follow-tags
 
-.. _publish-artifacts:
+.. _deployment-upgrade-swh-service-publish-artifacts:
 
 Publish artifacts
 ~~~~~~~~~~~~~~~~~
@@ -73,16 +73,18 @@ the tag just pushed). It then builds the debian package and pushes it to our :re
 debian repositories <howto-debian-packaging>`.
 
 
-.. _troubleshoot:
+.. _deployment-upgrade-swh-service-troubleshoot:
 
 Troubleshoot
 ~~~~~~~~~~~~
 
 If jenkins fails for some reason, fix the module be it :ref:`python code
-<code-and-publish-a-release>` or the :ref:`debian packaging <troubleshoot-debian-package>`.
+<deployment-upgrade-swh-service-code-and-publish-a-release>` or the
+:ref:`debian packaging
+<deployment-upgrade-swh-service-troubleshoot-debian-package>`.
 
 
-.. _deployment-with-debian-packaging:
+.. _deployment-upgrade-swh-service-with-debian-packaging:
 
 
 Deployment with debian packaging
@@ -90,7 +92,7 @@ Deployment with debian packaging
 
 This mostly involves deploying new version of debian packages to static nodes.
 
-.. _upgrade-services:
+.. _deployment-upgrade-swh-service-upgrade-services:
 
 Upgrade services
 ~~~~~~~~~~~~~~~~
@@ -122,7 +124,7 @@ nodes through the following group names:
 
 See :ref:`deploy-new-lister` for a practical example.
 
-.. _troubleshoot-debian-package:
+.. _deployment-upgrade-swh-service-troubleshoot-debian-package:
 
 Debian package troubleshoot
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -144,7 +146,7 @@ Lather, rinse, repeat until it's all green!
 Deploy
 ------
 
-.. _nominal-case:
+.. _deployment-upgrade-swh-service-nominal-case:
 
 Nominal case
 ~~~~~~~~~~~~
@@ -171,7 +173,7 @@ command, something like:
 [3] pergamon is already *clush* configured to allow multiple ssh connections in parallel
 on our managed infrastructure nodes.
 
-.. _configuration-change-required:
+.. _deployment-upgrade-swh-service-configuration-change-required:
 
 Configuration change required
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -187,7 +189,7 @@ Or force a puppet run:
 
 Note: *-t* is not optional
 
-.. _long-standing-upgrade:
+.. _deployment-upgrade-swh-service-long-standing-upgrade:
 
 Long-standing upgrade
 ~~~~~~~~~~~~~~~~~~~~~
@@ -218,7 +220,7 @@ Then:
    $ sudo clush -b -w @swh-workers 'systemctl start cron.service; puppet agent --enable'
 
 
-.. _deployment-with-kubernetes:
+.. _deployment-upgrade-swh-service-with-kubernetes:
 
 Deployment with Kubernetes
 --------------------------
@@ -227,20 +229,21 @@ This new deployment involves docker images which are exposing script/services wh
 running in a virtual python frozen environment. Those versioned images are then
 referenced in a specific helm chart which is deployed in a kubernetes rancher cluster.
 
-That cluster runs on machines nodes (with :ref:`specific labels <labels-on-nodes>`) onto which are scheduled pods
-with containers inside. Those containers are the ones spawning the docker image as
-applications.
+That cluster runs on machines nodes (with :ref:`specific labels
+<deployment-upgrade-swh-service-labels-on-nodes>`) onto which are scheduled
+pods with containers inside. Those containers are the ones spawning the docker
+image as applications.
 
 Those docker images are built out of a declared Dockerfile in the `swh-apps`_
 repository.
 
 You can either:
 
-- :ref:`Add a new application<add-new-swh-application>`
-- :ref:`Update an application<update-swh-application>`
-- :ref:`Release a new version of an application<build-and-publish-docker-image-app>`
+- :ref:`Add a new application<deployment-upgrade-swh-service-add-new-swh-application>`
+- :ref:`Update an application<deployment-upgrade-swh-service-update-swh-application>`
+- :ref:`Release a new version of an application<deployment-upgrade-swh-service-build-and-publish-docker-image-app>`
 
-.. _add-new-swh-application:
+.. _deployment-upgrade-swh-service-add-new-swh-application:
 
 Add new swh application
 ~~~~~~~~~~~~~~~~~~~~~~~
@@ -258,7 +261,7 @@ It's time to build and publish a docker image. It's a multiple steps process tha
 executed locally starting with the :ref:`frozen set of dependencies requirements to
 generate <update-app-frozen-requirements>`.
 
-.. _update-swh-application:
+.. _deployment-upgrade-swh-service-update-swh-application:
 
 Update swh application
 ~~~~~~~~~~~~~~~~~~~~~~
@@ -273,9 +276,9 @@ a minimal and it may be that such change should happen upstream in the swh modul
 instead.
 
 Once your update is done, commit and push the change, then :ref:`build and publish the
-new docker image <build-and-publish-docker-image-app>`.
+new docker image <deployment-upgrade-swh-service-build-and-publish-docker-image-app>`.
 
-.. _build-and-publish-docker-image-app:
+.. _deployment-upgrade-swh-service-build-and-publish-docker-image-app:
 
 Build and publish docker image (recommended)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -285,10 +288,11 @@ Use the `dedicated jenkins job
 to update the app's frozen requirements, build the docker image with that set and
 publish that image to the swh gitlab registry.
 
-Once the application image is published in the registry, you need to :ref:`update the
-impacted chart <update-impacted-chart>`.
+Once the application image is published in the registry, you need to
+:ref:`update the impacted chart
+<deployment-upgrade-swh-service-update-impacted-chart>`.
 
-.. _update-impacted-chart:
+.. _deployment-upgrade-swh-service-update-impacted-chart:
 
 Update impacted chart
 ~~~~~~~~~~~~~~~~~~~~~
@@ -301,7 +305,7 @@ Check that the nodes are properly labelled to receive the application. Then :ref
 <argocd-config>` will be in charge of deploying the changes in a rolling upgrade
 fashion.
 
-.. _update-app-frozen-requirements:
+.. _deployment-upgrade-swh-service-update-app-frozen-requirements:
 
 Update app's frozen requirements
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -323,15 +327,16 @@ $APP_NAME (e.g. *loader_{git, svn, cvs, ...}*, *lister*, *indexer* ...):
    $ docker run --rm -v $PWD:/src app-manager generate-frozen-requirements $APP_NAME
 
 You have built your frozen requirements that can be committed. Next, we will
-:ref:`generate the image updated with that frozen environment <generate-image>`.
+:ref:`generate the image updated with that frozen environment
+<deployment-upgrade-swh-service-generate-image>`.
 
-.. _generate-image:
+.. _deployment-upgrade-swh-service-generate-image:
 
 Generate image
 ~~~~~~~~~~~~~~
 
 Build the docker image with the frozen environment and then :ref:`publish it
-<publish-image>`:
+<deployment-upgrade-swh-service-publish-image>`:
 
 .. code::
 
@@ -355,7 +360,7 @@ You must have a gitlab account and generate a personal access token with at leas
 `write` access to the `gitlab registry
 <https://gitlab.softwareheritage.org/swh/infra/swh-apps/container_registry/>`_.
 
-.. _publish-image:
+.. _deployment-upgrade-swh-service-publish-image:
 
 Publish image
 ~~~~~~~~~~~~~
@@ -370,19 +375,21 @@ then push the image:
    $ docker push $FULL_IMAGE
    $ docker push $FULL_IMAGE_LATEST
 
-Do not forget to :ref:`commit the changes and tag <commit-changes-and-tag>`.
+Do not forget to :ref:`commit the changes and tag
+<deployment-upgrade-swh-service-commit-changes-and-tag>`.
 
-Finally, let's :ref:`update the impacted chart <update-impacted-chart>` with the new
-docker image version.
+Finally, let's :ref:`update the impacted chart
+<deployment-upgrade-swh-service-update-impacted-chart>` with the new docker
+image version.
 
-.. _commit-changes-and-tag:
+.. _deployment-upgrade-swh-service-commit-changes-and-tag:
 
 Commit and tag
 ~~~~~~~~~~~~~~
 
 Commit and tag the changes.
 
-.. _labels-on-nodes:
+.. _deployment-upgrade-swh-service-labels-on-nodes:
 
 Labels on nodes
 ~~~~~~~~~~~~~~~
