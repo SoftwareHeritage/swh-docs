@@ -337,8 +337,8 @@ This page references all available loaders and links to their high-level documen
 .. |cvs_loader_dev| replace:: Development
 .. _cvs_loader_dev: https://forge.softwareheritage.org/project/profile/166/
 
-.. |cvs_loader_status| replace:: in staging
-.. _cvs_loader_status: https://webapp.staging.swh.network/browse/search/?with_visit=true&with_content=true&visit_type=cvs
+.. |cvs_loader_status| replace:: in production
+.. _cvs_loader_status: https://archive.softwareheritage.org/browse/search/?with_visit=true&with_content=true&visit_type=cvs
 
 .. |cvs_loader_grant| replace:: Alfred P. Sloan Foundation
 .. _cvs_loader_grant: https://www.softwareheritage.org/2020/12/10/sloan-subgrant-cvs-subversion-loaders/
