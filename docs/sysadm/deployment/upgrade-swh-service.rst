@@ -19,13 +19,15 @@ There exists currently 2 ways (as we are transitioning from the first to the sec
 
 
 The following will first describe the :ref:`common deployment part
-<code-and-publish-a-release>`. This involves some python packaging out of a git tag
-which will be built and push to `PyPI <https://pypi.org>`_ and our :ref:`swh debian
-repositories <howto-debian-packaging>`.
+<deployment-upgrade-swh-service-code-and-publish-a-release>`. This involves
+some python packaging out of a git tag which will be built and push to `PyPI
+<https://pypi.org>`_ and our :ref:`swh debian repositories
+<howto-debian-packaging>`.
 
 Then follows the actual :ref:`deployment with debian packaging
-<deployment-with-debian-packaging>`. It concludes with the :ref:`deployment with
-kubernetes<deployment-with-kubernetes>` chapter.
+<deployment-upgrade-swh-service-with-debian-packaging>`. It concludes with the
+:ref:`deployment with
+kubernetes<deployment-upgrade-swh-service-with-kubernetes>` chapter.
 
 .. _deployment-upgrade-swh-service-distinct-services:
 
@@ -46,9 +48,10 @@ Code and publish a release
 
 It's usually up to the developers.
 
-Code an evolution or a bugfix in the impacted git repository (usually the master
-branch). Open a diff for review. Land it when accepted. And then release it following
-the :ref:`tag and push <tag-and-push>` part.
+Code an evolution or a bugfix in the impacted git repository (usually the
+master branch). Open a diff for review. Land it when accepted. And then
+release it following the :ref:`tag and push
+<deployment-upgrade-swh-service-tag-and-push>` part.
 
 .. _deployment-upgrade-swh-service-tag-and-push:
 
@@ -56,7 +59,7 @@ Tag and push
 ~~~~~~~~~~~~
 
 When ready, `git tag` and `git push` the new tag of the module. Then let jenkins
-:ref:`publish the artifact <publish-artifacts>`.
+:ref:`publish the artifact <deployment-upgrade-swh-service-publish-artifacts>`.
 
 .. code::
 
@@ -211,9 +214,9 @@ for a concrete case of database migration.
 
 Then:
 
--  Execute the long-standing upgrade.
--  Go back to the :ref:`nominal case <nominal-case>`.
--  Restart puppet and the cron services on workers
+- Execute the long-standing upgrade.
+- Go back to the :ref:`nominal case <deployment-upgrade-swh-service-nominal-case>`.
+- Restart puppet and the cron services on workers
 
 .. code::
 
@@ -250,16 +253,18 @@ Add new swh application
 
 From the repository `swh-apps`_, create a new Dockerfile.
 
-Depending on the :ref:`services <distinct-services>` to package, other existing
+Depending on the :ref:`services
+<deployment-upgrade-swh-service-distinct-services>` to package, other existing
 applications can serve as template:
 
 - loader: use `git loader <https://gitlab.softwareheritage.org/swh/infra/swh-apps/-/blob/master/apps/swh-loader-git/>`_.
 - rpc service: use `graphql <https://gitlab.softwareheritage.org/swh/infra/swh-apps/-/blob/master/apps/swh-graphql/>`_
 - journal client: use `storage replayer <https://gitlab.softwareheritage.org/swh/infra/swh-apps/-/blob/master/apps/swh-storage-replayer>`_
 
-It's time to build and publish a docker image. It's a multiple steps process that can be
-executed locally starting with the :ref:`frozen set of dependencies requirements to
-generate <update-app-frozen-requirements>`.
+It's time to build and publish a docker image. It's a multiple steps process
+that can be executed locally starting with the :ref:`frozen set of
+dependencies requirements to generate
+<deployment-upgrade-swh-service-update-app-frozen-requirements>`.
 
 .. _deployment-upgrade-swh-service-update-swh-application:
 
