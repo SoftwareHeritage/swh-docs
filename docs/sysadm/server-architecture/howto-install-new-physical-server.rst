@@ -10,8 +10,11 @@ How to install a new physical server
 
 .. note::
 
-   This page is based on **cassandra07** server installation. Replace the
-   hostname and IP address according to your need.
+   In the following documentation, we use a variable HOSTNAME to templatize
+   the machine name to install. It's its short name. As this page is based on
+   the **cassandra07** server installation, the HOSTNAME is set with
+   it. Replace the hostname and other configurations (e.g IP address, ...)
+   according to the installation need.
 
 .. _build_the_iso_image:
 
@@ -27,7 +30,8 @@ Build the ISO image
       sudo apt install whois j2cli isolinux
 
 Clone the SWH `ipxe <https://gitlab.softwareheritage.org/swh/infra/ipxe>`_
-repository.
+repository (in the branch ``swh``). Then place yourself at the top-level
+directory of the checkout.
 
 .. code::
 
@@ -38,7 +42,7 @@ Create the variables template in ``ipxe/configs`` (you can find the
 `IPADDRESS` in the `inventory
 <https://inventory.internal.admin.swh.network/ipam/ip-addresses/>`_).
 
-``cassandra07.yaml``
+``ipxe/configs/cassandra07.yaml``
 
 .. code:: yaml
 
@@ -79,16 +83,14 @@ script with the script ``build_iso.sh``.
 
 .. code::
 
-   cd ipxe/configs
-   ./build_iso.sh cassandra07
+   HOSTNAME=cassandra07
+   ./configs/build_iso.sh $HOSTNAME
 
 Copy only the necessary files on **preseed.internal.softwareheritage.org**
 which is hosted on **pergamon**.
 
 .. code::
 
-   HOSTNAME=cassandra07
-   cd ipxe/
    rsync -av --include="*/" --include="${HOSTNAME}.sh" --include="${HOSTNAME}.txt" \
    --exclude="*" configs/preseeding/ \
    pergamon.internal.softwareheritage.org:/srv/softwareheritage/preseeding/
@@ -142,7 +144,6 @@ Then you can follow the installation from a serial console.
 
 .. code::
 
-   HOSTNAME=cassandra07
    IPADDRESS=$(pass show infra/$HOSTNAME/idrac | awk -F/ '/^Url/{print $NF}')
    LOGIN=$(pass show infra/$HOSTNAME/idrac | awk '/^User/{print $2}')
    PASSWORD=$(pass show infra/$HOSTNAME/idrac | head -1)
@@ -150,7 +151,11 @@ Then you can follow the installation from a serial console.
    ipmitool -I lanplus -H "$IPADDRESS" -U "$LOGIN" -P "$PASSWORD" sol activate
 
 
-Note: Use ``~.`` to exit the session.
+Note that you might have to adapt the HOSTNAME entry if the name does not match the
+short name (e.g. sometimes, entry may be referenced with their fqdn instead).
+
+To exit the console session, use ``~.``.
+
 
 .. _post_installation:
 
@@ -165,9 +170,7 @@ Reference it in the credentials repository under ``infra/$HOSTNAME/root``.
 
 .. code::
 
-   HOSTNAME=cassandra07
-   cd ipxe/configs
-   awk -F: "/$HOSTNAME/ "'{print $2}' passwords
+   awk -F: "/$HOSTNAME/ "'{print $2}' configs/passwords
    xxxxx-xxxxxx-xxxxxxxx-xxxxxx
 
 Prepare the node if need be (e.g. zfs preparation) and finally run the Puppet
