@@ -12,3 +12,4 @@ SWH Software Deployment
    jenkins
    argocd
    howto-process-add-forge-now-requests
+   howto-add-journal-user-credential
