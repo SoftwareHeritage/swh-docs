@@ -3,8 +3,16 @@
 API reference
 =============
 
+.. seealso::
+   Looking for ways to interact with our source code archive from your
+   applications or research projects? Learn :ref:`how to use Software Heritage
+   from your applications <landing-interface>`.
+
+Here is the reference documentation of Software Heritage own software stack
+by components:
+
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 3
 
    swh.alter <swh-alter/index>
    swh.auth <swh-auth/index>
