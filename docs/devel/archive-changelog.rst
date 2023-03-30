@@ -12,6 +12,11 @@ in this document for historical reasons.
 2023
 ----
 
+* **2023-03-30** Completed first archival of `CodeAurora, The Global Gathering for
+  Mobile Open Source <https://source.codeaurora.org>`_. Regular crawling of its
+  repositories enabled (tracking: `#4813
+  <https://gitlab.softwareheritage.org/swh/infra/sysadm-environment/-/issues/4813>`_)
+
 * **2023-01-03** Completed first archival of `DeuxFleurs's gitea forge
   <https://git.deuxfleurs.fr>`_, as requested via `Add forge now`_.
   Regular crawling of its repositories enabled
