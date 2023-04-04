@@ -25,6 +25,7 @@ Add support for write APIs features in GraphQL
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 - `View milestone in GitLab <https://gitlab.softwareheritage.org/groups/swh/-/milestones/98>`__
+- Lead: jayesh
 - Priority: low
 
 **Description:**
@@ -45,6 +46,7 @@ Tooling for takedown notices
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 - `View milestone in GitLab <https://gitlab.softwareheritage.org/groups/swh/-/milestones/56>`__
+- Lead: lunar
 - Priority: high
 
 **Description:**
@@ -69,6 +71,7 @@ Automate add forge now
 ^^^^^^^^^^^^^^^^^^^^^^^
 
 - `View milestone in GitLab <https://gitlab.softwareheritage.org/groups/swh/-/milestones/54>`__
+- Lead: vsellier
 - Priority: low
 
 **Description:**
@@ -92,6 +95,7 @@ Minimize archival lag w.r.t. upstream code hosting platforms
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 - `View milestone in GitLab <https://gitlab.softwareheritage.org/groups/swh/-/milestones/53>`__
+- Lead: olasd
 - Priority: medium
 
 **Description:**
@@ -115,6 +119,7 @@ Extend archive coverage
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
 - `View milestone in GitLab <https://gitlab.softwareheritage.org/groups/swh/-/milestones/52>`__
+- Lead: ardumont
 - Priority: medium
 
 **Description:**
@@ -141,6 +146,7 @@ Explore possibility of replacing SHA1 with SHA1-DC
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 - `View milestone in GitLab <https://gitlab.softwareheritage.org/groups/swh/-/milestones/112>`__
+- Lead: olasd
 - Priority: high
 
 **Description:**
@@ -160,6 +166,7 @@ Regularly scrub journal, storage, and objstorage
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 - `View milestone in GitLab <https://gitlab.softwareheritage.org/groups/swh/-/milestones/103>`__
+- Lead: vlorentz
 - Priority: medium
 
 **Description:**
@@ -184,6 +191,7 @@ Publicly available standard for SWHID version 1
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 - `View milestone in GitLab <https://gitlab.softwareheritage.org/groups/swh/-/milestones/66>`__
+- Lead: rdicosmo
 - Priority: high
 
 **Description:**
@@ -204,6 +212,7 @@ SWH Mirror at GRNET
 ^^^^^^^^^^^^^^^^^^^^
 
 - `View milestone in GitLab <https://gitlab.softwareheritage.org/groups/swh/-/milestones/65>`__
+- Lead: douardda
 - Priority: medium
 
 **Description:**
@@ -225,6 +234,7 @@ SWH Mirror at Duisburg-Essen university
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 - `View milestone in GitLab <https://gitlab.softwareheritage.org/groups/swh/-/milestones/64>`__
+- Lead: douardda
 - Priority: low
 
 **Description:**
@@ -247,6 +257,7 @@ SWH Mirror at ENEA
 ^^^^^^^^^^^^^^^^^^^
 
 - `View milestone in GitLab <https://gitlab.softwareheritage.org/groups/swh/-/milestones/62>`__
+- Lead: douardda
 - Priority: high
 
 **Description:**
@@ -267,6 +278,7 @@ Mirrors tooling
 ^^^^^^^^^^^^^^^^
 
 - `View milestone in GitLab <https://gitlab.softwareheritage.org/groups/swh/-/milestones/61>`__
+- Lead: douardda
 - Priority: high
 
 **Description:**
@@ -288,6 +300,7 @@ Archive cold-copy at CINES via Vitam
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 - `View milestone in GitLab <https://gitlab.softwareheritage.org/groups/swh/-/milestones/60>`__
+- Lead: douardda
 - Priority: medium
 
 **Description:**
@@ -312,6 +325,7 @@ Support archiving repositories containing SHA1 hash conflicts on blobs
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 - `View milestone in GitLab <https://gitlab.softwareheritage.org/groups/swh/-/milestones/58>`__
+- Lead: olasd
 - Priority: high
 
 **Description:**
@@ -336,6 +350,7 @@ Propose Web UI sections for dedicated partner collections
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 - `View milestone in GitLab <https://gitlab.softwareheritage.org/groups/swh/-/milestones/113>`__
+- Lead: bchauvet
 - Priority: medium
 
 **Description:**
@@ -355,6 +370,7 @@ Create a cost-calculator in the Vault
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 - `View milestone in GitLab <https://gitlab.softwareheritage.org/groups/swh/-/milestones/106>`__
+- Lead: vlorentz
 - Priority: medium
 
 **Description:**
@@ -376,6 +392,7 @@ Publish derived datasets
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
 - `View milestone in GitLab <https://gitlab.softwareheritage.org/groups/swh/-/milestones/94>`__
+- Lead: vlorentz
 - Priority: medium
 
 **Description:**
@@ -397,6 +414,7 @@ Collect and index forge metadata
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 - `View milestone in GitLab <https://gitlab.softwareheritage.org/groups/swh/-/milestones/91>`__
+- Lead: vlorentz
 - Priority: high
 
 **Description:**
@@ -419,6 +437,7 @@ Evaluate the storage of indexed metadata in a triple-store
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 - `View milestone in GitLab <https://gitlab.softwareheritage.org/groups/swh/-/milestones/89>`__
+- Lead: vlorentz
 - Priority: medium
 
 **Description:**
@@ -441,6 +460,7 @@ Release a first version of the swh-scanner product
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 - `View milestone in GitLab <https://gitlab.softwareheritage.org/groups/swh/-/milestones/72>`__
+- Lead: bchauvet
 - Priority: high
 
 **Description:**
@@ -464,6 +484,7 @@ Webhook-based notification for long-running user tasks
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 - `View milestone in GitLab <https://gitlab.softwareheritage.org/groups/swh/-/milestones/71>`__
+- Lead: anlambert
 - Priority: high
 
 **Description:**
@@ -489,6 +510,7 @@ Self-host Software Stories software stack
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 - `View milestone in GitLab <https://gitlab.softwareheritage.org/groups/swh/-/milestones/70>`__
+- Lead: bchauvet
 - Priority: high
 
 **Description:**
@@ -514,6 +536,7 @@ Design presentation of Metadata on Web UI
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 - `View milestone in GitLab <https://gitlab.softwareheritage.org/groups/swh/-/milestones/68>`__
+- Lead: moranegg
 - Priority: high
 
 **Description:**
@@ -541,6 +564,7 @@ Provide a landing page for docs.s.o
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 - `View milestone in GitLab <https://gitlab.softwareheritage.org/groups/swh/-/milestones/73>`__
+- Lead: lunar
 - Priority: high
 
 **Description:**
@@ -565,6 +589,7 @@ Setup efficient and consistent swh-storage pagination
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 - `View milestone in GitLab <https://gitlab.softwareheritage.org/groups/swh/-/milestones/96>`__
+- Lead: jayesh
 - Priority: high
 
 **Description:**
@@ -589,6 +614,7 @@ Improve support for malformed git commits
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 - `View milestone in GitLab <https://gitlab.softwareheritage.org/groups/swh/-/milestones/92>`__
+- Lead: vlorentz
 - Priority: high
 
 **Description:**
@@ -613,6 +639,7 @@ Dynamic infrastructure
 ^^^^^^^^^^^^^^^^^^^^^^^
 
 - `View milestone in GitLab <https://gitlab.softwareheritage.org/groups/swh/-/milestones/105>`__
+- Lead: vsellier
 - Priority: high
 
 **Description:**
@@ -641,6 +668,7 @@ Use a common workflow management tool for swh-web
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 - `View milestone in GitLab <https://gitlab.softwareheritage.org/groups/swh/-/milestones/100>`__
+- Lead: lunar
 - Priority: medium
 
 **Description:**
@@ -662,6 +690,7 @@ Provide a management-friendly monitoring dashboard of services
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 - `View milestone in GitLab <https://gitlab.softwareheritage.org/groups/swh/-/milestones/86>`__
+- Lead: vsellier
 - Priority: high
 
 **Description:**
@@ -687,6 +716,7 @@ Provenance in production
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
 - `View milestone in GitLab <https://gitlab.softwareheritage.org/groups/swh/-/milestones/84>`__
+- Lead: douardda
 - Priority: high
 
 **Description:**
@@ -711,6 +741,7 @@ Scale-out objstorage in production as primary objstorage
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 - `View milestone in GitLab <https://gitlab.softwareheritage.org/groups/swh/-/milestones/83>`__
+- Lead: olasd
 - Priority: high
 
 **Description:**
@@ -733,6 +764,7 @@ Cassandra in production as primary storage
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 - `View milestone in GitLab <https://gitlab.softwareheritage.org/groups/swh/-/milestones/82>`__
+- Lead: vsellier
 - Priority: high
 
 **Description:**
@@ -757,10 +789,11 @@ Use Cassandra as primary storage in production, in replacement of PostgreSQL
 - Cassandra primary storage in production
 
 
-Desing and test a Continuous Deployment infrastructure 
+Design and test a Continuous Deployment infrastructure 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 - `View milestone in GitLab <https://gitlab.softwareheritage.org/groups/swh/-/milestones/80>`__
+- Lead: vsellier
 - Priority: medium
 
 **Description:**
@@ -790,6 +823,7 @@ Desing and test next generation CI Automation
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 - `View milestone in GitLab <https://gitlab.softwareheritage.org/groups/swh/-/milestones/79>`__
+- Lead: olasd
 - Priority: low
 
 **Description:**
@@ -813,6 +847,7 @@ Graph export and graph compression in production
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 - `View milestone in GitLab <https://gitlab.softwareheritage.org/groups/swh/-/milestones/59>`__
+- Lead: vlorentz
 - Priority: high
 
 **Description:**
