@@ -99,7 +99,7 @@ and/or `Daniele Procida's presentation <https://www.youtube.com/watch?v=t4vKPhjc
 
 .. note::
     We propose using in the following naming scheme depending on the type of document:
-        * Tutorial: Tutorial name]
+        * Tutorial: [Tutorial name]
         * How to ...
         * Reference: [Reference name]
         * Explanation: [Explanation name]
