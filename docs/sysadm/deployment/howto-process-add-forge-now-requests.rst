@@ -61,9 +61,6 @@ For example, forge `git.afpy.org <https://git.afpy.org>`_ which is a `gitea
 Ensure the :ref:`lister got registered<check-lister-is-registered>` in the staging
 scheduler db.
 
-After a bit of time, you can :ref:`check origins from that forge got listed
-<check-origins-got-listed>` in the scheduler db:
-
 
 Still on a staging node, we trigger the first ingestion for those origins:
 
@@ -72,8 +69,8 @@ Still on a staging node, we trigger the first ingestion for those origins:
    swh scheduler --url http://scheduler0.internal.staging.swh.network:5008/ \
      add-forge-now --preset staging \
      schedule-first-visits \
-       --visit-type <visit-type> \
-       --visit-type <another-visit-type> \
+       --type-name <visit-type> \
+       --type-name <another-visit-type> \
        --lister-name <lister> \
        --lister-instance-name <lister-instance-name>
 
@@ -84,7 +81,7 @@ For our particular instance:
    swh scheduler --url http://scheduler0.internal.staging.swh.network:5008/ \
      add-forge-now --preset staging \
      schedule-first-visits \
-       --visit-type git \
+       --type-name git \
        --lister-name gitea \
        --lister-instance-name git.afpy.org
 
@@ -139,7 +136,7 @@ pass on that forge.
    swh scheduler --url http://saatchi.internal.softwareheritage.org:5008/ \
      add-forge-now ( --preset production ) \
        schedule-first-visits \
-         --visit-type <visit-type> \
+         --type-name <visit-type> \
          --lister-name <lister-name> \
          --lister-instance-name <lister-instance-name>
 
@@ -150,7 +147,7 @@ For example:
    swh scheduler --url http://saatchi.internal.softwareheritage.org:5008/ \
      add-forge-now ( --preset production ) \
        schedule-first-visits \
-         --visit-type git \
+         --type-name git \
          --lister-name gitea \
          --lister-instance-name git.afpy.org
 
