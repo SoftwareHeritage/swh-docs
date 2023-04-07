@@ -29,7 +29,7 @@ swh-web                      https://webapp.staging.swh.network
 swh-deposit                  https://deposit.staging.swh.network
 swh-objstorage read-only [4] https://objstorage.staging.swh.network
 swh-graphql                  https://graphql.staging.swh.network
-Journal TLS                  broker1.journal.staging.swh.network:9093
+Journal TLS                  broker[1-2].journal.staging.swh.network:9093
 ============================ ========================================
 
 Internal services
@@ -56,9 +56,9 @@ Internal services
 +--------------------------+------------------------------------------------------+--------+------------+
 | swh-vault                | http://vault.internal.staging.swh.network:5005       |        | X          |
 +--------------------------+------------------------------------------------------+--------+------------+
-| Journal plaintext        | journal1.internal.staging.swh.network:9092           |        | X          |
+| Journal plaintext        | journal[1-2].internal.staging.swh.network:9092       |        | X          |
 +--------------------------+------------------------------------------------------+--------+------------+
-| Journal internal TLS     | journal1.internal.staging.swh.network:9094           |        | X          |
+| Journal internal TLS     | journal[1-2].internal.staging.swh.network:9094       |        | X          |
 +--------------------------+------------------------------------------------------+--------+------------+
 
 SWH backends
