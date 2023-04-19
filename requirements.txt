@@ -11,3 +11,5 @@ pydata-sphinx-theme
 sphinx-click
 myst-parser
 sphinx-celery
+tabulate
+typing-extensions

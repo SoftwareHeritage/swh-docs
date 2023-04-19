@@ -3,3 +3,5 @@ _build/
 devel/swh-*
 !/swh-loader.rst
 sources/
+user/listers/table.inc
+user/loaders/table.inc

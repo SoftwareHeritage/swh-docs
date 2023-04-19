@@ -1,4 +1,4 @@
-.. _subversion_loader:
+.. _svn_loader:
 
 Subversion loader
 =================

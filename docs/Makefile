@@ -14,13 +14,16 @@ INSTALL_DIR   = /srv/softwareheritage/docs/webroot
 INSTALL_GROUP = swhdev
 INSTALL_PERMS = g+rwX
 
-.PHONY: help images apidoc html clean install
+.PHONY: help images apidoc dynamic-rst html clean install
 
 all: html
 
+dynamic-rst:
+	make -C user dynamic-rst
+
 # Catch-all target: route all unknown targets to Sphinx using the new
 # "make mode" option.  $(O) is meant as a shortcut for $(SPHINXOPTS).
-sphinx/%: Makefile images apidoc
+sphinx/%: Makefile images apidoc dynamic-rst
 	@$(SPHINXBUILD) -M $* "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
 
 sphinx/clean:
