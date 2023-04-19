@@ -52,11 +52,14 @@ def write_table(data, lister_or_loader: Literal["lister", "loader"], file) -> No
                 f"https://gitlab.softwareheritage.org/swh/devel/swh-loader-core/-/"
                 f"tree/master/swh/loader/package/{forge_id}"
             )
+            default_package_name = f"swh.loader.package.{forge_id}"
         else:
             default_source = (
                 f"https://gitlab.softwareheritage.org/swh/devel/swh-lister/-/"
                 f"tree/master/swh/lister/{forge_id}"
             )
+            default_package_name = f"swh.lister.{forge_id}"
+        package_name = forge[lister_or_loader].get("package_name", default_package_name)
         links.append(
             (
                 f"{forge_id}-source",
@@ -78,7 +81,10 @@ def write_table(data, lister_or_loader: Literal["lister", "loader"], file) -> No
             continue
         elif status == "dev":
             status_cell = "In development"
-            links_cell = f"* `Source Code <{forge_id}-source_>`__"
+            links_cell = (
+                f"* `Source Code <{forge_id}-source_>`__\n"
+                f"* :mod:`Developer documentation <{package_name}>`"
+            )
         elif status == "staging":
             status_cell = "In staging"
             if lister_or_loader == "loader":
@@ -92,6 +98,7 @@ def write_table(data, lister_or_loader: Literal["lister", "loader"], file) -> No
 
                 links_cell = (
                     f"* `Source Code <{forge_id}-source_>`__\n"
+                    f"* :mod:`Developer documentation <{package_name}>`\n"
                     f"* `Browse origins <{forge_id}-origins_>`__"
                 )
             else:
@@ -104,6 +111,7 @@ def write_table(data, lister_or_loader: Literal["lister", "loader"], file) -> No
                 )
                 links_cell = (
                     f"* `Source Code <{forge_id}-source_>`__\n"
+                    f"* :mod:`Developer documentation <{package_name}>`\n"
                     f"* `See coverage <{forge_id}-coverage_>`__"
                 )
         elif status == "prod":
@@ -118,6 +126,7 @@ def write_table(data, lister_or_loader: Literal["lister", "loader"], file) -> No
                 )
                 links_cell = (
                     f"* `Source Code <{forge_id}-source_>`__\n"
+                    f"* :mod:`Developer documentation <{package_name}>`\n"
                     f"* `Browse origins <{forge_id}-origins_>`__"
                 )
             else:
@@ -130,6 +139,7 @@ def write_table(data, lister_or_loader: Literal["lister", "loader"], file) -> No
                 )
                 links_cell = (
                     f"* `Source Code <{forge_id}-source_>`__\n"
+                    f"* :mod:`Developer documentation <{package_name}>`\n"
                     f"* `See coverage <{forge_id}-coverage_>`__"
                 )
         else:

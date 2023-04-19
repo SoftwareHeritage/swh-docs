@@ -38,7 +38,8 @@ forges:
       status: N/A
     loader:
       status: prod
-      source: https://forge.softwareheritage.org/source/swh-loader-bzr/
+      source: https://gitlab.softwareheritage.org/swh/devel/swh-loader-bzr/
+      package_name: swh.loader.bzr
       grant: sloan-octobus-2021
       developer: octobus
 
@@ -115,6 +116,7 @@ forges:
     loader:
       status: prod
       source: https://gitlab.softwareheritage.org/swh/devel/swh-loader-cvs/
+      package_name: swh.loader.cvs
       grant: sloan-stsp-cvs
       developer: stsp
 
@@ -146,7 +148,8 @@ forges:
       status: N/A
     loader:
       status: prod
-      source: https://forge.softwareheritage.org/source/swh-loader-git/
+      source: https://gitlab.softwareheritage.org/swh/devel/swh-loader-git/
+      package_name: swh.loader.git
 
   github:
     name: GitHub
@@ -226,7 +229,8 @@ forges:
       status: N/A
     loader:
       status: prod
-      source: https://forge.softwareheritage.org/source/swh-loader-mercurial/
+      source: https://gitlab.softwareheritage.org/swh/devel/swh-loader-mercurial/
+      package_name: swh.loader.mercurial
       grant: sloan-2020
       developer: octobus
 
@@ -329,7 +333,8 @@ forges:
       status: N/A
     loader:
       status: prod
-      source: https://forge.softwareheritage.org/source/swh-loader-svn/
+      source: https://gitlab.softwareheritage.org/swh/devel/swh-loader-svn/
+      package_name: swh.loader.svn
 
   tuleap:
     name: Tuleap
