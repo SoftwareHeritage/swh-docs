@@ -12,10 +12,80 @@ in this document for historical reasons.
 2023
 ----
 
+* **2023-04-18** Completed first archival of `annas-software.org gitea
+  forge <https://annas-software.org/>`_. Regular crawling of their
+  repositories enabled (tracking: `#4855
+  <https://gitlab.softwareheritage.org/swh/infra/sysadm-environment/-/issues/4855>`_)
+
+* **2023-04-18** Completed first archival of `Internet Systems Consortium's gitlab 
+  forge <https://gitlab.isc.org/>`_. Regular crawling of their
+  repositories enabled (tracking: `#4854
+  <https://gitlab.softwareheritage.org/swh/infra/sysadm-environment/-/issues/4854>`_)
+
+* **2023-04-13** Completed first archival of `dev.sanctum.geek.nz cgit forge
+  <https://dev.sanctum.geek.nz/>`_. Regular crawling of their
+  repositories enabled (tracking: `#4852
+  <https://gitlab.softwareheritage.org/swh/infra/sysadm-environment/-/issues/4852>`_)
+
+* **2023-04-13** Completed first archival of `trueelena.org cgit forge
+  <https://git.trueelena.org/>`_. Regular crawling of their
+  repositories enabled (tracking: `#4851
+  <https://gitlab.softwareheritage.org/swh/infra/sysadm-environment/-/issues/4851>`_)
+
+* **2023-04-12** Completed first archival of `Epita infra gitlab forge
+  <https://gitlab.cri.epita.fr/cri>`_. Regular crawling of their
+  repositories enabled (tracking: `#4845
+  <https://gitlab.softwareheritage.org/swh/infra/sysadm-environment/-/issues/4845>`_)
+
+* **2023-04-11** Completed first archival of `INRAE MathNum department gitlab forge
+  <https://forgemia.inra.fr/>`_. Regular crawling of their
+  repositories enabled (tracking: `#4842
+  <https://gitlab.softwareheritage.org/swh/infra/sysadm-environment/-/issues/4842>`_)
+
+* **2023-04-11** Completed first archival of `Montpellier Bioinformatics Biodiversity 
+  platform gitlab forge <https://gitlab.mbb.cnrs.fr/>`_. Regular crawling of their
+  repositories enabled (tracking: `#4843
+  <https://gitlab.softwareheritage.org/swh/infra/sysadm-environment/-/issues/4843>`_)
+
+* **2023-04-07** Completed first archival of `Garbaye gitea forge
+  <https://git.garbaye.fr/>`_. Regular crawling of their
+  repositories enabled (tracking: `#4841
+  <https://gitlab.softwareheritage.org/swh/infra/sysadm-environment/-/issues/4841>`_)
+
+* **2023-04-07** Completed first archival of `Alaryso's personal projects gitea forge
+  <https://git.alarsyo.net/>`_. Regular crawling of their
+  repositories enabled (tracking: `#4833
+  <https://gitlab.softwareheritage.org/swh/infra/sysadm-environment/-/issues/4833>`_)
+
+* **2023-04-05** Completed first archival of `Replicant git repositories (splitted 
+  in 7 forges) <https://git.replicant.us/>`_. Regular crawling of their
+  repositories enabled (tracking: `#4685
+  <https://gitlab.softwareheritage.org/swh/infra/sysadm-environment/-/issues/4685>`_)
+
+* **2023-04-03** Completed first archival of `Software Heritage gitlab forge 
+  <https://gitlab.softwareheritage.org/>`_. Regular crawling of their
+  repositories enabled (tracking: `#4683
+  <https://gitlab.softwareheritage.org/swh/infra/sysadm-environment/-/issues/4683>`_)
+
 * **2023-03-30** Completed first archival of `CodeAurora, The Global Gathering for
   Mobile Open Source <https://source.codeaurora.org>`_. Regular crawling of its
   repositories enabled (tracking: `#4813
   <https://gitlab.softwareheritage.org/swh/infra/sysadm-environment/-/issues/4813>`_)
+
+* **2023-02-13** Completed first archival of `AFPY (Association Francophone Python) 
+  git repositories <https://git.afpy.org>`_. Regular crawling of its
+  repositories enabled (tracking: `#4674
+  <https://gitlab.softwareheritage.org/swh/infra/sysadm-environment/-/issues/4674>`_)
+
+* **2023-01-05** Completed first archival of `the Univeristy of Stuttgart gitlab forge
+  <https://git.iws.uni-stuttgart.de/>`_. Regular crawling of 
+  their repositories enabled (tracking: `#4712
+  <https://gitlab.softwareheritage.org/swh/infra/sysadm-environment/-/issues/4712>`_)
+
+* **2023-01-05** Completed first archival of `FFDN (Fédération des Fournisseurs 
+  d'Accès Internet Associatifs) <https://code.ffdn.org/>`_. Regular crawling of 
+  their repositories enabled (tracking: `#4687
+  <https://gitlab.softwareheritage.org/swh/infra/sysadm-environment/-/issues/4687>`_)
 
 * **2023-01-03** Completed first archival of `DeuxFleurs's gitea forge
   <https://git.deuxfleurs.fr>`_, as requested via `Add forge now`_.
@@ -29,6 +99,11 @@ in this document for historical reasons.
 
 2022
 ----
+
+* **2022-12-14** Completed first archival of `Université Gustave Eiffel git repositories
+  <https://gitlab.univ-eiffel.fr/>`_, as requested via `Add forge now`_.
+  Regular crawling of its repositories enabled
+  (tracking: `#4675 <https://gitlab.softwareheritage.org/infra/sysadm-environment/-/issues/4675>`_)
 
 * **2022-11-13** Completed first archival of `Jey Hess's git repositories
   <https://git.joeyh.name/>`_, as requested via `Add forge now`_.
