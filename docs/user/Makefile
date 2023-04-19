@@ -10,8 +10,8 @@ BUILDDIR      = _build
 
 all: html
 
-software-origins/table.inc: ../software-origins-support.yml
-	python3 -m swh.docs.generate_software_origins_list ../software-origins-support.yml software-origins/table.inc
+software-origins/table.inc: ../software-origins-support.yml ../../swh/docs/generate_software_origins_list.py
+	python3 ../../swh/docs/generate_software_origins_list.py ../software-origins-support.yml software-origins/table.inc
 
 dynamic-rst: software-origins/table.inc
 
