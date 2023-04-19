@@ -1,3 +1,5 @@
+:html_theme.sidebar_secondary.remove:
+
 .. _user-software-origins:
 
 Software Origins

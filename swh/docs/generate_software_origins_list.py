@@ -35,7 +35,7 @@ def write_table(data, file) -> None:
     )
     table = []
     for (forge_id, forge) in sorted(data["forges"].items()):
-        logo_cell = f"|{forge_id}_logo|\n\n:ref:`user-software-origins-{forge_id}`"
+        logo_cell = f"|{forge_id}_logo|\n\n:ref:`{forge['name']} <user-software-origins-{forge_id}>`"
 
         has_loader = forge["loader"]["status"] != "N/A"
         has_lister = forge["lister"]["status"] != "N/A"
@@ -212,7 +212,6 @@ def write_logos(data, file) -> None:
     for (forge_id, forge) in sorted(data["forges"].items()):
         file.write(
             f".. |{forge_id}_logo| image:: ../logos/{forge_id}.png\n"
-            f"  :width: 50%\n"
             f"  :target: {forge_id}.html\n"
             f"  :alt: {forge['name']}\n"
             f"\n"

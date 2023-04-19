@@ -19,9 +19,33 @@ table.swh-logos-table img {
   margin-bottom: 5px;
 }
 
+
+table.swh-logos-table tr td:nth-child(1) {
+  width: min-content;
+}
+
+table.swh-logos-table tr td:nth-child(1) p {
+  margin-bottom: 0;
+}
+
 table.swh-logos-table ul {
   text-align: left;
   margin-bottom: auto;
+}
+
+table.swh-logos-table .py {
+  font-family: inherit;
+  font-weight: inherit;
+  font-size: inherit;
+  white-space: inherit;
+  background-color: inherit;
+  border: inherit;
+  border-radius: inherit;
+  padding: inherit;
+}
+
+table.swh-logos-table .py .pre {
+  white-space: inherit;
 }
 
 .landing-page hr {
