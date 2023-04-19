@@ -138,6 +138,10 @@ def write_table(data, lister_or_loader: Literal["lister", "loader"], file) -> No
         if issue:
             links_cell += f"\n* `Tracking issue <{forge[lister_or_loader]['issue']}>`__"
 
+        notes = forge.get("notes")
+        if notes:
+            status_cell = f"{status_cell}\n\n{notes}"
+
         grant_id = forge[lister_or_loader].get("grant")
         grant = data["grants"][grant_id] if grant_id else None
         developer_id = forge[lister_or_loader].get("developer")

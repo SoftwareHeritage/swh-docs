@@ -134,6 +134,7 @@ forges:
 
   gitea:
     name: Gitea
+    notes: "Reuses the Gogs lister"
     lister:
       status: prod
     loader:
@@ -156,6 +157,7 @@ forges:
 
   gitlab:
     name: GitLab
+    notes: "Also supports `Heptapod <https://heptapod.net/>`_"
     lister:
       status: prod
     loader:
