@@ -7,8 +7,7 @@ Usage
    :maxdepth: 2
 
    faq/index
-   listers/index
-   loaders/index
+   software-origins/index
    save_code_now/webhooks/index
    using_data/index
 
