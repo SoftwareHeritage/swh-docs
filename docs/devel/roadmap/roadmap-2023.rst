@@ -21,7 +21,7 @@ Collect
 -------
 
 
-Add support for write APIs features in GraphQL 
+Add support for write APIs features in GraphQL
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 - `View milestone in GitLab <https://gitlab.softwareheritage.org/groups/swh/-/milestones/98>`__
@@ -42,7 +42,7 @@ Add support for write APIs in GraphQL (eg: an API for save code now) in order to
 - GraphQL coverage of 100% of the REST API in production
 
 
-Tooling for takedown notices 
+Tooling for takedown notices
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 - `View milestone in GitLab <https://gitlab.softwareheritage.org/groups/swh/-/milestones/56>`__
@@ -64,10 +64,10 @@ Set up a workflow to handle takedown requests and improve automation capabilitie
 **KPIs:**
 
 - Takedown notice handling integrated to swh-web
-- Automated sysadmin tools for takedown notices processing 
+- Automated sysadmin tools for takedown notices processing
 
 
-Automate add forge now 
+Automate add forge now
 ^^^^^^^^^^^^^^^^^^^^^^^
 
 - `View milestone in GitLab <https://gitlab.softwareheritage.org/groups/swh/-/milestones/54>`__
@@ -91,7 +91,7 @@ Set up automation capabilities on Add forge now to ease and facilitate the handl
 - Automated Add forge now processing tools and wokflow in production
 
 
-Minimize archival lag w.r.t. upstream code hosting platforms 
+Minimize archival lag w.r.t. upstream code hosting platforms
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 - `View milestone in GitLab <https://gitlab.softwareheritage.org/groups/swh/-/milestones/53>`__
@@ -115,7 +115,7 @@ Make lag monitoring dashboards easy to find (for decision makers)
 - Total archive lag (e.g., in days)
 
 
-Extend archive coverage 
+Extend archive coverage
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
 - `View milestone in GitLab <https://gitlab.softwareheritage.org/groups/swh/-/milestones/52>`__
@@ -124,7 +124,7 @@ Extend archive coverage
 
 **Description:**
 
-Add listers and loaders for not-yet-supported forges/package managers and VCS 
+Add listers and loaders for not-yet-supported forges/package managers and VCS
 Listers and loaders can be developed in house or contributed by external partners, e.g., via dedicated grants.
 
 **Includes work:**
@@ -142,7 +142,7 @@ Preserve
 --------
 
 
-Explore possibility of replacing SHA1 with SHA1-DC 
+Explore possibility of replacing SHA1 with SHA1-DC
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 - `View milestone in GitLab <https://gitlab.softwareheritage.org/groups/swh/-/milestones/112>`__
@@ -156,13 +156,13 @@ Mainstream platforms like GitHub now use SHA1-DC
 **Includes work:**
 
 - Study implications of aligning with the SHA1-DC adoption
- 
+
 **KPIs:**
 
 - Decision/blockers whether to move to SHA1-DC
 
 
-Regularly scrub journal, storage, and objstorage 
+Regularly scrub journal, storage, and objstorage
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 - `View milestone in GitLab <https://gitlab.softwareheritage.org/groups/swh/-/milestones/103>`__
@@ -187,7 +187,7 @@ Set up background jobs to regularly check - and repair when necessary - data val
 - Rolling report of operations per datastore including errors found and fixed at each iteration
 
 
-Publicly available standard for SWHID version 1 
+Publicly available standard for SWHID version 1
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 - `View milestone in GitLab <https://gitlab.softwareheritage.org/groups/swh/-/milestones/66>`__
@@ -208,7 +208,7 @@ Publish a stable version of the SWHID version 1 specification, approved by a sta
 - Published standard for SWHID version 1
 
 
-SWH Mirror at GRNET 
+SWH Mirror at GRNET
 ^^^^^^^^^^^^^^^^^^^^
 
 - `View milestone in GitLab <https://gitlab.softwareheritage.org/groups/swh/-/milestones/65>`__
@@ -221,7 +221,7 @@ Collaborate with GRNET to create a SWH Mirror
 
 **Includes work:**
 
-- Guidance and contribution to GRNET architecture and infrastructure choices 
+- Guidance and contribution to GRNET architecture and infrastructure choices
 - Specific developments if necessary (to be determined according to the chosen technical solutions)
 - Help to deployment
 
@@ -230,7 +230,7 @@ Collaborate with GRNET to create a SWH Mirror
 - validated architecture and first POC
 
 
-SWH Mirror at Duisburg-Essen university 
+SWH Mirror at Duisburg-Essen university
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 - `View milestone in GitLab <https://gitlab.softwareheritage.org/groups/swh/-/milestones/64>`__
@@ -243,7 +243,7 @@ Collaborate with Duisburg-Essen university to create a SWH Mirror
 
 **Includes work:**
 
-- Guidance and contribution to UniDue architecture and infrastructure choices 
+- Guidance and contribution to UniDue architecture and infrastructure choices
 - Specific developments if necessary (to be determined according to the chosen technical solutions)
 - Developments of tools for Winery replication (for Ceph-based object storage)
 - Help to deployment
@@ -253,7 +253,7 @@ Collaborate with Duisburg-Essen university to create a SWH Mirror
 - validated architecture and first POC
 
 
-SWH Mirror at ENEA 
+SWH Mirror at ENEA
 ^^^^^^^^^^^^^^^^^^^
 
 - `View milestone in GitLab <https://gitlab.softwareheritage.org/groups/swh/-/milestones/62>`__
@@ -274,7 +274,7 @@ Collaborate with ENEA to create a SWH Mirror
 - SWH Mirror deployed on ENEA infrastructure and publicly available
 
 
-Mirrors tooling 
+Mirrors tooling
 ^^^^^^^^^^^^^^^^
 
 - `View milestone in GitLab <https://gitlab.softwareheritage.org/groups/swh/-/milestones/61>`__
@@ -296,7 +296,7 @@ Provide common features required the SWH mirrors
 - Common features available for specific mirrors instances
 
 
-Archive cold-copy at CINES via Vitam 
+Archive cold-copy at CINES via Vitam
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 - `View milestone in GitLab <https://gitlab.softwareheritage.org/groups/swh/-/milestones/60>`__
@@ -321,7 +321,7 @@ Maintain the copy up-to-date periodically (on a period TBD)
 - Updates calendar defined
 
 
-Support archiving repositories containing SHA1 hash conflicts on blobs 
+Support archiving repositories containing SHA1 hash conflicts on blobs
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 - `View milestone in GitLab <https://gitlab.softwareheritage.org/groups/swh/-/milestones/58>`__
@@ -346,7 +346,7 @@ Share
 -----
 
 
-Propose Web UI sections for dedicated partner collections 
+Propose Web UI sections for dedicated partner collections
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 - `View milestone in GitLab <https://gitlab.softwareheritage.org/groups/swh/-/milestones/113>`__
@@ -366,7 +366,7 @@ Design and test the creation of dedicated collections pages (list of origins ass
 - Specification and mockup for this feature
 
 
-Create a cost-calculator in the Vault 
+Create a cost-calculator in the Vault
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 - `View milestone in GitLab <https://gitlab.softwareheritage.org/groups/swh/-/milestones/106>`__
@@ -375,7 +375,7 @@ Create a cost-calculator in the Vault
 
 **Description:**
 
-Implement a cost-calculator feature in swh-vault in order to estimate the cost of computing before cooking an artifact. The purpose of this feature is to prevent overload in some edge cases and possibly establish a rate-limiting system to avoid abusive usage of the vault. 
+Implement a cost-calculator feature in swh-vault in order to estimate the cost of computing before cooking an artifact. The purpose of this feature is to prevent overload in some edge cases and possibly establish a rate-limiting system to avoid abusive usage of the vault.
 
 **Includes work:**
 
@@ -388,7 +388,7 @@ Implement a cost-calculator feature in swh-vault in order to estimate the cost o
 - Cost-calculation activated on swh-vault in production
 
 
-Publish derived datasets 
+Publish derived datasets
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
 - `View milestone in GitLab <https://gitlab.softwareheritage.org/groups/swh/-/milestones/94>`__
@@ -410,7 +410,7 @@ Setup tools to automate the publication of derived datasets, and generate specif
 - Scheduled and regularly published derived datasets
 
 
-Collect and index forge metadata 
+Collect and index forge metadata
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 - `View milestone in GitLab <https://gitlab.softwareheritage.org/groups/swh/-/milestones/91>`__
@@ -433,7 +433,7 @@ Collect and index metadata from more forges and package managers in order to exp
 - number of new package managers supported / % indexed for each
 
 
-Evaluate the storage of indexed metadata in a triple-store  
+Evaluate the storage of indexed metadata in a triple-store
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 - `View milestone in GitLab <https://gitlab.softwareheritage.org/groups/swh/-/milestones/89>`__
@@ -448,7 +448,7 @@ Therefore, I would like to try using a proper triple-store. [Virtuoso](https://v
 
 **Includes work:**
 
-- Try and evaluate a proper triple-store (Virtuoso) on a testing infrastructure 
+- Try and evaluate a proper triple-store (Virtuoso) on a testing infrastructure
 - According to the conclusions of the evaluation, decide whether to choose this triple-store solution
 
 **KPIs:**
@@ -456,7 +456,7 @@ Therefore, I would like to try using a proper triple-store. [Virtuoso](https://v
 - Decision to switch to a triple-store for indexed metadata storage
 
 
-Release a first version of the swh-scanner product 
+Release a first version of the swh-scanner product
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 - `View milestone in GitLab <https://gitlab.softwareheritage.org/groups/swh/-/milestones/72>`__
@@ -465,7 +465,7 @@ Release a first version of the swh-scanner product
 
 **Description:**
 
-Industrialize and improve the swh-scanner CLI to provide a full-featured product ready for regular use. 
+Industrialize and improve the swh-scanner CLI to provide a full-featured product ready for regular use.
 
 **Includes work:**
 
@@ -474,13 +474,13 @@ Industrialize and improve the swh-scanner CLI to provide a full-featured product
 - Implement advanced filtering capabilities
 - Provide an exhaustive documentation
 - Add provenance information (depending on provenance progress)
- 
+
 **KPIs:**
 
 - Release and announce a first version of swh-scanner
 
 
-Webhook-based notification for long-running user tasks 
+Webhook-based notification for long-running user tasks
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 - `View milestone in GitLab <https://gitlab.softwareheritage.org/groups/swh/-/milestones/71>`__
@@ -499,14 +499,14 @@ Create a reusable event-based webhook architecture and implement it on adequate 
 - Implementation for add forge now
 - Implementation for save code now
 - Implementation for vault cooking
-- Implementation for deposit 
+- Implementation for deposit
 
 **KPIs:**
 
 - Number of services that support webhook-based notifications
 
 
-Self-host Software Stories software stack 
+Self-host Software Stories software stack
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 - `View milestone in GitLab <https://gitlab.softwareheritage.org/groups/swh/-/milestones/70>`__
@@ -532,7 +532,7 @@ Deploy a `Software Stories instance <https://github.com/ScienceStories/swh-stori
 
 
 
-Design presentation of Metadata on Web UI 
+Design presentation of Metadata on Web UI
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 - `View milestone in GitLab <https://gitlab.softwareheritage.org/groups/swh/-/milestones/68>`__
@@ -560,7 +560,7 @@ Documentation
 -------------
 
 
-Provide a landing page for docs.s.o 
+Provide a landing page for docs.s.o
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 - `View milestone in GitLab <https://gitlab.softwareheritage.org/groups/swh/-/milestones/73>`__
@@ -585,7 +585,7 @@ Technical debt
 --------------
 
 
-Setup efficient and consistent swh-storage pagination 
+Setup efficient and consistent swh-storage pagination
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 - `View milestone in GitLab <https://gitlab.softwareheritage.org/groups/swh/-/milestones/96>`__
@@ -610,7 +610,7 @@ Pagination in the data sources (eg storage) is not very consistent and client fr
 - Existing clients updated to use this solution
 
 
-Improve support for malformed git commits 
+Improve support for malformed git commits
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 - `View milestone in GitLab <https://gitlab.softwareheritage.org/groups/swh/-/milestones/92>`__
@@ -635,7 +635,7 @@ Tooling and infrastructure
 --------------------------
 
 
-Dynamic infrastructure 
+Dynamic infrastructure
 ^^^^^^^^^^^^^^^^^^^^^^^
 
 - `View milestone in GitLab <https://gitlab.softwareheritage.org/groups/swh/-/milestones/105>`__
@@ -658,13 +658,13 @@ Setup a dynamically scalable infrastructure for Software Heritage services
 - Dashboard displaying the status of the dynamic components
   - Number of listers running
   - Number of loaders running
-  - RPC services status 
+  - RPC services status
 - Logs ingested and correctly parsed in kibana
 - Clusters fully backuped
 
 
 
-Use a common workflow management tool for swh-web 
+Use a common workflow management tool for swh-web
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 - `View milestone in GitLab <https://gitlab.softwareheritage.org/groups/swh/-/milestones/100>`__
@@ -683,10 +683,10 @@ Find and integrate a common workflow management tool in swh-web for future modul
 
 **KPIs:**
 
-- Integrated workflow tool, ready to use, in swh-web 
+- Integrated workflow tool, ready to use, in swh-web
 
 
-Provide a management-friendly monitoring dashboard of services 
+Provide a management-friendly monitoring dashboard of services
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 - `View milestone in GitLab <https://gitlab.softwareheritage.org/groups/swh/-/milestones/86>`__
@@ -712,7 +712,7 @@ Provide a high-level and easy to find dashboard of running services with documen
 - Dashboard referenced in common web applications
 
 
-Provenance in production 
+Provenance in production
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
 - `View milestone in GitLab <https://gitlab.softwareheritage.org/groups/swh/-/milestones/84>`__
@@ -737,7 +737,7 @@ Publish swh-provenance services in production, including revision and origin lay
 - % of archive covered
 
 
-Scale-out objstorage in production as primary objstorage 
+Scale-out objstorage in production as primary objstorage
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 - `View milestone in GitLab <https://gitlab.softwareheritage.org/groups/swh/-/milestones/83>`__
@@ -760,7 +760,7 @@ Have the Ceph-based objstorage for SWH (Winery) in production as primary storage
 - Ceph-based obj-storage in production
 
 
-Cassandra in production as primary storage 
+Cassandra in production as primary storage
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 - `View milestone in GitLab <https://gitlab.softwareheritage.org/groups/swh/-/milestones/82>`__
@@ -789,7 +789,7 @@ Use Cassandra as primary storage in production, in replacement of PostgreSQL
 - Cassandra primary storage in production
 
 
-Design and test a Continuous Deployment infrastructure 
+Design and test a Continuous Deployment infrastructure
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 - `View milestone in GitLab <https://gitlab.softwareheritage.org/groups/swh/-/milestones/80>`__
@@ -819,7 +819,7 @@ Set up a Continuous Deployment infrastructure in order to improve bug detection 
 - Staging / whatever environment testing before pushing to production
 
 
-Desing and test next generation CI Automation 
+Desing and test next generation CI Automation
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 - `View milestone in GitLab <https://gitlab.softwareheritage.org/groups/swh/-/milestones/79>`__
@@ -843,7 +843,7 @@ Design and tests solutions in order to improve the actual Continuous Integration
 - Pros/Cons to deploy a code audit tool
 
 
-Graph export and graph compression in production 
+Graph export and graph compression in production
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 - `View milestone in GitLab <https://gitlab.softwareheritage.org/groups/swh/-/milestones/59>`__
@@ -852,10 +852,10 @@ Graph export and graph compression in production
 
 **Description:**
 
-Have the graph compression pipeline running in production with less then a month of lag Deployment, hosting and pipeline tooling 
+Have the graph compression pipeline running in production with less then a month of lag Deployment, hosting and pipeline tooling
 
 **Includes work:**
- 
+
 - Add JVM monitoring
 - Finish automation scripts
 - Deploy on a dedicated machine

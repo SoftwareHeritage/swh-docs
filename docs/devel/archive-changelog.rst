@@ -17,7 +17,7 @@ in this document for historical reasons.
   repositories enabled (tracking: `#4855
   <https://gitlab.softwareheritage.org/swh/infra/sysadm-environment/-/issues/4855>`_)
 
-* **2023-04-18** Completed first archival of `Internet Systems Consortium's gitlab 
+* **2023-04-18** Completed first archival of `Internet Systems Consortium's gitlab
   forge <https://gitlab.isc.org/>`_. Regular crawling of their
   repositories enabled (tracking: `#4854
   <https://gitlab.softwareheritage.org/swh/infra/sysadm-environment/-/issues/4854>`_)
@@ -42,7 +42,7 @@ in this document for historical reasons.
   repositories enabled (tracking: `#4842
   <https://gitlab.softwareheritage.org/swh/infra/sysadm-environment/-/issues/4842>`_)
 
-* **2023-04-11** Completed first archival of `Montpellier Bioinformatics Biodiversity 
+* **2023-04-11** Completed first archival of `Montpellier Bioinformatics Biodiversity
   platform gitlab forge <https://gitlab.mbb.cnrs.fr/>`_. Regular crawling of their
   repositories enabled (tracking: `#4843
   <https://gitlab.softwareheritage.org/swh/infra/sysadm-environment/-/issues/4843>`_)
@@ -57,12 +57,12 @@ in this document for historical reasons.
   repositories enabled (tracking: `#4833
   <https://gitlab.softwareheritage.org/swh/infra/sysadm-environment/-/issues/4833>`_)
 
-* **2023-04-05** Completed first archival of `Replicant git repositories (splitted 
+* **2023-04-05** Completed first archival of `Replicant git repositories (splitted
   in 7 forges) <https://git.replicant.us/>`_. Regular crawling of their
   repositories enabled (tracking: `#4685
   <https://gitlab.softwareheritage.org/swh/infra/sysadm-environment/-/issues/4685>`_)
 
-* **2023-04-03** Completed first archival of `Software Heritage gitlab forge 
+* **2023-04-03** Completed first archival of `Software Heritage gitlab forge
   <https://gitlab.softwareheritage.org/>`_. Regular crawling of their
   repositories enabled (tracking: `#4683
   <https://gitlab.softwareheritage.org/swh/infra/sysadm-environment/-/issues/4683>`_)
@@ -72,18 +72,18 @@ in this document for historical reasons.
   repositories enabled (tracking: `#4813
   <https://gitlab.softwareheritage.org/swh/infra/sysadm-environment/-/issues/4813>`_)
 
-* **2023-02-13** Completed first archival of `AFPY (Association Francophone Python) 
+* **2023-02-13** Completed first archival of `AFPY (Association Francophone Python)
   git repositories <https://git.afpy.org>`_. Regular crawling of its
   repositories enabled (tracking: `#4674
   <https://gitlab.softwareheritage.org/swh/infra/sysadm-environment/-/issues/4674>`_)
 
 * **2023-01-05** Completed first archival of `the Univeristy of Stuttgart gitlab forge
-  <https://git.iws.uni-stuttgart.de/>`_. Regular crawling of 
+  <https://git.iws.uni-stuttgart.de/>`_. Regular crawling of
   their repositories enabled (tracking: `#4712
   <https://gitlab.softwareheritage.org/swh/infra/sysadm-environment/-/issues/4712>`_)
 
-* **2023-01-05** Completed first archival of `FFDN (Fédération des Fournisseurs 
-  d'Accès Internet Associatifs) <https://code.ffdn.org/>`_. Regular crawling of 
+* **2023-01-05** Completed first archival of `FFDN (Fédération des Fournisseurs
+  d'Accès Internet Associatifs) <https://code.ffdn.org/>`_. Regular crawling of
   their repositories enabled (tracking: `#4687
   <https://gitlab.softwareheritage.org/swh/infra/sysadm-environment/-/issues/4687>`_)
 
