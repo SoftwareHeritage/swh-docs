@@ -819,7 +819,7 @@ Set up a Continuous Deployment infrastructure in order to improve bug detection 
 - Staging / whatever environment testing before pushing to production
 
 
-Desing and test next generation CI Automation
+Design and test next generation CI Automation
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 - `View milestone in GitLab <https://gitlab.softwareheritage.org/groups/swh/-/milestones/79>`__

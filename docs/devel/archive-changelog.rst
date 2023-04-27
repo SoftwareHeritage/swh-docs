@@ -57,7 +57,7 @@ in this document for historical reasons.
   repositories enabled (tracking: `#4833
   <https://gitlab.softwareheritage.org/swh/infra/sysadm-environment/-/issues/4833>`_)
 
-* **2023-04-05** Completed first archival of `Replicant git repositories (splitted
+* **2023-04-05** Completed first archival of `Replicant git repositories (split
   in 7 forges) <https://git.replicant.us/>`_. Regular crawling of their
   repositories enabled (tracking: `#4685
   <https://gitlab.softwareheritage.org/swh/infra/sysadm-environment/-/issues/4685>`_)
@@ -77,7 +77,7 @@ in this document for historical reasons.
   repositories enabled (tracking: `#4674
   <https://gitlab.softwareheritage.org/swh/infra/sysadm-environment/-/issues/4674>`_)
 
-* **2023-01-05** Completed first archival of `the Univeristy of Stuttgart gitlab forge
+* **2023-01-05** Completed first archival of `the University of Stuttgart gitlab forge
   <https://git.iws.uni-stuttgart.de/>`_. Regular crawling of
   their repositories enabled (tracking: `#4712
   <https://gitlab.softwareheritage.org/swh/infra/sysadm-environment/-/issues/4712>`_)
