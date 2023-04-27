@@ -286,9 +286,14 @@ class SimpleDocumenter(autodoc.FunctionDocumenter):
 # sphinx event handler to set adequate django settings prior reading
 # apidoc generated rst files when building doc to avoid autodoc errors
 def set_django_settings(app, env, docname):
-    if any([pattern in app.srcdir for pattern in ("swh-web-client", "DWCLI")]):
-        # swh-web-client is detected as swh-web by the code below but
-        # django is not installed when building standalone swh-web-client doc
+    if any(
+        [
+            pattern in app.srcdir
+            for pattern in ("swh-web-client", "DWCLI", "swh-webhooks")
+        ]
+    ):
+        # swh-web-client and swh-webhooks are detected as swh-web by the code below
+        # but django is not installed when building standalone doc for these packages
         return
     package_settings = {
         "auth": "swh.auth.tests.django.app.apptest.settings",
