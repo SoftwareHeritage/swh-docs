@@ -24,7 +24,7 @@ Welcome to Software Heritage documentation
 
       .. button-ref:: landing-basics
          :ref-type: ref
-         :color: secondary
+         :color: primary
          :expand:
 
          Discover Software Heritage
@@ -41,7 +41,7 @@ Welcome to Software Heritage documentation
 
       .. button-ref:: landing-preserve
          :ref-type: ref
-         :color: secondary
+         :color: primary
          :expand:
 
          Archive source code
@@ -59,7 +59,7 @@ Welcome to Software Heritage documentation
 
       .. button-ref:: landing-browse
          :ref-type: ref
-         :color: secondary
+         :color: primary
          :expand:
 
          Learn how to search the archive
@@ -76,7 +76,7 @@ Welcome to Software Heritage documentation
       Join our network of partners. Collaborate with the team or become an ambassador. Teach others how to use the archive. Get materials for your next events.
 
       .. button-link:: http://example.com
-         :color: secondary
+         :color: primary
          :expand:
 
          Tell the world about Software Heritage
@@ -94,7 +94,7 @@ Welcome to Software Heritage documentation
 
       .. button-ref:: landing-interface
          :ref-type: ref
-         :color: secondary
+         :color: primary
          :expand:
 
          Use Software Heritage in your applications
@@ -112,7 +112,7 @@ Welcome to Software Heritage documentation
 
       .. button-ref:: landing-contribute
          :ref-type: ref
-         :color: secondary
+         :color: primary
          :expand:
 
          Improve the universal archive of source code
