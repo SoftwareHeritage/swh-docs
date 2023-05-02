@@ -181,7 +181,7 @@ if __name__ == "__main__":
     except ValueError:
         print(
             f"Syntax: {sys.argv[0]} docs/devel/forge-support.yml "
-            f"docs/user/software-origins/index.rst",
+            f"docs/user/software-origins/dynamic/table.inc",
             sys.stderr,
         )
         exit(1)
