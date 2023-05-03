@@ -174,7 +174,7 @@ def write_logos(data, lister_or_loader: Literal["lister", "loader"], file) -> No
     for (forge_id, forge) in sorted(data["forges"].items()):
         if forge[lister_or_loader]["status"] != "N/A":
             file.write(
-                f".. |{forge_id}_logo| image:: ../../logos/{forge_id}.png\n"
+                f".. |{forge_id}_logo| image:: logos/{forge_id}.png\n"
                 f"  :width: 50%\n"
                 f"  :target: software-origins/{forge_id}.html\n"
                 f"  :alt: {forge.name} {lister_or_loader}\n"
