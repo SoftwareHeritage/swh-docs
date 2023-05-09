@@ -35,7 +35,10 @@ def write_table(data, file) -> None:
     )
     table = []
     for (forge_id, forge) in sorted(data["forges"].items()):
-        logo_cell = f"|{forge_id}_logo|\n\n:ref:`{forge['name']} <user-software-origins-{forge_id}>`"
+        logo_cell = (
+            f"|{forge_id}_logo|\n\n:ref:`{forge['name']} "
+            f"<user-software-origins-{forge_id}>`"
+        )
 
         has_loader = forge["loader"]["status"] != "N/A"
         has_lister = forge["lister"]["status"] != "N/A"
@@ -136,7 +139,7 @@ def write_table(data, file) -> None:
                 f"* :mod:`Loader Developer documentation <{loader_package_name}>`\n"
             )
         if has_lister:
-            links_cell = (
+            links_cell += (
                 f"* `Lister Source Code <{forge_id}-lister-source_>`__\n"
                 f"* :mod:`Lister Developer documentation <{lister_package_name}>`\n"
             )
