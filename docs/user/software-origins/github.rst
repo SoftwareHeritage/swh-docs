@@ -5,3 +5,5 @@ GitHub
 
 .. todo::
    This page is a work in progress.
+
+.. include:: dynamic/github_status.inc

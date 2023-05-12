@@ -5,3 +5,5 @@ Git
 
 .. todo::
    This page is a work in progress.
+
+.. include:: dynamic/git_status.inc

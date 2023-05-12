@@ -3,4 +3,4 @@ _build/
 devel/swh-*
 !/swh-loader.rst
 sources/
-user/software-origins/table.inc
+user/software-origins/dynamic/*.inc

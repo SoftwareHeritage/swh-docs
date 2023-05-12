@@ -15,4 +15,4 @@ or Version Control System (VCS).
 This page references all available forges/PMs/VCSs supported by |swh| loaders and/or listers,
 and links to their high-level documentation.
 
-.. include:: table.inc
+.. include:: dynamic/table.inc

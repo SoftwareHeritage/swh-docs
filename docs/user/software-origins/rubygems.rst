@@ -5,3 +5,5 @@ RubyGems
 
 .. todo::
    This page is a work in progress.
+
+.. include:: dynamic/rubygems_status.inc
