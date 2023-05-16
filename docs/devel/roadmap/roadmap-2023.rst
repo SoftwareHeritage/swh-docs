@@ -778,7 +778,6 @@ Use Cassandra as primary storage in production, in replacement of PostgreSQL
 - Deploy a Cassandra-based production instance for tests
 - Benchmark the Cassandra infrastructure
 - Switch to Cassandra in production for primary storage
-- History of takedown notices applied in the cassandra dataset
 
 **KPIs:**
 
