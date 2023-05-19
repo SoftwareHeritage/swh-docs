@@ -23,6 +23,10 @@ Meaning the `moderation process is ongoing
 <https://archive.softwareheritage.org/admin/add-forge/request/18/>`_ and the upstream
 forge (to be ingested) has been notified we will start the ingestion soon.
 
+Note that there exists roughly 2 kinds of forges, either the technology used by the
+forge exists is mono-instance (e.g. github, bitbucket, ...), either the technology is
+the same across multiple forges (e.g. gitlab, cgit, gitea, gogs).
+
 
 .. _add-forge-now-testing-on-staging:
 
@@ -33,7 +37,12 @@ To ensure we can ingest that forge, we start by testing out a subset of that for
 listing on staging. It's a pre-check flight to determine we have the right amount of
 information.
 
-On a staging node (usually the scheduling node of the domain), run:
+Mono-instance forge listing
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+For mono-instance forge or for multi-instance forge whose url cannot be computed easily,
+(e.g. some cgit instance with a subdomain), we provide the ``<url>`` of the forge to
+ingest.
 
 .. code::
 
@@ -42,16 +51,41 @@ On a staging node (usually the scheduling node of the domain), run:
        register-lister gitea \
          url=<url>
 
+For example, forge `git.replicant.us <https://git.replicant.us/infrastructure>`_ which
+is a cgit instance, we'd run:
 
-For example, forge `git.afpy.org <https://git.afpy.org>`_ which is a `gitea
-<https://gitea.io/en-us/>`_ instance, we'd run:
+.. code::
+
+   swh scheduler --url http://scheduler0.internal.staging.swh.network:5008/ \
+     add-forge-now --preset staging \
+       register-lister cgit \
+         url=https://git.replicant.us/infrastructure
+
+
+Multi-instance forge listing
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+We currently support the technology gitea, gogs and gitlab which are multi-instance. The
+corresponding listers are able to compute their api url directly (to avoid manual
+mistakes) so we just need to provide the <instance> parameter for those.
 
 .. code::
 
    swh scheduler --url http://scheduler0.internal.staging.swh.network:5008/ \
      add-forge-now --preset staging \
        register-lister gitea \
-         url=https://git.afpy.org/api/v1/
+         instance=<instance>
+
+
+For example, the forge `git.afpy.org <https://git.afpy.org>`_ is a `gitea
+<https://gitea.io/en-us/>`_ instance, so we'd run:
+
+.. code::
+
+   swh scheduler --url http://scheduler0.internal.staging.swh.network:5008/ \
+     add-forge-now --preset staging \
+       register-lister gitea \
+         instance=git.afpy.org
 
    INFO:swh.lister.pattern:Max origins per page set, truncated 36 page results down to 30
    INFO:swh.lister.pattern:Disabling origins before sending them to the scheduler
@@ -61,8 +95,11 @@ For example, forge `git.afpy.org <https://git.afpy.org>`_ which is a `gitea
 Ensure the :ref:`lister got registered<check-lister-is-registered>` in the staging
 scheduler db.
 
+Forge's listed origin ingestion
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Still on a staging node, we trigger the first ingestion for those origins:
+After the previous lister registration, we now need to trigger the first ingestion for
+those origins:
 
 .. code::
 
@@ -74,7 +111,7 @@ Still on a staging node, we trigger the first ingestion for those origins:
        --lister-name <lister> \
        --lister-instance-name <lister-instance-name>
 
-For our particular instance:
+For example, for one of the instance listed above:
 
 .. code::
 
@@ -104,7 +141,8 @@ After :ref:`testing with success the forge ingestion in staging
 <add-forge-now-testing-on-staging>`, it's time to deploy the full and recurrent listing
 for that forge.
 
-Let's start by registering the lister for that forge as usual:
+Let's start by registering the lister for that forge as usual (use the same method as
+above):
 
 .. code::
 
@@ -113,6 +151,13 @@ Let's start by registering the lister for that forge as usual:
      register-lister <lister-name> \
        url=<url>
 
+.. code::
+
+   swh scheduler --url http://saatchi.internal.softwareheritage.org:5008/ \
+     add-forge-now ( --preset production ) \
+     register-lister <lister-name> \
+       instance=<instance>
+
 For example:
 
 .. code::
@@ -120,7 +165,7 @@ For example:
    swh scheduler --url http://saatchi.internal.softwareheritage.org:5008/ \
      add-forge-now ( --preset production ) \
      register-lister gitea \
-       url=https://git.afpy.org/api/v1/
+       instance=git.afpy.org
 
 Ensure the :ref:`lister got registered<check-lister-is-registered>` in the production
 scheduler db.
