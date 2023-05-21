@@ -191,6 +191,9 @@ swh.docs
 :ref:`swh.search <swh-search>`
     search engine for the archive
 
+:ref:`swh.spdx <swh-spdx>`
+    Package to assist the generation of SBOMs(spdx format)
+
 :ref:`swh.storage <swh-storage>`
     abstraction layer over the archive, allowing to access all stored source
     code artifacts as well as their metadata

@@ -31,6 +31,7 @@
 ../swh-scheduler[simulator]
 ../swh-scrubber
 ../swh-search
+../swh-spdx
 ../swh-storage
 ../swh-vault
 ../swh-web
