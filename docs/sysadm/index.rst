@@ -10,6 +10,7 @@ Infrastructure
    puppet/index
    network-architecture/index
    server-architecture/index
+   software-architecture/index
    data-silos/index
    deployment/index
    user-management/index
