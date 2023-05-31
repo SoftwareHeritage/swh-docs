@@ -5,6 +5,7 @@ sphinx
 sphinxcontrib-httpdomain >= 1.8.0
 sphinxcontrib-images
 sphinxcontrib-programoutput
+sphinx-carousel
 sphinx-design
 sphinx-reredirects
 pydata-sphinx-theme
