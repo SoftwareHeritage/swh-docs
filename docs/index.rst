@@ -321,6 +321,7 @@ Ambassador program
 -  `Ambassadors mailing list <https://sympa.inria.fr/sympa/info/swh-ambassadors>`__
 -  `Outreach material (only available to ambassadors) <https://www.softwareheritage.org/ambassador-material/>`__
 -  `Outreach material on a Git repository <https://github.com/moranegg/swh-ambassadors/tree/main/Materials>`__
+-  `Frequently Asked Questions to ambassadors <https://gitlab.softwareheritage.org/outreach/swh-academy/swh-faq>`__
 
 Presentations
 -------------
