@@ -96,6 +96,7 @@ Run the script by
    $ cd swh-environment
    $ bin/update   # Used to update all the repos under the environment to their latest version
    $ bin/fork-gitlab-repo -g swh swh-objstorage
+   $ bin/fork-gitlab-repo -g swh .  # To contribute to swh-environment itself (eg. add a repository)
 
 This will create a new fork of the SWH repository in your namespace and
 add a jenkins user to perform automatic builds. You can view the forked
