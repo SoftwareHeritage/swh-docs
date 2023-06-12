@@ -133,5 +133,6 @@ You may want to read:
 
    planning
    deploy
+   takedown-notices
    onboard
    monitor

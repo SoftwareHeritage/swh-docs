@@ -13,7 +13,9 @@ Namely, hosting a mirror requires:
 
 - a dedicated infrastructure with enough compute (s/computing) power and storage
 - enough network bandwidth (both ingress and egress)
-- good IT tooling (supervision, alerting).
+- good IT tooling (supervision, alerting)
+- a legal and operational structure to :ref:`handle takedown requests
+  <mirror_takedown_requests>`
 
 The mirror operator is not required to run the Software Heritage `full software
 stack <https://docs.softwareheritage.org/devel>`_, however it is possible to
