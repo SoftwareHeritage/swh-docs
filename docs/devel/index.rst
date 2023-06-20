@@ -13,6 +13,7 @@ Development
    faq/index
    roadmap/roadmap-2023
    roadmap/index
+   configuration
    api-reference
    archive-changelog
    journal
