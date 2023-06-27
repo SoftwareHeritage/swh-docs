@@ -257,6 +257,14 @@ forges:
     loader:
       status: N/A
 
+  pagure:
+    name: pagure
+    lister:
+      status: prod
+      issue: https://gitlab.softwareheritage.org/swh/meta/-/issues/5043
+    loader:
+      status: N/A
+
   phabricator:
     name: Phabricator
     lister:
@@ -327,7 +335,6 @@ forges:
     loader:
       status: N/A
 
-
 grants:
   nlnet-octobus-2022:
     funder: NLnet Foundation
@@ -355,7 +362,6 @@ grants:
     funder: Alfred P. Sloan Foundation
     announcement: https://www.softwareheritage.org/2020/12/10/sloan-subgrant-cvs-subversion-loaders/
 
-
 developers:
   castalia:
     name: Castalia Solutions
@@ -375,4 +381,3 @@ developers:
   tweag:
     name: Tweag
     url: https://www.tweag.io/
-
