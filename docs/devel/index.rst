@@ -48,7 +48,7 @@ Architecture
 Data Model and Specifications
 -----------------------------
 
-* :ref:`persistent-identifiers` Specifications of the SoftWare Heritage persistent IDentifiers (SWHID).
+* :ref:`persistent-identifiers` Specifications of the SoftWare Hash persistent IDentifiers (SWHID).
 * :ref:`data-model` Documentation of the main |swh| archive data model.
 * :ref:`journal-specs` Documentation of the Kafka journal of the |swh| archive.
 
@@ -242,4 +242,3 @@ Archive
    * :ref:`routingtable`
    * :ref:`search`
    * :ref:`glossary`
-

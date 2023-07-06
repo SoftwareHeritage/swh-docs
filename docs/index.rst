@@ -280,7 +280,7 @@ Search, browse and reference
    code <https://www.softwareheritage.org/howto-archive-and-reference-your-code/>`__
 -  `Make your code identifiable : get a PID for your source
    code <https://annex.softwareheritage.org/public/tutorials/getswhid_dir.gif>`__
--  `Choosing what type of Software Heritage Identifier (SWHID) to
+-  `Choosing what type of Software Hash Identifier (SWHID) to
    use <devel/swh-model/persistent-identifiers.html#choosing-what-type-of-swhid-to-use>`__
 -  `Navigating through Software Heritage: behind the
    scenes <https://www.softwareheritage.org/2019/05/28/mining-software-metadata-for-80-m-projects-and-even-more/>`__
@@ -365,7 +365,7 @@ Data model and identifiers
 
 -  `Our data
    model <devel/swh-model/data-model.html#data-model>`__
--  :ref:`Software Heritage IDentifiers
+-  :ref:`Software Hash IDentifiers
    (SWHID) <persistent-identifiers>` specifications
 -  Compute a SWHID locally using the `swh identify <devel/swh-model/cli.html>`__ command-line tool.
 
