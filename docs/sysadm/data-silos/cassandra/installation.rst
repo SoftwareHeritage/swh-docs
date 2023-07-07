@@ -128,6 +128,7 @@ Connect to cqlsh with the new `admin` user:
   GRANT ALTER ON ALL FUNCTIONS to 'swh-rw';
   GRANT SELECT ON KEYSPACE swh to 'swh-rw';
   GRANT MODIFY ON KEYSPACE swh to 'swh-rw';
+  GRANT EXECUTE ON ALL FUNCTIONS to 'swh-rw';
 
 6. Create the `swh-ro` user
 
@@ -135,6 +136,7 @@ Connect to cqlsh with the new `admin` user:
 
   CREATE ROLE 'swh-ro' WITH LOGIN = true AND PASSWORD = 'changeme';
   GRANT SELECT ON KEYSPACE swh to 'swh-ro';
+  GRANT EXECUTE ON ALL FUNCTIONS to 'swh-ro';
 
 7. Create the `reaper` user
 
