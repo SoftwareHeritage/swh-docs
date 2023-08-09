@@ -5,3 +5,4 @@ Support services
    :maxdepth: 2
 
    gitlab/index
+   rancher/index
