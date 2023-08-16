@@ -28,7 +28,7 @@ Service                      URL
 swh-web                      https://webapp.staging.swh.network
 swh-deposit                  https://deposit.staging.swh.network
 swh-objstorage read-only [4] https://objstorage.staging.swh.network
-swh-graphql                  https://graphql.staging.swh.network
+swh-graphql                  https://webapp.staging.swh.network/graphql/
 software stories             https://software-stories.staging.swh.network
 Journal TLS                  broker[1-2].journal.staging.swh.network:9093
 ============================ ============================================
@@ -60,6 +60,10 @@ Internal services
 | Journal plaintext        | journal[1-2].internal.staging.swh.network:9092       |        | X          |
 +--------------------------+------------------------------------------------------+--------+------------+
 | Journal internal TLS     | journal[1-2].internal.staging.swh.network:9094       |        | X          |
++--------------------------+------------------------------------------------------+--------+------------+
+| Webapp with cassandra    | https://webapp-cassandra.internal.staging.swh.network|   X     |           |
++--------------------------+------------------------------------------------------+--------+------------+
+| Graphql with cassandra    | https://webapp-cassandra.internal.staging.swh.network/graphql/ |   X     |           |
 +--------------------------+------------------------------------------------------+--------+------------+
 
 SWH backends
