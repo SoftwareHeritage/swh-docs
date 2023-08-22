@@ -290,7 +290,7 @@ class SimpleDocumenter(autodoc.FunctionDocumenter):
 def set_django_settings(app, env, docname):
     if any(
         [
-            pattern in app.srcdir
+            pattern in str(app.srcdir)
             for pattern in ("swh-web-client", "DWCLI", "swh-webhooks")
         ]
     ):
@@ -337,7 +337,7 @@ def setup(app):
         app.connect("source-read", add_glossary_to_index)
 
         # suppress some httpdomain warnings in non web packages
-        if not any([pattern in app.srcdir for pattern in ("swh-web", "DWAPPS")]):
+        if not any([pattern in str(app.srcdir) for pattern in ("swh-web", "DWAPPS")]):
 
             # filter out httpdomain unresolved reference warnings
             # to not consider them as errors when using -W option of sphinx-build
