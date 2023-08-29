@@ -98,7 +98,7 @@ data volume, with a Replication factor (RF) of 3. Adapt according to your own ne
 
   export PASS=<your jmx password>
   ALTER KEYSPACE system_auth WITH replication = {'class': 'NetworkTopologyStrategy', 'sesi_rocquencourt_staging': 3};
-  seq 1 3 | xargs -t -i{} /opt/cassandra/bin/nodetool -h cassandra{} -u cassandra --password $PASS repair -j4 system_auth
+  seq 1 3 | xargs -t -i{} /opt/cassandra/bin/nodetool -h cassandra{} -u cassandra --password $PASS repair --full -j4 system_auth
 
 
 3. Create a new `admin` superuser
