@@ -146,6 +146,7 @@ Connect to cqlsh with the new `admin` user:
   GRANT CREATE ON ALL KEYSPACES to 'reaper';
   GRANT SELECT ON KEYSPACE reaper_db to 'reaper';
   GRANT MODIFY ON KEYSPACE reaper_db to 'reaper';
+  GRANT ALTER ON KEYSPACE reaper_db to 'reaper';
 
 8. Specific table configurations
 
