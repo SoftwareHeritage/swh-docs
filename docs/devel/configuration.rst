@@ -78,6 +78,21 @@ HTTP endpoint; usually on port 5008 or at the path ``/scheduler/``.::
       cls: remote
       url: http://saatchi.internal.softwareheritage.org:5008
 
+.. _cli-config-celery:
+
+celery
+^^^^^^
+
+Some of of the scheduler's admin subcommand additionally expect Celery configuration::
+
+    celery:
+      broker_heartbeat: null
+      task_broker: amqp://guest:guest@amqp/%2f
+      broker_transport_options:
+        max_retries: 1
+
+Other configuration options, as well as their default values, can be found in
+`swh/scheduler/celery_backend/config.py <https://gitlab.softwareheritage.org/swh/devel/swh-scheduler/-/blob/9a91b8d197b3a0d19cbaa95f7008702280eed05e/swh/scheduler/celery_backend/config.py#L313-357>`__
 
 .. _cli-config-storage:
 
