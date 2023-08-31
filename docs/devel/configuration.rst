@@ -33,6 +33,23 @@ For example, a possible configuration for swh-vault is::
 All URLs in this document are examples, see :ref:`service-url` for actual values.
 
 
+.. _cli-config-celery:
+
+celery
+------
+
+The :ref:`scheduler <swh-scheduler>` uses Celery for running some tasks. This
+configuration key is used for parameters passed directly to Celery, e.g. the URI
+of the RabbitMQ broker used for distribution of tasks, for both scheduler
+commands as well as Celery workers.
+
+The contents of this configuration key follow the `"lowercase settings" schema from
+Celery upstream
+<https://docs.celeryq.dev/en/stable/userguide/configuration.html#new-lowercase-settings>`_.
+
+Some default values can be found in :mod:`swh.scheduler.celery_backend.config`.
+
+
 .. _cli-config-graph:
 
 graph
@@ -77,22 +94,6 @@ HTTP endpoint; usually on port 5008 or at the path ``/scheduler/``.::
     scheduler:
       cls: remote
       url: http://saatchi.internal.softwareheritage.org:5008
-
-.. _cli-config-celery:
-
-celery
-^^^^^^
-
-Some of of the scheduler's admin subcommand additionally expect Celery configuration::
-
-    celery:
-      broker_heartbeat: null
-      task_broker: amqp://guest:guest@amqp/%2f
-      broker_transport_options:
-        max_retries: 1
-
-Other configuration options, as well as their default values, can be found in
-`swh/scheduler/celery_backend/config.py <https://gitlab.softwareheritage.org/swh/devel/swh-scheduler/-/blob/9a91b8d197b3a0d19cbaa95f7008702280eed05e/swh/scheduler/celery_backend/config.py#L313-357>`__
 
 .. _cli-config-storage:
 
