@@ -6,3 +6,4 @@ Software Architecture
    :titlesonly:
 
    software-stories
+   irc-alert-manager

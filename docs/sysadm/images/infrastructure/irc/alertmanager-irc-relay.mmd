@@ -1,0 +1,53 @@
+graph LR;
+
+  subgraph environment internet
+    irc
+  end
+
+  ingress[ingress <br /> alertmanager-irc-relay.internal.admin.swh.network] --> |routing rule| service;
+
+  subgraph environment admin
+    rp[alertmanager-irc-relay.admin.swh.network];
+    rp --> ingress
+
+    subgraph cluster admin
+      ingress;
+      alertmanager_adm;
+      alertmanager_adm --> service([alertmanager_irc_relay]);
+      service-->pod[Pod];
+      pod -.push alerts.-> irc([/join #swh-sysadm]);
+    end
+  end
+
+  subgraph environment rocq
+    subgraph cluster staging
+      alertmanager_stg;
+      alertmanager_stg --> ingress;
+    end
+
+    subgraph cluster production
+      alertmanager_prd;
+      alertmanager_prd --> ingress;
+    end
+  end
+
+  subgraph environment azure
+    subgraph cluster gitlab
+      alertmanager_glb;
+      alertmanager_glb --> rp;
+    end
+
+    subgraph cluster rancher
+      alertmanager_rch;
+      alertmanager_rch --> rp;
+    end
+  end
+
+  classDef plain fill:#ddd,stroke:#fff,stroke-width:4px,color:#000;
+  classDef k8s fill:#326ce5,stroke:#fff,stroke-width:4px,color:#fff;
+  classDef cluster fill:#fff,stroke:#bbb,stroke-width:2px,color:#326ce5;
+
+  class ingress,service,pod k8s;
+  class alertmanager_prd,alertmanager_stg,alertmanager_adm,alertmanager_glb,alertmanager_rch plain;
+  class cluster,environment cluster;
+
