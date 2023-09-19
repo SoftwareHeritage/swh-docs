@@ -59,6 +59,7 @@ The :ref:`graph <swh-graph>` can only be accessed as a remote service, and
 its configuration block is a single key: ``url``, which is the URL to its
 HTTP endpoint; usually on port 5009 or at the path ``/graph/``.
 
+
 .. _cli-config-journal:
 
 journal
@@ -80,6 +81,26 @@ directly from Kafka::
       sasl.password: "..."
       privileged: false
       group_id: "..."
+
+
+.. _cli-config-metadata_fetcher_credentials:
+
+metadata_fetcher_credentials
+----------------------------
+
+Nested dictionary of strings.
+
+The first level identifies a :term:`metadata <extrinsic metadata>` fetcher's name
+(eg. ``gitea`` ``github``), the second level the lister instance (eg. ``codeberg.org``
+or ``github``). The final level is a list of dicts containing the expected API
+credentials for the given instance of that fetcher. For example::
+
+    metadata_fetcher_credentials:
+      github:
+        github:
+        - username: ...
+          password: ...
+        - ...
 
 
 .. _cli-config-scheduler:
