@@ -456,7 +456,7 @@ or if you need some third-party repository, say cassandra (for swh-storage):
    gbp buildpackage --git-builder=sbuild -As \
      --no-clean-source --force-orig-source \
      --extra-repository='deb [trusted=yes] https://debian.softwareheritage.org/ unstable main' \
-     --extra-repository='deb [arch=amd64 trusted=yes] https://downloads.apache.org/cassandra/debian/ 40x main'
+     --extra-repository='deb [arch=amd64 trusted=yes] https://debian.cassandra.apache.org 41x main'
 
 For **buster**, it would be (note the usage of aptitude as resolver as the
 backports repository is used):

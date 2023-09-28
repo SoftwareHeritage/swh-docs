@@ -28,7 +28,7 @@ package manager. On Debian/Ubuntu-based distributions::
   sudo wget https://www.postgresql.org/media/keys/ACCC4CF8.asc -O /etc/apt/trusted.gpg.d/postgresql.asc
   echo "deb https://apt.postgresql.org/pub/repos/apt/ $(lsb_release -cs)-pgdg main" | sudo tee -a /etc/apt/sources.list.d/pgdg.list
   sudo wget https://downloads.apache.org/cassandra/KEYS -O /etc/apt/trusted.gpg.d/cassandra.asc
-  echo "deb https://downloads.apache.org/cassandra/debian 40x main" | sudo tee -a /etc/apt/sources.list.d/cassandra.list
+  echo "deb https://debian.cassandra.apache.org 41x main" | sudo tee -a /etc/apt/sources.list.d/cassandra.list
   sudo apt update
   sudo apt install \
       build-essential pkg-config lzip rsync \
