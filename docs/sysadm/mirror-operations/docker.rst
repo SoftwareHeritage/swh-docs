@@ -16,9 +16,9 @@ the `docker stack deploy
 <https://docs.docker.com/engine/reference/commandline/stack_deploy/>`_ command,
 e.g.:
 
-.. code-block:: bash
+.. code-block:: console
 
-   ~/swh-mirror$ docker node ls
+   swh:~/swh-mirror$ docker node ls
    ID                            HOSTNAME  STATUS   AVAILABILITY  MANAGER STATUS  ENGINE VERSION
    py47518uzdb94y2sb5yjurj22     host2     Ready    Active                        18.09.7
    n9mfw08gys0dmvg5j2bb4j2m7 *   host1     Ready    Active        Leader          18.09.7
@@ -54,9 +54,9 @@ the objstorage (thus put them in :file:`/var/lib/docker/volumes`).
 you should create the docker volumes before starting the docker service. For
 example, the ``objstorage`` service uses a volume named ``<STACK>_objstorage``:
 
-.. code-block:: bash
+.. code-block:: console
 
-   ~/swh-mirror$ docker volume create -d local \
+   swh:~/swh-mirror$ docker volume create -d local \
      --opt type=none \
      --opt o=bind \
      --opt device=/data/docker/swh-objstorage \
@@ -88,9 +88,9 @@ pinned to specific nodes using labels named
 When you create a local volume for a given container, you should add the relevant label
 to the docker swarm node metadata with:
 
-.. code-block:: bash
+.. code-block:: console
 
-   docker node update \
+   swh:~/swh-mirror$ docker node update \
        --label-add org.softwareheritage.mirror.volumes.objstorage=true \
        <node_name>
 
@@ -102,18 +102,18 @@ The monitoring services, ``prometheus``, ``prometheus-statsd-exporter`` and
 ``org.softwareheritage.mirror.monitoring``. So make sure to add this label to
 one (and only one) node of the cluster:
 
-.. code-block:: bash
+.. code-block:: console
 
-   docker node update \
+   swh:~/swh-mirror$ docker node update \
        --label-add org.softwareheritage.mirror.monitoring=true \
        <node_name>
 
 To check labels defined on a specific node, one can use the ``docker node
 inspect`` command:
 
-.. code-block:: bash
+.. code-block:: console
 
-   docker node inspect \
+   swh:~/swh-mirror$ docker node inspect \
        -f '{{ .ID }} [{{ .Description.Hostname}}]: \
 	       {{ range $k, $v := .Spec.Labels }}{{ $k }}={{ $v }}
        {{end}}' <node_name>
@@ -148,9 +148,9 @@ Namely, you need to create a ``secret`` for:
 
 For example:
 
-.. code-block:: bash
+.. code-block:: console
 
-   ~/swh-mirror$ xkcdpass -d- | docker secret create swh-mirror-db-postgres-password -
+   swh:~/swh-mirror$ xkcdpass -d- | docker secret create swh-mirror-db-postgres-password -
    [...]
 
 
@@ -159,10 +159,10 @@ Spawning the swh base services
 
 If you haven't done it yet, clone this git repository:
 
-.. code-block:: bash
+.. code-block:: console
 
-   ~$ git clone https://gitlab.softwareheritage.org/swh/infra/swh-mirror.git
-   ~$ cd swh-mirror
+   swh:~$ git clone https://gitlab.softwareheritage.org/swh/infra/swh-mirror.git
+   swh:~$ cd swh-mirror
 
 This repository provides the docker compose/stack manifests to deploy all the relevant
 services.
@@ -177,16 +177,16 @@ services.
 To specify the tag to be used, simply set the :envvar:`SWH_IMAGE_TAG`
 environment variable:
 
-.. code-block:: bash
+.. code-block:: console
 
-   ~/swh-mirror$ export SWH_IMAGE_TAG=20211022-121751
+   swh:~/swh-mirror$ export SWH_IMAGE_TAG=20211022-121751
 
 Make sure you have node labels attributed properly. Then you can spawn the
 base services using the following command:
 
-.. code-block:: bash
+.. code-block:: console
 
-   ~/swh-mirror$ docker stack deploy -c mirror.yml swh
+   swh:~/swh-mirror$ docker stack deploy -c mirror.yml swh
 
    Creating network swh_default
    Creating config swh_content-replayer
@@ -216,7 +216,7 @@ base services using the following command:
    Creating service swh_memcache
    Creating service swh_grafana
 
-   ~/swh-mirror$ docker service ls
+   swh:~/swh-mirror$ docker service ls
 
    ID             NAME                             MODE         REPLICAS               IMAGE                                       PORTS
    ptlhzue025zm   swh_content-replayer             replicated   0/0                    softwareheritage/replayer:20220225-101454
@@ -276,18 +276,18 @@ objects. The usual method to update a config in a service is:
 
 For example, if you edit the file :file:`conf/storage.yml`:
 
-.. code-block:: bash
+.. code-block:: console
 
-   ~/swh-mirror$ docker config create storage-2 conf/storage.yml
+   swh:~/swh-mirror$ docker config create storage-2 conf/storage.yml
    h0m8jvsacvpl71zdcq3wnud6c
-   ~/swh-mirror$ docker service update \
+   swh:~/swh-mirror$ docker service update \
                    --config-rm storage \
                    --config-add source=storage-2,target=/etc/softwareheritage/config.yml \
                    swh_storage
    swh_storage
    overall progress: 2 out of 2 tasks
    verify: Service converged
-   ~/swh-mirror$ docker config rm storage
+   swh:~/swh-mirror$ docker config rm storage
 
 .. Warning:: this procedure will update the live configuration of the service
              stack, which will then be out of sync with the stack described in
@@ -306,15 +306,15 @@ how to use the config system in a docker swarm cluster.
 Note that the :command:`docker service update` command can be used for many other
 things, for example it can be used to change the debug level of a service:
 
-.. code-block:: bash
+.. code-block:: console
 
-   ~/swh-mirror$ docker service update --env-add LOG_LEVEL=DEBUG swh_storage
+   swh:~/swh-mirror$ docker service update --env-add LOG_LEVEL=DEBUG swh_storage
 
 Then you can revert to the previous setup using:
 
-.. code-block:: bash
+.. code-block:: console
 
-   ~/swh-mirror$ docker service update --rollback swh_storage
+   swh:~/swh-mirror$ docker service update --rollback swh_storage
 
 See the documentation of the `swh service update
 <https://docs.docker.com/engine/reference/commandline/service_update/>`_
@@ -332,10 +332,10 @@ services at once.
 
 This can be done as follow:
 
-.. code-block:: bash
+.. code-block:: console
 
-   ~/swh-mirror$ export SWH_IMAGE_TAG=<new version>
-   ~/swh-mirror$ docker stack deploy -c base-services.yml swh
+   swh:~/swh-mirror$ export SWH_IMAGE_TAG=<new version>
+   swh:~/swh-mirror$ docker stack deploy -c base-services.yml swh
 
 
 Note that this will reset the replicas config to their default values.
@@ -343,9 +343,9 @@ Note that this will reset the replicas config to their default values.
 If you want to update only a specific service, you can also use (here for a
 replayer service):
 
-.. code-block:: bash
+.. code-block:: console
 
-   ~/swh-mirror$ docker service update --image \
+   swh:~/swh-mirror$ docker service update --image \
           softwareheritage/replayer:${SWH_IMAGE_TAG} \
           swh_graph-replayer
 
@@ -355,13 +355,13 @@ replayer service):
    script. So we strongly recommend you scale the service back to one before
    updating the image:
 
-   .. code-block:: bash
+   .. code-block:: console
 
-	  ~/swh-mirror$ docker service scale swh_storage=1
-	  ~/swh-mirror$ docker service update --image \
+	  swh:~/swh-mirror$ docker service scale swh_storage=1
+	  swh:~/swh-mirror$ docker service update --image \
           softwareheritage/base:${SWH_IMAGE_TAG} \
           swh_storage
-	  ~/swh-mirror$ docker service scale swh_storage=16
+	  swh:~/swh-mirror$ docker service scale swh_storage=16
 
 
 Set up the mirroring components
@@ -401,20 +401,20 @@ check/update are:
 
 Then you need to update the configuration, as described above:
 
-.. code-block:: bash
+.. code-block:: console
 
-   ~/swh-mirror$ docker config create swh_graph-replayer-2 conf/graph-replayer.yml
-   ~/swh-mirror$ docker service update \
+   swh:~/swh-mirror$ docker config create swh_graph-replayer-2 conf/graph-replayer.yml
+   swh:~/swh-mirror$ docker service update \
                    --config-rm swh_graph-replayer \
                    --config-add source=swh_graph-replayer-2,target=/etc/softwareheritage/config.yml \
                    swh_graph-replayer
 
 and
 
-.. code-block:: bash
+.. code-block:: console
 
-   ~/swh-mirror$ docker config create swh_content-replayer-2 conf/content-replayer.yml
-   ~/swh-mirror$ docker service update \
+   swh:~/swh-mirror$ docker config create swh_content-replayer-2 conf/content-replayer.yml
+   swh:~/swh-mirror$ docker service update \
                    --config-rm swh_content-replayer \
                    --config-add source=swh_content-replayer-2,target=/etc/softwareheritage/config.yml \
                    swh_content-replayer
@@ -425,15 +425,15 @@ Graph replayer
 
 To run the graph replayer component of a mirror is just a matter of scaling its service:
 
-.. code-block:: bash
+.. code-block:: console
 
-   ~/swh-mirror$ docker service scale swh_graph-replayer=1
+   swh:~/swh-mirror$ docker service scale swh_graph-replayer=1
 
 You can check everything is running with:
 
-.. code-block:: bash
+.. code-block:: console
 
-   ~/swh-mirror$ docker service ps swh_graph-replayer
+   swh:~/swh-mirror$ docker service ps swh_graph-replayer
 
    ID             NAME                   IMAGE                                       NODE   DESIRED STATE   CURRENT STATE            ERROR     PORTS
    ioyt34ok118a   swh_graph-replayer.1   softwareheritage/replayer:20220225-101454   node1  Running         Running 17 minutes ago
@@ -441,16 +441,16 @@ You can check everything is running with:
 
 If everything is OK, you should have your mirror filling. Check docker logs:
 
-.. code-block:: bash
+.. code-block:: console
 
-   ~/swh-mirror$ docker service logs swh_graph-replayer
+   swh:~/swh-mirror$ docker service logs swh_graph-replayer
    [...]
 
 or:
 
-.. code-block:: bash
+.. code-block:: console
 
-   ~/swh-mirror$ docker service logs --tail 100 --follow swh_graph-replayer
+   swh:~/swh-mirror$ docker service logs --tail 100 --follow swh_graph-replayer
    [...]
 
 
@@ -459,9 +459,9 @@ Content replayer
 
 Similarly, to run the content replayer:
 
-.. code-block:: bash
+.. code-block:: console
 
-   ~/swh-mirror$ docker service scale swh_content-replayer=1
+   swh:~/swh-mirror$ docker service scale swh_content-replayer=1
 
 
 Getting your deployment production-ready
@@ -473,10 +473,10 @@ docker-stack scaling
 Once the replayer services have been checked, started and are working
 properly, you can increase the replication to speed up the replication process.
 
-.. code-block:: bash
+.. code-block:: console
 
-   ~/swh-mirror$ docker service scale swh_graph-replayer=64
-   ~/swh-mirror$ docker service scale swh_content-replayer=64
+   swh:~/swh-mirror$ docker service scale swh_graph-replayer=64
+   swh:~/swh-mirror$ docker service scale swh_content-replayer=64
 
 A proper replication factor value will depend on your infrastructure
 capabilities and needs to be adjusted watching the load of the core services
