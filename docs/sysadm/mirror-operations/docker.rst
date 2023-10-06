@@ -111,12 +111,12 @@ one (and only one) node of the cluster:
 To check labels defined on a specific node, one can use the ``docker node
 inspect`` command:
 
-.. code-block:: shell
+.. code-block:: console
 
-   docker node inspect \
-       -f '{{ .ID }} [{{ .Description.Hostname}}]:
-           {{ range $k, $v := .Spec.Labels }}{{ $k }}={{ $v }}
-           {{end}}' <node_name>
+   swh:~/swh-mirror$ docker node inspect \
+       -f '{{ .ID }} [{{ .Description.Hostname}}]: '\
+          '{{ range $k, $v := .Spec.Labels }}{{ $k }}={{ $v }} {{end}}' \
+       <node_name>
 
 Labels that need to be defined are:
 
