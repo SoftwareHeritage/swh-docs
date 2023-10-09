@@ -61,6 +61,33 @@ If your repository is still pending after this time, this is most likely a bug. 
 touch with us <https://www.softwareheritage.org/community/developers/>`__ to check
 whether we are aware of this potential issue or are working on it.
 
+.. _faq_addforgenow:
+
+Add Forge Now
+=============
+
+What is the frequency at which you re-clone projects?
+-----------------------------------------------------
+
+It is variable, regarding a range of complex parameters, but on
+average the frequency is between a few days and a couple of weeks.
+
+Is each clone a full clone, or do you do incremental pulls after the initial clone?
+-----------------------------------------------------------------------------------
+
+We do incremental pulls after the first visit.
+
+Which IP address range should we mark as safe in our anti-bot protection systems?
+---------------------------------------------------------------------------------
+
+Our main IP address range is 128.93.166.0/26 and IPv6 is not yet used.
+
+Is there a risk of request overload on my forge when you process the ingestion?
+-------------------------------------------------------------------------------
+
+The add forge now feature uses dedicated workers, configured to limit the
+request load, so that the load is bearable even on a small-scale server.
+
 .. _faq_search:
 
 Search
