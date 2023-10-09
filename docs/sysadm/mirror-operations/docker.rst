@@ -111,12 +111,12 @@ one (and only one) node of the cluster:
 To check labels defined on a specific node, one can use the ``docker node
 inspect`` command:
 
-.. code-block:: console
+.. code-block:: shell
 
-   swh:~/swh-mirror$ docker node inspect \
-       -f '{{ .ID }} [{{ .Description.Hostname}}]: \
-	       {{ range $k, $v := .Spec.Labels }}{{ $k }}={{ $v }}
-       {{end}}' <node_name>
+   docker node inspect \
+       -f '{{ .ID }} [{{ .Description.Hostname}}]:
+           {{ range $k, $v := .Spec.Labels }}{{ $k }}={{ $v }}
+           {{end}}' <node_name>
 
 Labels that need to be defined are:
 
@@ -357,11 +357,11 @@ replayer service):
 
    .. code-block:: console
 
-	  swh:~/swh-mirror$ docker service scale swh_storage=1
-	  swh:~/swh-mirror$ docker service update --image \
+          swh:~/swh-mirror$ docker service scale swh_storage=1
+          swh:~/swh-mirror$ docker service update --image \
           softwareheritage/base:${SWH_IMAGE_TAG} \
           swh_storage
-	  swh:~/swh-mirror$ docker service scale swh_storage=16
+          swh:~/swh-mirror$ docker service scale swh_storage=16
 
 
 Set up the mirroring components
