@@ -88,6 +88,13 @@ Is there a risk of request overload on my forge when you process the ingestion?
 The add forge now feature uses dedicated workers, configured to limit the
 request load, so that the load is bearable even on a small-scale server.
 
+Our repos are already archived in SWH, isn't an Add Forge request redundant?
+----------------------------------------------------------------------------
+
+The add forge now feature allows us to regularly discover all repositories
+on a forge, which means we will notice when new repositories are created
+and be able to save them automatically.
+
 .. _faq_search:
 
 Search
