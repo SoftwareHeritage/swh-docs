@@ -95,6 +95,12 @@ The add forge now feature allows us to regularly discover all repositories
 on a forge, which means we will notice when new repositories are created
 and be able to save them automatically.
 
+What should we do if there are major changes to our forge?
+----------------------------------------------------------
+
+If the forge changes URL or the hosting software changes, please file a new
+add forge now request and we will process the changes through that.
+
 Why forges need to be archived in SWH ?
 ---------------------------------------
 
