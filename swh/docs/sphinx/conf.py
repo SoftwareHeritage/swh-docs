@@ -142,6 +142,7 @@ html_theme_options = {
         },
     ],
     "navbar_persistent": ["search-button"],
+    "navigation_with_keys": False,
 }
 
 html_logo = "_static/software-heritage-logo-title.svg"
