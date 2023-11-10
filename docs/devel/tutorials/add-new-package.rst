@@ -15,64 +15,27 @@ project to the documentation.
 Create a project
 ----------------
 
-Creating the project should be done using the ``gitlab`` command-line tool
-provided by the `python-gitlab <https://python-gitlab.readthedocs.io/>`_ module.
-Make sure to have the configuration working and an access token with ``api`` as
-scope.
-
-To create the project:
-
-.. code:: bash
-
-   PROJECT_NAME=swh-foo
-   DESCRIPTION="Software Heritage Foo management library"
-   NAMESPACE_ID="$(gitlab --output json namespace get --id 'swh/devel' | jq .id)"
-   gitlab project create \
-       --name "$PROJECT_NAME" \
-       --path "$PROJECT_NAME" \
-       --namespace "$NAMESPACE_ID" \
-       --description "$DESCRIPTION" \
-       --issues-access-level enabled \
-       --auto-devops-enabled false \
-       --wiki-access-level disabled \
-       --requirements-access-level disabled \
-       --pages-access-level disabled \
-       --operations-access-level disabled \
-       --container-registry-access-level disabled \
-       --visibility public
-
-Initialize the repository with our template
--------------------------------------------
+Creating the project from swh-py-template_ can be done using the
+``bin/init-py-repo`` tool. This script uses the ``gitlab`` command-line tool
+provided by the `python-gitlab <https://python-gitlab.readthedocs.io/>`_
+module. Before running ``init-py-repo``, please make sure that the ``gitlab``
+command is working and configured with an access token of scope ``api``.
 
 The following commands need to run from the base directory
 ``swh-environment``.
 
-1. Clone the new repository:
-
-   .. code:: bash
-
-      git clone https://gitlab.softwareheritage.org/swh/devel/swh-foo.git
-
-2. Use ``bin/init-py-repo`` to initialize the repository with a project template:
+1. Use ``bin/init-py-repo`` to initialize the repository with a project
+   template and create the corresponding gitlab project:
 
    .. code:: bash
 
       bin/init-py-repo swh-foo
 
-3. Install the pre-commit hook:
+2. Install the pre-commit hook:
 
    .. code:: bash
 
       pre-commit install
-
-Customize the template
-----------------------
-
-Now look for the string ``foo`` in all files and file names and replace it with
-the name of the new package. Push these commits directly to the repository as
-initial content.
-
-For an example, you can see `what was done for swh-counters <https://gitlab.softwareheritage.org/swh/devel/swh-counters/-/commit/142fff84305b>`__.
 
 Add the repo on the swh-environment project
 -------------------------------------------
@@ -98,6 +61,18 @@ Install CI jobs
    Jobs will automatically be recreated when changes are pushed to the
    ``swh-jenkins-jobs`` repository. See `Jenkins documentation <ci_jenkins>`_
    for details.
+
+Hack hack hack
+--------------
+
+The generated project should have everything needed to start hacking in. You
+should typically start with:
+
+- fill the README file
+- write some code in ``swh/foo``
+- write tests in ``swh/foo/tests``
+- add yourself in ``CONTRIBUTORS`` if needed
+- add some sphinx documentation in ``docs``
 
 Make an initial release
 -----------------------
@@ -143,5 +118,6 @@ To add a new module to the documentation:
 
 
 .. _`Continuous Integration (CI)`: https://jenkins.softwareheritage.org
+.. _swh-py-template: https://gitlab.softwareheritage.org/swh/devel/swh-py-template
 .. _swh-jenkins-jobs: https://gitlab.softwareheritage.org/swh/infra/ci-cd/swh-jenkins-jobs
 .. _swh-docs: https://gitlab.softwareheritage.org/swh/devel/swh-docs
