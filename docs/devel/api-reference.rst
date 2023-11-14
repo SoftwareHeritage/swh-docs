@@ -40,3 +40,4 @@ by components:
    swh.vault <swh-vault/index>
    swh.web <swh-web/index>
    swh.web.client <swh-web-client/index>
+   swh.webhooks <swh-webhooks/index>
