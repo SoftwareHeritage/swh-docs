@@ -85,8 +85,7 @@ language = "en"
 # This patterns also effect to html_static_path and html_extra_path
 exclude_patterns = [
     "_build",
-    "**swh-icinga-plugins/index.rst",
-    "**swh.loader.cvs.rcsparse.setup.rst",
+    "**swh-icinga-plugins/*.rst",
     "**/swh/lister/maven/README.md",
     "**/swh/loader/cvs/cvs2gitdump/README.md",
     "**/swh/web/tests/resources/contents/code/extensions/test.md",
@@ -331,7 +330,27 @@ def get_sphinx_warning_handler():
             return handler
 
 
+# before starting building the doc, we want to ensure all the
+# swh-xxx/docs/README.{rst,md} exists, or create a symlink if not. This is only
+# useful when building the documentation of a sw package in isolation; when
+# building the whole swh-docs, then the docs/devel/bin/ln-sphinx-subprojects
+# will take care of these symlinks
+def ensure_readme(app, config):
+    srcpath = app.srcdir
+    if srcpath.name.endswith("swh.docs"):
+        # ln-sphinx-subprojects script should already have done the job
+        return
+    for extension in ("rst", "md"):
+        fname = f"README.{extension}"
+        readme_file = srcpath / ".." / fname
+        symlink = srcpath / fname
+        if readme_file.exists() and not symlink.exists():
+            symlink.symlink_to(readme_file)
+            break
+
+
 def setup(app):
+    app.connect("config-inited", ensure_readme)
     # env-purge-doc event is fired before source-read
     app.connect("env-purge-doc", set_django_settings)
     # add autosimple directive (used in swh-web)

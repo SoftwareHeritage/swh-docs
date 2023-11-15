@@ -438,3 +438,4 @@ Table of contents
    devel/api-reference
    user/index
    sysadm/index
+   About this documentation project <README>

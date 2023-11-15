@@ -7,3 +7,4 @@ build/
 /swh/docs/sphinx/__pycache__/
 /version.txt
 apidoc/
+docs/README.*

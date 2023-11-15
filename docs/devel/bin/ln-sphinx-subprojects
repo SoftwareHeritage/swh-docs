@@ -4,9 +4,9 @@ set -e
 create_links () {
     mkdir -p sources
     for pymodule in $(cd ../../../ && bin/ls-py-modules) ; do
-        if [ "$pymodule" = 'swh-docs' ] ; then
-            continue
-        fi
+        case "$pymodule" in
+            "swh-docs"|"swh-icinga-plugins") continue;;
+        esac
         if [ ! -e "$pymodule" -a -d "../../../${pymodule}/docs" ] ; then
             ln -s "../../../${pymodule}/docs" "$pymodule"
         fi
@@ -16,6 +16,14 @@ create_links () {
         if [ -d "../../../${pymodule}/swh" ] ; then
             cp -r -f --symbolic-link $(realpath ../../../${pymodule}/swh/*) sources/swh/
         fi
+        pushd ../../../${pymodule}
+        for EXT in rst md; do
+            if [ -f README.$EXT -a ! -f docs/README.$EXT ] ; then
+                ln -s ../README.$EXT docs
+                break
+            fi
+        done
+        popd
     done
 }
 
