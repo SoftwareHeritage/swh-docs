@@ -1,4 +1,4 @@
-SPHINXOPTS ?= -t devel_doc
+SPHINXOPTS ?= -t devel_doc --jobs auto
 SPHINXOPTCOLOR ?= --color
 SPHINXBUILD = sphinx-build
 SOURCEDIR = .
