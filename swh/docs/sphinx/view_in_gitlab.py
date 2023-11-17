@@ -32,3 +32,4 @@ def html_page_context(app, pagename, templatename, context, doctree):
 
 def setup(app):
     app.connect("html-page-context", html_page_context)
+    return {"parallel_read_safe": True}
