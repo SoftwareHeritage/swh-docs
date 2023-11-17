@@ -322,6 +322,15 @@ def add_glossary_to_index(app, docname, source):
             source[0] += "\n" + glossary.read()
 
 
+def get_sphinx_warning_handler():
+    from sphinx.util.logging import WarningStreamHandler
+
+    logger = logging.getLogger("sphinx")
+    for handler in logger.handlers:
+        if isinstance(handler, WarningStreamHandler):
+            return handler
+
+
 def setup(app):
     # env-purge-doc event is fired before source-read
     app.connect("env-purge-doc", set_django_settings)
@@ -331,7 +340,18 @@ def setup(app):
     # the documentation
     os.environ["SWH_DOC_BUILD"] = "1"
 
-    logger = logging.getLogger("sphinx")
+    # filter out parallel read in sphinx extension warnings
+    # to not consider them as errors when using -W option of sphinx-build
+    class ParallelReadWarningFilter(logging.Filter):
+        def filter(self, record: logging.LogRecord) -> bool:
+            message = record.getMessage()
+            return (
+                "extension does not declare if it is safe for parallel reading"
+                not in message
+            ) and message != "doing serial read"
+
+    # insert a custom filter in the warning log handler of sphinx
+    get_sphinx_warning_handler().filters.insert(0, ParallelReadWarningFilter())
 
     if swh_package_doc_tox_build:
         # ensure glossary will be available in package doc scope
@@ -339,7 +359,6 @@ def setup(app):
 
         # suppress some httpdomain warnings in non web packages
         if not any([pattern in str(app.srcdir) for pattern in ("swh-web", "DWAPPS")]):
-
             # filter out httpdomain unresolved reference warnings
             # to not consider them as errors when using -W option of sphinx-build
             class HttpDomainRefWarningFilter(logging.Filter):
@@ -347,7 +366,7 @@ def setup(app):
                     return not record.msg.startswith("Cannot resolve reference to")
 
             # insert a custom filter in the warning log handler of sphinx
-            logger.handlers[1].filters.insert(0, HttpDomainRefWarningFilter())
+            get_sphinx_warning_handler().filters.insert(0, HttpDomainRefWarningFilter())
 
     else:
 
