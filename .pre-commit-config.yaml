@@ -17,7 +17,7 @@ repos:
     hooks:
       - id: codespell
         name: Check source code spelling
-        args: [-L aks]
+        args: [-L aks, -L crate]
         stages: [commit]
 
   - repo: local

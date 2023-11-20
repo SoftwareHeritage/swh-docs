@@ -4,9 +4,13 @@ forges:
     lister:
       status: dev
       issue: https://gitlab.softwareheritage.org/swh/meta/-/issues/4233
+      supports_last_update: true
     loader:
       status: dev
       issue: https://gitlab.softwareheritage.org/swh/meta/-/issues/4233
+    metadata:
+      intrinsic: collected
+      extrinsic: none
     grant: sloan-hashbang-2022
     developer: hashbang
 
@@ -17,15 +21,22 @@ forges:
     loader:
       status: prod
       id_in_swh_web: tar
+    metadata:
+      intrinsic: none
+      extrinsic: none
 
   aur:
     name: AUR
     lister:
       status: dev
       issue: https://gitlab.softwareheritage.org/swh/meta/-/issues/4466
+      supports_last_update: true
     loader:
       status: dev
       issue: https://gitlab.softwareheritage.org/swh/meta/-/issues/4466
+    metadata:
+      intrinsic: collected
+      extrinsic: none
     grant: sloan-hashbang-2022
     developer: hashbang
 
@@ -37,6 +48,9 @@ forges:
       status: prod
       source: https://gitlab.softwareheritage.org/swh/devel/swh-loader-bzr/
       package_name: swh.loader.bzr
+    metadata:
+      intrinsic: none
+      extrinsic: none
     grant: sloan-octobus-2021
     developer: octobus
 
@@ -44,15 +58,23 @@ forges:
     name: Bitbucket
     lister:
       status: prod
+      supports_last_update: true
     loader:
       status: N/A
+    metadata:
+      intrinsic: none
+      extrinsic: not collected
 
   bower:
     name: Bower
     lister:
       status: staging
+      supports_last_update: false
     loader:
       status: N/A
+    metadata:
+      intrinsic: none
+      extrinsic: not collected
     grant: nlnet-octobus-2022
     developer: octobus
 
@@ -60,17 +82,25 @@ forges:
     name: CGit
     lister:
       status: prod
+      supports_last_update: true
     loader:
       status: N/A
+    metadata:
+      intrinsic: none
+      extrinsic: not collected
 
   conda:
     name: Conda
     lister:
       status: dev
       issue: https://gitlab.softwareheritage.org/swh/devel/swh-lister/-/issues/4547
+      supports_last_update: true
     loader:
       status: dev
       issue: https://gitlab.softwareheritage.org/swh/devel/swh-loader-core/-/issues/4579
+    metadata:
+      intrinsic: collected
+      extrinsic: not collected
     grant: nlnet-octobus-2022
     developer: octobus
 
@@ -78,9 +108,14 @@ forges:
     name: CPAN
     lister:
       status: dev
-      issue: https://gitlab.softwareheritage.org/swh/devel/swh-lister/-/issues/2833
+      issue: https://gitlab.softwareheritage.org/swh/devel/swh-lister/-/issues/4520
+      supports_last_update: true
     loader:
-      status: N/A
+      status: dev
+      issue: https://gitlab.softwareheritage.org/swh/devel/swh-lister/-/issues/2833
+    metadata:
+      intrinsic: collected
+      extrinsic: not collected
     grant: nlnet-octobus-2022
     developer: octobus
 
@@ -89,17 +124,25 @@ forges:
     lister:
       status: prod
       id_in_swh_web: CRAN
+      supports_last_update: true
     loader:
       status: prod
+    metadata:
+      intrinsic: collected
+      extrinsic: none
 
   crates:
     name: Crates
     lister:
       status: dev
       issue: https://gitlab.softwareheritage.org/swh/devel/swh-lister/-/issues/1424
+      supports_last_update: true
     loader:
       status: dev
       issue: https://gitlab.softwareheritage.org/swh/meta/-/issues/4104
+    metadata:
+      intrinsic: collected
+      extrinsic: not collected
     grant: sloan-hashbang-2022
     developer: hashbang
 
@@ -111,6 +154,9 @@ forges:
       status: prod
       source: https://gitlab.softwareheritage.org/swh/devel/swh-loader-cvs/
       package_name: swh.loader.cvs
+    metadata:
+      intrinsic: none
+      extrinsic: none
     grant: sloan-stsp-cvs
     developer: stsp
 
@@ -118,9 +164,13 @@ forges:
     name: Debian
     lister:
       status: prod
+      supports_last_update: true
     loader:
       status: prod
       id_in_swh_web: deb
+    metadata:
+      intrinsic: collected
+      extrinsic: not collected
 
   deposit:
     name: Deposit
@@ -128,14 +178,21 @@ forges:
       status: N/A
     loader:
       status: prod
+    metadata:
+      intrinsic: indexed
+      extrinsic: indexed
 
   gitea:
     name: Gitea
     notes: "Reuses the Gogs lister"
     lister:
       status: prod
+      supports_last_update: true
     loader:
       status: N/A
+    metadata:
+      intrinsic: none
+      extrinsic: indexed
 
   git:
     name: Git
@@ -145,44 +202,67 @@ forges:
       status: prod
       source: https://gitlab.softwareheritage.org/swh/devel/swh-loader-git/
       package_name: swh.loader.git
+    metadata:
+      intrinsic: none
+      extrinsic: none
 
   github:
     name: GitHub
     lister:
       status: prod
+      supports_last_update: true
     loader:
       status: N/A
+    metadata:
+      intrinsic: none
+      extrinsic: indexed
 
   gitlab:
     name: GitLab
     notes: "Also supports `Heptapod <https://heptapod.net/>`_"
     lister:
       status: prod
+      supports_last_update: true
     loader:
       status: N/A
+    metadata:
+      intrinsic: none
+      extrinsic: not collected
 
   gnu:
     name: GNU
     lister:
       status: prod
       id_in_swh_web: GNU
+      supports_last_update: true
     loader:
       status: N/A
+    metadata:
+      intrinsic: collected
+      extrinsic: none
 
   gogs:
     name: Gogs
     lister:
-      status: dev
+      status: prod
       issue: https://gitlab.softwareheritage.org/swh/devel/swh-lister/-/issues/1721
+      supports_last_update: true
     loader:
       status: N/A
+    metadata:
+      intrinsic: none
+      extrinsic: not collected
 
   golang:
     name: Golang
     lister:
-      status: staging
+      status: prod
+      supports_last_update: true
     loader:
-      status: staging
+      status: prod
+    metadata:
+      intrinsic: none
+      extrinsic: none
     grant: nlnet-octobus-2022
     developer: octobus
 
@@ -191,9 +271,13 @@ forges:
     lister:
       status: dev
       issue: https://gitlab.softwareheritage.org/swh/meta/-/issues/4494
+      supports_last_update: true
     loader:
       status: dev
       issue: https://gitlab.softwareheritage.org/swh/meta/-/issues/4494
+    metadata:
+      intrinsic: collected
+      extrinsic: none
     grant: nlnet-octobus-2022
     developer: octobus
 
@@ -201,8 +285,12 @@ forges:
     name: Launchpad
     lister:
       status: prod
+      supports_last_update: true
     loader:
       status: N/A
+    metadata:
+      intrinsic: none
+      extrinsic: not collected
 
   maven:
     name: Maven
@@ -210,6 +298,9 @@ forges:
       status: prod
     loader:
       status: prod
+    metadata:
+      intrinsic: collected
+      extrinsic: collected
     grant: sloan-castalia-maven
     developer: castalia
 
@@ -222,6 +313,9 @@ forges:
       id_in_swh_web: hg
       source: https://gitlab.softwareheritage.org/swh/devel/swh-loader-mercurial/
       package_name: swh.loader.mercurial
+    metadata:
+      intrinsic: none
+      extrinsic: none
     grant: sloan-2020
     developer: octobus
 
