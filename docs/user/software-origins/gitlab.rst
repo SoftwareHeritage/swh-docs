@@ -16,7 +16,7 @@ the repository (TODO: or project? does it cover stuff like PRs and issues?) was 
 which is passed as ``last_update`` to the scheduler.
 
 |swh| does not have a specific loader for Gitlab/Heptapod; the :ref:`Git
-<user-software-origins-git>` and :ref:`Mercurial <<user-software-origins-mercurial>`
+<user-software-origins-git>` and :ref:`Mercurial <user-software-origins-mercurial>`
 loaders are used instead.
 Therefore, origin URLs are Gitlab/Heptapod's canonical URLs for the corresponding Git
 or Mercurial repository: :file:`https://{domain}/{owner}/{name}.git`` and
