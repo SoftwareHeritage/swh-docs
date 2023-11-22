@@ -317,8 +317,8 @@ def set_django_settings(app, env, docname):
 def add_glossary_to_index(app, docname, source):
     if docname == "index":
         lookup = (
-            Path(sys.prefix) / "share/swh-docs/glossary.rst",
-            Path(sys.prefix) / "local/share/swh-docs/glossary.rst",
+            Path(sys.prefix) / "share/swh-docs/docs/devel/glossary.rst",
+            Path(sys.prefix) / "local/share/swh-docs/docs/devel/glossary.rst",
             Path(__file__).parents[3] / "docs/devel/glossary.rst",
             Path(__file__).parents[4] / "docs/devel/glossary.rst",
             Path(__file__).parents[5] / "docs/devel/glossary.rst",

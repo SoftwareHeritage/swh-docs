@@ -44,5 +44,9 @@ setup(
         "building": parse_requirements("swh"),
     },
     include_package_data=True,
-    data_files=[("share/swh-docs", ["docs/devel/glossary.rst"])],
+    data_files=[
+        ("share/swh-docs/docs/devel", ["docs/devel/glossary.rst"]),
+        ("share/swh-docs/docs/", ["docs/Makefile"]),
+        ("share/swh-docs/", ["Makefile.sphinx"]),
+    ],
 )
