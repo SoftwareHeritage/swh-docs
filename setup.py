@@ -44,4 +44,5 @@ setup(
         "building": parse_requirements("swh"),
     },
     include_package_data=True,
+    data_files=[("share/swh-docs", ["docs/devel/glossary.rst"])],
 )

@@ -5,7 +5,9 @@
 
 import logging
 import os
+from pathlib import Path
 import re
+import sys
 from typing import Dict
 
 from sphinx import addnodes
@@ -314,11 +316,21 @@ def set_django_settings(app, env, docname):
 # to the terms it contains
 def add_glossary_to_index(app, docname, source):
     if docname == "index":
-        glossary_path = os.path.join(
-            os.path.dirname(__file__), "../../../docs/devel/glossary.rst"
+        lookup = (
+            Path(sys.prefix) / "share/swh-docs/glossary.rst",
+            Path(sys.prefix) / "local/share/swh-docs/glossary.rst",
+            Path(__file__).parents[3] / "docs/devel/glossary.rst",
+            Path(__file__).parents[4] / "docs/devel/glossary.rst",
+            Path(__file__).parents[5] / "docs/devel/glossary.rst",
         )
-        with open(glossary_path, "r") as glossary:
-            source[0] += "\n" + glossary.read()
+        for glossary in lookup:
+            if glossary.is_file():
+                print(f"Injecting glossary from {glossary} in index")
+                with glossary.open("r") as f:
+                    source[0] += "\n" + f.read()
+                    break
+        else:
+            raise EnvironmentError("glossary file not found")
 
 
 def get_sphinx_warning_handler():
