@@ -1,6 +1,8 @@
 *-stamp
 _build/
 devel/swh-*
+errors.log
 !/swh-loader.rst
 sources/
 user/software-origins/dynamic/*.inc
+apidoc/

@@ -1,49 +1,19 @@
-# Copyright (C) 2017-2020  The Software Heritage developers
+# Copyright (C) 2017-2023  The Software Heritage developers
 # See the AUTHORS file at the top-level directory of this distribution
 # License: GNU General Public License version 3, or any later version
 # See top-level LICENSE file for more information
 
-import os
 
-from setuptools import find_packages, setup
+from setuptools import setup
 
-
-def parse_requirements(name=None):
-    if name:
-        reqf = "requirements-%s.txt" % name
-    else:
-        reqf = "requirements.txt"
-
-    requirements = []
-    if not os.path.exists(reqf):
-        return requirements
-
-    with open(reqf) as f:
-        for line in f.readlines():
-            line = line.strip()
-            if not line or line.startswith("#"):
-                continue
-            requirements.append(line)
-    return requirements
-
-
+# TODO: usage of `data_files` is now deprecated; we should find another way of
+# distributing these files.
+#
+# These files are distributed because they are required to build the sphinx
+# documentation of a swh package isolated from the whole swh-development
+# project (esp. as tox target in each swh package; which is e.g. used by the
+# CI).
 setup(
-    name="swh.docs",
-    description="Software Heritage development documentation",
-    python_requires=">=3.7",
-    author="Software Heritage developers",
-    author_email="swh-devel@inria.fr",
-    url="https://gitlab.softwareheritage.org/swh/devel/swh-docs/",
-    packages=find_packages(),
-    scripts=[],
-    install_requires=parse_requirements(),
-    setup_requires=["setuptools-scm"],
-    use_scm_version=True,
-    extras_require={
-        "testing": parse_requirements("test"),
-        "building": parse_requirements("swh"),
-    },
-    include_package_data=True,
     data_files=[
         ("share/swh-docs/docs/devel", ["docs/devel/glossary.rst"]),
         ("share/swh-docs/docs/", ["docs/Makefile"]),

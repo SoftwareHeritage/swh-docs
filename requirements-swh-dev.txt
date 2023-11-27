@@ -36,3 +36,4 @@
 ../swh-web
 ../swh-web-client
 ../swh-webhooks
+.
