@@ -10,3 +10,4 @@ Software Architecture
 
    overview
    metadata
+   object-storage
