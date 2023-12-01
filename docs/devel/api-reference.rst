@@ -35,7 +35,6 @@ by components:
    swh.scheduler <swh-scheduler/index>
    swh.scrubber <swh-scrubber/index>
    swh.search <swh-search/index>
-   swh.spdx <swh-spdx/index>
    swh.storage <swh-storage/index>
    swh.vault <swh-vault/index>
    swh.web <swh-web/index>
