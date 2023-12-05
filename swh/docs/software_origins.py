@@ -36,7 +36,7 @@ class DotDict(collections.UserDict):
 def parse(input_path: Path):
     data = DotDict(yaml.safe_load(input_path.read_text()))
 
-    for (forge_id, forge) in sorted(data["forges"].items()):
+    for forge_id, forge in sorted(data["forges"].items()):
         forge.loader.setdefault(
             "source",
             f"https://gitlab.softwareheritage.org/swh/devel/swh-loader-core/-/"

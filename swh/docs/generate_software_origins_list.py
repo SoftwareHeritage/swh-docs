@@ -35,7 +35,7 @@ def write_table(data, file) -> None:
         "Related `grants <https://www.softwareheritage.org/grants/>`_",
     )
     table = []
-    for (forge_id, forge) in sorted(data["forges"].items()):
+    for forge_id, forge in sorted(data["forges"].items()):
         logo_cell = (
             f"|{forge_id}_logo|\n\n:ref:`{forge['name']} "
             f"<user-software-origins-{forge_id}>`"
@@ -131,7 +131,7 @@ def write_table(data, file) -> None:
         + "\n\n"
     )
 
-    for (link_name, link_url) in links:
+    for link_name, link_url in links:
         file.write(f".. _{link_name}: {link_url}\n")
 
     file.write("\n")
@@ -139,14 +139,14 @@ def write_table(data, file) -> None:
 
 def write_toctree(data, file) -> None:
     file.write(".. toctree::\n" "  :maxdepth: 2\n" "  :hidden:\n" "\n")
-    for (forge_id, forge) in sorted(data["forges"].items()):
+    for forge_id, forge in sorted(data["forges"].items()):
         file.write(f"  {forge_id}\n")
 
     file.write("\n")
 
 
 def write_logos(data, file) -> None:
-    for (forge_id, forge) in sorted(data["forges"].items()):
+    for forge_id, forge in sorted(data["forges"].items()):
         file.write(
             f".. |{forge_id}_logo| image:: ../logos/{forge_id}.png\n"
             f"  :target: {forge_id}.html\n"
@@ -156,7 +156,7 @@ def write_logos(data, file) -> None:
 
 
 def write_grants(data, file) -> None:
-    for (grant_id, grant) in data["grants"].items():
+    for grant_id, grant in data["grants"].items():
         file.write(
             f".. |{grant_id}| replace:: {grant['funder']}\n"
             f".. _{grant_id}: {grant['announcement']}\n"

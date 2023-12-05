@@ -46,7 +46,7 @@ def write_table(data, lister_or_loader: Literal["lister", "loader"], file) -> No
         "Related `grants <https://www.softwareheritage.org/grants/>`_",
     )
     table = []
-    for (forge_id, forge) in sorted(data["forges"].items()):
+    for forge_id, forge in sorted(data["forges"].items()):
         package_name = forge[lister_or_loader].package_name
         links.append(
             (
@@ -164,14 +164,14 @@ def write_table(data, lister_or_loader: Literal["lister", "loader"], file) -> No
         + "\n\n"
     )
 
-    for (link_name, link_url) in links:
+    for link_name, link_url in links:
         file.write(f".. _{link_name}: {link_url}\n")
 
     file.write("\n")
 
 
 def write_logos(data, lister_or_loader: Literal["lister", "loader"], file) -> None:
-    for (forge_id, forge) in sorted(data["forges"].items()):
+    for forge_id, forge in sorted(data["forges"].items()):
         if forge[lister_or_loader]["status"] != "N/A":
             file.write(
                 f".. |{forge_id}_logo| image:: logos/{forge_id}.png\n"
@@ -183,7 +183,7 @@ def write_logos(data, lister_or_loader: Literal["lister", "loader"], file) -> No
 
 
 def write_grants(data, file) -> None:
-    for (grant_id, grant) in data["grants"].items():
+    for grant_id, grant in data["grants"].items():
         file.write(
             f".. |{grant_id}| replace:: {grant.funder}\n"
             f".. _{grant_id}: {grant.announcement}\n"
