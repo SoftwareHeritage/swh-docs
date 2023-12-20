@@ -95,8 +95,8 @@ The add forge now feature allows us to regularly discover all repositories
 on a forge, which means we will notice when new repositories are created
 and be able to save them automatically.
 
-Why forges need to be archived in SWH
--------------------------------------
+Why forges need to be archived in SWH ?
+---------------------------------------
 
 Software Heritage is a non profit organization, hosted by Inria (french 
 research institute), in partnership with Unesco. Our mission is notably to 
@@ -116,8 +116,8 @@ Save Code Now feature (archival of a single repository), so we cannot
 guarantee that they won't be archived even if we don't process an Add 
 Forge Now request. 
 
-What is the position of SWH towards AI training and LLMs
---------------------------------------------------------
+What is the position of SWH towards AI training and LLMs ?
+----------------------------------------------------------
 
 We've recently published a `statement to explain our position towards LLM:
 <https://www.softwareheritage.org/2023/10/19/swh-statement-on-llm-for-code/>`__ 
