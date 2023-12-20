@@ -95,8 +95,8 @@ The add forge now feature allows us to regularly discover all repositories
 on a forge, which means we will notice when new repositories are created
 and be able to save them automatically.
 
-I don't want my forge to be archived in SWH
--------------------------------------------
+Why forges need to be archived in SWH
+-------------------------------------
 
 Software Heritage is a non profit organization, hosted by Inria (french 
 research institute), in partnership with Unesco. Our mission is notably to 
@@ -116,19 +116,19 @@ Save Code Now feature (archival of a single repository), so we cannot
 guarantee that they won't be archived even if we don't process an Add 
 Forge Now request. 
 
-I don't want my source code to be used for AI training purpose
---------------------------------------------------------------
+What is the position of SWH towards AI training and LLMs
+--------------------------------------------------------
 
 We've recently published a `statement to explain our position towards LLM:
 <https://www.softwareheritage.org/2023/10/19/swh-statement-on-llm-for-code/>`__ 
 
 Our principles are the following:
 
-   1. Knowledge derived from the Software Heritage archive must be given
+1. Knowledge derived from the Software Heritage archive must be given
    back to humanity, rather than monopolized for private gain. The resulting 
    machine learning models must be made available under a suitable open license, 
    together with the documentation and toolings needed to use them.
-   2. The initial training data extracted from the Software Heritage archive 
+2. The initial training data extracted from the Software Heritage archive 
    must be fully and precisely identified by, for example,  publishing the 
    corresponding SWHID identifiers <https://www.swhid.org/> (note that, in the 
    context of Software Heritage, public availability of the initial training data 
@@ -136,7 +136,7 @@ Our principles are the following:
    such as: studying biases (fairness), verifying if a code of interest was present 
    in the training data (transparency), and providing appropriate attribution when
    generated code bears resemblance to training data (credit), among others.
-   3. Mechanisms should be established, where possible, for authors to exclude 
+3. Mechanisms should be established, where possible, for authors to exclude 
    their archived code from the training inputs before model training begins.
 
 Additionally, I would like to mention that as long as your code is publicly 
