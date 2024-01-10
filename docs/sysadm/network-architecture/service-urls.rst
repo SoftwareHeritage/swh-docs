@@ -103,19 +103,21 @@ Production
 Public urls
 ~~~~~~~~~~~
 
-+---------------------------------+-----------------------------------------------+
-|             Service             |                      URL                      |
-+=================================+===============================================+
-| swh-web                         | https://archive.softwareheritage.org          |
-+---------------------------------+-----------------------------------------------+
-| swh-deposit                     | https://deposit.softwareheritage.org          |
-+---------------------------------+-----------------------------------------------+
-| swh-objstorage read-only [3][4] | https://objstorage.softwareheritage.org       |
-+---------------------------------+-----------------------------------------------+
-| software stories                | https://stories.softwareheritage.org          |
-+---------------------------------+-----------------------------------------------+
-| Journal TLS                     | broker[1-4].journal.softwareheritage.org:9093 |
-+---------------------------------+-----------------------------------------------+
++----------------------------------------+---------------------------------------------------+
+|             Service                    |                      URL                          |
++========================================+===================================================+
+| swh-web                                | https://archive.softwareheritage.org              |
++----------------------------------------+---------------------------------------------------+
+| swh-deposit                            | https://deposit.softwareheritage.org              |
++----------------------------------------+---------------------------------------------------+
+| swh-objstorage read-only [3][4]        | https://objstorage.softwareheritage.org           |
++----------------------------------------+---------------------------------------------------+
+| swh-storage cassandra read-only [4][5] | https://storage-cassandra-ro.softwareheritage.org |
++----------------------------------------+---------------------------------------------------+
+| software stories                       | https://stories.softwareheritage.org              |
++----------------------------------------+---------------------------------------------------+
+| Journal TLS                            | broker[1-4].journal.softwareheritage.org:9093     |
++----------------------------------------+---------------------------------------------------+
 
 .. _internal-services-1:
 
@@ -220,6 +222,8 @@ Other tools
 
 [2] Private: URL only accessible from the internal network, i.e nor public neither accessible through the VPN.
 
-[3] Use banco and samm as underlying objstorage
+[3] Use banco and saam as underlying objstorage
 
 [4] Protected by a basic authentication. Credentials are available in the credential store.
+
+[5] Use AWS/banco and saam/Azure in this order as underlying objstorage
