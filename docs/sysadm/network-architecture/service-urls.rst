@@ -131,6 +131,8 @@ Internal services
 +=============================+=================================================================+========+============+
 | swh-web test/validation     | https://webapp1.internal.softwareheritage.org                   | X      |            |
 +-----------------------------+-----------------------------------------------------------------+--------+------------+
+| swh-graphql test/validation | https://webapp1.internal.softwareheritage.org/graphql/          | X      |            |
++-----------------------------+-----------------------------------------------------------------+--------+------------+
 | swh-web cassandra           | https://webapp-cassandra.internal.softwareheritage.org          |   X    |            |
 +-----------------------------+-----------------------------------------------------------------+--------+------------+
 | swh-graphql cassandra       | https://webapp-cassandra.internal.softwareheritage.org/graphql/ |   X    |            |
