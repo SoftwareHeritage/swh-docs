@@ -371,15 +371,19 @@ def setup(app):
     # the documentation
     os.environ["SWH_DOC_BUILD"] = "1"
 
-    # filter out parallel read in sphinx extension warnings
+    # filter out parallel read/write in sphinx extension warnings
     # to not consider them as errors when using -W option of sphinx-build
     class ParallelReadWarningFilter(logging.Filter):
         def filter(self, record: logging.LogRecord) -> bool:
             message = record.getMessage()
-            return (
-                "extension does not declare if it is safe for parallel reading"
-                not in message
-            ) and message != "doing serial read"
+            return all(
+                text not in message
+                for text in (
+                    "extension does not declare if it is safe for parallel",
+                    "extension is not safe for parallel",
+                    "doing serial",
+                )
+            )
 
     # insert a custom filter in the warning log handler of sphinx
     get_sphinx_warning_handler().filters.insert(0, ParallelReadWarningFilter())
