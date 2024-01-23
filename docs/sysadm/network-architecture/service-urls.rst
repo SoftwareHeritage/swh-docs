@@ -182,6 +182,8 @@ SWH backends
 +--------------------------+-----------------------------------------------------------------------------------+--------+------------+
 | scheduler database       | postgresql-scheduler-rw.internal.softwareheritage.org:5432/swh-scheduler          | X      |            |
 +--------------------------+-----------------------------------------------------------------------------------+--------+------------+
+| indexer database         | postgresql-indexer-rw.internal.softwareheritage.org:5432/softwareheritage-indexer | X      |            |
++--------------------------+-----------------------------------------------------------------------------------+--------+------------+
 | deposit database         | postgresql-deposit-rw.internal.softwareheritage.org:5432/softwareheritage-deposit | X      |            |
 +--------------------------+-----------------------------------------------------------------------------------+--------+------------+
 | vault database           | postgresql-vault-rw.internal.softwareheritage.org:5432/swh-vault                  | X      |            |
