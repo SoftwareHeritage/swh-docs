@@ -36,41 +36,47 @@ Sample |pg_service|
 
   [swh]
   dbname=softwareheritage
-  host=db.internal.softwareheritage.org
+  host=postgresql-storage-rw.internal.softwareheritage.org
   user=guest
 
   [swh-replica]
   dbname=softwareheritage
-  host=somerset.internal.softwareheritage.org
+  host=postgresql-storage-replica.internal.softwareheritage.org
   user=guest
   port=5432
 
   [swh-deposit]
   dbname=softwareheritage-deposit
-  host=db.internal.softwareheritage.org
+  host=postgresql-deposit-rw.internal.softwareheritage.org
   user=guest
   port=5432
 
   [swh-indexer]
   dbname=softwareheritage-indexer
-  host=belvedere.internal.softwareheritage.org
+  host=postgresql-indexer-rw.internal.softwareheritage.org
   user=guest
   port=5432
 
   [swh-scheduler]
   dbname=softwareheritage-scheduler
-  host=db.internal.softwareheritage.org
+  host=postgresql-scheduler-rw.internal.softwareheritage.org
+  user=guest
+
+  [swh-vault]
+  dbname=swh-vault
+  host=postgresql-vault-rw.internal.softwareheritage.org
+  port=5432
   user=guest
 
   [swh-scrubber]
   dbname=swh-scrubber
-  host=db.internal.softwareheritage.org
+  host=postgresql-scrubber-rw.internal.softwareheritage.org
   port=5432
   user=guest
 
   [admin-swh-scrubber]
   dbname=swh-scrubber
-  host=db.internal.softwareheritage.org
+  host=postgresql-scrubber-rw.internal.softwareheritage.org
   port=5432
   user=swh-scrubber
 
@@ -145,18 +151,6 @@ Sample |pg_service|
   host=db1.internal.staging.swh.network
   port=5432
   user=swh-vault
-
-  [staging-swh-lister]
-  dbname=swh-lister
-  host=db1.internal.staging.swh.network
-  port=5432
-  user=guest
-
-  [admin-staging-swh-lister]
-  dbname=swh-lister
-  host=db1.internal.staging.swh.network
-  port=5432
-  user=swh-lister
 
 With this file, you can connect to any DB like this:
 
