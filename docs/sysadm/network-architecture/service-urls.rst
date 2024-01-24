@@ -141,7 +141,7 @@ Internal services
 +-----------------------------+-----------------------------------------------------------------+--------+------------+
 | swh-storage read-only       | http://storage-postgresql-ro.internal.softwareheritage.org      | X      |            |
 +-----------------------------+-----------------------------------------------------------------+--------+------------+
-| swh-objstorage              | http://saam.internal.softwareheritage.org:5003                  |        | X          |
+| swh-objstorage              | http://objstorage-read-only-rpc-ingress                         |        | X          |
 +-----------------------------+-----------------------------------------------------------------+--------+------------+
 | swh-objstorage read-only[3] | http://objstorage.internal.softwareheritage.org                 | X      |            |
 +-----------------------------+-----------------------------------------------------------------+--------+------------+
