@@ -137,7 +137,7 @@ Internal services
 +-----------------------------+-----------------------------------------------------------------+--------+------------+
 | swh-graphql cassandra       | https://webapp-cassandra.internal.softwareheritage.org/graphql/ |   X    |            |
 +-----------------------------+-----------------------------------------------------------------+--------+------------+
-| swh-storage                 | http://saam.internal.softwareheritage.org:5002                  |        | X          |
+| swh-storage                 | http://storage-rw-postgresql-saam-ingress                       |        | X          |
 +-----------------------------+-----------------------------------------------------------------+--------+------------+
 | swh-storage read-only       | http://storage-postgresql-ro.internal.softwareheritage.org      | X      |            |
 +-----------------------------+-----------------------------------------------------------------+--------+------------+
