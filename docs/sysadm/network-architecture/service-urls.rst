@@ -30,7 +30,7 @@ swh-deposit                  https://deposit.staging.swh.network
 swh-objstorage read-only [4] https://objstorage.staging.swh.network
 swh-graphql                  https://webapp.staging.swh.network/graphql/
 software stories             https://software-stories.staging.swh.network
-Journal TLS                  broker[1-2].journal.staging.swh.network:9093
+Journal TLS                  broker2.journal.staging.swh.network:9093
 ============================ ============================================
 
 Internal services
@@ -65,9 +65,9 @@ Internal services
 +-----------------------+----------------------------------------------------------------+--------+------------+
 | swh-vault             | http://vault-rpc-ingress                                       |        | X          |
 +-----------------------+----------------------------------------------------------------+--------+------------+
-| Journal plaintext     | journal[1-2].internal.staging.swh.network:9092                 |        | X          |
+| Journal plaintext     | journal2.internal.staging.swh.network:9092                     |        | X          |
 +-----------------------+----------------------------------------------------------------+--------+------------+
-| Journal internal TLS  | journal[1-2].internal.staging.swh.network:9094                 |        | X          |
+| Journal internal TLS  | journal2.internal.staging.swh.network:9094                     |        | X          |
 +-----------------------+----------------------------------------------------------------+--------+------------+
 
 SWH backends
