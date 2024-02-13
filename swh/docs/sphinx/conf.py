@@ -92,6 +92,7 @@ exclude_patterns = [
     "**/swh/loader/cvs/cvs2gitdump/README.md",
     "**/swh/web/tests/resources/contents/code/extensions/test.md",
     "**/*.inc",
+    "**/swh/scanner/resources/*",
 ]
 
 # The name of the Pygments (syntax highlighting) style to use.
