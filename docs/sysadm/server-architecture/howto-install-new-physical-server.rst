@@ -81,6 +81,8 @@ When the server you install has no dedicated boot disk, replace the
 Then build the ISO image, the debian installer file and the finish_install
 script with the script ``build_iso.sh``.
 
+Note: Ensure the machine is able to boot from efi.
+
 .. code::
 
    HOSTNAME=cassandra07
