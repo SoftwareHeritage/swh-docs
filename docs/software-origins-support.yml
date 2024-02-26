@@ -324,7 +324,12 @@ forges:
     lister:
       status: prod
     loader:
-      status: N/A
+      status: prod
+      source: https://gitlab.softwareheritage.org/swh/devel/swh-loader-core/
+      package_name: swh.loader.core
+    metadata:
+      intrinsic: none
+      extrinsic: none
     grant: nlnet-tweag-2020
     developer: tweag
 
