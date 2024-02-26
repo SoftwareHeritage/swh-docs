@@ -11,13 +11,16 @@ iDRAC
 The **integrated Dell Remote Access Controller** is the remote console that's to control
 servers (e.g DELL, ...).
 
-We currently have :ref:`5 iDRACs <network_configuration>`:
+A non-exhaustive list of :ref:`iDRACs <network_configuration>`:
 
 * banco
-* beaubourg
 * hypervisor3
+* mucem
 * orsay
 * uffizi
+* ...
+
+Note: Use `pass search idrac` to retrieve the list.
 
 These instructions are not really vendor-specific and can also be useful for generic
 IPMI access or even other kinds of out-of-band management system implementations.
