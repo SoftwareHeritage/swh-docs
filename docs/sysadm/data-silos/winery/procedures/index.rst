@@ -16,4 +16,4 @@ This page documents the different procedures related to the winery production en
   vpn
   switches
   frontends
-  cephs
+  ceph

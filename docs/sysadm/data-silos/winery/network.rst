@@ -46,7 +46,7 @@ network.
 The details of the installation is available in the
 `internal inventory <https://inventory.internal.admin.swh.network/dcim/rack-elevations/?site_id=7>`_
 
-The network is composed several ip ranges:
+The network is composed of several ip ranges:
 
 ============ ====================== ============================ ======== ==== ==== ======== =======
 Range        Description            VLAN                         Frontend MONs OSDs Switches Bastion
@@ -59,7 +59,7 @@ X.X.X.X/28   Uplink vlan            Uplink - Management / ID CEA                
 10.25.3.0/24 Management addresses   None                         X        X    X    X
 ============ ====================== ============================ ======== ==== ==== ======== =======
 
-Inside each range, the addresses are dispatched according these rules:
+Inside each range, the addresses are dispatched according to these rules:
 
 ========= =========
 Type      Range
