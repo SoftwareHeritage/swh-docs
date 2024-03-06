@@ -8,3 +8,4 @@ Data silos
    cassandra/index
    kafka/index
    elasticsearch/index
+   winery/index
