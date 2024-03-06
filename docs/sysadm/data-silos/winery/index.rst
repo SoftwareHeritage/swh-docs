@@ -1,7 +1,7 @@
 .. _winery:
 
 Winery Deployment
-==========
+=================
 
 .. admonition:: Intended audience
    :class: important
@@ -13,3 +13,6 @@ environment.
 
 .. toctree::
    network
+   frontends
+   ceph
+   procedures/index
