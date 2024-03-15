@@ -4,32 +4,40 @@
 Software Heritage Webhooks
 ==========================
 
-Webhooks are user-defined HTTP callbacks triggered by software forges for some events, like pushing new commits to a repository.
-Software Heritage offers some dedicated API endpoints to receive webhooks for push events. When triggered, it requests to add or update a repository in the archive whenever new commits are pushed. It ensures that your repository is up to date in the archive without needing to request for update manually.
+Webhooks are user-defined HTTP callbacks triggered by software forges for some events,
+like pushing new commits to a repository. Software Heritage offers some dedicated API
+endpoints to receive webhooks for push events. When triggered, it requests to add or
+update a repository in the archive whenever new commits are pushed. It ensures that your
+repository is up-to-date in the archive without needing to request update manually.
 
-Software Heritage has webhook receivers for some of the most popular forges. Currently, this includes:
+Software Heritage has webhook receivers for some of the most popular forges. Currently,
+this includes:
+
  - GitHub
  - GitLab
  - BitBucket
  - Gitea
  - SourceForge
 
-Each forge has its own way of setting up webhooks, and the steps for each are mentioned below:
+Each forge has its own way of setting up webhooks. The steps for each forge are
+mentioned below:
 
 GitHub
 ------
-This is a tutorial for setting up a webhook in GitHub.
+This is a tutorial for setting up Webhook in GitHub.
 
-The API endpoint is https://archive.softwareheritage.org/api/1/origin/save/webhook/github/
+You will find the API endpoint and documentation at the following addresses:
 
-The API documentation for this endpoint can be found at https://archive.softwareheritage.org/api/1/origin/save/webhook/github/doc/
+- API endpoint: https://archive.softwareheritage.org/api/1/origin/save/webhook/github/
+- API documentation: https://archive.softwareheritage.org/api/1/origin/save/webhook/github/doc/
 
 Steps to setup the Webhook:
 
 1. Go to the repository you want to archive.
 2. Click on the **Settings** tab of the repository.
 3. Go to the Webhooks under the "Code and automation" section on the left.
-4. Enter the API endpoint in the payload URL field and select the **Content type** as **application/json**.
+4. Enter the API endpoint in the payload URL field and select the **Content type** as
+   **application/json**.
 5. Select **Just the push event** under "Which events would you like to trigger this webhook?".
 6. Click on **Add Webhook**.
 
@@ -37,9 +45,10 @@ GitLab
 ------
 This is a tutorial for setting up Webhook in GitLab.
 
-The API endpoint is https://archive.softwareheritage.org/api/1/origin/save/webhook/gitlab/
+You will find the API endpoint and documentation at the following addresses:
 
-The API documentation for this endpoint can be found at https://archive.softwareheritage.org/api/1/origin/save/webhook/gitlab/doc/
+- API endpoint: https://archive.softwareheritage.org/api/1/origin/save/webhook/gitlab/
+- API documentation: https://archive.softwareheritage.org/api/1/origin/save/webhook/gitlab/doc/
 
 Steps to setup the Webhook:
 
@@ -53,9 +62,10 @@ BitBucket
 ---------
 This is a tutorial for setting up Webhook in BitBucket.
 
-The API endpoint is https://archive.softwareheritage.org/api/1/origin/save/webhook/bitbucket/
+You will find the API endpoint and documentation at the following addresses:
 
-The API documentation for this endpoint can be found at https://archive.softwareheritage.org/api/1/origin/save/webhook/bitbucket/doc/
+- API endpoint: https://archive.softwareheritage.org/api/1/origin/save/webhook/bitbucket/
+- API documentation: https://archive.softwareheritage.org/api/1/origin/save/webhook/bitbucket/doc/
 
 Steps to setup the Webhook:
 
@@ -71,9 +81,10 @@ Gitea
 -----
 This is a tutorial for setting up Webhook in Gitea.
 
-The API endpoint is https://archive.softwareheritage.org/api/1/origin/save/webhook/gitea/
+You will find the API endpoint and documentation at the following addresses:
 
-The API documentation for this endpoint can be found at https://archive.softwareheritage.org/api/1/origin/save/webhook/gitea/doc/
+- API endpoint: https://archive.softwareheritage.org/api/1/origin/save/webhook/gitea/
+- API documentation: https://archive.softwareheritage.org/api/1/origin/save/webhook/gitea/doc/
 
 Steps to setup the Webhook:
 
@@ -82,7 +93,8 @@ Steps to setup the Webhook:
 3. Click on **Webhooks** in the bar below.
 4. Click on **Add Webhook** and select **Gitea**.
 5. Enter the API endpoint in the **Target URL** field.
-6. Ensure that the HTTP method is **POST**, POST Content type is **application/json** and Trigger On is set to **Push Events**.
+6. Ensure that the HTTP method is **POST**, POST Content type is **application/json**
+   and Trigger On is set to **Push Events**.
 7. Ensure that the **Active** checkbox is selected.
 8. Click on **Add Webhook**.
 
@@ -90,9 +102,10 @@ SourceForge
 -----------
 This is a tutorial for setting up Webhook in SourceForge.
 
-The API endpoint is https://archive.softwareheritage.org/api/1/origin/save/webhook/sourceforge/
+You will find the API endpoint and documentation at the following addresses:
 
-The API documentation for this endpoint can be found at https://archive.softwareheritage.org/api/1/origin/save/webhook/sourceforge/doc/
+- API endpoint: https://archive.softwareheritage.org/api/1/origin/save/webhook/sourceforge/
+- API documentation: https://archive.softwareheritage.org/api/1/origin/save/webhook/sourceforge/doc/
 
 Steps to setup the Webhook:
 
