@@ -95,6 +95,25 @@ The add forge now feature allows us to regularly discover all repositories
 on a forge, which means we will notice when new repositories are created
 and be able to save them automatically.
 
+Our repos are copied in multiple places, why should we archive all locations?
+-----------------------------------------------------------------------------
+
+It is useful for the archive to have all copies of repos ingested so that
+when our users search for a particular repo at a particular location,
+they go directly to the code that was at that location, instead of
+finding nothing at that location and having to alter their search and
+finding the same code at the other locations and choosing one location.
+
+If the repos at one location are damaged in some way and that is not noticed,
+it is useful to have the copies of them at undamaged locations saved and in
+some cases it may be useful to have a record of the damage too.
+
+The archive schedule for some locations might have a longer timeframe between
+visits, so it is often useful to have the other locations saved so that there
+is one copy that is more up to date than the others.
+
+The archive deduplicates data across locations, so little extra data is used.
+
 Why forges need to be archived in SWH ?
 ---------------------------------------
 
