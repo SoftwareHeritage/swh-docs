@@ -11,7 +11,7 @@ Development
    contributing/index
    tutorials/index
    faq/index
-   roadmap/roadmap-2023
+   roadmap/roadmap-2024
    roadmap/index
    configuration
    api-reference
