@@ -29,7 +29,9 @@ Quick start
 -----------
 
 First, retrieve Software Heritage development environment to get the
-Docker configuration::
+Docker configuration:
+
+.. code-block:: console
 
    ~$ git clone https://gitlab.softwareheritage.org/swh/devel/docker.git swh-docker
    ~$ cd swh-docker
@@ -40,7 +42,9 @@ Docker configuration::
    you should rather follow the instructions in section :ref:`checkout-source-code` to
    install the full Software Heritage development environment that includes Docker configuration.
 
-Then, start containers::
+Then, start containers:
+
+.. code-block:: console
 
    ~/swh-docker$ docker compose up -d
    [...]
@@ -52,7 +56,9 @@ Then, start containers::
    [...]
 
 This will build Docker images and run them. Check everything is running
-fine with::
+fine with:
+
+.. code-block:: console
 
    ~/swh-docker$ docker compose ps
                             Name                                       Command               State                                      Ports
@@ -69,7 +75,9 @@ dependency-related problems. If some containers failed to start, just
 run the ``docker compose up -d`` command again.
 
 If a container really refuses to start properly, you can check why using
-the ``docker compose logs`` command. For example::
+the ``docker compose logs`` command. For example:
+
+.. code-block:: console
 
    ~/swh-docker$ docker compose logs swh-lister
    Attaching to docker_swh-lister_1
@@ -93,7 +101,9 @@ content. The simplest way to start loading software is to use the
   http://localhost:5080/browse/origin/save/
 
 You can also use the command line interface to inject code. For
-example to retrieve projects hossted on the https://0xacab.org GitLab forge::
+example to retrieve projects hossted on the https://0xacab.org GitLab forge:
+
+.. code-block:: console
 
    ~/swh-docker$ docker compose exec swh-scheduler \
        swh scheduler task add list-gitlab-full \
@@ -114,7 +124,9 @@ This task will scrape the forge’s project list and register origins to the sch
 This takes at most a couple of minutes.
 
 Then, you must tell the scheduler to create loading tasks for these origins.
-For example, to create tasks for 100 of these origins::
+For example, to create tasks for 100 of these origins:
+
+.. code-block:: console
 
    ~/swh-docker$ docker compose exec swh-scheduler \
        swh scheduler origin schedule-next git 100
@@ -122,7 +134,9 @@ For example, to create tasks for 100 of these origins::
 This will take a bit of time to complete.
 
 To increase the speed at which git repositories are imported, you can
-spawn more ``swh-loader-git`` workers::
+spawn more ``swh-loader-git`` workers:
+
+.. code-block:: console
 
    ~/swh-docker$ docker compose exec swh-scheduler \
        celery status
@@ -141,7 +155,9 @@ spawn more ``swh-loader-git`` workers::
           "prefetch_count": 4
 
 Now there are 4 workers ingesting git repositories. You can also
-increase the number of ``swh-loader-git`` containers::
+increase the number of ``swh-loader-git`` containers:
+
+.. code-block:: console
 
    ~/swh-docker$ docker compose up -d --scale swh-loader=4
    [...]
@@ -159,7 +175,9 @@ Heritage. When new versions of these components are released, the docker
 image will not be automatically updated. In order to update all Software
 Heritage components to their latest version, the docker image needs to
 be explicitly rebuilt by issuing the following command from within the
-``docker`` directory::
+``docker`` directory:
+
+.. code-block:: console
 
    ~/swh-docker$ docker build --no-cache -t swh/stack .
 
@@ -174,7 +192,9 @@ You can monitor your local installation by looking at:
 Shut down your local installation
 ---------------------------------
 
-To shut down your SoftWare Heritage, just run::
+To shut down your SoftWare Heritage, just run:
+
+.. code-block:: console
 
    ~/swh-docker$ docker compose down
 
