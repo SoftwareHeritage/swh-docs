@@ -91,14 +91,30 @@ the ``docker compose logs`` command. For example:
   For details on the various Docker images and how to work with them,
   see the full :ref:`docker-environment` documentation.
 
-Once all containers are running, you can use the web interface by
-opening http://localhost:5080/ in your web browser.
+Once all containers are running, you can use the web interface by opening
+http://localhost:<nginx-port>/ in your web browser. ``<nginx-port>`` is the
+port on which nginx is exposed to the host. By default, it is randomly
+attributed by docker. Use:
+
+.. code-block:: console
+
+   ~/swh-docker$ docker compose port nginx 80
+
+To find which port is actually used.
+
+.. note::
+
+   Please read the "Exposed Ports" section of the README file in the
+   `swh-docker`_ repository for more details and options on this topic.
+
+.. _`swh-docker`:  https://gitlab.softwareheritage.org/swh/devel/docker.git
+
 
 At this point, the archive is empty and needs to be filled with some
 content. The simplest way to start loading software is to use the
 *Save Code Now* feature of the archive web interface:
 
-  http://localhost:5080/browse/origin/save/
+  http://localhost:<nginx-port>/browse/origin/save/
 
 You can also use the command line interface to inject code. For
 example to retrieve projects hossted on the https://0xacab.org GitLab forge:
@@ -186,8 +202,8 @@ Monitor your local installation
 
 You can monitor your local installation by looking at:
 
-- http://localhost:5080/rabbitmq to access the rabbitmq dashboard (guest/guest),
-- http://localhost:5080/grafana to explore the platform's metrics (admin/admin),
+- http://localhost:<nginx-port>/rabbitmq to access the rabbitmq dashboard (guest/guest),
+- http://localhost:<nginx-port>/grafana to explore the platform's metrics (admin/admin),
 
 Shut down your local installation
 ---------------------------------
