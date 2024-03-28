@@ -22,7 +22,9 @@ Install required dependencies
 -----------------------------
 
 Software Heritage requires some dependencies that are usually packaged by your
-package manager. On Debian/Ubuntu-based distributions::
+package manager. On Debian/Ubuntu-based distributions:
+
+.. code-block:: console
 
   sudo apt install lsb-release wget apt-transport-https
   sudo wget https://www.postgresql.org/media/keys/ACCC4CF8.asc -O /etc/apt/trusted.gpg.d/postgresql.asc
@@ -45,13 +47,17 @@ This installs basic system utilities, Python library dependencies, development t
 documentation tools and our main database management systems.
 
 Cassandra and PostgreSQL will be started by tests when they need it, so you
-don't need them started globally (this will save you some RAM)::
+don't need them started globally (this will save you some RAM):
+
+.. code-block:: console
 
   sudo systemctl disable --now cassandra postgresql
 
 If you intend to hack on the frontend part of |swh| Web Applications, you will also
 need to have ``nodejs >= 18`` in your development environment. If the version in your
-Debian-based distribution is lower, you can install node 18 using these commands::
+Debian-based distribution is lower, you can install node 18 using these commands:
+
+.. code-block:: console
 
   sudo wget https://deb.nodesource.com/gpgkey/nodesource.gpg.key -O /etc/apt/trusted.gpg.d/nodesource.asc
   echo "deb https://deb.nodesource.com/node_18.x $(lsb_release -cs) main" | sudo tee -a /etc/apt/sources.list.d/nodesource.list
@@ -60,7 +66,9 @@ Debian-based distribution is lower, you can install node 18 using these commands
 
 Also related to Web Applications development, |swh| uses the ``yarn`` package manager
 to retrieve frontend dependencies and development tools. It is recommended to install its
-latest classic version using these commands::
+latest classic version using these commands:
+
+.. code-block:: console
 
   sudo wget https://dl.yarnpkg.com/debian/pubkey.gpg -O /etc/apt/trusted.gpg.d/yarn.asc
   echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
@@ -68,7 +76,9 @@ latest classic version using these commands::
   sudo apt install yarn
 
 If you intend to work on |swh| archive search features, Elasticsearch must also be
-present in your development environment. Proceed as follows to install it::
+present in your development environment. Proceed as follows to install it:
+
+.. code-block:: console
 
   sudo wget https://artifacts.elastic.co/GPG-KEY-elasticsearch -O /etc/apt/trusted.gpg.d/elasticsearch.asc
   echo "deb https://artifacts.elastic.co/packages/7.x/apt stable main" | sudo tee -a /etc/apt/sources.list.d/elasticsearch.list
@@ -84,30 +94,40 @@ to do so.
 Checkout the source code
 ------------------------
 
-Clone the |swh| environment repository::
+Clone the |swh| environment repository:
+
+.. code-block:: console
 
     ~$ git clone https://gitlab.softwareheritage.org/swh/devel/swh-environment.git
     [...]
     ~$ cd swh-environment
     ~/swh-environment$
 
-Create a virtualenv::
+Create a virtualenv:
+
+.. code-block:: console
 
     ~/swh-environment$ source /usr/share/virtualenvwrapper/virtualenvwrapper.sh
     ~/swh-environment$ mkvirtualenv -p /usr/bin/python3 -a $PWD swh
     [...]
     (swh) ~/swh-environment$
 
-Checkout all the swh packages source repositories::
+Checkout all the swh packages source repositories:
+
+.. code-block:: console
 
     (swh) ~/swh-environment$ pip install pre-commit
     (swh) ~/swh-environment$ ./bin/update
 
-Use the same mypy version our tox containers use::
+Use the same mypy version our tox containers use:
+
+.. code-block:: console
 
     (swh) ~/swh-environment$ pip install mypy==1.8.0
 
-In the future you can re-activate the created virtualenv with::
+In the future you can re-activate the created virtualenv with:
+
+.. code-block:: console
 
    $ workon swh
    (swh) ~/swh-environment$
@@ -122,7 +142,9 @@ In the future you can re-activate the created virtualenv with::
 .. _pipenv: https://pipenv.readthedocs.io/
 
 
-Install all the swh packages (in development mode, with testing dependencies)::
+Install all the swh packages (in development mode, with testing dependencies):
+
+.. code-block:: console
 
     (swh) ~/swh-environment$ bin/install
 
@@ -131,7 +153,9 @@ Install all the swh packages (in development mode, with testing dependencies)::
    If you experience issues with :program:`pip` dependency resolution, try with
    ``bin/install --use-deprecated=legacy-resolver`` (the flag will be passed on
    to ``pip install``). The same flag can also be set globally in
-   :file:`~/.config/pip/pip.conf`::
+   :file:`~/.config/pip/pip.conf`:
+
+   .. code-block:: console
 
       [install]
       use-deprecated=legacy-resolver
@@ -151,7 +175,9 @@ tox_. The main difference between these 2 test execution environments is:
   current virtualenv, installed from the git repositories: you test your
   modification against the HEAD of every swh package.
 
-For example, running unit tests for the swh-loader-git_ package::
+For example, running unit tests for the swh-loader-git_ package:
+
+.. code-block:: console
 
     (swh) ~/swh-environment$ cd swh-loader-git
     (swh) ~/swh-environment/swh-loader-git$ pytest
@@ -171,7 +197,9 @@ For example, running unit tests for the swh-loader-git_ package::
 	[...]
 	================== 25 passed, 12 warnings in 6.66 seconds ==================
 
-Running the same test, plus code linting and static analysis, using tox::
+Running the same test, plus code linting and static analysis, using tox:
+
+.. code-block:: console
 
     (swh) ~/swh-environment/swh-loader-git$ tox
     GLOB sdist-make: ~/swh-environment/swh-loader-git/setup.py
@@ -235,7 +263,9 @@ Running the same test, plus code linting and static analysis, using tox::
 Beware that some swh packages require a postgresql server properly configured
 to execute the tests. In this case, you will want to use pifpaf_, which will
 spawn a temporary instance of postgresql, to encapsulate the call to pytest.
-For example, running pytest in the swh-core package::
+For example, running pytest in the swh-core package:
+
+.. code-block:: console
 
     (swh) ~/swh-environment$ cd swh-core
 	(swh) ~/swh-environment/swh-core$ pifpaf run postgresql -- pytest
