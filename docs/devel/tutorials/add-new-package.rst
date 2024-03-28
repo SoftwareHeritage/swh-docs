@@ -27,13 +27,13 @@ The following commands need to run from the base directory
 1. Use ``bin/init-py-repo`` to initialize the repository with a project
    template and create the corresponding gitlab project:
 
-   .. code:: bash
+   .. code-block:: console
 
       bin/init-py-repo swh-foo
 
 2. Install the pre-commit hook:
 
-   .. code:: bash
+   .. code-block:: console
 
       pre-commit install
 
@@ -80,7 +80,7 @@ Make an initial release
 Releases are made automatically by Jenkins when a tag is pushed to a module
 repository. Making an initial release is thus done by doing:
 
-.. code:: bash
+.. code-block:: console
 
    git tag v0.0.0
    git push origin --tags v0.0.0
@@ -107,7 +107,7 @@ To add a new module to the documentation:
 - Add the package with a concise description to the index of the development part, located in
   ``docs/devel/index.rst``.
 
-  ::
+  .. code-block:: rst
 
      :ref:`swh.foo <swh-foo>`
          short description of the repository
