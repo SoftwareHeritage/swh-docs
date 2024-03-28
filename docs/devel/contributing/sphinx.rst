@@ -3,7 +3,12 @@
 Sphinx gotchas
 ==============
 
-Here is a list of common gotchas when formatting Python docstrings for `Sphinx <https://www.sphinx-doc.org/en/stable/>`_ and the `Napoleon <https://www.sphinx-doc.org/en/stable/ext/napoleon.html>`_ style.
+Here is a list of common gotchas when formatting Python docstrings for `Sphinx
+<https://www.sphinx-doc.org/en/stable/>`_ and the `Napoleon
+<https://www.sphinx-doc.org/en/stable/ext/napoleon.html>`_ style.
+
+.. highlight:: rst
+
 
 Sphinx
 ------
@@ -11,12 +16,12 @@ Sphinx
 Lists
 +++++
 
-All sorts of `lists <https://www.sphinx-doc.org/en/stable/rest.html#lists-and-quote-like-blocks>`_
-require an empty line before the first bullet and after the last one,
-to be properly interpreted as list.
-No indentation is required for list elements w.r.t. surrounding text,
-and line continuations should be indented like the first character
-after the bullet.
+All sorts of `lists
+<https://www.sphinx-doc.org/en/stable/rest.html#lists-and-quote-like-blocks>`_
+require an empty line before the first bullet and after the last one, to be
+properly interpreted as list. No indentation is required for list elements
+w.r.t. surrounding text, and line continuations should be indented like the
+first character after the bullet.
 
 Bad::
 
@@ -177,9 +182,12 @@ Good::
 
    Args:
        foo (int): first argument
+
        bar: second argument, which happen to have a fairly
-           long description of what it does
+            long description of what it does
+
        baz (bool): third argument
+
 
 Returns
 +++++++
@@ -231,6 +239,7 @@ Good::
    Raises:
        ValueError: if you botched it
        RuntimeError: if we botched it
+
 
 See also
 --------
