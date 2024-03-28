@@ -9,10 +9,6 @@ Roadmap 2024
 This document provides an overview of the technical roadmap of the Software
 Heritage initiative for the year 2024.
 
-Live tracking of the roadmap implementation progress during the year is
-available from a dedicated `GitLab board
-<https://gitlab.softwareheritage.org/groups/product-management/-/boards?label_name[]=roadmap%202024>`_.
-
 .. contents::
    :depth: 3
 ..
@@ -23,7 +19,6 @@ License identification
 Design a data model for license information
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-- `View in GitLab <https://gitlab.softwareheritage.org/product-management/license-identification/-/issues/3>`__
 - Priority: medium
 - Tags: Licence detection, SWH Sec
 
@@ -46,7 +41,6 @@ Integrate license information to the Software Heritage Data Model, covering all 
 Collect license information from external platforms (as extrinsic metadata)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-- `View in GitLab <https://gitlab.softwareheritage.org/product-management/license-identification/-/issues/2>`__
 - Priority: high
 - Tags: Licence detection
 
@@ -67,7 +61,6 @@ Collect extrinsic metadata about license from platforms when available (GitHub, 
 Mine license information from the archive (as intrinsic metadata)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-- `View in GitLab <https://gitlab.softwareheritage.org/product-management/license-identification/-/issues/1>`__
 - Priority: high
 - Tags: Licence detection
 
@@ -92,7 +85,6 @@ Documentation
 Review existing documentation according to identified personas
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-- `View in GitLab <https://gitlab.softwareheritage.org/product-management/documentation/-/issues/1>`__
 - Priority: medium
 - Tags:
 
@@ -119,7 +111,6 @@ SWH Scanner
 Release a first version of the swh-scanner product
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-- `View in GitLab <https://gitlab.softwareheritage.org/product-management/swh-scanner/-/issues/10>`__
 - Priority: high
 - Tags: Scanner
 
@@ -149,7 +140,6 @@ SWH Sec
 Large scale archives retrieval (vault)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-- `View in GitLab <https://gitlab.softwareheritage.org/product-management/swh-sec/-/issues/6>`__
 - Priority: medium
 - Tags: SWH Sec
 
@@ -175,7 +165,6 @@ Certified Deposit
 Specify requirements for certified deposit
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-- `View in GitLab <https://gitlab.softwareheritage.org/product-management/certified-deposit/-/issues/1>`__
 - Priority: low
 - Tags: Certified deposit
 
@@ -200,7 +189,6 @@ Institutional Portal
 Implement and deploy the institutional portal
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-- `View in GitLab <https://gitlab.softwareheritage.org/product-management/institutional-portal/-/issues/4>`__
 - Priority: medium
 - Tags: Institutional portal
 
@@ -224,7 +212,6 @@ Implement and deploy the software artifacts for the Software Heritage Institutio
 Design software architecture for the institutional portal
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-- `View in GitLab <https://gitlab.softwareheritage.org/product-management/institutional-portal/-/issues/2>`__
 - Priority: medium
 - Tags: Institutional portal
 
@@ -247,7 +234,6 @@ Design the software architecture and UI/UX for the SWH institutional portal
 Specify requirements for institutional portal
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-- `View in GitLab <https://gitlab.softwareheritage.org/product-management/institutional-portal/-/issues/1>`__
 - Priority: high
 - Tags: Institutional portal
 
@@ -272,7 +258,6 @@ Mirrors
 Documentation for mirror operators
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-- `View in GitLab <https://gitlab.softwareheritage.org/product-management/mirrors/-/issues/6>`__
 - Priority: low
 - Tags: Mirrors
 
@@ -292,7 +277,6 @@ Publish a comprehensive documentation for mirror operators
 Mirror tooling for scrubbing
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-- `View in GitLab <https://gitlab.softwareheritage.org/product-management/mirrors/-/issues/5>`__
 - Priority: medium
 - Tags: Mirrors
 
@@ -311,7 +295,6 @@ Implement srubbing tools to control the integrity of the mirrors replayed data
 Mirror tooling for mailmap
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-- `View in GitLab <https://gitlab.softwareheritage.org/product-management/mirrors/-/issues/4>`__
 - Priority: high
 - Tags: Mirrors
 
@@ -332,7 +315,6 @@ Validate a policy and implement tools for mailmaps in the mirrors
 Mirror tooling for takedown
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-- `View in GitLab <https://gitlab.softwareheritage.org/product-management/mirrors/-/issues/3>`__
 - Priority: high
 - Tags: Mirrors
 
@@ -355,7 +337,6 @@ Setup SWH mirrors tooling for takedown requests in accordance with the [document
 SWH Mirror at Duisburg-Essen university
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-- `View in GitLab <https://gitlab.softwareheritage.org/product-management/mirrors/-/issues/2>`__
 - Priority: medium
 - Tags: Mirrors
 
@@ -377,7 +358,6 @@ Collaborate with Duisburg-Essen university to create a SWH Mirror
 Mirror instance at GRNET
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
-- `View in GitLab <https://gitlab.softwareheritage.org/product-management/mirrors/-/issues/1>`__
 - Priority: high
 - Tags: Mirrors
 
@@ -401,7 +381,6 @@ SWH.org Website
 Refactor the architecture of the SWH website
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-- `View in GitLab <https://gitlab.softwareheritage.org/product-management/swh-org-website/-/issues/1>`__
 - Priority: high
 - Tags: SWH.org website
 
@@ -428,7 +407,6 @@ SWH Archive Website
 Setup a Software Citation UI feature
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-- `View in GitLab <https://gitlab.softwareheritage.org/product-management/swh-archive-website/-/issues/4>`__
 - Priority: high
 - Tags: SWH archive website
 
@@ -451,7 +429,6 @@ Provide users with a web UI feature that enables to generate and export citation
 Design presentation of Metadata on Web UI
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-- `View in GitLab <https://gitlab.softwareheritage.org/product-management/swh-archive-website/-/issues/2>`__
 - Priority: medium
 - Tags: SWH archive website
 
@@ -474,7 +451,6 @@ Design presentation of intrinsic and extrinsic metadata for any artifact on web 
 Takedown notice management UI
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-- `View in GitLab <https://gitlab.softwareheritage.org/product-management/swh-archive-website/-/issues/1>`__
 - Priority: high
 - Tags: Mirrors, SWH archive website
 
@@ -498,7 +474,6 @@ SWH Core Platform
 Automate the production and publication of derived datasets
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-- `View in GitLab <https://gitlab.softwareheritage.org/product-management/core-platform/-/issues/55>`__
 - Priority: high
 - Tags: SWH Sec
 
@@ -519,7 +494,6 @@ Provide tooling for an automated production and publishing of derived datasets
 Map software versions to objects in the archive
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-- `View in GitLab <https://gitlab.softwareheritage.org/product-management/core-platform/-/issues/54>`__
 - Priority: medium
 - Tags: SWH Sec, Scanner
 
@@ -541,7 +515,6 @@ This mapping needs to be implemented in the archive
 Investigate on forge discovery automation
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-- `View in GitLab <https://gitlab.softwareheritage.org/product-management/core-platform/-/issues/53>`__
 - Priority: low
 - Tags:
 
@@ -561,7 +534,6 @@ Investigate on solutions for forges discovery automation, based on IP scanning t
 Precompute relevant characteristics of the graph
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-- `View in GitLab <https://gitlab.softwareheritage.org/product-management/core-platform/-/issues/52>`__
 - Priority: medium
 - Tags:
 
@@ -590,7 +562,6 @@ For each node:
 Improve ingestion efficiency
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-- `View in GitLab <https://gitlab.softwareheritage.org/product-management/core-platform/-/issues/48>`__
 - Priority: medium
 - Tags: SWH Sec
 
@@ -611,7 +582,6 @@ Improve ingestion efficiency to reduce the lag on major forges
 Design and implement a unified software datamodel
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-- `View in GitLab <https://gitlab.softwareheritage.org/product-management/core-platform/-/issues/47>`__
 - Priority: medium
 - Tags: Licence detection, SWH Sec
 
@@ -631,7 +601,6 @@ Create a unified data model to integrate software-related metadata (licence, CVE
 Deploy a unified software data model storage infrastructure
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-- `View in GitLab <https://gitlab.softwareheritage.org/product-management/core-platform/-/issues/42>`__
 - Priority: medium
 - Tags: Licence detection, SWH Sec
 
@@ -654,7 +623,6 @@ Establish a scalable, robust and sustainable infrastructure to support the enric
 Enrich the archive with CVE metadata
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-- `View in GitLab <https://gitlab.softwareheritage.org/product-management/core-platform/-/issues/34>`__
 - Priority: medium
 - Tags: SWH Sec
 
@@ -675,7 +643,6 @@ Integrate CVE metadata in the archive.
 Enable inclusion filters in listers
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-- `View in GitLab <https://gitlab.softwareheritage.org/product-management/core-platform/-/issues/21>`__
 - Priority: low
 - Tags:
 
@@ -696,7 +663,6 @@ In some cases, we need to apply inclusion filters (ex : archive only origins loc
 Recover the ingestion backlog
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-- `View in GitLab <https://gitlab.softwareheritage.org/product-management/core-platform/-/issues/19>`__
 - Priority: medium
 - Tags: SWH Sec
 
@@ -718,7 +684,6 @@ Increase the horsepower for ingestion capacity in order to recover the ingestion
 Implement rate-limiting in swh-vault
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-- `View in GitLab <https://gitlab.softwareheritage.org/product-management/core-platform/-/issues/18>`__
 - Priority: medium
 - Tags:
 
@@ -741,7 +706,6 @@ Implement a rate-limiting mechanism in swh-vault based on the computed size esti
 Cassandra in production as primary storage
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-- `View in GitLab <https://gitlab.softwareheritage.org/product-management/core-platform/-/issues/17>`__
 - Priority: high
 - Tags:
 
@@ -767,7 +731,6 @@ Use Cassandra as primary storage in production, in replacement of PostgreSQL
 Scale-out objstorage in production as primary objstorage
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-- `View in GitLab <https://gitlab.softwareheritage.org/product-management/core-platform/-/issues/16>`__
 - Priority: high
 - Tags:
 
@@ -790,7 +753,6 @@ Have the Ceph-based objstorage for SWH (Winery) in production as primary storage
 Extend archive check and repair tools
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-- `View in GitLab <https://gitlab.softwareheritage.org/product-management/core-platform/-/issues/15>`__
 - Priority: high
 - Tags:
 
@@ -815,7 +777,6 @@ Set up background jobs to regularly check - and repair when necessary - data val
 Support archiving repositories containing SHA1 hash conflicts on blobs
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-- `View in GitLab <https://gitlab.softwareheritage.org/product-management/core-platform/-/issues/14>`__
 - Priority: high
 - Tags:
 
@@ -837,7 +798,6 @@ Enable the possibility to use multiple hash types for objects checksums in order
 Release a Bulk On-demand Archival feature
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-- `View in GitLab <https://gitlab.softwareheritage.org/product-management/core-platform/-/issues/11>`__
 - Priority: high
 - Tags:
 
@@ -861,7 +821,6 @@ Provide a solution for bulk archival of large amounts of origins, using the same
 Design and implement a provenance search API v1
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-- `View in GitLab <https://gitlab.softwareheritage.org/product-management/core-platform/-/issues/10>`__
 - Priority: medium
 - Tags: Scanner
 
@@ -884,7 +843,6 @@ Provide an API that enables to retrieve the probable first origin for a given co
 Provide an exectuvie-friendly monitoring of services
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-- `View in GitLab <https://gitlab.softwareheritage.org/product-management/core-platform/-/issues/7>`__
 - Priority: low
 - Tags:
 
@@ -909,7 +867,6 @@ Provide a high-level and easy to find dashboard of running services with documen
 Graph export and graph compression in production
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-- `View in GitLab <https://gitlab.softwareheritage.org/product-management/core-platform/-/issues/6>`__
 - Priority: high
 - Tags: SWH Sec
 
@@ -933,7 +890,6 @@ Have the graph compression pipeline running in production with less then a month
 Setup swh webhook for vault cooking
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-- `View in GitLab <https://gitlab.softwareheritage.org/product-management/core-platform/-/issues/4>`__
 - Priority: low
 - Tags: SWH archive website
 
@@ -955,7 +911,6 @@ Implement a webhook for vault cooking based on swh-webhooks architecture
 Setup swh webhook for Deposit
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-- `View in GitLab <https://gitlab.softwareheritage.org/product-management/core-platform/-/issues/3>`__
 - Priority: low
 - Tags: SWH archive website
 
@@ -977,7 +932,6 @@ Implement a webhook for deposit based on swh-webhooks architecture
 Sysadmin tooling for Takedown notices
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-- `View in GitLab <https://gitlab.softwareheritage.org/product-management/core-platform/-/issues/1>`__
 - Priority: high
 - Tags:
 
