@@ -60,7 +60,9 @@ This article uses Python 3.x on the client side, and the ``requests``
 Python module to manipulate the HTTP requests. Note however that any
 language that provides HTTP requests (GET, POST) can access the API and
 could be used. Firstly let’s make sure we have the correct Python
-version and module installed::
+version and module installed:
+
+.. code-block:: console
 
    boris@castalia:notebook$ python3 -V
    Python 3.7.3
@@ -76,15 +78,15 @@ Heritage API, namely ``json`` and the aforementioned ``requests``
 modules. We also define a utility function to pretty-print json data
 easily:
 
-.. code:: python
+.. code-block:: python
 
-    import json
-    import requests
+   import json
+   import requests
 
-    # Utility to pretty-print json.
-    def jprint(obj):
-        # create a formatted string of the Python JSON object
-        print(json.dumps(obj, sort_keys=True, indent=4))
+   # Utility to pretty-print json.
+   def jprint(obj):
+       # create a formatted string of the Python JSON object
+       print(json.dumps(obj, sort_keys=True, indent=4))
 
 
 The syntax mentioned in the :swh_web:`API documentation <api/1/>` is rather
@@ -125,21 +127,21 @@ YAML if we wanted to, with a custom ``Request Headers`` set to
 
 .. code-block:: python
 
-    resp = requests.get("https://archive.softwareheritage.org/api/1/stat/counters/")
-    counters = resp.json()
-    jprint(counters)
+   resp = requests.get("https://archive.softwareheritage.org/api/1/stat/counters/")
+   counters = resp.json()
+   jprint(counters)
 
 
 .. code-block:: python
 
-    {
-        "content": 10049535736,
-        "directory": 8390591308,
-        "origin": 156388918,
-        "person": 42263568,
-        "release": 17218891,
-        "revision": 2109783249
-    }
+   {
+       "content": 10049535736,
+       "directory": 8390591308,
+       "origin": 156388918,
+       "person": 42263568,
+       "release": 17218891,
+       "revision": 2109783249
+   }
 
 
 There are almost 10bn blobs (aka files) in the archive and 8bn+
@@ -171,38 +173,41 @@ as:
 
 A (truncated) example of a result from this endpoint is shown below:
 
-::
+.. code-block:: json
 
    [
      {
        "origin_visits_url": "https://archive.softwareheritage.org/api/1/origin/https://github.com/borisbaldassari/alambic/visits/",
        "url": "https://github.com/borisbaldassari/alambic"
      }
-     ...
    ]
 
 As an example we will look for instances of *alambic* in the archive’s
-analysed repositories::
+analysed repositories:
 
-    resp = requests.get("https://archive.softwareheritage.org/api/1/origin/search/alambic/")
-    origins = resp.json()
-    print(f"We found {len(origins)} entries.")
-    for origin in origins[1:10]:
-        print(f"- {origin['url']}")
+.. code-block:: python
+
+   resp = requests.get("https://archive.softwareheritage.org/api/1/origin/search/alambic/")
+   origins = resp.json()
+   print(f"We found {len(origins)} entries.")
+   for origin in origins[1:10]:
+       print(f"- {origin['url']}")
 
 
-Which produces::
+Which produces:
 
-    We found 52 entries.
-    -  https://github.com/royal-alambic-club/sauron
-    -  https://github.com/scamberlin/alambic
-    -  https://github.com/WebTales/alambic-connector-mongodb
-    -  https://github.com/WebTales/alambic
-    -  https://github.com/AssoAlambic/alambic-website
-    -  https://bitbucket.org/nayoub/alambic.git
-    -  https://github.com/Alexandru-Dobre/alambic-connector-rest
-    -  https://github.com/WebTales/alambic-connector-diffbot
-    -  https://github.com/WebTales/alambic-connector-firebase
+.. code-block:: console
+
+   We found 52 entries.
+   -  https://github.com/royal-alambic-club/sauron
+   -  https://github.com/scamberlin/alambic
+   -  https://github.com/WebTales/alambic-connector-mongodb
+   -  https://github.com/WebTales/alambic
+   -  https://github.com/AssoAlambic/alambic-website
+   -  https://bitbucket.org/nayoub/alambic.git
+   -  https://github.com/Alexandru-Dobre/alambic-connector-rest
+   -  https://github.com/WebTales/alambic-connector-diffbot
+   -  https://github.com/WebTales/alambic-connector-firebase
 
 
 There are obviously many projects and repositories that embed the word
@@ -236,14 +241,14 @@ like this:
 
 ``/api/1/origin/https://github.com/borisbaldassari/alambic/get/``
 
-.. code:: python
+.. code-block:: python
 
-    resp = requests.get("https://archive.softwareheritage.org/api/1/origin/https://github.com/borisbaldassari/alambic/get/")
-    found = resp.json()
-    jprint(found)
+   resp = requests.get("https://archive.softwareheritage.org/api/1/origin/https://github.com/borisbaldassari/alambic/get/")
+   found = resp.json()
+   jprint(found)
 
 
-.. code::
+.. code-block:: json
 
     {
         "origin_visits_url": "https://archive.softwareheritage.org/api/1/origin/https://github.com/borisbaldassari/alambic/visits/",
@@ -263,41 +268,41 @@ syntax:
 
 We will use the same query as before about the main Alambic repository.
 
-.. code:: python
+.. code-block:: python
 
-    resp = requests.get("https://archive.softwareheritage.org/api/1/origin/https://github.com/borisbaldassari/alambic/visits/")
-    found = resp.json()
-    length = len(found)
-    print(f"Number of visits found: {format(length)}.")
-    print("With dates:")
-    for visit in found:
-        print(f"- {visit['visit']} {visit['date']}")
-    print("\nExample of a single visit entry:")
-    jprint(found[0])
+   resp = requests.get("https://archive.softwareheritage.org/api/1/origin/https://github.com/borisbaldassari/alambic/visits/")
+   found = resp.json()
+   length = len(found)
+   print(f"Number of visits found: {format(length)}.")
+   print("With dates:")
+   for visit in found:
+       print(f"- {visit['visit']} {visit['date']}")
+   print("\nExample of a single visit entry:")
+   jprint(found[0])
 
 
-.. code::
+.. code-block:: console
 
-    Number of visits found: 5.
-    With dates:
-    - 5 2021-01-01T19:35:41.308336+00:00
-    - 4 2020-02-06T10:41:45.700641+00:00
-    - 3 2019-09-01T22:38:12.056537+00:00
-    - 2 2019-06-16T04:52:18.162914+00:00
-    - 1 2019-01-30T07:19:20.799217+00:00
+   Number of visits found: 5.
+   With dates:
+   - 5 2021-01-01T19:35:41.308336+00:00
+   - 4 2020-02-06T10:41:45.700641+00:00
+   - 3 2019-09-01T22:38:12.056537+00:00
+   - 2 2019-06-16T04:52:18.162914+00:00
+   - 1 2019-01-30T07:19:20.799217+00:00
 
-    Example of a single visit entry:
-    {
-        "date": "2021-01-01T19:35:41.308336+00:00",
-        "metadata": {},
-        "origin": "https://github.com/borisbaldassari/alambic",
-        "origin_visit_url": "https://archive.softwareheritage.org/api/1/origin/https://github.com/borisbaldassari/alambic/visit/5/",
-        "snapshot": "6436d2c9b06cf9bd9efb0b4e463c3fe6b868eadc",
-        "snapshot_url": "https://archive.softwareheritage.org/api/1/snapshot/6436d2c9b06cf9bd9efb0b4e463c3fe6b868eadc/",
-        "status": "full",
-        "type": "git",
-        "visit": 5
-    }
+   Example of a single visit entry:
+   {
+       "date": "2021-01-01T19:35:41.308336+00:00",
+       "metadata": {},
+       "origin": "https://github.com/borisbaldassari/alambic",
+       "origin_visit_url": "https://archive.softwareheritage.org/api/1/origin/https://github.com/borisbaldassari/alambic/visit/5/",
+       "snapshot": "6436d2c9b06cf9bd9efb0b4e463c3fe6b868eadc",
+       "snapshot_url": "https://archive.softwareheritage.org/api/1/snapshot/6436d2c9b06cf9bd9efb0b4e463c3fe6b868eadc/",
+       "status": "full",
+       "type": "git",
+       "visit": 5
+   }
 
 
 Get the content
@@ -308,16 +313,16 @@ at a given time with links to all branches and releases. In this example
 we will work on the snapshot ID of the last visit to Alambic, as returned
 by the previous command we executed.
 
-.. code:: python
+.. code-block:: python
 
-    # Store snapshot id
-    snapshot = found[0]['snapshot']
-    print(f"Snapshot is {format(snapshot)}.")
+   # Store snapshot id
+   snapshot = found[0]['snapshot']
+   print(f"Snapshot is {format(snapshot)}.")
 
 
-.. code::
+.. code-block:: console
 
-    Snapshot is 6436d2c9b06cf9bd9efb0b4e463c3fe6b868eadc.
+   Snapshot is 6436d2c9b06cf9bd9efb0b4e463c3fe6b868eadc.
 
 
 Note that the latest visit to the repository can also be directly retrieved using the
@@ -338,56 +343,56 @@ commits in a git context), which themselves point to the set of directories and 
 the branch at the time of analysis. Let’s follow this chain of links, starting with the
 snapshot’s list of revisions (branches):
 
-.. code:: python
+.. code-block:: python
 
-    snapshotr = requests.get("https://archive.softwareheritage.org/api/1/snapshot/{}/".format(snapshot))
-    snapshotj = snapshotr.json()
-    jprint(snapshotj)
+   snapshotr = requests.get("https://archive.softwareheritage.org/api/1/snapshot/{}/".format(snapshot))
+   snapshotj = snapshotr.json()
+   jprint(snapshotj)
 
 
-.. code::
+.. code-block:: json
 
-    {
-        "branches": {
-            "HEAD": {
-                "target": "refs/heads/master",
-                "target_type": "alias",
-                "target_url": "https://archive.softwareheritage.org/api/1/revision/6dd0504b43b4459d52e9f13f71a91cc0fc445a19/"
-            },
-            "refs/heads/devel": {
-                "target": "e298b8c5692b18928013a68e41fd185419515075",
-                "target_type": "revision",
-                "target_url": "https://archive.softwareheritage.org/api/1/revision/e298b8c5692b18928013a68e41fd185419515075/"
-            },
-            "refs/heads/features/cr152_anonymise_data": {
-                "target": "ba3e0dcbfa0cb212a7186e9e62efb6dafe7fe162",
-                "target_type": "revision",
-                "target_url": "https://archive.softwareheritage.org/api/1/revision/ba3e0dcbfa0cb212a7186e9e62efb6dafe7fe162/"
-            },
-            "refs/heads/features/cr164_github_project": {
-                "target": "0005abb080e4c67a97533ee923e9d28142877752",
-                "target_type": "revision",
-                "target_url": "https://archive.softwareheritage.org/api/1/revision/0005abb080e4c67a97533ee923e9d28142877752/"
-            },
-            "refs/heads/features/cr165_github_its": {
-                "target": "0005abb080e4c67a97533ee923e9d28142877752",
-                "target_type": "revision",
-                "target_url": "https://archive.softwareheritage.org/api/1/revision/0005abb080e4c67a97533ee923e9d28142877752/"
-            },
-            "refs/heads/features/cr89_gitlabwizard": {
-                "target": "b941fd5f93a6cfc2349358b891e47d0fffe0ed2d",
-                "target_type": "revision",
-                "target_url": "https://archive.softwareheritage.org/api/1/revision/b941fd5f93a6cfc2349358b891e47d0fffe0ed2d/"
-            },
-            "refs/heads/master": {
-                "target": "6dd0504b43b4459d52e9f13f71a91cc0fc445a19",
-                "target_type": "revision",
-                "target_url": "https://archive.softwareheritage.org/api/1/revision/6dd0504b43b4459d52e9f13f71a91cc0fc445a19/"
-            }
-        },
-        "id": "6436d2c9b06cf9bd9efb0b4e463c3fe6b868eadc",
-        "next_branch": null
-    }
+   {
+       "branches": {
+           "HEAD": {
+               "target": "refs/heads/master",
+               "target_type": "alias",
+               "target_url": "https://archive.softwareheritage.org/api/1/revision/6dd0504b43b4459d52e9f13f71a91cc0fc445a19/"
+           },
+           "refs/heads/devel": {
+               "target": "e298b8c5692b18928013a68e41fd185419515075",
+               "target_type": "revision",
+               "target_url": "https://archive.softwareheritage.org/api/1/revision/e298b8c5692b18928013a68e41fd185419515075/"
+           },
+           "refs/heads/features/cr152_anonymise_data": {
+               "target": "ba3e0dcbfa0cb212a7186e9e62efb6dafe7fe162",
+               "target_type": "revision",
+               "target_url": "https://archive.softwareheritage.org/api/1/revision/ba3e0dcbfa0cb212a7186e9e62efb6dafe7fe162/"
+           },
+           "refs/heads/features/cr164_github_project": {
+               "target": "0005abb080e4c67a97533ee923e9d28142877752",
+               "target_type": "revision",
+               "target_url": "https://archive.softwareheritage.org/api/1/revision/0005abb080e4c67a97533ee923e9d28142877752/"
+           },
+           "refs/heads/features/cr165_github_its": {
+               "target": "0005abb080e4c67a97533ee923e9d28142877752",
+               "target_type": "revision",
+               "target_url": "https://archive.softwareheritage.org/api/1/revision/0005abb080e4c67a97533ee923e9d28142877752/"
+           },
+           "refs/heads/features/cr89_gitlabwizard": {
+               "target": "b941fd5f93a6cfc2349358b891e47d0fffe0ed2d",
+               "target_type": "revision",
+               "target_url": "https://archive.softwareheritage.org/api/1/revision/b941fd5f93a6cfc2349358b891e47d0fffe0ed2d/"
+           },
+           "refs/heads/master": {
+               "target": "6dd0504b43b4459d52e9f13f71a91cc0fc445a19",
+               "target_type": "revision",
+               "target_url": "https://archive.softwareheritage.org/api/1/revision/6dd0504b43b4459d52e9f13f71a91cc0fc445a19/"
+           }
+       },
+       "id": "6436d2c9b06cf9bd9efb0b4e463c3fe6b868eadc",
+       "next_branch": null
+   }
 
 
 Get the root directory
@@ -399,49 +404,52 @@ corresponding link in the ``target_url`` attribute. We will follow the
 this case (a git repository) the revision is equivalent to a commit, with
 an ID and message.
 
-.. code:: python
+.. code-block:: python
 
-    print(f"Revision ID is {snapshotj['id']}.")
-    master_url = snapshotj['branches']['refs/heads/master']['target_url']
-    masterr = requests.get(master_url)
-    masterj = masterr.json()
-    jprint(masterj)
+   print(f"Revision ID is {snapshotj['id']}.")
+   master_url = snapshotj['branches']['refs/heads/master']['target_url']
+   masterr = requests.get(master_url)
+   masterj = masterr.json()
+   jprint(masterj)
 
 
-.. code::
+.. code-block::
 
-    Revision ID is 6436d2c9b06cf9bd9efb0b4e463c3fe6b868eadc
-    {
-        "author": {
-            "email": "boris.baldassari@gmail.com",
-            "fullname": "Boris Baldassari <boris.baldassari@gmail.com>",
-            "name": "Boris Baldassari"
-        },
-        "committer": {
-            "email": "boris.baldassari@gmail.com",
-            "fullname": "Boris Baldassari <boris.baldassari@gmail.com>",
-            "name": "Boris Baldassari"
-        },
-        "committer_date": "2020-11-01T12:55:13+01:00",
-        "date": "2020-11-01T12:55:13+01:00",
-        "directory": "fd9fe3477db3b9b7dea63509832b3fa99bdd7eb8",
-        "directory_url": "https://archive.softwareheritage.org/api/1/directory/fd9fe3477db3b9b7dea63509832b3fa99bdd7eb8/",
-        "extra_headers": [],
-        "history_url": "https://archive.softwareheritage.org/api/1/revision/6dd0504b43b4459d52e9f13f71a91cc0fc445a19/log/",
-        "id": "6dd0504b43b4459d52e9f13f71a91cc0fc445a19",
-        "merge": false,
-        "message": "#163 Fix dygraphs zero padding in forums plugin.\n",
-        "metadata": {},
-        "parents": [
-            {
-                "id": "a4a2d8925c1cc43612602ac28e4ca9a31728b151",
-                "url": "https://archive.softwareheritage.org/api/1/revision/a4a2d8925c1cc43612602ac28e4ca9a31728b151/"
-            }
-        ],
-        "synthetic": false,
-        "type": "git",
-        "url": "https://archive.softwareheritage.org/api/1/revision/6dd0504b43b4459d52e9f13f71a91cc0fc445a19/"
-    }
+   Revision ID is 6436d2c9b06cf9bd9efb0b4e463c3fe6b868eadc
+
+.. code-block:: json
+
+   {
+       "author": {
+           "email": "boris.baldassari@gmail.com",
+           "fullname": "Boris Baldassari <boris.baldassari@gmail.com>",
+           "name": "Boris Baldassari"
+       },
+       "committer": {
+           "email": "boris.baldassari@gmail.com",
+           "fullname": "Boris Baldassari <boris.baldassari@gmail.com>",
+           "name": "Boris Baldassari"
+       },
+       "committer_date": "2020-11-01T12:55:13+01:00",
+       "date": "2020-11-01T12:55:13+01:00",
+       "directory": "fd9fe3477db3b9b7dea63509832b3fa99bdd7eb8",
+       "directory_url": "https://archive.softwareheritage.org/api/1/directory/fd9fe3477db3b9b7dea63509832b3fa99bdd7eb8/",
+       "extra_headers": [],
+       "history_url": "https://archive.softwareheritage.org/api/1/revision/6dd0504b43b4459d52e9f13f71a91cc0fc445a19/log/",
+       "id": "6dd0504b43b4459d52e9f13f71a91cc0fc445a19",
+       "merge": false,
+       "message": "#163 Fix dygraphs zero padding in forums plugin.\n",
+       "metadata": {},
+       "parents": [
+           {
+               "id": "a4a2d8925c1cc43612602ac28e4ca9a31728b151",
+               "url": "https://archive.softwareheritage.org/api/1/revision/a4a2d8925c1cc43612602ac28e4ca9a31728b151/"
+           }
+       ],
+       "synthetic": false,
+       "type": "git",
+       "url": "https://archive.softwareheritage.org/api/1/revision/6dd0504b43b4459d52e9f13f71a91cc0fc445a19/"
+   }
 
 
 The revision references the root directory of the project. We can list all files and
@@ -454,7 +462,7 @@ following syntax:
 The structure of the response is an **array of directory entries**.
 **Content entries** are represented like this:
 
-::
+.. code-block:: json
 
    {
        "checksums": {
@@ -474,7 +482,7 @@ The structure of the response is an **array of directory entries**.
 
 And **directory entries** are represented with:
 
-::
+.. code-block:: console
 
    {
        "dir_id": "3ee1366c6dd0b7f4ba9536e9bcc300236ac8f200",
@@ -489,32 +497,32 @@ And **directory entries** are represented with:
 We will print the list of contents and directories located at the root of
 the repository at the time of analysis:
 
-.. code:: python
+.. code-block:: python
 
-    root_url = masterj['directory_url']
-    rootr = requests.get(root_url)
-    rootj = rootr.json()
-    for f in rootj:
-        print(f"- {f['name']}.")
+   root_url = masterj['directory_url']
+   rootr = requests.get(root_url)
+   rootj = rootr.json()
+   for f in rootj:
+       print(f"- {f['name']}.")
 
 
-.. code::
+.. code-block:: console
 
-    - .dockerignore
-    - .env
-    - .gitignore
-    - CODE_OF_CONDUCT.html
-    - CODE_OF_CONDUCT.md
-    - LICENCE.html
-    - LICENCE.md
-    - Readme.md
-    - doc
-    - docker
-    - docker-compose.run.yml
-    - docker-compose.test.yml
-    - dockercfg.encrypted
-    - mojo
-    - resources
+   - .dockerignore
+   - .env
+   - .gitignore
+   - CODE_OF_CONDUCT.html
+   - CODE_OF_CONDUCT.md
+   - LICENCE.html
+   - LICENCE.md
+   - Readme.md
+   - doc
+   - docker
+   - docker-compose.run.yml
+   - docker-compose.test.yml
+   - dockercfg.encrypted
+   - mojo
+   - resources
 
 
 We could follow the links up (or down) to the leaves in order to rebuild
@@ -550,23 +558,23 @@ job result and download the archive. See the `Software Heritage documentation
 In this example we will fetch the content of the root directory that we
 previously identified.
 
-.. code:: python
+.. code-block:: python
 
-    mealr = requests.post("https://archive.softwareheritage.org/api/1/vault/directory/3ee1366c6dd0b7f4ba9536e9bcc300236ac8f200/")
-    mealj = mealr.json()
-    jprint(mealj)
+   mealr = requests.post("https://archive.softwareheritage.org/api/1/vault/directory/3ee1366c6dd0b7f4ba9536e9bcc300236ac8f200/")
+   mealj = mealr.json()
+   jprint(mealj)
 
 
-.. code::
+.. code-block:: json
 
-    {
-        "fetch_url": "https://archive.softwareheritage.org/api/1/vault/directory/3ee1366c6dd0b7f4ba9536e9bcc300236ac8f200/raw/",
-        "id": 379321799,
-        "obj_id": "3ee1366c6dd0b7f4ba9536e9bcc300236ac8f200",
-        "obj_type": "directory",
-        "progress_message": null,
-        "status": "done"
-    }
+   {
+       "fetch_url": "https://archive.softwareheritage.org/api/1/vault/directory/3ee1366c6dd0b7f4ba9536e9bcc300236ac8f200/raw/",
+       "id": 379321799,
+       "obj_id": "3ee1366c6dd0b7f4ba9536e9bcc300236ac8f200",
+       "obj_type": "directory",
+       "progress_message": null,
+       "status": "done"
+   }
 
 
 Ask if it’s ready
@@ -575,23 +583,23 @@ Ask if it’s ready
 We can use a GET request on the same URL to get information about the
 process status:
 
-.. code:: python
+.. code-block:: python
 
-    statusr = requests.get("https://archive.softwareheritage.org/api/1/vault/directory/3ee1366c6dd0b7f4ba9536e9bcc300236ac8f200/")
-    statusj = statusr.json()
-    jprint(statusj)
+   statusr = requests.get("https://archive.softwareheritage.org/api/1/vault/directory/3ee1366c6dd0b7f4ba9536e9bcc300236ac8f200/")
+   statusj = statusr.json()
+   jprint(statusj)
 
 
-.. code::
+.. code-block::
 
-    {
-        "fetch_url": "https://archive.softwareheritage.org/api/1/vault/directory/3ee1366c6dd0b7f4ba9536e9bcc300236ac8f200/raw/",
-        "id": 379321799,
-        "obj_id": "3ee1366c6dd0b7f4ba9536e9bcc300236ac8f200",
-        "obj_type": "directory",
-        "progress_message": null,
-        "status": "done"
-    }
+   {
+       "fetch_url": "https://archive.softwareheritage.org/api/1/vault/directory/3ee1366c6dd0b7f4ba9536e9bcc300236ac8f200/raw/",
+       "id": 379321799,
+       "obj_id": "3ee1366c6dd0b7f4ba9536e9bcc300236ac8f200",
+       "obj_type": "directory",
+       "progress_message": null,
+       "status": "done"
+   }
 
 
 Get the plate
@@ -601,7 +609,7 @@ Once the processing is finished (it can take up to a few minutes) the
 tar.gz archive can be downloaded through the ``fetch_url`` link, and
 extracted as a tar.gz archive:
 
-::
+.. code-block:: console
 
    boris@castalia:downloads$ curl https://archive.softwareheritage.org/api/1/vault/directory/3ee1366c6dd0b7f4ba9536e9bcc300236ac8f200/raw/ -o myarchive.tar.gz
      % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
@@ -632,6 +640,3 @@ its API**: searching for a repository, identifying projects and downloading spec
 snapshots of a repository. There is a lot more to the Archive and its API than what we
 have seen, and all features are generously documented on the :swh_web:`Software Heritage
 web site <api/>`.
-
-
-
