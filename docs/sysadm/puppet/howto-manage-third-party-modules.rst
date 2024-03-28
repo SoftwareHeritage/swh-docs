@@ -29,12 +29,6 @@ specifier.
 Adding a new external puppet module
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. admonition:: Deprecation notice
-   :class: important
-
-   This needs refactoring as the script mentioned in this section is not yet ported to
-   use our new gitlab instance
-
 In the *puppet-environment* repository, the ``bin/import-puppet-module`` takes care of
 the following tasks:
 
@@ -49,10 +43,9 @@ the following tasks:
 To be able to use the script, you need:
 
 - Be a member of the `System Administrators
-  <https://forge.softwareheritage.org/project/members/7/>`_ Phabricator group
-- Have the :ref:`Arcanist <arcanist-configuration>` API key setup
-- A pair of python dependencies: ``python3-phabricator`` and ``python3-requests`` (pull
-  them from testing if needed).
+  <https://gitlab.softwareheritage.org/groups/teams/sysadmin>`_ gitlab group
+- Have the gitlab API key setup
+- A few python dependencies: ``python3-click``, ``python3-gitlab`` and ``python3-requests``.
 
 Example usage to pull the `elastic/elasticsearch
 <https://forge.puppetlabs.com/elastic/elasticsearch>`_ module
