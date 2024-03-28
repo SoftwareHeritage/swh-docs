@@ -23,7 +23,7 @@ Dependencies
 The easiest way to run a Software Heritage instance is to use Docker.
 Please `ensure that you have a working recent installation first
 <https://docs.docker.com/engine/install/>`_ (including the
-`Compose <https://docs.docker.com/compose/>`_ plugin.
+`Compose <https://docs.docker.com/compose/>`_ plugin).
 
 Quick start
 -----------
@@ -31,12 +31,18 @@ Quick start
 First, retrieve Software Heritage development environment to get the
 Docker configuration::
 
-   ~$ git clone https://gitlab.softwareheritage.org/swh/devel/swh-environment.git
-   ~$ cd swh-environment/docker
+   ~$ git clone https://gitlab.softwareheritage.org/swh/devel/docker.git swh-docker
+   ~$ cd swh-docker
+
+.. note::
+
+   If you intend to hack on Software Heritage source code and test your changes with docker,
+   you should rather follow the instructions in section :ref:`checkout-source-code` to
+   install the full Software Heritage development environment that includes Docker configuration.
 
 Then, start containers::
 
-   ~/swh-environment/docker$ docker compose up -d
+   ~/swh-docker$ docker compose up -d
    [...]
    Creating docker_amqp_1               ... done
    Creating docker_zookeeper_1          ... done
@@ -48,7 +54,7 @@ Then, start containers::
 This will build Docker images and run them. Check everything is running
 fine with::
 
-   ~/swh-environment/docker$ docker compose ps
+   ~/swh-docker$ docker compose ps
                             Name                                       Command               State                                      Ports
    -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
    docker_amqp_1                                    docker-entrypoint.sh rabbi ...   Up      15671/tcp, 0.0.0.0:5018->15672/tcp, 25672/tcp, 4369/tcp, 5671/tcp, 5672/tcp
@@ -65,7 +71,7 @@ run the ``docker compose up -d`` command again.
 If a container really refuses to start properly, you can check why using
 the ``docker compose logs`` command. For example::
 
-   ~/swh-environment/docker$ docker compose logs swh-lister
+   ~/swh-docker$ docker compose logs swh-lister
    Attaching to docker_swh-lister_1
    [...]
    swh-lister_1                      | Processing /src/swh-scheduler
@@ -89,7 +95,7 @@ content. The simplest way to start loading software is to use the
 You can also use the command line interface to inject code. For
 example to retrieve projects hossted on the https://0xacab.org GitLab forge::
 
-   ~/swh-environment/docker$ docker compose exec swh-scheduler \
+   ~/swh-docker$ docker compose exec swh-scheduler \
        swh scheduler task add list-gitlab-full \
          -p oneshot url=https://0xacab.org/api/v4
 
@@ -110,7 +116,7 @@ This takes at most a couple of minutes.
 Then, you must tell the scheduler to create loading tasks for these origins.
 For example, to create tasks for 100 of these origins::
 
-   ~/swh-environment/docker$ docker compose exec swh-scheduler \
+   ~/swh-docker$ docker compose exec swh-scheduler \
        swh scheduler origin schedule-next git 100
 
 This will take a bit of time to complete.
@@ -118,7 +124,7 @@ This will take a bit of time to complete.
 To increase the speed at which git repositories are imported, you can
 spawn more ``swh-loader-git`` workers::
 
-   ~/swh-environment/docker$ docker compose exec swh-scheduler \
+   ~/swh-docker$ docker compose exec swh-scheduler \
        celery status
    listers@50ac2185c6c9: OK
    loader@b164f9055637: OK
@@ -126,18 +132,18 @@ spawn more ``swh-loader-git`` workers::
    vault@c9fef1bbfdc1: OK
 
    4 nodes online.
-   ~/swh-environment/docker$ docker compose exec swh-scheduler \
+   ~/swh-docker$ docker compose exec swh-scheduler \
        celery control pool_grow 3 -d loader@b164f9055637
    -> loader@b164f9055637: OK
            pool will grow
-   ~/swh-environment/docker$ docker compose exec swh-scheduler \
+   ~/swh-docker$ docker compose exec swh-scheduler \
        celery inspect -d loader@b164f9055637 stats | grep prefetch_count
           "prefetch_count": 4
 
 Now there are 4 workers ingesting git repositories. You can also
 increase the number of ``swh-loader-git`` containers::
 
-   ~/swh-environment/docker$ docker compose up -d --scale swh-loader=4
+   ~/swh-docker$ docker compose up -d --scale swh-loader=4
    [...]
    Creating docker_swh-loader_2        ... done
    Creating docker_swh-loader_3        ... done
@@ -155,7 +161,7 @@ Heritage components to their latest version, the docker image needs to
 be explicitly rebuilt by issuing the following command from within the
 ``docker`` directory::
 
-   ~/swh-environment/docker$ docker build --no-cache -t swh/stack .
+   ~/swh-docker$ docker build --no-cache -t swh/stack .
 
 Monitor your local installation
 -------------------------------
@@ -170,7 +176,7 @@ Shut down your local installation
 
 To shut down your SoftWare Heritage, just run::
 
-   ~/swh-environment/docker$ docker compose down
+   ~/swh-docker$ docker compose down
 
 Hacking the archive
 -------------------
