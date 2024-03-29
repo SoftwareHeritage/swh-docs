@@ -149,14 +149,18 @@ You may want to read:
 
 - :ref:`mirror_monitor` to learn how to monitor your mirror and how to report
   its health back the |swh|.
+- :ref:`mirror_seaweedfs` to have some tips and explanations on how to use
+  SeaweedFS_ as objstorage backend for a mirror.
 - :ref:`mirror_onboard` for the |swh| side view of adding a new mirror.
 
+.. _SeaweedFS: https://github.com/seaweedfs/seaweedfs/
 
 .. toctree::
    :hidden:
 
    planning
    deploy
+   seaweedfs
    takedown-notices
    onboard
    monitor
