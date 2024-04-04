@@ -840,7 +840,7 @@ Provide an API that enables to retrieve the probable first origin for a given co
 
 - API available in production
 
-Provide an exectuvie-friendly monitoring of services
+Provide an executive-friendly monitoring of services
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 - Priority: low
