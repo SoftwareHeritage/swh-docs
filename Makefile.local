@@ -29,6 +29,9 @@ BUILD_DEPS += pifpaf
 # psycopg-c
 BUILD_DEPS += tomli
 
+# docutils >= 0.21
+BUILD_DEPS += flit-core
+
 pip-install-swh-dev:
 	python3 -m pip install --upgrade pip wheel setuptools setuptools-scm
 	python3 -m pip install --upgrade $(BUILD_DEPS)
