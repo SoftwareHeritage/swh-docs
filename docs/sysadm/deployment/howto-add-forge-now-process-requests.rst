@@ -1,4 +1,4 @@
-.. _how-to-process-add-forge-now-requests:
+.. _how-to-add-forge-now-process-requests:
 
 How to process add-forge-now requests
 =====================================
@@ -342,3 +342,27 @@ Example:
    (1 row)
 
    Time: 149774.756 ms (02:29.775)
+
+Check duplicated tasks
+^^^^^^^^^^^^^^^^^^^^^^
+
+.. code::
+
+   select id, arguments, status from task
+     where arguments -> 'kwargs' ->> 'instance' like '%<domain_name>%'
+     or arguments -> 'kwargs' ->> 'url' like '%<domain_name>%'
+     and policy = 'recurring';
+
+Example:
+
+.. code::
+
+   softwareheritage-scheduler=> select id, arguments, status from task
+     where arguments -> 'kwargs' ->> 'instance' like '%codeberg.org%'
+     or arguments -> 'kwargs' ->> 'url' like '%codeberg.org%'
+     and policy = 'recurring';
+       id     |                            arguments                            |         status
+   -----------+-----------------------------------------------------------------+------------------------
+    415431745 | {"args": [], "kwargs": {"instance": "codeberg.org"}}            | next_run_not_scheduled
+    337306005 | {"args": [], "kwargs": {"url": "https://codeberg.org/api/v1/"}} | next_run_not_scheduled
+   (2 rows)

@@ -11,5 +11,6 @@ SWH Software Deployment
    howto-debian-packaging
    jenkins
    argocd
-   howto-process-add-forge-now-requests
+   howto-add-forge-now-pipeline
+   howto-add-forge-now-process-requests
    howto-add-journal-user-credential
