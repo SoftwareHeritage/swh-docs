@@ -163,8 +163,8 @@ for ``ALIAS`` in ``swh``, ``swh-replica``, ``swh-indexer``, ...
 Sample |pgpass|
 ---------------
 
-.. note:: The |pgpass| file is not needed for guest (read-only) access to
-   databases. You will only need it for read-write access.
+.. note:: The |pgpass| file is needed for read-only (``guest``) and read-write access to
+   databases.
 
 ::
 
