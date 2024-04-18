@@ -63,8 +63,8 @@ Staging stages
 --------------
 
 | The second, third and fourth stages process the request in staging environment.
-| If the all jobs are successfully completed, the request status is updated to ``Scheduled`` and
-  a comment is added to the Gitalb issue.
+| If all the jobs are successfully completed, the request status is updated to ``Scheduled`` and
+  a comment is added to the Gitlab issue.
 
 |afnr_pipeline_staging_stages|
 
@@ -88,7 +88,7 @@ Production stages
 Request status
 --------------
 
-* **pre** stage add a comment on request;
+* **pre** stage adds a comment on request;
 * if the **staging** stages are successfully completed, the request status is updated to ``Scheduled``;
 * if the **production** stages are successfully completed, the request status is updated to ``First Origin Loaded``.
 
@@ -111,7 +111,7 @@ Common errors
 
 .. |afnr_errors| image:: ../images/add-forge-now/AFNR_errors.png
 
-Here is a list of common pipeline errors:
+A non-exhaustive list of common pipeline errors is:
 
 - Stage `pre`, job `02_check_ports_and_token`:
     - error: the network ports checks failed;
@@ -119,17 +119,17 @@ Here is a list of common pipeline errors:
     - relaunch the job.
 - Stage `*_list_origins`, job `2*_check_listed_origins`:
     - error: ``Forge <forge> (<type>) isn't registered in the scheduler database.``;
-    - cause: the lister pod creation take more time than the listing delay (600s);
+    - cause: the lister pod creation took more time than the listing delay (600s);
     - relaunch the job.
 - Stage `*_list_origins`, job `2*_check_listed_origins`:
     - error: ``Forge <forge> (<type>) has 0 listed origin in the scheduler database.``;
     - cause: the lister failed to find some origin;
-    - process request manually (most of the time, need `base_git_url` parameter).
+    - process request manually (most of the time, it needs the optional `base_git_url` parameter).
       See :ref:`How to process add-forge-now requests <how-to-add-forge-now-process-requests>`
 - Stage `*_ingest_origins`, job `4*_check_ingested_origins`:
     - error: ``There are too many ingestion failures.``;
     - cause: ingestion failures > 70%;
-    - check ingestion (lot of empty repositories,...) and swh platform (objstorage unavailable,...);
+    - check ingestion (e.g. lots of empty repositories,...) and/or swh platform (e.g. objstorage unavailable,...);
       process request manually (combination of `url` and `base_git_url`).
 - Any stage, any job (generally in job `4p_check-ingested-origins`):
     - error: ``ERROR: Job failed: execution took longer than 168h0m0s seconds``;
