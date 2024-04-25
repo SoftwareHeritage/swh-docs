@@ -15,3 +15,4 @@ SWH Software Deployment
    howto-add-forge-now-process-requests
    howto-add-journal-user-credential
    howto-bulk-ingest
+   webhooks-svix

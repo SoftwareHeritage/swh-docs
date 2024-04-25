@@ -1,0 +1,29 @@
+   /---------------\                           /---------------\
+   | kafka         |                           | swh-web       |
+   | c1BF          |                           | c1BF          |
+   \---------------/                           \---------------/
+           |                                           ^
+           |                                           |
+           | pull messages                             | post (application/event_type/endpoint)
+           |                                           |
+           v                                           |
+   /---------------\                           /---------------\                           /---------------\
+   | swh-webhooks  |-------------------------->| svix-server   |<------------------------->| postgresql    |
+   | c1FF          |     post messages         | c1FF          |       store data          | c1BF          |
+   \---------------/ (application/event_type)  \---------------/                           \---------------/
+                                                       ^
+                                                       |
+                                                       | message queue
+                                                       | cache
+                                                       v
+                                               /---------------\
+                                               | redis-svix    |
+                                               | c1FF          |
+                                               \---------------/
+
+/-------------------------------\
+| Software Heritage             |
+| Webhooks Service Architecture |
+| {d}                           |
+| c4DF                          |
+\-------------------------------/
