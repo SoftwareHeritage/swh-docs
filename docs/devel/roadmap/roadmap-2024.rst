@@ -672,7 +672,7 @@ Increase the horsepower for ingestion capacity in order to recover the ingestion
 
 **Includes work:**
 
-- Specify infrastructure requirements to deploy as many loaders as possible (wrt the storage bandwidth capcity)
+- Specify infrastructure requirements to deploy as many loaders as possible (wrt the storage bandwidth capacity)
 - Deploy the ingestion tooling on the infrastructure
 - Run the ingestion
 
