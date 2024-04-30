@@ -14,9 +14,9 @@ stack:
 - An instance of the object storage (:ref:`swh-objstorage`);
 - A large storage system (zfs or cloud storage) as the objstorage backend;
 - An instance of the frontend (:ref:`swh-web`);
-- [Optional] An instance of the search engine backend (:ref:`swh-search`);
-- [Optional] An elasticsearch instance as swh-search backend;
-- [Optional] The vault service and its support tooling (RabbitMQ,
+- An instance of the search engine backend (:ref:`swh-search`);
+- An elasticsearch instance as swh-search backend;
+- The vault service and its support tooling (RabbitMQ,
   :ref:`swh-scheduler`, :ref:`swh-vault`, ...);
 - The replayer services:
 

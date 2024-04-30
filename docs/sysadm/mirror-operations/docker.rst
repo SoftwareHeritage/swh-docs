@@ -78,11 +78,10 @@ Node labels
 Note that the provided :file:`base-services.yaml` file has label-based
 placement constraints for several services.
 
-The ``db-storage``, ``db-web``, ``objstorage`` and ``redis`` containers, which
-depend on the availability of specific volumes (respectively
-``<STACK>_storage-db``, ``<STACK>_web-db`` and ``<STACK>_objstorage``) are
-pinned to specific nodes using labels named
-``org.softwareheritage.mirror.volumes.<base volume name>`` (e.g.
+The ``elasticsearch``, ``scheduler-db``, ``storage-db``, ``vault-db``,
+``web-db``, ``objstorage`` and ``redis`` containers, which depend on the
+availability of specific volumes, are pinned to specific nodes using labels
+named ``org.softwareheritage.mirror.volumes.<base volume name>`` (e.g.
 ``org.softwareheritage.mirror.volumes.objstorage``).
 
 When you create a local volume for a given container, you should add the relevant label
@@ -99,8 +98,8 @@ requirements, for the services to start.
 
 The monitoring services, ``prometheus``, ``prometheus-statsd-exporter`` and
 ``grafana`` also have placement constraints based on the label
-``org.softwareheritage.mirror.monitoring``. So make sure to add this label to
-one (and only one) node of the cluster:
+``org.softwareheritage.mirror.monitoring`` (and they also use volumes). So make
+sure to add this label to one (and only one) node of the cluster:
 
 .. code-block:: console
 
@@ -120,19 +119,29 @@ inspect`` command:
 
 Labels that need to be defined are:
 
+- ``org.softwareheritage.mirror.monitoring=true``: node that will host
+  the monitoring services.
+
 - ``org.softwareheritage.mirror.volumes.objstorage=true``: node that will host
-  the objstorage service, on which the ``swh_objstorage`` volume must be
-  defined.
+  the objstorage service.
+
+- ``org.softwareheritage.mirror.volumes.elasticsearch=true``: node that will
+  host the elasticsearch service.
 
 - ``org.softwareheritage.mirror.volumes.redis=true``: node that will host the
-  redis service on which the ``swh_redis`` volume must be defined.
+  redis service.
 
 - ``org.softwareheritage.mirror.volumes.storage-db=true``: node that will host
-  the swh-storage Postgresql database, on which the ``swh_storage-db`` volume must
-  be defined.
+  the swh-storage Postgresql database.
+
+- ``org.softwareheritage.mirror.volumes.scheduler-db=true``: node that will
+  host the swh-scheduler Postgresql database.
+
+- ``org.softwareheritage.mirror.volumes.vault-db=true``: node that will host
+  the swh-vault Postgresql database.
 
 - ``org.softwareheritage.mirror.volumes.web-db=true``: node that will host the
-  swh-web Postgresql database, on which the ``swh_web-db`` must be defined.
+  swh-web Postgresql database.
 
 
 Managing secrets
@@ -179,7 +188,7 @@ environment variable:
 
 .. code-block:: console
 
-   swh:~/swh-mirror$ export SWH_IMAGE_TAG=20211022-121751
+   swh:~/swh-mirror$ export SWH_IMAGE_TAG=20240417-190717
 
 Make sure you have node labels attributed properly. Then you can spawn the
 base services using the following command:
@@ -219,19 +228,19 @@ base services using the following command:
    swh:~/swh-mirror$ docker service ls
 
    ID             NAME                             MODE         REPLICAS               IMAGE                                       PORTS
-   ptlhzue025zm   swh_content-replayer             replicated   0/0                    softwareheritage/replayer:20220225-101454
+   ptlhzue025zm   swh_content-replayer             replicated   0/0                    softwareheritage/replayer:20240417-190717
    ycyanvhh0jnt   swh_db-storage                   replicated   1/1 (max 1 per node)   postgres:13
    qlaf9tcyimz7   swh_db-web                       replicated   1/1 (max 1 per node)   postgres:13
    aouw9j8uovr2   swh_grafana                      replicated   1/1 (max 1 per node)   grafana/grafana:latest
-   uwqe13udgyqt   swh_graph-replayer               replicated   0/0                    softwareheritage/replayer:20220225-101454
+   uwqe13udgyqt   swh_graph-replayer               replicated   0/0                    softwareheritage/replayer:20240417-190717
    mepbxllcxctu   swh_memcache                     replicated   1/1                    memcached:latest
    kfzirv0h298h   swh_nginx                        global       3/3                    nginx:latest                                *:5081->5081/tcp
-   t7med8frg9pr   swh_objstorage                   replicated   2/2                    softwareheritage/base:20220225-101454
+   t7med8frg9pr   swh_objstorage                   replicated   2/2                    softwareheritage/base:20240417-190717
    5s34wzo29ukl   swh_prometheus                   replicated   1/1 (max 1 per node)   prom/prometheus:latest
    rwom7r3yv5ql   swh_prometheus-statsd-exporter   replicated   1/1 (max 1 per node)   prom/statsd-exporter:latest
    wuwydthechea   swh_redis                        replicated   1/1 (max 1 per node)   redis:6.2.6
-   jztolbmjp1vi   swh_storage                      replicated   2/2                    softwareheritage/base:20220225-101454
-   xxc4c66x0uj1   swh_web                          replicated   1/1                    softwareheritage/web:20220225-101454
+   jztolbmjp1vi   swh_storage                      replicated   2/2                    softwareheritage/base:20240417-190717
+   xxc4c66x0uj1   swh_web                          replicated   1/1                    softwareheritage/web:20240417-190717
 
 
 This will start a series of containers with:
@@ -247,6 +256,8 @@ This will start a series of containers with:
 - a swh_content-replayer service (initially set to 0 replica, see below)
 - a swh_graph-replayer service (initially set to 0 replica, see below)
 - a redis for the replication error logs,
+- a set of services for the vault,
+- a set of services for the search (including a single node elasticsearch)
 
 using the pinned version of the docker images.
 
@@ -436,7 +447,7 @@ You can check everything is running with:
    swh:~/swh-mirror$ docker service ps swh_graph-replayer
 
    ID             NAME                   IMAGE                                       NODE   DESIRED STATE   CURRENT STATE            ERROR     PORTS
-   ioyt34ok118a   swh_graph-replayer.1   softwareheritage/replayer:20220225-101454   node1  Running         Running 17 minutes ago
+   ioyt34ok118a   swh_graph-replayer.1   softwareheritage/replayer:20240417-190717   node1  Running         Running 17 minutes ago
 
 
 If everything is OK, you should have your mirror filling. Check docker logs:
