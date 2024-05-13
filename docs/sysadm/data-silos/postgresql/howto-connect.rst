@@ -80,6 +80,18 @@ Sample |pg_service|
   port=5432
   user=swh-scrubber
 
+  [swh-masking]
+  dbname=swh-masking
+  host=postgresql-masking-rw.internal.softwareheritage.org
+  port=5432
+  user=guest
+
+  [admin-swh-masking]
+  dbname=swh-masking
+  host=postgresql-masking-rw.internal.softwareheritage.org
+  port=5432
+  user=swh-masking
+
   [staging-swh]
   dbname=swh
   host=db1.internal.staging.swh.network
@@ -151,6 +163,18 @@ Sample |pg_service|
   host=db1.internal.staging.swh.network
   port=5432
   user=swh-vault
+
+  [staging-swh-masking]
+  dbname=swh-masking
+  host=db1.internal.staging.swh.network
+  port=5432
+  user=guest
+
+  [admin-staging-swh-masking]
+  dbname=swh-masking
+  host=db1.internal.staging.swh.network
+  port=5432
+  user=swh-masking
 
 With this file, you can connect to any DB like this:
 
