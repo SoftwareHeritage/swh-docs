@@ -23,25 +23,25 @@ use it.
 
 .. Warning::
 
-   Volumes given in this section are estimations and numbers from **January
-   2022**.
-
-
+   Volumes given in this section are estimations and numbers from **May 2024**.
 
 The global raw hardware requirements are:
 
 - a database system for the main storage of the archive (the graph structure);
-  the current volume is about 17TB, with an increase rate of about
-  280GB/month,
+  the current volume of the Postgresql database is about 42TB, with an increase rate of about
+  16To/year, the cassandra database it about 30TB with an increase of 7TB/year (multiply
+  this per 3 to use a standard x3 replication factor)
 - an object storage system for the objects (archived software source code
-  files); the current volume is about 800TB with an increase rate of
-  about 21TB/month,
-- an elasticsearch engine; the current main index is about 180M entries
-  (origins) for an index size of 360GB; the increase rate is about 2M
+  files); the current volume is about 3PB with an increase rate of
+  about 750TB/year,
+- an elasticsearch engine; the current main index is about 390M entries
+  (origins) for an index size of 380GB; the increase rate is about 2M
   entries/month,
 - a web/application server for the main web application and public API,
 - a few compute nodes for the application services.
 
+Using a zfs-like filesystem supporting compression for the objstorage and the Postgresql database
+can reduce the on disk volume by a factor of 1.5 or 2.5 respectively.
 
 A mirror should provision machines or cloud-based resources with these numbers
 in mind. This should include the usual robustness margins (RAID-like storage,
@@ -64,7 +64,7 @@ Core services
   :py:mod:`supported backend <swh.objstorage.backends>`
   -- a public cloud-based obstorage (e.g. s3), any private supported object storage,
   an ad-hoc filesystem storage system, etc.
-- an `elasticsearch <https://www.elastic.co>`_ instance,
+- an `Elasticsearch <https://www.elastic.co>`_ instance,
 - a few nodes for backend applications
   (:py:mod:`swh-storage <swh.storage>`, :py:mod:`swh-objstorage <swh.objstorage>`)
 - the web frontend (:py:mod:`swh-web <swh.web>`)
@@ -103,11 +103,11 @@ Common components
 SWH Service      Tool                   Instances RAM   Storage Type   Storage Volume
 ================ ====================== ========= ===== ============== ==============
 storage          swh-storage            16        16GB  regular        10GB
-search           elasticsearch          3         32GB  fast / zfs     6TB
-web              swh-web                1         32GB  regular        100GB
+search           elasticsearch          3         24GB  fast / zfs     1TB
+web              swh-web                2         8GB   regular        100GB
 ---------------- ---------------------- --------- ----- -------------- --------------
-graph replayer   swh-storage            32        4GB   regular        10GB
-content replayer swh-obstorage-replayer 32        4GB   regular        10GB
+graph replayer   swh-storage            32        32GB  regular        10GB
+content replayer swh-obstorage-replayer 32        64GB  regular        10GB
 replayer         redis                  1         8GB   regular        100GB
 ---------------- ---------------------- --------- ----- -------------- --------------
 vault            swh-vault              1         4GB   regular        10GB
@@ -126,7 +126,7 @@ Storage backend
     ================ ====================== ========= ===== ============== ==============
     SWH Service      Tool                   Instances RAM   Storage Type   Storage Volume
     ================ ====================== ========= ===== ============== ==============
-    storage          postgresql             1         512GB fast+zfs (lz4) 40TB
+    storage          postgresql             1         512GB fast+zfs (lz4) 20TB
     ================ ====================== ========= ===== ============== ==============
 
   .. tab-item:: Cassandra (min.)*
@@ -142,7 +142,7 @@ Storage backend
     ================ ====================== ========= ===== ============== ==============
     SWH Service      Tool                   Instances RAM   Storage Type   Storage Volume
     ================ ====================== ========= ===== ============== ==============
-    storage          cassandra              6+        32GB  fast           20TB
+    storage          cassandra              6+        32GB  fast           90TB
     ================ ====================== ========= ===== ============== ==============
 
 
@@ -156,7 +156,7 @@ Objstorage backend
     ================ ====================== ========= ===== ============== ==============
     SWH Service      Tool                   Instances RAM   Storage Type   Storage Volume
     ================ ====================== ========= ===== ============== ==============
-    objstorage       swh-objstorage         1 [#f1]_  512GB zfs (with lz4) 1PB
+    objstorage       swh-objstorage         1 [#f1]_  512GB zfs (with lz4) 2PB
     ================ ====================== ========= ===== ============== ==============
 
   .. tab-item:: Winery - Ceph*
@@ -167,7 +167,7 @@ Objstorage backend
     objstorage       swh-objstorage         2 [#f2]_  32GB  standard       100GB
     winery-db        postgresql             2 [#f2]_  512GB fast           10TB
     ceph-mon         ceph                   3         4GB   fast           60GB
-    ceph-osd         ceph                   12+       4GB   mix fast+HDD   1PB (total)
+    ceph-osd         ceph                   12+       64GB  mix fast+HDD   2PB (total)
     ================ ====================== ========= ===== ============== ==============
 
   .. tab-item:: Seaweedfs*
@@ -190,3 +190,71 @@ Objstorage backend
          :py:mod:`swh.objstorage.multiplexer` backend.
 .. [#f2] The swh-objstorage RPC service and the index database can be hosted on
          the same machine.
+
+Example of hardware used by Software Heritage
+---------------------------------------------
+
+These configurations are only documented as example. Feel free to adapt the architecture
+to suit your own use of the mirror or use any other architecture type (cloud/vms/...).
+
+Database
+^^^^^^^^
+
+.. tab-set::
+
+  .. tab-item:: Postgresql
+
+    ========== =========== ===== ====== ====================
+    Type       Instance(s) Cores Memory Disk
+    ========== =========== ===== ====== ====================
+    Postgresql 2           >= 32 768GB  30TB Write Intensive
+    ========== =========== ===== ====== ====================
+
+  .. tab-item:: Cassandra
+
+    ========= =========== ===== ====== =================================
+    Type      Instance(s) Cores Memory Disk
+    ========= =========== ===== ====== =================================
+    Cassandra 12          >= 16 256GB  12TB fast + 600Go Write intensive
+    ========= =========== ===== ====== =================================
+
+Objstorage
+^^^^^^^^^^
+
+.. tab-set::
+
+  .. tab-item:: FS
+
+    ==== =========== ===== ====== ============================
+    Type Instance(s) Cores Memory Disk
+    ==== =========== ===== ====== ============================
+    FS   1           >= 16 384GB  1.5PB (attached disk arrays)
+    ==== =========== ===== ====== ============================
+
+  .. tab-item:: Ceph
+
+    ======== =========== ===== ====== ======================
+    Type     Instance(s) Cores Memory Disk
+    ======== =========== ===== ====== ======================
+    api/pg   2           >= 32 768GB  10TB fast
+    Ceph mon 3           >= 16 192GB  500GB
+    Ceph osd 26          >= 16 192GB  144TB SAS + 360GB fast
+    ======== =========== ===== ====== ======================
+
+Compute nodes
+^^^^^^^^^^^^^
+
+=============== =========== ===== ====== ========
+Type            Instance(s) Cores Memory Disk
+=============== =========== ===== ====== ========
+Kubernetes node 3           >= 32 256GB  2TB fast
+=============== =========== ===== ====== ========
+
+Elasticsearch
+^^^^^^^^^^^^^
+
+============= =========== ===== ====== ========
+Type          Instance(s) Cores Memory Disk
+============= =========== ===== ====== ========
+Elasticsearch 3           >= 8  64GB   6TB fast
+============= =========== ===== ====== ========
