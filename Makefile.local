@@ -18,7 +18,7 @@ BUILD_DEPS :=
 BUILD_DEPS += cffi
 
 # swh.search
-BUILD_DEPS += tree-sitter
+BUILD_DEPS += tree-sitter\<0.22.0
 
 # swh.loader.bzr>breezy
 BUILD_DEPS += configobj
