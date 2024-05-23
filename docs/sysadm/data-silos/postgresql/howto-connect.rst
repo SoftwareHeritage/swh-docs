@@ -176,6 +176,18 @@ Sample |pg_service|
   port=5432
   user=swh-masking
 
+  [staging-swh-blocking]
+  dbname=swh-blocking
+  host=db1.internal.staging.swh.network
+  port=5432
+  user=guest
+
+  [admin-staging-swh-blocking]
+  dbname=swh-blocking
+  host=db1.internal.staging.swh.network
+  port=5432
+  user=swh-blocking
+
 With this file, you can connect to any DB like this:
 
 ::
