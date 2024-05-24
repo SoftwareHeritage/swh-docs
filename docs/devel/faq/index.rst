@@ -29,7 +29,7 @@ specific skills needed to work on any topic of your interest.
 What are the minimum system requirements (hardware/software) to run SWH locally?
 --------------------------------------------------------------------------------
 
-Python 3.7 or newer is required. See the :ref:`developer setup documentation
+Python 3.10 or newer is required. See the :ref:`developer setup documentation
 <developer-setup>` for more details.
 
 

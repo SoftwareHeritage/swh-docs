@@ -39,9 +39,9 @@ package manager. On Debian/Ubuntu-based distributions:
       fuse3 libfuse3-dev libcmph-dev libleveldb-dev \
       git myrepos \
       graphviz plantuml inkscape \
-      postgresql libpq-dev cassandra
+      postgresql libpq-dev cassandra redis-server
 
-.. Note:: Python 3.7 or newer is required
+.. Note:: Python 3.10 or newer is required
 
 This installs basic system utilities, Python library dependencies, development tools,
 documentation tools and our main database management systems.
