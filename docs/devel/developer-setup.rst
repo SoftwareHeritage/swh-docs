@@ -59,10 +59,8 @@ Debian-based distribution is lower, you can install node 18 using these commands
 
 .. code-block:: console
 
-  sudo wget https://deb.nodesource.com/gpgkey/nodesource.gpg.key -O /etc/apt/trusted.gpg.d/nodesource.asc
-  echo "deb https://deb.nodesource.com/node_18.x $(lsb_release -cs) main" | sudo tee -a /etc/apt/sources.list.d/nodesource.list
-  sudo apt update
-  sudo apt install nodejs
+  curl -fsSL https://deb.nodesource.com/setup_18.x | sudo bash - 
+  sudo apt install -y nodejs
 
 Also related to Web Applications development, |swh| uses the ``yarn`` package manager
 to retrieve frontend dependencies and development tools. It is recommended to install its
@@ -70,10 +68,7 @@ latest classic version using these commands:
 
 .. code-block:: console
 
-  sudo wget https://dl.yarnpkg.com/debian/pubkey.gpg -O /etc/apt/trusted.gpg.d/yarn.asc
-  echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
-  sudo apt update
-  sudo apt install yarn
+  sudo corepack enable
 
 If you intend to work on |swh| archive search features, Elasticsearch must also be
 present in your development environment. Proceed as follows to install it:
