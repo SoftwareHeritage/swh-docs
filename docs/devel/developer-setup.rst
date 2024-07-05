@@ -59,7 +59,7 @@ Debian-based distribution is lower, you can install node 18 using these commands
 
 .. code-block:: console
 
-  curl -fsSL https://deb.nodesource.com/setup_18.x | sudo bash - 
+  curl -fsSL https://deb.nodesource.com/setup_18.x | sudo bash -
   sudo apt install -y nodejs
 
 Also related to Web Applications development, |swh| uses the ``yarn`` package manager
