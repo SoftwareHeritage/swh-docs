@@ -15,4 +15,5 @@ SWH Software Deployment
    howto-add-forge-now-process-requests
    howto-add-journal-user-credential
    howto-bulk-ingest
+   howto-run-swh-in-local-kube-cluster
    webhooks-svix
