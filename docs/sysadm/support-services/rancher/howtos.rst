@@ -175,3 +175,20 @@ Log into Rancher to confirm that the upgrade succeeded.
 |rancher-upgrade-about|
 
 .. |rancher-upgrade-about| image:: ../../images/rancher/rancher-upgrade-about.png
+
+.. admonition:: Post installation check
+   :class: warning
+
+   When the Rancher upgrade is completed, don't forget to check that all pods
+   in the `cattle-system` are not on the same node, especially the `rancher`:
+
+   .. code:: bash
+
+      ᐅ kubectl --context local get pods -n cattle-system \
+      -o jsonpath='{range .items[*]}{.metadata.name} {.spec.nodeName}{"\n"}{end}' | \
+      awk 'BEGIN{format="%-40s %s\n";printf format,"Cattle System Pods","Node Name"}
+      {printf format,$1,$2}'
+      Cattle System Pods                       Node Name
+      rancher-58994f549-nqz4l                  aks-default-36212332-vmss00000s
+      rancher-58994f549-sj9j7                  aks-default-36212332-vmss00000r
+      rancher-webhook-b68c6d878-nx4d7          aks-default-36212332-vmss00000r

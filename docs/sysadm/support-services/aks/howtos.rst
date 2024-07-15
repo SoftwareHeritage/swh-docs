@@ -115,6 +115,7 @@ Repeat the same operations for each minor version.
 .. admonition:: GitLab Terraform Code
    :class: warning
 
-   Don't forget to update the ``kubernetes_version`` variable in the ``azure/terraform/gitlab.tf`` file
+   Once you are done with the cluster upgrade, update the ``kubernetes_version``
+   variable in the ``azure/terraform/gitlab.tf`` file
    in the `sysadm-provisioning <https://gitlab.softwareheritage.org/swh/infra/swh-sysadmin-provisioning>`_
    repository.
