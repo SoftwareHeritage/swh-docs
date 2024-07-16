@@ -14,6 +14,68 @@ is configured to listen to this queue, these origins will be loaded by the loade
 
 .. warning:: Only a one-shot loading will be performed, a recurring task is not created.
 
+
+The automated way
+=================
+
+`swh-charts` includes a script to automate the bulk ingestion of a list of repository based on a
+file downloaded from the internet (usually, a paste on our GitLab instance).
+
+The actions performed are exactly the same as in the `manually_bulk_ingest`_ section but embedded
+in a kubernetes job.
+
+The bulk ingest job is based on the toolbox configuration, to avoid duplicating the scheduler
+configuration. The job config is added as a new subsection of the main config file.
+
+Declare a job
+-------------
+
+In the proper environment, edit the helm values file, locate the `toolbox:` section and add the new
+`bulkLoad` job:
+
+.. code-block:: yaml
+
+  toolbox:
+    enabled: true
+    configs:
+      ...
+      scheduler:
+        schedulerDbConfigurationRef: postgresqlSchedulerConfiguration
+        celeryConfigurationRef: producerCeleryConfiguration
+      ...
+    bulkLoad:
+      schedulerConfigurationRef: scheduler
+      jobs:
+        jobName:
+          originListUrl: https://gitlab.softwareheritage.org/...
+          taskType: load-git
+          maxTasks: 10000
+          queuePrefix: oneshot
+
+
+The `toolbox.configs` section must already exist.
+
+`schedulerConfigurationRef` is referencing the `scheduler` configuration declaration in the `toolbox.configs` part.
+
+`forgeName` is an informational name to identify the job.
+
+The job will be named by concatenating several info: `toolbox-bulk-load--<queuePrefix>-<jobName>`
+
+Once the job is completed, the configuration can be removed from the value file. Helm will automatically
+cleaned the job when applied by ArgoCD.
+
+In case of an error during the scheduling, the job will be flagged as failing by kubernetes and
+is raised by the monitoring system. The resources (pods, etc.) of a failing job are not automatically removed
+to allow easier diagnostics. An operator must manually remove the job to cleanup the resources.
+
+An example of issue for a bulk ingestion: `MBed forge ingestion <https://gitlab.softwareheritage.org/swh/infra/sysadm-environment/-/issues/5363>`__
+
+.. _manually_bulk_ingest:
+
+How to do it manually
+=====================
+
+
 The following example explains how to launch an ingestion from a raw list of origins.
 
 The toolbox deployed in kubernetes contains all the configuration pre-installed to simplify the
