@@ -6,7 +6,7 @@ How to run the swh stack in a local kubernetes cluster
 .. admonition:: Intended audience
    :class: important
 
-   staff/syadmin members who wants to run a production-like stack swh in a local
+   staff/syadmin members who wants to run a production-like swh stack in a local
    kubernetes cluster
 
 .. _howto-requirements:
@@ -130,7 +130,7 @@ repository, namely:
 .. code-block::
 
    # Install the cluster-components chart (mostly backends)
-   $ make cc-local-cluster
+   $ make local-cluster-cc
 
    # Give it some time for the various backends to start properly
    # The first time around, plenty of docker images will get pulled
@@ -143,7 +143,7 @@ repository, namely:
      --namespace swh
 
    # Install the swh chart (swh stack)
-   $ make swh-local-cluster
+   $ make local-cluster-swh
 
 
 Note: The Makefile detects your (optional) override files, ensure they are
