@@ -16,4 +16,5 @@ SWH Software Deployment
    howto-add-journal-user-credential
    howto-bulk-ingest
    howto-run-swh-in-local-kube-cluster
+   howto-reset-next-version-environment
    webhooks-svix
