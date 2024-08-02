@@ -8,16 +8,35 @@ Reference: Deployment Environments
 
    sysadm staff members
 
-We have 2 deployment environments:
+We have 3 deployment environments:
 
+- staging-next-version
 - staging
 - production
+
+.. _staging-next-version-environment:
+
+Staging Next-version Environment
+--------------------------------
+
+This is a sandboxed environment dedicated to run the next versions of swh (a
+subset of our swh modules newly released). It's currently running in the same
+cluster as the staging environment (same cluster but in a dedicated namespace
+swh-cassandra-next-version). The backends of this environment is also
+kubernetes managed.
+
+.. _staging-environment:
 
 Staging Environment
 -------------------
 
 Staging nodes are currently running in the `hypervisor pompidou
 <https://pompidou.internal.softwareheritage.org:8006/#v1:0:18:4:::::::>`__.
+
+It is now a mix of static (renewed) bare-metal machines (backends) & vms. They
+are running the debian operating system. Most of which run a rancher agent and
+form a kubernetes cluster (archive-staging-rke2). This allows to deploy the
+swh stack in kubernetes.
 
 The environment components are listed in `the inventory
 <https://inventory.internal.admin.swh.network/tenancy/tenants/1/>`__
@@ -56,8 +75,15 @@ are ssh accessible like the production ones as long as you have `vpn access
 .. |staging_environment| image:: ../images/staging-environment.svg
                          :target: ../_images/staging-environment.svg
 
+.. _production-environment:
+
 Production Environment
 ----------------------
+
+Production nodes are a mix of static bare-metal machines (backends) &
+vms. They are running the debian operating system (managed through
+puppet). Most of which run a rancher agent and form a kubernetes cluster
+(archive-production-rke2). This allows to deploy the swh stack in kubernetes.
 
 The environment components are listed in `the inventory
 <https://inventory.internal.admin.swh.network/tenancy/tenants/2/>`__
