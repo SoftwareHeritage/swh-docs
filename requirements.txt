@@ -1,7 +1,7 @@
 # Add here external Python modules dependencies, one per line. Module names
 # should match https://pypi.python.org/pypi names. For the full spec or
 # dependency lines, see https://pip.readthedocs.org/en/1.1/requirements.html
-sphinx
+sphinx < 8.0  # breaks sphinxcontrib-images <=0.9.4 https://github.com/sphinx-contrib/images/pull/39
 sphinxcontrib-httpdomain >= 1.8.0
 sphinxcontrib-images
 sphinxcontrib-programoutput
