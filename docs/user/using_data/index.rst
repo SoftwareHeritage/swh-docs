@@ -61,7 +61,7 @@ The APIs are:
   what you plan to do with it
 * a :ref:`gRPC API <swh-graph-grpc-api>`, for language-agnostic access
   to more advanced features
-* a :ref:`Java API <swh-graph-java-api>` for full access to its features.
+* a `Rust API <https://docs.rs/swh-graph/>`_ for full access to its features.
 
 The latter two are currently not hosted publicly.
 However, you can run your own using the same data we have on your own computers,
