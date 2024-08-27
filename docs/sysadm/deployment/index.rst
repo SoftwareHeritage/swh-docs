@@ -17,4 +17,5 @@ SWH Software Deployment
    howto-bulk-ingest
    howto-run-swh-in-local-kube-cluster
    howto-reset-next-version-environment
+   howto-deploy-swh-graph
    webhooks-svix
