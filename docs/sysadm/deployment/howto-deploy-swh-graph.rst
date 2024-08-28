@@ -121,7 +121,7 @@ So technically, deploying a new version ``version`` is:
    .. code-block:: console
 
     RUSTFLAGS="-C target-cpu=native" \
-      cargo install --git https://gitlab.softwareheritage.org/swh/devel/swh-graph.git \
+      cargo install \
       --features grpc-server \
       swh-graph
 
