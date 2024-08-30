@@ -194,9 +194,10 @@ def write_grants(data, file) -> None:
 def main(input_path: Path, lister_output_path: Path, loader_output_path: Path) -> None:
     data = parse(input_path)
 
-    with lister_output_path.open("wt") as listers_file, loader_output_path.open(
-        "wt"
-    ) as loaders_file:
+    with (
+        lister_output_path.open("wt") as listers_file,
+        loader_output_path.open("wt") as loaders_file,
+    ):
         listers_file.write(LISTERS_PRELUDE.format(source_yml=input_path))
         loaders_file.write(LOADERS_PRELUDE.format(source_yml=input_path))
 
