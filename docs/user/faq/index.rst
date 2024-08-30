@@ -98,58 +98,58 @@ and be able to save them automatically.
 Why forges need to be archived in SWH ?
 ---------------------------------------
 
-Software Heritage is a non profit organization, hosted by Inria (french 
-research institute), in partnership with Unesco. Our mission is notably to 
-preserve software source code as a cultural heritage of human knowledge and 
-for the promotion of Open Science. We also defend strong ethical values 
+Software Heritage is a non profit organization, hosted by Inria (french
+research institute), in partnership with Unesco. Our mission is notably to
+preserve software source code as a cultural heritage of human knowledge and
+for the promotion of Open Science. We also defend strong ethical values
 about the usage of the archived data.
 
-As a universal archive, we are committed to archive any publicly available 
-source code, especially when this code is published under free/open source 
+As a universal archive, we are committed to archive any publicly available
+source code, especially when this code is published under free/open source
 licence.
 
-If your forge contains non-FOSS projects that you don't want to expose to 
+If your forge contains non-FOSS projects that you don't want to expose to
 archival or to any "wild" copy, we recommend you to set them as private.
 
-Indeed, publicly available projects can be archived by anyone using the 
-Save Code Now feature (archival of a single repository), so we cannot 
-guarantee that they won't be archived even if we don't process an Add 
-Forge Now request. 
+Indeed, publicly available projects can be archived by anyone using the
+Save Code Now feature (archival of a single repository), so we cannot
+guarantee that they won't be archived even if we don't process an Add
+Forge Now request.
 
 What is the position of SWH towards AI training and LLMs ?
 ----------------------------------------------------------
 
 We've recently published a `statement to explain our position towards LLM:
-<https://www.softwareheritage.org/2023/10/19/swh-statement-on-llm-for-code/>`__ 
+<https://www.softwareheritage.org/2023/10/19/swh-statement-on-llm-for-code/>`__
 
 Our principles are the following:
 
 1. Knowledge derived from the Software Heritage archive must be given
-   back to humanity, rather than monopolized for private gain. The resulting 
-   machine learning models must be made available under a suitable open license, 
+   back to humanity, rather than monopolized for private gain. The resulting
+   machine learning models must be made available under a suitable open license,
    together with the documentation and toolings needed to use them.
-2. The initial training data extracted from the Software Heritage archive 
-   must be fully and precisely identified by, for example,  publishing the 
-   corresponding SWHID identifiers <https://www.swhid.org/> (note that, in the 
-   context of Software Heritage, public availability of the initial training data 
-   is a given: anyone can obtain it from the archive). This will enable use cases 
-   such as: studying biases (fairness), verifying if a code of interest was present 
+2. The initial training data extracted from the Software Heritage archive
+   must be fully and precisely identified by, for example,  publishing the
+   corresponding SWHID identifiers <https://www.swhid.org/> (note that, in the
+   context of Software Heritage, public availability of the initial training data
+   is a given: anyone can obtain it from the archive). This will enable use cases
+   such as: studying biases (fairness), verifying if a code of interest was present
    in the training data (transparency), and providing appropriate attribution when
    generated code bears resemblance to training data (credit), among others.
-3. Mechanisms should be established, where possible, for authors to exclude 
+3. Mechanisms should be established, where possible, for authors to exclude
    their archived code from the training inputs before model training begins.
 
-Additionally, I would like to mention that as long as your code is publicly 
-available, it might have already been used by private LLMs without matter of consent 
-and attribution. Software Heritage represents an ethical alternative, with a strong 
-effort to help authors to get more control and traceability on the usage of their 
+Additionally, I would like to mention that as long as your code is publicly
+available, it might have already been used by private LLMs without matter of consent
+and attribution. Software Heritage represents an ethical alternative, with a strong
+effort to help authors to get more control and traceability on the usage of their
 source code by LLMs.
 
-Furthermore, computer-readable standards for LLM usage restrictions (equivalent of 
-robots.txt) should emerge in the near future to bring global answers to these 
+Furthermore, computer-readable standards for LLM usage restrictions (equivalent of
+robots.txt) should emerge in the near future to bring global answers to these
 concerns.
 
-At this stage, the only way to ensure that your code is not used by any LLM would be 
+At this stage, the only way to ensure that your code is not used by any LLM would be
 to set your repositories as private.
 
 .. _faq_search:
