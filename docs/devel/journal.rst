@@ -420,7 +420,7 @@ Message format:
 - ``visit`` [int] number of the visit for this ``origin`` this status concerns
 - ``date`` [timestamp] date of the visit status update
 - ``status`` [string] status (can be "created", "ongoing", "full" or "partial"),
-- ``snapshot`` [bytes] identifier of the :py:class:`swh.model.model.Snaphot` this
+- ``snapshot`` [bytes] identifier of the :py:class:`swh.model.model.Snapshot` this
   visit resulted in (if ``status`` is "full" or "partial")
 - ``metadata``: deprecated
 

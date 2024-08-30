@@ -2209,7 +2209,7 @@
      id="g16490"
      transform="translate(-210.0923,-72.740013)">
     <title
-       id="title31653">The loader Celery worker execute loader Celery tasks, retrieveing software artifacts from the origin and inserting them in the Storage, including OriginVisit and OriginVisitStatus storage objects.</title>
+       id="title31653">The loader Celery worker execute loader Celery tasks, retrieving software artifacts from the origin and inserting them in the Storage, including OriginVisit and OriginVisitStatus storage objects.</title>
     <g
        transform="translate(4.8328727,82.923866)"
        id="g25463">

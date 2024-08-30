@@ -12,7 +12,7 @@ Good commit messages are essentials in a project as large as Software Heritage.
 They are crucial to those who will review your changes and important to anyone else
 who will interact with the codebase at a later time. This includes your future self!
 
-Make sure to follow the recommandations from `How to write a Git
+Make sure to follow the recommendations from `How to write a Git
 commit message <http://chris.beams.io/posts/git-commit/>`_
 
 Closing or referencing issues
