@@ -176,6 +176,11 @@ swh.docs
      Low level management for read-only content-addressable object storage
      indexed with a perfect hash table
 
+:ref:`swh.provenance <swh-provenance>`
+     query service for questions like: “where does this given object come
+     from?” or “what it the oldest revision in which this object has been
+     found?”
+
 :ref:`swh.scanner <swh-scanner>`
     source code scanner to analyze code bases and compare them with source code
     artifacts archived by Software Heritage

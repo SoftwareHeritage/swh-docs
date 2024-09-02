@@ -31,6 +31,7 @@ by components:
    swh.objstorage <swh-objstorage/index>
    swh.objstorage.replayer <swh-objstorage-replayer/index>
    swh.perfecthash <swh-perfecthash/index>
+   swh.provenance <swh-provenance/index>
    swh.scanner <swh-scanner/index>
    swh.scheduler <swh-scheduler/index>
    swh.scrubber <swh-scrubber/index>

@@ -27,6 +27,7 @@
 ../swh-objstorage-replayer
 ../swh-objstorage[testing]
 ../swh-perfecthash
+../swh-provenance
 ../swh-scanner
 ../swh-scheduler[simulator]
 ../swh-scrubber
