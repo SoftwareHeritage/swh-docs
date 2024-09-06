@@ -137,18 +137,6 @@ Install all the swh packages (in development mode, with testing dependencies):
 
     (swh) ~/swh-environment$ bin/install
 
-.. note::
-
-   If you experience issues with :program:`pip` dependency resolution, try with
-   ``bin/install --use-deprecated=legacy-resolver`` (the flag will be passed on
-   to ``pip install``). The same flag can also be set globally in
-   :file:`~/.config/pip/pip.conf`:
-
-   .. code-block:: console
-
-      [install]
-      use-deprecated=legacy-resolver
-
 
 Executing unit tests
 --------------------
