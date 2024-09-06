@@ -265,7 +265,7 @@ data volume, with a Replication factor (RF) of 3. Adapt according to your own ne
 
   CREATE KEYSPACE swh WITH replication = {'class': 'NetworkTopologyStrategy', 'sesi_rocquencourt_staging': '3'}  AND durable_writes = true;
   # If needed
-  CREATE KEYSPACE swh WITH reaper_db = {'class': 'NetworkTopologyStrategy', 'sesi_rocquencourt_staging': '3'}  AND durable_writes = true;
+  CREATE KEYSPACE reaper_db WITH replication = {'class': 'NetworkTopologyStrategy', 'sesi_rocquencourt_staging': '3'}  AND durable_writes = true;
 
 
 2. Alter the system keyspace replication to prepare the authenticated accesses
