@@ -32,29 +32,27 @@ How to create the objstorage credentials
 The read-only public storages are protected by an basic authentication mechanism.
 To allow a mirror to retrieve the content files, they need to have valid credentials.
 
-These credentials are managed and deployed by puppet.
+The credentials are stored in the kubernetes credentials repository in the
+`<cluster name>/ingress-objstorage-ro-auth-secrets.yml` file.
 
-To add a credential in the puppet configuration:
+- The username should match the kafka username without the numerical suffix
+- Store the password in the global credential store in one these paths:
+  - `operations/objstorage.softwareheritage.org/<username>` for the production
+  - `operations/objstorage.staging.swh.network/<username>` for the staging
+- Generate the htaccess stanza with the following command
 
-- for staging:
+.. code-block:: shell
 
-  - locate the ``swh::deploy::objstorage::reverse_proxy::basic_auth::users``
-    property in the `data/deployment/staging/common.yaml` file
-  - add the username in the list
+    htpassword -n <username>
 
-- for production
-   - locate the ``swh::deploy::objstorage::reverse_proxy::basic_auth::users``
-     property in the `data/common/common.yaml` file
-   - add the username in the list
+- Add the result in the `ingress-objstorage-ro-auth-secrets.yml` file.
+  During the postgresql / cassandra transition, the password must be added in the two sections
+  of the file.
+- Commit the file and push. The credentials will be automatically deployed by ArgoCD a couple of
+  minutes later.
+- Check the credentials are working with:
 
-- Add an entry ``swh::deploy::objstorage::reverse_proxy::basic_auth::<<username>>``
-  in the ``private/swh-private-data/common.yaml``
-- in the ``private`` directory of your puppet sources, execute the following command
-  to refresh the censored credentials (used by octocatalog-diff and vagrant):
+.. code:: shell
 
-.. code-block:: bash
-
-   private_data/generate-public-data swh-private-data swh-private-data-censored
-
-- Deploy the changes to the puppet master
-
+    curl -u <username>:<password>  https://objstorage.softwareheritage.org                                                                                                                                                                                 11:08:57
+    SWH Objstorage API server  <--- This is the correct answer
