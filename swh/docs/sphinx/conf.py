@@ -33,6 +33,7 @@ extensions = [
     "sphinxcontrib.httpdomain",
     "sphinx.ext.extlinks",
     "sphinxcontrib.images",
+    "sphinxcontrib.mermaid",
     "sphinxcontrib.programoutput",
     "sphinx.ext.viewcode",
     "sphinx.ext.graphviz",

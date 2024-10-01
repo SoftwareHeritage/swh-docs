@@ -4,6 +4,7 @@
 sphinx < 8.0  # breaks sphinxcontrib-images <=0.9.4 https://github.com/sphinx-contrib/images/pull/39
 sphinxcontrib-httpdomain >= 1.8.0
 sphinxcontrib-images
+sphinxcontrib-mermaid
 sphinxcontrib-programoutput
 sphinx-carousel
 sphinx-design
