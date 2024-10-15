@@ -116,26 +116,38 @@ So technically, deploying a new version ``version`` is:
 
     source /opt/swhgraph_venv_${version}/bin/activate
 
-3. Building the rust binary `swh-graph-grpc-serve`
+3. Installing swh.graph
+
+   .. code-block:: console
+
+   pip install swh.graph==${version}
+
+4. Building the rust binary `swh-graph-grpc-serve` in the new venv folder
 
    .. code-block:: console
 
     RUSTFLAGS="-C target-cpu=native" \
-      cargo install \
-      --features grpc-server \
-      swh-graph
+      cargo install swh-graph-grpc-server@${version} \
+      --root /opt/swhgraph_venv_${version}
 
-4. Updating the symbolic link to the new venv
+5. Updating the symbolic link to the new venv
 
    .. code-block:: console
 
-    ln -nsf /opt/swhgraph_venv_${version} /opt/swhgraph_venv
+    mv -v /opt/swhgraph_venv /opt/previous_swhgraph_venv
+    ln -ns /opt/swhgraph_venv_${version} /opt/swhgraph_venv
 
-5. Restart the swh-graph-grpc.service
+6. Restarting the grpc service
 
    .. code-block:: console
 
     systemctl restart swh-graph-grpc
+
+7. Restarting the rpc service
+
+   .. code-block:: console
+
+    systemctl restart swh-graph-http
 
 Example:
 
