@@ -20,9 +20,9 @@ Pipeline
 --------
 
 | To overview the pipelines,
-  see `Add-forge-now-requests Pipelines <https://gitlab.softwareheritage.org/swh/infra/add-forge-now-requests/-/pipelines>`_.
+  see the `pipelines <https://gitlab.softwareheritage.org/swh/infra/add-forge-now-requests/-/pipelines>`_ page.
 | To see only the running pipelines,
-  see `Add-forge-now-requests Running Pipelines <https://gitlab.softwareheritage.org/swh/infra/add-forge-now-requests/-/pipelines?page=1&scope=all&status=running>`_.
+  see the `running pipelines <https://gitlab.softwareheritage.org/swh/infra/add-forge-now-requests/-/pipelines?page=1&scope=all&status=running>`_ page.
 | To view the pipeline details, click on the pipeline status.
 | To view the job details, click on the stage and choose a job.
 
@@ -48,7 +48,7 @@ Pre stage
 
 | The first job create a Gitlab issue with the forge URL in the title.
 | To overview the issues,
-  see `AFN issues, <https://gitlab.softwareheritage.org/swh/infra/add-forge-now-requests/-/issues>`_.
+  see the `issues, <https://gitlab.softwareheritage.org/swh/infra/add-forge-now-requests/-/issues>`_ page.
 | The second job check the SWH components ports,
   the forge URL (https) availability and the webapp token validity (recreate it if needed).
 | The last job of the ``pre`` stage add a comment on the webapp request with the Gitlab issue URL.
@@ -156,6 +156,16 @@ Gitlab-runner
    If the webapp token is expired and not renewed (normally it should), the pipeline will fail in third job of **pre** stage.
    You can update the variable ``WEBAPP_TOKEN`` in this section.
 
+.. admonition:: addForgeNowIssue Token
+   :class: note
+
+   This project token is used to create, comment and close the GitLab issues and to commit the request status in the
+   `requests processing history <https://gitlab.softwareheritage.org/swh/infra/add-forge-now-requests#requests-processing-history>`_.
+   The project token can be generated on page `access token <https://gitlab.softwareheritage.org/swh/infra/add-forge-now-requests/-/settings/access_tokens>`_
+   and requires an ``api`` scope and a ``maintainer`` role. Once created the value must be stored in the variable ``ADD_FORGE_NOW_ISSUE_TOKEN`` [1]_.
+   The bot user is automatically created the first time the token is used. Project token has a lifetime of one year.
+   When the project token has expired, the bot user is deleted [2]_.
+
 | - the ``Pipeline trigger tokens`` section to check or change the pipeline token.
 |
 | It runs on **runner0** virtual machine with a docker executor.
@@ -229,3 +239,8 @@ Check the runner version and status:
    Running in system-mode.
 
    Verifying runner... is valid                        runner=6aU8maWXg
+
+----
+
+.. [1] Ensure the variable has the ``masked`` attribute.
+.. [2] The previous issue comments appeared with ``Ghost User`` author.
