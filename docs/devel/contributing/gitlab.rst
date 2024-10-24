@@ -153,3 +153,42 @@ If you plan to
 you may also want to
 `upload your GPG key <https://gitlab.softwareheritage.org/-/profile/gpg_keys>`__
 as well.
+
+Make a release
+--------------
+
+.. warning:: Only staff members are allowed to make new releases
+
+Releases are made automatically by Jenkins when a tag is pushed to a module repository.
+
+We are using the `semantic versioning <https://semver.org>`_ scheme to name our
+releases, please ensure that the name of your tag correctly indicates its compatibility
+with the previous version.
+
+Tags themselves should be signed and provide a meaningful annotation with, for example,
+an itemized summary of changes (rather than rehashing the whole git log), breaking
+changes in a separate section, etc.
+
+First, create the tag:
+
+.. code-block::
+
+   # get the latest version number
+   git describe --tags  # returns v1.2.3-x-yyy
+   # list changes between master and v1.2.3
+   git range-diff v1.2.3...master
+   # use the output to write your annotation and create a new signed tag, here for a
+   # minor version upgrade
+   git tag -a -s v1.3.0
+   # push it
+   git push origin tag v1.3.0
+
+Then you'll see jobs on Jenkins (Incoming tag, GitLab builds, Upload to PyPI)
+indicating that the release process is ongoing.
+
+Next, deployment container images are updated.
+
+And finally a new merge request will automatically be created in 
+`Helm charts for swh packages`_ so that the devops team can proceed with deployment.
+
+.. _Helm charts for swh packages: https://gitlab.softwareheritage.org/swh/infra/sysadm-environment
