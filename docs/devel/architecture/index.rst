@@ -9,5 +9,6 @@ Software Architecture
    :titlesonly:
 
    overview
+   alterations
    metadata
    object-storage
