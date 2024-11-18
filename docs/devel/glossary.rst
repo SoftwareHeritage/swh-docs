@@ -22,6 +22,14 @@ Glossary
      An artifact is one of many kinds of tangible by-products produced during
      the development of software.
 
+   bulk on-demand archival
+
+     A |swh| service allowing a partner to ask the archival for (possibly
+     large) number of origins. It consists in an authenticated API endpoint
+     allowing the user to upload a list of origins (as a CSV file) to be
+     ingested as soon as possible. The service allows to get feedback from the
+     |swh| archive about the ongoing ingestion process.
+
    content
    blob
 
@@ -94,6 +102,13 @@ Glossary
      add new file contents int :term:`object storage` and repository structure
      in the :term:`storage database`).
 
+   loading task
+
+     A celery_ task doing the actual ingestion process; its implementation is
+     provided by a :term:`loader`, and it is executed by celery_ workers. They
+     used to be backed by Scheduler Tasks instances in the :term:`scheduler`
+     database, but it's not the case any more (for performance reasons).
+
    hash
    cryptographic hash
    checksum
@@ -149,6 +164,25 @@ Glossary
      of the corresponding change. A person is associated to a full name and/or
      an email address.
 
+   raw extrinsic metadata
+   REMD
+
+     A piece of metadata concerning an objects stored in the |swh| archive that
+     is not part of the source code from an :term:`origin`. It can come from a
+     software forge (information about a project that is not the source code
+     repository for this project), a deposited metadata file (for a
+     :term:`deposit`), etc. These pieces of information are kept in their
+     original raw format -- for archiving purpose -- but are also converted
+     into a minimal format (currently a subset of CodeMeta) allowing them to be
+     indexed and searchable.
+
+   raw extrinsic metadata storage
+   REMD Storage
+
+     The |swh| storage dedicated to store all the gathered extrinsic metadata
+     documents verbatim, in their original format. Currently, this service is
+     part of the main :term:`storage`.
+
    release
    tag
    milestone
@@ -165,10 +199,26 @@ Glossary
      associated development metadata (e.g., author, timestamp, log message,
      etc).
 
+   save code now
+
+     A publicly accessible service allowing users to ask for immediate save of
+     a given source code origin. The request can be automatically accepted and
+     processed if the origin is from a well known domain, or may require manual
+     validation. Note that a save code now request can only concern a supported
+     origin type.
+
    scheduler
 
      The component of the |swh| architecture dedicated to the management and
      the prioritization of the many tasks.
+
+   Scheduler Task
+
+     :py:class:`The object <swh.scheduler.model.Task>` (stored in the
+     :term:`scheduler` database) representing a background (celery_) task to be
+     regularly scheduled for execution. Note that not all the background tasks
+     are backed by a Scheduler Task instance; one-shot :term:`loading task`
+     are most of the time not represented and model as Scheduler Task.
 
    snapshot
 
@@ -211,3 +261,4 @@ Glossary
 .. _`persistent identifier`: https://docs.softwareheritage.org/devel/swh-model/persistent-identifiers.html#persistent-identifiers
 .. _`Archival Resource Key`: http://n2t.net/e/ark_ids.html
 .. _publish-subscribe: https://en.wikipedia.org/wiki/Publish%E2%80%93subscribe_pattern
+.. _celery: https://docs.celeryq.dev

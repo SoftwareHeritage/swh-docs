@@ -5,17 +5,154 @@ Software Architecture Overview
 
 
 From an end-user point of view, the |swh| platform consists in the
-:term:`archive`, which can be accessed using the web interface or its REST API.
-Behind the scene (and the web app) are several components/services that expose
-different aspects of the |swh| :term:`archive` as internal RPC APIs.
+:term:`archive`, which can be accessed using the web interface or its public
+APIs (REST or GraphQL). Behind the scene (and the web app) are several
+components/services that expose different aspects of the |swh| :term:`archive`
+as internal RPC APIs.
 
-These internal APIs have a dedicated database, usually PostgreSQL_.
+These internal APIs have a dedicated database, typically PostgreSQL_ or
+Cassandra_.
 
-A global (and incomplete) view of this architecture looks like:
+Big Pictures
+------------
 
-.. thumbnail:: ../images/general-architecture.svg
 
-   General view of the |swh| architecture.
+The Read-Only View
+^^^^^^^^^^^^^^^^^^
+
+A global (and incomplete) view of this architecture, limited to components
+involved when reading from the archive, looks like:
+
+.. thumbnail:: ../images/general-architecture-read.svg
+
+   General view of the |swh| architecture when reading.
+
+As you can see, there are quite a few parts in this infrastructure. We will come
+back on each of them in more details later, but here is a quick description:
+
+- **Ingress**: HTTP requests from the end user are received by a frontend ingress service (a
+  reverse proxy), responsible for routing and load balancing them to the proper
+  backend service.
+
+- **WebApp**: this is the main |swh| frontend tier; it is a Django based HTTP server
+  responsible for handling most the frontend and public API requests (browsing
+  the archive or using the public REST API). Being a central component for any
+  user interaction, it needs to have access to most other |swh| services.
+
+- **Authentication**: this is a Keycloak server used to handle authentication for
+  users that want to have authenticated access to the archive (using lifted
+  rate limiting, have access to administration boards, etc.)
+
+- **Deposit**: this is a Django-based HTTP server with a very minimal UI (a single
+  static documentation page), but providing SWORD API allowing deposit partners
+  to upload software source code (with metadata) directly in the archive. It
+  also allows to check and have feedback on the status of previous deposits.
+  Since it is an authenticated only service, it has access toand uses the Keycloak
+  authentication service.
+
+- **Counters**: a simple service maintaining general archive statistics. It is used
+  by the frontend to generate the per-forge counters and overall evolution
+  curves. It uses a Redis backend (for Hyperloglog counters).
+
+- **Scheduler**: the scheduler service. This is needed by the webapp frontend to
+  get feedback for services like Save Code Now and like, or schedule new
+  loading and listing tasks for these services. This service uses a database
+  storage.
+
+- **Vault**: the service responsible for managing and executing retrieval queries
+  (when a user wants to retrieve a whole directory or a whole git history).
+  This service uses a database storage.
+
+- **Indexer Storage**: a data store that keeps track of all the indexed metadata
+  objects in the archive. It is used directly by the webapp frontend to get
+  information like the mimetype or the possible license of a content. This
+  service is using a database storage.
+
+- **RO Storage**: the main storage service, hosting the whole |swh| archive
+  structure (but the file content themselves). In the context of the read
+  access to the archive, the Storage used is a Read-Only storage with a Masking
+  Proxy. This proxy allows to mask or modify on the fly objects that need
+  to be either hidden completely (typically when a takedown request is being
+  processed that impact the browsed object) or altered (typically when a person
+  asked for their former name not to be visible any more). The main storage can
+  be hosted either on a Postgresql database or a Cassandra one. The main
+  archive now uses Cassandra as main backend storage.
+
+- **Search**: the |swh| search service. This service is using an Elasticsearch
+  backend.
+
+- **Objstorage**: this data storage is used to store all the content blobs (the
+  actual source code files). It is a content-addressable object storage. The
+  |swh| objstorage provides an abstract frontend/API for many possible
+  backends. Currently the main archive is using a Ceph cluster for this, with a
+  custom layer (named Winery) in front to account for the specificities of the
+  |swh| workload (handle 10th of billions of small objects).
+
+
+The Ingestion View
+^^^^^^^^^^^^^^^^^^
+
+When looking at how software source code are harvested and ingested in the
+archive, the global picture looks like:
+
+.. thumbnail:: ../images/general-architecture-ingestion.svg
+
+   General view of the |swh| ingestion architecture.
+
+.. Note:: :term:`REMD` in this pictures stands for :term:`raw extrinsic metadata`.
+
+The central part of this setup is the scheduler service, responsible for
+keeping track of loading, listing and a few other types of tasks. The task
+execution framework uses Celery_ as backend. There are actually 2 completely
+different tasks systems provided by both the scheduler and the side services:
+
+- one is dedicated to managing the loading of source code from origins (aka spawning
+  :ref:`Loader <swh-loader-core>` tasks); these are one-shot celery tasks not
+  reified in the scheduler database,
+
+- the other is a generic task scheduling service mostly responsible for
+  recurring tasks; especially :ref:`forge listing <swh-lister>` ones, but not
+  only. Some one-shot loading tasks are still handled by this scheduler
+  (especially loading origins from :term:`save code now` requests). There are
+  also :ref:`vault <swh-vault>` cooking tasks and deposit checker tasks that
+  are using this generic scheduler.
+
+A more detailed view of this later is :ref:`available below
+<source_code_scrapping>`.
+
+One noticeable point in this schematic is the presence of the :py:class:`Blocking
+Proxy <swh.storage.proxies.blocking.BlockingProxyStorage>` in the :ref:`storage
+<swh-storage>` configuration. This proxy is a helper to prevent from ingesting
+from origins that have been disabled as a result of a takedown notice.
+
+.. Note:: Even if not represented in this diagram, there are actually several
+   :term:`Scheduler Task` runner service instances running: one is scheduling
+   high priority :term:`Scheduler Task` (using a dedicated set of `celery
+   queues`_), typically for :term:`save code now` requests; one is special case
+   for scheduling first visits of a newly added forge or a :term:`bulk
+   on-demand archival` request (also using dedicated celery queues); the last
+   is responsible for scheduling all other standard (non priority)
+   :term:`Scheduler Task`.
+
+.. Note:: Loading tasks are not represented by one-shot :term:`Scheduler Task`
+   instances (in the scheduler database) anymore, but the corresponding celery
+   tasks are directly spawned by the "loader scheduler" (it was not possible to
+   handle that many entries in the database efficiently). There is however
+   still an exception for deposit loading tasks that are still managed via this
+   generic scheduling scaffolding (mostly for historical reasons).
+
+
+The Indexation View
+^^^^^^^^^^^^^^^^^^^
+
+The |swh| archive platform also comes with a complex indexation system. A view
+from this indexation side would look like:
+
+.. thumbnail:: ../images/general-architecture-indexation.svg
+
+   General view of the |swh| indexation architecture.
+
+See the :ref:`swh-indexer` documentation for more details.
 
 .. _architecture-tier-1:
 
@@ -35,10 +172,30 @@ It relies on the :ref:`Object Storage <swh-objstorage>` service to store
 the content of source code file themselves.
 
 Both the Storage and Object Storage are designed as abstractions over possible
-backends. The former supports both PostgreSQL (the current solution in production)
-and Cassandra (a more scalable option we are exploring).
+backends. The former supports both PostgreSQL (the former solution in production)
+and Cassandra (a more scalable option, now used as main backend in production).
 The latter supports a large variety of "cloud" object storage as backends,
 as well as a simple local filesystem.
+
+Alterations
+~~~~~~~~~~~
+
+The main objective of an archive is to store facts forever. As such, it can be
+viewed as an append-only infrastructure. However, it may be necessary to alter
+the content of the archive to account for removal or alteration requests that
+may happen `for several reasons`_.
+
+We currently consider 2 types of alterations that may have to be done to the
+archive:
+
+- content removal: some objects stored in the archive should not be visible any
+  more; these can be either removed entirely or masked, depending on the
+  situation.
+- personal identity modification: some personal information (namely the name
+  and email of a person) needs not to be visible any more.
+
+These requirements have impact on the overall architecture of the archive.
+Details are documented in a :ref:`dedicated section<alterations>`.
 
 
 Journal
@@ -55,6 +212,8 @@ when to visit again these repositories.
 
 It is also the foundation of the :ref:`mirror` infrastructure, as it allows
 mirrors to stay up to date.
+
+.. _source_code_scrapping:
 
 Source code scraping
 ^^^^^^^^^^^^^^^^^^^^
@@ -258,8 +417,8 @@ such as full-text search on origin URLs and metadata.
 This service is a recent addition to the |swh| architecture based on ElasticSearch,
 and is currently in use only for URL search.
 
-Graph
-^^^^^
+Compressed Graph
+^^^^^^^^^^^^^^^^
 
 :ref:`swh-graph <swh-graph>` is also a recent addition to the architecture
 designed to complement the Storage using a specialized backend.
@@ -336,13 +495,16 @@ designed to keep them in sync:
   in the Journal and recreate it.
 
 
+.. _Cassandra: https://cassandra.apache.org
 .. _celery: https://www.celeryproject.org
-.. _CodeMeta: https://codemeta.github.io/
+.. _CodeMeta: https://codemeta.github.io
 .. _gitlab: https://gitlab.com
-.. _PostgreSQL: https://www.postgresql.org/
-.. _Prometheus: https://prometheus.io/
+.. _PostgreSQL: https://www.postgresql.org
+.. _Prometheus: https://prometheus.io
 .. _publish-subscribe: https://en.wikipedia.org/wiki/Publish%E2%80%93subscribe_pattern
-.. _Redis: https://redis.io/
+.. _Redis: https://redis.io
 .. _SWORDv2: http://swordapp.github.io/SWORDv2-Profile/SWORDProfile.html
-.. _HyperLogLog: https://redislabs.com/redis-best-practices/counting/hyperloglog/
-.. _WebGraph: https://webgraph.di.unimi.it/
+.. _HyperLogLog: https://redislabs.com/redis-best-practices/counting/hyperloglog
+.. _WebGraph: https://webgraph.di.unimi.it
+.. _`for several reasons`: https://www.softwareheritage.org/legal/content-policy
+.. _`celery queues`: https://docs.celeryq.dev/en/stable/getting-started/introduction.html#what-s-a-task-queue
