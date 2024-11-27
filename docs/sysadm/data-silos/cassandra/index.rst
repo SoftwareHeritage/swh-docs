@@ -8,3 +8,4 @@ Cassandra
 
 .. toctree::
    installation
+   upgrade
