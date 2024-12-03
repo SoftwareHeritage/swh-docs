@@ -11,19 +11,15 @@ How to upgrade a cassandra cluster
 
 This page document the actions to `upgrade an online cassandra
 cluster<https://docs.datastax.com/en/luna-cassandra/guides/upgrade/overview.html>_`. The
-overall plan is to upgrade each node of the cluster one at a time.
+overall plan is to upgrade each node of the cluster one at a time, in a rolling upgrade
+fashion.
 
-As our (static) cassandra clusters are managed through puppet and we need to upgrade the
-nodes in a rolling upgrade fashion, we will stop the puppet agent from running first.
+There are two ways to manage this upgrade procedure, either
+`manually<manual_cassandra_upgrade>_` or `automatically<automatic_cassandra_upgrade>_` .
 
-So first, connect to pergamon and trigger a last agent run (just in case some pending
-actions still need to be applied) then stop the puppet agent.
-
-
-.. code-block:: shell
-
-   $ clush @staging-nodes 'puppet agent --test && \
-     puppet agent --disable "Upgrade to cassandra"'
+As our (static) cassandra clusters are managed through puppet. This implies we'll have
+some adaptations to do in the swh-site repository. Since our puppet manifest does not
+manage the restart of the service, it's ok to let puppet apply the changes in advance.
 
 Then identify the desired new version and retrieve its sha512 hash.
 
@@ -46,6 +42,11 @@ those values:
 Commit and push the changes.
 
 Connect to pergamon and deploy those changes.
+
+.. _manual_cassandra_upgrade:
+
+Manual procedure
+----------------
 
 Then connect on each machine of the cluster in any order (lexicographic order
 is fine though).
@@ -128,9 +129,33 @@ Once the service is started again, the `nodetool status` should display an
    ...
    UN  cassandra01.internal.softwareheritage.org  8.63 TiB  16      22.7%             cb0695ee-b7f1-4b31-ba5e-9ed7a068d993  rack1
 
+.. _automatic_cassandra_upgrade:
+
+Automatic procedure
+-------------------
+
+It's the same procedure as previously described but only one call to a script in
+pergamon is required.
+
+With environment in {staging, production}:
+
+.. code-block:: shell
+
+   root@pergamon:~# /usr/local/bin/restart-cassandra-cluster.sh $environment
+
+Note that you can also use the previously described checks procedure from a cluster node
+to follow through the upgrade.
+
+
+.. _cassandra_upgrade_checks:
+
+Final Checks
+------------
+
 Finally, check the version is the expected one.
 
 .. code-block:: shell
 
    $ nodetool version
    ReleaseVersion: $version
+
