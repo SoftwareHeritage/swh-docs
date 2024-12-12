@@ -54,7 +54,7 @@ Connect to pergamon and deploy those changes.
 .. admonition:: Grafana tag
    :class: Note
 
-   Do not forget to set a Grafana tag at the start of the upgrade.
+   Set a Grafana tag to mark the start of the upgrade.
 
 .. _manual_cassandra_upgrade:
 
@@ -107,7 +107,7 @@ We stop the cassandra service.
     $ systemctl stop cassandra@instance1
 
 
-In the output of the `nodetool status`, the node whose service is stopped
+In the output of the ``nodetool status``, the node whose service is stopped
 should be marked as DN (Down and Normal):
 
    $ nodetool -h cassandra02 status -r | grep DN
@@ -135,7 +135,7 @@ Now start back the cassandra service.
 
     $ systemctl start cassandra@instance1
 
-Once the service is started again, the `nodetool status` should display an
+Once the service is started again, the ``nodetool status`` should display an
 `UN` (Up and Normal) status again for the node upgraded.
 
    $ nodetool status -r
@@ -154,7 +154,7 @@ With environment in {staging, production}:
 
 .. code-block:: shell
 
-   root@pergamon:~# /usr/local/bin/restart-cassandra-cluster.sh $environment
+   root@pergamon:~# /usr/local/bin/cassandra-restart-cluster.sh $environment
 
 Note that you can also use the previously described checks procedure from a cluster node
 to follow through the upgrade.
@@ -196,10 +196,21 @@ Finally, check the version is the expected one.
 
    Keyspaces:
            swh -> Replication class: NetworkTopologyStrategy {sesi_rocquencourt_staging=3}
-           system_distributed -> Replication class: SimpleStrategy {replication_factor=3}
+           system_distributed -> Replication class: NetworkTopologyStrategy {replication_factor=3}
            provenance_test -> Replication class: NetworkTopologyStrategy {sesi_rocquencourt_staging=3}
            reaper_db -> Replication class: NetworkTopologyStrategy {sesi_rocquencourt_staging=3}
            system_traces -> Replication class: SimpleStrategy {replication_factor=2}
            system_auth -> Replication class: NetworkTopologyStrategy {sesi_rocquencourt_staging=3}
            system_schema -> Replication class: LocalStrategy {}
            system -> Replication class: LocalStrategy {}
+
+.. admonition:: Upgrading to a major version
+   :class: warning
+
+   | When updating to a major version, you need to run ``nodetool upgradesstables``.
+   | You can perform this command manually on each node or use a script from `pergamon`.
+   | With environment in {staging, production}:
+
+   .. code-block:: shell
+
+      root@pergamon:~# /usr/local/bin/cassandra-upgradesstables.sh $environment
