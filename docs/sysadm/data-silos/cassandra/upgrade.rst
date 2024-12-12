@@ -51,6 +51,11 @@ Connect to pergamon and deploy those changes.
    | - `Reaper production <https://reaper.internal.softwareheritage.org/webui/login.html>`_
    | - `Reaper staging <https://reaper.internal.staging.swh.network/webui/login.html>`_
 
+.. admonition:: Grafana tag
+   :class: Note
+
+   Do not forget to set a Grafana tag at the start of the upgrade.
+
 .. _manual_cassandra_upgrade:
 
 Manual procedure
