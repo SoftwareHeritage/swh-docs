@@ -172,3 +172,34 @@ Finally, check the version is the expected one.
    $ nodetool version
    ReleaseVersion: $version
 
+   $ nodetool describecluster
+   Cluster Information:
+           Name: archive_staging
+           Snitch: org.apache.cassandra.locator.GossipingPropertyFileSnitch
+           DynamicEndPointSnitch: enabled
+           Partitioner: org.apache.cassandra.dht.Murmur3Partitioner
+           Schema versions:
+                   583470c4-6dae-372d-bdab-f0bcbd679c74: [192.168.130.181, 192.168.130.182, 192.168.130.183]
+
+   Stats for all nodes:
+           Live: 3
+           Joining: 0
+           Moving: 0
+           Leaving: 0
+           Unreachable: 0
+
+   Data Centers:
+           sesi_rocquencourt_staging #Nodes: 3 #Down: 0
+
+   Database versions:
+           5.0.2: [192.168.130.181:7000, 192.168.130.182:7000, 192.168.130.183:7000]
+
+   Keyspaces:
+           swh -> Replication class: NetworkTopologyStrategy {sesi_rocquencourt_staging=3}
+           system_distributed -> Replication class: SimpleStrategy {replication_factor=3}
+           provenance_test -> Replication class: NetworkTopologyStrategy {sesi_rocquencourt_staging=3}
+           reaper_db -> Replication class: NetworkTopologyStrategy {sesi_rocquencourt_staging=3}
+           system_traces -> Replication class: SimpleStrategy {replication_factor=2}
+           system_auth -> Replication class: NetworkTopologyStrategy {sesi_rocquencourt_staging=3}
+           system_schema -> Replication class: LocalStrategy {}
+           system -> Replication class: LocalStrategy {}
