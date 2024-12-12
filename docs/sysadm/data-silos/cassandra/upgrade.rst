@@ -10,12 +10,12 @@ How to upgrade a cassandra cluster
 
 
 This page document the actions to `upgrade an online cassandra
-cluster<https://docs.datastax.com/en/luna-cassandra/guides/upgrade/overview.html>_`. The
+cluster <https://docs.datastax.com/en/luna-cassandra/guides/upgrade/overview.html>`_. The
 overall plan is to upgrade each node of the cluster one at a time, in a rolling upgrade
 fashion.
 
 There are two ways to manage this upgrade procedure, either
-`manually<manual_cassandra_upgrade>_` or `automatically<automatic_cassandra_upgrade>_` .
+:ref:`manually <manual_cassandra_upgrade>` or :ref:`automatically <automatic_cassandra_upgrade>`.
 
 As our (static) cassandra clusters are managed through puppet. This implies we'll have
 some adaptations to do in the swh-site repository. Since our puppet manifest does not
