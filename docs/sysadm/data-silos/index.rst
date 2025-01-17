@@ -9,3 +9,4 @@ Data silos
    kafka/index
    elasticsearch/index
    winery/index
+   rancher/debian
