@@ -22,24 +22,72 @@ Install required dependencies
 -----------------------------
 
 Software Heritage requires some dependencies that are usually packaged by your
-package manager. On Debian/Ubuntu-based distributions:
+package manager.
 
-.. code-block:: console
+.. tab-set::
 
-  sudo apt install lsb-release wget apt-transport-https
-  sudo wget https://www.postgresql.org/media/keys/ACCC4CF8.asc -O /etc/apt/trusted.gpg.d/postgresql.asc
-  echo "deb https://apt.postgresql.org/pub/repos/apt/ $(lsb_release -cs)-pgdg main" | sudo tee -a /etc/apt/sources.list.d/pgdg.list
-  sudo wget https://downloads.apache.org/cassandra/KEYS -O /etc/apt/trusted.gpg.d/cassandra.asc
-  echo "deb https://debian.cassandra.apache.org 41x main" | sudo tee -a /etc/apt/sources.list.d/cassandra.list
-  sudo apt update
-  sudo apt install \
-      build-essential pkg-config lzip rsync \
-      python3 python3-pip python3-venv virtualenvwrapper \
-      libpython3-dev libsystemd-dev libsvn-dev libffi-dev librdkafka-dev \
-      fuse3 libfuse3-dev libcmph-dev libleveldb-dev \
-      git myrepos \
-      graphviz plantuml inkscape \
-      postgresql libpq-dev cassandra redis-server
+  .. tab-item:: Debian/Ubuntu
+
+    .. code-block:: console
+
+      sudo apt install lsb-release wget apt-transport-https
+
+      sudo wget https://www.postgresql.org/media/keys/ACCC4CF8.asc -O /etc/apt/trusted.gpg.d/postgresql.asc
+
+      echo "deb https://apt.postgresql.org/pub/repos/apt/ $(lsb_release -cs)-pgdg main" | sudo tee -a /etc/apt/sources.list.d/pgdg.list
+
+      sudo wget https://downloads.apache.org/cassandra/KEYS -O /etc/apt/trusted.gpg.d/cassandra.asc
+
+      echo "deb https://debian.cassandra.apache.org 41x main" | sudo tee -a /etc/apt/sources.list.d/cassandra.list
+
+      sudo apt update
+
+      sudo apt install \
+          build-essential pkg-config lzip rsync \
+          python3 python3-pip python3-venv virtualenvwrapper \
+          libpython3-dev libsystemd-dev libsvn-dev libffi-dev librdkafka-dev \
+          fuse3 libfuse3-dev libcmph-dev libleveldb-dev \
+          git myrepos \
+          graphviz plantuml inkscape \
+          postgresql libpq-dev cassandra redis-server
+
+  .. tab-item:: Fedora
+
+    .. code-block:: console
+
+      sudo dnf install java-17-openjdk-headless
+
+      # Make sure the path is correct. If not, choose the alternative corresponding to java-17
+      sudo update-alternatives --set java /usr/lib/jvm/java-17-openjdk-17.0.13.0.11-3.fc41.x86_64/bin/java
+
+      sudo rpm --import https://downloads.apache.org/cassandra/KEYS
+
+      echo "[cassandra]
+      name=Apache Cassandra
+      baseurl=https://redhat.cassandra.apache.org/50x/
+      gpgcheck=1
+      repo_gpgcheck=0
+      gpgkey=https://downloads.apache.org/cassandra/KEYS" | sudo tee /etc/yum.repos.d/cassandra.repo
+
+      sudo dnf -y update
+
+      sudo dnf -y install cassandra
+
+      sudo dnf -y group install c-development
+
+      sudo dnf -y install \
+          pkgconf-pkg-config lzip rsync python3.11 python3-virtualenvwrapper \
+          python3.11-devel systemd-devel subversion-devel libffi-devel \
+          librdkafka fuse3 fuse3-devel leveldb-devel git myrepos graphviz \
+          plantuml inkscape postgresql-server postgresql-contrib libpq \
+          libpq-devel redis
+
+      # You will also need to install CMPH manually, as it is not (yet?) included in the Fedora repositories
+      wget https://sourceforge.net/projects/cmph/files/v2.0.2/cmph-2.0.2.tar.gz
+      tar -xvf cmph-2.0.2.tar.gz
+      cd cmph-2.0.2
+      ./configure && make && sudo make install
+      cd ..
 
 .. Note:: Python 3.10 or newer is required
 
@@ -56,27 +104,70 @@ don't need them started globally (this will save you some RAM):
 You must also have ``nodejs >= 18`` in your development environment.
 You can install node 18 using these commands:
 
-.. code-block:: console
+.. tab-set::
 
-  curl -fsSL https://deb.nodesource.com/setup_18.x | sudo bash -
-  sudo apt install -y nodejs
+  .. tab-item:: Debian/Ubuntu
+
+    .. code-block:: console
+
+      curl -fsSL https://deb.nodesource.com/setup_18.x | sudo bash -
+      sudo apt install -y nodejs
+
+  .. tab-item:: Fedora
+
+    .. code-block:: console
+
+       sudo dnf -y install nodejs
 
 |swh| uses the ``yarn`` package manager to retrieve frontend dependencies and development tools.
 You must install its latest classic version using this command:
 
-.. code-block:: console
+.. tab-set::
 
-  sudo corepack enable
+  .. tab-item:: Debian/Ubuntu
+
+    .. code-block:: console
+
+       sudo corepack enable
+
+  .. tab-item:: Fedora
+
+    .. code-block:: console
+
+       sudo dnf -y install yarnpkg
 
 If you intend to work on |swh| archive search features, Elasticsearch must also be
 present in your development environment. Proceed as follows to install it:
 
-.. code-block:: console
+.. tab-set::
 
-  sudo wget https://artifacts.elastic.co/GPG-KEY-elasticsearch -O /etc/apt/trusted.gpg.d/elasticsearch.asc
-  echo "deb https://artifacts.elastic.co/packages/7.x/apt stable main" | sudo tee -a /etc/apt/sources.list.d/elasticsearch.list
-  sudo apt update
-  sudo apt install elasticsearch
+  .. tab-item:: Debian/Ubuntu
+
+    .. code-block:: console
+
+      sudo wget https://artifacts.elastic.co/GPG-KEY-elasticsearch -O /etc/apt/trusted.gpg.d/elasticsearch.asc
+
+      echo "deb https://artifacts.elastic.co/packages/7.x/apt stable main" | sudo tee -a /etc/apt/sources.list.d/elasticsearch.list
+
+      sudo apt update
+
+      sudo apt install elasticsearch
+
+  .. tab-item:: Fedora
+
+    .. code-block:: console
+
+      echo "[elasticsearch]
+      name=Elasticsearch repository for 8.x packages
+      baseurl=https://artifacts.elastic.co/packages/8.x/yum
+      gpgcheck=1
+      gpgkey=https://artifacts.elastic.co/GPG-KEY-elasticsearch
+      autorefresh=1
+      type=rpm-md" | sudo tee /etc/yum.repos.d/elasticsearch.repo
+
+      sudo dnf -y update
+
+      sudo dnf -y install elasticsearch
 
 If you intend to build the full |swh| documentation, the ``postgresql-autodoc`` utility must
 also be installed, follow these `instructions <https://github.com/cbbrowne/autodoc#installation>`_
