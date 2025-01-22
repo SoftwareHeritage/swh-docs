@@ -101,7 +101,7 @@ don't need them started globally (this will save you some RAM):
 
   sudo systemctl disable --now cassandra postgresql
 
-You must also have ``nodejs >= 18`` in your development environment.
+You must also have ``nodejs >= 20`` in your development environment.
 You can install node 18 using these commands:
 
 .. tab-set::
@@ -110,7 +110,7 @@ You can install node 18 using these commands:
 
     .. code-block:: console
 
-      curl -fsSL https://deb.nodesource.com/setup_18.x | sudo bash -
+      curl -fsSL https://deb.nodesource.com/setup_20.x | sudo bash -
       sudo apt install -y nodejs
 
   .. tab-item:: Fedora
