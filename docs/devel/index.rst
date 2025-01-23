@@ -107,6 +107,10 @@ of the corresponding Python module.
     service providing efficient estimates of the number of objects in the SWH archive,
     using Redis's Hyperloglog
 
+:ref:`swh.datasets <swh-datasets>`
+    tools to generate datasets derived from the archive, and the :ref:`graph <swh-graph>`
+    in particular
+
 :ref:`swh.deposit <swh-deposit>`
     push-based deposit of software artifacts to the archive
 
