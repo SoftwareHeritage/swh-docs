@@ -3,8 +3,8 @@ swh.alter
 swh.auth[django,starlette]
 swh.core[db,http,logging]
 swh.counters
-swh.dataset[luigi]
 swh.deposit[server]
+swh.export[luigi]
 swh.fuse
 swh.graph[luigi]
 swh.graphql

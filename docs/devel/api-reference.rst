@@ -18,8 +18,8 @@ by components:
    swh.auth <swh-auth/index>
    swh.core <swh-core/index>
    swh.counters <swh-counters/index>
-   swh.dataset <swh-dataset/index>
    swh.deposit <swh-deposit/index>
+   swh.export <swh-export/index>
    swh.fuse <swh-fuse/index>
    swh.graph <swh-graph/index>
    swh.graphql <swh-graphql/index>

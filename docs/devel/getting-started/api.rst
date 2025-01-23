@@ -19,7 +19,7 @@ Yes, all source code available in the world. It implies to build an equally impr
 infrastructure to hold the huge amount of information represented, make the archive
 available to the public through a :swh_web:`nice web interface </>` and even propose a
 :ref:`well-documented API <swh-web>` to access it seamlessly. For the records, there are
-also :ref:`various datasets available <swh-dataset>` for download, with detailed
+also :ref:`various datasets available <swh-export>` for download, with detailed
 instructions about how to set it up. And, yes it’s huge: the full graph generated from
 the archive (with only metadata, content is not included) has more than 20b nodes and
 weights 1.2TB. Overall size of the archive is in the hundreds of TBs.

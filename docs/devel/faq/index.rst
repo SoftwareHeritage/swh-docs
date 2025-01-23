@@ -126,8 +126,8 @@ Getting sample datasets
 Is there a way to connect to SWH archived (production) database from my local machine?
 --------------------------------------------------------------------------------------
 
-We provide the archive as a dataset on public clouds, see the :ref:`swh-dataset
-documentation <swh-dataset>`. We can
+We provide the archive as a dataset on public clouds, see the :ref:`swh-export
+documentation <swh-export>`. We can
 also provide read access to one of the main databases on request, `contact us`_.
 
 .. _faq_error_bugs:

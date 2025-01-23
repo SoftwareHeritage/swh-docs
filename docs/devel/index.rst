@@ -107,15 +107,15 @@ of the corresponding Python module.
     service providing efficient estimates of the number of objects in the SWH archive,
     using Redis's Hyperloglog
 
-:ref:`swh.dataset <swh-dataset>`
-    public datasets and periodic data dumps of the archive released by Software
-    Heritage
-
 :ref:`swh.deposit <swh-deposit>`
     push-based deposit of software artifacts to the archive
 
 swh.docs
     developer documentation (used to generate this doc you are reading)
+
+:ref:`swh.export <swh-export>`
+    public datasets and periodic data dumps of the archive released by Software
+    Heritage
 
 :ref:`swh.fuse <swh-fuse>`
     Virtual file system to browse the Software Heritage archive, based on
