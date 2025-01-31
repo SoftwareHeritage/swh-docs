@@ -9,3 +9,4 @@ Cassandra
 .. toctree::
    installation
    upgrade
+   debian-upgrade
