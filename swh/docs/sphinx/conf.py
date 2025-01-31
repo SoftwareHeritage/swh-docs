@@ -214,7 +214,6 @@ redirects = {
     "swh-deposit/metadata": "api/metadata.html",
     "swh-deposit/specs/blueprint": "../api/use-cases.html",
     "swh-deposit/user-manual": "api/user-manual.html",
-    "swh-dataset": "swh-export",
     "swh-dataset/index.html": "swh-export/index.html",
     "swh-dataset/graph/dataset.html": "swh-export/graph/dataset.html",
     "swh-dataset/graph/schema.html": "swh-export/graph/schema.html",
