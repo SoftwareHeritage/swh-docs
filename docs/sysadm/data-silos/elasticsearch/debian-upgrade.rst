@@ -51,7 +51,7 @@ configuration changes (e.g. /etc/apt/sources.list change, etc...)
 
    root@node:~# puppet agent -t
 
-Step 2: Stop Puppet Agent
+Step 3: Stop Puppet Agent
 -------------------------
 
 As we will stop the service, we don't want the agent to start it back again.
