@@ -1,7 +1,6 @@
 *-stamp
 _build/
 devel/swh-*
-!devel/swh-dataset
 errors.log
 !/swh-loader.rst
 sources/

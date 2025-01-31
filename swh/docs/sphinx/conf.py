@@ -210,26 +210,27 @@ intersphinx_mapping = {
 # Redirects for pages that were moved, so we don't break external links.
 # Uses sphinx-reredirects
 redirects = {
-    "swh-deposit/spec-api": "api/api-documentation.html",
-    "swh-deposit/metadata": "api/metadata.html",
-    "swh-deposit/specs/blueprint": "../api/use-cases.html",
-    "swh-deposit/user-manual": "api/user-manual.html",
-    "swh-dataset/index.html": "swh-export/index.html",
-    "swh-dataset/graph/dataset.html": "swh-export/graph/dataset.html",
-    "swh-dataset/graph/schema.html": "swh-export/graph/schema.html",
-    "swh-dataset/graph/athena.html": "swh-export/graph/athena.html",
-    "swh-dataset/export.html": "swh-export/export.html",
-    "swh-dataset/generate_subdataset.html": "swh-export/generate_subdataset.html",
-    "apidoc/swh.dataset.html": "apidoc/swh.export.html",
-    "infrastructure/index.html": "../../sysadm/network-architecture/index.html",
-    "infrastructure/network.html": "../../sysadm/network-architecture/index.html",
-    "infrastructure/service-urls.html": "../../sysadm/network-architecture/service-urls.html",  # noqa
-    "architecture": "architecture/overview.html",
+    "devel/swh-deposit/spec-api": "api/api-documentation.html",
+    "devel/swh-deposit/metadata": "api/metadata.html",
+    "devel/swh-deposit/specs/blueprint": "../api/use-cases.html",
+    "devel/swh-deposit/user-manual": "api/user-manual.html",
+    "devel/swh-dataset/index": "../swh-export/index.html",
+    "devel/swh-dataset/graph/dataset": "../../swh-export/graph/dataset.html",
+    "devel/swh-dataset/graph/schema": "../../swh-export/graph/schema.html",
+    "devel/swh-dataset/graph/athena": "../../swh-export/graph/athena.html",
+    "devel/swh-dataset/graph/databricks": "../../swh-export/graph/databricks.html",
+    "devel/swh-dataset/export": "../swh-export/export.html",
+    "devel/swh-dataset/generate_subdataset": "../swh-export/generate_subdataset.html",
+    "devel/apidoc/swh.dataset": "swh.export.html",
+    "infrastructure/index": "../sysadm/network-architecture/index.html",
+    "infrastructure/network": "../sysadm/network-architecture/index.html",
+    "infrastructure/service-urls": "../sysadm/network-architecture/service-urls.html",  # noqa
+    "architecture": "devel/architecture/overview.html",
     "architecture/mirror": "../../sysadm/mirror-operations/index.html",
     "keycloak": "../../sysadm/user-management/keycloak/index.html",
     "mirror": "architecture/mirror.html",
     "users": "user",
-    "swh-web/uri-scheme-identifiers": "uri-scheme-swhids.html",
+    "devel/swh-web/uri-scheme-identifiers": "uri-scheme-swhids.html",
 }
 
 
