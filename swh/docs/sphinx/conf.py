@@ -218,7 +218,6 @@ redirects = {
     "swh-dataset/graph/dataset.html": "swh-export/graph/dataset.html",
     "swh-dataset/graph/schema.html": "swh-export/graph/schema.html",
     "swh-dataset/graph/athena.html": "swh-export/graph/athena.html",
-    "swh-dataset/graph/databricks.html": "swh-export/graph/databricks.html",
     "swh-dataset/export.html": "swh-export/export.html",
     "swh-dataset/generate_subdataset.html": "swh-export/generate_subdataset.html",
     "apidoc/swh.dataset.html": "apidoc/swh.export.html",
