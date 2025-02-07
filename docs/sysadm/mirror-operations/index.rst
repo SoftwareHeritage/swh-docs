@@ -24,6 +24,8 @@ proper mirror should also allow to:
 
 - navigate the archive copy using a Web browser and/or the Web API (typically
   using the :ref:`the web application <swh-web>`),
+- have minimal search capabilities (typically using :ref:`the swh-search
+  service <swh-search>` with an Elasticsearch backend),
 - retrieve data from the copy of the archive (typically using the :ref:`the
   vault service <swh-vault>`)
 
@@ -41,8 +43,22 @@ blob objects (file content) from the |swh| :ref:`object storage <swh-objstorage>
 
    General view of the |swh| mirroring architecture.
 
+.. Note:: This general view is very simplified and does not show all the
+          services involved in hosting and operating a mirror.
+
 See the :ref:`planning-a-mirror` for a complete description of the requirements
 to host a mirror.
+
+.. Note:: Hosting a complete mirror is a complex task, involving the deployment
+          of dozens of inter related (micro-)services. It should be planned and
+          operated carefully, using state-of-art ops practices (cloud-based, or
+          using container orchestration tools on an elastic execution platform
+          like kubernetes_, `docker swarm`_, or using tools like Ansible_ or
+          `Salt Stack`_).
+
+.. Important:: It is **strongly** recommended to start with a simple `docker
+          swarm`_ based deployment (this can be done on a single machine) as
+          described in :ref:`mirror_deploy`.
 
 
 Mirroring the Graph Storage
@@ -110,7 +126,11 @@ Installation
 When using the |swh| software stack to deploy a mirror, a number of |swh|
 software components must be installed (cf. architecture diagram above).
 
-A `docker-swarm <https://docs.docker.com/engine/swarm/>`_ based deployment
+.. Note:: It is **not** recommended to try to deploy each |swh| service
+          individually. You should rather start from the example docker-based
+          deployment project :ref:`described here <mirror_docker>`.
+
+A `docker swarm`_ based deployment
 solution is provided as a working example of the mirror stack,
 see :ref:`mirror_deploy`.
 
@@ -119,6 +139,10 @@ production-like deployment.
 
 .. _Kafka: https://kafka.apache.org/
 .. _msgpack: https://msgpack.org
+.. _`docker swarm`: https://docs.docker.com/engine/swarm/
+.. _Ansible: https://docs.ansible.com/ansible/latest/index.html
+.. _kubernetes: https://kubernetes.io/fr/
+.. _`Salt Stack`: https://saltproject.io/
 
 
 You may want to read:

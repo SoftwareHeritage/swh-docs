@@ -29,6 +29,11 @@ Each service consists in an HTTP-based RPC served by a `gunicorn
 <https://gunicorn.org/>`_ `WSGI
 <https://fr.wikipedia.org/wiki/Web_Server_Gateway_Interface>`_ server.
 
+.. Note:: It is **not** recommended to try to deploy each |swh| service
+          individually. You should rather start from the example docker-based
+          deployment project linked below.
+
+
 Docker-based deployment
 -----------------------
 
