@@ -11,4 +11,5 @@ Software Architecture
    overview
    alterations
    metadata
+   citation
    object-storage
