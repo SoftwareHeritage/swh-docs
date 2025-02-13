@@ -88,7 +88,7 @@ Components
 Here is brief overview of the most relevant software components in the Software
 Heritage stack, in alphabetical order.
 For a better introduction to the architecture, see the :ref:`architecture-overview`,
-which presents each of them in a didactical order.
+which presents each of them in a didactic order.
 
 Each component name is linked to the development documentation
 of the corresponding Python module.
