@@ -3,8 +3,7 @@
 # License: GNU General Public License version 3, or any later version
 # See top-level LICENSE file for more information
 
-"""Parser for :file:`docs/devel/software-origins-support.yml`
-"""
+"""Parser for :file:`docs/devel/software-origins-support.yml`"""
 
 import collections
 from pathlib import Path
