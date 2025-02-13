@@ -188,7 +188,7 @@ indicating that the release process is ongoing.
 
 Next, deployment container images are updated.
 
-And finally a new merge request will automatically be created in 
+And finally a new merge request will automatically be created in
 `Helm charts for swh packages`_ so that the devops team can proceed with deployment.
 
 .. _Helm charts for swh packages: https://gitlab.softwareheritage.org/swh/infra/sysadm-environment
