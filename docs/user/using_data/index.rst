@@ -118,14 +118,12 @@ Code and configuration changes
 
 Software Heritage's codebase evolves over time, and the archive adds support
 for new forges regularly.
-Major changes are documented in the `archive changelog`_
+Major changes are documented in the :ref:`Archive ChangeLog <archive-changelog>`.
 
 Typically, this means that source code deleted from a given forge before
 Software Heritage started archiving that forge is missing
 -- which may lead to code hosted in less popular places to be underrepresented
 in the archive.
-
-.. _archive changelog: archive-changelog
 
 Large objects
 ^^^^^^^^^^^^^
