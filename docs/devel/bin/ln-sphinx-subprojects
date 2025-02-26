@@ -16,6 +16,8 @@ create_links () {
         fi
         if [ -d "../../../${pymodule}/swh" ] ; then
             cp -r -f --symbolic-link $(realpath ../../../${pymodule}/swh/*) sources/swh/
+        elif [ -d "../../../${pymodule}/src/swh" ] ; then
+            cp -r -f --symbolic-link $(realpath ../../../${pymodule}/src/swh/*) sources/swh/
         fi
         pushd ../../../${pymodule}
         for EXT in rst md; do

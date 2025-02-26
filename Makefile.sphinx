@@ -34,7 +34,7 @@ sphinx/%: $(apidoc_dep)
 
 apidoc: $(apidoc_dep)
 apidoc-stamp:
-	$(SPHINXAPIDOC) $(APIDOC_OPTS) -o $(APIDOC_DIR) ../swh $(APIDOC_SWH_EXCLUDES)
+	$(SPHINXAPIDOC) $(APIDOC_OPTS) -o $(APIDOC_DIR) `if [ -d ../src/swh ]; then echo ../src/swh; else echo ../swh; fi` $(APIDOC_SWH_EXCLUDES)
 	# to silent Sphinx warnings about apidoc documents not included in any toctree
 	find $(shell pwd)/apidoc -name "*.rst" | xargs sed -i '1i:orphan:\n'
 	touch $@
