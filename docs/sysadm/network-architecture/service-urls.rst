@@ -137,9 +137,9 @@ Internal services
 +-----------------------------+------------------------------------------------------------------+--------+------------+
 | swh-search read-only        | http://search.internal.softwareheritage.org                      | X      |            |
 +-----------------------------+------------------------------------------------------------------+--------+------------+
-| swh-graph rpc               | http://granet.internal.softwareheritage.org:5009                 | X      |            |
+| swh-graph rpc               | http://graph-rpc.internal.softwareheritage.org                   | X      |            |
 +-----------------------------+------------------------------------------------------------------+--------+------------+
-| swh-graph grpc              | http://granet.internal.softwareheritage.org:50091                | X      |            |
+| swh-graph grpc              | http://graph-grpc.internal.softwareheritage.org                  | X      |            |
 +-----------------------------+------------------------------------------------------------------+--------+------------+
 | Journal plaintext           | kafka[1-4].internal.softwareheritage.org:9092                    |        | X          |
 +-----------------------------+------------------------------------------------------------------+--------+------------+
