@@ -313,6 +313,7 @@ def set_django_settings(app, env, docname):
         "auth": "swh.auth.tests.django.app.apptest.settings",
         "deposit": "swh.deposit.settings.development",
         "web": "swh.web.settings.development",
+        "coarnotify": "swh.coarnotify.settings.development",
     }
     for package, settings in package_settings.items():
         if any(
