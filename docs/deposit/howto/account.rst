@@ -1,3 +1,5 @@
+.. _deposit-account:
+
 Request an account
 ==================
 

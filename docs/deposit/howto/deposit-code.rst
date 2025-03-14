@@ -4,7 +4,7 @@ Make a code deposit
 Requisites
 ----------
 
-1. Have your account credentials and prepared artefacts at hand.
+1. Have your :ref:`account credentials <deposit-account>` and prepared artefacts at hand.
 2. Either the CLI installed or a tool to make API calls (curl, HTTPie, etc.)
 
 Make a code deposit
