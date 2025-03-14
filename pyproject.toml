@@ -66,12 +66,11 @@ explicit_package_bases = true
 plugins = []
 
 # 3rd party libraries without stubs (yet)
-# [[tool.mypy.overrides]]
-# module = [
-#     "package1.*",
-#     "package2.*",
-# ]
-# ignore_missing_imports = true
+[[tool.mypy.overrides]]
+module = [
+    "sphinx.*",
+]
+ignore_missing_imports = true
 
 [tool.flake8]
 select = ["C", "E", "F", "W", "B950"]

@@ -1,0 +1,2 @@
+swh-deposit package documentation
+=================================
