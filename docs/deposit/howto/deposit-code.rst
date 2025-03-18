@@ -39,7 +39,7 @@ Partial
 Check its status
 ----------------
 
-Your deposit will go :doc:`through multiple steps </references/workflow>` before appearing in the archive, You can check the status of your deposit ang get its SWHID :
+Your deposit will go :doc:`through multiple steps </references/workflow>` before appearing in the archive, You can check the status of your deposit ang get its SWHID:
 
 .. tab-set::
 

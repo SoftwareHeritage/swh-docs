@@ -1,5 +1,5 @@
-Contribute to swh-deposit
-=========================
+Contribute to deposit
+=====================
 
 Work groups
 -----------
