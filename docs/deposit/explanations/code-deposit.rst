@@ -30,7 +30,7 @@ asking SWH to archive a repository using the `save code now`_ feature are:
 - a deposited artifact is provided from one of the SWH partners which is regarded as a
   trusted authority,
 - a deposited artifact requires metadata properties describing the source code artifact,
-- a deposited artifact has a codemeta_ metadata entry attached to it,
+- a deposited artifact has a CodeMeta_ metadata entry attached to it,
 - a deposited artifact has the same visibility on the SWH Archive than a collected
   repository,
 - a deposited artifact can be searched with its provided url property on the SWH
@@ -42,3 +42,4 @@ asking SWH to archive a repository using the `save code now`_ feature are:
 .. _vault: https://docs.softwareheritage.org/devel/swh-vault/index.html#swh-vault
 .. _save code now: https://archive.softwareheritage.org/save/
 .. _SWORD v2: http://swordapp.org/sword-v2/
+.. _CodeMeta: https://codemeta.github.io/
