@@ -218,6 +218,16 @@ Save a code repository
       endpoint, GitHub endpoint, GitLab
       endpoint <https://archive.softwareheritage.org/api/1/origin/save/doc/>`__
 
+Deposit artefacts and/or metadata
+---------------------------------
+
+The deposit service allows a client (a repository, e.g. HAL) to submit software
+source archives and its associated metadata to the Software Heritage archive.
+Metadata can be also submitted referencing a repository url (origin) or a
+:ref:`SWHIDs <persistent-identifiers>`.
+
+:ref:`Discover the deposit process <swh-docs-deposit>`
+
 Save multiple projects at a time, save a forge
 ----------------------------------------------
 
@@ -228,8 +238,7 @@ Save a forge in 2 steps :
 2. `Submit a request of archival for to save a complete forge
    <https://archive.softwareheritage.org/add-forge/request/create/>`__
 
-:ref:`Technical insight on the “Add forge now” process
-<save-forge>`
+:ref:`Technical insight on the “Add forge now” process <save-forge>`
 
 Save code used for science
 --------------------------
@@ -438,4 +447,4 @@ Table of contents
    devel/api-reference
    user/index
    sysadm/index
-   About this documentation project <README>
+   About <README>
