@@ -1,10 +1,5 @@
 API reference
 =============
 
-
-SWORD
------
-
-
-Deposit
--------
+.. warning::
+   TODO link to swh-deposit API doc
