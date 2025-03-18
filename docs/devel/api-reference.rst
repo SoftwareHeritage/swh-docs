@@ -18,6 +18,7 @@ by components:
    swh.auth <swh-auth/index>
    swh.core <swh-core/index>
    swh.counters <swh-counters/index>
+   swh.datasets <swh-datasets/index>
    swh.deposit <swh-deposit/index>
    swh.export <swh-export/index>
    swh.fuse <swh-fuse/index>
