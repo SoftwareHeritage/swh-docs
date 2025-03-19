@@ -148,7 +148,7 @@ at a higher frequency than smaller repositories.
 Large objects
 ^^^^^^^^^^^^^
 
-Software Heritage also does not archive any object larger than 300MB, as they
+Software Heritage also does not archive any object larger than 100MB, as they
 are unlikely to be source code, and would put unreasonable load on the archive.
 
 Non-code objects
