@@ -33,7 +33,7 @@
 ../swh-scheduler[simulator]
 ../swh-scrubber
 ../swh-search
-../swh-storage
+../swh-storage[testing]
 ../swh-vault
 ../swh-web
 ../swh-web-client
