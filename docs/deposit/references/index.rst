@@ -9,4 +9,4 @@ References
    examples.rst
    api.rst
    cli.rst
-   package.rst
+   errors.rst
