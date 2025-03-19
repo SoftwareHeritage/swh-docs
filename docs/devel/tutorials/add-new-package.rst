@@ -29,6 +29,7 @@ The following commands need to run from the base directory
 
    .. code-block:: console
 
+      pip install -r requirements.txt
       bin/init-py-repo swh-foo
 
 2. Install the pre-commit hook:
