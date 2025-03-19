@@ -29,8 +29,6 @@ Read more about the deposit principles and usages.
 
    explanations/deposit.rst
    explanations/why-metadata.rst
-   explanations/code-deposit.rst
-   explanations/metadata-only-deposit.rst
 
 
 HowTo guides
@@ -47,8 +45,7 @@ To assist informed users with their deposits.
    howto/deposit-metadata.rst
    howto/versions.rst
    howto/integrations.rst
-   howto/self-host.rst
-   howto/contribute.rst
+   howto/participate.rst
 
 
 References
@@ -64,7 +61,7 @@ Technical documentation and references.
    references/examples.rst
    references/api.rst
    references/cli.rst
-   references/package.rst
+   references/errors.rst
 
 Tutorials
 ---------
