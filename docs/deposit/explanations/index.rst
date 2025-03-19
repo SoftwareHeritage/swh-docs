@@ -6,5 +6,3 @@ Explanations
 
    deposit.rst
    why-metadata.rst
-   code-deposit.rst
-   metadata-only-deposit.rst
