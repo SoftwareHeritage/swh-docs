@@ -10,5 +10,4 @@ How to guides
    deposit-metadata.rst
    versions.rst
    integrations.rst
-   self-host.rst
-   contribute.rst
+   participate.rst

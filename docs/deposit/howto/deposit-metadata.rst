@@ -1,11 +1,35 @@
+.. _deposit-metadata-only:
+
 Make a metadata-only deposit
 ============================
+
+It’s possible to deposit metadata on an already existing content using the metadata-only deposit and referencing a repository or a specific artifact.
+
+
+Requirements:
+
+    Create a metadata-only deposit through a :ref:POST request<API-create-deposit>
+    It is composed of ONLY one Atom XML document
+    It MUST comply with :ref:the metadata requirements<metadata-requirements>
+    It MUST reference an object or an origin in a deposit tag
+    The reference SHOULD exist in the SWH archive
+    The object reference MUST be a SWHID on one of the following artifact types:
+        origin
+        snapshot
+        release
+        revision
+        directory
+        content
+    The SWHID MAY be a :ref:core identifier <swhids-core> with or without :ref:qualifiers <swhids-qualifiers>
+    The SWHID MUST NOT reference a fragment of code with the classifier lines
+
 
 Requisites
 ----------
 
-1. Have your account credentials, the origin url and prepared artefacts at hand.
-2. Either the CLI installed or a tool to make API calls (curl, HTTPie, etc.)
+1. Access to :ref:`account credentials <deposit-account>`
+2. Have the origin url and prepared artefacts at hand, we will refer to it as ``<origin>`` and ``<metadatafile>`` hereafter
+3. Either the CLI installed or a tool to make API calls (curl, HTTPie, etc.)
 
 Make a metadata deposit
 -----------------------
@@ -24,16 +48,16 @@ Make a metadata deposit
 
       # Note the 'In-Progress: false' header
       curl -i -u <username>:<pass> \
-           -F "file=@deposit.json;type=application/zip;filename=payload" \
-           -F "atom=@atom-entry.xml;type=application/atom+xml;charset=UTF-8" \
+           -F "file=@<softwareartefact>;type=application/zip;filename=payload" \
+           -F "atom=@<metadatafile>;type=application/atom+xml;charset=UTF-8" \
            -H 'In-Progress: false' \
-           -XPOST https://deposit.softwareheritage.org/1/hal/
+           -XPOST https://deposit.softwareheritage.org/1/<collection>/
 
 
 Check its status
 ----------------
 
-Your deposit will go :doc:`through multiple steps </references/workflow>` before appearing in the archive, You can check the status of your deposit ang get its SWHID :
+Your deposit will go :doc:`through multiple steps </references/workflow>` before appearing in the archive, you can check the status of your deposit and get its SWHID :
 
 .. tab-set::
 
