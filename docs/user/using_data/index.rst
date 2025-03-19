@@ -105,13 +105,25 @@ where ``<sha1>`` is the hexadecimal representation of the content's
 in the datasets and in SWHID).
 
 
-Possible bias
--------------
+.. _possible-bias:
+.. _swh-data-bias:
+
+Possible bias and limitations
+-----------------------------
 
 Statistical analyses on the archive may be biased by the way source code is
 collected by the archive. This section details the main ones to be aware of
 when performing research on the archive.
 
+Archival lag
+^^^^^^^^^^^^
+
+Due to resource constraints, Software Heritage has a long archiving backlog,
+which means that most repositories created recently, or updates pushed recently
+to known repositories, are missing from the archive.
+
+As of early 2025, this lag is between 1 and 2 years, but we have plans to reduce
+it to a matter of days or weeks.
 
 Code and configuration changes
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -125,13 +137,16 @@ Software Heritage started archiving that forge is missing
 -- which may lead to code hosted in less popular places to be underrepresented
 in the archive.
 
-Large objects
-^^^^^^^^^^^^^
+Large repositories
+^^^^^^^^^^^^^^^^^^
 
 Some source code repositories, such as Chromium's and Linux's git repositories
 and their clones, are particularly large.
 This is a challenge for :term:`loaders <loader>`, which may fail to load them
 at a higher frequency than smaller repositories.
+
+Large objects
+^^^^^^^^^^^^^
 
 Software Heritage also does not archive any object larger than 300MB, as they
 are unlikely to be source code, and would put unreasonable load on the archive.
