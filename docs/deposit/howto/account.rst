@@ -11,4 +11,7 @@ For this, as a client, you need to register an account on the swh keycloak
 `production <https://archive.softwareheritage.org/oidc/login/>`_
 or `staging <https://webapp.staging.swh.network/oidc/login/>`_ instance.
 
-Once you have an account, you should get a set of access credentials as a login and a password (identified as <name> and <pass> in the remaining of this documentation). A deposit account also comes with a “provider URL” which is used by SWH to build the Origin URL of deposits created using this account.
+Once you have an account, you should get a set of access credentials as a login, a password and a collection name (identified as <username>, <pass> and <collection> in the remaining of this documentation).
+
+A deposit account also comes with a “provider URL” which is used by SWH to build the Origin URL of deposits created using this account and confirm its ownership.
+
