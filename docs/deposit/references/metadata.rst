@@ -1,3 +1,5 @@
+.. _deposit-metadata-requirements:
+
 Metadata
 ========
 
