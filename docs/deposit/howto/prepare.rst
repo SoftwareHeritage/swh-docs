@@ -1,3 +1,6 @@
+.. _deposit-prepare:
+
+
 Prepare your metadata and artifacts
 ===================================
 

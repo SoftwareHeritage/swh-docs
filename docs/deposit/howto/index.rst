@@ -6,8 +6,9 @@ How to guides
 
    account.rst
    prepare.rst
-   deposit-code.rst
-   deposit-metadata.rst
+   first-deposit.rst
+   multistep-deposit.rst
+   metadata-deposit.rst
    versions.rst
    integrations.rst
    participate.rst

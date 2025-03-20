@@ -14,9 +14,12 @@ Deposit
 
 .. thumbnail:: images/software_life_cycle_en-1024x810.png
 
-The deposit service allows a client (a repository, e.g. HAL) to submit software source archives and its associated metadata to the Software Heritage archive.
+(we need a better picture)
 
-Metadata can be also submitted referencing a repository url (origin) or a
+The deposit service allows a partner to submit software source archives and their
+associated metadata to the Software Heritage archive.
+
+Metadata can be also submitted referencing a an existing repository url (origin) or a
 :ref:`SWHIDs <persistent-identifiers>`.
 
 Explanations
@@ -41,8 +44,9 @@ To assist informed users with their deposits.
 
    howto/account.rst
    howto/prepare.rst
-   howto/deposit-code.rst
-   howto/deposit-metadata.rst
+   howto/first-deposit.rst
+   howto/multistep-deposit.rst
+   howto/metadata-deposit.rst
    howto/versions.rst
    howto/integrations.rst
    howto/participate.rst

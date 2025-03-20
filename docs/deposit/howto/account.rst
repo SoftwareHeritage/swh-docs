@@ -3,15 +3,21 @@
 Request an account
 ==================
 
-Becoming a deposit client is very easy, just write to deposit@softwareheritage.org
-to setup the deposit partner agreement. With the agreement signed you can follow the
-steps below.
+.. admonition:: Deposit partner agreement
+   :class: warning
 
-For this, as a client, you need to register an account on the swh keycloak
-`production <https://archive.softwareheritage.org/oidc/login/>`_
-or `staging <https://webapp.staging.swh.network/oidc/login/>`_ instance.
+   Access to the deposit services is restricted to organizations who signed the deposit
+   partner agreement. To learn more about this agreement please write to
+   deposit@softwareheritage.org
 
-Once you have an account, you should get a set of access credentials as a login, a password and a collection name (identified as <username>, <pass> and <collection> in the remaining of this documentation).
+With the agreement signed you will be able to register an account on our
+`production <https://archive.softwareheritage.org/oidc/login/>`_ and
+`staging <https://webapp.staging.swh.network/oidc/login/>`_ instances.
+
+Once you have an account, you will get a set of access credentials as a login, a
+password and a collection name (identified as <username>, <pass> and <collection> in
+the remaining of this documentation).
 
 A deposit account also comes with a “provider URL” which is used by SWH to build the Origin URL of deposits created using this account and confirm its ownership.
 
+You are now ready to :ref:`prepare your artefacts and metadata <deposit-prepare>`.
