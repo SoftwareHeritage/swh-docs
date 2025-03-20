@@ -1,56 +1,63 @@
 What's a deposit?
 =================
 
-Most of the software source code artifacts present in the SWH Archive are gathered by
-the mean of `loader`_ workers run by the SWH project from source code origins identified
-by `lister`_ workers. This is a pull mechanism: it's the responsibility of the SWH
-project to gather and collect source code artifacts that way.
+Most of the software source code artifacts present in the Software Heritage Archive are
+gathered by tools run by the SWH project, this is a pull mechanism: it's the
+responsibility of the SWH project to gather and collect source code artifacts that way.
 
-Alternatively, SWH allows its partners to push source code artifacts and metadata
-directly into the Archive with a push-based mechanism. By using this possibility
-different actors, holding software artifacts or metadata, can preserve their assets
-without having to pass through an intermediate collaborative development platform, which
-is already harvested by SWH (e.g GitHub, GitLab, etc.).
+Alternatively, SWH allows its trusted partners to send source code artifacts and/or
+metadata directly into the Archive with a push-based mechanism. By using this
+possibility different actors, holding software artifacts or metadata, can preserve
+their assets without having to pass through an intermediate collaborative development
+platform, which is already harvested by SWH (e.g GitHub, GitLab, etc.).
 
-**This mechanism is the code deposit.**
+**This mechanism is the deposit.**
 
-The main idea is the deposit is an authenticated access to an API allowing the user to
-provide source code artifacts -- with metadata -- to be ingested in the SWH Archive. The
-result of that is a `SWHID`_ that can be used to uniquely and persistently identify that
-very piece of source code.
+The result of this action is a `SWHID`_ that can be used to uniquely and persistently
+identify that very piece of source code.
 
-This unique identifier can then be used to `reference the source code
-<https://hal.archives-ouvertes.fr/hal-02446202>`_ (e.g. in a `scientific paper
-<https://www.softwareheritage.org/2020/05/26/citing-software-with-style/>`_) and
-retrieve it using the `vault`_ feature of the SWH Archive platform.
+This unique identifier can then be used to reference the source code (e.g. in a
+scientific paper) and retrieve it using the features of the SWH Archive platform.
 
-The differences between a piece of code uploaded using the deposit rather than simply
-asking SWH to archive a repository using the `save code now`_ feature are:
+The differences between a deposit and simply asking SWH to archive a repository using the pull features of the Archive are:
 
 - a deposited artifact is provided from one of the SWH partners which is regarded as a
   trusted authority,
 - a deposited artifact requires metadata properties describing the source code artifact,
-- a deposited artifact has a CodeMeta_ metadata entry attached to it,
-- a deposited artifact has the same visibility on the SWH Archive than a collected
-  repository,
 - a deposited artifact can be searched with its provided url property on the SWH
-  Archive,
-- the deposit API uses the `SWORD v2`_ API, thus requires some tooling to send deposits
-  to SWH. These tools are provided with this repository.
+  Archive
+- it is possible to make a metadata only deposit only about an artefact already
+  present in the Software Heritage archive.
 
-A partner may wish to deposit only metadata about an origin or object already present in the Software Heritage archive.
+Metadata?
+---------
 
-The **metadata-only deposit** is a special deposit where no content is provided and the data transferred to Software Heritage is only the metadata about an object in the archive.
+The metadata of a software artefact is the real added value of the deposit service, it
+allows a partner to provide extra information on a source code (details about the
+author and its affiliation, external ids, mention in a scientific publication, etc.)
+which are usually not present in the code itself.
+
+Metadata is indexed by our search engine and provide new ways of finding content in the
+archive.
+
+To understand why metadata is so important to us read
+:ref:`Why do we need metadata? <deposit-why-metadata>`.
 
 Is it useful for me?
 --------------------
 
-Source code is fragile; it can disappear. It is important to note that software source code has an essential role in research and should be archived properly, alongside data and publications. Software that was built for research as part of the open science ecosystem should be archived, referenced, described and cited.
+Source code is fragile; it can disappear.
+
+If you are a repository for research software, you know software source code has an
+essential role in research and should be archived properly, alongside data and
+publications. Software that was built for research as part of the open science
+ecosystem should be archived, referenced, described and cited.
 
 When depositing in Software Heritage you can describe a software artifact properly with specific metadata properties and it will be safely saved in the universal software archive.
 
-Also, as a metadata producer you can attach to an existing entry in the archive all the
-TODO
+As a metadata producer or aggregator TODO...
 
-To understand why metadata is so important to us read
-:ref:`Why do we need metadata? <deposit-why-metadata>`.
+Ready to use our deposit services?
+----------------------------------
+
+Start by :ref:`requesting a user account <deposit-account>`.
