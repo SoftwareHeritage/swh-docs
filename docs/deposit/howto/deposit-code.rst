@@ -45,7 +45,7 @@ easy to deposit both in a single command:
            -F "file=@<softwareartefact>;type=application/zip;filename=payload" \
            -F "atom=@<metadatafile>;type=application/atom+xml;charset=UTF-8" \
            -H 'In-Progress: false' \
-           -XPOST https://deposit.softwareheritage.org/1/<collection>/
+           -XPOST https://deposit.staging.swh.network/1/<collection>/
 
   .. tab-item:: CLI
 
@@ -112,8 +112,11 @@ Will return the following response:
 
 A `deposited` status means the deposit is complete but still needs to be checked to ensure data consistency. See :ref:`Check a deposit status` to follow your deposit process.
 
-Make the deposit in multiple calls (aka partial deposit)
---------------------------------------------------------
+And if you got an error message instead please check
+:doc:`our troubleshooting reference </references/errors>` to sort it out.
+
+Make the deposit in multiple steps
+----------------------------------
 
 If you have multiple code artefacts or if you need to make your deposit in two or
 more times, you can make use of the partial deposit functionality. Use cases:
@@ -139,7 +142,7 @@ First partial deposit
       curl -i -u <username>:<pass> \
            -F "file=@<softwareartefact1>;type=application/zip;filename=payload" \
            -H 'In-Progress: true' \
-           -XPOST https://deposit.softwareheritage.org/1/<collection>/
+           -XPOST https://deposit.staging.swh.network/1/<collection>/
 
   .. tab-item:: CLI
 
@@ -205,7 +208,6 @@ Will return the following response:
         'deposit_status_detail': None
       }
 
-
 Second partial deposit
 ~~~~~~~~~~~~~~~~~~~~~~
 
@@ -227,7 +229,7 @@ last one.
       curl -i -u <username>:<pass> \
            -F "file=@<softwareartefact2>;type=application/zip;filename=payload" \
            -H 'In-Progress: true' \
-           -XPOST https://deposit.softwareheritage.org/1/<collection>/<deposit_id>/media/
+           -XPOST https://deposit.staging.swh.network/1/<collection>/<deposit_id>/media/
 
   .. tab-item:: CLI
 
@@ -264,7 +266,7 @@ will send include "not partial anymore" parameter in our call.
       curl -i -u <username>:<pass> \
            -F "atom=@<metadatafile>;type=application/atom+xml;charset=UTF-8" \
            -H 'In-Progress: false' \
-           -XPOST https://deposit.softwareheritage.org/1/<collection>/<deposit_id>/metadata/
+           -XPOST https://deposit.staging.swh.network/1/<collection>/<deposit_id>/metadata/
 
   .. tab-item:: CLI
 
@@ -294,7 +296,7 @@ Your deposit will go :doc:`through multiple steps </references/workflow>` before
     .. code-block:: console
 
       curl -i -u <username>:<pass> \
-           -XGET https://deposit.softwareheritage.org/1/<collection>/<deposit_id>/status/
+           -XGET https://deposit.staging.swh.network/1/<collection>/<deposit_id>/status/
 
   .. tab-item:: CLI
 
@@ -306,9 +308,7 @@ Your deposit will go :doc:`through multiple steps </references/workflow>` before
         --deposit-id <deposit_id> \
         --format json
 
-
-
-
+Will return the following response:
 
 .. tab-set::
 

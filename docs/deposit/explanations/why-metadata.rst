@@ -1,4 +1,6 @@
-Why do we need metadata ?
-=========================
+.. _deposit-why-metadata:
+
+Why do we need metadata?
+========================
 
 TODO

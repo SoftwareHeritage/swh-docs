@@ -1,18 +1,24 @@
 Prepare your metadata and artifacts
 ===================================
 
+TODO
 
+Metadata for a code deposit
+---------------------------
 
-Metadata with archives
-----------------------
-
-* compress the files in a supported archive format:
+First you'll need to prepare your code artefact by packaging the files in a supported
+archive format:
 
   - zip: common zip archive (no multi-disk zip files).
   - tar: tar archive without compression or optionally any of the
          following compression algorithm gzip (``.tar.gz``, ``.tgz``), bzip2
          (``.tar.bz2``) , or lzma (``.tar.lzma``)
 
+.. admonition:: File size limit
+   :class: warning
+
+   Our server will reject files larger than 100MB, if your artefact is larger than that
+   please split it in multiple files then follow the "multi-step deposit" process
 
 Then you need to prepare a metadata file allowing you to give detailed
 information on your deposited source code. A rather minimal Atom with Codemeta
@@ -55,7 +61,7 @@ Please read the :ref:`deposit-metadata` page for a more detailed view on the
 metadata file formats and semantics; and :ref:`deposit-create_origin` for
 a description of the ``<swh:create_origin>`` tag.
 
-Metadata only
+Metadata for a metadata-data only
 -------------
 
 Note: use reference instead of origin
@@ -140,3 +146,5 @@ Note: use reference instead of origin
          <codemeta:name>David Coeurjolly</codemeta:name>
       </codemeta:contributor>
    </entry>
+
+
