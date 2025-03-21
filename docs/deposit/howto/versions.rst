@@ -1,3 +1,5 @@
+.. _deposit-version:
+
 Deposit a new version of an existing origin
 ===========================================
 

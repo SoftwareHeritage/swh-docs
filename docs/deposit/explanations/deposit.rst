@@ -48,14 +48,25 @@ Is it useful for me?
 
 Source code is fragile; it can disappear.
 
-If you are a repository for research software, you know software source code has an
+Scholarly repositories
+~~~~~~~~~~~~~~~~~~~~~~
+
+You know software source code has an
 essential role in research and should be archived properly, alongside data and
 publications. Software that was built for research as part of the open science
 ecosystem should be archived, referenced, described and cited.
 
 When depositing in Software Heritage you can describe a software artifact properly with specific metadata properties and it will be safely saved in the universal software archive.
 
+Aggregators
+~~~~~~~~~~~
+
 As a metadata producer or aggregator TODO...
+
+Publishers
+~~~~~~~~~~
+
+As a publisher TODO...
 
 Ready to use our deposit services?
 ----------------------------------

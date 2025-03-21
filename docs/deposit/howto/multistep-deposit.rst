@@ -8,8 +8,8 @@ Make a multi-step code & metadata deposit
    :class: Note
 
    This method of depositing artefacts to the archive is a bit more complicated than
-   the :ref:`regular one`, if your artefacts are not larger than 100Mo we would
-   recommend sticking to the simpler (one shot) method.
+   the other one, if your artefacts are not larger than 100Mo we would recommend
+   sticking to :ref:`the simpler (one shot) method <deposit-first>`.
 
 If you have multiple code artefacts or if you need to make your deposit in two or
 more times, you can make use of the partial deposit functionality.
@@ -26,9 +26,15 @@ Checklist
 - You have either the CLI installed or a tool to make API calls, we will use curl
   here, but commands could be easily adapted to another application
 
-
 Make the deposit in multiple steps
 ----------------------------------
+
+.. admonition:: Deposit instance URL
+   :class: warning
+
+   In the examples below the staging deposit url https://deposit.staging.swh.network
+   is used to avoid experimenting on the production instance of the deposit server.
+   Make sure you switch to https://deposit.softwareheritage.org when you are ready.
 
 In the example below we will make a first deposit with a code artefact then a second
 one and finally a third one with the metadata.
@@ -43,10 +49,10 @@ First partial deposit
     .. code-block:: console
 
       # Note the 'In-Progress: true' header
-      curl -i -u <username>:<password> \
-           -F "file=@<softwareartefact1>;type=application/zip;filename=payload" \
+      curl -i -u USERNAME:PASSWORD \
+           -F "file=@SOFTWARE_ARTEFACT1;type=application/zip;filename=payload" \
            -H 'In-Progress: true' \
-           -XPOST https://deposit.staging.swh.network/1/<collection>/
+           -XPOST https://deposit.staging.swh.network/1/COLLECTION/
 
   .. tab-item:: CLI
 
@@ -55,10 +61,10 @@ First partial deposit
       # 1) Note the '--partial' flag
       # 2) Note the `--create-origin` flag
       swh deposit upload \
-        --username <username> --password <password> \
+        --username USERNAME --password PASSWORD \
         --url https://deposit.staging.swh.network/1 \
-        --create-origin <origin> \
-        --archive <softwareartefact1> \
+        --create-origin ORIGIN_URL \
+        --archive SOFTWARE_ARTEFACT1 \
         --partial \
         --format json
 
@@ -73,7 +79,7 @@ Will return the following response:
       HTTP/1.1 201 Created
       Vary: Accept, Cookie
       Allow: GET, POST, PUT, DELETE, HEAD, OPTIONS
-      Location: /1/<collection>/<deposit_id>/metadata/
+      Location: /1/COLLECTION/DEPOSIT_ID/metadata/
       Content-Type: application/xml
 
       <entry xmlns="http://www.w3.org/2005/Atom"
@@ -82,20 +88,20 @@ Will return the following response:
             xmlns:swhdeposit="https://www.softwareheritage.org/schema/2018/deposit"
             >
           <!-- Note the deposit_id, we'll need it for the other partial deposit -->
-          <swhdeposit:deposit_id><deposit_id></swhdeposit:deposit_id>
+          <swhdeposit:deposit_id>DEPOSIT_ID</swhdeposit:deposit_id>
           <swhdeposit:deposit_date>Jan. 1, 2025, 09:00 a.m.</swhdeposit:deposit_date>
           <swhdeposit:deposit_archive>None</swhdeposit:deposit_archive>
           <!-- Note the 'partial' status -->
           <swhdeposit:deposit_status>partial</swhdeposit:deposit_status>
 
           <!-- Edit-IRI -->
-          <link rel="edit" href="/1/<collection>/<deposit_id>/metadata/" />
+          <link rel="edit" href="/1/COLLECTION/DEPOSIT_ID/metadata/" />
           <!-- EM-IRI -->
-          <link rel="edit-media" href="/1/<collection>/<deposit_id>/media/"/>
+          <link rel="edit-media" href="/1/COLLECTION/DEPOSIT_ID/media/"/>
           <!-- SE-IRI -->
-          <link rel="http://purl.org/net/sword/terms/add" href="/1/<collection>/<deposit_id>/metadata/" />
+          <link rel="http://purl.org/net/sword/terms/add" href="/1/COLLECTION/DEPOSIT_ID/metadata/" />
           <!-- State-IRI -->
-          <link rel="alternate" href="/1/<collection>/<deposit_id>/status/"/>
+          <link rel="alternate" href="/1/COLLECTION/DEPOSIT_ID/status/"/>
 
           <sword:packaging>http://purl.org/net/sword/package/SimpleZip</sword:packaging>
       </entry>
@@ -107,7 +113,7 @@ Will return the following response:
       {
         # Note the 'partial' status
         'deposit_status': 'partial',
-        'deposit_id': '<deposit_id>',
+        'deposit_id': 'DEPOSIT_ID',
         'deposit_date': 'Jan. 1, 2025, 09:00 a.m.',
         'deposit_status_detail': None
       }
@@ -116,7 +122,7 @@ Second partial deposit
 ~~~~~~~~~~~~~~~~~~~~~~
 
 Instead of creating a new deposit we'll update the previous one referenced by
-``<deposit_id>``. In our example, we're making this deposit in three steps, so we will
+``DEPOSIT_ID``. In our example, we're making this deposit in three steps, so we will
 indicate in our calls that this deposit is still ``partial``. The number of steps
 does not matter, the only important thing is to make all calls ``partial`` except the
 last one.
@@ -128,12 +134,12 @@ last one.
     .. code-block:: console
 
       # 1) Note the 'In-Progress: true' header
-      # 2) Note the '<deposit_id>' in the URL
+      # 2) Note the 'DEPOSIT_ID' in the URL
       # 3) Note the '/media/' in the URL (we're appending a new software artefact)
-      curl -i -u <username>:<password> \
-           -F "file=@<softwareartefact2>;type=application/zip;filename=payload" \
+      curl -i -u USERNAME:PASSWORD \
+           -F "file=@SOFTWARE_ARTEFACT2;type=application/zip;filename=payload" \
            -H 'In-Progress: true' \
-           -XPOST https://deposit.staging.swh.network/1/<collection>/<deposit_id>/media/
+           -XPOST https://deposit.staging.swh.network/1/COLLECTION/DEPOSIT_ID/media/
 
   .. tab-item:: CLI
 
@@ -143,10 +149,10 @@ last one.
       # 2) Note the `--deposit-id` argument
       # 3) Note the '--archive' argument as we're sending a new software artefact
       swh deposit upload \
-        --username <username> --password <password> \
+        --username USERNAME --password PASSWORD \
         --url https://deposit.staging.swh.network/1 \
-        --archive <softwareartefact2> \
-        --deposit-id <deposit_id> \
+        --archive SOFTWARE_ARTEFACT2 \
+        --deposit-id DEPOSIT_ID \
         --partial \
         --format json
 
@@ -165,12 +171,12 @@ will send include "not partial anymore" parameter in our call.
     .. code-block:: console
 
       # 1) Note the 'In-Progress: false' header
-      # 2) Note the '<deposit_id>' in the URL
+      # 2) Note the 'DEPOSIT_ID' in the URL
       # 3) Note the '/metadata/' in the URL (we're appending metadata not code)
-      curl -i -u <username>:<password> \
-           -F "atom=@<metadatafile>;type=application/atom+xml;charset=UTF-8" \
+      curl -i -u USERNAME:PASSWORD \
+           -F "atom=@METADATA_FILE;type=application/atom+xml;charset=UTF-8" \
            -H 'In-Progress: false' \
-           -XPOST https://deposit.staging.swh.network/1/<collection>/<deposit_id>/metadata/
+           -XPOST https://deposit.staging.swh.network/1/COLLECTION/DEPOSIT_ID/metadata/
 
   .. tab-item:: CLI
 
@@ -180,10 +186,10 @@ will send include "not partial anymore" parameter in our call.
       # 2) Note the `--deposit-id` argument
       # 3) Note the '--metadata' argument, as we're pushing metadata
       swh deposit upload \
-        --username <username> --password <password> \
+        --username USERNAME --password PASSWORD \
         --url https://deposit.staging.swh.network/1 \
-        --metadata <metadatafile> \
-        --deposit-id <deposit_id> \
+        --metadata METADATA_FILE \
+        --deposit-id DEPOSIT_ID \
         --not-partial \
         --format json
 
@@ -199,17 +205,17 @@ Your deposit will go :doc:`through multiple steps </references/workflow>` before
 
     .. code-block:: console
 
-      curl -i -u <username>:<password> \
-           -XGET https://deposit.staging.swh.network/1/<collection>/<deposit_id>/status/
+      curl -i -u USERNAME:PASSWORD \
+           -XGET https://deposit.staging.swh.network/1/COLLECTION/DEPOSIT_ID/status/
 
   .. tab-item:: CLI
 
     .. code-block:: console
 
       swh deposit status \
-        --username <username> --password <password> \
+        --username USERNAME --password PASSWORD \
         --url https://deposit.staging.swh.network/1 \
-        --deposit-id <deposit_id> \
+        --deposit-id DEPOSIT_ID \
         --format json
 
 Will return the following response:
@@ -218,24 +224,18 @@ Will return the following response:
 
   .. tab-item:: API
 
-    .. code-block:: http
-
-      HTTP/1.1 200 OK
-      Vary: Accept, Cookie
-      Allow: GET, POST, PUT, DELETE, HEAD, OPTIONS
-      Location: /1/<collection>/<deposit_id>/status/
-      Content-Type: application/xml
+    .. code-block:: xml
 
       <entry xmlns="http://www.w3.org/2005/Atom"
             xmlns:sword="http://purl.org/net/sword/"
             xmlns:dcterms="http://purl.org/dc/terms/"
             xmlns:swhdeposit="https://www.softwareheritage.org/schema/2018/deposit"
             >
-          <swhdeposit:deposit_id><deposit_id></swhdeposit:deposit_id>
+          <swhdeposit:deposit_id>DEPOSIT_ID</swhdeposit:deposit_id>
           <swhdeposit:deposit_status>done</swhdeposit:deposit_status>
           <swhdeposit:deposit_status_detail>The deposit has been successfully loaded into the Software Heritage archive</swhdeposit:deposit_status_detail>
-          <swhdeposit:deposit_swh_id>swh:1:dir:d83b7dda887dc790f7207608474650d4344b8df9</swhdeposit:deposit_swh_id>
-          <swhdeposit:deposit_swh_id_context>swh:1:dir:d83b7dda887dc790f7207608474650d4344b8df9;origin=<origin>;visit=swh:1:snp:68c0d26104d47e278dd6be07ed61fafb561d0d20;anchor=swh:1:rev:e76ea49c9ffbb7f73611087ba6e999b19e5d71eb;path=/</swhdeposit:deposit_swh_id>
+          <swhdeposit:deposit_swh_id>SWHID</swhdeposit:deposit_swh_id>
+          <swhdeposit:deposit_swh_id_context>SWHID_CONTEXT</swhdeposit:deposit_swh_id>
       </entry>
 
   .. tab-item:: CLI
@@ -243,14 +243,14 @@ Will return the following response:
     .. code-block:: json
 
       {
-        "deposit_id": <deposit_id>,
+        "deposit_id": DEPOSIT_ID,
         "deposit_status": "done",
-        "deposit_swh_id": "swh:1:dir:d83b7dda887dc790f7207608474650d4344b8df9",
-        "deposit_swh_id_context": "swh:1:dir:d83b7dda887dc790f7207608474650d4344b8df9;origin=<origin>;visit=swh:1:snp:68c0d26104d47e278dd6be07ed61fafb561d0d20;anchor=swh:1:rev:e76ea49c9ffbb7f73611087ba6e999b19e5d71eb;path=/",
+        "deposit_swh_id": SWHID,
+        "deposit_swh_id_context": SWHID_CONTEXT,
         "deposit_status_detail": "The deposit has been successfully loaded into the Software Heritage archive"
       }
 
-A `deposited` status means the deposit is complete but still needs to be checked to
+A ``deposited`` status means the deposit is complete but still needs to be checked to
 ensure data consistency. You can check your deposit status to follow the process.
 
 Check a deposit status
@@ -264,17 +264,17 @@ Your deposit will go :doc:`through multiple steps </references/workflow>` before
 
     .. code-block:: console
 
-      curl -i -u <username>:<password> \
-           -XGET https://deposit.staging.swh.network/1/<collection>/<deposit_id>/status/
+      curl -i -u USERNAME:PASSWORD \
+           -XGET https://deposit.staging.swh.network/1/COLLECTION/DEPOSIT_ID/status/
 
   .. tab-item:: CLI
 
     .. code-block:: console
 
       swh deposit status \
-        --username <username> --password <password> \
+        --username USERNAME --password PASSWORD \
         --url https://deposit.staging.swh.network/1 \
-        --deposit-id <deposit_id> \
+        --deposit-id DEPOSIT_ID \
         --format json
 
 Will return the following response:
@@ -283,24 +283,18 @@ Will return the following response:
 
   .. tab-item:: API
 
-    .. code-block:: http
-
-      HTTP/1.1 200 OK
-      Vary: Accept, Cookie
-      Allow: GET, POST, PUT, DELETE, HEAD, OPTIONS
-      Location: /1/<collection>/<deposit_id>/status/
-      Content-Type: application/xml
+    .. code-block:: xml
 
       <entry xmlns="http://www.w3.org/2005/Atom"
             xmlns:sword="http://purl.org/net/sword/"
             xmlns:dcterms="http://purl.org/dc/terms/"
             xmlns:swhdeposit="https://www.softwareheritage.org/schema/2018/deposit"
             >
-          <swhdeposit:deposit_id><deposit_id></swhdeposit:deposit_id>
+          <swhdeposit:deposit_id>DEPOSIT_ID</swhdeposit:deposit_id>
           <swhdeposit:deposit_status>done</swhdeposit:deposit_status>
           <swhdeposit:deposit_status_detail>The deposit has been successfully loaded into the Software Heritage archive</swhdeposit:deposit_status_detail>
-          <swhdeposit:deposit_swh_id>swh:1:dir:d83b7dda887dc790f7207608474650d4344b8df9</swhdeposit:deposit_swh_id>
-          <swhdeposit:deposit_swh_id_context>swh:1:dir:d83b7dda887dc790f7207608474650d4344b8df9;origin=<origin>;visit=swh:1:snp:68c0d26104d47e278dd6be07ed61fafb561d0d20;anchor=swh:1:rev:e76ea49c9ffbb7f73611087ba6e999b19e5d71eb;path=/</swhdeposit:deposit_swh_id>
+          <swhdeposit:deposit_swh_id>SWHID</swhdeposit:deposit_swh_id>
+          <swhdeposit:deposit_swh_id_context>SWHID_CONTEXT</swhdeposit:deposit_swh_id>
       </entry>
 
   .. tab-item:: CLI
@@ -308,11 +302,22 @@ Will return the following response:
     .. code-block:: json
 
       {
-        "deposit_id": <deposit_id>,
+        "deposit_id": DEPOSIT_ID,
         "deposit_status": "done",
-        "deposit_swh_id": "swh:1:dir:d83b7dda887dc790f7207608474650d4344b8df9",
-        "deposit_swh_id_context": "swh:1:dir:d83b7dda887dc790f7207608474650d4344b8df9;origin=<origin>;visit=swh:1:snp:68c0d26104d47e278dd6be07ed61fafb561d0d20;anchor=swh:1:rev:e76ea49c9ffbb7f73611087ba6e999b19e5d71eb;path=/",
+        "deposit_swh_id": SWHID,
+        "deposit_swh_id_context": SWHID_CONTEXT,
         "deposit_status_detail": "The deposit has been successfully loaded into the Software Heritage archive"
       }
 
+A ``done`` status means the deposit is now integrated in the archive, so you can
+access ``https://deposit.staging.swh.network/SWHID``,
+``https://deposit.staging.swh.network/SWHID_CONTEXT``, or
+``https://deposit.staging.swh.network/browse/origin/?origin_url=ORIGIN_URL`` to view
+the result of it.
 
+What's next ?
+-------------
+
+Now that you've made your first deposit you might want to
+:ref:`integrate it in your website <deposit-integrations>` or
+:ref:`push another version of the software <deposit-version>`.
