@@ -3,27 +3,55 @@
 Prepare your metadata and artifacts
 ===================================
 
+A deposit is constituted of a metadata file and optionally one or more software
+artefacts.
+
+
 The metadata file
 -----------------
 
-The most important part of a deposit process is the metadata TODO
+This is the most important part of a deposit process, it
 
+- holds extrinsic information about a software artefact or another object in the archive
+- indicates what
 
 XML
 ~~~
+
+As we're using the SWORD v2 protocol to handle the deposits the format we used for the
+metadata file is XML. Used namespaces:
+
+- `atom <http://www.w3.org/2005/Atom>` (required)
+- `Software Heritage deposit <https://www.softwareheritage.org/schema/2018/deposit>`
+  (required)
+- `CodeMeta <https://doi.org/10.5063/SCHEMA/CODEMETA-2.0>` (recommended)
+- `schema <http://schema.org/>` (optional)
+-
 .. code-block:: xml
+
    <?xml version="1.0" encoding="utf-8"?>
    <entry xmlns="http://www.w3.org/2005/Atom"
-          xmlns:codemeta="https://doi.org/10.5063/SCHEMA/CODEMETA-2.0" xmlns:schema="http://schema.org/"
-          xmlns:swh="https://www.softwareheritage.org/schema/2018/deposit">
+          xmlns:codemeta="https://doi.org/10.5063/SCHEMA/CODEMETA-2.0"
+          xmlns:swh="https://www.softwareheritage.org/schema/2018/deposit"
+          xmlns:schema="http://schema.org/">
+      <!-- metadata -->
    </entry>
+
 
 swh:deposit
 ~~~~~~~~~~~
 
+This namespace is specific to our implementation of the SWORD v2 protocol, it's used
+to describe what kind of deposit the you are doing:
+
+- a first code deposit for an ``ORIGIN_URL`` not yet archived by SWH
+- a new code deposit (i.e. another version of the software) for an existing
+  ``ORIGIN_URL``
+- a metadata-only deposit for a ``SWHID`` or an ``ORIGIN_URL``
+
 .. tab-set::
 
-  .. tab-item:: Initial deposit
+  .. tab-item:: Initial code deposit ``create_origin``
 
     .. code-block:: xml
 
@@ -33,7 +61,7 @@ swh:deposit
          </swh:create_origin>
       </swh:deposit>
 
-  .. tab-item:: New version deposit
+  .. tab-item:: New version code deposit ``add_to_origin``
 
     .. code-block:: xml
 
@@ -43,59 +71,65 @@ swh:deposit
          </swh:add_to_origin>
       </swh:deposit>
 
-  .. tab-item:: Metadata-only deposit
+  .. tab-item:: Metadata-only deposit ``reference``
 
     .. code-block:: xml
 
       <swh:deposit>
          <swh:reference>
-            <swh:object swhid=SWHID_CONTEXT/>
+            <swh:object swhid="SWHID_CONTEXT" />
+            <!-- or -->
+            <swh:object swhid="SWHID" />
+            <!-- or -->
+            <swh:origin url="ORIGIN_URL" />
          </swh:reference>
          <swh:metadata-provenance>
-            <schema:url>ORIGIN_URL</schema:url>
+            <schema:url>an optional metadata provenance URL</schema:url>
          </swh:metadata-provenance>
       </swh:deposit>
 
 
-Codemeta
+CodeMeta
 ~~~~~~~~
 
-Please read the :ref:`deposit-metadata` page for a more detailed view on the
-metadata file formats and semantics; and :ref:`deposit-create_origin` for
-a description of the ``<swh:create_origin>`` tag.
+We're using `CodeMeta <https://codemeta.github.io/>` terms to describe the metadata.
 
 .. code-block:: xml
 
-   <id>belenios-01243065</id>
+   <codemeta:name>A required name</codemeta:name>
    <codemeta:url>ORIGIN_URL</codemeta:url>
    <codemeta:applicationCategory>test</codemeta:applicationCategory>
-   <codemeta:keywords>Online voting</codemeta:keywords>
-   <codemeta:description>Verifiable online voting system</codemeta:description>
+   <codemeta:keywords>Some keywords, separated, by, commas</codemeta:keywords>
+   <codemeta:description>An optional description.</codemeta:description>
    <codemeta:version>1.12</codemeta:version>
-   <codemeta:runtimePlatform>opam</codemeta:runtimePlatform>
    <codemeta:developmentStatus>stable</codemeta:developmentStatus>
    <codemeta:programmingLanguage>ocaml</codemeta:programmingLanguage>
    <codemeta:license>
       <codemeta:name>GNU Affero General Public License</codemeta:name>
    </codemeta:license>
    <author>
-      <name>Belenios</name>
-      <email>belenios@example.com</email>
+      <name>Margaret Hamilton</name>
+      <email>email@example.com</email>
    </author>
    <codemeta:author>
-      <codemeta:name>Belenios Test User</codemeta:name>
+      <codemeta:name>Hedy Lamarr</codemeta:name>
    </codemeta:author>
 
+Please read the :ref:`deposit-metadata` page for a more detailed view on the
+semantics and requirements.
 
 Wrapping all the parts together
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Here's an example of a full metadata file for a metadata-only deposit.
+Here's an example of a full metadata file for a metadata-only deposit:
 
 .. code-block:: xml
 
    <?xml version="1.0" encoding="utf-8"?>
-   <entry xmlns="http://www.w3.org/2005/Atom" xmlns:codemeta="https://doi.org/10.5063/SCHEMA/CODEMETA-2.0" xmlns:schema="http://schema.org/" xmlns:swh="https://www.softwareheritage.org/schema/2018/deposit">
+   <entry xmlns="http://www.w3.org/2005/Atom"
+          xmlns:codemeta="https://doi.org/10.5063/SCHEMA/CODEMETA-2.0"
+          xmlns:schema="http://schema.org/"
+          xmlns:swh="https://www.softwareheritage.org/schema/2018/deposit">
       <id>hal-04083347</id>
       <swh:deposit>
          <swh:reference>
@@ -177,6 +211,13 @@ Here's an example of a full metadata file for a metadata-only deposit.
 Software artefact
 -----------------
 
+.. admonition:: File size limit
+   :class: warning
+
+   Our server will reject files larger than 100MB, if your artefact is larger than that
+   you will have to split it in multiple files then follow the "multi-step deposit"
+   process.
+
 First you'll need to prepare your code artefact by packaging the files in a supported
 archive format:
 
@@ -184,10 +225,4 @@ archive format:
   - tar: tar archive without compression or optionally any of the
          following compression algorithm gzip (``.tar.gz``, ``.tgz``), bzip2
          (``.tar.bz2``) , or lzma (``.tar.lzma``)
-
-.. admonition:: File size limit
-   :class: warning
-
-   Our server will reject files larger than 100MB, if your artefact is larger than that
-   please split it in multiple files then follow the "multi-step deposit" process
 

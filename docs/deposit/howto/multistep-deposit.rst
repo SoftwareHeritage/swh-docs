@@ -76,12 +76,6 @@ Will return the following response:
 
     .. code-block:: http
 
-      HTTP/1.1 201 Created
-      Vary: Accept, Cookie
-      Allow: GET, POST, PUT, DELETE, HEAD, OPTIONS
-      Location: /1/COLLECTION/DEPOSIT_ID/metadata/
-      Content-Type: application/xml
-
       <entry xmlns="http://www.w3.org/2005/Atom"
             xmlns:sword="http://purl.org/net/sword/"
             xmlns:dcterms="http://purl.org/dc/terms/"
