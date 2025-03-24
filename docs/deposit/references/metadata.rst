@@ -1,30 +1,38 @@
 .. _deposit-metadata-requirements:
 
-Metadata
-========
+Metadata reference
+==================
 
 
-Intrinsic metadata
+Recognized properties for CodeMeta SoftwareSourceCode and SoftwareApplication includes the following terms from https://schema.org. These terms are part of the CodeMeta specification and can be used without any prefix, we are keeping the prefix here for
+clarity.
+
+Required fields
+---------------
+
+.. list-table:: Required fields
+   :header-rows: 1
+
+   * - Name
+     - Description
+   * - codemeta:name
+     - The name of this software (possible alternative: ``atom:title``)
+   * - codemeta:author
+     - The author of this software (possible alternative: ``atom:author``)
+
+Recommended fields
 ------------------
 
+.. list-table:: Recommended fields
+   :header-rows: 1
+
+   * - Name
+     - Description
+   * - codemeta:version
+     - The version...
 
 
+Full reference
+--------------
 
-
-
-Extrinsic metadata
--------------------
-
-
-- It is composed of ONLY one Atom XML document
-- It MUST comply with :ref:`the metadata requirements <deposit-metadata-requirements>`
-- It MUST reference a object or an origin URL
-- The reference SHOULD exist in the SWH archive
-- The object reference MUST be a SWHID on one of the following artifact types:
-  ``origin``, ``snapshot``, ``release``, ``revision``, ``directory``, ``content``
-- The SWHID MAY be a :ref:`core identifier <swhids-core>` with or without
-  :ref:`qualifiers <swhids-qualifiers>`
-- The SWHID MUST NOT reference a fragment of code with the classifier lines
-
-
-extrinsic-metadata-specification
+See CodeMeta
