@@ -49,13 +49,12 @@ Send the artefact and the metadata
       swh deposit upload \
         --username USERNAME --password PASSWORD \
         --url https://deposit.staging.swh.network/1 \
-        --create-origin ORIGIN_URL \
         --archive SOFTWARE_ARTEFACT \
         --metadata METADATA_FILE \
         --no-partial \
         --format json
 
-Will return the following response:
+Will return the following response (note the ``deposited`` status):
 
 .. tab-set::
 
@@ -71,7 +70,6 @@ Will return the following response:
           <swhdeposit:deposit_id>DEPOSIT_ID</swhdeposit:deposit_id>
           <swhdeposit:deposit_date>Jan. 1, 2025, 09:00 a.m.</swhdeposit:deposit_date>
           <swhdeposit:deposit_archive>None</swhdeposit:deposit_archive>
-          <!-- Note the 'deposited' status -->
           <swhdeposit:deposit_status>deposited</swhdeposit:deposit_status>
 
           <!-- Edit-IRI -->
@@ -91,11 +89,10 @@ Will return the following response:
     .. code-block:: json
 
       {
-        # Note the 'deposited' status
-        'deposit_status': 'deposited',
-        'deposit_id': 'DEPOSIT_ID',
-        'deposit_date': 'Jan. 1, 2025, 09:00 a.m.',
-        'deposit_status_detail': None
+        "deposit_status": "deposited",
+        "deposit_id": "DEPOSIT_ID",
+        "deposit_date": "Jan. 1, 2025, 09:00 a.m.",
+        "deposit_status_detail": None
       }
 
 A ``deposited`` status means the deposit is complete but still needs to be checked to
@@ -142,8 +139,8 @@ Will return the following response:
           <swhdeposit:deposit_id>DEPOSIT_ID</swhdeposit:deposit_id>
           <swhdeposit:deposit_status>done</swhdeposit:deposit_status>
           <swhdeposit:deposit_status_detail>The deposit has been successfully loaded into the Software Heritage archive</swhdeposit:deposit_status_detail>
-          <swhdeposit:deposit_swh_id>swh:1:dir:d83b7dda887dc790f7207608474650d4344b8df9</swhdeposit:deposit_swh_id>
-          <swhdeposit:deposit_swh_id_context>swh:1:dir:d83b7dda887dc790f7207608474650d4344b8df9;origin=ORIGIN_URL;visit=swh:1:snp:68c0d26104d47e278dd6be07ed61fafb561d0d20;anchor=swh:1:rev:e76ea49c9ffbb7f73611087ba6e999b19e5d71eb;path=/</swhdeposit:deposit_swh_id>
+          <swhdeposit:deposit_swh_id>SWHID</swhdeposit:deposit_swh_id>
+          <swhdeposit:deposit_swh_id_context>SWHID_CONTEXT</swhdeposit:deposit_swh_id>
       </entry>
 
   .. tab-item:: CLI

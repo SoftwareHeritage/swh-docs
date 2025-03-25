@@ -47,30 +47,18 @@ Will return the following response:
 
   .. tab-item:: API
 
-    .. code-block:: http
+    .. code-block:: xml
 
       <entry xmlns="http://www.w3.org/2005/Atom"
             xmlns:sword="http://purl.org/net/sword/"
             xmlns:dcterms="http://purl.org/dc/terms/"
             xmlns:swhdeposit="https://www.softwareheritage.org/schema/2018/deposit"
             >
-          <!-- Note the deposit_id, we'll need it for the other partial deposit -->
           <swhdeposit:deposit_id>DEPOSIT_ID</swhdeposit:deposit_id>
-          <swhdeposit:deposit_date>Jan. 1, 2025, 09:00 a.m.</swhdeposit:deposit_date>
-          <swhdeposit:deposit_archive>None</swhdeposit:deposit_archive>
-          <!-- Note the 'partial' status -->
-          <swhdeposit:deposit_status>partial</swhdeposit:deposit_status>
-
-          <!-- Edit-IRI -->
-          <link rel="edit" href="/1/COLLECTION/DEPOSIT_ID/metadata/" />
-          <!-- EM-IRI -->
-          <link rel="edit-media" href="/1/COLLECTION/DEPOSIT_ID/media/"/>
-          <!-- SE-IRI -->
-          <link rel="http://purl.org/net/sword/terms/add" href="/1/COLLECTION/DEPOSIT_ID/metadata/" />
-          <!-- State-IRI -->
-          <link rel="alternate" href="/1/COLLECTION/DEPOSIT_ID/status/"/>
-
-          <sword:packaging>http://purl.org/net/sword/package/SimpleZip</sword:packaging>
+          <swhdeposit:deposit_status>done</swhdeposit:deposit_status>
+          <swhdeposit:deposit_status_detail>The deposit has been successfully loaded into the Software Heritage archive</swhdeposit:deposit_status_detail>
+          <swhdeposit:deposit_swh_id>SWHID</swhdeposit:deposit_swh_id>
+          <swhdeposit:deposit_swh_id_context>SWHID_CONTEXT</swhdeposit:deposit_swh_id>
       </entry>
 
   .. tab-item:: CLI
@@ -78,9 +66,11 @@ Will return the following response:
     .. code-block:: json
 
       {
-        # Note the 'partial' status
-        'deposit_status': 'partial',
-        'deposit_id': 'DEPOSIT_ID',
-        'deposit_date': 'Jan. 1, 2025, 09:00 a.m.',
-        'deposit_status_detail': None
+        "deposit_id": DEPOSIT_ID,
+        "deposit_status": "done",
+        "deposit_swh_id": "SWHID",
+        "deposit_swh_id_context": "SWHID_CONTEXT",
+        "deposit_status_detail": "The deposit has been successfully loaded into the Software Heritage archive"
       }
+
+A ``done`` status means the metadata-only deposit is now integrated in the archive.

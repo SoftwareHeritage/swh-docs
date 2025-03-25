@@ -49,6 +49,7 @@ First partial deposit
     .. code-block:: console
 
       # Note the 'In-Progress: true' header
+      # Make sure the mimetype matches your file, here SOFTWARE_ARTEFACT1 is a zip
       curl -i -u USERNAME:PASSWORD \
            -F "file=@SOFTWARE_ARTEFACT1;type=application/zip;filename=payload" \
            -H 'In-Progress: true' \
@@ -63,12 +64,12 @@ First partial deposit
       swh deposit upload \
         --username USERNAME --password PASSWORD \
         --url https://deposit.staging.swh.network/1 \
-        --create-origin ORIGIN_URL \
         --archive SOFTWARE_ARTEFACT1 \
         --partial \
         --format json
 
-Will return the following response:
+Will return the following response (note the ``partial`` status and the ``deposit_id``
+value):
 
 .. tab-set::
 
@@ -81,11 +82,9 @@ Will return the following response:
             xmlns:dcterms="http://purl.org/dc/terms/"
             xmlns:swhdeposit="https://www.softwareheritage.org/schema/2018/deposit"
             >
-          <!-- Note the deposit_id, we'll need it for the other partial deposit -->
           <swhdeposit:deposit_id>DEPOSIT_ID</swhdeposit:deposit_id>
           <swhdeposit:deposit_date>Jan. 1, 2025, 09:00 a.m.</swhdeposit:deposit_date>
           <swhdeposit:deposit_archive>None</swhdeposit:deposit_archive>
-          <!-- Note the 'partial' status -->
           <swhdeposit:deposit_status>partial</swhdeposit:deposit_status>
 
           <!-- Edit-IRI -->
@@ -105,11 +104,10 @@ Will return the following response:
     .. code-block:: json
 
       {
-        # Note the 'partial' status
-        'deposit_status': 'partial',
-        'deposit_id': 'DEPOSIT_ID',
-        'deposit_date': 'Jan. 1, 2025, 09:00 a.m.',
-        'deposit_status_detail': None
+        "deposit_status": "partial",
+        "deposit_id": "DEPOSIT_ID",
+        "deposit_date": "Jan. 1, 2025, 09:00 a.m.",
+        "deposit_status_detail": None
       }
 
 Second partial deposit
@@ -130,8 +128,10 @@ last one.
       # 1) Note the 'In-Progress: true' header
       # 2) Note the 'DEPOSIT_ID' in the URL
       # 3) Note the '/media/' in the URL (we're appending a new software artefact)
+      # 4) Make sure the mimetype matches your file, here SOFTWARE_ARTEFACT2 is a
+      # tarball
       curl -i -u USERNAME:PASSWORD \
-           -F "file=@SOFTWARE_ARTEFACT2;type=application/zip;filename=payload" \
+           -F "file=@SOFTWARE_ARTEFACT2;type=application/x-tar;filename=payload" \
            -H 'In-Progress: true' \
            -XPOST https://deposit.staging.swh.network/1/COLLECTION/DEPOSIT_ID/media/
 
@@ -247,31 +247,7 @@ Will return the following response:
 A ``deposited`` status means the deposit is complete but still needs to be checked to
 ensure data consistency. You can check your deposit status to follow the process.
 
-Check a deposit status
-----------------------
-
-Your deposit will go :doc:`through multiple steps </references/workflow>` before appearing in the archive, you can check the status of your deposit and get its SWHID:
-
-.. tab-set::
-
-  .. tab-item:: API
-
-    .. code-block:: console
-
-      curl -i -u USERNAME:PASSWORD \
-           -XGET https://deposit.staging.swh.network/1/COLLECTION/DEPOSIT_ID/status/
-
-  .. tab-item:: CLI
-
-    .. code-block:: console
-
-      swh deposit status \
-        --username USERNAME --password PASSWORD \
-        --url https://deposit.staging.swh.network/1 \
-        --deposit-id DEPOSIT_ID \
-        --format json
-
-Will return the following response:
+Repeat the same calls until the status changes:
 
 .. tab-set::
 
