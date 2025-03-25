@@ -16,9 +16,9 @@ explanations of the error messages and possible remediation.
 This status code is returned when something went wrong with the credentials you used
 or the way you used them.
 
-- The API is protected through basic authentication, thus API calls requires username
+- the API is protected through basic authentication, thus API calls requires username
   and password sent in the Authorization header
-- Make sure the credentials you used match the environment you are targeting (staging
+- make sure the credentials you used match the environment you are targeting (staging
   or production)
 
 404 Not Found
@@ -26,7 +26,7 @@ or the way you used them.
 
 This status code is returned when the resource you're trying to reach is not found.
 
-- Double check the ``<deposit_id>``, ``<collection>`` name or path name in the URL are
+- double check that the ``DEPOSIT_ID``, ``COLLECTION`` name or path name in the URL are
   valid
 
 403 Forbidden
@@ -35,4 +35,24 @@ This status code is returned when the resource you're trying to reach is not fou
 This status code is returned when the resource you're trying to reach exists and you
 are properly authenticated but not allowed to access it.
 
-- Double check the ``<deposit_id>``, ``<collection>`` name match your deposits
+- double check that the ``DEPOSIT_ID`` and ``COLLECTION`` name match your deposits
+
+413 Request Entity Too Large
+----------------------------
+
+Your software artefact is too large for the server.
+
+- refer to the `prepare your deposit <deposit-prepare>` section to find the max size
+  supported by the server
+- split the artefact in multiple parts and follow the
+- :ref:`make a multi-step deposit <deposit-partial>` process
+
+415 Unsupported Media Type
+--------------------------
+
+This status code is returned when a wrong media type is provided when uploading the
+code artefact.
+
+- check the ``type=application/XXX`` header matches your file format
+- refer to the `prepare your deposit <deposit-prepare>` section to find what kind of
+  file formats are supported
