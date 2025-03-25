@@ -29,13 +29,18 @@ The differences between a deposit and simply asking SWH to archive a repository 
 - it is possible to make a metadata only deposit only about an artefact already
   present in the Software Heritage archive.
 
+Deposits are made using `SWORD v2`_, an interoperability standard for depositing
+content into repositories.
+
+.. _SWORD v2: https://sword.cottagelabs.com/previous-versions-of-sword/sword-v2/
+
 Metadata?
 ---------
 
 The metadata of a software artefact is the real added value of the deposit service, it
-allows a partner to provide extra information on a source code (details about the
+allows a partner to provide extrinsic information on a source code (details about the
 author and its affiliation, external ids, mention in a scientific publication, etc.)
-which are usually not present in the code itself.
+which are usually not present in the code itself (intrinsic metadata).
 
 Metadata is indexed by our search engine and provide new ways of finding content in the
 archive.
@@ -51,10 +56,9 @@ Source code is fragile; it can disappear.
 Scholarly repositories
 ~~~~~~~~~~~~~~~~~~~~~~
 
-You know software source code has an
-essential role in research and should be archived properly, alongside data and
-publications. Software that was built for research as part of the open science
-ecosystem should be archived, referenced, described and cited.
+You know software source code has an essential role in research and should be archived
+properly, alongside data and publications. Software that was built for research as part
+of the open science ecosystem should be archived, referenced, described and cited.
 
 When depositing in Software Heritage you can describe a software artifact properly with specific metadata properties and it will be safely saved in the universal software archive.
 
