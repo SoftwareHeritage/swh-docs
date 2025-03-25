@@ -6,7 +6,6 @@ Prepare your metadata and artifacts
 A deposit is constituted of a metadata file and optionally one or more software
 artefacts.
 
-
 The metadata file
 -----------------
 
@@ -42,14 +41,9 @@ swh:deposit
 This namespace is specific to our implementation of the SWORD v2 protocol, it's used
 to describe what kind of deposit the you are doing:
 
-- a first code deposit for an ``ORIGIN_URL`` not yet archived by SWH
-- a new code deposit (i.e. another version of the software) for an existing
-  ``ORIGIN_URL``
-- a metadata-only deposit for a ``SWHID`` or an ``ORIGIN_URL``
-
 .. tab-set::
 
-  .. tab-item:: Initial code deposit ``create_origin``
+  .. tab-item:: Initial deposit
 
     .. code-block:: xml
 
@@ -59,7 +53,7 @@ to describe what kind of deposit the you are doing:
          </swh:create_origin>
       </swh:deposit>
 
-  .. tab-item:: New version code deposit ``add_to_origin``
+  .. tab-item:: New version deposit
 
     .. code-block:: xml
 
@@ -69,7 +63,7 @@ to describe what kind of deposit the you are doing:
          </swh:add_to_origin>
       </swh:deposit>
 
-  .. tab-item:: Metadata-only deposit ``reference``
+  .. tab-item:: Metadata-only deposit
 
     .. code-block:: xml
 
