@@ -221,9 +221,8 @@ Save a code repository
 Deposit artefacts and/or metadata
 ---------------------------------
 
-The deposit service allows a client (a repository, e.g. HAL) to submit software
-source archives and its associated metadata to the Software Heritage archive.
-Metadata can be also submitted referencing a repository url (origin) or a
+The deposit service allows a trusted partner to submit software source archives and its
+associated metadata to the Software Heritage archive. Metadata can be also submitted referencing a repository url (origin) or a
 :ref:`SWHIDs <persistent-identifiers>`.
 
 :ref:`Discover the deposit process <swh-docs-deposit>`
@@ -240,17 +239,6 @@ Save a forge in 2 steps :
 
 :ref:`Technical insight on the “Add forge now” process <save-forge>`
 
-Save code used for science
---------------------------
-
-Save a software using ELife, Ipol, HAL. Your content are directly pushed
-into the archive by trusted partners using the deposit service of
-Software Heritage:
-
--  `Deposit software using the HAL
-   portal <https://www.softwareheritage.org/2018/09/28/depositing-scientific-software-into-software-heritage/>`__
--  `Video tutorial on source code deposit using
-   Hal <https://www.youtube.com/watch?v=-Ggn98sR3Eg&list=PLD2VqrZz2-u3bOWtoCoBIh5Flt6iYXsq3>`__
 
 Save legacy source code
 -----------------------
