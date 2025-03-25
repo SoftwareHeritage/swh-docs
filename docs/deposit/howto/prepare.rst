@@ -15,18 +15,18 @@ This is the most important part of a deposit process, it
 - holds extrinsic information about a software artefact or another object in the archive
 - TODO
 
-XML
-~~~
+XML Entry
+~~~~~~~~~
 
 As we're using the SWORD v2 standard to handle the deposits the format we used for the
 metadata file is XML. Used namespaces:
 
-- `atom <http://www.w3.org/2005/Atom>` (required)
-- `Software Heritage deposit <https://www.softwareheritage.org/schema/2018/deposit>`
+- `atom <http://www.w3.org/2005/Atom>`_ (required)
+- `Software Heritage deposit <https://www.softwareheritage.org/schema/2018/deposit>`_
   (required)
-- `CodeMeta <https://doi.org/10.5063/SCHEMA/CODEMETA-2.0>` (recommended)
-- `schema <http://schema.org/>` (optional)
--
+- `CodeMeta <https://doi.org/10.5063/SCHEMA/CODEMETA-2.0>`_ (recommended)
+- `schema <http://schema.org/>`_ (optional)
+
 .. code-block:: xml
 
    <?xml version="1.0" encoding="utf-8"?>

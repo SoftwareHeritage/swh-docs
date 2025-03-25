@@ -123,7 +123,7 @@ here for clarity.
      - The license(s) of the software
 
 
-See the `full CodeMeta terms list <https://codemeta.github.io/terms/>` for a complete
+See the `full CodeMeta terms list <https://codemeta.github.io/terms/>`_ for a complete
 reference of the available properties.
 
 .. _JSON-LD compact representation: https://www.w3.org/TR/json-ld11/#compacted-document-form
