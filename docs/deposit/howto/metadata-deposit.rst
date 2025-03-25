@@ -22,9 +22,11 @@ Make a metadata deposit
 
   .. tab-item:: API
 
+    Note the ``In-Progress: false`` header as metadata-only deposits can only be done
+    in one-shot.
+
     .. code-block:: console
 
-      # Note the 'In-Progress: false' header, metadata-only deposits can't be partial
       curl -i -u <username>:<pass> \
            -F "atom=@<metadatafile>;type=application/atom+xml;charset=UTF-8" \
            -H 'In-Progress: false' \
@@ -66,7 +68,7 @@ Will return the following response:
     .. code-block:: json
 
       {
-        "deposit_id": DEPOSIT_ID,
+        "deposit_id": "DEPOSIT_ID",
         "deposit_status": "done",
         "deposit_swh_id": "SWHID",
         "deposit_swh_id_context": "SWHID_CONTEXT",

@@ -1,3 +1,5 @@
+.. _deposit-workflow:
+
 Internal Workflows
 ==================
 

@@ -31,10 +31,11 @@ Send the artefact and the metadata
 
   .. tab-item:: API
 
+    Note the ``In-Progress: false`` header. Also make sure the mimetype matches your
+    file, here ``SOFTWARE_ARTEFACT`` is a zip archive.
+
     .. code-block:: console
 
-      # 1) Note the 'In-Progress: false' header
-      # 2) Make sure the mimetype matches your file, here SOFTWARE_ARTEFACT is a zip
       curl -i -u USERNAME:PASSWORD \
            -F "file=@SOFTWARE_ARTEFACT;type=application/zip;filename=payload" \
            -F "atom=@METADATA_FILE;type=application/atom+xml;charset=UTF-8" \
@@ -43,9 +44,10 @@ Send the artefact and the metadata
 
   .. tab-item:: CLI
 
+    Note the '--no-partial' flag.
+
     .. code-block:: console
 
-      # 1) Note the 'no-partial' flag
       swh deposit upload \
         --username USERNAME --password PASSWORD \
         --url https://deposit.staging.swh.network/1 \
@@ -92,7 +94,7 @@ Will return the following response (note the ``deposited`` status):
         "deposit_status": "deposited",
         "deposit_id": "DEPOSIT_ID",
         "deposit_date": "Jan. 1, 2025, 09:00 a.m.",
-        "deposit_status_detail": None
+        "deposit_status_detail": null
       }
 
 A ``deposited`` status means the deposit is complete but still needs to be checked to
@@ -102,7 +104,7 @@ deposit status to follow the process.
 Check a deposit status and get its SWHID
 ----------------------------------------
 
-Your deposit will go :doc:`through multiple steps </references/workflow>` before appearing in the archive, you can check the status of your deposit and get its SWHID:
+Your deposit will go :ref:`through multiple steps <deposit-workflow>` before appearing in the archive, you can check the status of your deposit and get its SWHID:
 
 .. tab-set::
 
@@ -148,7 +150,7 @@ Will return the following response:
     .. code-block:: json
 
       {
-        "deposit_id": DEPOSIT_ID,
+        "deposit_id": "DEPOSIT_ID",
         "deposit_status": "done",
         "deposit_swh_id": "SWHID",
         "deposit_swh_id_context": "SWHID_CONTEXT",

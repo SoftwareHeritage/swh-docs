@@ -51,8 +51,6 @@ To understand why metadata is so important to us read
 Is it useful for me?
 --------------------
 
-Source code is fragile; it can disappear.
-
 Scholarly repositories
 ~~~~~~~~~~~~~~~~~~~~~~
 

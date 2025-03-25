@@ -46,10 +46,11 @@ First partial deposit
 
   .. tab-item:: API
 
+    Note the ``In-Progress: true`` header. Also make sure the mimetype matches your
+    file, here ``SOFTWARE_ARTEFACT1`` is a zip archive.
+
     .. code-block:: console
 
-      # Note the 'In-Progress: true' header
-      # Make sure the mimetype matches your file, here SOFTWARE_ARTEFACT1 is a zip
       curl -i -u USERNAME:PASSWORD \
            -F "file=@SOFTWARE_ARTEFACT1;type=application/zip;filename=payload" \
            -H 'In-Progress: true' \
@@ -57,10 +58,11 @@ First partial deposit
 
   .. tab-item:: CLI
 
+    Note the '--partial' flag '--archive' argument, as we're sending a new software
+    artefact.
+
     .. code-block:: console
 
-      # 1) Note the '--partial' flag
-      # 2) Note the `--create-origin` flag
       swh deposit upload \
         --username USERNAME --password PASSWORD \
         --url https://deposit.staging.swh.network/1 \
@@ -75,7 +77,7 @@ value):
 
   .. tab-item:: API
 
-    .. code-block:: http
+    .. code-block:: xml
 
       <entry xmlns="http://www.w3.org/2005/Atom"
             xmlns:sword="http://purl.org/net/sword/"
@@ -107,7 +109,7 @@ value):
         "deposit_status": "partial",
         "deposit_id": "DEPOSIT_ID",
         "deposit_date": "Jan. 1, 2025, 09:00 a.m.",
-        "deposit_status_detail": None
+        "deposit_status_detail": null
       }
 
 Second partial deposit
@@ -123,13 +125,13 @@ last one.
 
   .. tab-item:: API
 
+    Note the ``In-Progress: true`` header, the ``DEPOSIT_ID`` in the URL and the
+    ``/media/`` endpoint as we're sending a new software artefact.
+    Also make sure the mimetype matches your file, here ``SOFTWARE_ARTEFACT2`` is a
+    tarball.
+
     .. code-block:: console
 
-      # 1) Note the 'In-Progress: true' header
-      # 2) Note the 'DEPOSIT_ID' in the URL
-      # 3) Note the '/media/' in the URL (we're appending a new software artefact)
-      # 4) Make sure the mimetype matches your file, here SOFTWARE_ARTEFACT2 is a
-      # tarball
       curl -i -u USERNAME:PASSWORD \
            -F "file=@SOFTWARE_ARTEFACT2;type=application/x-tar;filename=payload" \
            -H 'In-Progress: true' \
@@ -137,11 +139,11 @@ last one.
 
   .. tab-item:: CLI
 
+    Note the '--partial' flag, the `--deposit-id` argument and the '--archive'
+    argument, as we're sending a new software artefact.
+
     .. code-block:: console
 
-      # 1) Note the '--partial' flag
-      # 2) Note the `--deposit-id` argument
-      # 3) Note the '--archive' argument as we're sending a new software artefact
       swh deposit upload \
         --username USERNAME --password PASSWORD \
         --url https://deposit.staging.swh.network/1 \
@@ -162,11 +164,11 @@ will send include "not partial anymore" parameter in our call.
 
   .. tab-item:: API
 
+    Note the ``In-Progress: false`` header, the ``DEPOSIT_ID`` in the URL and the
+    ``/metadata/`` as we're pushing only metadata.
+
     .. code-block:: console
 
-      # 1) Note the 'In-Progress: false' header
-      # 2) Note the 'DEPOSIT_ID' in the URL
-      # 3) Note the '/metadata/' in the URL (we're appending metadata not code)
       curl -i -u USERNAME:PASSWORD \
            -F "atom=@METADATA_FILE;type=application/atom+xml;charset=UTF-8" \
            -H 'In-Progress: false' \
@@ -174,11 +176,11 @@ will send include "not partial anymore" parameter in our call.
 
   .. tab-item:: CLI
 
+    Note the '--not-partial' flag, the `--deposit-id` argument and the '--metadata'
+    argument, as we're pushing only metadata.
+
     .. code-block:: console
 
-      # 1) Note the '--not-partial' flag
-      # 2) Note the `--deposit-id` argument
-      # 3) Note the '--metadata' argument, as we're pushing metadata
       swh deposit upload \
         --username USERNAME --password PASSWORD \
         --url https://deposit.staging.swh.network/1 \
@@ -191,7 +193,7 @@ will send include "not partial anymore" parameter in our call.
 Check a deposit status
 ----------------------
 
-Your deposit will go :doc:`through multiple steps </references/workflow>` before appearing in the archive, you can check the status of your deposit and get its SWHID:
+Your deposit will go :ref:`through multiple steps <deposit-workflow>` before appearing in the archive, you can check the status of your deposit and get its SWHID:
 
 .. tab-set::
 
@@ -237,10 +239,10 @@ Will return the following response:
     .. code-block:: json
 
       {
-        "deposit_id": DEPOSIT_ID,
+        "deposit_id": "DEPOSIT_ID",
         "deposit_status": "done",
-        "deposit_swh_id": SWHID,
-        "deposit_swh_id_context": SWHID_CONTEXT,
+        "deposit_swh_id": "SWHID",
+        "deposit_swh_id_context": "SWHID_CONTEXT",
         "deposit_status_detail": "The deposit has been successfully loaded into the Software Heritage archive"
       }
 
@@ -272,10 +274,10 @@ Repeat the same calls until the status changes:
     .. code-block:: json
 
       {
-        "deposit_id": DEPOSIT_ID,
+        "deposit_id": "DEPOSIT_ID",
         "deposit_status": "done",
-        "deposit_swh_id": SWHID,
-        "deposit_swh_id_context": SWHID_CONTEXT,
+        "deposit_swh_id": "SWHID",
+        "deposit_swh_id_context": "SWHID_CONTEXT",
         "deposit_status_detail": "The deposit has been successfully loaded into the Software Heritage archive"
       }
 
