@@ -6,3 +6,4 @@ Explanations
 
    deposit.rst
    why-metadata.rst
+   examples.rst

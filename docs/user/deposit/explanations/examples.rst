@@ -1,8 +1,6 @@
 Real-world examples / integrations
 ==================================
 
-TODO: include https://github.com/dagstuhl-publishing/swh-deposit-client & https://github.com/inveniosoftware/invenio-swh ?
-
 HAL
 ---
 
