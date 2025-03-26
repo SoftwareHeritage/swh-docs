@@ -4,7 +4,7 @@ Usage
 =====
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 3
 
    faq/index
    software-origins/index

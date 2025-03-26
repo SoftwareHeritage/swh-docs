@@ -4,7 +4,7 @@ Software Heritage Deposit Service
 =================================
 
 The deposit service allows a partner to submit software source archives and their
-associated metadata to the Software Heritage archive.
+associated metadata to the |swh| archive.
 
 Metadata can be also submitted referencing a an existing repository url or a
 :ref:`SWHIDs <persistent-identifiers>`.
