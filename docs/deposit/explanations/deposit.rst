@@ -13,8 +13,8 @@ platform, which is already harvested by SWH (e.g GitHub, GitLab, etc.).
 
 **This mechanism is the deposit.**
 
-The result of this action is a `SWHID`_ that can be used to uniquely and persistently
-identify that very piece of source code.
+The result of this action is a :ref:`SWHID <persistent-identifiers>` that can be used
+to uniquely and persistently identify that very piece of source code.
 
 This unique identifier can then be used to reference the source code (e.g. in a
 scientific paper) and retrieve it using the features of the SWH Archive platform.

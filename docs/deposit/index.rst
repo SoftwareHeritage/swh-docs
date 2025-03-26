@@ -1,7 +1,7 @@
 .. _swh-docs-deposit:
 
-Deposit
-=======
+Software Heritage Deposit Service
+=================================
 
 .. toctree::
    :hidden:
@@ -19,7 +19,7 @@ Deposit
 The deposit service allows a partner to submit software source archives and their
 associated metadata to the Software Heritage archive.
 
-Metadata can be also submitted referencing a an existing repository url (origin) or a
+Metadata can be also submitted referencing a an existing repository url or a
 :ref:`SWHIDs <persistent-identifiers>`.
 
 Explanations
