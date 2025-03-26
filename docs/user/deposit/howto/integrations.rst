@@ -10,7 +10,7 @@ Generate a badge
 ----------------
 
 To generate a |swh| badge for a given object SWHID, for example
-`swh:1:dir:a5ceced7711d5043da4be6af76749ff638f93909;origin=https://doi.org/10.5281/zenodo.13375878;visit=swh:1:snp:5f88ed08d3cc491a0aab6c41b5591b9119d0d1bf;anchor=swh:1:rel:c5b2d34a22d8bb5cf3ac3d64f84bb0a000278e00`:
+``swh:1:dir:a5ceced7711d5043da4be6af76749ff638f93909;origin=https://doi.org/10.5281/zenodo.13375878;visit=swh:1:snp:5f88ed08d3cc491a0aab6c41b5591b9119d0d1bf;anchor=swh:1:rel:c5b2d34a22d8bb5cf3ac3d64f84bb0a000278e00``:
 
 .. tab-set::
 

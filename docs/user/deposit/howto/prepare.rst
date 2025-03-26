@@ -6,13 +6,63 @@ Prepare your metadata and artifacts
 A deposit is constituted of a metadata file and optionally one or more software
 artefacts.
 
+:ref:`A complete reference of the deposit protocol <deposit-protocol-reference>` is
+also available to explain all the technical details.
+
 The metadata file
 -----------------
 
-This is the most important part of a deposit process, it
+This is the most important part of a deposit process, read the
+:ref:`Why do we need metadata? <deposit-why-metadata>` to understand the reasons.
 
-- holds extrinsic information about a software artefact or another object in the archive
-- TODO
+Here's an example for a metadata-only deposit on ``ORIGIN_URL``:
+
+.. code-block:: xml
+
+   <?xml version="1.0" encoding="utf-8"?>
+
+   <!-- XML Entry -->
+   <entry xmlns="http://www.w3.org/2005/Atom"
+          xmlns:codemeta="https://doi.org/10.5063/SCHEMA/CODEMETA-2.0"
+          xmlns:swh="https://www.softwareheritage.org/schema/2018/deposit">
+
+      <!-- SWH deposit's own properties -->
+      <swh:deposit>
+         <swh:reference>
+            <swh:object swhid="SWHID_CONTEXT"/>
+         </swh:reference>
+
+         <!-- Metadata provenance -->
+         <swh:metadata-provenance>
+            <schema:url>METADATA_URL</schema:url>
+         </swh:metadata-provenance>
+      </swh:deposit>
+
+      <!-- CodeMeta metadata -->
+      <codemeta:name>A required software name</codemeta:name>
+      <codemeta:description>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus aliquam tincidunt lacus, ut mollis tellus volutpat a. Mauris ut ornare mauris. Suspendisse elementum lacinia erat, at ornare lorem fringilla vel. Aliquam sagittis dictum cursus. Etiam ut porta libero, ut malesuada augue. In viverra felis justo, a ullamcorper sem consectetur sed. Sed in euismod nunc.</codemeta:description>
+      <codemeta:dateCreated>2022-11-17</codemeta:dateCreated>
+      <codemeta:datePublished>2023-04-27</codemeta:datePublished>
+      <codemeta:license>
+         <codemeta:name>GNU Affero General Public License</codemeta:name>
+      </codemeta:license>
+      <codemeta:keywords>digital geometry,image processing,geometry processing</codemeta:keywords>
+      <codemeta:relatedLink>https://example.com</codemeta:relatedLink>
+      <codemeta:programmingLanguage>c++</codemeta:programmingLanguage>
+      <codemeta:operatingSystem>Linux, Mac OS X, Windows</codemeta:operatingSystem>
+      <codemeta:license>
+         <codemeta:name>GNU Affero General Public License</codemeta:name>
+      </codemeta:license>
+      <codemeta:author>
+         <codemeta:name>Hedy Lamarr</codemeta:name>
+         <codemeta:email>email@example.com</codemeta:email>
+      </codemeta:author>
+
+      <!-- Versioning info -->
+      <codemeta:version>1.0.0</codemeta:version>
+   </entry>
+
+This file can be a bit daunting, let's examine its content in detail.
 
 XML Entry
 ~~~~~~~~~
@@ -35,15 +85,17 @@ metadata file is XML. Used namespaces:
       <!-- metadata -->
    </entry>
 
-swh:deposit
-~~~~~~~~~~~
+SWH deposit's own properties
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 This namespace is specific to our implementation of the SWORD v2 protocol, it's used
-to describe what kind of deposit the you are doing:
+to describe what *kind* of deposit the you are doing:
 
 .. tab-set::
 
   .. tab-item:: Initial deposit
+
+   This is the first time you're making a code deposit for ``ORIGIN_URL``.
 
     .. code-block:: xml
 
@@ -55,6 +107,9 @@ to describe what kind of deposit the you are doing:
 
   .. tab-item:: New version deposit
 
+   You already made a code deposit for ``ORIGIN_URL`` and you want to send a new
+   version.
+
     .. code-block:: xml
 
       <swh:deposit>
@@ -64,6 +119,9 @@ to describe what kind of deposit the you are doing:
       </swh:deposit>
 
   .. tab-item:: Metadata-only deposit
+
+   You don't have a software artefact to send, only metadata related to a ``SWHID`` or
+   an ``ORIGIN_URL``.
 
     .. code-block:: xml
 
@@ -101,8 +159,32 @@ For example:
       <codemeta:email>email@example.com</codemeta:email>
    </codemeta:author>
 
-Please read the :ref:`deposit-metadata-reference` page for a more detailed view on the
-semantics and requirements.
+.. list-table:: Required fields
+   :header-rows: 1
+
+   * - Name
+     - Description
+   * - codemeta:name
+     - The name of this software
+   * - codemeta:author
+     - The author(s) of this software
+
+
+.. list-table:: Recommended fields
+   :header-rows: 1
+
+   * - Name
+     - Description
+   * - codemeta:version
+     - The version of the software, used to differentiate multiple deposits of a same
+       ``ORIGIN_URL``, see versioning below
+   * - codemeta:description
+     - Short or long description of the software
+   * - codemeta:license
+     - The license(s) of the software
+
+See the `full CodeMeta terms list <https://codemeta.github.io/terms/>`_ for a complete
+reference of the available properties.
 
 Versioning
 ~~~~~~~~~~
@@ -126,8 +208,8 @@ Please note that using the same ``codemeta:version`` value for multiple deposits
 not delete the previous one(s) from the archive: they will still be accessible using
 their SWHID, but they will not appear in the future snapshots.
 
-Provenance
-~~~~~~~~~~
+Metadata provenance
+~~~~~~~~~~~~~~~~~~~
 
 To indicate where the metadata is coming from, deposit clients can use a
 ``<swhdeposit:metadata-provenance>`` element in ``<swhdeposit:deposit>`` whose content
@@ -147,63 +229,10 @@ For example, to deposit metadata on GNU Hello:
       </swh:metadata-provenance>
    </swh:deposit>
 
-
-Wrapping all the parts together
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-Here's an example file for a metadata-only deposit on ``ORIGIN_URL``:
-
-.. code-block:: xml
-
-   <?xml version="1.0" encoding="utf-8"?>
-
-   <!-- Namespaces -->
-
-   <entry xmlns="http://www.w3.org/2005/Atom"
-          xmlns:codemeta="https://doi.org/10.5063/SCHEMA/CODEMETA-2.0"
-          xmlns:swh="https://www.softwareheritage.org/schema/2018/deposit">
-
-      <!-- SWH deposit's own properties -->
-
-      <swh:deposit>
-         <swh:reference>
-            <swh:object swhid="SWHID_CONTEXT"/>
-         </swh:reference>
-         <swh:metadata-provenance>
-            <schema:url>ORIGIN_URL</schema:url>
-         </swh:metadata-provenance>
-      </swh:deposit>
-
-      <!-- Metadata -->
-
-      <codemeta:name>A required software name</codemeta:name>
-      <codemeta:description>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus aliquam tincidunt lacus, ut mollis tellus volutpat a. Mauris ut ornare mauris. Suspendisse elementum lacinia erat, at ornare lorem fringilla vel. Aliquam sagittis dictum cursus. Etiam ut porta libero, ut malesuada augue. In viverra felis justo, a ullamcorper sem consectetur sed. Sed in euismod nunc.</codemeta:description>
-      <codemeta:dateCreated>2022-11-17</codemeta:dateCreated>
-      <codemeta:datePublished>2023-04-27</codemeta:datePublished>
-      <codemeta:license>
-         <codemeta:name>GNU Affero General Public License</codemeta:name>
-      </codemeta:license>
-      <codemeta:keywords>digital geometry,image processing,geometry processing</codemeta:keywords>
-      <codemeta:relatedLink>https://example.com</codemeta:relatedLink>
-      <codemeta:programmingLanguage>c++</codemeta:programmingLanguage>
-      <codemeta:operatingSystem>Linux, Mac OS X, Windows</codemeta:operatingSystem>
-      <codemeta:version>1.0.0</codemeta:version>
-      <codemeta:license>
-         <codemeta:name>GNU Affero General Public License</codemeta:name>
-      </codemeta:license>
-      <codemeta:author>
-         <codemeta:name>Hedy Lamarr</codemeta:name>
-         <codemeta:email>email@example.com</codemeta:email>
-      </codemeta:author>
-   </entry>
-
-Read the `full metadata reference <deposit-metadata-reference>` for more information on
-the required/available properties.
-
 Software artefact
 -----------------
 
-Now that your metadata fil is ready you'll need to prepare your code artefact by
+Now that your metadata file is ready you'll need to prepare your code artefact by
 packaging the files in a supported archive format:
 
 - ``zip``: common zip archive (no multi-disk zip files).
