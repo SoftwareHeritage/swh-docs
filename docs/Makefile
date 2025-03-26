@@ -32,7 +32,6 @@ sphinx/clean:
 images:
 	$(MAKE) -C devel images-stamp
 	$(MAKE) -C sysadm images-stamp
-	$(MAKE) -C deposit images-stamp
 
 apidoc:
 	$(MAKE) -C devel apidoc
@@ -43,7 +42,6 @@ clean: sphinx/clean
 	$(MAKE) -C devel clean
 	$(MAKE) -C sysadm clean
 	$(MAKE) -C user clean
-	$(MAKE) -C deposit clean
 
 install: html
 	test -d $(HTMLDIR)

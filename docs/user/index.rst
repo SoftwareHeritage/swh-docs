@@ -12,6 +12,7 @@ Usage
    loaders
    save_code_now/webhooks/index
    using_data/index
+   deposit/index
 
 .. only:: user_doc
 

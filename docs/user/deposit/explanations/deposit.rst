@@ -1,7 +1,7 @@
 What's a deposit?
 =================
 
-Most of the software source code artifacts present in the Software Heritage Archive are
+Most of the software source code artifacts present in the |swh| Archive are
 gathered by tools run by the SWH project, this is a pull mechanism: it's the
 responsibility of the SWH project to gather and collect source code artifacts that way.
 
@@ -27,7 +27,7 @@ The differences between a deposit and simply asking SWH to archive a repository 
 - a deposited artifact can be searched with its provided url property on the SWH
   Archive
 - it is possible to make a metadata only deposit only about an artefact already
-  present in the Software Heritage archive.
+  present in the |swh| archive.
 
 Deposits are made using `SWORD v2`_, an interoperability standard for depositing
 content into repositories.
@@ -58,7 +58,7 @@ You know software source code has an essential role in research and should be ar
 properly, alongside data and publications. Software that was built for research as part
 of the open science ecosystem should be archived, referenced, described and cited.
 
-When depositing in Software Heritage you can describe a software artifact properly with specific metadata properties and it will be safely saved in the universal software archive.
+When depositing in |swh| you can describe a software artifact properly with specific metadata properties and it will be safely saved in the universal software archive.
 
 Aggregators
 ~~~~~~~~~~~

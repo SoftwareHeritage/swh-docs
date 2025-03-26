@@ -3,19 +3,6 @@
 Software Heritage Deposit Service
 =================================
 
-.. toctree::
-   :hidden:
-
-   explanations/index
-   howto/index
-   references/index
-   tutorials/index
-
-
-.. thumbnail:: images/software_life_cycle_en-1024x810.png
-
-(we need a better picture)
-
 The deposit service allows a partner to submit software source archives and their
 associated metadata to the Software Heritage archive.
 
