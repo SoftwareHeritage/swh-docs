@@ -1,6 +1,8 @@
 How to guides
 =============
 
+To assist informed users with their deposits.
+
 .. toctree::
    :maxdepth: 1
 

@@ -1,5 +1,5 @@
-Command line interface reference
-================================
+Protocol reference
+==================
 
 .. admonition:: Reference implementation
    :class: note
@@ -9,5 +9,5 @@ Command line interface reference
    you to more technical documentation than this. Please come back here afterward to
    continue.
 
-:ref:`The CLI reference for deposit <swh-deposit-cli>` is available
-in ``swh-deposit`` developer's documentation.
+:ref:`The deposit protocol reference <deposit-protocol>` is available in
+``swh-deposit`` developer's documentation.

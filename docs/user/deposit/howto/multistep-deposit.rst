@@ -1,15 +1,20 @@
-.. _deposit-partial:
-
-
 Make a multi-step code & metadata deposit
 =========================================
 
+.. admonition:: API/CLI reference
+   :class: note
+
+   This page will help you make a deposit without getting into too much details,
+   the :doc:`API reference <../references/api>` and the
+   :doc:`CLI reference <../references/cli>`
+   are available to explain all the technical specifications.
+
 .. admonition:: Partial deposits
-   :class: Note
+   :class: note
 
    This method of depositing artefacts to the archive is a bit more complicated than
    the other one, if your artefacts are not larger than 100Mo we would recommend
-   sticking to :ref:`the simpler (one shot) method <deposit-first>`.
+   sticking to :doc:`the simpler (one shot) method <first-deposit>`.
 
 If you have multiple code artefacts or if you need to make your deposit in two or
 more times, you can make use of the partial deposit functionality.
@@ -17,12 +22,12 @@ more times, you can make use of the partial deposit functionality.
 Checklist
 ---------
 
-- You have access to your :ref:`account credentials <deposit-account>`
+- You have access to your :doc:`account credentials <account>`
 - You have a software artefact at hand and its associated metadata (if not you need to
-  :ref:`prepare your artefacts and metadata <deposit-prepare>`.)
+  :doc:`prepare your artefacts and metadata <prepare>`.)
 - This is the first time you're depositing for this origin (if you already made
   deposits for this origin you want to
-  :ref:`make a new deposit for an existing origin <deposit-version>`)
+  :doc:`make a new deposit for an existing origin <versions>`)
 - You have either the CLI installed or a tool to make API calls, we will use curl
   here, but commands could be easily adapted to another application
 
@@ -193,7 +198,7 @@ will send include "not partial anymore" parameter in our call.
 Check a deposit status
 ----------------------
 
-Your deposit will go :ref:`through multiple steps <deposit-workflow>` before appearing in the archive, you can check the status of your deposit and get its SWHID:
+Your deposit will go :doc:`through multiple steps <../references/workflow>` before appearing in the archive, you can check the status of your deposit and get its SWHID:
 
 .. tab-set::
 
@@ -291,5 +296,5 @@ What's next ?
 -------------
 
 Now that you've made your first deposit you might want to
-:ref:`integrate it in your website <deposit-integrations>` or
-:ref:`push another version of the software <deposit-version>`.
+:doc:`integrate it in your website <integrations>` or
+:doc:`push another version of the software <versions>`.

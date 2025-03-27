@@ -3,14 +3,6 @@
 Software Heritage Deposit Service
 =================================
 
-.. toctree::
-   :hidden:
-
-   explanation/index
-   howto/index
-   references/index
-   tutorials/index
-
 
 The deposit service allows a partner to submit software source archives and their
 associated metadata to the |swh| archive.
@@ -24,11 +16,9 @@ Explanations
 Read more about the deposit principles and usages.
 
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 2
 
-   explanations/deposit.rst
-   explanations/why-metadata.rst
-   explanations/examples.rst
+   explanations/index
 
 HowTo guides
 ------------
@@ -36,16 +26,9 @@ HowTo guides
 To assist informed users with their deposits.
 
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 2
 
-   howto/account.rst
-   howto/prepare.rst
-   howto/first-deposit.rst
-   howto/multistep-deposit.rst
-   howto/metadata-deposit.rst
-   howto/versions.rst
-   howto/integrations.rst
-   howto/participate.rst
+   howto/index
 
 
 References
@@ -54,24 +37,10 @@ References
 Technical documentation and references.
 
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 2
 
-   references/workflow.rst
-   references/metadata.rst
-   references/api.rst
-   references/cli.rst
-   references/errors.rst
+   references/index
 
-Tutorials
----------
-
-Practical exercises to make your first deposits.
-
-.. toctree::
-   :maxdepth: 1
-
-   tutorials/cli.rst
-   tutorials/api.rst
 
 .. only:: deposit_doc
 

@@ -45,8 +45,7 @@ which are usually not present in the code itself (intrinsic metadata).
 Metadata is indexed by our search engine and provide new ways of finding content in the
 archive.
 
-To understand why metadata is so important to us read
-:ref:`Why do we need metadata? <deposit-why-metadata>`.
+To understand why metadata is so important to us please read :doc:`why-metadata`.
 
 Is it useful for me?
 --------------------
@@ -73,4 +72,4 @@ As a publisher TODO...
 Ready to use our deposit services?
 ----------------------------------
 
-Start by :ref:`requesting a user account <deposit-account>`.
+Start by :doc:`../howto/account`.

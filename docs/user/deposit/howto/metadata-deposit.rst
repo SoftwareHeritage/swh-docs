@@ -1,7 +1,13 @@
-.. _deposit-metadata-only:
-
 Make a metadata-only deposit
 ============================
+
+.. admonition:: API/CLI reference
+   :class: note
+
+   This page will help you make a deposit without getting into too much details,
+   the :doc:`API reference <../references/api>` and the
+   :doc:`CLI reference <../references/cli>`
+   are available to explain all the technical specifications.
 
 It’s possible to deposit metadata on an already existing content using the
 metadata-only deposit and referencing a repository or a specific artifact.
@@ -9,9 +15,9 @@ metadata-only deposit and referencing a repository or a specific artifact.
 Checklist
 ---------
 
-- You have access to your :ref:`account credentials <deposit-account>`
+- You have access to your :doc:`account credentials <account>`
 - You have prepared your metadata (if not you need to
-  :ref:`prepare your artefacts and metadata <deposit-prepare>`.)
+  :doc:`prepare your artefacts and metadata <prepare>`.)
 - You have either the CLI installed or a tool to make API calls, we will use curl
   here, but commands could be easily adapted to another application
 

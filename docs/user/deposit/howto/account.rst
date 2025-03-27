@@ -1,5 +1,3 @@
-.. _deposit-account:
-
 Request an account
 ==================
 
@@ -18,4 +16,4 @@ Once you have an account, you will get a set of access credentials as a login, a
 password and a collection name (identified as ``USERNAME``, ``PASSWORD`` and
 ``COLLECTION`` in the remaining of this documentation).
 
-You are now ready to :ref:`prepare your artefacts and metadata <deposit-prepare>`.
+You are now ready to :doc:`prepare`.

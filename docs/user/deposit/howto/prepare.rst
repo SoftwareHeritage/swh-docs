@@ -1,21 +1,23 @@
-.. _deposit-prepare:
-
 Prepare your metadata and artifacts
 ===================================
+
+.. admonition:: Protocol reference
+   :class: note
+
+   This page will help you prepare a deposit without getting into too much details,
+   a :doc:`complete reference of the deposit protocol <../references/protocol>`
+   is also available to explain all the technical specifications.
 
 A deposit is constituted of a metadata file and optionally one or more software
 artefacts.
 
-:ref:`A complete reference of the deposit protocol <deposit-protocol-reference>` is
-also available to explain all the technical details.
-
 The metadata file
 -----------------
 
-This is the most important part of a deposit process, read the
-:ref:`Why do we need metadata? <deposit-why-metadata>` to understand the reasons.
+This is the most important part of a deposit process, see
+:doc:`../explanations/why-metadata`.
 
-Here's an example for a metadata-only deposit on ``ORIGIN_URL``:
+Here's a complete metadata file example for a metadata-only deposit on ``ORIGIN_URL``:
 
 .. code-block:: xml
 
@@ -211,7 +213,7 @@ their SWHID, but they will not appear in the future snapshots.
 Metadata provenance
 ~~~~~~~~~~~~~~~~~~~
 
-To indicate where the metadata is coming from, deposit clients can use a
+To indicate where the metadata is coming from, deporefsit clients can use a
 ``<swhdeposit:metadata-provenance>`` element in ``<swhdeposit:deposit>`` whose content
 is the object the metadata is coming from.
 
@@ -240,7 +242,25 @@ packaging the files in a supported archive format:
   ``lzma``
 
 Our server will reject files larger than 100MB, so if your artefact is larger than that
-you will have to split it in multiple files then follow the
-:ref:`multi-step deposit process <deposit-partial>`.
+you will have to split it in multiple files.
 
-Otherwise you are now ready to make your :ref:`first deposit <deposit-first>`.
+Tools
+-----
+
+To use the deposit services you will need to make API calls or use our command line
+interface (CLI):
+
+- software used to make API calls: `curl <https://curl.se/>`_,
+  `httpie <https://httpie.io/>`_, etc.
+- `swh-deposit <https://pypi.org/project/swh.deposit/>`_ CLI: ``pip install swh-deposit``
+
+Next step
+---------
+
+You are now ready to make your first deposit!
+
+- You have a single artefact to upload, then follow :doc:`first deposit <first-deposit>`
+- Your artefacts were too large for a simple deposit, then  go to
+  :doc:`make a multi-step deposit <multistep-deposit>`
+- You only have metadata to deposit then head to
+- :doc:`metadata-only deposit <metadata-deposit>`
