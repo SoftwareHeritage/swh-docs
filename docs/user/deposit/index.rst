@@ -20,8 +20,8 @@ Read more about the deposit principles and usages.
 
    explanations/index
 
-HowTo guides
-------------
+How to guides
+-------------
 
 To assist informed users with their deposits.
 
