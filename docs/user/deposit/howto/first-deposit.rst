@@ -112,7 +112,7 @@ deposit status to follow the process.
 Check a deposit status and get its SWHID
 ----------------------------------------
 
-Your deposit will go :doc:`through multiple steps <../reference/workflow>` before appearing in the archive, you can check the status of your deposit and get its SWHID:
+Your deposit will go :doc:`through multiple steps <../references/workflow>` before appearing in the archive, you can check the status of your deposit and get its SWHID:
 
 .. tab-set::
 

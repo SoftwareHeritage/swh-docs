@@ -42,10 +42,10 @@ are properly authenticated but not allowed to access it.
 
 Your software artefact is too large for the server.
 
-- refer to the `prepare your deposit <deposit-prepare>` section to find the max size
+- refer to the :doc:`../howto/prepare` section to find the max size
   supported by the server
-- split the artefact in multiple parts and follow the
-- :ref:`make a multi-step deposit <deposit-partial>` process
+- split the artefact in multiple parts and follow the :doc:`../howto/multistep-deposit`
+  process
 
 415 Unsupported Media Type
 --------------------------
