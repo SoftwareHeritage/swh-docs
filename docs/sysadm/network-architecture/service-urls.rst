@@ -57,7 +57,9 @@ Internal services
 +-----------------------+----------------------------------------------------------------+--------+------------+
 | swh-search            | http://search.internal.staging.swh.network                     | X      |            |
 +-----------------------+----------------------------------------------------------------+--------+------------+
-| swh-provenance        | http://provenance.internal.staging.swh.network                 | X      |            |
+| swh-provenance (rpc)  | http://provenance-rpc.internal.staging.swh.network             | X      |            |
++-----------------------+----------------------------------------------------------------+--------+------------+
+| swh-provenance (grpc) | http://provenance.internal.staging.swh.network                 | X      |            |
 +-----------------------+----------------------------------------------------------------+--------+------------+
 | swh-scheduler         | http://scheduler.internal.staging.swh.network                  |        | X          |
 +-----------------------+----------------------------------------------------------------+--------+------------+
