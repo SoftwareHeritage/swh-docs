@@ -54,5 +54,5 @@ This status code is returned when a wrong media type is provided when uploading 
 code artefact.
 
 - check the ``type=application/XXX`` header matches your file format
-- refer to the `prepare your deposit <deposit-prepare>` section to find what kind of
-  file formats are supported
+- refer to the :doc:`../howto/prepare` section to find what kind of file formats are
+  supported
