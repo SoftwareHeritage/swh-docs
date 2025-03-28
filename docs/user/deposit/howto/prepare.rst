@@ -25,7 +25,7 @@ Here's a complete metadata file example for a metadata-only deposit on ``ORIGIN_
 
    <!-- XML Entry -->
    <entry xmlns="http://www.w3.org/2005/Atom"
-          xmlns:codemeta="https://doi.org/10.5063/SCHEMA/CODEMETA-2.0"
+          xmlns:codemeta="https://w3id.org/codemeta/3.0"
           xmlns:swh="https://www.softwareheritage.org/schema/2018/deposit">
 
       <!-- SWH deposit's own properties -->
@@ -75,14 +75,14 @@ metadata file is XML. Used namespaces:
 - `atom <http://www.w3.org/2005/Atom>`_ (required)
 - `Software Heritage deposit <https://www.softwareheritage.org/schema/2018/deposit>`_
   (required)
-- `CodeMeta <https://doi.org/10.5063/SCHEMA/CODEMETA-2.0>`_ (recommended)
+- `CodeMeta <https://w3id.org/codemeta/3.0>`_ (recommended)
 - `schema <http://schema.org/>`_ (optional)
 
 .. code-block:: xml
 
    <?xml version="1.0" encoding="utf-8"?>
    <entry xmlns="http://www.w3.org/2005/Atom"
-          xmlns:codemeta="https://doi.org/10.5063/SCHEMA/CODEMETA-2.0"
+          xmlns:codemeta="https://w3id.org/codemeta/3.0"
           xmlns:swh="https://www.softwareheritage.org/schema/2018/deposit">
       <!-- metadata -->
    </entry>
