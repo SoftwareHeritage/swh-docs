@@ -225,7 +225,7 @@ The deposit service allows a trusted partner to submit software source archives 
 associated metadata to the Software Heritage archive. Metadata can be also submitted referencing a repository url (origin) or a
 :ref:`SWHIDs <persistent-identifiers>`.
 
-:ref:`Discover the deposit service <user/deposit>`
+:doc:`Discover the deposit service <user/deposit>`
 
 Save multiple projects at a time, save a forge
 ----------------------------------------------
