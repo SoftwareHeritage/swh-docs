@@ -13,4 +13,4 @@ To assist informed users with their deposits.
    metadata-deposit.rst
    versions.rst
    integrations.rst
-   participate.rst
+   support.rst
