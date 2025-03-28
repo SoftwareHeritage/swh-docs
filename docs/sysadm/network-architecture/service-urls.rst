@@ -139,7 +139,9 @@ Internal services
 +-----------------------------+------------------------------------------------------------------+--------+------------+
 | swh-counters                | http://counters.internal.softwareheritage.org                    | X      |            |
 +-----------------------------+------------------------------------------------------------------+--------+------------+
-| swh-provenance              | http://provenance.internal.softwareheritage.org                  | X      |            |
+| swh-provenance (grpc)       | http://provenance-grpc.internal.softwareheritage.org             | X      |            |
++-----------------------------+------------------------------------------------------------------+--------+------------+
+| swh-provenance (rpc)        | http://provenance-rpc.internal.softwareheritage.org              | X      |            |
 +-----------------------------+------------------------------------------------------------------+--------+------------+
 | swh-search read-only        | http://search.internal.softwareheritage.org                      | X      |            |
 +-----------------------------+------------------------------------------------------------------+--------+------------+
