@@ -25,7 +25,7 @@ Here's a complete metadata file example for a metadata-only deposit on ``ORIGIN_
 
    <!-- XML Entry -->
    <entry xmlns="http://www.w3.org/2005/Atom"
-          xmlns:codemeta="https://w3id.org/codemeta/3.0"
+          xmlns:codemeta="https://doi.org/10.5063/schema/codemeta-2.0"
           xmlns:swh="https://www.softwareheritage.org/schema/2018/deposit">
 
       <!-- SWH deposit's own properties -->
@@ -69,20 +69,25 @@ This file can be a bit daunting, let's examine its content in detail.
 XML Entry
 ~~~~~~~~~
 
+.. admonition:: CodeMeta versions
+   :class: warning
+
+   For now, the repository server is only compatible with CodeMeta v2, we will soon move to v3 which will become the recommended version.
+
 As we're using the SWORD v2 standard to handle the deposits the format we used for the
 metadata file is XML. Used namespaces:
 
 - `atom <http://www.w3.org/2005/Atom>`_ (required)
 - `Software Heritage deposit <https://www.softwareheritage.org/schema/2018/deposit>`_
   (required)
-- `CodeMeta <https://w3id.org/codemeta/3.0>`_ (recommended)
+- `CodeMeta v2 <https://doi.org/10.5063/schema/codemeta-2.0>`_ (recommended)
 - `schema <http://schema.org/>`_ (optional)
 
 .. code-block:: xml
 
    <?xml version="1.0" encoding="utf-8"?>
    <entry xmlns="http://www.w3.org/2005/Atom"
-          xmlns:codemeta="https://w3id.org/codemeta/3.0"
+          xmlns:codemeta="https://doi.org/10.5063/schema/codemeta-2.0"
           xmlns:swh="https://www.softwareheritage.org/schema/2018/deposit">
       <!-- metadata -->
    </entry>
