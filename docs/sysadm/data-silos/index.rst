@@ -10,3 +10,4 @@ Data silos
    elasticsearch/index
    winery/index
    rancher/index
+   provenance/index
