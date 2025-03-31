@@ -145,7 +145,7 @@ to describe what *kind* of deposit the you are doing:
 CodeMeta
 ~~~~~~~~
 
-We're using `CodeMeta <https://codemeta.github.io/>` terms to describe the metadata.
+We're using `CodeMeta <https://codemeta.github.io/>`_ terms to describe the metadata.
 For example:
 
 .. code-block:: xml
@@ -218,15 +218,17 @@ their SWHID, but they will not appear in the future snapshots.
 Metadata provenance
 ~~~~~~~~~~~~~~~~~~~
 
-To indicate where the metadata is coming from, deporefsit clients can use a
+To indicate where the metadata is coming from, deposit clients can use a
 ``<swhdeposit:metadata-provenance>`` element in ``<swhdeposit:deposit>`` whose content
 is the object the metadata is coming from.
 
 For example, when the metadata is coming from Wikidata, then the
-provenance should be the page of a Q-entity or when the metadata is coming from a
-curated repository like HAL, then it should be the HAL project.
+provenance should be the page of a
+`Q-entity <https://www.wikidata.org/wiki/Wikidata:Identifiers>`_ or when the
+metadata is coming from a curated repository like HAL, then it should be the HAL
+project.
 
-For example, to deposit metadata on GNU Hello:
+For example, to deposit metadata on `GNU Hello <https://archive.softwareheritage.org/browse/origin/directory/?origin_url=https://ftp.gnu.org/gnu/hello/>`_:
 
 .. code:: xml
 
@@ -247,7 +249,7 @@ packaging the files in a supported archive format:
   ``lzma``
 
 Our server will reject files larger than 100MB, so if your artefact is larger than that
-you will have to split it in multiple files.
+you will have to split it in multiple files and follow the multi-step deposit process.
 
 Tools
 -----
@@ -265,7 +267,7 @@ Next step
 You are now ready to make your first deposit!
 
 - You have a single artefact to upload, then follow :doc:`first deposit <first-deposit>`
-- Your artefacts were too large for a simple deposit, then  go to
+- Your artefacts were too large for a simple deposit, then go to
   :doc:`make a multi-step deposit <multistep-deposit>`
 - You only have metadata to deposit then head to
-- :doc:`metadata-only deposit <metadata-deposit>`
+  :doc:`metadata-only deposit <metadata-deposit>`
