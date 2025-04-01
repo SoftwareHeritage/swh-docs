@@ -4,7 +4,7 @@ Usage
 =====
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 3
 
    faq/index
    software-origins/index
@@ -12,6 +12,7 @@ Usage
    loaders
    save_code_now/webhooks/index
    using_data/index
+   deposit/index
 
 .. only:: user_doc
 

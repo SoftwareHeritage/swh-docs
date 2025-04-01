@@ -218,6 +218,15 @@ Save a code repository
       endpoint, GitHub endpoint, GitLab
       endpoint <https://archive.softwareheritage.org/api/1/origin/save/doc/>`__
 
+Deposit artefacts and/or metadata
+---------------------------------
+
+The deposit service allows a trusted partner to submit software source archives and its
+associated metadata to the Software Heritage archive. Metadata can be also submitted referencing a repository url (origin) or a
+:ref:`SWHIDs <persistent-identifiers>`.
+
+:doc:`Discover the deposit service <user/deposit/index>`
+
 Save multiple projects at a time, save a forge
 ----------------------------------------------
 
@@ -228,20 +237,8 @@ Save a forge in 2 steps :
 2. `Submit a request of archival for to save a complete forge
    <https://archive.softwareheritage.org/add-forge/request/create/>`__
 
-:ref:`Technical insight on the “Add forge now” process
-<save-forge>`
+:ref:`Technical insight on the “Add forge now” process <save-forge>`
 
-Save code used for science
---------------------------
-
-Save a software using ELife, Ipol, HAL. Your content are directly pushed
-into the archive by trusted partners using the deposit service of
-Software Heritage:
-
--  `Deposit software using the HAL
-   portal <https://www.softwareheritage.org/2018/09/28/depositing-scientific-software-into-software-heritage/>`__
--  `Video tutorial on source code deposit using
-   Hal <https://www.youtube.com/watch?v=-Ggn98sR3Eg&list=PLD2VqrZz2-u3bOWtoCoBIh5Flt6iYXsq3>`__
 
 Save legacy source code
 -----------------------
@@ -438,4 +435,4 @@ Table of contents
    devel/api-reference
    user/index
    sysadm/index
-   About this documentation project <README>
+   About <README>
