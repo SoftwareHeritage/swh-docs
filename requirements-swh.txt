@@ -2,6 +2,7 @@
 swh.alter
 swh.auth[django,starlette]
 swh.core[db,http,logging]
+swh.coarnotify
 swh.counters
 swh.datasets[luigi]
 swh.deposit[server]
