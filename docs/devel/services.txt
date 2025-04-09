@@ -16,6 +16,7 @@ swh-counters: 5011
 swh-winery: 5012
 swh-graphql: 5013
 swh-provenance: 5014
+swh-coarnotify: 5015
 
 # Edit this line with your nick to get a merge conflict if there's an overlap
-# Next available ID (ardumont) : 5015
+# Next available ID (rboyer): 5016
