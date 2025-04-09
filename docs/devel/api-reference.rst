@@ -16,6 +16,7 @@ by components:
 
    swh.alter <swh-alter/index>
    swh.auth <swh-auth/index>
+   swh.coarnotify <swh-coarnotify/index>
    swh.core <swh-core/index>
    swh.counters <swh-counters/index>
    swh.datasets <swh-datasets/index>
