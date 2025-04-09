@@ -99,6 +99,9 @@ of the corresponding Python module.
 :ref:`swh.auth <swh-auth>`
     low-level library used by modules needing keycloak authentication
 
+:ref:`swh.coarnotify <swh-coarnotify>`
+    a `COAR Notify <https://coar-notify.net>`_ server implementation in Django
+
 :ref:`swh.core <swh-core>`
     low-level utilities and helpers used by almost all other modules in the
     stack
@@ -176,13 +179,13 @@ swh.docs
     Object storage replication tool
 
 :ref:`swh.perfecthash <swh-perfecthash>`
-     Low level management for read-only content-addressable object storage
-     indexed with a perfect hash table
+    Low level management for read-only content-addressable object storage
+    indexed with a perfect hash table
 
 :ref:`swh.provenance <swh-provenance>`
-     query service for questions like: “where does this given object come
-     from?” or “what it the oldest revision in which this object has been
-     found?”
+    query service for questions like: “where does this given object come
+    from?” or “what it the oldest revision in which this object has been
+    found?”
 
 :ref:`swh.scanner <swh-scanner>`
     source code scanner to analyze code bases and compare them with source code
