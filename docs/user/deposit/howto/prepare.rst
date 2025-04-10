@@ -140,6 +140,11 @@ to describe what *kind* of deposit the you are doing:
             <!-- or -->
             <swh:origin url="ORIGIN_URL" />
          </swh:reference>
+
+         <!-- Metadata provenance -->
+         <swh:metadata-provenance>
+            <schema:url>METADATA_URL</schema:url>
+         </swh:metadata-provenance>
       </swh:deposit>
 
 CodeMeta
