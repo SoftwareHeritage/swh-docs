@@ -5,6 +5,7 @@
 
 ../swh-alter
 ../swh-auth[django,starlette]
+../swh-coarnotify
 ../swh-core[http,db,logging]
 ../swh-counters
 ../swh-datasets[luigi]
