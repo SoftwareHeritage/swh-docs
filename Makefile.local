@@ -14,8 +14,8 @@ clean:
 # isolation
 BUILD_DEPS :=
 
-# swh.perfecthash
-BUILD_DEPS += cffi
+# swh.shard
+BUILD_DEPS += pybind11 scikit_build_core\>=0.10
 
 # swh.search
 BUILD_DEPS += tree-sitter\<0.22.0

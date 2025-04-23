@@ -28,12 +28,12 @@
 ../swh-model
 ../swh-objstorage-replayer
 ../swh-objstorage[testing]
-../swh-perfecthash
 ../swh-provenance
 ../swh-scanner
 ../swh-scheduler[simulator]
 ../swh-scrubber
 ../swh-search
+../swh-shard
 ../swh-storage[testing]
 ../swh-vault
 ../swh-web

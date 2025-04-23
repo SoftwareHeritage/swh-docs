@@ -178,7 +178,7 @@ swh.docs
 :ref:`swh.objstorage.replayer <swh-objstorage-replayer>`
     Object storage replication tool
 
-:ref:`swh.perfecthash <swh-perfecthash>`
+:ref:`swh.shard <swh-shard>`
     Low level management for read-only content-addressable object storage
     indexed with a perfect hash table
 

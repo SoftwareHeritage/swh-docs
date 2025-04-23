@@ -32,12 +32,12 @@ by components:
    swh.model <swh-model/index>
    swh.objstorage <swh-objstorage/index>
    swh.objstorage.replayer <swh-objstorage-replayer/index>
-   swh.perfecthash <swh-perfecthash/index>
    swh.provenance <swh-provenance/index>
    swh.scanner <swh-scanner/index>
    swh.scheduler <swh-scheduler/index>
    swh.scrubber <swh-scrubber/index>
    swh.search <swh-search/index>
+   swh.shard <swh-shard/index>
    swh.storage <swh-storage/index>
    swh.vault <swh-vault/index>
    swh.web <swh-web/index>
