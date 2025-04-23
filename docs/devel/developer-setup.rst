@@ -55,10 +55,12 @@ package manager.
 
     .. code-block:: console
 
-      sudo dnf install java-17-openjdk-headless
+      # Install Java-specific repository and JDK
+      sudo dnf install adoptium-temurin-java-repository
+      sudo dnf config-manager setopt adoptium-temurin-java-repository.enabled=1
+      sudo dnf install temurin-17-jdk
 
-      # Make sure the path is correct. If not, choose the alternative corresponding to java-17
-      sudo update-alternatives --set java /usr/lib/jvm/java-17-openjdk-17.0.13.0.11-3.fc41.x86_64/bin/java
+      sudo update-alternatives --set java /usr/lib/jvm/temurin-17-jdk/bin/java
 
       sudo rpm --import https://downloads.apache.org/cassandra/KEYS
 
