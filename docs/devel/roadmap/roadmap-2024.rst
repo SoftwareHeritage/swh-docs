@@ -1,4 +1,3 @@
-.. _roadmap-current:
 .. _roadmap-2024:
 
 Roadmap 2024
