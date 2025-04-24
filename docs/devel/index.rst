@@ -11,7 +11,7 @@ Development
    contributing/index
    tutorials/index
    faq/index
-   roadmap/roadmap-2024
+   roadmap/roadmap-2025
    roadmap/index
    configuration
    api-reference
@@ -68,6 +68,8 @@ Roadmap
 * Current roadmap: :ref:`roadmap-current`
 * Previous roadmaps
 
+  * :ref:`roadmap-2024`
+  * :ref:`roadmap-2023`
   * :ref:`roadmap-2022`
   * :ref:`roadmap-2021`
 
