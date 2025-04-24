@@ -7,6 +7,7 @@ Current and past roadmaps
    :maxdepth: 2
    :titlesonly:
 
+   roadmap-2025
    roadmap-2024
    roadmap-2023
    roadmap-2022
