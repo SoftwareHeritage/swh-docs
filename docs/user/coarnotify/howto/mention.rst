@@ -5,7 +5,7 @@ Send a mention of a software in a scientific publication
    :class: note
 
    This page will help you send a COAR Notification without getting into too much
-   details, the :doc:`API reference <../references/api>` and the
+   details, the :doc:`Protocol reference <../references/protocol>` and the
    :doc:`Payload reference <../references/payload>`
    are available to explain all the technical specifications.
 
