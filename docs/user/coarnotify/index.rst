@@ -1,4 +1,4 @@
-.. _swh-docs-deposit:
+.. _swh-docs-coarnotify:
 
 Software Heritage COAR Notify Inbox
 ===================================
