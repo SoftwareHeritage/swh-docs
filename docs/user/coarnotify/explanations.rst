@@ -25,19 +25,19 @@ Key benefits
 Integration to the |swh| archive
 --------------------------------
 
-By sending metadata on a software artefact in a COAR notification you can provide
-extrinsic information on a source code (like mention in a scientific publication)
-which are usually not present in the code itself (intrinsic metadata).
+By sending metadata related to a software artefact in a COAR notification you can
+provide extrinsic information on a source code (like mention in a scientific
+publication) which are usually not present in the code itself (intrinsic metadata).
 
 Metadata is indexed by our search engine and provide new ways of finding and working
 with content in the archive.
 
 
 Implemented workflows
----------------------
+~~~~~~~~~~~~~~~~~~~~~
 
-The first implemented workflow is the ingestion of a relationship between a scientific
-publication and a software as described in the
+The only implemented workflow for now is the ingestion of a relationship between
+a scientific publication and a software as described in the
 `Managing the lifecycle of software assets`_ documentation of the SoFAIR project.
 
 
