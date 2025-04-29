@@ -44,7 +44,7 @@ a scientific publication and a software as described in the
 Ready to use our COAR Notify service?
 -------------------------------------
 
-Start by :doc:`../howto/account`.
+Start by :doc:`howto/account`.
 
 
 .. _COAR Notify: https://coar-repositories.org/what-we-do/notify/
