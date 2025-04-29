@@ -17,6 +17,7 @@ For every notification sent by a client Repository, the COAR Notify server:
 Graphically:
 
 .. mermaid ::
+
     sequenceDiagram
         participant Repository
         participant inbox as SWH COAR Notify Server
