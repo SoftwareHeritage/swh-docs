@@ -5,7 +5,7 @@ For every notification sent by a client Repository, the COAR Notify server:
 
 1. authenticates the call
 2. checks some simple properties: is the payload structurally valid, is it a ``type`` of
-   notification we're able to handle ?
+   notification we're able to handle?
 3. stores the notification object in a database
 4. sends a 201 HTTP response to the client
 5. process the notification depending on its ``type``

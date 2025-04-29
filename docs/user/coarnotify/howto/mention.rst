@@ -9,7 +9,7 @@ Send a mention of a software in a scientific publication
    :doc:`Payload reference <../references/payloads>`
    are available to explain all the technical specifications.
 
-It’s possible to deposit metadata on an already existing software origin or SWHID by
+It is possible to deposit metadata on an already existing software origin or SWHID by
 using the `Announce Relationship`_ pattern.
 
 .. _Announce Relationship: https://coar-notify.net/specification/1.0.1/announce-relationship/
