@@ -8,6 +8,7 @@ outputs and services.
 The `COAR Notify Protocol`_ is based on two well-established W3C standards:
 `Linked Data Notifications`_ and `ActivityStreams`_.
 
+
 Key benefits
 ------------
 
@@ -20,15 +21,17 @@ Key benefits
 - It enables the development of new services, such as overlay journals, knowledge
   aggregation, and expert locators, by providing a standardized communication layer.
 
+
 Integration to the |swh| archive
 --------------------------------
 
 By sending metadata on a software artefact in a COAR notification you can provide
-extrinsic information on a source code (like mention in a scientific publication, etc.)
+extrinsic information on a source code (like mention in a scientific publication)
 which are usually not present in the code itself (intrinsic metadata).
 
-Metadata is indexed by our search engine and provide new ways of finding content in the
-archive.
+Metadata is indexed by our search engine and provide new ways of finding and working
+with content in the archive.
+
 
 Implemented workflows
 ---------------------

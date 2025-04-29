@@ -8,5 +8,5 @@ Technical documentation and references.
 
    workflow.rst
    protocol.rst
-   payload.rst
+   payloads.rst
    errors.rst

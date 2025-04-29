@@ -6,7 +6,7 @@ Send a mention of a software in a scientific publication
 
    This page will help you send a COAR Notification without getting into too much
    details, the :doc:`Protocol reference <../references/protocol>` and the
-   :doc:`Payload reference <../references/payload>`
+   :doc:`Payload reference <../references/payloads>`
    are available to explain all the technical specifications.
 
 It’s possible to deposit metadata on an already existing software origin or SWHID by
@@ -73,17 +73,8 @@ will look like:
     ]
   }
 
-- ``id`` a UUID
-- ``type`` to indicate this is an Announce Relationship COAR Notification
-- ``target`` describes the system which is intended to receive the notification, our
-  inbox for instance
-- ``actor`` describes the party responsible for this activity
-- ``object`` describes the relationship itself, ``subject`` is the identifier of your
-  resource which cites/mentions our resource ``object`` (a SWHID or an origin url)
-- ``context`` identifies the resource on the ``target`` which is the object of the
-  relationship
-
-Check the full :doc:`Payload reference <../references/payload>` for more details.
+Check the full :doc:`Payload reference <../references/payloads>` for an explanation of
+the keys in use.
 
 Save the file as ``notification.json``.
 
