@@ -20,7 +20,7 @@ Read more about the COAR Notify principles and usages.
 .. toctree::
    :maxdepth: 2
 
-   explanations/index
+   explanations
 
 How to guides
 -------------

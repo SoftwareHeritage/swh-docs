@@ -13,13 +13,13 @@ Key benefits
 ------------
 
 - by creating a consistent method for communicating links between research outputs,
-  COAR Notify improves the discoverability of these outputs.
+  COAR Notify improves the discoverability of these outputs
 - it facilitates the implementation of open science practices by connecting different
-  versions and related research outputs, regardless of their location.
+  versions and related research outputs, regardless of their location
 - COAR Notify promotes a decentralized network where different systems can communicate
   directly, reducing reliance on central authorities
-- It enables the development of new services, such as overlay journals, knowledge
-  aggregation, and expert locators, by providing a standardized communication layer.
+- it enables the development of new services, such as overlay journals, knowledge
+  aggregation, and expert locators, by providing a standardized communication layer
 
 
 Integration to the |swh| archive
