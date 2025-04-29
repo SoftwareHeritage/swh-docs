@@ -20,13 +20,14 @@ Your payload is either malformed (i.e. we're unable to read the payload) or inva
 - the origin inbox url of your account MUST match the one in the
   ``payload['origin']['inbox']`` key of your notifications
 - the notification payload MUST follow all the requirements described in the
-  :doc:`Protocol reference <.protocol>`
+  :doc:`protocol`
 
 
 401 Unauthorized
 ~~~~~~~~~~~~~~~~
 
-Usage of our Inbox API is limited to partners with a valid :doc:`user account <.../howto/account>`. All API calls MUST be authenticated with the proper HTTP header.
+Usage of our Inbox API is limited to partners with a valid user account.
+All API calls MUST be authenticated with the proper HTTP header.
 If your authentication token is invalid or missing you will get a ``401 Unauthorized``
 HTTP status code.
 

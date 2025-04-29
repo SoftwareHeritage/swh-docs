@@ -1,5 +1,5 @@
-Protocol
-========
+Protocol reference
+==================
 
 The *COAR Notify Protocol* consists of documented community conventions for the use of
 W3C Linked Data Notifications (LDN) to integrate repository systems with relevant
@@ -18,8 +18,4 @@ calls to our Inbox and guarantee that only trusted partners are allowed a write 
 to our metadata storage we decided to implement a Token based authentication system.
 
 :doc:`The token <../howto/account>` has to to be sent with the HTTP headers
-accompanying every calls you make to the API.
-
-.. code-block:: http
-
-  Authorization: Token <TOKEN>
+accompanying every calls you make to the API: ``Authorization: Token <TOKEN>``.
