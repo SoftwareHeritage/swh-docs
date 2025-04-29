@@ -18,7 +18,7 @@ Mention of a software in a scientific publication
 - ``actor`` describes the party responsible for this activity
 - ``object`` describes the relationship itself, ``subject`` is the identifier of your
   resource which cites/mentions our resource ``object`` (a
-  :ref:`SWHID <persistent-identifier>` or an :term:`origin` URL)
+  :ref:`SWHID <persistent-identifiers>` or an :term:`origin` URL)
 - ``context`` identifies the resource on the ``target`` which is the object of the
   relationship
 

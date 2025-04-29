@@ -13,7 +13,7 @@ For every notification sent by a client Repository, the COAR Notify server:
     1. a dedicated :ref:`indexer <swh-indexer>` converts the notification to the
     `CodeMeta`_ format
     2. this :ref:`metadata is now stored <architecture-metadata>` and associated to a
-       proper :ref:`SWHID <persistent-identifier>` / :term:`origin` URL
+       proper :ref:`SWHID <persistent-identifiers>` / :term:`origin` URL
 7. sends a COAR Notification indicating the result of the ingestion.
 
 Graphically:
