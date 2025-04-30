@@ -13,6 +13,7 @@ Usage
    save_code_now/webhooks/index
    using_data/index
    deposit/index
+   coarnotify/index
 
 .. only:: user_doc
 
