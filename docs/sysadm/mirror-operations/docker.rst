@@ -27,6 +27,7 @@ e.g.:
 Note: on some systems (centos for example), making docker swarm work requires some
 permission tuning regarding the firewall and selinux. Please refer to `the upstream
 docker-swarm documentation <https://docs.docker.com/engine/swarm/swarm-tutorial/>`_.
+Deploying a docker swarm cluster on top of LXC/LXD has also been proven to be difficult.
 
 .. warning:: Check your docker setup with a simple example
 
