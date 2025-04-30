@@ -10,10 +10,12 @@ For every notification sent by a client Repository, the COAR Notify server:
 4. sends a 201 HTTP response to the client
 5. process the notification depending on its ``type``
 6. stores raw extrinsic metadata to the :ref:`storage <swh-storage>`
+
     1. a dedicated :ref:`indexer <swh-indexer>` converts the notification to the
-    `CodeMeta`_ format
+       `CodeMeta`_ format
     2. this :ref:`metadata is now stored <architecture-metadata>` and associated to a
        proper :ref:`SWHID <persistent-identifiers>` / :term:`origin` URL
+
 7. sends a COAR Notification indicating the result of the ingestion.
 
 Graphically:
