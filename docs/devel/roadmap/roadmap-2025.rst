@@ -13,36 +13,39 @@ Heritage initiative for the year 2025.
    :depth: 3
 ..
 
+This year, our roadmap is focused on three main objectives:
+
+- Enlarge the archive: archive more content and be able to archive even more
+- Enrich the archive: add new data about the archive content
+- Empower archive users: propose new ways to access the archive to allow more
+usage
+
+It is mostly driven by several projects:
+
+- CodeCommons: https://codecommons.org/
+- SWH-Sec: https://www.softwareheritage.org/2023/04/07/enhancing-cybersecurity-through-swh/
+- OSPO-Radar: https://www.softwareheritage.org/2025/04/02/ospo-radar-project-launch/
+
+Software Heritage core development team is divided in four work groups:
+* Interfaces: responsible for API and UI/UX
+* Data: responsible for building and analyzing datasets
+* Archive: responsible for archiving forges and package indices
+* Ops: responsible for the infrastructure and the platform running our services
+
+Many items of this roadmap are handled by other teams involved with us in the
+CodeCommons and SWH-Sec projects. Some items tagged "Next" are not prioritized
+this year but kept here for next year or if other items are delivered faster.
+
+
+
 Interfaces work group
 ---------------------
-
-Expose CVE through Scanner
-^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-- Priority: Low
-- Tags: Interfaces work group, SWH-Scanner
-
-**Description**
-
-Add a feature to SWH Scanner that allows to show CVEs related to scanned
-source code, based on CVE information collected in the Software Heritage
-archive
-
-**Includes work**
-
-- Design, implement and deploy an api to query CVE information
-- Implement a “show CVE” feature in swh-scanner
-
-**KPIs**
-
-- New swh-scanner version in production embedding the “show CVE”
-   feature
 
 Coar Notify
 ^^^^^^^^^^^
 
 - Priority: High
-- Tags: Interfaces Work Group, FAIR, Deposit
+- Tags: Interfaces Work Group, FAIR, Deposit, Enlarge
 
 **Description**
 
@@ -65,7 +68,7 @@ Institutional portal (aka OSPO Radar)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 - Priority: Medium
-- Tags: Interfaces work group
+- Tags: Interfaces work group, Empower
 
 **Description**
 
@@ -88,7 +91,7 @@ administrations, ..)
 Rethink Archive UI
 ^^^^^^^^^^^^^^^^^^
 
-- Priority: Low
+- Priority: Medium
 - Tags: Interfaces Work Group, Empower
 
 **Description**
@@ -113,11 +116,54 @@ we want to add in the future.
 - List of features
 - Tasks decomposition to build them
 
+
+Website needs love
+^^^^^^^^^^^^^^^^^^
+
+- Priority: Medium
+- Tags: Interfaces Work Group, Empower
+
+**Description**
+
+Our institutional website, www.softwareheritage.org, and our blog need
+some rework to ease communication work and increase our reach.
+
+**Includes work**
+
+- Simplify some internal development on the website
+- Add some new required plugins
+
+**KPIs**
+
+
+Expose CVE through Scanner
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Priority: Low
+- Tags: Interfaces work group, SWH-Scanner, Empower, Next
+
+**Description**
+
+Add a feature to SWH Scanner that allows to show CVEs related to scanned
+source code, based on CVE information collected in the Software Heritage
+archive
+
+**Includes work**
+
+- Design, implement and deploy an api to query CVE information
+- Implement a “show CVE” feature in swh-scanner
+
+**KPIs**
+
+- New swh-scanner version in production embedding the “show CVE”
+   feature
+
+
 Review existing documentation according to identified personas
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 - Priority: Low
-- Tags: Interfaces Work Group
+- Tags: Interfaces Work Group, Empower, Next
 
 **Description**
 
@@ -140,23 +186,6 @@ which parts.
 - List of areas lacking documentation.
 - Update of the documentation landing page to better fit the different personas.
 
-Website needs love
-^^^^^^^^^^^^^^^^^^
-
-- Priority: Medium
-- Tags: Interfaces Work Group
-
-**Description**
-
-Our institutional website, www.softwareheritage.org, and our blog need
-some rework to ease communication work and increase our reach.
-
-**Includes work**
-
-- Simplify some internal development on the website
-- Add some new required plugins
-
-**KPIs**
 
 Archive work group
 ------------------
@@ -165,7 +194,7 @@ Improve ingestion efficiency
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 - Priority: Medium
-- Tags: CodeCommons, Enlarge, Archive Work Group
+- Tags: CodeCommons, Enlarge, Archive Work Group, Externals
 
 **Description**
 
@@ -203,26 +232,6 @@ particular interest and we want to be able to archive them.
 
 **KPIs**
 
-Support hash collisions globally
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-- Priority: Low
-- Tags: Archive Work Group
-
-**Description**
-
-Several data points in the Software Heritage are identified by their
-hash, in general a sha1. Hash collisions may happen and we need to find
-a way to be resilient to them.
-
-**Includes work**
-
-- Analyze hash collisions issues for all Software Heritage object types
-   (content, directory, revisions, origins…)
-- Propose and implement workarounds
-
-**KPIs**
-
 Improve Object Storage
 ^^^^^^^^^^^^^^^^^^^^^^
 
@@ -231,7 +240,7 @@ Improve Object Storage
 
 **Description**
 
-Our current object storages, winery, starts to show some limitations. We
+Our current object storage, winery, starts to show some limitations. We
 are reaching limits in scalability and some large scale access patterns
 are complicated. Some ongoing studies show that we may improve
 compression rate by clustering similar files together.
@@ -275,7 +284,7 @@ GitLab crawler
 ^^^^^^^^^^^^^^
 
 - Priority: High
-- Tags: Archive Work Group, SWHSec
+- Tags: Archive Work Group, SWHSec, Enlarge
 
 **Description**
 
@@ -296,11 +305,13 @@ Handle pending loaders and listers
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 - Priority: Medium
-- Tags: Archive Work Group
+- Tags: Archive Work Group, Externals, Enlarge
 
 **Description**
 
-Review, update if required and merge all pending loaders and listers
+Several contributions have been made to archive content from new forges or
+package indices but never deployed. Review, update if required and merge all
+pending loaders and listers
 
 **Includes work**
 
@@ -312,14 +323,59 @@ Review, update if required and merge all pending loaders and listers
 
 - Closed merge requests
 
+
+Support hash collisions globally
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Priority: Low
+- Tags: Archive Work Group, Enlarge, Next
+
+**Description**
+
+Several data points in the Software Heritage are identified by their
+hash, in general a sha1. Hash collisions may happen and we need to find
+a way to be resilient to them.
+
+**Includes work**
+
+- Analyze hash collisions issues for all Software Heritage object types
+   (content, directory, revisions, origins…)
+- Propose and implement workarounds
+
+**KPIs**
+
+
 Data work group
 ---------------
+
+Diff Service
+^^^^^^^^^^^^
+
+- Priority: High
+- Tags: Data Work Group, Empower, SWH-Sec
+
+**Description**
+
+Implement a way to compute diff between two revisions
+
+**Includes work**
+
+- Implement algorithm outputting git like diff
+- Compute diff on revisions of some important repositories
+- Add requirements for production usage (monitoring, alerting,
+   integration tests)
+
+**KPIs**
+
+- New API
+- User can push data with it
+
 
 PySpark Tooling
 ^^^^^^^^^^^^^^^
 
 - Priority: Medium
-- Tags: Data Work Group
+- Tags: Data Work Group, Next
 
 **Description**
 
@@ -339,27 +395,6 @@ to execute large scale pyspark jobs on our infrastructure
 
 **KPIs**
 
-Diff Service
-^^^^^^^^^^^^
-
-- Priority: High
-- Tags: Data Work Group, SWH-Sec
-
-**Description**
-
-Implement a way to compute diff between two revisions
-
-**Includes work**
-
-- Implement algorithm outputting git like diff
-- Compute diff on revisions of some important repositories
-- Add requirements for production usage (monitoring, alerting,
-   integration tests)
-
-**KPIs**
-
-- New API
-- User can push data with it
 
 Ops work group
 --------------
@@ -415,7 +450,7 @@ Unified Data Model
 ^^^^^^^^^^^^^^^^^^
 
 - Priority: High
-- Tags: CodeCommons, Enrich
+- Tags: CodeCommons, Enrich, Externals
 
 **Description**
 
@@ -450,7 +485,7 @@ Project context metadata
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
 - Priority: High
-- Tags: CodeCommons, Enrich
+- Tags: CodeCommons, Enrich, Externals
 
 **Description**
 
@@ -480,7 +515,7 @@ License metadata
 ^^^^^^^^^^^^^^^^
 
 - Priority: High
-- Tags: CodeCommons, Enrich
+- Tags: CodeCommons, Enrich, Externals
 
 **Description**
 
@@ -519,7 +554,7 @@ Research publications metadata
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 - Priority: Medium
-- Tags: CodeCommons, Enrich
+- Tags: CodeCommons, Enrich, Externals
 
 **Description**
 
@@ -547,7 +582,7 @@ Software versions metadata
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 - Priority: High
-- Tags: CodeCommons, Enrich
+- Tags: CodeCommons, Enrich, Externals
 
 **Description**
 
@@ -577,7 +612,7 @@ Catchup with GitHub lag
 ^^^^^^^^^^^^^^^^^^^^^^^
 
 - Priority: High
-- Tags: CodeCommons, Enlarge, Archive Work Group
+- Tags: CodeCommons, Enlarge, Archive Work Group, Externals
 
 **Description**
 
@@ -633,7 +668,7 @@ Similarity analysis
 ^^^^^^^^^^^^^^^^^^^
 
 - Priority: Low
-- Tags: CodeCommons, Enrich
+- Tags: CodeCommons, Enrich, Externals
 
 **Description**
 
@@ -662,7 +697,7 @@ Code Qualification
 ^^^^^^^^^^^^^^^^^^
 
 - Priority: Medium
-- Tags: CodeCommons, Enrich
+- Tags: CodeCommons, Enrich, Externals
 
 **Description**
 
@@ -705,18 +740,20 @@ Automate Datasets generation
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 - Priority: Medium
-- Tags: CodeCommons, Enrich, Dataset factory
+- Tags: CodeCommons, Enrich, Dataset factory, Data work group
 
 **Description**
 
-Provide tooling for an automated production and publishing of derived
-datasets
+We need to produce datasets regularly and reliably to be more efficient and to
+clarify which datasets users can expect. Provide tooling for an automated
+production and publishing of derived datasets
 
 **Includes work**
 
 - Design and implement the required automation tools
 - Setup and configure an automation pipeline
 - Provide a dashboard for monitoring
+- Document datasets for clear interface
 
 **KPIs**
 
@@ -726,7 +763,7 @@ Generate contents Datasets
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 - Priority: High
-- Tags: CodeCommons, Enrich, Dataset factory
+- Tags: CodeCommons, Enrich, Dataset factory, Data work group
 
 **Description**
 
@@ -749,7 +786,7 @@ Integrate CodeCommons in main archive
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 - Priority: High
-- Tags: CodeCommons, Enlarge
+- Tags: CodeCommons, Enlarge, Next
 
 **Description**
 
@@ -783,12 +820,13 @@ Collect and store CVE metadata
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 - Priority: High
-- Tags: SWHSec, Enrich
+- Tags:  Data work group, SWHSec, Enrich
 
 **Description**
 
-Collect CVE metadata from relevant external datasources and map it to
-Software Heritage data model
+Collect CVE metadata from relevant external datasources, map it to
+Software Heritage data model and link CVEs to relevant revisions
+(introducing and fixing revisions).
 
 **Includes work**
 
@@ -805,7 +843,7 @@ Vulnerability Dataset extraction
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 - Priority: High
-- Tags: Data work group, SWHSec
+- Tags: Data work group, SWHSec, Enrich
 
 **Description**
 
