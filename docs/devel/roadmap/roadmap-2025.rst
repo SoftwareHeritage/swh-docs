@@ -18,7 +18,7 @@ This year, our roadmap is focused on three main objectives:
 - Enlarge the archive: archive more content and be able to archive even more
 - Enrich the archive: add new data about the archive content
 - Empower archive users: propose new ways to access the archive to allow more
-usage
+   usage
 
 It is mostly driven by several projects:
 
@@ -27,10 +27,10 @@ It is mostly driven by several projects:
 - OSPO-Radar: https://www.softwareheritage.org/2025/04/02/ospo-radar-project-launch/
 
 Software Heritage core development team is divided in four work groups:
-* Interfaces: responsible for API and UI/UX
-* Data: responsible for building and analyzing datasets
-* Archive: responsible for archiving forges and package indices
-* Ops: responsible for the infrastructure and the platform running our services
+- Interfaces: responsible for API and UI/UX
+- Data: responsible for building and analyzing datasets
+- Archive: responsible for archiving forges and package indices
+- Ops: responsible for the infrastructure and the platform running our services
 
 Many items of this roadmap are handled by other teams involved with us in the
 CodeCommons and SWH-Sec projects. Some items tagged "Next" are not prioritized
@@ -609,7 +609,7 @@ levels of granularity.
 
 
 Catch up with GitHub lag
-^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^
 
 - Priority: High
 - Tags: CodeCommons, Enlarge, Archive Work Group, Externals
