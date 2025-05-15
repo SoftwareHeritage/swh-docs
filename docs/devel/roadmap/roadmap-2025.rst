@@ -4,7 +4,7 @@
 Roadmap 2025
 ============
 
-(Version 1.0, last modified 2025-04-24)
+(Version 1.0, last modified 2025-05-15)
 
 This document provides an overview of the technical roadmap of the Software
 Heritage initiative for the year 2025.
@@ -56,8 +56,8 @@ to archive or to link content to metadata
 
 - Implement and deploy new API
 - Document it and test it with user
-- Add requirements for production usage (monitoring, alerting,
-   integration tests)
+- Add requirements for production usage (monitoring, alerting, integration
+   tests)
 
 **KPIs**
 
@@ -74,7 +74,7 @@ Institutional portal (aka OSPO Radar)
 
 Set up an Institutional Portal, a UI feature aiming to present, qualify
 and extract software catalogs for specific entities (institutions,
-administrations, ..)
+administrations, ...)
 
 **Includes work**
 
@@ -107,7 +107,7 @@ we want to add in the future.
 **Includes work**
 
 - List easy and hard features to add
-- For hard features, describe requirements to make them accessible.
+- For hard features, describe requirements to make them accessible
 - Draw some design of what we would expect
 - Prepare a plan on how to build and release them
 
@@ -288,7 +288,7 @@ GitLab crawler
 
 **Description**
 
-Recent addition to gitlab from Software Heritage allow us to fetch
+Recent addition to gitlab from Software Heritage allows us to fetch
 metadata from gitlab forges. Now that they are accessible, we want to
 fetch them
 
@@ -407,7 +407,7 @@ Prepare hosting move
 
 **Description**
 
-Our current hosting will be closed, we need to get ready to move it when
+Our current hosting will be closed, we need to get ready to move from it when
 it will happen
 
 **Includes work**
@@ -456,7 +456,7 @@ Unified Data Model
 
 Building a unified data model to enrich the Software Heritage core data
 model is a keystone of the CodeCommons project. It consists in
-collecting metadata from many sources and to store them in a unified
+collecting metadata from many sources and to store them in an unified
 model, in a way that makes the data available for efficient indexing and
 querying. The purpose of this unified data model is to generate
 qualified and specialized datasets, filtered with a wide range of
@@ -491,7 +491,7 @@ Project context metadata
 
 This task of the CodeCommons project includes collecting context data
 from various collaboration platforms (forges, bug trackers…) and storing
-it in a unified data model. It aims at adding helpful information to
+it in an unified data model. It aims at adding helpful information to
 qualify source codes in regards with projects activity, including
 issues, pull requests and discussions.
 
@@ -500,7 +500,7 @@ be stored using GHArchive.
 
 **Includes work**
 
-- Design the unfied data model for project context metadata, based on a
+- Design the unified data model for project context metadata, based on a
    benchmark of existing models like ForgeFed
 - Implement and deploy crawlers for project context metadata for each
    identified platform
@@ -560,13 +560,13 @@ Research publications metadata
 
 This task of the CodeCommons project aims to identify to which thematics
 a software project is related, by collecting metadata from research
-publications, referenced by several platforms (e.g. HAL, Open Alex).
+publications, referenced by several platforms (e.g. HAL, Open Alex).
 
 The collected data will be structured in a unified data model.
 
 **Includes work**
 
-- Design the unfied data model for publications metadata, based on a
+- Design the unified data model for publications metadata, based on a
    benchmark of existing models like OpenAlex
 - Implement and deploy crawlers for publications metadata for each
    identified platform
@@ -608,7 +608,7 @@ levels of granularity.
 - Number of versions identified
 
 
-Catchup with GitHub lag
+Catch up with GitHub lag
 ^^^^^^^^^^^^^^^^^^^^^^^
 
 - Priority: High
@@ -627,7 +627,7 @@ ingest the missing repositories.
 - List the missing GitHub origins in Software Heritage archive
 - Implement and deploy massive ingestion tools at CINES
 - Clone and ingest the missing origins at CINES
-- Generate dedudplicated datasets for retrieval in the main archive
+- Generate deduplicated datasets for retrieval in the main archive
 
 **KPIs**
 
@@ -655,8 +655,7 @@ archive access.
 
 - Copy archive contents at CINES
 - Copy archive compressed graph at CINES
-- Improve and adapt SWH-Fuse for optimized large-scale access to the
-   archive
+- Improve and adapt SWH-Fuse for optimized large-scale access to the archive
 
 **KPIs**
 
@@ -711,7 +710,7 @@ identification - Dependencies detection - Code quality metrics
 
 - Programming languages:
 
-   - Benchmarck existing tools and select the most relevant ones
+   - Benchmark existing tools and select the most relevant ones
    - Run language identification analysis at scale on Software Heritage
       contents
    - Store and index the results in a unified data model
@@ -772,9 +771,9 @@ on a list of SWHIDs.
 
 **Includes work**
 
-- Enable SWHID mapping on existing objectstorage (currently indexed by
+- Enable SWHID mapping on existing object storage (currently indexed by
    hash)
-- Design and implement a generation engine for datasets embedidng
+- Design and implement a generation engine for datasets embedding
    contents
 - Benchmark and optimize performance for large-scale usage
 
@@ -793,7 +792,7 @@ Integrate CodeCommons in main archive
 Most CodeCommons tools for metadata crawling and archive analysis will
 be run on Adastra HPC at CINES. On the one hand, the computed metadata
 will need to retrieved in the main archive, and on the other hand, the
-toolsused for a massive processing on the whole archive copy will need
+tools used for a massive processing on the whole archive copy will need
 to be integrated to Software Heritage standard ingestion pipeline in
 order to keep maintaining the CodeCommos metadata up-to-date on the long
 term. This taske also includes the retrieval of the GitHub lag
@@ -824,19 +823,19 @@ Collect and store CVE metadata
 
 **Description**
 
-Collect CVE metadata from relevant external datasources, map it to
+Collect CVE metadata from relevant external data sources, map it to
 Software Heritage data model and link CVEs to relevant revisions
 (introducing and fixing revisions).
 
 **Includes work**
 
-- Design a data model for CVE
+- Design a data model for CVEs
 - Implement crawlers for CVE data sources
 - Store metadata
 
 **KPIs**
 
-- Number of CVE stored
+- Number of CVEs stored
 - Number of Objects linked to a CVE
 
 Vulnerability Dataset extraction
@@ -848,17 +847,14 @@ Vulnerability Dataset extraction
 **Description**
 
 Develop a tool that extracts the relevant introducing/fixing commits
-from Software Heritage for a input dataset of vulnerabilities
-description.via the Software Heritage archive, in a dataset featuring
-information will be available on either the version (or commit)
-introducing the vulnerability or the version (or commit) fixing the
-vulnerability, or both.
+from Software Heritage for a dataset of vulnerabilities
 
 **Includes work**
 
-- Design and implement the detetction mechanisms
-- Benchmark the tools by generating raw datasets
-- Validate and deliver the tool
+- Design and implement the detection mechanisms
+- Generate raw datasets
+- Iterate with people involved in the extracted data evaluation
+
 
 **KPIs**
 
