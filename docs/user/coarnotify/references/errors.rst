@@ -56,5 +56,5 @@ Reject
 
 This notification has a ``Reject`` ``type``.
 
-- ``context['id']`` MUST match ``object['as:object']``
+- ``context['id']`` MUST match ``object['as:subject']``
 - ``context['type']`` MUST contain ``sorg:SoftwareSourceCode``
