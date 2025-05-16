@@ -44,16 +44,32 @@ will look like:
       "type": "Organization"
     },
     "context": {
-      "id": "swh:1:dir:ec88e5b901c034d5a91aa133e824d65cff3788a3;origin=https://github.com/rdicosmo/parmap;visit=swh:1:snp:25490d451af2414b2a08ece0df643dfdf2800084;anchor=swh:1:rev:db44dc9cf7a6af7b56d8ebda8c75be3375c89282",
+      "id": "https://your-organization.tld/item/12345/",
+      "sorg:name": "My paper title",
+      "sorg:author": {
+          "@type": "Person",
+          "givenName": "Author Name",
+          "email": "author@example.com",
+      },
+      "ietf:cite-as": "https://doi.org/XXX/YYY",
+      "ietf:item": {
+        "id": "https://your-organization.tld/item/12345/document.pdf",
+        "mediaType": "application/pdf",
+        "type": [
+          "Object",
+          "sorg:ScholarlyArticle"
+        ]
+      },
       "type": [
-        "sorg:SoftwareSourceCode"
+        "Page",
+        "sorg:AboutPage"
       ]
     },
     "id": "urn:uuid:6908e2d0-ab41-4fbf-8b27-e6d6cf1f7b95",
     "object": {
       "as:subject": "https://your-organization.tld/item/12345/",
       "as:relationship": "https://w3id.org/codemeta/3.0#citation",
-      "as:object": " swh:1:dir:ec88e5b901c034d5a91aa133e824d65cff3788a3;origin=https://github.com/rdicosmo/parmap;visit=swh:1:snp:25490d451af2414b2a08ece0df643dfdf2800084;anchor=swh:1:rev:db44dc9cf7a6af7b56d8ebda8c75be3375c89282",
+      "as:object": "https://github.com/rdicosmo/parmap",
       "id": "urn:uuid:74FFB356-0632-44D9-B176-888DA85758DC",
       "type": "Relationship"
     },
