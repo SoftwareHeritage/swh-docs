@@ -104,20 +104,6 @@ Sample |pg_service|
   port=5432
   user=swh
 
-  # Deprecated (db moved to internal kube, its data is out of sync)
-  [staging-swh-deposit]
-  dbname=swh-deposit
-  host=db1.internal.staging.swh.network
-  port=5432
-  user=guest
-
-  # Deprecated (db moved to internal kube, its data is out of sync)
-  [admin-staging-swh-deposit]
-  dbname=swh-deposit
-  host=db1.internal.staging.swh.network
-  port=5432
-  user=swh-deposit
-
   [staging-swh-indexer]
   dbname=swh-indexer
   host=db1.internal.staging.swh.network
