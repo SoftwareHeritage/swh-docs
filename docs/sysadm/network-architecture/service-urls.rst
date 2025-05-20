@@ -78,10 +78,6 @@ SWH backends
 +--------------------+---------------------------------------------------------+--------+------------+
 | archive database   | db1.internal.staging.swh.network:5432/swh               | X      |            |
 +--------------------+---------------------------------------------------------+--------+------------+
-| webapp database    | db1.internal.staging.swh.network:5432/swh-web           | X      |            |
-+--------------------+---------------------------------------------------------+--------+------------+
-| deposit database   | db1.internal.staging.swh.network:5432/swh-deposit       | X      |            |
-+--------------------+---------------------------------------------------------+--------+------------+
 | vault database     | db1.internal.staging.swh.network:5432/swh-vault         | X      |            |
 +--------------------+---------------------------------------------------------+--------+------------+
 | scheduler database | db1.internal.staging.swh.network:5432/swh-scheduler     | X      |            |
