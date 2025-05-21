@@ -6,6 +6,7 @@ swh.coarnotify
 swh.counters
 swh.datasets[luigi]
 swh.deposit[server]
+swh.digestmap
 swh.export[luigi]
 swh.fuse
 swh.graph[luigi]

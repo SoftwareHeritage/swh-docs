@@ -116,6 +116,9 @@ of the corresponding Python module.
 :ref:`swh.deposit <swh-deposit>`
     push-based deposit of software artifacts to the archive
 
+:ref:`swh.digestmap <swh-digestmap>`
+    efficient mapping of content hashes
+
 swh.docs
     developer documentation (used to generate this doc you are reading)
 

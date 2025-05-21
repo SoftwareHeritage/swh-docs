@@ -21,6 +21,7 @@ by components:
    swh.counters <swh-counters/index>
    swh.datasets <swh-datasets/index>
    swh.deposit <swh-deposit/index>
+   swh.digestmap <swh-digestmap/index>
    swh.export <swh-export/index>
    swh.fuse <swh-fuse/index>
    swh.graph <swh-graph/index>
