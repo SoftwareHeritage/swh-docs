@@ -49,12 +49,15 @@ Coar Notify
 
 **Description**
 
-Implement a new API relying on COAR Notify protocol to add new content
-to archive or to link content to metadata
+Add support for the COAR Notify protocol in the SWH Archive to allow partners
+to notify us new relations between software source code artifacts and external
+entities, especially scholarly publications and scientific papers.
+
 
 **Includes work**
 
-- Implement and deploy new API
+- Implement the basic use case allowing partners to notify the archive of
+   software mentions in scientific papers
 - Document it and test it with user
 - Add requirements for production usage (monitoring, alerting, integration
    tests)
@@ -62,7 +65,9 @@ to archive or to link content to metadata
 **KPIs**
 
 - New API
-- User can push data with it
+- Users can send software mentions in scientific publications
+- Users can search the archive for the software artifacts related to scientific
+   work using simple search criteria
 
 Institutional portal (aka OSPO Radar)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -117,36 +122,17 @@ we want to add in the future.
 - Tasks decomposition to build them
 
 
-Website needs love
-^^^^^^^^^^^^^^^^^^
-
-- Priority: Medium
-- Tags: Interfaces Work Group, Empower
-
-**Description**
-
-Our institutional website, www.softwareheritage.org, and our blog need
-some rework to ease communication work and increase our reach.
-
-**Includes work**
-
-- Simplify some internal development on the website
-- Add some new required plugins
-
-**KPIs**
-
-
-Expose CVE through Scanner
-^^^^^^^^^^^^^^^^^^^^^^^^^^
+Expose known vulnerabilities through Scanner
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 - Priority: Low
 - Tags: Interfaces work group, SWH-Scanner, Empower, Next
 
 **Description**
 
-Add a feature to SWH Scanner that allows to show CVEs related to scanned
-source code, based on CVE information collected in the Software Heritage
-archive
+Add a feature to SWH Scanner that allows to show known vulnerabilities (CVEs)
+related to scanned source code, based on CVE information collected in the
+Software Heritage archive
 
 **Includes work**
 
@@ -155,9 +141,9 @@ archive
 
 **KPIs**
 
-- New swh-scanner version in production embedding the “show CVE”
+- New backend API in production
+- New swh-scanner version released embedding the “show CVE”
    feature
-
 
 Review existing documentation according to identified personas
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -310,7 +296,7 @@ Handle pending loaders and listers
 **Description**
 
 Several contributions have been made to archive content from new forges or
-package indices but never deployed. Review, update if required and merge all
+packages indexes but never deployed. Review, update if required and merge all
 pending loaders and listers
 
 **Includes work**
@@ -334,7 +320,8 @@ Support hash collisions globally
 
 Several data points in the Software Heritage are identified by their
 hash, in general a sha1. Hash collisions may happen and we need to find
-a way to be resilient to them.
+a way to be resilient to them. This is similar to the archiving of repositories
+with hash collision but more general to the whole Software Heritage Archive.
 
 **Includes work**
 
@@ -367,8 +354,8 @@ Implement a way to compute diff between two revisions
 
 **KPIs**
 
-- New API
-- User can push data with it
+- Diff algorithm implementation
+- Dataset produced with it
 
 
 PySpark Tooling
@@ -735,8 +722,8 @@ identification - Dependencies detection - Code quality metrics
 
 - % of the archive covered for each subject
 
-Automate Datasets generation
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Automate dataset generation
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 - Priority: Medium
 - Tags: CodeCommons, Enrich, Dataset factory, Data work group
@@ -758,7 +745,7 @@ production and publishing of derived datasets
 
 - Number of derived datasets automatically published
 
-Generate contents Datasets
+Generate contents datasets
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 - Priority: High
@@ -795,7 +782,7 @@ will need to retrieved in the main archive, and on the other hand, the
 tools used for a massive processing on the whole archive copy will need
 to be integrated to Software Heritage standard ingestion pipeline in
 order to keep maintaining the CodeCommos metadata up-to-date on the long
-term. This taske also includes the retrieval of the GitHub lag
+term. This task also includes the retrieval of the GitHub lag
 ingestion.
 
 **Includes work**
