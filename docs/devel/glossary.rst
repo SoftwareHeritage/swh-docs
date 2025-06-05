@@ -30,6 +30,11 @@ Glossary
      ingested as soon as possible. The service allows to get feedback from the
      |swh| archive about the ongoing ingestion process.
 
+   compressed graph
+
+     A compact and randomly-accessible representation of the :term:`graph`,
+     as implemented by :ref:`swh-graph`.
+
    content
    blob
 
@@ -51,6 +56,17 @@ Glossary
      See also: the :ref:`swh-deposit` component, which implements a deposit
      client and server.
 
+   derived dataset
+
+     A dataset (ie. a bunch of large files) that is built from public data,
+     such as the :term:`export` or the :term:`compressed graph`.
+
+     This includes datasets computed by :ref:`swh-datasets`, :ref:`swh-digestmap`,
+     and :ref:`swh-provenance`.
+
+     Many derived datasets are computed by |swh| themselves, but they can
+     be designed and/or recomputed externally.
+
    directory
 
      A set of named pointers to contents (file entries), directories (directory
@@ -63,6 +79,13 @@ Glossary
      A Digital Object Identifier or DOI_ is a persistent identifier or handle
      used to uniquely identify objects, standardized by the International
      Organization for Standardization (ISO).
+
+   export
+   graph export
+
+     A dump of (almost) all data in the |swh| :term:`graph` into terabytes of files
+     (currently in the ORC format) that are shared publicly.
+     Alongside a complete :term:`objstorage`, it allows rebuilding the |swh| :term:`archive`.
 
    extid
    external identifier
@@ -82,6 +105,17 @@ Glossary
      ("stars") as listed on GitHub/GitLab repository pages.
 
      See also: :term:`intrinsic metadata` :ref:`architecture-metadata`.
+
+   graph
+
+     The set of all :term:`content` metadata, :term:`directory`, :term:`revision`,
+     :term:`release`, :term:`snapshot`, and :term:`origin` node, and links between them,
+     as a :ref:`Merkle DAG <swh-merkle-dag>`.
+     Not to be confused with the :term:`compressed graph`.
+
+     It is stored in a relational database, such as PostgreSQL or Cassandra.
+
+     It excludes :term:`content` nodes' data, which is stored in an :term:`objstorage`.
 
    journal
 
