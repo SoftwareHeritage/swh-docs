@@ -108,20 +108,35 @@ space and memory.
 
 The m.o. is:
 
-- Install the new dataset on one of the machines
-- Deploy a new instance running concurrently to the previous one using
-  the newly installed dataset.
-- Check everything is fine for that new instance.
-- Once the new instance is running ok, switch the fqdn [1] [2] to the new
-  instance.
-- Once the new instance is satisfying, we can decommission the previous
-  instance.
-- And then free the zfs dataset disk usage
+- Install the new dataset on one of the highmem machines
+- Deploy a new gprc and rpc instance running concurrently to the previous
+  ones. The grpc service shall be using the newly installed zfs dataset using
+  the newly installed dataset. And the new new rpc hitting the new grpc
+  service as backend.
+- Check everything is fine for those new instances.
+- Once the new instances are running ok, switch the "public" ingresses fqdn
+  [1] [2] so they target the new instances (grpc & rpc)
 
 The `following merge request
 <https://gitlab.softwareheritage.org/swh/infra/ci-cd/swh-charts/-/merge_requests/596>_`
 can be used as a reference on how to adapt the swh-charts repository for a new
-graph version.
+graph version. Each commit describes what needs to happen in order according
+to the previous m.o.
+
+It declares:
+
+- 1 persistent volume (pv) which target where the zfs dataset is mounted
+  on the node that will run the grpc service.
+- 2 persistent volume claims (pvc):
+
+  - 1 persistent pvc which uses the previous pv to detect where the compresses
+    graph files are
+  - another in-memory pvc which is in memory for the graph files which will be
+    mounted in the node's memory
+
+- 1 grpc service which uses as volumes the 2 previous pvcs to serve the grpc
+  queries
+- 1 rpc service which uses as backend the grpc service
 
 [1] graph-grpc.internal.softwareheritage.org & graph-grpc-default-ingress
 
@@ -129,11 +144,67 @@ graph version.
 
 .. _swh-graph-post-actions:
 
-As mentioned, if the new graph is ok, we can first decommission the previous
-graph instance (to avoid unnecessary resources consumption, be it disk or
-memory).
+Post graph deployment actions
+-----------------------------
 
-Currently, as the graph compression export can take some time, we have some
-references tables in cassandra which store the diffs between the last graph
-version running and now. When the new graph is deployed, it's time to clean
-those up.
+Decommission previous instance
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+As mentioned, when the new graph is deployed, we can:
+
+- first decommission the previous graph instance (to avoid unnecessary
+  resources consumption, be it disk or memory).
+- free the associated zfs dataset which is no longer used (if freeing disk
+  space is required)
+
+Clean up record references table in storage
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The compressed graph is a snapshot view in time of the main archive. Its
+export takes some time to compute.
+
+To avoid heavy computations to compute the differences a-la-demande between
+the main archive and the compressed graph (which would be wasteful in time and
+resources), we have some references tables stored in cassandra. They keep such
+difference between the last graph version running and now (at the expanse of
+resources).
+
+When the new graph is deployed, we can clean up those references tables to
+reclaim resources.
+
+Connect to the swh-cassandra namespace in a writing workload
+(e.g. storage-cassandra-winery or a toolbox) pod and call the cli to cleanup
+reference tables. The script to use will prompt your for a response so you can
+always abort.
+
+.. code::
+
+   # Ask for removal of the record reference from the most recent graph version
+   swh storage remove-old-object-reference-partitions YYYY-MM-DD
+
+Example::
+
+   swh@pod:~$ swh storage remove-old-object-reference-partitions 2025-04-19
+   We will remove the following partitions before 2025-04-19:
+   - 2024 week 48
+   - 2024 week 49
+   - 2024 week 50
+   - 2024 week 51
+   - 2024 week 52
+   - 2025 week 01
+   - 2025 week 02
+   - 2025 week 03
+   - 2025 week 04
+   - 2025 week 05
+   - 2025 week 06
+   - 2025 week 07
+   - 2025 week 08
+   - 2025 week 09
+   - 2025 week 10
+   - 2025 week 11
+   - 2025 week 12
+   - 2025 week 13
+   - 2025 week 14
+   - 2025 week 15
+   Do you want to proceed? [y/N]: N
+   Aborted!
