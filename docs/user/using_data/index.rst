@@ -79,10 +79,10 @@ Author/committer name and email are pseudonymized.
 
 .. _contact us: https://www.softwareheritage.org/community/scientists/
 
-Dataset export
-^^^^^^^^^^^^^^
+Graph export
+^^^^^^^^^^^^
 
-The :ref:`swh-graph-dataset` also includes a raw export of all of
+The :ref:`swh-graph-dataset` also includes a raw :term:`export` of all of
 the archive's database tables (as ORC files) and graph structure (as compressed CSV).
 It does not include file content.
 
@@ -96,7 +96,7 @@ Author/committer name and email are pseudonymized.
 Contents on S3
 ^^^^^^^^^^^^^^
 
-Finally, to complement the compressed graph and dataset export, we provide
+Finally, to complement the :term:`compressed graph` and :term:`graph export`, we provide
 public access to file content via a S3 bucket, accessible at
 ``s3://softwareheritage/content/<sha1>`` and
 ``https://softwareheritage.s3.amazonaws.com/content/<sha1>``
