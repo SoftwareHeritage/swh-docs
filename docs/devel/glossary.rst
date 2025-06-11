@@ -58,8 +58,9 @@ Glossary
 
    derived dataset
 
-     A dataset (ie. a bunch of large files) that is built from public data,
-     such as the :term:`export` or the :term:`compressed graph`.
+     A dataset (ie. a bunch of large files) that is derived from (ie. built from)
+     public data, such as the :term:`export`, the :term:`compressed graph`,
+     or the :term:`archive` itself.
 
      This includes datasets computed by :ref:`swh-datasets`, :ref:`swh-digestmap`,
      and :ref:`swh-provenance`.
@@ -85,7 +86,9 @@ Glossary
 
      A dump of (almost) all data in the |swh| :term:`graph` into terabytes of files
      (currently in the ORC format) that are shared publicly.
-     Alongside a complete :term:`objstorage`, it allows rebuilding the |swh| :term:`archive`.
+     Alongside a complete :term:`objstorage`, it allows rebuilding the
+     |swh| :term:`archive`; except personal information (author names and emails)
+     which is pseudonymized.
 
    extid
    external identifier
