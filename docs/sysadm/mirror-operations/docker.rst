@@ -320,106 +320,6 @@ The nginx frontend will listen on the 5081 port, so you can use:
    recreated using the ``:latest`` image (which might **not** be the latest available
    version, nor consistent among the docker nodes on your swarm cluster).
 
-Updating a configuration
-------------------------
-
-Configuration files are exposed to docker services via the :command:`docker config`
-system. Unfortunately, docker does not support updating these config
-objects. The usual method to update a config in a service is:
-
-- create a new config entry with updated config content,
-- update targeted running services to replace the original config entry by the new one,
-- destroy old (now unused) docker config objects.
-
-For example, if you edit the file :file:`conf/storage.yml`:
-
-.. code-block:: console
-
-   swh:~/swh-mirror$ docker config create storage-2 conf/storage.yml
-   h0m8jvsacvpl71zdcq3wnud6c
-   swh:~/swh-mirror$ docker service update \
-                   --config-rm storage \
-                   --config-add source=storage-2,target=/etc/softwareheritage/config.yml \
-                   swh_storage
-   swh_storage
-   overall progress: 2 out of 2 tasks
-   verify: Service converged
-   swh:~/swh-mirror$ docker config rm storage
-
-.. Warning:: this procedure will update the live configuration of the service
-             stack, which will then be out of sync with the stack described in
-             the compose file used to create the stack. This needs to be kept
-             in mind if you try to apply the stack configuration using
-             :command:`docker stack deploy` later on. However if you destroy
-             the unused config entry as suggested above, an execution of the
-             :command:`docker stack deploy` will not break anything (just recreate
-             containers) since it will recreate original config object with the
-             proper content.
-
-See https://docs.docker.com/engine/swarm/configs/ for more details on
-how to use the config system in a docker swarm cluster.
-
-
-Note that the :command:`docker service update` command can be used for many other
-things, for example it can be used to change the debug level of a service:
-
-.. code-block:: console
-
-   swh:~/swh-mirror$ docker service update --env-add LOG_LEVEL=DEBUG swh_storage
-
-Then you can revert to the previous setup using:
-
-.. code-block:: console
-
-   swh:~/swh-mirror$ docker service update --rollback swh_storage
-
-See the documentation of the `swh service update
-<https://docs.docker.com/engine/reference/commandline/service_update/>`_
-command for more details.
-
-Updating an image
------------------
-
-When a new version of the softwareheritage image is published, running
-services must updated to use it.
-
-In order to prevent inconsistency caveats due to dependency in deployed
-versions, we recommend that you deploy the new image on all running
-services at once.
-
-This can be done as follow:
-
-.. code-block:: console
-
-   swh:~/swh-mirror$ export SWH_IMAGE_TAG=<new version>
-   swh:~/swh-mirror$ docker stack deploy -c base-services.yml swh
-
-
-Note that this will reset the replicas config to their default values.
-
-If you want to update only a specific service, you can also use (here for a
-replayer service):
-
-.. code-block:: console
-
-   swh:~/swh-mirror$ docker service update --image \
-          softwareheritage/replayer:${SWH_IMAGE_TAG} \
-          swh_graph-replayer
-
-.. warning::
-
-   Updating the image of a storage service may come with a database migration
-   script. So we strongly recommend you scale the service back to one before
-   updating the image:
-
-   .. code-block:: console
-
-          swh:~/swh-mirror$ docker service scale swh_storage=1
-          swh:~/swh-mirror$ docker service update --image \
-          softwareheritage/base:${SWH_IMAGE_TAG} \
-          swh_storage
-          swh:~/swh-mirror$ docker service scale swh_storage=16
-
 
 Set up the mirroring components
 ===============================
@@ -521,6 +421,155 @@ Similarly, to run the content replayer:
    swh:~/swh-mirror$ docker service scale swh_content-replayer=1
 
 
+Updating a running stack
+========================
+
+Updating a configuration
+------------------------
+
+Configuration files are exposed to docker services via the :command:`docker config`
+system. Unfortunately, docker does not support updating these config
+objects. The usual method to update a config in a service is:
+
+- create a new config entry with updated config content,
+- update targeted running services to replace the original config entry by the new one,
+- destroy old (now unused) docker config objects.
+
+For example, if you edit the file :file:`conf/storage.yml`:
+
+.. code-block:: console
+
+   swh:~/swh-mirror$ docker config create storage-2 conf/storage.yml
+   h0m8jvsacvpl71zdcq3wnud6c
+   swh:~/swh-mirror$ docker service update \
+                   --config-rm storage \
+                   --config-add source=storage-2,target=/etc/softwareheritage/config.yml \
+                   swh_storage
+   swh_storage
+   overall progress: 2 out of 2 tasks
+   verify: Service converged
+   swh:~/swh-mirror$ docker config rm storage
+
+.. Warning:: this procedure will update the live configuration of the service
+             stack, which will then be out of sync with the stack described in
+             the compose file used to create the stack. This needs to be kept
+             in mind if you try to apply the stack configuration using
+             :command:`docker stack deploy` later on. However if you destroy
+             the unused config entry as suggested above, an execution of the
+             :command:`docker stack deploy` will not break anything (just recreate
+             containers) since it will recreate original config object with the
+             proper content.
+
+See https://docs.docker.com/engine/swarm/configs/ for more details on
+how to use the config system in a docker swarm cluster.
+
+
+Note that the :command:`docker service update` command can be used for many other
+things, for example it can be used to change the debug level of a service:
+
+.. code-block:: console
+
+   swh:~/swh-mirror$ docker service update --env-add LOG_LEVEL=DEBUG swh_storage
+
+Then you can revert to the previous setup using:
+
+.. code-block:: console
+
+   swh:~/swh-mirror$ docker service update --rollback swh_storage
+
+See the documentation of the `swh service update
+<https://docs.docker.com/engine/reference/commandline/service_update/>`_
+command for more details.
+
+Updating an image
+-----------------
+
+When a new version of the softwareheritage image is published, running
+services must updated to use it.
+
+In order to prevent inconsistency caveats due to dependency in deployed
+versions, we recommend that you deploy the new image on all running
+services at once.
+
+This can be done as follow:
+
+.. code-block:: console
+
+   swh:~/swh-mirror$ export SWH_IMAGE_TAG=<new version>
+   swh:~/swh-mirror$ docker stack deploy -c base-services.yml swh
+
+
+Note that this will reset the replicas config to their default values.
+
+If you want to update only a specific service, you can also use (here for a
+replayer service):
+
+.. code-block:: console
+
+   swh:~/swh-mirror$ docker service update --image \
+          softwareheritage/replayer:${SWH_IMAGE_TAG} \
+          swh_graph-replayer
+
+.. warning::
+
+   Updating the image of a storage service may come with a database migration
+   script. So we strongly recommend you scale the service back to one before
+   updating the image:
+
+   .. code-block:: console
+
+          swh:~/swh-mirror$ docker service scale swh_storage=1
+          swh:~/swh-mirror$ docker service update --image \
+          softwareheritage/base:${SWH_IMAGE_TAG} \
+          swh_storage
+          swh:~/swh-mirror$ docker service scale swh_storage=16
+
+
+Deploy a mirror using a Cassandra backend for the storage
+=========================================================
+
+The section above describe the default test deployment of the mirror stack in
+which the `swh-storage` service is using Postgresql as backend storage. This is
+the simplest and easiest solution to try a full mirror deployment. However
+mirror operators may chose to use a Cassandra cluster instead of Postgresql as
+storage backend.
+
+The example deployment stack comes with an example of such de configuration
+set. It consists in a dedicated `mirror_cassandra.yml` stack file and is mostly
+identical to the process described above. Differences are:
+
+- there is no ``storage-db`` service (postgresql instance used as backend for
+  the ``swh-storage`` service)
+- there 3 instances of a ``cassandra-seed`` service making a 3-nodes Cassandra
+  cluster,
+- the configuration file for the ``swh-storage``
+  (``conf/storage-cassandra.yml``) is modified accordingly.
+
+
+As a consequence, trying a Cassandra based mirror deployment is a matter of:
+
+.. code-block:: console
+
+   swh:~/swh-mirror$ docker stack deploy -c mirror-cassandra.yml swh
+
+
+.. warning::
+
+   In this configuration:
+
+   - the Cassandra cluster is deployed within the docker stack,
+
+   - it is a very basic Cassandra deploymet which is by no mean intended for
+     production-like deployment, merely a simple way to have a working setup
+     for testing purpose,
+
+   - there is no authentication to access the Cassandra cluster.
+
+
+A more realistic deployment would probably depend on an existing IT operated
+Cassandra cluster.
+
+
 Getting your deployment production-ready
 ========================================
 
@@ -566,20 +615,52 @@ Notes on the throughput of the mirroring process
 Operational concerns for the Storage database
 ---------------------------------------------
 
-The overall throughput of the mirroring process will depend heavily on the ``swh_storage``
-service, and on the performance of the underlying ``swh_db-storage`` database. You will
-need to make sure that your database is `properly tuned
-<https://wiki.postgresql.org/wiki/Tuning_Your_PostgreSQL_Server>`_.
+When using The overall throughput of the mirroring process will depend heavily
+on the ``swh_storage`` service, and on the performance of the underlying
+``storage-db`` database or ``cassandra`` cluster. You will need to make sure
+that your database is `properly tuned
+<https://wiki.postgresql.org/wiki/Tuning_Your_PostgreSQL_Server>`_ (if relevant).
 
-You may also want to deploy your database directly to a bare-metal server rather than
-have it managed within the docker stack. To do so, you will have to:
+You may also want to deploy your database or cassandra cluster directly to
+bare-metal servers rather than have it managed within the docker stack. To do
+so, you will have to:
 
-- modify the (merged) configuration of the docker stack to drop references to the
-  ``db-storage`` service (itself, and as dependency for the ``storage`` service)
-- ensure that docker containers deployed in your swarm are able to connect to your
-  external database server
-- override the environment variables of the ``storage`` service to reference the external
-  database server and dbname
+.. tab-set::
+
+  .. tab-item:: Postgresql
+
+     - modify the configuration of the docker stack to drop references to the
+       ``db-storage`` service (itself, and as dependency for the ``storage`` service)
+     - ensure that docker containers deployed in your swarm are able to connect to your
+       external database server
+     - override the environment variables of the ``storage`` service to
+       reference the external database server and db name (namely ``PGHOST_0``,
+       ``PGUSER_0`` and ``POSTGRESQL_DB_0``) in the
+       ``mirror.yml:services/storage/environment`` section,
+     - ensure the db password for the user ``PGUSER_0`` is defined using
+       ``docker secret`` for ``swh-mirror-db-postgres-password`` (as described
+       above).
+
+  .. tab-item:: Cassandra
+
+     - modify the configuration of the docker stack to drop references to the
+       ``cassandra-seed`` services in the ``mirror-cassandra.yml``
+     - ensure that docker containers deployed in your swarm are able to connect to your
+       external cassandra cluster
+     - override the environment variables of the ``storage`` service to
+       reference the external cassandra cluster (namely the ``CASSANDRA_SEEDS``
+       environment variable in the
+       ``mirror-cassandra.yml:services/storage/environment`` section; this is a
+       comma-separated list of the Cassandra seed nodes).
+     - modify the configuration file ``conf/storage-cassandra.yml`` to properly
+       configure the ``hosts`` section with the same list of cassndra seed
+       nodes as above.
+     - this deployment stack does not yet support specifying the Casssandra
+       access password using ``docker secret`` so you need to put the proper
+       credentials in the ``conf/storage-cassandra.yml`` file. An example
+       configuration file ``conf/storage-cassandra.yml.example`` is given as a
+       starting point for this.
+
 
 
 Operational concerns for the monitoring
