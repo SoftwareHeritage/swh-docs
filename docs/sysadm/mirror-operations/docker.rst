@@ -8,6 +8,18 @@ Deploy a Software Heritage stack with docker deploy
 
    mirror operators
 
+This documentation aims at guiding a mirror operator in deploying a **test**
+mirror setup using the `example deployment stack
+<https://gitlab.softwareheritage.org/swh/infra/swh-mirror.git>`_ provided by
+Software Heritage. This example deployment stack is based on docker swarm. It
+should allow you to deploy a complete mirror within a few minutes, allowing you
+to have a working set of configuration files for all the services involved in
+running a mirror.
+
+It then a matter of converting this setup into an operable deployment system
+suitable for your IT constraints and needs.
+
+
 Prerequisites
 -------------
 
@@ -23,17 +35,26 @@ e.g.:
    py47518uzdb94y2sb5yjurj22     host2     Ready    Active                        18.09.7
    n9mfw08gys0dmvg5j2bb4j2m7 *   host1     Ready    Active        Leader          18.09.7
 
+For testing purpose, it is completely acceptable to start with a single node
+swarm cluster. The author of these lines regularly spawn the whole stack on a
+laptop with 32GB of RAM and 100GB of free disk space.
 
-Note: on some systems (centos for example), making docker swarm work requires some
-permission tuning regarding the firewall and selinux. Please refer to `the upstream
-docker-swarm documentation <https://docs.docker.com/engine/swarm/swarm-tutorial/>`_.
-Deploying a docker swarm cluster on top of LXC/LXD has also been proven to be difficult.
+Beware not to let the experiment last too long: it will easily fill all your
+available storage space in a couple of hours.
+
+Note: on some systems (centos for example), making docker swarm work requires
+some permission tuning regarding the firewall and `selinux
+<https://en.wikipedia.org/wiki/Security-Enhanced_Linux>`_. Please refer to `the
+upstream docker-swarm documentation
+<https://docs.docker.com/engine/swarm/swarm-tutorial/>`_. Deploying a docker
+swarm cluster on top of LXC/LXD has also been proven to be difficult.
 
 .. warning:: Check your docker setup with a simple example
 
              Make sure your docker swarm environment is working properly
-             **before** doing any of the following steps. You should check you
-             can deploy a simple 2 services properly.
+             **before** doing any of the steps described below in this
+             documentation. You should check you can deploy a simple 2 services
+             application properly.
 
              For example:
 
@@ -79,10 +100,7 @@ In the following how-to, we will assume that the service ``STACK`` name is ``swh
 
 Several preparation steps will depend on this name.
 
-We also use `docker-compose <https://github.com/docker/compose>`_ to merge compose
-files, so make sure it is available on your system.
-
-You also need to clone the git repository:
+First, you need to clone the git repository:
 
   https://gitlab.softwareheritage.org/swh/infra/swh-mirror.git
 
@@ -109,19 +127,21 @@ example, the ``objstorage`` service uses a volume named ``<STACK>_objstorage``:
      swh_objstorage
 
 
-If you want to deploy services like the ``objstorage`` on several hosts, you will need a
-shared storage area in which blob objects will be stored. Typically a NFS storage can be
+If you want to deploy services like the ``objstorage`` on several hosts, you
+will need a shared storage area in which blob objects will be stored. Typically
+a `NFS <https://en.wikipedia.org/wiki/Network_File_System>`_ storage can be
 used for this, or any existing docker volume driver like `REX-Ray
 <https://rexray.readthedocs.io/>`_. This is not covered in this documentation.
 
-Please read the documentation of docker volumes to learn how to use such a
+Please read the `documentation of docker volumes
+<https://docs.docker.com/engine/storage/volumes/>`_ to learn how to use such a
 device/driver as volume provider for docker.
 
 
 Node labels
 -----------
 
-Note that the provided :file:`base-services.yaml` file has label-based
+Note that the provided :file:`mirror.yaml` compose file has label-based
 placement constraints for several services.
 
 The ``elasticsearch``, ``scheduler-db``, ``storage-db``, ``vault-db``,
@@ -130,8 +150,8 @@ availability of specific volumes, are pinned to specific nodes using labels
 named ``org.softwareheritage.mirror.volumes.<base volume name>`` (e.g.
 ``org.softwareheritage.mirror.volumes.objstorage``).
 
-When you create a local volume for a given container, you should add the relevant label
-to the docker swarm node metadata with:
+When you create a local volume for a given container, you should add the
+relevant label to the docker swarm node metadata with:
 
 .. code-block:: console
 
