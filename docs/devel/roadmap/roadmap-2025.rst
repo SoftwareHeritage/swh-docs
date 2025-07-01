@@ -66,13 +66,15 @@ Institutional portal (aka OSPO Radar)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 - Priority: Medium
-- Tags: Interfaces work group, Empower
+- Tags: Interfaces work group, Empower, OSPO-Radar
 
 **Description**
 
 Set up an Institutional Portal, a UI feature aiming to present, qualify
 and extract software catalogs for specific entities (institutions,
-administrations, ...)
+administrations, ...). In 2025, we will bootstrap the project, write the
+specifications and start implementation. We do not expect to release it this
+year.
 
 **Includes work**
 
