@@ -26,20 +26,11 @@ It is mostly driven by several projects:
 - SWH-Sec: https://www.softwareheritage.org/2023/04/07/enhancing-cybersecurity-through-swh/
 - OSPO-Radar: https://www.softwareheritage.org/2025/04/02/ospo-radar-project-launch/
 
-Software Heritage core development team is divided in four work groups:
-- Interfaces: responsible for API and UI/UX
-- Data: responsible for building and analyzing datasets
-- Archive: responsible for archiving forges and package indices
-- Ops: responsible for the infrastructure and the platform running our services
 
 Many items of this roadmap are handled by other teams involved with us in the
 CodeCommons and SWH-Sec projects. Some items tagged "Next" are not prioritized
 this year but kept here for next year or if other items are delivered faster.
 
-
-
-Interfaces work group
----------------------
 
 Coar Notify
 ^^^^^^^^^^^
@@ -173,9 +164,6 @@ which parts.
 - Update of the documentation landing page to better fit the different personas.
 
 
-Archive work group
-------------------
-
 Improve ingestion efficiency
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -198,6 +186,7 @@ improve our ingestion efficiency and optimize even more our platform.
 
 - Number of ingested origins per unit of time
 
+
 Support archiving repositories containing SHA1 hash conflicts
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -217,6 +206,7 @@ particular interest and we want to be able to archive them.
    possible
 
 **KPIs**
+
 
 Improve Object Storage
 ^^^^^^^^^^^^^^^^^^^^^^
@@ -332,9 +322,6 @@ with hash collision but more general to the whole Software Heritage Archive.
 **KPIs**
 
 
-Data work group
----------------
-
 Diff Service
 ^^^^^^^^^^^^
 
@@ -382,9 +369,6 @@ to execute large scale pyspark jobs on our infrastructure
 
 **KPIs**
 
-
-Ops work group
---------------
 
 Prepare hosting move
 ^^^^^^^^^^^^^^^^^^^^
