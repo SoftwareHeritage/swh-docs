@@ -28,8 +28,10 @@ It is mostly driven by several projects:
 
 
 Many items of this roadmap are handled by other teams involved with us in the
-CodeCommons and SWH-Sec projects. Some items tagged "Next" are not prioritized
-this year but kept here for next year or if other items are delivered faster.
+CodeCommons and SWH-Sec projects, they are tagged "Externals".
+
+Some items tagged "Next" are not prioritized this year but kept here for next
+year or if other items are delivered faster.
 
 
 Coar Notify
