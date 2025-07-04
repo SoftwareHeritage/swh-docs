@@ -220,10 +220,9 @@ Improve Object Storage
 
 **Description**
 
-Our current object storage, winery, starts to show some limitations. We
-are reaching limits in scalability and some large scale access patterns
-are complicated. Some ongoing studies show that we may improve
-compression rate by clustering similar files together.
+We believe we can improve Winery, our current object storage. Some large scale
+access patterns are complicated and some ongoing studies show that we may
+improve compression rate by clustering similar files together.
 
 **Includes work**
 
