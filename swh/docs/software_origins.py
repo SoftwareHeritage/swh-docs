@@ -82,7 +82,7 @@ def parse(input_path: Path):
             )
             forge.coverage = (
                 f"{archive_base_url}/coverage"
-                f"focus={forge.lister.id_in_swh_web}#{forge.lister.id_in_swh_web}"
+                f"?focus={forge.lister.id_in_swh_web}#{forge.lister.id_in_swh_web}"
             )
 
     return data
