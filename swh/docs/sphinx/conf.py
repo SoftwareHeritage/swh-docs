@@ -94,6 +94,7 @@ exclude_patterns = [
     "**/swh/web/tests/resources/contents/code/extensions/test.md",
     "**/*.inc",
     "**/swh/scanner/resources/*",
+    "**/swh/web/static/*",
 ]
 
 # The name of the Pygments (syntax highlighting) style to use.
