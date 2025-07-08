@@ -14,7 +14,7 @@ packages is dependent on their respective DSL. As it's not easily parsable nor a
 listing api existed, community effort was done to provide regular extraction of origins
 listing as json manifest.
 
-|swh|'s :py:class:`swh.lister.nixguix.lister.NixGuix` lister queries respectively those
+:py:class:`swh.lister.nixguix.lister.NixGuixLister` queries respectively those
 manifests. As they contain various types of origins, |swh| uses various loaders to
 ingest with those origins, url targeting a:
 
@@ -35,7 +35,7 @@ ingest with those origins, url targeting a:
 - :ref:`Mercurial <user-software-origins-mercurial>` **repository:**
   :py:class:`swh.loader.mercurial.loader.HgLoader` ingests origin with type ``hg``.
 - :ref:`Mercurial <user-software-origins-mercurial>` **repository:**
-  :py:class:`swh.loader.mercurial.directory.HgCheckoutLoader>` ingests origin with type
+  :py:class:`swh.loader.mercurial.directory.HgCheckoutLoader` ingests origin with type
   ``hg-checkout``.
 
 Origin URLs match each main url provided in the manifest.
@@ -48,7 +48,7 @@ No extrinsic nor intrinsic metadata collection is happening on the lister's side
 For some origin visit types (``content``, ``tarball-directory``, ``svn-export``,
 ``hg-checkout``, ``git-checkout``), extra intrinsic information like the artifact
 checksums (``standard``, e.g. sha256, or ``nar``, specific intrinsic identifier used by
-`GNU Guix`_ and Nix_, see :py:class:`swh.loader.core.nar.Nar`), are transmitted to the
+`GNU Guix`_ and Nix_, see :py:mod:`swh.core.nar`), are transmitted to the
 loaders.
 
 During their ingestion, if the checksum(s) do not match, the artifact is rejected and
@@ -76,13 +76,15 @@ Sample:
 
 Resources:
 
-* `Gnu Guix git repository <https://git.savannah.gnu.org/cgit/guix.git>`__
+* `Gnu Guix git repository <https://codeberg.org/guix/guix>`__
 
-* `Nixpkgs git repository <https://github.com/nixos/nixpkgs>`__
+* `nixpkgs git repository <https://github.com/nixos/nixpkgs>`__
 
-* `Remote nixpkgs json manifest <https://nix-community.github.io/nixpkgs-swh/sources-unstable-full.json>`__
+* `nixpkgs-swh git repository <https://github.com/nix-community/nixpkgs-swh>`__
 
-- `Remote guix json manifest <https://nix-community.github.io/nixpkgs-swh/>`__
+* `Remote nixpkgs json manifest <https://nix-community.github.io/nixpkgs-swh/sources-unstable.json>`__
+
+* `Remote guix json manifest <https://guix.gnu.org/sources.json>`__
 
 .. _`GNU Guix`: https://guix.gnu.org/
 .. _Nix: https://nixos.org/
