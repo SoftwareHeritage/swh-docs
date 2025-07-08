@@ -123,7 +123,7 @@ forges:
     name: CRAN
     lister:
       status: prod
-      id_in_swh_web: CRAN
+      id_in_swh_web: cran
       supports_last_update: true
     loader:
       status: prod
