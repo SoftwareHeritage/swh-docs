@@ -19,6 +19,23 @@ running a mirror.
 It then a matter of converting this setup into an operable deployment system
 suitable for your IT constraints and needs.
 
+There are 2 versions of the deployment stack:
+
+- ``mirror-basic.yml``: a complete deployment stack using a postgresql database
+  as backend for the :ref:`swh-storage` service, and a simple
+  :py:class:`pathslicer <swh.objstorage.backends.pathslicing.PathSlicer>` based
+  :ref:`swh-objstorage` service (using a docker volume as backend storage).
+
+- ``mirror-advanced.yml``: a complete deployment stack similar to the basic
+  version but using a Cassandra_ cluster as backend for the :ref:`swh-storage`
+  service and winery_ as backend for the :ref:`swh-objstorage` service.
+
+You may want to try with the basic version first, then explore the advanced one
+when you want to get examples of Cassandra_ or winery based configurations.
+
+.. _Cassandra: https://cassandra.apache.org
+.. _winery: https://docs.softwareheritage.org/devel/swh-objstorage/winery.html
+
 
 Prerequisites
 -------------
@@ -100,9 +117,34 @@ In the following how-to, we will assume that the service ``STACK`` name is ``swh
 
 Several preparation steps will depend on this name.
 
-First, you need to clone the git repository:
+.. Note:: when a service is defined with the name ``SERVICE`` in the stack
+          deployment file, it accessible from within the swarm cluster
+          dedicated for the stack as ``SERVICE`` (for example, in a
+          configuration file targeting a RPC provided by the service named
+          ``storage``, the url will look like ``http://storage:5002``).
+          However, the corresponding *docker service* will be named
+          ``STACK_SERVICE`` (for example ``swh_storage``), so from the docker
+          host view, ``docker service`` commands will use this *docker service*
+          name as argument (for example ypu may type the command ``docker
+          service logs swh_objstorage``).
+
+Retrieve the deployment code
+----------------------------
+
+First step is to clone the `swh-mirror
+<https://gitlab.softwareheritage.org/swh/infra/swh-mirror>`_ git repository:
 
   https://gitlab.softwareheritage.org/swh/infra/swh-mirror.git
+
+The repo is organized as follows:
+
+- ``mirror-(basic|advances).yml``: the 2 docker stack deployment files,
+- ``conf/``: the directory in which are all the configuration files used by all
+  the services involved in running a mirror,
+- ``env/``: contains environment variable definitions shared by most of the
+  services declared in the stack deployment files,
+- ``images/``: contains the ``Dockerfile`` used to generate the container image,
+- ``tests/``: provides a couple of tests for the stack deployment.
 
 
 Set up volumes
@@ -141,7 +183,7 @@ device/driver as volume provider for docker.
 Node labels
 -----------
 
-Note that the provided :file:`mirror.yaml` compose file has label-based
+Note that the provided :file:`mirror-xxx.yaml` compose files have label-based
 placement constraints for several services.
 
 The ``elasticsearch``, ``scheduler-db``, ``storage-db``, ``vault-db``,
@@ -159,8 +201,8 @@ relevant label to the docker swarm node metadata with:
        --label-add org.softwareheritage.mirror.volumes.objstorage=true \
        <node_name>
 
-You have to set the node labels, or to adapt the placement constraints to your local
-requirements, for the services to start.
+You have to set the node labels, or to adapt the placement constraints to your
+local requirements, for the services to start.
 
 The monitoring services, ``prometheus``, ``prometheus-statsd-exporter`` and
 ``grafana`` also have placement constraints based on the label
@@ -232,16 +274,6 @@ For example:
 Spawning the swh base services
 ------------------------------
 
-If you haven't done it yet, clone this git repository:
-
-.. code-block:: console
-
-   swh:~$ git clone https://gitlab.softwareheritage.org/swh/infra/swh-mirror.git
-   swh:~$ cd swh-mirror
-
-This repository provides the docker compose/stack manifests to deploy all the relevant
-services.
-
 .. note::
 
    These manifests use a set of docker images `published in the docker hub
@@ -261,7 +293,7 @@ base services using the following command:
 
 .. code-block:: console
 
-   swh:~/swh-mirror$ docker stack deploy -c mirror.yml swh
+   swh:~/swh-mirror$ docker stack deploy -c mirror-basic.yml swh
 
    Creating network swh_default
    Creating config swh_content-replayer
@@ -331,14 +363,15 @@ The nginx frontend will listen on the 5081 port, so you can use:
 
 - http://localhost:5081/ to navigate your local copy of the archive,
 - http://localhost:5081/grafana/ to explore the monitoring probes
-  (log in with admin/admin).
+  (log in with ``admin``/``admin``).
 
 .. warning::
 
-   Please make sure that the :envvar:`SWH_IMAGE_TAG` variable is properly set for any later
-   :command:`docker stack deploy` command you type, otherwise all the running containers will be
-   recreated using the ``:latest`` image (which might **not** be the latest available
-   version, nor consistent among the docker nodes on your swarm cluster).
+   Please make sure that the :envvar:`SWH_IMAGE_TAG` variable is properly set
+   for any later :command:`docker stack deploy` command you type, otherwise all
+   the running containers will be recreated using the ``:latest`` image (which
+   might **not** be the latest available version, nor consistent among the
+   docker nodes on your swarm cluster).
 
 
 Set up the mirroring components
@@ -346,7 +379,7 @@ Set up the mirroring components
 
 A Software Heritage mirror consists in base Software Heritage services, as
 described above, without any worker related to web scraping nor source code
-repository loading. Instead, filling local storage and objstorage is the
+repository loading. Instead, filling the local storage and objstorage is the
 responsibility of kafka based ``replayer`` services:
 
 - the ``graph replayer`` which is in charge of filling the storage (aka the
@@ -354,13 +387,13 @@ responsibility of kafka based ``replayer`` services:
 
 - the ``content replayer`` which is in charge of filling the object storage.
 
-The examples docker deploy file ``mirror.yml`` already define these 2
-services, but they are not deployed by default (their ``replicas`` is set to
-0). This allows to first deploy core components and check they are properly
+The example docker deploy file ``mirror-basic.yml`` already define these 2
+services, but they are not started by default (their ``replicas`` is set to
+``0``). This allows to first deploy core components and check they are properly
 started and running.
 
-To start the replayers, first their configuration files need to be adjusted to
-your setup.
+To start the replayers, their configuration files need to be adjusted to your
+setup first.
 
 Edit the provided example files ``conf/graph-replayer.yml`` and
 ``conf/content-replayer.yml`` to modify fields with an XXX markers with proper
@@ -400,7 +433,8 @@ and
 Graph replayer
 --------------
 
-To run the graph replayer component of a mirror is just a matter of scaling its service:
+To run the graph replayer component of a mirror is just a matter of scaling its
+service:
 
 .. code-block:: console
 
@@ -447,9 +481,9 @@ Updating a running stack
 Updating a configuration
 ------------------------
 
-Configuration files are exposed to docker services via the :command:`docker config`
-system. Unfortunately, docker does not support updating these config
-objects. The usual method to update a config in a service is:
+Configuration files are exposed to docker services via the :command:`docker
+config` system. Unfortunately, docker does not support live update of these
+config objects. The usual method to update a config in a service is:
 
 - create a new config entry with updated config content,
 - update targeted running services to replace the original config entry by the new one,
@@ -545,49 +579,59 @@ replayer service):
           swh:~/swh-mirror$ docker service scale swh_storage=16
 
 
-Deploy a mirror using a Cassandra backend for the storage
-=========================================================
+Deploy a mirror using Cassandra and Winery
+==========================================
 
 The section above describe the default test deployment of the mirror stack in
-which the `swh-storage` service is using Postgresql as backend storage. This is
-the simplest and easiest solution to try a full mirror deployment. However
-mirror operators may chose to use a Cassandra cluster instead of Postgresql as
-storage backend.
+which the :ref:`swh-storage` service is using Postgresql as backend storage as
+well as a :py:class:`pathslicer
+<swh.objstorage.backends.pathslicing.PathSlicer>` for the :ref:`swh-objstorage`
+service. This is the simplest and easiest solution to try a full mirror
+deployment. However mirror operators may chose to use a Cassandra cluster
+instead of Postgresql as storage backend and a winery setup for better
+performances and expandability.
 
 The example deployment stack comes with an example of such de configuration
-set. It consists in a dedicated `mirror_cassandra.yml` stack file and is mostly
+set. It consists in a dedicated `mirror-advanced.yml` stack file and is mostly
 identical to the process described above. Differences are:
 
 - there is no ``storage-db`` service (postgresql instance used as backend for
-  the ``swh-storage`` service)
+  the ``storage`` service)
 - there 3 instances of a ``cassandra-seed`` service making a 3-nodes Cassandra
   cluster,
-- the configuration file for the ``swh-storage``
-  (``conf/storage-cassandra.yml``) is modified accordingly.
+- the configuration file for the ``storage``
+  (``conf/storage-cassandra.yml``) is modified accordingly
+- the ``objstorage`` service is using a winery setup in which :ref:`shard
+  <swh-shard>` files are stored in a local volume
+- there is a dedicated postgresql database for winery (``winery-db``)
+- there are 2 additional winery workers (``winery-packer`` and ``winery-cleaner``).
 
-
-As a consequence, trying a Cassandra based mirror deployment is a matter of:
+As a consequence, trying this more advanced mirror deployment is a matter of:
 
 .. code-block:: console
 
-   swh:~/swh-mirror$ docker stack deploy -c mirror-cassandra.yml swh
-
+   swh:~/swh-mirror$ docker stack deploy -c mirror-advanced.yml swh
 
 .. warning::
 
    In this configuration:
 
-   - the Cassandra cluster is deployed within the docker stack,
+   - the Cassandra cluster is deployed **within** the docker stack,
 
    - it is a very basic Cassandra deploymet which is by no mean intended for
      production-like deployment, merely a simple way to have a working setup
      for testing purpose,
 
-   - there is no authentication to access the Cassandra cluster.
+   - there is no authentication to access the Cassandra cluster,
+
+   - the Winery shard files (which will grow to PB of storage on the production
+     system) are stored in a docker volume,
+
+   - the Winery Postgresql database is deployed within the docker cluster.
 
 
 A more realistic deployment would probably depend on an existing IT operated
-Cassandra cluster.
+Cassandra cluster and shared storage to store Winery shard files.
 
 
 Getting your deployment production-ready
@@ -608,11 +652,12 @@ A proper replication factor value will depend on your infrastructure
 capabilities and needs to be adjusted watching the load of the core services
 (mainly the swh_storage-db and swh_objstorage services).
 
-Acceptable range should be between 32 to 64 (for staging) or 256 (for production).
+Acceptable range should be between 32 to 64 (for staging) or 32 to 128 (for
+production).
 
 Note that when you increase the replication of the replayers, you also need to
-increase the replication factor for the core services ``swh_storage`` and
-``swh_objstorage`` otherwise they will become the limiting factor of the replaying
+increase the replication factor for the core services ``storage`` and
+``objstorage`` otherwise they will become the limiting factor of the replaying
 process. A factor of 4 between the number of replayer of a type (graph,
 content) and the backend service (swh_storage, swh_objstorage) is probably a
 good starting point (i.e. have at least one core service for 4 replayer
@@ -632,14 +677,16 @@ Notes on the throughput of the mirroring process
 - The biggest kafka topics are directory, revision and content, and will take the
   longest to initially replay.
 
-Operational concerns for the Storage database
----------------------------------------------
 
-When using The overall throughput of the mirroring process will depend heavily
-on the ``swh_storage`` service, and on the performance of the underlying
+Using external storage database
+-------------------------------
+
+The overall throughput of the mirroring process will depend heavily on the
+:ref:`swh-storage` service, and on the performance of the underlying
 ``storage-db`` database or ``cassandra`` cluster. You will need to make sure
 that your database is `properly tuned
-<https://wiki.postgresql.org/wiki/Tuning_Your_PostgreSQL_Server>`_ (if relevant).
+<https://wiki.postgresql.org/wiki/Tuning_Your_PostgreSQL_Server>`_ (if
+relevant).
 
 You may also want to deploy your database or cassandra cluster directly to
 bare-metal servers rather than have it managed within the docker stack. To do
@@ -656,7 +703,7 @@ so, you will have to:
      - override the environment variables of the ``storage`` service to
        reference the external database server and db name (namely ``PGHOST_0``,
        ``PGUSER_0`` and ``POSTGRESQL_DB_0``) in the
-       ``mirror.yml:services/storage/environment`` section,
+       ``mirror-basic.yml:services/storage/environment`` section,
      - ensure the db password for the user ``PGUSER_0`` is defined using
        ``docker secret`` for ``swh-mirror-db-postgres-password`` (as described
        above).
@@ -664,13 +711,13 @@ so, you will have to:
   .. tab-item:: Cassandra
 
      - modify the configuration of the docker stack to drop references to the
-       ``cassandra-seed`` services in the ``mirror-cassandra.yml``
+       ``cassandra-seed`` services in the ``mirror-advanced.yml``
      - ensure that docker containers deployed in your swarm are able to connect to your
-       external cassandra cluster
+       external Cassandra cluster
      - override the environment variables of the ``storage`` service to
        reference the external cassandra cluster (namely the ``CASSANDRA_SEEDS``
        environment variable in the
-       ``mirror-cassandra.yml:services/storage/environment`` section; this is a
+       ``mirror-advanced.yml:services/storage/environment`` section; this is a
        comma-separated list of the Cassandra seed nodes).
      - modify the configuration file ``conf/storage-cassandra.yml`` to properly
        configure the ``hosts`` section with the same list of cassndra seed
