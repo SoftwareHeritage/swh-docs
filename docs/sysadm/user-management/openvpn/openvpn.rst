@@ -137,27 +137,28 @@ Provide the CSR file to a sysadmin through a reasonably authenticated medium.
 For admins
 ~~~~~~~~~~
 
-- On the firewall (192.168.50.1), go to the `System / Trust / Certificates page
-  <https://192.168.50.1/system_certmanager.php>`_
-- click on the add button on the upper right
+- Check the details of the CSR (especially the Common Name)
 
-.. figure:: ../../images/openvpn/vpn-main-trust-page.png
-   :alt: vpn-main-trust-page.png
+.. code:: bash
 
-- On the Method list, choose "Sign a certificate Signing Request"
+   openssl req -noout -text -in test.csr
+   openssl req -noout -text -in test.csr | awk '/Subject:/'
 
-.. figure:: ../../images/openvpn/vpn-csr-signing.png
-   :alt: vpn-csr-signing.png
+- On the firewall (192.168.50.1), go to the `System / Trust / Certificates page <https://192.168.50.1/ui/trust/cert>`_
+- Click on the ``+`` button on the bottom right
 
-Fetch the CSR file provided by the user, for instance with ``scp USERNAME.csr louvre:``
+.. figure:: ../../images/openvpn/opnsense_trust_certificates_page.png
+   :alt: opnsense_trust_certificates_page.png
 
-- Enter the user name on the descriptive name
-- Select "OpenVPN Software Heritage (louvre)" as Certificate Authority
+- On the Method list, choose "Sign a Certificate Signing Request"
+- Enter the user name on the description field
+- Select "OpenVPN Software Heritage CA" as ``Issuer``
 - Enter the duration, usually 10 years
 - Paste the csr
-- Validate
+- Save
 
-- check the details of the csr and validate
+.. figure:: ../../images/openvpn/opnsense_sign_csr.png
+   :alt: opnsense_sign_csr.png
 
 .. _revoking_a_client_certificate:
 
