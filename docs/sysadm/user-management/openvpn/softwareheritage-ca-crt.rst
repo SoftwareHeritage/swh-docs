@@ -33,3 +33,5 @@ vpn.softwareheritage.org:
    w2U17xO/A/l2Rb9Q4k1wxRuv3ZwIR0pXMfDlBgAz8vcKFIFoxb/GzwAFHAc02J8s
    RXYz2fqjjiGevXBJPxG5LCEZ3Q==
    -----END CERTIFICATE-----
+
+:download:`softwareheritage-ca.crt </_static/softwareheritage-ca.crt>`
