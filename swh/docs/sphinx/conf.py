@@ -216,6 +216,7 @@ redirects = {
     "devel/swh-deposit/specs/blueprint": "../api/use-cases.html",
     "devel/swh-deposit/user-manual": "api/user-manual.html",
     "devel/swh-dataset/index": "../swh-export/index.html",
+    "devel/swh-dataset/graph/index": "../../swh-export/graph/index.html",
     "devel/swh-dataset/graph/dataset": "../../swh-export/graph/dataset.html",
     "devel/swh-dataset/graph/schema": "../../swh-export/graph/schema.html",
     "devel/swh-dataset/graph/athena": "../../swh-export/graph/athena.html",
