@@ -4,7 +4,7 @@
 Roadmap 2025
 ============
 
-(Version 1.0, last modified 2025-05-15)
+(Version 1.0, last modified 2025-07-15)
 
 This document provides an overview of the technical roadmap of the Software
 Heritage initiative for the year 2025.
@@ -34,7 +34,7 @@ Some items tagged "Next" are not prioritized this year but kept here for next
 year or if other items are delivered faster.
 
 
-Coar Notify
+COAR Notify
 ^^^^^^^^^^^
 
 - Priority: High
@@ -43,24 +43,24 @@ Coar Notify
 **Description**
 
 Add support for the COAR Notify protocol in the SWH Archive to allow partners
-to notify us new relations between software source code artifacts and external
+to notify us of new relations between software source code artifacts and external
 entities, especially scholarly publications and scientific papers.
 
 
 **Includes work**
 
 - Implement the basic use case allowing partners to notify the archive of
-   software mentions in scientific papers
-- Document it and test it with user
+  software mentions in scientific papers
+- Document it and test it with users
 - Add requirements for production usage (monitoring, alerting, integration
-   tests)
+  tests)
 
 **KPIs**
 
 - New API
 - Users can send software mentions in scientific publications
 - Users can search the archive for the software artifacts related to scientific
-   work using simple search criteria
+  work using simple search criteria
 
 Institutional portal (aka OSPO Radar)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -97,10 +97,10 @@ Rethink Archive UI
 **Description**
 
 The main way to access the Software Heritage archive is the user
-interface exposed at https://archive.softwareheritage.org The current
+interface exposed at https://archive.softwareheritage.org. The current
 interface has a few drawbacks. Some information are not easily
 accessible, for instance metadata. It is also difficult to see
-connections between origins, for instance which origins share a given
+connections between origins, such as which origins share a given
 file. We want to think about archive UI/UX and design new features that
 we want to add in the future.
 
@@ -117,7 +117,7 @@ we want to add in the future.
 - Tasks decomposition to build them
 
 
-Expose known vulnerabilities through Scanner
+Detect known vulnerabilities through Scanner
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 - Priority: Low
@@ -125,20 +125,20 @@ Expose known vulnerabilities through Scanner
 
 **Description**
 
-Add a feature to SWH Scanner that allows to show known vulnerabilities (CVEs)
-related to scanned source code, based on CVE information collected in the
-Software Heritage archive
+Add a feature to :ref:`SWH Scanner <swh-scanner>` that allows to show known
+vulnerabilities (CVEs) related to scanned source code, based on CVE information
+collected in the Software Heritage archive
 
 **Includes work**
 
 - Design, implement and deploy an api to query CVE information
-- Implement a “show CVE” feature in swh-scanner
+- Implement a “show CVEs” feature in swh-scanner
 
 **KPIs**
 
 - New backend API in production
-- New swh-scanner version released embedding the “show CVE”
-   feature
+- New swh-scanner version released embedding the “show CVEs”
+  feature
 
 Review existing documentation according to identified personas
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -206,8 +206,8 @@ particular interest and we want to be able to archive them.
 **Includes work**
 
 - Archive repositories with hash conflicts in winery storage
-- Analyze possibility for other object storages and implement it if
-   possible
+- Analyze options for other object storages and implement them if
+  possible
 
 **KPIs**
 
@@ -319,7 +319,7 @@ with hash collision but more general to the whole Software Heritage Archive.
 **Includes work**
 
 - Analyze hash collisions issues for all Software Heritage object types
-   (content, directory, revisions, origins…)
+  (content, directory, revisions, origins…)
 - Propose and implement workarounds
 
 **KPIs**
@@ -337,10 +337,10 @@ Implement a way to compute diff between two revisions
 
 **Includes work**
 
-- Implement algorithm outputting git like diff
-- Compute diff on revisions of some important repositories
+- Implement algorithm producing git-like diffs
+- Compute diffs on revisions of some important repositories
 - Add requirements for production usage (monitoring, alerting,
-   integration tests)
+  integration tests)
 
 **KPIs**
 
@@ -362,7 +362,7 @@ to execute large scale pyspark jobs on our infrastructure
 
 **Includes work**
 
-- Be able to run distributed pyspark jobs on our kubernetes cluster
+- Be able to run distributed pyspark jobs on our Kubernetes cluster
 - Access to pyspark web UI during job
 - Metrics of pyspark jobs
 - History server to access finished jobs metrics
@@ -381,8 +381,8 @@ Prepare hosting move
 
 **Description**
 
-Our current hosting will be closed, we need to get ready to move from it when
-it will happen
+Our current hosting will be closed down, we need to get ready to move away from it when
+this happens.
 
 **Includes work**
 
@@ -430,7 +430,7 @@ Unified Data Model
 
 Building a unified data model to enrich the Software Heritage core data
 model is a keystone of the CodeCommons project. It consists in
-collecting metadata from many sources and to store them in an unified
+collecting new kinds of data from many sources and to store them in an unified
 model, in a way that makes the data available for efficient indexing and
 querying. The purpose of this unified data model is to generate
 qualified and specialized datasets, filtered with a wide range of
@@ -439,14 +439,14 @@ criteria in order to produce highly specialized datasets.
 The scope of the CodeCommons Unified Data Model includes:
 
 - Project Context data (extrinsic): data from various collaboration
-   platforms (forges, bug trackers…)
+  platforms (forges, bug trackers…)
 - Research articles and other context (extrinsic): structured metadata
-   from publications metadata and its connection to software artifacts
-- Code Qualification (intrinsic): code-related data,including
-   dependencies detection, language identification and quality
-   measurement
-- Licence detection (intrinsic): structured data model for licence
-   information, at both file-level and project level
+  from publications metadata and its connection to software artifacts
+- Code Qualification (intrinsic): code-related data, including
+  dependencies detection, language identification and quality
+  measurement
+- License detection (intrinsic): structured data model for license
+  information, at both file-level and project level
 
 **Includes work**
 
@@ -465,7 +465,7 @@ Project context metadata
 
 This task of the CodeCommons project includes collecting context data
 from various collaboration platforms (forges, bug trackers…) and storing
-it in an unified data model. It aims at adding helpful information to
+it in an unified data model. It aims to add helpful information to
 qualify source codes in regards with projects activity, including
 issues, pull requests and discussions.
 
@@ -475,9 +475,9 @@ be stored using GHArchive.
 **Includes work**
 
 - Design the unified data model for project context metadata, based on a
-   benchmark of existing models like ForgeFed
+  benchmark of existing models like ForgeFed
 - Implement and deploy crawlers for project context metadata for each
-   identified platform
+  identified platform
 - Run a massive crawling and store the data in the unified data model
 
 **KPIs**
@@ -497,8 +497,8 @@ CodeCommons aims to detect license, copyright, and package metadata on
 the whole Software Heritage Archive, critical to ensure the transparency
 and traceability for sovereign and sustainable AI.
 
-This will be done using ScanCode, in partnership with AboutCode, a
-well-reputed, non-profit, public benefit organisation with ample
+This will be done using ScanCode in partnership with AboutCode, a
+well-reputed, non-profit, public benefit organization with ample
 experience designing and architecting FOSS tools for analysing and
 organising software and the webs of components each software package
 depends on, providing a great advancement for software supply chain and
@@ -513,10 +513,10 @@ also improves the accuracy and quality of ScanCode’s license detection.
 **Includes work**
 
 - Benchmark, adapt and optimize ScanCode for large scale analysis on
-   Software Heritage archive
+  Software Heritage archive
 - Run scan at file level on the whole Software Heritage archive
 - Run scan at project level on relevant versions of Software Heritage
-   origins
+  origins
 - Assemble and store the result in a unified data model
 
 **KPIs**
@@ -532,7 +532,7 @@ Research publications metadata
 
 **Description**
 
-This task of the CodeCommons project aims to identify to which thematics
+This task of the CodeCommons project aims to identify to which topics
 a software project is related, by collecting metadata from research
 publications, referenced by several platforms (e.g. HAL, Open Alex).
 
@@ -541,9 +541,9 @@ The collected data will be structured in a unified data model.
 **Includes work**
 
 - Design the unified data model for publications metadata, based on a
-   benchmark of existing models like OpenAlex
+  benchmark of existing models like OpenAlex
 - Implement and deploy crawlers for publications metadata for each
-   identified platform
+  identified platform
 - Run a massive crawling and store the data in the unified data model
 
 **KPIs**
@@ -560,8 +560,8 @@ Software versions metadata
 
 **Description**
 
-Many references to specific software versions use version name of
-software projects. The current Software Heritage model doesn’t provide
+Many references to specific software versions use ambiguous version names
+to do so. The current Software Heritage model doesn’t provide
 explicit and formal version identification.
 
 The goal of this task is to add version information to the Software
@@ -572,8 +572,8 @@ levels of granularity.
 
 - Identify external data sources providing accurate information
 - Identify and validate heuristics for Software Versions identification
-   analysis in archive contents
-- Design a data model for Software versions Data model
+  analysis in archive contents
+- Design a data model for Software versions
 - Map software versions to objects in the archive
 
 **KPIs**
@@ -593,7 +593,7 @@ Catch up with GitHub lag
 GitHub growth is faster than Software Heritage’s current ingestion
 capacities, resulting in a lag of more than 140 million origins. In
 order to return to an up-to-date archive, the CodeCommons project
-includes the usage of CINES HPC infrastructure to massively clone and
+includes the use of CINES HPC infrastructure to massively clone and
 ingest the missing repositories.
 
 **Includes work**
@@ -645,22 +645,22 @@ Similarity analysis
 
 **Description**
 
-Additionally to Software Heritage’s strong commitment to transparency
+In addition to Software Heritage’s strong commitment to transparency
 and respect of the authors in training datasets for LLMs for code (as
 stated more than a year ago:
 https://www.softwareheritage.org/2023/10/19/swh-statement-on-llm-for-code/),
-CodeCommons includes to provide mechanisms of similarity detection for
-generated code, in order to ensure a proper attribution to the authors
+CodeCommons aims to provide mechanisms of similarity detection for
+generated code, in order to ensure proper attribution to the authors
 of the original source code. We are planning to use text and syntax
-analysis methods for similarity, but also to challenge machine learning
-approach that may complete the results.
+analysis methods for similarity, but also to investigate machine learning
+approaches that may complete the results.
 
 **Includes work**
 
 - Design and implement tools for code Similarity analysis
 - Benchmark results from different approaches
 - Prepare the integration of provenance for attribution of generated
-   code
+  code
 
 **KPIs**
 
@@ -677,33 +677,36 @@ Code Qualification
 In order to provide qualified datasets according to multiple criteria
 based on the code qualification, the Software Heritage will be enriched
 with metadata extracted from an in-depth analysis of the source code
-archive, including the following topics: - Programming languages
-identification - Dependencies detection - Code quality metrics
+archive, including the following topics:
+
+- Programming languages identification
+- Dependencies detection
+- Code quality metrics
 
 **Includes work**
 
 - Programming languages:
 
-   - Benchmark existing tools and select the most relevant ones
-   - Run language identification analysis at scale on Software Heritage
-      contents
-   - Store and index the results in a unified data model
+  - Benchmark existing tools and select the most relevant ones
+  - Run language identification analysis at scale on Software Heritage
+    contents
+  - Store and index the results in a unified data model
 
 - Dependencies detection
 
-   - Customize ScanCode tools for scaling to Software Heritage
-   - Run a file-level analysis on the archive contents
-   - Run a project level analysis on the graph (projects filesystems
-      browsing)
-   - Store and index the results in a unified data model
+  - Customize ScanCode to scale to Software Heritage
+  - Run a file-level analysis on the archive contents
+  - Run a project level analysis on the graph (projects filesystems
+    browsing)
+  - Store and index the results in a unified data model
 
 - Code quality metrics extraction
 
-   - Identify relevant code quality metrics, possibly:
+  - Identify relevant code quality metrics, possibly:
 
-      - Static analysis
-      - Code coverage
-      - Design patterns identification
+    - Static analysis
+    - Code coverage
+    - Design patterns identification
 
 **KPIs**
 
@@ -745,10 +748,10 @@ on a list of SWHIDs.
 
 **Includes work**
 
-- Enable SWHID mapping on existing object storage (currently indexed by
-   hash)
+- Enable SWHID mapping on existing object storage (currently addressed
+  by hash)
 - Design and implement a generation engine for datasets embedding
-   contents
+  contents
 - Benchmark and optimize performance for large-scale usage
 
 **KPIs**
@@ -768,7 +771,7 @@ be run on Adastra HPC at CINES. On the one hand, the computed metadata
 will need to retrieved in the main archive, and on the other hand, the
 tools used for a massive processing on the whole archive copy will need
 to be integrated to Software Heritage standard ingestion pipeline in
-order to keep maintaining the CodeCommos metadata up-to-date on the long
+order to keep maintaining the CodeCommons metadata up-to-date on the long
 term. This task also includes the retrieval of the GitHub lag
 ingestion.
 
@@ -777,7 +780,7 @@ ingestion.
 - Retrieve archive core data from CINES
 - Retrieve unified metadata from CINES
 - Design architecture and infrastructure for retrieving full archive
-   and unified metadata
+  and unified metadata
 - Integrate CodeCommons tools in the standard ingestion pipeline
 
 **KPIs**
@@ -798,7 +801,7 @@ Collect and store CVE metadata
 **Description**
 
 Collect CVE metadata from relevant external data sources, map it to
-Software Heritage data model and link CVEs to relevant revisions
+the Software Heritage data model and link CVEs to relevant revisions
 (introducing and fixing revisions).
 
 **Includes work**
