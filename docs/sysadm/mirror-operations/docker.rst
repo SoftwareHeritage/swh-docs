@@ -277,18 +277,19 @@ Spawning the swh base services
 .. note::
 
    These manifests use a set of docker images `published in the docker hub
-   <https://hub.docker.com/r/softwareheritage/base/tags>`_. By default, the manifests
-   will use the ``latest`` version of these images, but for production uses, you should
-   set the ``SWH_IMAGE_TAG`` environment variable to pin them to a specific version.
+   <https://hub.docker.com/repository/docker/softwareheritage/mirror/tags>`_.
+   You MUST set the ``SWH_IMAGE_TAG`` environment variable to pin the
+   appropriate docker image. For starting the deployment process you should
+   choose the latest available tag (e.g. ``20250730-114616``).
 
-To specify the tag to be used, simply set the :envvar:`SWH_IMAGE_TAG`
-environment variable:
+You must specify the docker image tag to be used by setting the
+:envvar:`SWH_IMAGE_TAG` environment variable:
 
 .. code-block:: console
 
-   swh:~/swh-mirror$ export SWH_IMAGE_TAG=20240417-190717
+   swh:~/swh-mirror$ export SWH_IMAGE_TAG=20250730-114616
 
-Make sure you have node labels attributed properly. Then you can spawn the
+**Make sure you have node labels attributed properly**. Then you can spawn the
 base services using the following command:
 
 .. code-block:: console
@@ -326,19 +327,19 @@ base services using the following command:
    swh:~/swh-mirror$ docker service ls
 
    ID             NAME                             MODE         REPLICAS               IMAGE                                       PORTS
-   ptlhzue025zm   swh_content-replayer             replicated   0/0                    softwareheritage/replayer:20240417-190717
+   ptlhzue025zm   swh_content-replayer             replicated   0/0                    softwareheritage/replayer:20250730-114616
    ycyanvhh0jnt   swh_db-storage                   replicated   1/1 (max 1 per node)   postgres:13
    qlaf9tcyimz7   swh_db-web                       replicated   1/1 (max 1 per node)   postgres:13
    aouw9j8uovr2   swh_grafana                      replicated   1/1 (max 1 per node)   grafana/grafana:latest
-   uwqe13udgyqt   swh_graph-replayer               replicated   0/0                    softwareheritage/replayer:20240417-190717
+   uwqe13udgyqt   swh_graph-replayer               replicated   0/0                    softwareheritage/replayer:20250730-114616
    mepbxllcxctu   swh_memcache                     replicated   1/1                    memcached:latest
    kfzirv0h298h   swh_nginx                        global       3/3                    nginx:latest                                *:5081->5081/tcp
-   t7med8frg9pr   swh_objstorage                   replicated   2/2                    softwareheritage/base:20240417-190717
+   t7med8frg9pr   swh_objstorage                   replicated   2/2                    softwareheritage/base:20250730-114616
    5s34wzo29ukl   swh_prometheus                   replicated   1/1 (max 1 per node)   prom/prometheus:latest
    rwom7r3yv5ql   swh_prometheus-statsd-exporter   replicated   1/1 (max 1 per node)   prom/statsd-exporter:latest
    wuwydthechea   swh_redis                        replicated   1/1 (max 1 per node)   redis:6.2.6
-   jztolbmjp1vi   swh_storage                      replicated   2/2                    softwareheritage/base:20240417-190717
-   xxc4c66x0uj1   swh_web                          replicated   1/1                    softwareheritage/web:20240417-190717
+   jztolbmjp1vi   swh_storage                      replicated   2/2                    softwareheritage/base:20250730-114616
+   xxc4c66x0uj1   swh_web                          replicated   1/1                    softwareheritage/web:20250730-114616
 
 
 This will start a series of containers with:
@@ -447,7 +448,7 @@ You can check everything is running with:
    swh:~/swh-mirror$ docker service ps swh_graph-replayer
 
    ID             NAME                   IMAGE                                       NODE   DESIRED STATE   CURRENT STATE            ERROR     PORTS
-   ioyt34ok118a   swh_graph-replayer.1   softwareheritage/replayer:20240417-190717   node1  Running         Running 17 minutes ago
+   ioyt34ok118a   swh_graph-replayer.1   softwareheritage/replayer:20250730-114616   node1  Running         Running 17 minutes ago
 
 
 If everything is OK, you should have your mirror filling. Check docker logs:
@@ -588,7 +589,7 @@ well as a :py:class:`pathslicer
 <swh.objstorage.backends.pathslicing.PathSlicer>` for the :ref:`swh-objstorage`
 service. This is the simplest and easiest solution to try a full mirror
 deployment. However mirror operators may chose to use a Cassandra cluster
-instead of Postgresql as storage backend and a winery setup for better
+instead of Postgresql as storage backend and a winery_ setup for better
 performances and expandability.
 
 The example deployment stack comes with an example of such de configuration
