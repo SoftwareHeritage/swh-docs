@@ -92,77 +92,53 @@ Sample |pg_service|
   port=5432
   user=swh-masking
 
+  [staging-swh-coar-notify]
+  dbname=swh-coar-notify
+  host=db.internal.staging.swh.network
+  port=6432
+  user=guest
+
+  [staging-swh-deposit]
+  dbname=swh-deposit
+  host=db.internal.staging.swh.network
+  port=6432
+  user=guest
+
+  [staging-swh-scheduler]
+  dbname=swh-scheduler
+  host=db.internal.staging.swh.network
+  port=6432
+  user=guest
+
+  [staging-swh-scrubber]
+  dbname=swh-scrubber
+  host=db.internal.staging.swh.network
+  port=6432
+  user=guest
+
+  [staging-swh-svix]
+  dbname=swh-svix
+  host=db.internal.staging.swh.network
+  port=6432
+  user=guest
+
+  [staging-swh-vault]
+  dbname=swh-vault
+  host=db.internal.staging.swh.network
+  port=6432
+  user=guest
+
+  [staging-swh-web]
+  dbname=swh-web
+  host=db.internal.staging.swh.network
+  port=6432
+  user=guest
+
   [staging-swh]
   dbname=swh
   host=db1.internal.staging.swh.network
   port=5432
   user=guest
-
-  [admin-staging-swh]
-  dbname=swh
-  host=db1.internal.staging.swh.network
-  port=5432
-  user=swh
-
-  [staging-swh-indexer]
-  dbname=swh-indexer
-  host=db1.internal.staging.swh.network
-  port=5432
-  user=guest
-
-  [admin-staging-swh-indexer]
-  dbname=swh-indexer
-  host=db1.internal.staging.swh.network
-  port=5432
-  user=swh-indexer
-
-  [staging-swh-scheduler]
-  dbname=swh-scheduler
-  host=db1.internal.staging.swh.network
-  port=5432
-  user=guest
-
-  [admin-staging-swh-scheduler]
-  dbname=swh-scheduler
-  host=db1.internal.staging.swh.network
-  port=5432
-  user=swh-scheduler
-
-  [staging-swh-scrubber]
-  dbname=swh-scrubber
-  host=db1.internal.staging.swh.network
-  port=5432
-  user=guest
-
-  [admin-staging-swh-scrubber]
-  dbname=swh-scrubber
-  host=db1.internal.staging.swh.network
-  port=5432
-  user=swh-scrubber
-
-  [staging-swh-vault]
-  dbname=swh-vault
-  host=db1.internal.staging.swh.network
-  port=5432
-  user=guest
-
-  [admin-staging-swh-vault]
-  dbname=swh-vault
-  host=db1.internal.staging.swh.network
-  port=5432
-  user=swh-vault
-
-  [staging-swh-masking]
-  dbname=swh-masking
-  host=db1.internal.staging.swh.network
-  port=5432
-  user=guest
-
-  [admin-staging-swh-masking]
-  dbname=swh-masking
-  host=db1.internal.staging.swh.network
-  port=5432
-  user=swh-masking
 
   [staging-swh-blocking]
   dbname=swh-blocking
@@ -170,11 +146,17 @@ Sample |pg_service|
   port=5432
   user=guest
 
-  [admin-staging-swh-blocking]
-  dbname=swh-blocking
+  [staging-swh-indexer]
+  dbname=swh-indexer
   host=db1.internal.staging.swh.network
   port=5432
-  user=swh-blocking
+  user=guest
+
+  [staging-swh-masking]
+  dbname=swh-masking
+  host=db1.internal.staging.swh.network
+  port=5432
+  user=guest
 
 With this file, you can connect to any DB like this:
 
