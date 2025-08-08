@@ -95,43 +95,43 @@ Sample |pg_service|
   [staging-swh-coar-notify]
   dbname=swh-coar-notify
   host=db.internal.staging.swh.network
-  port=6432
+  port=5432
   user=guest
 
   [staging-swh-deposit]
   dbname=swh-deposit
   host=db.internal.staging.swh.network
-  port=6432
+  port=5432
   user=guest
 
   [staging-swh-scheduler]
   dbname=swh-scheduler
   host=db.internal.staging.swh.network
-  port=6432
+  port=5432
   user=guest
 
   [staging-swh-scrubber]
   dbname=swh-scrubber
   host=db.internal.staging.swh.network
-  port=6432
+  port=5432
   user=guest
 
   [staging-swh-svix]
   dbname=swh-svix
   host=db.internal.staging.swh.network
-  port=6432
+  port=5432
   user=guest
 
   [staging-swh-vault]
   dbname=swh-vault
   host=db.internal.staging.swh.network
-  port=6432
+  port=5432
   user=guest
 
   [staging-swh-web]
   dbname=swh-web
   host=db.internal.staging.swh.network
-  port=6432
+  port=5432
   user=guest
 
   [staging-swh]
