@@ -11,3 +11,4 @@ Data silos
    winery/index
    rancher/index
    provenance/index
+   kubernetes/index
