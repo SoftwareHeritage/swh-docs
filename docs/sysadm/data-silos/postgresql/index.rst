@@ -7,3 +7,4 @@ PostgreSQL
    howto-connect
    backup
    running-in-kubernetes
+   maintenance-in-kubernetes
