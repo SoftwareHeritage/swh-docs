@@ -11,26 +11,26 @@ Kubernetes Maintenance Procedure
 Maintenance operations are carried out by one human operator one node at a
 time, usually:
 
-- "Draining" pods: workloads are gracefully moved away from the node to be
-  updated to another node to ensure no downtime happens [1]. The node is set
-  aside from the cluster, that means no more pods are started on this node
-  node until it gets uncordoned (by the operator, us).
+- "Draining" the node: workloads (pods) are gracefully moved away from the
+  node to another node [1]. The node is marked 'SchedulingDisabled', no more
+  pods are started on this node until it gets "uncordoned" by the operator.
 
 .. code-block:: shell
 
    # kubectl --context $CLUSTER drain $NODE
 
-- performing the maintenance operation: Any kind of maintenance operation,
-  e.g. system or application updates, hardware replacement, reboot, ...
+- "Upgrading": The actual maintenance operation to perform, e.g. system or
+  application updates, hardware replacement, reboot, ...
 
 .. code-block:: shell
 
+   # Shutdown the machine per ipmi/idrac access or...
    # ssh $NODE && # do the operation update
 
-- "Uncordon" the node: Make the updated node join back the kubernetes cluster.
-  It's now ready to resume its responsibilities, meaning pods can be scheduled
-  again on this node. The operator can either start back previously migrated
-  workloads or leave it as is.
+- "Uncordon" the node: This marks the updated node as "Ready", so the node
+  joins back the kubernetes cluster. The kubernetes scheduler can now schedule
+  back pods on this node. The operator can either start back previously
+  migrated workloads or leave it as is.
 
 .. code-block:: shell
 
