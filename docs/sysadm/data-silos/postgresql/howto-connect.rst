@@ -140,21 +140,9 @@ Sample |pg_service|
   port=5432
   user=guest
 
-  [staging-swh-blocking]
-  dbname=swh-blocking
-  host=db1.internal.staging.swh.network
-  port=5432
-  user=guest
-
   [staging-swh-indexer]
   dbname=swh-indexer
-  host=db1.internal.staging.swh.network
-  port=5432
-  user=guest
-
-  [staging-swh-masking]
-  dbname=swh-masking
-  host=db1.internal.staging.swh.network
+  host=db.internal.staging.swh.network
   port=5432
   user=guest
 
