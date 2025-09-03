@@ -136,7 +136,7 @@ Sample |pg_service|
 
   [staging-swh]
   dbname=swh
-  host=db1.internal.staging.swh.network
+  host=db.internal.staging.swh.network
   port=5432
   user=guest
 
