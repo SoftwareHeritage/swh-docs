@@ -27,7 +27,7 @@ On the puppet master (pergamon):
 
 ::
 
-  root@pergamon:~# puppetserver ca clean kelvingrove.internal.softwareheritage.org 2>/dev/null
+  root@pergamon:~# puppetserver ca clean --certname kelvingrove.internal.softwareheritage.org 2>/dev/null
   Certificate for kelvingrove.internal.softwareheritage.org has been revoked
   Cleaned files related to kelvingrove.internal.softwareheritage.org
 
