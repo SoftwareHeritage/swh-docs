@@ -76,7 +76,7 @@ SWH backends
 +====================+======================================================+========+============+
 | RabbitMq GUI       | http://scheduler0.internal.staging.swh.network:15672 | X      |            |
 +--------------------+------------------------------------------------------+--------+------------+
-| Archive database   | db1.internal.staging.swh.network:5432/swh            | X      |            |
+| Archive database   | db.internal.staging.swh.network:5432/swh             | X      |            |
 +--------------------+------------------------------------------------------+--------+------------+
 | Deposit database   | db.internal.staging.swh.network:6432/swh-coar-notify | X      |            |
 +--------------------+------------------------------------------------------+--------+------------+
