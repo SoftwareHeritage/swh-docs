@@ -30,16 +30,15 @@ All processing operations are performed from the Kubernetes toolbox pod.
 
 .. code::
 
-   kubectl --context archive-production-rke2 exec -ti -n swh-cassandra -c swh-toolbox deployment/swh-toolbox -- bash
-
-.. code::
-
    kubectl --context archive-staging-rke2 exec -ti -n swh-cassandra -c swh-toolbox deployment/swh-toolbox -- bash
 
-.. admonition:: Export environment variable
+Use the same command with ``archive-production-rke2`` context to access production toolbox.
+
+.. admonition:: ``SWH_CONFIG_FILENAME`` variable
    :class: warning
 
-   You have to export ``SWH_CONFIG_FILENAME`` with the scheduler configuration.
+   Once connected to the toolbox, you must export ``SWH_CONFIG_FILENAME`` with the scheduler configuration.
+   The output of the toolbox mentions the right export command.
 
    .. code::
 
@@ -74,100 +73,183 @@ To ensure we can ingest that forge, we start by testing out a subset of that for
 listing on staging. It's a pre-check flight to determine we have the right amount of
 information.
 
-Mono-instance forge listing
-^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-For mono-instance forge or for multi-instance forge whose url cannot be computed easily,
-(e.g. some cgit instance with a subdomain), we provide the ``<url>`` of the forge to
-ingest.
+Registering the new lister task
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code::
 
-   swh scheduler --url http://scheduler0.internal.staging.swh.network:5008/ \
+   swh scheduler \
      add-forge-now --preset staging \
-       register-lister gitea \
-         url=<url>
-
-For example, forge `git.replicant.us <https://git.replicant.us/infrastructure>`_ which
-is a cgit instance, we'd run:
-
-.. code::
-
-   swh scheduler --url http://scheduler0.internal.staging.swh.network:5008/ \
-     add-forge-now --preset staging \
-       register-lister cgit \
-         url=https://git.replicant.us/infrastructure
-
-
-Multi-instance forge listing
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-We currently support the technology gitea, gogs and gitlab which are multi-instance. The
-corresponding listers are able to compute their api url directly (to avoid manual
-mistakes) so we just need to provide the <instance> parameter for those.
-
-.. code::
-
-   swh scheduler --url http://scheduler0.internal.staging.swh.network:5008/ \
-     add-forge-now --preset staging \
-       register-lister gitea \
+       register-lister <lister-type> \
          instance=<instance>
 
-
-For example, the forge `git.afpy.org <https://git.afpy.org>`_ is a `gitea
-<https://gitea.io/en-us/>`_ instance, so we'd run:
+For example, forge `forge.inrae.fr <https://forge.inrae.fr/>`_ which
+is a gitlab instance, we'd run:
 
 .. code::
 
-   swh scheduler --url http://scheduler0.internal.staging.swh.network:5008/ \
+   swh@swh-toolbox-57d6b657d-tqn4m:~$ swh scheduler \
      add-forge-now --preset staging \
-       register-lister gitea \
-         instance=git.afpy.org
+       register-lister gitlab \
+         instance=forge.inrae.fr
 
-   INFO:swh.lister.pattern:Max origins per page set, truncated 36 page results down to 30
-   INFO:swh.lister.pattern:Disabling origins before sending them to the scheduler
-   INFO:swh.lister.pattern:Reached page limit of 3, terminating
+   WARNING:swh.core.sentry:Sentry DSN not provided, events will not be sent.
+   Created 1 tasks
+   Task 33438839
+     Next run: today (2025-07-23T15:44:45.811986+00:00)
+     Interval: 90 days, 0:00:00
+     Type: list-gitlab-full
+     Policy: oneshot
+     Args:
+     Keyword args:
+       enable_origins: False
+       instance: 'forge.inrae.fr'
+       max_origins_per_page: 5
+       max_pages: 2
 
+``instance`` is the parameter used in the `pipeline <https://gitlab.softwareheritage.org/swh/infra/add-forge-now-requests/-/blob/main/.gitlab-ci/bash-functions.sh?ref_type=heads#L121>`_.
+It may be necessary to use ``url`` parameter instead of the ``instance`` one:
+
+- for forges which support only http protocol;
+
+   .. code::
+
+      swh@swh-toolbox-798fd68874-zx4wp:~$ swh scheduler \
+        add-forge-now --preset production \
+          register-lister gitea \
+            url=http://vcc-gnd.cn/api/v1/
+
+- for forges reachable by a subpath.
+
+   .. code::
+
+      swh@swh-toolbox-76f4dcdb79-ncrvt:~$ swh scheduler \
+        add-forge-now --preset staging \
+          register-lister gitlab \
+            url=https://microfluidics.utoronto.ca/gitlab/api/v4/
+
+Use ``base_git_url`` to specify the origins url:
+
+.. code::
+
+   swh@swh-toolbox-648b4bd4dd-tjh4c:~$ swh scheduler \
+     add-forge-now --preset staging \
+       register-lister cgit \
+         instance=git.koszko.org \
+         base_git_url=https://git.koszko.org
+
+Or use ``url`` and ``base_git_url``:
+
+.. code::
+
+   swh@swh-toolbox-76b76c5565-spw77:~$ swh scheduler \
+     add-forge-now --preset staging \
+       register-lister gitweb \
+       url=http://git.1wt.eu/web \
+       base_git_url=http://git.1wt.eu/git
 
 Ensure the :ref:`lister got registered<check-lister-is-registered>` in the staging
 scheduler db.
 
-Forge's listed origin ingestion
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Checking the listed origins
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. code::
+
+   swh scheduler origin check-listed-origins <lister-type> <instance-name> -l
+
+For our example, `forge.inrae.fr <https://forge.inrae.fr/>`_:
+
+.. code::
+
+   swh@swh-toolbox-57d6b657d-tqn4m:~$ swh scheduler origin check-listed-origins gitlab forge.inrae.fr -l
+   url                                                           last_seen                         last_update
+   ------------------------------------------------------------  --------------------------------  --------------------------------
+   https://forge.inrae.fr/QTL/spell-qtl.git                      2025-07-23 15:45:48.892705+00:00  2020-02-27 20:56:28.539000+00:00
+   https://forge.inrae.fr/adminforgemia/doc-public.git           2025-07-23 15:45:48.892705+00:00  2024-09-09 12:53:34.058000+00:00
+   https://forge.inrae.fr/bioger/django-custom-user.git          2025-07-23 15:45:49.655780+00:00  2023-11-08 14:53:09.962000+00:00
+   https://forge.inrae.fr/gauthier.quesnel/red-slides.git        2025-07-23 15:45:49.655780+00:00  2019-07-03 06:53:00.720000+00:00
+   https://forge.inrae.fr/genotoul-bioinfo/d-genies/dgenies.git  2025-07-23 15:45:48.892705+00:00  2025-02-06 14:49:33.746000+00:00
+   https://forge.inrae.fr/genotoul-bioinfo/jflow.git             2025-07-23 15:45:48.892705+00:00  2020-02-14 16:08:06.932000+00:00
+   https://forge.inrae.fr/katharina-birgit.budde/testgit.git     2025-07-23 15:45:49.655780+00:00  2019-07-05 09:21:53.092000+00:00
+   https://forge.inrae.fr/olivier.bonnefon/selommes.git          2025-07-23 15:45:49.655780+00:00  2019-07-25 12:48:39.151000+00:00
+   https://forge.inrae.fr/svdetection/popsim.git                 2025-07-23 15:45:48.892705+00:00  2020-02-28 07:17:22.123000+00:00
+   https://forge.inrae.fr/umr-gdec/magatt.git                    2025-07-23 15:45:49.655780+00:00  2025-07-18 12:15:54.773000+00:00
+
+   Forge forge.inrae.fr (gitlab) has 10 listed origins in the scheduler database.
+
+Scheduling the first visit
+^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 After the previous lister registration, we now need to trigger the first ingestion for
 those origins:
 
 .. code::
 
-   swh scheduler --url http://scheduler0.internal.staging.swh.network:5008/ \
+   swh scheduler \
      add-forge-now --preset staging \
      schedule-first-visits \
        --type-name <visit-type> \
-       --type-name <another-visit-type> \
        --lister-name <lister> \
        --lister-instance-name <lister-instance-name>
 
-For example, for one of the instance listed above:
+For our example, `forge.inrae.fr <https://forge.inrae.fr/>`_:
 
 .. code::
 
-   swh scheduler --url http://scheduler0.internal.staging.swh.network:5008/ \
+   swh scheduler \
      add-forge-now --preset staging \
      schedule-first-visits \
        --type-name git \
-       --lister-name gitea \
-       --lister-instance-name git.afpy.org
+       --lister-name gitlab \
+       --lister-instance-name forge.inrae.fr
 
-   100 slots available in celery queue
-   15 visits to send to celery
+   WARNING:swh.core.sentry:Sentry DSN not provided, events will not be sent.
+   INFO:swh.scheduler.celery_backend.utils:1000 slots available in celery queue add_forge_now:swh.loader.git.tasks.UpdateGitRepository
+   INFO:swh.scheduler.celery_backend.utils:10 visits of type git to send to celery
 
-After some time, :ref:`check those origins got ingested at least in part
+.. admonition:: AFN loaders logs
+   :class: tip
+
+   Get the add-forge-now loaders logs:
+
+   .. code::
+
+      kubectl --context archive-staging-rke2 logs -n swh-cassandra -l app=loader-add-forge-now -f
+
+   .. code::
+
+      stern --context archive-staging-rke2 -n swh-cassandra -l app=loader-add-forge-now --only-log-lines
+
+   Use the same commands with ``archive-production-rke2`` context for production environment.
+
+Checking the ingested origins
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. code::
+
+   swh scheduler origin check-ingested-origins <lister-type> <instance-name>
+
+For our example, `forge.inrae.fr <https://forge.inrae.fr/>`_:
+
+.. code::
+
+   swh@swh-toolbox-57d6b657d-tqn4m:~$ swh scheduler origin check-ingested-origins gitlab forge.inrae.fr
+
+   Forge forge.inrae.fr (gitlab) has 10 scheduled ingests in the scheduler.
+   failed      : 0
+   None        : 0
+   not_found   : 1
+   successful  : 9
+   total       : 10
+   success rate: 90.00%
+
+After some time, :ref:`check those origins were ingested at least partially
 <check-origins-got-ingested>`.
 
-If everything is fine, let's :ref:`schedule that forge in production
+If everything is fine, update the add-forge-now request status to ``Scheduled``
+with a comment containing a link to the GitLab Issue. Then, let's :ref:`schedule that forge in production
 <add-forge-now-deploying-on-production>`.
-
 
 .. _add-forge-now-deploying-on-production:
 
@@ -178,67 +260,14 @@ After :ref:`testing with success the forge ingestion in staging
 <add-forge-now-testing-on-staging>`, it's time to deploy the full and recurrent listing
 for that forge.
 
-Let's start by registering the lister for that forge as usual (use the same method as
-above):
+.. admonition:: Production environment
 
-.. code::
+   Use the same commands as for staging, replacing the value of the ``--preset`` option with ``production``.
 
-   swh scheduler --url http://saatchi.internal.softwareheritage.org:5008/ \
-     add-forge-now ( --preset production ) \
-     register-lister <lister-name> \
-       url=<url>
-
-.. code::
-
-   swh scheduler --url http://saatchi.internal.softwareheritage.org:5008/ \
-     add-forge-now ( --preset production ) \
-     register-lister <lister-name> \
-       instance=<instance>
-
-For example:
-
-.. code::
-
-   swh scheduler --url http://saatchi.internal.softwareheritage.org:5008/ \
-     add-forge-now ( --preset production ) \
-     register-lister gitea \
-       instance=git.afpy.org
-
-Ensure the :ref:`lister got registered<check-lister-is-registered>` in the production
-scheduler db.
-
-After a bit of time, you can :ref:`check origins from that forge got listed
-<check-origins-got-listed>` in the scheduler db:
-
-Once the listing is through, we trigger the add-forge-now scheduling to make a first
-pass on that forge.
-
-.. code::
-
-   swh scheduler --url http://saatchi.internal.softwareheritage.org:5008/ \
-     add-forge-now ( --preset production ) \
-       schedule-first-visits \
-         --type-name <visit-type> \
-         --lister-name <lister-name> \
-         --lister-instance-name <lister-instance-name>
-
-For example:
-
-.. code::
-
-   swh scheduler --url http://saatchi.internal.softwareheritage.org:5008/ \
-     add-forge-now ( --preset production ) \
-       schedule-first-visits \
-         --type-name git \
-         --lister-name gitea \
-         --lister-instance-name git.afpy.org
-
-   10000 slots available in celery queue
-   37 visits to send to celery
-
-After a while, :ref:`you can check those origins should have been ingested in part
-<check-origins-got-ingested>`. You can now notify the moderator in the ticket that the
-first ingestion got done.
+After some time, :ref:`you can check those origins have been ingested
+<check-origins-got-ingested>`.
+If everything is fine, update the add-forge-now request status to ``First origin loaded``
+with a comment containing a link to the GitLab Issue.
 
 .. _add-forge-now-checks:
 
