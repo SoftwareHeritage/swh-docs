@@ -8,25 +8,62 @@ How to process add-forge-now requests
 
    sysadm staff members
 
-The processing is semi-automatic for the moment. Referencing the steps is a kickstarter
-for automation.
-
+The processing is automatic but may encounter errors.
+In this case, the operations must be performed manually (see, :ref:`how-to-add-forge-now-pipeline`).
 
 Introduction
 ------------
 
-A forge ticket (`see for example the git.afpy.org ticket
-<https://gitlab.softwareheritage.org/infra/sysadm-environment/-/issues/4674>`_) should
-have been opened by a moderator.
+A forge ticket (`see for example the forge.inrae.fr ticket
+<https://gitlab.softwareheritage.org/swh/infra/add-forge-now-requests/-/issues/1431>`_) should
+have been created.
 
 Meaning the `moderation process is ongoing
-<https://archive.softwareheritage.org/admin/add-forge/request/18/>`_ and the upstream
+<https://archive.softwareheritage.org/admin/add-forge/request/1904/>`_ and the upstream
 forge (to be ingested) has been notified we will start the ingestion soon.
 
 Note that there exists roughly 2 kinds of forges, either the technology used by the
 forge exists is mono-instance (e.g. github, bitbucket, ...), either the technology is
 the same across multiple forges (e.g. gitlab, cgit, gitea, gogs).
 
+All processing operations are performed from the Kubernetes toolbox pod.
+
+.. code::
+
+   kubectl --context archive-production-rke2 exec -ti -n swh-cassandra -c swh-toolbox deployment/swh-toolbox -- bash
+
+.. code::
+
+   kubectl --context archive-staging-rke2 exec -ti -n swh-cassandra -c swh-toolbox deployment/swh-toolbox -- bash
+
+.. admonition:: Export environment variable
+   :class: warning
+
+   You have to export ``SWH_CONFIG_FILENAME`` with the scheduler configuration.
+
+   .. code::
+
+      ᐅ kubectl --context archive-staging-rke2 exec -ti -n swh-cassandra -c swh-toolbox deployment/swh-toolbox -- bash
+      SWH_CONFIG_FILENAME variable is not set!
+
+       This variable must be defined according to your use case (e.g. .
+       scheduler, storage, vault, ...). You must define it by yourself.
+
+       For example, use one of the following:
+
+      export SWH_CONFIG_FILENAME=/etc/swh/config-web.yml
+      export SWH_CONFIG_FILENAME=/etc/swh/config-masking.yml
+      export SWH_CONFIG_FILENAME=/etc/swh/config-scrubber-objstorage-storage1.yml
+      export SWH_CONFIG_FILENAME=/etc/swh/config-webhooks.yml
+      export SWH_CONFIG_FILENAME=/etc/swh/config-cassandra-storage-rw.yml
+      export SWH_CONFIG_FILENAME=/etc/swh/config-indexer-storage.yml
+      export SWH_CONFIG_FILENAME=/etc/swh/config-vault.yml
+      export SWH_CONFIG_FILENAME=/etc/swh/config-scrubber-objstorage-db1.yml
+      export SWH_CONFIG_FILENAME=/etc/swh/config-scheduler.yml
+      export SWH_CONFIG_FILENAME=/etc/swh/config-deposit.yml
+      export SWH_CONFIG_FILENAME=/etc/swh/config-scrubber-storage.yml
+      export SWH_CONFIG_FILENAME=/etc/swh/config-blocking.yml
+      swh@swh-toolbox-57d6b657d-tqn4m:~$ export SWH_CONFIG_FILENAME=/etc/swh/config-scheduler.yml
 
 .. _add-forge-now-testing-on-staging:
 
