@@ -166,7 +166,8 @@ Gitlab-runner
    The bot user is automatically created the first time the token is used. Project token has a lifetime of one year.
    When the project token has expired, the bot user is deleted [2]_.
 
-| - the ``Pipeline trigger tokens`` section to check or change the pipeline token.
+| - the `Pipeline trigger tokens <https://gitlab.softwareheritage.org/swh/infra/add-forge-now-requests/-/settings/ci_cd#js-pipeline-triggers>`_ section to check or change the pipeline token.
+| This token is stored in a Kubernetes secret ``gitlab_afn_token`` (repository: ``k8s-swh-private-data``; file: ``archive-production-rke2/common-secrets.yaml``).
 |
 | It runs on **runner0** virtual machine with a docker executor.
 
