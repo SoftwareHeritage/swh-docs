@@ -745,3 +745,31 @@ In this case, the ``prometheus`` service should be removed from the docker
 deploy compose file, and the configuration files should be updated accordingly.
 You would probably want to move ``grafana`` from the docker swarm, and rework
 the ``prometheus-statsd-exporter`` node setup accordingly.
+
+
+Filtering web scrapers and bots
+-------------------------------
+
+The example configuration comes with 2 simple mechanisms to help protecting the
+mirror from being scraped by robots:
+
+- It serves a ``robots.txt``; the content of this file is the configuration
+  file ``conf/assets/nginx-robots.txt``. It has been produced from the
+  `ai.robots.txt`_ project and aim a preventing any known web scraper bot used
+  by legit AI companies from harvesting any part of the mirror. It also
+  advertise any robot not to explore ``/browse/`` and ``/api/`` (but allows the
+  scaping of other parts of the mirror web site).
+
+- It actually block access to any known AI bot via a nginx rule (in
+  ``conf/nginx.conf``) by returning a 403 code if the HTTP user agent is one of
+  the known AI bot.
+
+In addition, depending on the location etc. of the mirror, it may be required
+to respond to rogue/unfair scrapers by blocking their IP range if needed.
+
+When operating a mirror on a publicly available endpoint, it is **mandatory**
+to ensure large scale web scrapers are blocked, since this does not comply with
+the |swh| Archive fair use principles.
+
+
+.. _`ai.robots.txt`: https://github.com/ai-robots-txt/ai.robots.txt

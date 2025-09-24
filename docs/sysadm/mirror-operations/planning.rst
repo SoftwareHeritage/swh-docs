@@ -13,6 +13,10 @@ Namely, hosting a mirror requires:
 
 - a dedicated infrastructure with enough compute (s/computing) power and storage
 - enough network bandwidth (both ingress and egress)
+- proper scraping/robots filtering / configuration to prevent web scrapers,
+  especially AI bots, to scrape the whole mirror; accessing the Software
+  Heritage Archive for large scale automated processing requires explicit
+  acceptance of the usage conditions or special permission.
 - good IT tooling (supervision, alerting)
 - a legal and operational structure to :ref:`handle takedown requests
   <mirror_takedown_requests>`
