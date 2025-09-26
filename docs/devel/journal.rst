@@ -312,6 +312,34 @@ Example:
     'ctime': Timestamp(seconds=1606260407, nanoseconds=818259954)
    }
 
+`swh.journal.objects.hash_colliding_content`
+++++++++++++++++++++++++++++++++++++++++++++
+
+Topic for :py:class:`swh.model.model.Content` objects for which a hash collision has been detected.
+
+Message format:
+
+- ``sha1`` [bytes] SHA1 of the :py:class:`swh.model.model.Content`
+- ``sha1_git`` [bytes] SHA1_GIT of the :py:class:`swh.model.model.Content`
+- ``sha256`` [bytes] SHA256 of the :py:class:`swh.model.model.Content`
+- ``blake2s256`` [bytes] Blake2S256 hash of the :py:class:`swh.model.model.Content`
+- ``length`` [int] length of the :py:class:`swh.model.model.Content`
+- ``data`` [bytes] the actual bytes of the :py:class:`swh.model.model.Content`
+
+Example:
+
+.. code:: python
+
+   {
+    'sha1': b'*\xael5\xc9O\xcf\xb4\x15\xdb\xe9_@\x8b\x9c\xe9\x1e\xe8F\xed',
+    'sha1_git': b'\x95\xd0\x9f+\x10\x15\x93G\xee\xceq9\x9a~.\x90~\xa3\xdfO',
+    'sha256': b"\xb9M'\xb9\x93M>\x08\xa5.R\xd7\xda}\xab\xfa\xc4\x84\xef\xe3zS\x80\xee\x90\x88\xf7\xac\xe2\xef\xcd\xe9",
+    'blake2s256': b'\x9a\xech\x06yEa\x10~YK\x1fj\x8ak\x0c\x92\xa0\xcb\xa9\xac\xf5\xe5\xe9<\xca\x06\xf7\x81\x81;\x0b',
+    'length': 11,
+    'status': 'visible',
+    'data': b'hello world',
+   }
+
 
 
 `swh.journal.objects.directory`
