@@ -68,49 +68,50 @@ swarm cluster on top of LXC/LXD has also been proven to be difficult.
 
 .. warning:: Check your docker setup with a simple example
 
-             Make sure your docker swarm environment is working properly
-             **before** doing any of the steps described below in this
-             documentation. You should check you can deploy a simple 2 services
-             application properly.
+   Make sure your docker swarm environment is working properly
+   **before** doing any of the steps described below in this
+   documentation. You should check you can deploy a simple 2 services
+   application properly.
 
-             For example:
+   For example:
 
-             $ docker service create --name web --publish 8080:80 nginx
-             $ curl 127.0.0.1:8080
-             <!DOCTYPE html>
-             <html>
-             <head>
-             <title>Welcome to nginx!</title>
-             <style>
-             html { color-scheme: light dark; }
-             body { width: 35em; margin: 0 auto;
-             font-family: Tahoma, Verdana, Arial, sans-serif; }
-             </style>
-             </head>
-             <body>
-             <h1>Welcome to nginx!</h1>
-             <p>If you see this page, the nginx web server is successfully installed and
-             working. Further configuration is required.</p>
+   .. code-block:: console
 
-             <p>For online documentation and support please refer to
-             <a href="http://nginx.org/">nginx.org</a>.<br/>
-             Commercial support is available at
-             <a href="http://nginx.com/">nginx.com</a>.</p>
+      $ docker service create --name web --publish 8080:80 nginx
+      $ curl 127.0.0.1:8080
+      <!DOCTYPE html>
+      <html>
+      <head>
+      <title>Welcome to nginx!</title>
+      <style>
+      html { color-scheme: light dark; }
+      body { width: 35em; margin: 0 auto;
+      font-family: Tahoma, Verdana, Arial, sans-serif; }
+      </style>
+      </head>
+      <body>
+      <h1>Welcome to nginx!</h1>
+      <p>If you see this page, the nginx web server is successfully installed and
+      working. Further configuration is required.</p>
 
-             <p><em>Thank you for using nginx.</em></p>
-             </body>
-             </html>
-             $ docker service rm web
+      <p>For online documentation and support please refer to
+      <a href="http://nginx.org/">nginx.org</a>.<br/>
+      Commercial support is available at
+      <a href="http://nginx.com/">nginx.com</a>.</p>
 
-             Note: this will not ensure everything is OK (especially,
-             inter-service communication is not tested in this simple
-             scenario). You may want to validate that as well.
+      <p><em>Thank you for using nginx.</em></p>
+      </body>
+      </html>
+      $ docker service rm web
+
+   Note: this will not ensure everything is OK (especially,
+   inter-service communication is not tested in this simple
+   scenario). You may want to validate that as well.
 
 .. warning:: It is advisable to be able to run the ``docker`` command directly,
-             without using ``sudo``; using docker via sudo may have side
-             effects, especially regarding usage of environment variables. On a
-             debian system, your user account should be in the ``docker``
-             group.
+   without using ``sudo``; using docker via sudo may have side effects,
+   especially regarding usage of environment variables. On a debian system,
+   your user account should be in the ``docker`` group.
 
 In the following how-to, we will assume that the service ``STACK`` name is ``swh``
 (this name is the last argument of the :command:`docker stack deploy` command below).
@@ -118,15 +119,14 @@ In the following how-to, we will assume that the service ``STACK`` name is ``swh
 Several preparation steps will depend on this name.
 
 .. Note:: when a service is defined with the name ``SERVICE`` in the stack
-          deployment file, it accessible from within the swarm cluster
-          dedicated for the stack as ``SERVICE`` (for example, in a
-          configuration file targeting a RPC provided by the service named
-          ``storage``, the url will look like ``http://storage:5002``).
-          However, the corresponding *docker service* will be named
-          ``STACK_SERVICE`` (for example ``swh_storage``), so from the docker
-          host view, ``docker service`` commands will use this *docker service*
-          name as argument (for example ypu may type the command ``docker
-          service logs swh_objstorage``).
+   deployment file, it accessible from within the swarm cluster dedicated for
+   the stack as ``SERVICE`` (for example, in a configuration file targeting a
+   RPC provided by the service named ``storage``, the url will look like
+   ``http://storage:5002``). However, the corresponding *docker service* will
+   be named ``STACK_SERVICE`` (for example ``swh_storage``), so from the docker
+   host view, ``docker service`` commands will use this *docker service* name
+   as argument (for example ypu may type the command ``docker service logs
+   swh_objstorage``).
 
 Retrieve the deployment code
 ----------------------------
