@@ -638,31 +638,58 @@ Cassandra cluster and shared storage to store Winery shard files.
 Getting your deployment production-ready
 ========================================
 
-docker-stack scaling
---------------------
+Splitting the graph replayer
+----------------------------
 
-Once the replayer services have been checked, started and are working
-properly, you can increase the replication to speed up the replication process.
+Before thinking of boosting the replication process by scaling the replayers
+(see below), it is advised to splitting the graph replayer service in several
+parts, one per topic or at least have one service dedicated to ``content``, one
+dedicated to ``directory`` and one for the remaining topics. The
+``mirror-advances.yml`` stack deployment file gives an example of such a
+configuration.
+
+This gives yo much better control on how to orchestrate / prioritize the
+replication between the different types of object.
+
+Note that to prevent side effect of manipulating one type of replayer on the
+others, it is also strongly advised not to share the same consumer group for
+several replayers.
+
+You should then use one consumer group for the replayer dedicated to the
+``content`` topic, one for the ``directory`` etc.
+
+
+Scaling docker-stack services
+-----------------------------
+
+Once the replayer services have been checked, started and are working properly,
+you can think of increasing the replication of each of these services to speed
+up the replication process.
 
 .. code-block:: console
 
-   swh:~/swh-mirror$ docker service scale swh_graph-replayer=64
    swh:~/swh-mirror$ docker service scale swh_content-replayer=64
+   swh:~/swh-mirror$ docker service scale swh_graph-replayer-content=32
+   swh:~/swh-mirror$ docker service scale swh_graph-replayer-directory=32
+   swh:~/swh-mirror$ docker service scale swh_graph-replayer=32
 
 A proper replication factor value will depend on your infrastructure
 capabilities and needs to be adjusted watching the load of the core services
 (mainly the swh_storage-db and swh_objstorage services).
 
 Acceptable range should be between 32 to 64 (for staging) or 32 to 128 (for
-production).
+production). There are 256 partitions on the production Kafka server, so you
+cannot go beyond that parallelism for a given replayer type.
 
-Note that when you increase the replication of the replayers, you also need to
-increase the replication factor for the core services ``storage`` and
+Note that when you increase the replication of the replayers, you may also have
+to increase the replication factor for the core services ``storage`` and
 ``objstorage`` otherwise they will become the limiting factor of the replaying
 process. A factor of 4 between the number of replayer of a type (graph,
 content) and the backend service (swh_storage, swh_objstorage) is probably a
 good starting point (i.e. have at least one core service for 4 replayer
-services). You may have to play a bit with these values to find the right balance.
+services). You may have to play a bit with these values to find the right
+balance.
+
 
 Notes on the throughput of the mirroring process
 ------------------------------------------------
