@@ -58,7 +58,7 @@ Glossary
 
    derived dataset
 
-     A dataset that is built from public data, such as the :term:`export`, 
+     A dataset that is built from public data, such as the :term:`export`,
      the :term:`compressed graph`, or the Archive itself.
 
      This includes datasets computed by :ref:`swh-datasets`, :ref:`swh-digestmap`,
