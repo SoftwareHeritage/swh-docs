@@ -85,8 +85,11 @@ To do so, some manual installation steps are needed:
 After that, ArgoCD will populate itself with all the applications in charge of the
 clusters configuration and service deployments.
 
-Manage a new kubernetes cluster
--------------------------------
+Manage kubernetes clusters
+--------------------------
+
+Add a new cluster
+~~~~~~~~~~~~~~~~~
 
 As we saw, ArgoCD can take care of automatically applying and synchronizing the cluster
 configurations and secrets based on what is committed in the ``k8s-clusters-conf`` and
@@ -97,7 +100,8 @@ applications:
 
 - Declare the cluster in ``k8s-private-data/argocd/clusters``
 
-  - Copy an existing cluster file and adapt to use the new cluster credentials
+  - Copy an existing cluster file and adapt to use the new cluster credentials (check the
+    renew cluster credentials section for more information)
 
 - If this cluster has some secrets, create a directory matching the cluster name at the
   root of the ``k8s-private-data`` repository too
@@ -133,6 +137,29 @@ applications:
     configuration created in ``k8s-private-data``
 
 Commit and push, ArgoCD will apply all the configurations and will keep it in sync.
+
+Renew a cluster credentials
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Symptoms of an expired token are a lost of connection to a cluster by argocd and
+an alert triggered by the monitoring
+
+.. code::
+
+  <s​whprombot> Alert CRITICAL firing - admin/cluster-admin-rke2 - ArgoCDClusterConnectionLost -
+  The connection to the cluster https://rancher.... is lost since more than 1h.
+
+* Log in to the Rancher web interface using the admin account (credentials are available
+  on the credentials store under ``operations/rancher/azure/admin``)
+* Select the cluster
+* Download the KubeConfig file for the cluster
+
+.. figure:: ../images/deployment/kubeconfig.png
+   :alt: Download kubeconfig from rancher
+
+* Open the file and locate the ``users`` section and copy the token
+* Update the cluster declaration in the `k8s-private-data` repository,
+  for example in the ``argocd/clusters/test-staging-rke2.yaml`` file
 
 Deploy a new service
 --------------------
