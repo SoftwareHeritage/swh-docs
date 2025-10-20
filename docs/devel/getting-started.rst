@@ -49,9 +49,7 @@ Then, start containers:
    ~/swh-docker$ docker compose up -d
    [...]
    Creating docker_amqp_1               ... done
-   Creating docker_zookeeper_1          ... done
    Creating docker_kafka_1              ... done
-   Creating docker_flower_1             ... done
    Creating docker_swh-scheduler-db_1   ... done
    [...]
 
@@ -64,10 +62,9 @@ fine with:
                             Name                                       Command               State                                      Ports
    -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
    docker_amqp_1                                    docker-entrypoint.sh rabbi ...   Up      15671/tcp, 0.0.0.0:5018->15672/tcp, 25672/tcp, 4369/tcp, 5671/tcp, 5672/tcp
-   docker_flower_1                                  flower --broker=amqp://gue ...   Up      0.0.0.0:5555->5555/tcp
    docker_kafka_1                                   start-kafka.sh                   Up      0.0.0.0:5092->5092/tcp
-   docker_swh-deposit-db_1                          docker-entrypoint.sh postgres    Up      5432/tcp
-   docker_swh-deposit_1                             /entrypoint.sh                   Up      0.0.0.0:5006->5006/tcp
+   docker_swh-scheduler-db_1                        docker-entrypoint.sh postgres    Up      5432/tcp
+   docker_swh-scheduler_1                           /entrypoint.sh                   Up      0.0.0.0:5006->5006/tcp
    [...]
 
 The startup of some containers may fail the first time for
@@ -116,8 +113,24 @@ content. The simplest way to start loading software is to use the
 
   http://localhost:<nginx-port>/browse/origin/save/
 
+You can check the details of the ingestion progress in the container's log:
+
+.. code-block:: console
+
+   ~/swh-docker$ docker compose logs -f swh-loader
+   [...]
+   swh-loader-1  | [2025-10-20 15:19:45,590: INFO/MainProcess] Task swh.loader.git.tasks.UpdateGitRepository[ed0033b1-72f8-4aec-bb22-6e97abe78b3b] received
+   swh-loader-1  | [2025-10-20 15:19:45,593: DEBUG/ForkPoolWorker-2] Loading config file /srv/softwareheritage/config.yml
+   swh-loader-1  | [2025-10-20 15:19:46,582: INFO/ForkPoolWorker-2] Load origin 'https://github.com/linuxfoundation/easycla' with type 'git'
+   swh-loader-1  | [2025-10-20 15:19:46,582: DEBUG/ForkPoolWorker-2] lister_not provided, skipping extrinsic origin metadata
+   [...]
+   swh-loader-1  | [2025-10-20 15:24:08,358: INFO/ForkPoolWorker-2] Task swh.loader.git.tasks.UpdateGitRepository[ed0033b1-72f8-4aec-bb22-6e97abe78b3b] succeeded in 262.7630765091162s: {'status': 'eventful'}
+   [...]
+   ^C
+
+
 You can also use the command line interface to inject code. For
-example to retrieve projects hossted on the https://0xacab.org GitLab forge:
+example to retrieve projects hosted on the https://0xacab.org GitLab forge:
 
 .. code-block:: console
 
@@ -136,42 +149,38 @@ example to retrieve projects hossted on the https://0xacab.org GitLab forge:
      Keyword args:
        url=https://0xacab.org/api/v4
 
-This task will scrape the forge’s project list and register origins to the scheduler.
-This takes at most a couple of minutes.
+This task will scrape the forge’s project list and register origins to the
+scheduler.
 
-Then, you must tell the scheduler to create loading tasks for these origins.
-For example, to create tasks for 100 of these origins:
+This takes at most a couple of minutes by itself, but it will trigger loading
+tasks for each origin found on this forge.
 
-.. code-block:: console
-
-   ~/swh-docker$ docker compose exec swh-scheduler \
-       swh scheduler origin schedule-next git 100
-
-This will take a bit of time to complete.
+Loading all of these origins can take a bit of time to complete (there are more
+than 1700 origins hosted on this forge).
 
 To increase the speed at which git repositories are imported, you can
-spawn more ``swh-loader-git`` workers:
+spawn more ``swh-loader`` workers:
 
 .. code-block:: console
 
    ~/swh-docker$ docker compose exec swh-scheduler \
-       celery status
+       celery -b amqp://amqp status
    listers@50ac2185c6c9: OK
    loader@b164f9055637: OK
-   indexer@33bc6067a5b8: OK
-   vault@c9fef1bbfdc1: OK
 
-   4 nodes online.
+   2 nodes online.
    ~/swh-docker$ docker compose exec swh-scheduler \
-       celery control pool_grow 3 -d loader@b164f9055637
+       celery control pool_grow 4 -d loader@b164f9055637
    -> loader@b164f9055637: OK
            pool will grow
    ~/swh-docker$ docker compose exec swh-scheduler \
        celery inspect -d loader@b164f9055637 stats | grep prefetch_count
-          "prefetch_count": 4
+          "prefetch_count": 8
 
-Now there are 4 workers ingesting git repositories. You can also
-increase the number of ``swh-loader-git`` containers:
+Now there are 8 workers ingesting git repositories in the ``swh-loader``
+container.
+
+In addition, you can also increase the number of ``swh-loader`` containers:
 
 .. code-block:: console
 
@@ -181,6 +190,13 @@ increase the number of ``swh-loader-git`` containers:
    Creating docker_swh-loader_3        ... done
    Creating docker_swh-loader_4        ... done
 
+You will now have 32 concurrent loader workers (8 celery worker per instance *
+4 instances).
+
+.. warning:: Running 32 loaders on a single machine (in addition to all other
+   services of the compose environment) can be very heavy on resources
+   (especially network, CPU and disk). You may want to be careful when scaling
+   up your test setup.
 
 Updating the docker image
 -------------------------
