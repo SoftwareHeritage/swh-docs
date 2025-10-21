@@ -19,6 +19,7 @@ by components:
    swh.coarnotify <swh-coarnotify/index>
    swh.core <swh-core/index>
    swh.counters <swh-counters/index>
+   swh.dataportal <swh-dataportal/index>
    swh.datasets <swh-datasets/index>
    swh.deposit <swh-deposit/index>
    swh.digestmap <swh-digestmap/index>
