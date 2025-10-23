@@ -12,7 +12,7 @@
 ../swh-deposit[server]
 ../swh-digestmap
 ../swh-export[luigi]
-../swh-fuse
+../swh-fuse[hpc]
 ../swh-graph[export,luigi]
 ../swh-graphql
 ../swh-icinga-plugins

@@ -8,7 +8,7 @@ swh.datasets[luigi]
 swh.deposit[server]
 swh.digestmap
 swh.export[luigi]
-swh.fuse
+swh.fuse[hpc]
 swh.graph[luigi]
 swh.graphql
 swh.indexer
