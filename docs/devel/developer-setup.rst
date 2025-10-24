@@ -56,9 +56,9 @@ package manager.
     .. code-block:: console
 
       # Install Java-specific repository and JDK
-      sudo dnf install adoptium-temurin-java-repository
+      sudo dnf -y install adoptium-temurin-java-repository
       sudo dnf config-manager setopt adoptium-temurin-java-repository.enabled=1
-      sudo dnf install temurin-17-jdk
+      sudo dnf -y install temurin-17-jdk
 
       sudo update-alternatives --set java /usr/lib/jvm/temurin-17-jdk/bin/java
 
