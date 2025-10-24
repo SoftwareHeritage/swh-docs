@@ -186,9 +186,52 @@ present in your development environment. Proceed as follows to install it:
 
       sudo dnf -y install elasticsearch
 
-If you intend to build the full |swh| documentation, the ``postgresql-autodoc`` utility must
-also be installed, follow these `instructions <https://github.com/cbbrowne/autodoc#installation>`_
-to do so.
+If you intend to build the full |swh| documentation, the ``postgresql-autodoc``
+and ``dia`` utilities must also be installed.
+
+To install ``postgresql-autodoc``, proceed as follows:
+
+.. tab-set::
+
+  .. tab-item:: Debian/Ubuntu
+
+    .. code-block:: console
+
+      sudo apt install postgresql-autodoc
+
+  .. tab-item:: Fedora
+
+    Install ``postgresql-autodoc`` manually, as it is not included in the Fedora repositories
+
+    .. code-block:: console
+
+      sudo dnf -y install perl-DBI perl-HTML-Template perl-lib-relative perl-pgsql_perl5 perl-DBD-Pg
+
+      git clone https://github.com/cbbrowne/autodoc.git
+
+      cd autodoc
+
+      sudo make install
+
+
+See the `installation instructions <https://github.com/cbbrowne/autodoc#installation>`_ for more details.
+
+
+To install ``dia``, you can run one of the following commands:
+
+.. tab-set::
+
+  .. tab-item:: Debian/Ubuntu
+
+    .. code-block:: console
+
+      sudo apt install dia
+
+  .. tab-item:: Fedora
+
+    .. code-block:: console
+
+      sudo dnf -y install dia
 
 .. _checkout-source-code:
 
