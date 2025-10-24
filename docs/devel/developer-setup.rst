@@ -55,12 +55,30 @@ package manager.
 
     .. code-block:: console
 
-      # Install Java-specific repository and JDK
+      sudo dnf -y group install c-development
+
+      sudo dnf -y install \
+          pkgconf-pkg-config lzip rsync python3.11 python3-virtualenvwrapper \
+          python3.11-devel systemd-devel subversion-devel libffi-devel \
+          librdkafka fuse3 fuse3-devel leveldb-devel git myrepos graphviz \
+          plantuml inkscape postgresql-server postgresql-contrib libpq \
+          libpq-devel redis
+
+    Install Java-specific repository and JDK
+
+    .. code-block:: console
+
       sudo dnf -y install adoptium-temurin-java-repository
+
       sudo dnf config-manager setopt adoptium-temurin-java-repository.enabled=1
+
       sudo dnf -y install temurin-17-jdk
 
       sudo update-alternatives --set java /usr/lib/jvm/temurin-17-jdk/bin/java
+
+    Install Cassandra
+
+    .. code-block:: console
 
       sudo rpm --import https://downloads.apache.org/cassandra/KEYS
 
@@ -75,21 +93,17 @@ package manager.
 
       sudo dnf -y install cassandra
 
-      sudo dnf -y group install c-development
+    Install the CMPH Library manually, as it is not included in the Fedora repositories
 
-      sudo dnf -y install \
-          pkgconf-pkg-config lzip rsync python3.11 python3-virtualenvwrapper \
-          python3.11-devel systemd-devel subversion-devel libffi-devel \
-          librdkafka fuse3 fuse3-devel leveldb-devel git myrepos graphviz \
-          plantuml inkscape postgresql-server postgresql-contrib libpq \
-          libpq-devel redis
+    .. code-block:: console
 
-      # You will also need to install CMPH manually, as it is not (yet?) included in the Fedora repositories
       wget https://sourceforge.net/projects/cmph/files/v2.0.2/cmph-2.0.2.tar.gz
+
       tar -xvf cmph-2.0.2.tar.gz
+
       cd cmph-2.0.2
+
       ./configure && make && sudo make install
-      cd ..
 
 .. Note:: Python 3.10 or newer is required
 
@@ -113,6 +127,7 @@ You can install node 18 using these commands:
     .. code-block:: console
 
       curl -fsSL https://deb.nodesource.com/setup_20.x | sudo bash -
+
       sudo apt install -y nodejs
 
   .. tab-item:: Fedora
