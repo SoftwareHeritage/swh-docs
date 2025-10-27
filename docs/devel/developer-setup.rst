@@ -46,9 +46,8 @@ package manager.
           build-essential pkg-config lzip rsync \
           python3 python3-pip python3-venv virtualenvwrapper \
           libpython3-dev libsystemd-dev libsvn-dev libffi-dev librdkafka-dev \
-          fuse3 libfuse3-dev libcmph-dev libleveldb-dev \
-          git myrepos \
-          graphviz plantuml inkscape \
+          fuse3 libfuse3-dev libleveldb-dev \
+          git myrepos graphviz plantuml inkscape \
           postgresql libpq-dev cassandra redis-server
 
   .. tab-item:: Fedora
@@ -92,18 +91,6 @@ package manager.
       sudo dnf -y update
 
       sudo dnf -y install cassandra
-
-    Install the CMPH Library manually, as it is not included in the Fedora repositories
-
-    .. code-block:: console
-
-      wget https://sourceforge.net/projects/cmph/files/v2.0.2/cmph-2.0.2.tar.gz
-
-      tar -xvf cmph-2.0.2.tar.gz
-
-      cd cmph-2.0.2
-
-      ./configure && make && sudo make install
 
 .. Note:: Python 3.10 or newer is required
 
