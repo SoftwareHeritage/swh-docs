@@ -172,7 +172,10 @@ image as applications.
 Those docker images are built out of a declared Dockerfile in the `swh-apps`_
 repository.
 
-You can either:
+The pipeline mentioned earlier is already involved in also creating the docker images
+with the newly published artifact.
+
+Nonetheless, you could have to manually:
 
 - :ref:`Add a new application<deployment-upgrade-swh-service-add-new-swh-application>`
 - :ref:`Update an application<deployment-upgrade-swh-service-update-swh-application>`
@@ -204,7 +207,7 @@ Update swh application
 ~~~~~~~~~~~~~~~~~~~~~~
 
 If you need to update the swh application, edit its ``swh-apps/apps/$app/Dockerfile`` or
-``swh-apps/apps/$app/entrypoint.sh`` to adapt according to change.
+``swh-apps/apps/$app/entrypoint.sh`` to adapt according to your required change.
 
 Note:
 If a new requirement is necessary, update the ``swh-apps/apps/$app/requirements.txt``
@@ -244,8 +247,8 @@ fashion.
 
 .. _deployment-upgrade-swh-service-update-app-frozen-requirements:
 
-Update app's frozen requirements
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Update app's frozen requirements manually
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 We'll first need a "app-manager" container with some dependencies set (due to some
 limitations in our stack):
@@ -269,8 +272,8 @@ You have built your frozen requirements that can be committed. Next, we will
 
 .. _deployment-upgrade-swh-service-generate-image:
 
-Generate image
-~~~~~~~~~~~~~~
+Generate image manually
+~~~~~~~~~~~~~~~~~~~~~~~
 
 Build the docker image with the frozen environment and then :ref:`publish it
 <deployment-upgrade-swh-service-publish-image>`:
@@ -299,8 +302,8 @@ You must have a gitlab account and generate a personal access token with at leas
 
 .. _deployment-upgrade-swh-service-publish-image:
 
-Publish image
-~~~~~~~~~~~~~
+Publish image manually
+~~~~~~~~~~~~~~~~~~~~~~
 
 You must first login your docker to the swh :ref:`gitlab registry <gitlab-registry>` and
 then push the image:
