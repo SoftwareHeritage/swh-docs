@@ -12,21 +12,13 @@ Upgrade swh service
 The document describes the deployment for most of our swh services (rpc services,
 loaders, listers, indexers, ...).
 
-There exists currently 2 ways (as we are transitioning from the first to the second):
-
-- static: From git tag to deployment through debian packaging
-- elastic: From git tag to deployment through kubernetes.
-
+It's now deployed in kubernetes cluster(s). It all starts with an annotated git tag in
+one of our module to being deployed in the cluster in a rolling upgrade fashion.
 
 The following will first describe the :ref:`common deployment part
-<deployment-upgrade-swh-service-code-and-publish-a-release>`. This involves
-some python packaging out of a git tag which will be built and push to `PyPI
-<https://pypi.org>`_ and our :ref:`swh debian repositories
-<howto-debian-packaging>`.
+<deployment-upgrade-swh-service-code-and-publish-a-release>`.
 
-Then follows the actual :ref:`deployment with debian packaging
-<deployment-upgrade-swh-service-with-debian-packaging>`. It concludes with the
-:ref:`deployment with
+Then follows the actual :ref:`deployment with
 kubernetes<deployment-upgrade-swh-service-with-kubernetes>` chapter.
 
 .. _deployment-upgrade-swh-service-distinct-services:
@@ -46,20 +38,19 @@ Distinct Services
 Code and publish a release
 --------------------------
 
-It's usually up to the developers.
+It's usually up to a team member.
 
-Code an evolution or a bugfix in the impacted git repository (usually the
-master branch). Open a diff for review. Land it when accepted. And then
-release it following the :ref:`tag and push
-<deployment-upgrade-swh-service-tag-and-push>` part.
+Code an evolution or a bugfix in the impacted git repository (usually the master/main
+branch). Open a diff for review. Land it when accepted. And then release it following
+the :ref:`tag and push <deployment-upgrade-swh-service-tag-and-push>` part.
 
 .. _deployment-upgrade-swh-service-tag-and-push:
 
 Tag and push
 ~~~~~~~~~~~~
 
-When ready, `git tag` and `git push` the new tag of the module. Then let jenkins
-:ref:`publish the artifact <deployment-upgrade-swh-service-publish-artifacts>`.
+When ready, `git tag -a` and `git push` the new (annotated) tag of the module. Then let
+jenkins :ref:`publish the artifact <deployment-upgrade-swh-service-publish-artifacts>`.
 
 .. code::
 
@@ -71,9 +62,12 @@ When ready, `git tag` and `git push` the new tag of the module. Then let jenkins
 Publish artifacts
 ~~~~~~~~~~~~~~~~~
 
-Jenkins is in charge of publishing the new release to `PyPI <https://pypi.org>`_ (out of
-the tag just pushed). It then builds the debian package and pushes it to our :ref:`swh
-debian repositories <howto-debian-packaging>`.
+Out of the annotated tag just pushed, Jenkins is in charge of publishing the new python
+release to `PyPI <https://pypi.org>`_ or the crate release in `crates.io
+<https://crates.io>`_.
+
+It then builds container images with the new artifact in our :ref:`gitlab registry
+<gitlab-registry>`.
 
 
 .. _deployment-upgrade-swh-service-troubleshoot:
@@ -82,69 +76,7 @@ Troubleshoot
 ~~~~~~~~~~~~
 
 If jenkins fails for some reason, fix the module be it :ref:`python code
-<deployment-upgrade-swh-service-code-and-publish-a-release>` or the
-:ref:`debian packaging
-<deployment-upgrade-swh-service-troubleshoot-debian-package>`.
-
-
-.. _deployment-upgrade-swh-service-with-debian-packaging:
-
-
-Deployment with debian packaging
---------------------------------
-
-This mostly involves deploying new version of debian packages to static nodes.
-
-.. _deployment-upgrade-swh-service-upgrade-services:
-
-Upgrade services
-~~~~~~~~~~~~~~~~
-
-When a new version is released, we need to upgrade the package(s) and restart services.
-
-worker services (production):
-
-- *swh-worker@loader_{git, hg, svn, npm, ...}*
-- *swh-worker@lister*
-- *swh-worker@vault_cooker*
-
-journal clients (production):
-
-- *swh-indexer-journal-client@{origin_intrinsic_metadata_,extrinsic_metadata_,...}*
-
-rpc services (both environment):
-
-- *gunicorn-swh-{scheduler, objstorage, storage, web, ...}*
-
-
-From the pergamon node, which is configured for `clush
-<https://clustershell.readthedocs.io/en/latest/index.html>`_, one can act on multiple
-nodes through the following group names:
-
-- *@swh-workers* for the production workers (listers, loaders, ...)
-- *@azure-workers* for the production ones running on azure (indexers, cookers)
-- ...
-
-See :ref:`deploy-new-lister` for a practical example.
-
-.. _deployment-upgrade-swh-service-troubleshoot-debian-package:
-
-Debian package troubleshoot
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-Update and checkout the *debian/unstable-swh* branch (in the impacted git repository),
-then fix whatever is not updated or broken due to a change.
-
-It's usually a missing new package dependency to fix in *debian/control*. Add a new
-entry in *debian/changelog*. Make sure gbp builds fine locally. Then tag it and push.
-Jenkins will build the package anew.
-
-.. code::
-
-   $ gbp buildpackage --git-tag-only --git-sign-tag  # tag it
-   $ git push origin --follow-tags                   # trigger the build
-
-Lather, rinse, repeat until it's all green!
+<deployment-upgrade-swh-service-code-and-publish-a-release>`.
 
 Deploy
 ------
@@ -169,7 +101,7 @@ command, something like:
 
 .. code::
 
-   $ sudo clush -b -w @swh-workers 'apt-get update; env DEBIAN_FRONTEND=noninteractive \
+   $ sudo clush -b -w $nodes 'apt-get update; env DEBIAN_FRONTEND=noninteractive \
        apt-get -o Dpkg::Options::="--force-confdef" \
        -o Dpkg::Options::="--force-confold" -y dist-upgrade'
 
@@ -209,7 +141,7 @@ for a concrete case of database migration.
 
 .. code::
 
-   $ sudo clush -b -w @swh-workers 'systemctl stop cron.service; puppet agent --disable'
+   $ sudo clush -b -w $nodes 'systemctl stop cron.service; puppet agent --disable'
 
 
 Then:
@@ -220,7 +152,7 @@ Then:
 
 .. code::
 
-   $ sudo clush -b -w @swh-workers 'systemctl start cron.service; puppet agent --enable'
+   $ sudo clush -b -w $nodes 'systemctl start cron.service; puppet agent --enable'
 
 
 .. _deployment-upgrade-swh-service-with-kubernetes:
@@ -228,8 +160,8 @@ Then:
 Deployment with Kubernetes
 --------------------------
 
-This new deployment involves docker images which are exposing script/services which are
-running in a virtual python frozen environment. Those versioned images are then
+This new deployment involves docker images which are exposing script/services which
+are running in a virtual python frozen environment. Those versioned images are then
 referenced in a specific helm chart which is deployed in a kubernetes rancher cluster.
 
 That cluster runs on machines nodes (with :ref:`specific labels
