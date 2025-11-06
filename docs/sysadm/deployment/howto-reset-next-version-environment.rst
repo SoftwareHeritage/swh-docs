@@ -45,11 +45,8 @@ stopped backends (now that they are empty).
 6. Go back in argocd and sync (or wait for the sync to happen). That will
 start back the backends.
 
-7. The backends will be started from scratch. Some depends on dump (postgresql
-ones so that can take some time, up to ~ 30 min). Specifically the scheduler
-backends uses a live dump of the staging db (so current listing/loading
-happens). That could be optimized with a smaller crafted dump so that time is
-drastically reduced.
+7. The backends will be started from scratch. Note that some postgresql backends can
+depend on dump (e.g. scheduler).
 
 8. Wait for the backends to be running.
 
