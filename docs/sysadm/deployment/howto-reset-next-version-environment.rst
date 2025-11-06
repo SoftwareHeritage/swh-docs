@@ -31,10 +31,10 @@ configuration entries. Commit and push.
 
 3. In the `argocd application 'archive-staging-rke2-cluster-components'
 <https://argocd.internal.admin.swh.network/applications/archive-staging-rke2-cluster-components>`_
-, hit the 'Refresh' button and then the 'Sync' button. Check the "prune"
-checkbox so it can effectively remove the various deactivated backends. When
-removing those, this will also remove their pv/pvc configured (they have a
-retention policy 'Delete').
+, hit the 'Refresh' button and then the 'Sync' button. Check the "prune" checkbox so it
+can effectively remove the various deactivated backends. When removing those, this will
+also remove their persistent volume (pv) configured (with a retention policy 'Delete',
+the ones with 'Retain' will stay).
 
 4. Wait for the backends deactivation to be effective (you can check for the
 pods to be stopped and their associated pvc to be cleaned up).
@@ -50,7 +50,13 @@ depend on dump (e.g. scheduler).
 
 8. Wait for the backends to be running.
 
-9. Reopen swh-next-version branch and wait for the services to be up
-again. When starting, the various services will initialize their empty
-backends appropriately (e.g. rpc, ...) so they can actually run properly.
+9. Reopen swh-next-version branch and wait for the services to be up again. When
+starting, the various services will initialize their empty backends appropriately (e.g.
+rpc, ...) so they can actually run properly.
+
+10. (optional) Since some pvs have a retention 'Retain' policy, they will remain after
+the environment reset. If you want to clean them up, you can use 'k9s' in the 'pv' view
+(hit ':' then enter 'pv'), filtering on 'Released' pvs (hit '/' then enter 'Released')
+to remove the 'swh-cassandra-next-version/' claimed pvs.
+
 
