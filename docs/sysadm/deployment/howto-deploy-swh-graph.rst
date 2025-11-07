@@ -110,11 +110,14 @@ space and memory.
 The modus operandi is:
 
 - Install the new dataset on one of the highmem machines (`zfs send` or `rsync`)
+
 - Deploy a new gprc and rpc instance running concurrently to the previous
   ones. The grpc service shall be using the newly installed zfs dataset using
   the newly installed dataset. And the new rpc hitting the new grpc service as
   backend.
+
 - Check everything is fine for those new instances.
+
 - Once the new instances are running ok, switch the "public" ingresses fqdn
   [1] [2] so they target the new instances (grpc & rpc)
 
@@ -124,20 +127,194 @@ can be used as a reference on how to adapt the swh-charts repository for a new
 graph version. Each commit describes in order what needs to happen according
 to the previous m.o.
 
-It declares:
+In the following, we will describe what to do to deploy a new graph dataset version
+2025-10-08, adapt accordingly for your deployment.
+
+We must declare:
+
+- the new ingresses for the new grpc/rpc services to expose
+
+.. code-block:: diff
+
+    diff --git i/swh/values/production/default.yaml w/swh/values/production/default.yaml
+    index 33758a11..8f7436b2 100644
+    --- i/swh/values/production/default.yaml
+    +++ w/swh/values/production/default.yaml
+    @@ -1097,6 +1097,12 @@ externalServices:
+         graph-rpc-20250419:
+           internalName: graph-rpc-20250419-ingress
+           target: archive-production-rke2-ingress-nginx-controller.ingress-nginx.svc.cluster.local
+    +    graph-grpc-20251008:
+    +      internalName: graph-grpc-20251008-ingress
+    +      target: archive-production-rke2-ingress-nginx-controller.ingress-nginx.svc.cluster.local
+    +    graph-rpc-20251008:
+    +      internalName: graph-rpc-20251008-ingress
+    +      target: archive-production-rke2-ingress-nginx-controller.ingress-nginx.svc.cluster.local
 
 - 1 persistent volume (pv) which targets where the zfs dataset is mounted
   on the node (where the grpc service will run).
+
+.. code-block:: diff
+
+    diff --git i/swh/values/production/swh-cassandra.yaml w/swh/values/production/swh-cassandra.yaml
+    index c06db179..2561711e 100644
+    --- i/swh/values/production/swh-cassandra.yaml
+    +++ w/swh/values/production/swh-cassandra.yaml
+    @@ -2630,6 +2630,27 @@ volumes:
+                     operator: In
+                     values:
+                     - rancher-node-highmem02
+    +    graph-20251008-persistent-local-pv:
+    +      enabled: true
+    +      appName: graph-grpc-20251008
+    +      spec:
+    +        capacity:
+    +          storage: 1Gi
+    +        volumeMode: Filesystem
+    +        accessModes:
+    +        - ReadWriteOnce
+    +        persistentVolumeReclaimPolicy: Retain
+    +        storageClassName: local-storage
+    +        local:
+    +          path: /srv/softwareheritage/ssd/datasets/2025-10-08/compressed
+    +        nodeAffinity:
+    +          required:
+    +            nodeSelectorTerms:
+    +            - matchExpressions:
+    +              - key: kubernetes.io/hostname
+    +                operator: In
+    +                values:
+    +                - rancher-node-highmem01
+
 - 2 persistent volume claims (pvc):
 
-  - 1 persistent pvc which uses the previous pv to detect where the compressed
-    graph files are
-  - another in-memory pvc which is in memory for the graph files which will be
-    mounted in the node's memory
+  - 1 persistent pvc which uses the previous pv to provide the compressed graph files
+
+  - another in-memory pvc which provides the graph files to be mounted in the node's ram
+
+.. code-block:: diff
+
+    diff --git i/swh/values/production/swh-cassandra.yaml w/swh/values/production/swh-cassandra.yaml
+    index c06db179..2561711e 100644
+    --- i/swh/values/production/swh-cassandra.yaml
+    +++ w/swh/values/production/swh-cassandra.yaml
+       persistentVolumeClaims:
+         # grpc provenance volume
+    @@ -2679,7 +2700,29 @@ volumes:
+             resources:
+               requests:
+                 storage: 1Gi
+    -
+    +    graph-20251008-persistent-pvc:
+    +      enabled: true
+    +      appName: graph-grpc-20251008
+    +      spec:
+    +        resources:
+    +          requests:
+    +            storage: 1Gi
+    +        volumeMode: Filesystem
+    +        volumeName: graph-20251008-persistent-local-pv
+    +        storageClassName: local-storage
+    +        accessModes:
+    +        - ReadWriteOnce
+
+
+    +    graph-20251008-inmemory-pvc:
+    +      enabled: true
+    +      appName: graph-grpc-20251008
+    +      spec:
+    +        storageClassName: local-path
+    +        volumeMode: Filesystem
+    +        accessModes:
+    +        - ReadWriteOnce
+    +        resources:
+    +          requests:
+    +            storage: 1Gi
 
 - 1 grpc service which uses as volumes the 2 previous pvcs to serve the grpc
   queries
+
 - 1 rpc service which uses as backend the grpc service
+
+.. code-block:: diff
+
+    @@ -2582,6 +2582,13 @@ rpcWithRemoteGrpc20250419GraphConfiguration:
+        +# The rpc graph instance will communicate with another grpc instance
+        +rpcWithRemoteGrpc20251008GraphConfiguration:
+        +  cls: remote
+        +  url: graph-grpc-20251008-ingress:80
+        +  grpc_server:
+        +    port: 80
+        +
+     graph:
+       enabled: true
+    @@ -2749,6 +2792,66 @@ graph:
+                 extraWhitelistSourceRange:
+                   # vpn network
+                   - 192.168.101.0/24
+    +    grpc-20251008:
+    +      enabled: true
+    +      type: grpc
+    +      port: 50091
+    +      requestedMemory: 400Gi
+    +      graphConfigurationRef: plainGrpcGraphConfiguration
+    +      dataset:
+    +        name: 2025-10-08
+    +      startService: true
+    +      prepareMemoryVolume: true
+    +      extraVolumes:
+    +        graph-20250419-persistent:
+    +          mountPath: /srv/dataset/2025-10-08/compressed
+    +          volumeDefinition:
+    +            persistentVolumeClaim:
+    +              claimName: graph-20251008-persistent-pvc
+    +        # in-memory volumes
+    +        graph-20250419-inmemory:
+    +          mountPath: /srv/graph
+    +          volumeDefinition:
+    +            persistentVolumeClaim:
+    +              claimName: graph-20251008-inmemory-pvc
+    +      hosts:
+    +        - graph-grpc-20251008-ingress
+    +      ingress:
+    +        enabled: true
+    +        whitelistSourceRangeRef: internalNetworkRanges
+    +        extraAnnotations:
+    +          nginx.ingress.kubernetes.io/proxy-body-size: 4G
+    +          nginx.ingress.kubernetes.io/proxy-buffering: "on"
+    +          nginx.ingress.kubernetes.io/client-body-buffer-size: 128K
+    +        endpoints:
+    +          default:
+    +            paths:
+    +              - path: /
+    +            extraWhitelistSourceRange:
+    +              # vpn network
+    +              - 192.168.101.0/24
+    +    rpc-20251008:
+    +      enabled: true
+    +      type: rpc
+    +      port: 5009
+    +      graphConfigurationRef: rpcWithRemoteGrpc20251008GraphConfiguration
+    +      startService: true
+    +      hosts:
+    +        - graph-rpc-20251008-ingress
+    +      ingress:
+    +        enabled: true
+    +        whitelistSourceRangeRef: internalNetworkRanges
+    +        extraAnnotations:
+    +          nginx.ingress.kubernetes.io/proxy-body-size: 4G
+    +          nginx.ingress.kubernetes.io/proxy-buffering: "on"
+    +          nginx.ingress.kubernetes.io/client-body-buffer-size: 128K
+    +        endpoints:
+    +          default:
+    +            paths:
+    +              - path: /
+    +            extraWhitelistSourceRange:
+    +              # vpn network
+    +              - 192.168.101.0/24
+
+     alter:
+       enabled: true
 
 [1] graph-grpc.internal.softwareheritage.org & graph-grpc-default-ingress
 
