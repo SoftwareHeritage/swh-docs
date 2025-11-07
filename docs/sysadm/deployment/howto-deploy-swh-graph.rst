@@ -33,7 +33,8 @@ It's composed of 2 (kubernetes) deployments, the:
 Where does the graph services run?
 ----------------------------------
 
-The graph services runs on kubernetes nodes with label `swh/graph=true`.
+The graph services runs on kubernetes nodes with label ``swh/graph=true``.
+Those should correspond to the ``rancher-node-highmemXY`` nodes.
 
 How to connect to the graph services?
 -------------------------------------
@@ -101,18 +102,18 @@ Example::
 How to deploy the next graph version?
 -------------------------------------
 
-The graph are running on ``highmemXY`` machines.
+The graph are running on ``rancher-node-highmemXY`` machines.
 
 Multiple graph versions can run concurrently as long as there are enough disk
 space and memory.
 
-The m.o. is:
+The modus operandi is:
 
-- Install the new dataset on one of the highmem machines
+- Install the new dataset on one of the highmem machines (`zfs send` or `rsync`)
 - Deploy a new gprc and rpc instance running concurrently to the previous
   ones. The grpc service shall be using the newly installed zfs dataset using
-  the newly installed dataset. And the new new rpc hitting the new grpc
-  service as backend.
+  the newly installed dataset. And the new rpc hitting the new grpc service as
+  backend.
 - Check everything is fine for those new instances.
 - Once the new instances are running ok, switch the "public" ingresses fqdn
   [1] [2] so they target the new instances (grpc & rpc)
@@ -120,16 +121,16 @@ The m.o. is:
 The `following merge request
 <https://gitlab.softwareheritage.org/swh/infra/ci-cd/swh-charts/-/merge_requests/596>_`
 can be used as a reference on how to adapt the swh-charts repository for a new
-graph version. Each commit describes what needs to happen in order according
+graph version. Each commit describes in order what needs to happen according
 to the previous m.o.
 
 It declares:
 
-- 1 persistent volume (pv) which target where the zfs dataset is mounted
-  on the node that will run the grpc service.
+- 1 persistent volume (pv) which targets where the zfs dataset is mounted
+  on the node (where the grpc service will run).
 - 2 persistent volume claims (pvc):
 
-  - 1 persistent pvc which uses the previous pv to detect where the compresses
+  - 1 persistent pvc which uses the previous pv to detect where the compressed
     graph files are
   - another in-memory pvc which is in memory for the graph files which will be
     mounted in the node's memory
@@ -150,9 +151,9 @@ Post graph deployment actions
 Decommission previous instance
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-As mentioned, when the new graph is deployed, we can:
+As mentioned, once the new graph is deployed, we can:
 
-- first decommission the previous graph instance (to avoid unnecessary
+- decommission the previous graph instance (to avoid unnecessary
   resources consumption, be it disk or memory).
 - free the associated zfs dataset which is no longer used (if freeing disk
   space is required)
