@@ -45,7 +45,7 @@ To determine the nodes per environment context, you can use the following:
 Those correspond to the ``rancher-node-highmemXY`` nodes in production and
 ``rancher-node-staging-rke2-metalXY`` in staging.
 
-.. _swh-graph-how-to-install-next-graph-dataset:
+.. _swh-graph-how-to-connect-to-graph-services:
 
 How to connect to the graph services?
 -------------------------------------
