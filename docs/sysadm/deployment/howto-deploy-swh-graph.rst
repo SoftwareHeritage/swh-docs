@@ -34,7 +34,18 @@ Where does the graph services run?
 ----------------------------------
 
 The graph services runs on kubernetes nodes with label ``swh/graph=true``.
-Those should correspond to the ``rancher-node-highmemXY`` nodes.
+
+To determine the nodes per environment context, you can use the following:
+
+.. code::
+
+   kubectl --context $environment_context get nodes --show-labels | \
+     awk '/graph=true/{print $1}'
+
+Those correspond to the ``rancher-node-highmemXY`` nodes in production and
+``rancher-node-staging-rke2-metalXY`` in staging.
+
+.. _swh-graph-how-to-install-next-graph-dataset:
 
 How to connect to the graph services?
 -------------------------------------
@@ -101,8 +112,6 @@ Example::
 
 How to deploy the next graph version?
 -------------------------------------
-
-The graph are running on ``rancher-node-highmemXY`` machines.
 
 Multiple graph versions can run concurrently as long as there are enough disk
 space and memory.
