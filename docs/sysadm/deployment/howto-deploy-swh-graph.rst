@@ -125,13 +125,31 @@ The modus operandi is:
   the newly installed dataset. And the new rpc hitting the new grpc service as
   backend.
 
-- Check everything is fine for those new instances.
+- Check everything is fine for those new instances. Connect to a swh-cassandra toolbox
+  pod and trigger a grpcurl command.
+
+.. code::
+
+   swh@swh-toolbox-77bc998dff-gkppt:~$ server=graph-grpc-20251008-ingress:80
+   swh@swh-toolbox-77bc998dff-gkppt:~$ swhid="swh:1:rev:f39d7d78b70e0f39facb1e4fab77ad3df5c52a35"
+   swh@swh-toolbox-77bc998dff-gkppt:~$ grpcurl -max-msg-sz 14194340 -d "{\"src\": \"${swhid}\", \"direction\":\"BACKWARD\"}"   --plaintext $server   swh.graph.TraversalService/Traverse | head
+   {
+     "swhid": "swh:1:rev:f39d7d78b70e0f39facb1e4fab77ad3df5c52a35",
+     "successor": [
+       {
+         "swhid": "swh:1:rev:30a7acd573899fd8b8ac39236eff6468b195ac7d"
+       },
+       {
+         "swhid": "swh:1:rev:b3947cacda620eb888763b7b2ad290149029e191"
+       },
+       {
+
 
 - Once the new instances are running ok, switch the "public" ingresses fqdn
   [1] [2] so they target the new instances (grpc & rpc)
 
 The `following merge request
-<https://gitlab.softwareheritage.org/swh/infra/ci-cd/swh-charts/-/merge_requests/596>_`
+<https://gitlab.softwareheritage.org/swh/infra/ci-cd/swh-charts/-/merge_requests/665>_`
 can be used as a reference on how to adapt the swh-charts repository for a new
 graph version. Each commit describes in order what needs to happen according
 to the previous m.o.
@@ -341,8 +359,8 @@ As mentioned, once the new graph is deployed, we can:
 
 - decommission the previous graph instance (to avoid unnecessary
   resources consumption, be it disk or memory).
-- free the associated zfs dataset which is no longer used (if freeing disk
-  space is required)
+- (to free disk space if necessary) free the associated zfs dataset (and associated
+  snapshots if any)
 
 Clean up record references table in storage
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
