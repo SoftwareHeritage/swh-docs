@@ -1,7 +1,7 @@
 .. _howto-deploy-swh-graph:
 
-How to deploy a new compressed graph dataset
-============================================
+How to deploy a new graph
+=========================
 
 .. admonition:: Intended audience
    :class: important
@@ -114,12 +114,31 @@ Example::
 How to deploy the next graph version?
 -------------------------------------
 
-Multiple graph versions can run concurrently as long as there are enough disk
-space and memory.
+Deploy only a new swh graph version
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+You could just have to deploy a new graph version without having to deploy a new
+dataset. In this case, you just have to adapt the ``imageVersion`` key entry to the
+docker image version you need.
+
+.. code-block:: diff
+
+    graph:
+      enabled: true
+   -  imageVersion: "20250419.1"
+   +  imageVersion: "20251003.1"
+
+Deploy a full-fledged new dataset
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Multiple graph versions can run concurrently as long as there are enough machines to
+expose them. In production, we usually use ``highmem01`` and ``highmem02`` to deploy the
+new version in the machine not exposing a graph yet.
 
 The modus operandi is:
 
-- Install the new dataset on one of the highmem machines (`zfs send` or `rsync`)
+- Install the new dataset on one of the highmem machines (`zfs send` or `rsync`).
+  Preferably, choose a machine not exposing a graph yet.
 
 - Deploy a new gprc and rpc instance running concurrently to the previous
   ones. The grpc service shall be using the newly installed zfs dataset using
