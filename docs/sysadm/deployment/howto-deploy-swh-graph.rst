@@ -1,6 +1,7 @@
 .. _howto-deploy-swh-graph:
 
 How to deploy a new compressed graph dataset
+============================================
 
 .. admonition:: Intended audience
    :class: important
@@ -14,8 +15,8 @@ graph dataset deployment.
 For production, as the dataset is multiple terabytes of files, some manual intervention
 can occur to manipulate the zfs datasets (copy from one node to another).
 
-The compression pipeline (which actually extracts the full dataset) is not yet
-documented.
+The compressed graph dataset is compulsed out of the :ref:`dataset generation pipeline
+<howto-generate-compressed-graph-dataset>`.
 
 .. _swh-graph-services:
 
