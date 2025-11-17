@@ -1,18 +1,18 @@
 .. _howto-deploy-swh-graph:
 
-How to deploy swh.graph?
-========================
+How to deploy a new compressed graph dataset
 
 .. admonition:: Intended audience
    :class: important
 
    sysadm staff members
 
-This page describes how to declaratively deploy the graph in production in the
-kubernetes environment.
+This page describes how to declaratively deploy the graph in kubernetes environments.
+It's documenting either a new graph version (grpc, rpc) deployment or a new compressed
+graph dataset deployment.
 
-For production, as the dataset is multiple terabytes of files, some manual
-intervention can occur to manipulate the zfs datasets.
+For production, as the dataset is multiple terabytes of files, some manual intervention
+can occur to manipulate the zfs datasets (copy from one node to another).
 
 The compression pipeline (which actually extracts the full dataset) is not yet
 documented.
