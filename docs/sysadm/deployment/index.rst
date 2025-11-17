@@ -18,4 +18,5 @@ SWH Software Deployment
    howto-run-swh-in-local-kube-cluster
    howto-reset-next-version-environment
    howto-deploy-swh-graph
+   howto-generate-compressed-graph-dataset
    webhooks-svix
