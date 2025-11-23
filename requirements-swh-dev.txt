@@ -14,6 +14,7 @@
 ../swh-export[luigi]
 ../swh-fuse[hpc]
 ../swh-graph[export,luigi]
+../swh-graph-libs[luigi]
 ../swh-graphql
 ../swh-icinga-plugins
 ../swh-indexer

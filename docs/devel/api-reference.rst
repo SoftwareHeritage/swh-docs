@@ -26,6 +26,7 @@ by components:
    swh.export <swh-export/index>
    swh.fuse <swh-fuse/index>
    swh.graph <swh-graph/index>
+   swh.graph.libs <swh-graph-libs/index>
    swh.graphql <swh-graphql/index>
    swh.indexer <swh-indexer/index>
    swh.journal <swh-journal/index>
