@@ -113,6 +113,15 @@ Common errors
 
 A non-exhaustive list of common pipeline errors is:
 
+- Webapp:
+    - error: the pipeline is not triggered, a manual trigger return a 404 error:
+    - cause: the token used to interact with gitlab is incorrect or has expired
+    - solution:
+        - With the  `add-forge-now` user, generate a new
+          `Pipeline trigger token <https://gitlab.softwareheritage.org/swh/infra/add-forge-now-requests/-/settings/ci_cd#js-pipeline-triggers>`_ in gitlab
+        - Update the ``gitlab_afn_token`` in the
+          `webapp credentials <https://gitlab.softwareheritage.org/infra-private/k8s-swh-private-data/-/blob/master/archive-production-rke2/common-secrets.yaml>`_
+        - The token can be tested in command line with the command described in the readme of the project
 - Stage `pre`, job `02_check_ports_and_token`:
     - error: the network ports checks failed;
     - cause: one of the SWH components are unreachable or the forge URL (https) is unreachable;
