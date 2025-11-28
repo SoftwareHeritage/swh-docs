@@ -14,6 +14,7 @@ Usage
    using_data/index
    deposit/index
    coarnotify/index
+   datasets/index
 
 .. only:: user_doc
 
