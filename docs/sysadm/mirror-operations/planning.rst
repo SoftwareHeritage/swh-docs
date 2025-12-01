@@ -27,19 +27,19 @@ use it.
 
 .. Warning::
 
-   Volumes given in this section are estimations and numbers from **May 2024**.
+   Volumes given in this section are estimations and numbers from **December 2025**.
 
 The global raw hardware requirements are:
 
 - a database system for the main storage of the archive (the graph structure);
-  the current volume of the Postgresql database is about 42TB, with an increase rate of about
-  16To/year, the cassandra database it about 30TB with an increase of 7TB/year (multiply
+  the current volume of the Postgresql database is about 33TB, the cassandra
+  database it about 60TB with an increase of 16TB/year (multiply
   this per 3 to use a standard x3 replication factor)
 - an object storage system for the objects (archived software source code
-  files); the current volume is about 3PB with an increase rate of
+  files); the current volume is about 3.6PB with an increase rate of
   about 750TB/year,
-- an elasticsearch engine; the current main index is about 390M entries
-  (origins) for an index size of 380GB; the increase rate is about 2M
+- an elasticsearch engine; the current main index is about 500M entries
+  (origins) for an index size of 700GB; the increase rate is about 2M
   entries/month,
 - a web/application server for the main web application and public API,
 - a few compute nodes for the application services.
@@ -106,9 +106,9 @@ Common components
 ================ ====================== ========= ===== ============== ==============
 SWH Service      Tool                   Instances RAM   Storage Type   Storage Volume
 ================ ====================== ========= ===== ============== ==============
-storage          swh-storage            16        16GB  regular        10GB
+storage          swh-storage            16        64GB   regular        10GB
 search           elasticsearch          3         24GB  fast / zfs     1TB
-web              swh-web                2         8GB   regular        100GB
+web              swh-web                2         4GB   regular        100GB
 ---------------- ---------------------- --------- ----- -------------- --------------
 graph replayer   swh-storage            32        32GB  regular        10GB
 content replayer swh-obstorage-replayer 32        64GB  regular        10GB
@@ -130,7 +130,7 @@ Storage backend
     ================ ====================== ========= ===== ============== ==============
     SWH Service      Tool                   Instances RAM   Storage Type   Storage Volume
     ================ ====================== ========= ===== ============== ==============
-    storage          postgresql             1         512GB fast+zfs (lz4) 20TB
+    storage          postgresql             1         512GB fast+zfs (lz4) >30TB
     ================ ====================== ========= ===== ============== ==============
 
   .. tab-item:: Cassandra (min.)*
@@ -138,7 +138,7 @@ Storage backend
     ================ ====================== ========= ===== ============== ==============
     SWH Service      Tool                   Instances RAM   Storage Type   Storage Volume
     ================ ====================== ========= ===== ============== ==============
-    storage          cassandra              3         32GB  fast           30TB
+    storage          cassandra              3         32GB  fast           >60TB
     ================ ====================== ========= ===== ============== ==============
 
   .. tab-item:: Cassandra (typ.)*
@@ -146,7 +146,7 @@ Storage backend
     ================ ====================== ========= ===== ============== ==============
     SWH Service      Tool                   Instances RAM   Storage Type   Storage Volume
     ================ ====================== ========= ===== ============== ==============
-    storage          cassandra              6+        32GB  fast           90TB
+    storage          cassandra              6+        32GB  fast           180TB (total)
     ================ ====================== ========= ===== ============== ==============
 
 
@@ -160,7 +160,7 @@ Objstorage backend
     ================ ====================== ========= ===== ============== ==============
     SWH Service      Tool                   Instances RAM   Storage Type   Storage Volume
     ================ ====================== ========= ===== ============== ==============
-    objstorage       swh-objstorage         1 [#f1]_  512GB zfs (with lz4) 2PB
+    objstorage       swh-objstorage         1 [#f1]_  512GB zfs (with lz4) 3PB
     ================ ====================== ========= ===== ============== ==============
 
   .. tab-item:: Winery - Ceph*
@@ -171,7 +171,7 @@ Objstorage backend
     objstorage       swh-objstorage         2 [#f2]_  32GB  standard       100GB
     winery-db        postgresql             2 [#f2]_  512GB fast           10TB
     ceph-mon         ceph                   3         4GB   fast           60GB
-    ceph-osd         ceph                   12+       64GB  mix fast+HDD   2PB (total)
+    ceph-osd         ceph                   12+       64GB  mix fast+HDD   4PB (total)
     ================ ====================== ========= ===== ============== ==============
 
   .. tab-item:: Seaweedfs*
@@ -183,7 +183,7 @@ Objstorage backend
     seaweed LB       nginx                  1         32GB  fast           100GB
     seaweed-master   seaweedfs              3         8GB   standard       10GB
     seaweed-filer    seaweedfs              3         32GB  fast           1TB
-    seaweed-volume   seaweedfs              3+        32GB  standard       1PB (total)
+    seaweed-volume   seaweedfs              3+        32GB  standard       4PB (total)
     ================ ====================== ========= ===== ============== ==============
 
 .. rubric:: Notes
@@ -216,11 +216,11 @@ Database
 
   .. tab-item:: Cassandra
 
-    ========= =========== ===== ====== =================================
+    ========= =========== ===== ====== =========
     Type      Instance(s) Cores Memory Disk
-    ========= =========== ===== ====== =================================
-    Cassandra 12          >= 16 256GB  12TB fast + 600Go Write intensive
-    ========= =========== ===== ====== =================================
+    ========= =========== ===== ====== =========
+    Cassandra 12          >= 20 256GB  12TB fast
+    ========= =========== ===== ====== =========
 
 Objstorage
 ^^^^^^^^^^
@@ -232,7 +232,7 @@ Objstorage
     ==== =========== ===== ====== ============================
     Type Instance(s) Cores Memory Disk
     ==== =========== ===== ====== ============================
-    FS   1           >= 16 384GB  1.5PB (attached disk arrays)
+    FS   1           >= 16 384GB  2 PB (attached disk arrays)
     ==== =========== ===== ====== ============================
 
   .. tab-item:: Ceph
@@ -242,7 +242,7 @@ Objstorage
     ======== =========== ===== ====== ======================
     api/pg   2           >= 32 768GB  10TB fast
     Ceph mon 3           >= 16 192GB  500GB
-    Ceph osd 26          >= 16 192GB  144TB SAS + 360GB fast
+    Ceph osd 33          >= 16 192GB  144TB SAS + 360GB fast
     ======== =========== ===== ====== ======================
 
 Compute nodes
