@@ -55,8 +55,8 @@ Either use k9s and in the ``pods`` view, select the pod `dataset-$version` and t
 
 .. _swh-graph-how-to-generate-a-new-dataset:
 
-How to generate a new compressed graph dataset?
------------------------------------------------
+How to generate a new compressed graph dataset (no publication)?
+----------------------------------------------------------------
 
 In the following, we will detail how to generate a new compressed dataset step by step.
 
@@ -163,7 +163,7 @@ In the following, for the staging environment, we are creating 1 persistent volu
 .. code::
 
    swh@dataset-2025-05-07:~$ source venv/bin/activate
-   (venv) swh@dataset-2025-05-07:~$ time /script/generate-compressed-graph.sh
+   (venv) swh@dataset-2025-05-07:~$ time /script/generate-and-publish-compressed-graph-dataset.sh
    ...
 
 Note: As the generation of such dataset takes some time (around 1 week for staging, ~2
@@ -173,6 +173,91 @@ weeks for production), it would be best to trigger this running inside a tmux se
    folders (mountpoints) hold the dataset. It's fine to reuse the public dataset
    mountpoint and provide it to a graph grpc instance as backend. The
    /srv/dataset-sensitive is not currently used.
+
+.. _swh-graph-how-to-publish-and-generate-a-new-compressed-dataset:
+
+How to generate and publish a new compressed graph dataset?
+-----------------------------------------------------------
+
+We can also enable the pipeline to generate the compressed graph dataset and
+publish it to our public s3 bucket. It will publish the compressed graph
+dataset and the orc files it used to build it. Those orc files could then be
+reused to generate other derived datasets.
+
+The pipeline mechanism is working the same way as described in the
+:ref:`previous chapter<swh-graph-how-to-generate-a-new-dataset>`.
+
+Its declaration needs a bit more configuration. First, the the `publish: true`
+instance configuration option must be set (by default it's false). To be
+complete, it also requires the reference to the s3 bucket credentials
+`publicationCredentialsRef`.
+
+For example, in the following, we create a new dataset pipeline instance
+`2025-11-28` which will generate the compressed graph dataset and publish it
+to s3. Only the access to the bucket is necessary.
+
+.. code-block:: diff
+
+   modified   swh/values/production/swh-cassandra.yaml
+   @@ -2870,6 +2870,20 @@ alter:
+    # Luigi's scheduler url to access
+    luigiSchedulerUrl: http://luigi-scheduler-ingress:80
+
+   +# s3 access to bucket for dataset upload
+   +datasetUploadS3Configuration:
+   +  region: ${AWS_REGION}
+   +  secrets:
+   +    AWS_ACCESS_KEY_ID:
+   +      secretKeyRef: s3-dataset-upload-secret
+   +      secretKeyName: access-key
+   +    AWS_SECRET_ACCESS_KEY:
+   +      secretKeyRef: s3-dataset-upload-secret
+   +      secretKeyName: secret-key
+   +    AWS_REGION:
+   +      secretKeyRef: s3-dataset-upload-secret
+   +      secretKeyName: region
+
+   +  # The datasets export to build
+   +  datasets:
+   +    enabled: true
+   +    luigiSchedulerUrlRef: luigiSchedulerUrl
+   +    graphDirectoryPathRef: graphDirectoryPath
+   +    journalClientConfigurationRef: datasetsJournalClientConfiguration
+   +    maskingDbConfigurationRef: maskingQueryPostgresqlConfiguration
+   +    publicationCredentialsRef: datasetUploadS3Configuration
+   +    nbProcesses: 128
+   +    # Datasets to generate
+   +    deployments:
+   +      2025-11-28:
+   +        enabled: true
+   +        # So we can trigger the dataset generation manually
+   +        toolbox: true
+   +        publish: true
+   +        extraVolumes:
+   +          dataset-persistent:
+   +            volumeDefinition:
+   +              persistentVolumeClaim:
+   +                claimName: comp-graph-dataset-gen-20251128-persistent-local-pvc
+   +          dataset-sensitive-persistent:
+   +            mountPath: /srv/dataset-sensitive
+   +            volumeDefinition:
+   +              persistentVolumeClaim:
+   +                claimName: comp-graph-dataset-gen-sensitive-20251128-persistent-local-pvc
+
+
+And then trigger the generation and publish script as explained before.
+
+The location where the graph will be published in s3 is not configurable in
+the declaration.
+
+Once the generation and publication of the compressed graph dataset is done,
+the dataset will be available in ``s3://softwareheritage/graph/${VERSION}`` as
+explained in the :ref:`dedicated page<swh-export-list>`.
+
+.. code::
+
+   VERSION=2025-11-28
+   aws s3 ls --no-sign-request "s3://softwareheritage/graph/${VERSION}"
 
 .. _swh-dataset-post-actions:
 
