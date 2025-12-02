@@ -310,25 +310,21 @@ Tell the world
       .. image:: images/card_outreach_undraw_engineering_team.svg
          :align: right
 
+Learning resources
+------------------
+
+:doc:`Find out learning resources for end-users and trainers, presentations, strategic documents, etc. <user/resources>`
+
 Ambassador program
 ------------------
 
 -  `Become an ambassador <https://www.softwareheritage.org/ambassadors/>`__
-
 -  `Ambassadors mailing list <https://sympa.inria.fr/sympa/info/swh-ambassadors>`__
 -  `Outreach material (only available to ambassadors) <https://www.softwareheritage.org/ambassador-material/>`__
 -  `Outreach material on a Git repository <https://github.com/moranegg/swh-ambassadors/tree/main/Materials>`__
 -  `Questions Frequently Asked to ambassadors <https://gitlab.softwareheritage.org/outreach/swh-academy/swh-faq>`__
 
-Presentations
--------------
-
--  `Archive of presentation
-   slides <https://annex.softwareheritage.org/public/talks/>`__
-
-
 ------------------------------------------------------------------------
-
 
 .. _landing-interface:
 
