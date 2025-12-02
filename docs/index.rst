@@ -427,5 +427,6 @@ Table of contents
    devel/index
    devel/api-reference
    user/index
+   user/resources
    sysadm/index
    About <README>
