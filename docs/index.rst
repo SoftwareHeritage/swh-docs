@@ -175,8 +175,8 @@ Software Heritage in practice
 
 .. rst-class:: landing-part
 
-Archive source code
-===================
+Archive and reference source code
+=================================
 
 .. grid:: 1 2 2 2
    :padding: 0
@@ -222,8 +222,7 @@ Deposit artefacts and/or metadata
 ---------------------------------
 
 The deposit service allows a trusted partner to submit software source archives and its
-associated metadata to the Software Heritage archive. Metadata can be also submitted referencing a repository url (origin) or a
-:ref:`SWHIDs <persistent-identifiers>`.
+associated metadata to the Software Heritage archive. Metadata can be also submitted referencing a repository url (origin).
 
 :doc:`Discover the deposit service <user/deposit/index>`
 
