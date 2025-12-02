@@ -43,10 +43,11 @@ Open Science
       - `FR version <https://learning.hal.science/mod/resource/view.php?id=981>`__
    - `Implementation stories <https://zenodo.org/communities/fair-impact/records?q=software%20heritage&f=resource_type%3Alesson&l=list&p=1&s=10&sort=bestmatch>`__
 -  Posters related to European projects:
-   -  `Posters created for the FAIRCORE4EOSC project (2022-2025). <https://zenodo.org/communities/faircore4eosc/records?q=software%20heritage&f=resource_type%3Aposter&l=list&p=1&s=10&sort=bestmatch>`__
-      FAIRCORE4EOSC project focuses on the development and realisation of core components for the European Open Science Cloud (EOSC).
-   - `Posters created for the FAIR-IMPACT project (2022-2025). <https://zenodo.org/communities/fair-impact/records?q=software%20heritage&f=resource_type%3Aposter&l=list&p=1&s=10&sort=bestmatch>`__
-      The overall objective of FAIR-IMPACT is to support the implementation of FAIR-enabling practices across scientific communities and research outputs at a European, national, and institutional level.
+
+   -  `Posters created for the FAIRCORE4EOSC project (2022-2025). <https://zenodo.org/communities/faircore4eosc/records?q=software%20heritage&f=resource_type%3Aposter&l=list&p=1&s=10&sort=bestmatch>`__ FAIRCORE4EOSC project focuses on the development and realisation of core components for the European Open Science Cloud (EOSC).
+
+   - `Posters created for the FAIR-IMPACT project (2022-2025). <https://zenodo.org/communities/fair-impact/records?q=software%20heritage&f=resource_type%3Aposter&l=list&p=1&s=10&sort=bestmatch>`__ The overall objective of FAIR-IMPACT is to support the implementation of FAIR-enabling practices across scientific communities and research outputs at a European, national, and institutional level.
+
 - `Guidelines <https://zenodo.org/communities/fair-impact/records?q=software%20heritage&f=resource_type%3Apublication&l=list&p=1&s=10&sort=bestmatch>`__ for research support teams and tooling providers: PIDs, metadata, metrics, etc.
    - `The FAIR-IMPACT Guidelines for recommended metadata standards for research software within the EOSC <https://zenodo.org/records/10786147>`__
    - `PIDs and research software description <https://zenodo.org/communities/fair-impact/records?q=software%20heritage&f=resource_type%3Aother&l=list&p=1&s=10&sort=bestmatch>`__
@@ -65,12 +66,13 @@ Presentations
 -------------
 
 External communication about our work and resources used in teaching activities:
+
 - `Presentations <https://zenodo.org/communities/software-heritage/records?q=&f=resource_type%3Apresentation&l=list&p=1&s=10&sort=newest>`__
 - Presentation slides related to European projects:
+
   - `Presentations related to the FAIRCORE4EOSC project (2022-2025). <https://zenodo.org/communities/faircore4eosc/records?q=software%20heritage&f=resource_type%3Apresentation&l=list&p=1&s=10&sort=bestmatch>`__
-  The FAIRCORE4EOSC project focuses on the development and realisation of core components for the European Open Science Cloud (EOSC).
-- `Presentations related to the FAIR-IMPACT project (2022-2025). <https://zenodo.org/communities/fair-impact/records?q=software%20heritage&f=resource_type%3Apresentation&l=list&p=1&s=10&sort=bestmatch>`__
-  The overall objective of FAIR-IMPACT is to support the implementation of FAIR-enabling practices across scientific communities and research outputs at a European, national, and institutional level.
+  - `Presentations related to the FAIR-IMPACT project (2022-2025). <https://zenodo.org/communities/fair-impact/records?q=software%20heritage&f=resource_type%3Apresentation&l=list&p=1&s=10&sort=bestmatch>`__
+
 - `Recorded presentations <https://www.youtube.com/@softwareheritage/videos>`__
 
 Publications
