@@ -106,7 +106,7 @@ Common components
 ================ ====================== ========= ===== ============== ==============
 SWH Service      Tool                   Instances RAM   Storage Type   Storage Volume
 ================ ====================== ========= ===== ============== ==============
-storage          swh-storage            16        64GB   regular        10GB
+storage          swh-storage            16        64GB  regular        10GB
 search           elasticsearch          3         24GB  fast / zfs     1TB
 web              swh-web                2         4GB   regular        100GB
 ---------------- ---------------------- --------- ----- -------------- --------------
