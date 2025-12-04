@@ -44,7 +44,7 @@ package manager.
 
       sudo apt install \
           build-essential pkg-config lzip rsync \
-          python3 python3-pip python3-venv virtualenvwrapper \
+          python3 python3-pip python3-venv \
           libpython3-dev libsystemd-dev libsvn-dev libffi-dev librdkafka-dev \
           fuse3 libfuse3-dev libleveldb-dev \
           git myrepos graphviz plantuml inkscape \
@@ -57,7 +57,7 @@ package manager.
       sudo dnf -y group install c-development
 
       sudo dnf -y install \
-          pkgconf-pkg-config lzip rsync python3.11 python3-virtualenvwrapper \
+          pkgconf-pkg-config lzip rsync python3.11 \
           python3.11-devel systemd-devel subversion-devel libffi-devel \
           librdkafka fuse3 fuse3-devel leveldb-devel git myrepos graphviz \
           plantuml inkscape postgresql-server postgresql-contrib libpq \
@@ -230,41 +230,35 @@ Clone the |swh| environment repository:
 .. code-block:: console
 
     ~$ git clone https://gitlab.softwareheritage.org/swh/devel/swh-environment.git
-    [...]
-    ~$ cd swh-environment
-    ~/swh-environment$
 
-Create a virtualenv:
+Create a Python virtual environment:
 
 .. code-block:: console
 
-    ~/swh-environment$ source /usr/share/virtualenvwrapper/virtualenvwrapper.sh
-    ~/swh-environment$ mkvirtualenv -p /usr/bin/python3 -a $PWD swh
-    [...]
-    (swh) ~/swh-environment$
+    ~$ python3 -m venv swh
+    ~$ source swh/bin/activate
+    (swh) ~$
 
-Checkout all the swh packages source repositories:
+From the ``swh-environment`` repository, checkout all |swh| source repositories:
 
 .. code-block:: console
 
-    (swh) ~/swh-environment$ pip install pre-commit
+    (swh) ~$ pip install pre-commit
+    (swh) ~$ cd swh-environment
     (swh) ~/swh-environment$ ./bin/update
 
 In the future you can re-activate the created virtualenv with:
 
 .. code-block:: console
 
-   $ workon swh
-   (swh) ~/swh-environment$
+    ~$ source swh/bin/activate
 
-.. Note:: the above assumes you are using virtualenvwrapper_ to manage your
-   Python virtualenvs, but that is by no means mandatory. You can use plain
-   virtualenvs, or any other virtualenv management tool (pipenv_ or poetry_ for
-   example). virtualenvwrapper_ is our preference, but YMMV.
+.. Note:: this tutorial uses Python's ``venv`` module but any other virtual environment
+          management tool can do: pipenv_, poetry_, pyenv_...
 
-.. _virtualenvwrapper: https://virtualenvwrapper.readthedocs.io/
 .. _poetry: https://poetry.eustace.io/
 .. _pipenv: https://pipenv.readthedocs.io/
+.. _pyenv: https://github.com/pyenv/pyenv
 
 
 Install all the swh packages (in development mode, with testing dependencies):
