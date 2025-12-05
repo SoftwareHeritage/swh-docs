@@ -79,7 +79,7 @@ Welcome to Software Heritage documentation
          :color: primary
          :expand:
 
-         Tell the world about Software Heritage
+         Train yourself and learn
 
    .. grid-item-card:: Interface
       :link: landing-interface
@@ -291,18 +291,22 @@ Need help? Want to make a proposal? Ask the community using the `users mailing-l
 
 .. rst-class:: landing-part
 
-Tell the world
-==============
+Learn and share
+===============
 
 .. grid:: 1 2 2 2
    :padding: 0
 
    .. grid-item::
 
-      Wherever you have a technical background or not, help us spread the word
-      about Software Heritage. Encourage developers to archive their source
-      code. Find researchers and practitioners interested in using an immense
-      collection of source code.
+      Developers, software engineers, researchers, academic librarians,
+      metadata curators, and software archivists: get trained on Software
+      Heritage, or find the resources you need to train others.
+
+      Software Heritage advocates will also find documentation for a
+      deeper understanding of the overall strategy.
+
+      Any feedback, any question? `community-care@softwareheritage.org <mailto:community-care@softwareheritage.org>`__
 
    .. grid-item::
 
