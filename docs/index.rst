@@ -64,7 +64,7 @@ Welcome to Software Heritage documentation
 
          Learn how to search the archive
 
-   .. grid-item-card:: Outreach
+   .. grid-item-card:: Learn and share
       :link: landing-outreach
       :link-type: ref
 
@@ -73,7 +73,7 @@ Welcome to Software Heritage documentation
          :align: center
          :class: sd-mt-4 sd-mb-4
 
-      Join our network of partners. Collaborate with the team or become an ambassador. Teach others how to use the archive. Get materials for your next events.
+      Explore our full collection of training content, trainer resources, and organizational strategy documents. Discover the ambassadors programme.
 
       .. button-link:: http://example.com
          :color: primary
