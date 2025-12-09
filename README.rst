@@ -15,6 +15,15 @@ is centralized here via symlinks to the ``docs/`` dirs of individual modules.
 Therefore to build the full documentation you need a working and
 complete `Software Heritage development environment`_.
 
+How to contribute
+-----------------
+
+Anyone with write access to the repository can contribute:
+
+1. Propose a merge request.
+2. If the CI passes, ask for someone else to review the MR.
+3. When the review is okay, you can merge.
+
 
 How to build the doc
 --------------------
