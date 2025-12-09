@@ -78,17 +78,17 @@ SWH backends
 +--------------------+------------------------------------------------------+--------+------------+
 | Archive database   | db.internal.staging.swh.network:5432/swh             | X      |            |
 +--------------------+------------------------------------------------------+--------+------------+
-| Deposit database   | db.internal.staging.swh.network:6432/swh-coar-notify | X      |            |
+| Deposit database   | db.internal.staging.swh.network:5432/swh-coar-notify | X      |            |
 +--------------------+------------------------------------------------------+--------+------------+
-| Web database       | db.internal.staging.swh.network:6432/swh-deposit     | X      |            |
+| Web database       | db.internal.staging.swh.network:5432/swh-deposit     | X      |            |
 +--------------------+------------------------------------------------------+--------+------------+
-| Scheduler database | db.internal.staging.swh.network:6432/swh-scheduler   | X      |            |
+| Scheduler database | db.internal.staging.swh.network:5432/swh-scheduler   | X      |            |
 +--------------------+------------------------------------------------------+--------+------------+
-| Svix database      | db.internal.staging.swh.network:6432/swh-svix        | X      |            |
+| Svix database      | db.internal.staging.swh.network:5432/swh-svix        | X      |            |
 +--------------------+------------------------------------------------------+--------+------------+
-| Vault database     | db.internal.staging.swh.network:6432/swh-vault       | X      |            |
+| Vault database     | db.internal.staging.swh.network:5432/swh-vault       | X      |            |
 +--------------------+------------------------------------------------------+--------+------------+
-| Web database       | db.internal.staging.swh.network:6432/swh-web         | X      |            |
+| Web database       | db.internal.staging.swh.network:5432/swh-web         | X      |            |
 +--------------------+------------------------------------------------------+--------+------------+
 | Counters redis     | counters0.internal.staging.swh.network:6379          |        | X          |
 +--------------------+------------------------------------------------------+--------+------------+
