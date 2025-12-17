@@ -43,7 +43,7 @@ package manager.
       sudo apt update
 
       sudo apt install \
-          build-essential pkg-config lzip rsync \
+          build-essential pkg-config lzip rsync libtool\
           python3 python3-pip python3-venv \
           libpython3-dev libsystemd-dev libsvn-dev libffi-dev librdkafka-dev \
           fuse3 libfuse3-dev libleveldb-dev \
@@ -125,6 +125,14 @@ You can install node 18 using these commands:
 
 |swh| uses the ``yarn`` package manager to retrieve frontend dependencies and development tools.
 You must install its latest classic version using this command:
+
+Download and install ``rust`` compiler:
+
+.. code-block:: console
+
+    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+
+for more details, see the `rust documentation <https://rust-lang.org/tools/install/>`_
 
 .. tab-set::
 
