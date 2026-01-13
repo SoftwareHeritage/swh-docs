@@ -278,16 +278,13 @@ Spawning the swh base services
 
    These manifests use a set of docker images `published in the docker hub
    <https://hub.docker.com/repository/docker/softwareheritage/mirror/tags>`_.
-   You MUST set the ``SWH_IMAGE_TAG`` environment variable to pin the
-   appropriate docker image. For starting the deployment process you should
-   choose the latest available tag (e.g. ``20250730-114616``).
+   The compose file uses the ``SWH_IMAGE_TAG`` variable to specify which
+   version of the docker image file is to be used for Software Heritage
+   services, with a default value hardwritten in the compose files. You
+   generally should not have to overload this value, however you can by
+   defining the ``SWH_IMAGE_TAG`` environment variable to pin the docker image
+   you want to deploy.
 
-You must specify the docker image tag to be used by setting the
-:envvar:`SWH_IMAGE_TAG` environment variable:
-
-.. code-block:: console
-
-   swh:~/swh-mirror$ export SWH_IMAGE_TAG=20250730-114616
 
 **Make sure you have node labels attributed properly**. Then you can spawn the
 base services using the following command:
