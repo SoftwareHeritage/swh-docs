@@ -630,13 +630,31 @@ As a consequence, trying this more advanced mirror deployment is a matter of:
 
    - the Winery Postgresql database is deployed within the docker cluster.
 
-
 A more realistic deployment would probably depend on an existing IT operated
 Cassandra cluster and shared storage to store Winery shard files.
 
 
 Getting your deployment production-ready
 ========================================
+
+It is reminded that the configuration and deployment files provided in the
+mirror git repository are a (normally easy to test and working) starting point.
+But **they need to be adapted to your deployment environment**.
+
+This is especially important for the Winery configuration, but other
+configuration files may need to be updated to fit your setup.
+
+You should read all the configuration files and pay special attention to
+configuration entries preceded by a comment like ``# ** TO BE MODIFIED**``,
+e.g.:
+
+.. code-block:: yaml
+
+   shards:
+     # [...]
+     # **TO BE MODIFIED**
+     max_size: 10_000_000
+
 
 Splitting the graph replayer
 ----------------------------
@@ -756,6 +774,53 @@ so, you will have to:
        configuration file ``conf/storage-cassandra.yml.example`` is given as a
        starting point for this.
 
+
+Tuning the Winery backend
+-------------------------
+
+If using the Winery backend of the :ref:`swh-objstorage` service, it is
+essential that the persons in charge of mirror deployment and operations has a
+reasonably good understanding of its architecture.
+
+Make sure to make yourself familiar with the `architecture of Winery
+<https://docs.softwareheritage.org/devel/swh-objstorage/winery.html>`_.
+
+It also essential to review the ``objstorage.yml`` configuration file,
+especially **ensure to tune the shard ``max_size``** to a *reasonable value*.
+The suggested value is 100GB which shloud be a reasonable middle ground between
+the number of shard files required to store the whole archive contents
+(currently about 2PB uncompressed) and the size of one shard file.
+
+Remember that the content of one shard is accumulated by Winery within its
+Postgresql backend, in a dedicated table, until its considered full. So raising
+this 100GB value means:
+
+1. bigger shard files, which can then be more difficult to handle,
+2. bigger DB tables (shard accumulators), meaning more fast storage required on
+   the Postgresql server.
+
+It should not be anything less than 10GB.
+
+.. Note:: Remember that this ``max_size`` configuration entry is expressed in
+          ``bytes``.
+
+Mail setup
+----------
+
+There are a few services that may send emails. In the example deployment setup,
+this is handled by a local mailhog instance running for testing purpose.
+
+For an actual (pre-)production deployment, this should be adapted to your local
+email sending services:
+
+1. remove the ``mailhog`` service from the compose file
+2. update the ``smtp`` section of configuration files ``conf/alter.yml`` and ``conf/vault.yml``
+
+
+Configuring and managing alteration requests
+--------------------------------------------
+
+*TODO*
 
 
 Operational concerns for the monitoring
