@@ -74,6 +74,12 @@ Sample |pg_service|
   port=5432
   user=guest
 
+  [swh-web]
+  dbname=swh-web
+  host=postgresql-web-rw.internal.softwareheritage.org
+  port=5432
+  user=guest
+
   [admin-swh-scrubber]
   dbname=swh-scrubber
   host=postgresql-scrubber-rw.internal.softwareheritage.org
