@@ -95,6 +95,62 @@ package manager.
 
       sudo dnf -y install cassandra
 
+  .. tab-item:: Arch Linux
+    :sync: arch
+
+    **Install packages from official repos:**
+
+    .. code-block:: console
+
+      sudo pacman -S base-devel \
+        lzip \
+        rsync \
+        svn \
+        librdkafka \
+        fuse3 \
+        leveldb \
+        git myrepos \
+        graphviz plantuml inkscape \
+        postgresql arrow \
+        db
+
+    **Then install packages from the AUR with your favorite AUR helper (don't forget to read all the PKGBUILDs):**
+
+    .. Note:: We are using the `paru` AUR helper here. You can install it by following `these instructions <https://github.com/Morganamilo/paru?tab=readme-ov-file#installation>`__
+
+    .. code-block:: console
+
+      paru -Sa cassandra redis
+
+    **Finally, install Python:**
+
+    .. note:: Arch Linux being a rolling-release distribution, the Python version installed by the `python` package is likely more recent than the recommended version for the Software Heritage Python stack.
+
+    There are multiple options here:
+
+    1. (preferred) install Python 3.11 with `uv`:
+
+      - first install `uv`
+
+      .. code-block:: console
+
+        sudo pacman -S uv
+
+      - then install Python 3.11 with `uv`
+
+      .. code-block:: console
+
+        uv python install 3.11
+        uv python update-shell
+
+      .. warning:: Shell must be restarted so that python3.11 command can be found
+
+    2. or install Python 3.11 directly as a global version with the `python311` AUR package
+
+      .. code-block:: console
+
+        paru -Sa python311
+
 .. Note:: Python 3.11 is currently the recommended version
 
 This installs basic system utilities, Python library dependencies, development tools,
@@ -129,6 +185,13 @@ You can install node 18 using these commands:
 
        sudo dnf -y install nodejs
 
+  .. tab-item:: Arch Linux
+    :sync: arch
+
+    .. code-block:: console
+
+      sudo pacman -S nodejs corepack
+
 |swh| uses the ``yarn`` package manager to retrieve frontend dependencies and development tools.
 You must install its latest classic version using this command:
 
@@ -156,6 +219,13 @@ for more details, see the `rust documentation <https://rust-lang.org/tools/insta
     .. code-block:: console
 
        sudo dnf -y install yarnpkg
+
+  .. tab-item:: Arch Linux
+    :sync: arch
+
+    .. code-block:: console
+
+      sudo corepack enable
 
 If you intend to work on |swh| archive search features, Elasticsearch must also be
 present in your development environment. Proceed as follows to install it:
@@ -193,6 +263,13 @@ present in your development environment. Proceed as follows to install it:
 
       sudo dnf -y install elasticsearch
 
+  .. tab-item:: Arch Linux
+    :sync: arch
+
+    .. code-block:: console
+
+      paru -Sa elasticsearch
+
 If you intend to build the full |swh| documentation, the ``postgresql-autodoc``
 and ``dia`` utilities must also be installed.
 
@@ -223,6 +300,18 @@ To install ``postgresql-autodoc``, proceed as follows:
 
       sudo make install
 
+  .. tab-item:: Arch Linux
+    :sync: arch
+
+    Install ``postgresql-autodoc`` manually, as it is not included in the Arch repositories
+
+    .. code-block:: console
+
+      sudo pacman -S perl-dbi perl-html-template perl-term-readkey perl-dbd-pg
+      git clone https://github.com/cbbrowne/autodoc.git
+      cd autodoc
+      sudo make install
+
 
 See the `installation instructions <https://github.com/cbbrowne/autodoc#installation>`_ for more details.
 
@@ -245,6 +334,13 @@ To install ``dia``, you can run one of the following commands:
     .. code-block:: console
 
       sudo dnf -y install dia
+
+  .. tab-item:: Arch Linux
+    :sync: arch
+
+    .. code-block:: console
+
+      paru -Sa dia
 
 .. _checkout-source-code:
 
