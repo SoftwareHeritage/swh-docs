@@ -30,7 +30,6 @@ Sample configuration file, e.g., /etc/openvpn/swh.conf:
 
    remote vpn.softwareheritage.org
    ns-cert-type server
-   comp-lzo
    nobind
    dev tun
    proto udp
@@ -106,7 +105,7 @@ You need network-manager-openvpn and network-manager-openvpn-gnome for the confi
 gui.
 
 |nm-openvpn-base.png| |nm-openvpn-routes.png|
-|nm-openvpn-advanced-general.png| |nm-openvpn-advanced-security.png|
+|nm-openvpn-advanced-security.png|
 |nm-openvpn-advanced-tls-auth.png|
 
 .. _obtaining_a_client_certificate:
@@ -187,6 +186,5 @@ the CSR list.
 
 .. |nm-openvpn-base.png| image:: ../../images/openvpn/nm-openvpn-base.png
 .. |nm-openvpn-routes.png| image:: ../../images/openvpn/nm-openvpn-routes.png
-.. |nm-openvpn-advanced-general.png| image:: ../../images/openvpn/nm-openvpn-advanced-general.png
 .. |nm-openvpn-advanced-security.png| image:: ../../images/openvpn/nm-openvpn-advanced-security.png
 .. |nm-openvpn-advanced-tls-auth.png| image:: ../../images/openvpn/nm-openvpn-advanced-tls-auth.png
