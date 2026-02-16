@@ -25,8 +25,10 @@ Software Heritage requires some dependencies that are usually packaged by your
 package manager.
 
 .. tab-set::
+  :sync-group: distribution
 
   .. tab-item:: Debian/Ubuntu
+    :sync: debian
 
     .. code-block:: console
 
@@ -51,6 +53,7 @@ package manager.
           postgresql libpq-dev cassandra redis-server
 
   .. tab-item:: Fedora
+    :sync: fedora
 
     .. code-block:: console
 
@@ -108,8 +111,10 @@ You must also have ``nodejs >= 20`` in your development environment.
 You can install node 18 using these commands:
 
 .. tab-set::
+  :sync-group: distribution
 
   .. tab-item:: Debian/Ubuntu
+    :sync: debian
 
     .. code-block:: console
 
@@ -118,6 +123,7 @@ You can install node 18 using these commands:
       sudo apt install -y nodejs
 
   .. tab-item:: Fedora
+    :sync: fedora
 
     .. code-block:: console
 
@@ -135,14 +141,17 @@ Download and install ``rust`` compiler:
 for more details, see the `rust documentation <https://rust-lang.org/tools/install/>`_
 
 .. tab-set::
+  :sync-group: distribution
 
   .. tab-item:: Debian/Ubuntu
+    :sync: debian
 
     .. code-block:: console
 
        sudo corepack enable
 
   .. tab-item:: Fedora
+    :sync: fedora
 
     .. code-block:: console
 
@@ -152,8 +161,10 @@ If you intend to work on |swh| archive search features, Elasticsearch must also 
 present in your development environment. Proceed as follows to install it:
 
 .. tab-set::
+  :sync-group: distribution
 
   .. tab-item:: Debian/Ubuntu
+    :sync: debian
 
     .. code-block:: console
 
@@ -166,6 +177,7 @@ present in your development environment. Proceed as follows to install it:
       sudo apt install elasticsearch
 
   .. tab-item:: Fedora
+    :sync: fedora
 
     .. code-block:: console
 
@@ -187,14 +199,17 @@ and ``dia`` utilities must also be installed.
 To install ``postgresql-autodoc``, proceed as follows:
 
 .. tab-set::
+  :sync-group: distribution
 
   .. tab-item:: Debian/Ubuntu
+    :sync: debian
 
     .. code-block:: console
 
       sudo apt install postgresql-autodoc
 
   .. tab-item:: Fedora
+    :sync: fedora
 
     Install ``postgresql-autodoc`` manually, as it is not included in the Fedora repositories
 
@@ -215,14 +230,17 @@ See the `installation instructions <https://github.com/cbbrowne/autodoc#installa
 To install ``dia``, you can run one of the following commands:
 
 .. tab-set::
+  :sync-group: distribution
 
   .. tab-item:: Debian/Ubuntu
+    :sync: debian
 
     .. code-block:: console
 
       sudo apt install dia
 
   .. tab-item:: Fedora
+    :sync: fedora
 
     .. code-block:: console
 

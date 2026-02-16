@@ -36,8 +36,10 @@ Send the artefact and the metadata
    Make sure you switch to https://deposit.softwareheritage.org when you are ready.
 
 .. tab-set::
+  :sync-group: deposit
 
   .. tab-item:: API
+    :sync: api
 
     Note the ``In-Progress: false`` header. Also make sure the mimetype matches your
     file, here ``SOFTWARE_ARTEFACT`` is a zip archive.
@@ -51,6 +53,7 @@ Send the artefact and the metadata
            -XPOST https://deposit.staging.swh.network/1/COLLECTION/
 
   .. tab-item:: CLI
+    :sync: cli
 
     Note the '--no-partial' flag.
 
@@ -67,8 +70,10 @@ Send the artefact and the metadata
 Will return the following response (note the ``deposited`` status):
 
 .. tab-set::
+  :sync-group: deposit
 
   .. tab-item:: API
+    :sync: api
 
     .. code-block:: xml
 
@@ -95,6 +100,7 @@ Will return the following response (note the ``deposited`` status):
       </entry>
 
   .. tab-item:: CLI
+    :sync: cli
 
     .. code-block:: json
 
@@ -115,8 +121,10 @@ Check a deposit status and get its SWHID
 Your deposit will go :doc:`through multiple steps <../references/workflow>` before appearing in the archive, you can check the status of your deposit and get its SWHID:
 
 .. tab-set::
+  :sync-group: deposit
 
   .. tab-item:: API
+    :sync: api
 
     .. code-block:: console
 
@@ -124,6 +132,7 @@ Your deposit will go :doc:`through multiple steps <../references/workflow>` befo
            -XGET https://deposit.staging.swh.network/1/COLLECTION/DEPOSIT_ID/status/
 
   .. tab-item:: CLI
+    :sync: cli
 
     .. code-block:: console
 
@@ -136,8 +145,10 @@ Your deposit will go :doc:`through multiple steps <../references/workflow>` befo
 Will return the following response:
 
 .. tab-set::
+  :sync-group: deposit
 
   .. tab-item:: API
+    :sync: api
 
     .. code-block:: xml
 
@@ -154,6 +165,7 @@ Will return the following response:
       </entry>
 
   .. tab-item:: CLI
+    :sync: cli
 
     .. code-block:: json
 

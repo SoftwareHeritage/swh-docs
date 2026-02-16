@@ -25,8 +25,10 @@ Make a metadata deposit
 -----------------------
 
 .. tab-set::
+  :sync-group: deposit
 
   .. tab-item:: API
+    :sync: api
 
     Note the ``In-Progress: false`` header as metadata-only deposits can only be done
     in one-shot.
@@ -39,6 +41,7 @@ Make a metadata deposit
            -XPOST https://deposit.softwareheritage.org/1/<collection>/
 
   .. tab-item:: CLI
+    :sync: cli
 
     .. code-block:: console
 
@@ -52,8 +55,10 @@ Make a metadata deposit
 Will return the following response:
 
 .. tab-set::
+  :sync-group: deposit
 
   .. tab-item:: API
+    :sync: api
 
     .. code-block:: xml
 
@@ -70,6 +75,7 @@ Will return the following response:
       </entry>
 
   .. tab-item:: CLI
+    :sync: cli
 
     .. code-block:: json
 

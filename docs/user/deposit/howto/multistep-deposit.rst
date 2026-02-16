@@ -48,8 +48,10 @@ First partial deposit
 ~~~~~~~~~~~~~~~~~~~~~
 
 .. tab-set::
+  :sync-group: deposit
 
   .. tab-item:: API
+    :sync: api
 
     Note the ``In-Progress: true`` header. Also make sure the mimetype matches your
     file, here ``SOFTWARE_ARTEFACT1`` is a zip archive.
@@ -62,6 +64,7 @@ First partial deposit
            -XPOST https://deposit.staging.swh.network/1/COLLECTION/
 
   .. tab-item:: CLI
+    :sync: cli
 
     Note the '--partial' flag '--archive' argument, as we're sending a new software
     artefact.
@@ -79,8 +82,10 @@ Will return the following response (note the ``partial`` status and the ``deposi
 value):
 
 .. tab-set::
+  :sync-group: deposit
 
   .. tab-item:: API
+    :sync: api
 
     .. code-block:: xml
 
@@ -107,6 +112,7 @@ value):
       </entry>
 
   .. tab-item:: CLI
+    :sync: cli
 
     .. code-block:: json
 
@@ -127,8 +133,10 @@ does not matter, the only important thing is to make all calls ``partial`` excep
 last one.
 
 .. tab-set::
+  :sync-group: deposit
 
   .. tab-item:: API
+    :sync: api
 
     Note the ``In-Progress: true`` header, the ``DEPOSIT_ID`` in the URL and the
     ``/media/`` endpoint as we're sending a new software artefact.
@@ -143,6 +151,7 @@ last one.
            -XPOST https://deposit.staging.swh.network/1/COLLECTION/DEPOSIT_ID/media/
 
   .. tab-item:: CLI
+    :sync: cli
 
     Note the '--partial' flag, the `--deposit-id` argument and the '--archive'
     argument, as we're sending a new software artefact.
@@ -166,8 +175,10 @@ This deposit will only consist of the metadata. To indicate this is the last ste
 will send include "not partial anymore" parameter in our call.
 
 .. tab-set::
+  :sync-group: deposit
 
   .. tab-item:: API
+    :sync: api
 
     Note the ``In-Progress: false`` header, the ``DEPOSIT_ID`` in the URL and the
     ``/metadata/`` as we're pushing only metadata.
@@ -180,6 +191,7 @@ will send include "not partial anymore" parameter in our call.
            -XPOST https://deposit.staging.swh.network/1/COLLECTION/DEPOSIT_ID/metadata/
 
   .. tab-item:: CLI
+    :sync: cli
 
     Note the '--not-partial' flag, the `--deposit-id` argument and the '--metadata'
     argument, as we're pushing only metadata.
@@ -201,8 +213,10 @@ Check a deposit status
 Your deposit will go :doc:`through multiple steps <../references/workflow>` before appearing in the archive, you can check the status of your deposit and get its SWHID:
 
 .. tab-set::
+  :sync-group: deposit
 
   .. tab-item:: API
+    :sync: api
 
     .. code-block:: console
 
@@ -210,6 +224,7 @@ Your deposit will go :doc:`through multiple steps <../references/workflow>` befo
            -XGET https://deposit.staging.swh.network/1/COLLECTION/DEPOSIT_ID/status/
 
   .. tab-item:: CLI
+    :sync: cli
 
     .. code-block:: console
 
@@ -222,8 +237,10 @@ Your deposit will go :doc:`through multiple steps <../references/workflow>` befo
 Will return the following response:
 
 .. tab-set::
+  :sync-group: deposit
 
   .. tab-item:: API
+    :sync: api
 
     .. code-block:: xml
 
@@ -240,6 +257,7 @@ Will return the following response:
       </entry>
 
   .. tab-item:: CLI
+    :sync: cli
 
     .. code-block:: json
 
@@ -257,8 +275,10 @@ ensure data consistency. You can check your deposit status to follow the process
 Repeat the same calls until the status changes:
 
 .. tab-set::
+  :sync-group: deposit
 
   .. tab-item:: API
+    :sync: api
 
     .. code-block:: xml
 
@@ -275,6 +295,7 @@ Repeat the same calls until the status changes:
       </entry>
 
   .. tab-item:: CLI
+    :sync: cli
 
     .. code-block:: json
 
