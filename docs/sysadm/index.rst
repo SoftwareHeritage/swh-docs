@@ -17,6 +17,7 @@ Infrastructure
    life-cycle-management/index
    mirror-operations/index
    support-services/index
+   operations/index
 
 .. only:: sysadm_doc
 
