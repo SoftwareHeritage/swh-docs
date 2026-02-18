@@ -95,7 +95,7 @@ package manager.
 
       sudo dnf -y install cassandra
 
-.. Note:: Python 3.10 or newer is required
+.. Note:: Python 3.11 is currently the recommended version
 
 This installs basic system utilities, Python library dependencies, development tools,
 documentation tools and our main database management systems.
