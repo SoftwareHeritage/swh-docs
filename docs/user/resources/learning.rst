@@ -7,6 +7,7 @@ teaching.
 General reach
 -------------
 
+- `Software Heritage Essentials in 5 short videos <https://youtube.com/playlist?list=PLD2VqrZz2-u35d8-1X8kyj_UQSsLmRaKl&si=xtqpa8T3VlcafPoE>`__
 -  `Glossary <https://docs.softwareheritage.org/devel/glossary.html>`__
 -  `Posters <https://zenodo.org/communities/software-heritage/records?q=&f=resource_type%3Aposter&l=list&p=1&s=10&sort=newest>`__
 
