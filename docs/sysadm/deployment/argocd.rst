@@ -106,7 +106,7 @@ applications:
 - If this cluster has some secrets, create a directory matching the cluster name at the
   root of the ``k8s-private-data`` repository too
 
-    - Put the secret configurations in the directory in kubernetes yaml files.
+  - Put the secret configurations in the directory in kubernetes yaml files.
 
 .. warning::  Only the secrets and private data must be put in this repository
 
