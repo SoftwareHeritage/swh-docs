@@ -149,17 +149,42 @@ an alert triggered by the monitoring
   <s​whprombot> Alert CRITICAL firing - admin/cluster-admin-rke2 - ArgoCDClusterConnectionLost -
   The connection to the cluster https://rancher.... is lost since more than 1h.
 
-* Log in to the Rancher web interface using the admin account (credentials are available
-  on the credentials store under ``operations/rancher/azure/admin``)
-* Select the cluster
-* Download the KubeConfig file for the cluster
+* Credentials and tokens for the argocd service user are managed through
+  terraform in the `sysadm-provisioning
+  <https://gitlab.softwareheritage.org/swh/infra/swh-sysadmin-provisioning>`_
+  repository (in the ``proxmox/terraform/admin`` directory).
+* After following the readme steps to provision credentials in your runtime
+  environment (particularly the argocd user and your proxmox token), run
+  ``terraform plan -out admin.plan``, review the plan, then apply it with
+  ``terraform apply admin.plan``. Some rancher tokens should have been generated.
+* Once the configuration is applied, the value of the tokens can be retrieved
+  with ``terraform output argocd-token-value``.
 
-.. figure:: ../images/deployment/kubeconfig.png
-   :alt: Download kubeconfig from rancher
+.. code:: bash
 
-* Open the file and locate the ``users`` section and copy the token
-* Update the cluster declaration in the `k8s-private-data` repository,
-  for example in the ``argocd/clusters/test-staging-rke2.yaml`` file
+   $ terraform output argocd-token-value
+   {
+     "admin" = "token-vjq5s:[REDACTED]"
+     "production" = "token-qv9ck:[REDACTED]"
+     "rancher" = "token-c82t6:[REDACTED]"
+     "staging" = "token-r7vxs:[REDACTED]"
+     "test-staging" = "token-jr7xn:[REDACTED]"
+   }
+
+
+* Update the value for the token in the cluster declarations of the
+  `k8s-private-data
+  <https://gitlab.softwareheritage.org/infra-private/k8s-swh-private-data>`_
+  repository, for example in the ``argocd/clusters/test-staging-rke2.yaml`` file
+
+Rancher token expiry is set to 90 days by default. One can disable this expiry
+by editing the token resource in the rancher cluster, and removing both the
+``ttl`` and ``expiresAt`` fields from the resource. The token id is what's to
+the left of the colon in the previously retrieved `terraform output` entries.
+
+.. code::
+
+   kubectl --context euwest-rancher edit token token-vjq5s
 
 Deploy a new service
 --------------------
