@@ -243,7 +243,7 @@ Add a user
     admin     true     login
     newuser   true     apiKey, login
     $ # update its password
-    $ argocd --grpc-web account update-password --account newuser
+    $ argocd --grpc-web account update-password --account newuser --server argocd.internal.admin.swh.network
     *** Enter password of currently logged in user (admin):
     *** Enter new password for user newuser: XXX
     *** Confirm new password for user newuser: XXX
