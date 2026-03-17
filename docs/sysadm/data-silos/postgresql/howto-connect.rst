@@ -39,64 +39,46 @@ Sample |pg_service|
   host=postgresql-storage-rw.internal.softwareheritage.org
   user=guest
 
-  [swh-replica]
-  dbname=softwareheritage
-  host=postgresql-storage-replica.internal.softwareheritage.org
-  user=guest
-  port=5432
-
-  [swh-deposit]
-  dbname=softwareheritage-deposit
-  host=postgresql-deposit-rw.internal.softwareheritage.org
-  user=guest
-  port=5432
-
   [swh-indexer]
   dbname=softwareheritage-indexer
   host=postgresql-indexer-rw.internal.softwareheritage.org
   user=guest
   port=5432
 
+  [swh-deposit]
+  dbname=swh-deposit
+  host=db.internal.softwareheritage.org
+  user=guest
+  port=5432
+
   [swh-scheduler]
-  dbname=softwareheritage-scheduler
-  host=postgresql-scheduler-rw.internal.softwareheritage.org
+  dbname=swh-scheduler
+  host=db.internal.softwareheritage.org
   user=guest
 
   [swh-vault]
   dbname=swh-vault
-  host=postgresql-vault-rw.internal.softwareheritage.org
+  host=db.internal.softwareheritage.org
   port=5432
   user=guest
 
   [swh-scrubber]
   dbname=swh-scrubber
-  host=postgresql-scrubber-rw.internal.softwareheritage.org
+  host=db.internal.softwareheritage.org
   port=5432
   user=guest
 
   [swh-web]
   dbname=swh-web
-  host=postgresql-web-rw.internal.softwareheritage.org
+  host=db.internal.softwareheritage.org
   port=5432
   user=guest
 
-  [admin-swh-scrubber]
-  dbname=swh-scrubber
-  host=postgresql-scrubber-rw.internal.softwareheritage.org
-  port=5432
-  user=swh-scrubber
-
-  [swh-masking]
-  dbname=swh-masking
-  host=postgresql-masking-rw.internal.softwareheritage.org
+  [swh-svix]
+  dbname=swh-svix
+  host=db.internal.softwareheritage.org
   port=5432
   user=guest
-
-  [admin-swh-masking]
-  dbname=swh-masking
-  host=postgresql-masking-rw.internal.softwareheritage.org
-  port=5432
-  user=swh-masking
 
   [staging-swh-coar-notify]
   dbname=swh-coar-notify
