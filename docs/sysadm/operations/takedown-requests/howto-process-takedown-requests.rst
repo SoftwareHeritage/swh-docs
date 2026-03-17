@@ -164,14 +164,14 @@ https://archive.softwareheritage.org/admin/alteration/<request-uuid>/
 Then click on `send a message`, select `Support` and then write the content of what has
 been done:
 
-.. quote:
+.. code::
 
    The request has been processed:
    - The *NUMBER_OF_REMOVED_ORIGINS* provided origins have been removed from the archive.
    - The *NUMBER_OF_BLOCKED_ORIGINS* provided origins have been blocked from any further archival.
 
 Keep the summary of what has been processed relevant and minimal. You can drop the
-irrevant mentions (i.e. if no blocked origins, no need for that entry).
+irrelevant mentions (i.e. if no blocked origins, no need for that entry).
 
 .. _takedown-requests-other-commands:
 
