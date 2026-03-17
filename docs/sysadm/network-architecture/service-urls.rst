@@ -166,21 +166,21 @@ SWH backends
 +==========================+===================================================================================+========+============+
 | RabbitMq GUI             | http://saatchi.internal.softwareheritage.org:15672                                | X      |            |
 +--------------------------+-----------------------------------------------------------------------------------+--------+------------+
-| archive database replica | postgresql-storage-replica.internal.softwareheritage.org:5432/softwareheritage    | X      |            |
-+--------------------------+-----------------------------------------------------------------------------------+--------+------------+
 | archive database main    | postgresql-storage-rw.internal.softwareheritage.org:5432/softwareheritage         | X      |            |
-+--------------------------+-----------------------------------------------------------------------------------+--------+------------+
-| webapp database main     | postgresql-web-rw.internal.softwareheritage.org:5432/swh-web                      | X      |            |
-+--------------------------+-----------------------------------------------------------------------------------+--------+------------+
-| scheduler database       | postgresql-scheduler-rw.internal.softwareheritage.org:5432/swh-scheduler          | X      |            |
 +--------------------------+-----------------------------------------------------------------------------------+--------+------------+
 | indexer database         | postgresql-indexer-rw.internal.softwareheritage.org:5432/softwareheritage-indexer | X      |            |
 +--------------------------+-----------------------------------------------------------------------------------+--------+------------+
-| deposit database         | postgresql-deposit-rw.internal.softwareheritage.org:5432/softwareheritage-deposit | X      |            |
+| webapp database          | db.internal.softwareheritage.org:5432/swh-web                                     | X      |            |
 +--------------------------+-----------------------------------------------------------------------------------+--------+------------+
-| vault database           | postgresql-vault-rw.internal.softwareheritage.org:5432/swh-vault                  | X      |            |
+| scheduler database       | db.internal.softwareheritage.org:5432/swh-scheduler                               | X      |            |
 +--------------------------+-----------------------------------------------------------------------------------+--------+------------+
-| scrubber database        | postgresql-scrubber-rw.internal.softwareheritage.org:5432/swh-vault               | X      |            |
+| deposit database         | db.internal.softwareheritage.org:5432/swh-deposit                                 | X      |            |
++--------------------------+-----------------------------------------------------------------------------------+--------+------------+
+| vault database           | db.internal.softwareheritage.org:5432/swh-vault                                   | X      |            |
++--------------------------+-----------------------------------------------------------------------------------+--------+------------+
+| scrubber database        | db.internal.softwareheritage.org:5432/swh-scrubber                                | X      |            |
++--------------------------+-----------------------------------------------------------------------------------+--------+------------+
+| svix database            | db.internal.softwareheritage.org:5432/swh-svix                                    | X      |            |
 +--------------------------+-----------------------------------------------------------------------------------+--------+------------+
 | swh-search ES            | search-esnode[4-6].internal.softwareheritage.org:9200                             |        | X          |
 +--------------------------+-----------------------------------------------------------------------------------+--------+------------+
