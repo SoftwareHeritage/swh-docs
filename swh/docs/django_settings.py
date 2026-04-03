@@ -1,4 +1,4 @@
-# Copyright (C) 2021-2025  The Software Heritage developers
+# Copyright (C) 2021-2026  The Software Heritage developers
 # See the AUTHORS file at the top-level directory of this distribution
 # License: GNU Affero General Public License version 3, or any later version
 # See top-level LICENSE file for more information
@@ -14,6 +14,8 @@ def force_django_settings(settings_module):
     """
     if os.environ.get("DJANGO_SETTINGS_MODULE") != settings_module:
         os.environ["DJANGO_SETTINGS_MODULE"] = settings_module
+        # prevent swh-web to read local config file when generating doc
+        os.environ["SWH_CONFIG_FILENAME"] = "foo"
 
         import django
         from django import conf as django_conf
@@ -27,3 +29,5 @@ def force_django_settings(settings_module):
         from django.conf import settings
 
         apps.set_installed_apps(settings.INSTALLED_APPS)
+
+        del os.environ["SWH_CONFIG_FILENAME"]
