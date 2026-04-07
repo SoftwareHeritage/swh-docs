@@ -28,13 +28,13 @@ apidoc_dep = apidoc-stamp
 endif
 
 sphinx/clean:
-	$(SPHINXBUILD) -M clean $(SPHINX_SRCDIR) $(SPHINX_BUILDDIR) $(SPHINX_OPTS) $(SPHINXOPTS)
+	LC_ALL=C.UTF-8 $(SPHINXBUILD) -M clean $(SPHINX_SRCDIR) $(SPHINX_BUILDDIR) $(SPHINX_OPTS) $(SPHINXOPTS)
 sphinx/%: $(apidoc_dep)
-	$(SPHINXBUILD) -b $* $(SPHINX_SRCDIR) $(SPHINX_BUILDDIR)/$* $(SPHINX_OPTS) $(SPHINXOPTS)
+	LC_ALL=C.UTF-8 $(SPHINXBUILD) -b $* $(SPHINX_SRCDIR) $(SPHINX_BUILDDIR)/$* $(SPHINX_OPTS) $(SPHINXOPTS)
 
 apidoc: $(apidoc_dep)
 apidoc-stamp:
-	$(SPHINXAPIDOC) $(APIDOC_OPTS) -o $(APIDOC_DIR) `if [ -d ../src/swh ]; then echo ../src/swh; else echo ../swh; fi` $(APIDOC_SWH_EXCLUDES)
+	LC_ALL=C.UTF-8 $(SPHINXAPIDOC) $(APIDOC_OPTS) -o $(APIDOC_DIR) `if [ -d ../src/swh ]; then echo ../src/swh; else echo ../swh; fi` $(APIDOC_SWH_EXCLUDES)
 	# to silent Sphinx warnings about apidoc documents not included in any toctree
 	find $(shell pwd)/apidoc -name "*.rst" | xargs sed -i '1i:orphan:\n'
 	touch $@

@@ -25,7 +25,7 @@ links-stamp:
 
 apidoc: apidoc-stamp
 apidoc-stamp: links-stamp
-	$(SPHINXAPIDOC) \
+	LC_ALL=C.UTF-8 $(SPHINXAPIDOC) \
 		--implicit-namespaces \
 		--templatedir=../../swh/docs/templates/ \
 		--maxdepth=3 \
@@ -58,9 +58,9 @@ distclean: clean
 	make -C ../../../ docs-clean
 
 sphinx/clean:
-	$(SPHINXBUILD) -M clean "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(SPHINXOPTCOLOR)
+	LC_ALL=C.UTF-8 $(SPHINXBUILD) -M clean "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(SPHINXOPTCOLOR)
 
 sphinx/%:
-	$(SPHINXBUILD) -b $* "$(SOURCEDIR)" "$(BUILDDIR)/$*" $(SPHINXOPTS) $(SPHINXOPTCOLOR)
+	LC_ALL=C.UTF-8 $(SPHINXBUILD) -b $* "$(SOURCEDIR)" "$(BUILDDIR)/$*" $(SPHINXOPTS) $(SPHINXOPTCOLOR)
 
 .PHONY: html clean distclean install
