@@ -263,6 +263,10 @@ extlinks: Dict = {
     "swh_web_browse": (f"{_swh_web_base_url}/browse/%s", None),
 }
 
+# README.rst from swh packages are not included in a toc tree
+# so silent related warnings
+suppress_warnings = ["toc.not_included"]
+
 # SWH_PACKAGE_DOC_TOX_BUILD environment variable is set in a tox environment
 # named sphinx for each swh package (except the swh-docs package itself).
 swh_package_doc_tox_build = os.environ.get("SWH_PACKAGE_DOC_TOX_BUILD", False)
@@ -271,7 +275,7 @@ swh_package_doc_tox_build = os.environ.get("SWH_PACKAGE_DOC_TOX_BUILD", False)
 # documentation with tox to remove warnings and suppress
 # those related to unresolved references
 if swh_package_doc_tox_build:
-    suppress_warnings = ["ref.ref"]
+    suppress_warnings += ["ref.ref"]
     html_favicon = ""
     html_logo = ""
 
