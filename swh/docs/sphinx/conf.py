@@ -1,4 +1,4 @@
-# Copyright (C) 2017-2025  The Software Heritage developers
+# Copyright (C) 2017-2026  The Software Heritage developers
 # See the AUTHORS file at the top-level directory of this distribution
 # License: GNU Affero General Public License version 3, or any later version
 # See top-level LICENSE file for more information
@@ -374,10 +374,21 @@ def ensure_readme(app, config):
             break
 
 
+def doctree_read(app, doctree):
+    # fix no longer maintained sphinx-carousel compatibility with sphinx >= 8
+    # https://github.com/sphinx-doc/sphinx/issues/13428
+    from sphinx_carousel.nodes import CarouselMainNode
+
+    for node in doctree.traverse():
+        if isinstance(node, CarouselMainNode):
+            node.attributes["classes"] = []
+
+
 def setup(app):
     app.connect("config-inited", ensure_readme)
     # env-purge-doc event is fired before source-read
     app.connect("env-purge-doc", set_django_settings)
+    app.connect("doctree-read", doctree_read)
     # add autosimple directive (used in swh-web)
     app.add_autodocumenter(SimpleDocumenter)
     # set an environment variable indicating we are currently building
