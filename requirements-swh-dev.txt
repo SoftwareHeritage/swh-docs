@@ -11,7 +11,7 @@
 ../swh-datasets[luigi]
 ../swh-deposit[server]
 ../swh-digestmap
-../swh-export[luigi]
+../swh-export
 ../swh-fuse[hpc]
 ../swh-graph[export,luigi]
 ../swh-graph-libs[luigi]
