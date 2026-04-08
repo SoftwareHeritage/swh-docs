@@ -147,9 +147,12 @@ html_theme_options = {
     ],
     "navbar_persistent": ["search-button"],
     "navigation_with_keys": False,
+    "logo": {
+        "alt_text": "Software Heritage documentation - Home",
+        "image_light": "_static/software-heritage-logo-title.svg",
+        "image_dark": "_static/software-heritage-logo-title-dark-theme.svg",
+    },
 }
-
-html_logo = "_static/software-heritage-logo-title.svg"
 
 html_context = {
     "gitlab_url": "https://gitlab.softwareheritage.org",
