@@ -18,14 +18,32 @@ Keycloak - OpenBao OIDC Integration
 On Keycloak UI
 --------------
 
-- Create a new client (e.g. ``openbao``).
+- Create a new client (e.g. ``openbao-client``).
+
+.. image:: ../../images/secrets-management/01-new-openbao-client.png
+   :alt: Add Keycloak Openbao Client
+   :align: center
+   :class: screenshot
+
+.. image:: ../../images/secrets-management/05-summary-openbao-client.png
+   :alt: Keycloak client configuration summary
+   :align: center
+   :class: screenshot
 
 - Configure it **roughly** as described in the first section of the
   `OpenBao documentation <https://openbao.org/docs/auth/jwt/oidc-providers/keycloak/>`_.
 
+.. image:: ../../images/secrets-management/02-add-client-role-to-openbao-client.png
+   :alt: Add client role to keycloak openbao-client
+   :align: center
+   :class: screenshot
+
 - Create an associated client role called ``admin-openbao``.
 
-- Assign this client role to at least one sysadm user (for testing purpose).
+.. image:: ../../images/secrets-management/03-configure-client-role.png
+   :alt: Configure Keycloak role
+   :align: center
+   :class: screenshot
 
 - Add a mapper on the client:
 
@@ -35,17 +53,17 @@ On Keycloak UI
 
    * Enable **Add to ID token** (other “Add to … token” options are not needed).
 
-.. image:: https://hedgedoc.softwareheritage.org/uploads/127c1349-e1cb-48f8-86dc-4811a34178ae.png
-   :alt: Keycloak client configuration
+.. image:: ../../images/secrets-management/04-summary-client-role-mapper.png
+   :alt: Add Client role mapper
    :align: center
    :class: screenshot
 
-.. image:: https://hedgedoc.softwareheritage.org/uploads/822a14a7-db65-4d53-98b8-af7bc26d4fa9.png
-   :alt: Mapper definition
+- Assign this client role to at least one sysadm user (for testing purpose).
+
+.. image:: ../../images/secrets-management/06-configure-keycloak-user-with-openbao-admin-client-role.png
+   :alt: Configure users with the admin-openbao client role
    :align: center
    :class: screenshot
-
-- *(Optional)* Add this client role to a realm-wide group.
 
 On OpenBao's side
 -----------------
@@ -58,11 +76,34 @@ Configure OIDC on the OpenBao pod
 .. code-block:: bash
 
    export TOKEN="obtain-this-from-keycloak-ui-on-new-client-tab-credentials"
-   bao write auth/oidc/config \\
-       oidc_client_id="openbao" \\
-       oidc_client_secret="$TOKEN" \\
-       default_role="admin-openbao" \\
+   bao write auth/oidc/config \
+       oidc_client_id="openbao-client" \
+       oidc_client_secret="$TOKEN" \
+       default_role="admin-openbao" \
        oidc_discovery_url='https://auth.softwareheritage.org/auth/realms/SoftwareHeritage'
+
+Ensure the configuration is as expected.
+
+.. code-block:: bash
+
+   / $ bao read auth/oidc/config
+   Key                              Value
+   ---                              -----
+   bound_issuer                     n/a
+   default_role                     admin-openbao
+   jwks_ca_pem                      n/a
+   jwks_url                         n/a
+   jwt_supported_algs               []
+   jwt_validation_pubkeys           []
+   namespace_in_state               true
+   oidc_client_id                   openbao
+   oidc_discovery_ca_pem            n/a
+   oidc_discovery_url               https://auth.softwareheritage.org/auth/realms/SoftwareHeritage
+   oidc_response_mode               n/a
+   oidc_response_types              []
+   override_allowed_server_names    []
+   provider_config                  map[]
+   status                           valid
 
 Create an admin policy
 ^^^^^^^^^^^^^^^^^^^^^^
@@ -85,12 +126,13 @@ We associate such `admin-openbao-policy` to the `admin-openbao` role.
 
 .. code-block:: bash
 
-   bao write auth/oidc/role/admin-openbao \\
-       role_type="oidc" \\
-       user_claim="sub" \\
-       policies="admin-openbao-policy" \\
-       oidc_scopes="profile,email" \\
+   bao write auth/oidc/role/admin-openbao \
+       role_type="oidc" \
+       user_claim="sub" \
+       policies="admin-openbao-policy" \
+       oidc_scopes="profile,email" \
        allowed_redirect_uris="https://openbao.internal.admin.swh.network/v1/auth/oidc/callback,https://openbao.internal.admin.swh.network/ui/vault/auth/oidc/oidc/callback,http://localhost:8250/oidc/callback"
+
 
 Bind the client role via a claim
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
