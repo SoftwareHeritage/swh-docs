@@ -136,4 +136,5 @@ Web UI
 Command-line
 ^^^^^^^^^^^^
 
-From the `comfort of your own shell<howto-manage-secrets-in-openbao>`_.
+From the :ref:`comfort of your own shell<howto-manage-secrets-in-openbao>`,
+this can be tested out.

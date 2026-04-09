@@ -13,7 +13,8 @@ configured<howto-configure-openbao-with-keycloak-authentication>` and your
 user has the proper `admin-openbao` keycloak client role.
 
 You can either manage secrets from the `openbao ui
-<https://openbao.internal.admin.swh.network>`_ (behind :ref:`swh vpn<vpn>`).
+<https://openbao.internal.admin.swh.network>`_ (behind :ref:`swh
+vpn<howto_configure_openvpn>`).
 
 Or you can create secrets from your own machine with the bao cli installed.
 
