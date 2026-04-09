@@ -9,3 +9,4 @@ Secrets Management
 .. toctree::
    openbao
    architecture
+   howto-configure-openbao-with-keycloak-authentication
