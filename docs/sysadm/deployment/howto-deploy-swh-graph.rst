@@ -169,7 +169,7 @@ The modus operandi is:
   [1] [2] so they target the new instances (grpc & rpc)
 
 The `following merge request
-<https://gitlab.softwareheritage.org/swh/infra/ci-cd/swh-charts/-/merge_requests/665>_`
+<https://gitlab.softwareheritage.org/swh/infra/ci-cd/swh-charts/-/merge_requests/665>`_
 can be used as a reference on how to adapt the swh-charts repository for a new
 graph version. Each commit describes in order what needs to happen according
 to the previous m.o.
