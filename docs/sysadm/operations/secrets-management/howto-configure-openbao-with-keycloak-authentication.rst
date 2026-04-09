@@ -136,14 +136,4 @@ Web UI
 Command-line
 ^^^^^^^^^^^^
 
-From the comfort of your own shell, assuming the ``bao`` CLI is installed
-(e.g. ``nix-shell -p openbao``):
-
-.. code-block:: bash
-
-   # Open a browser to complete OIDC login (or reuse an existing session)
-   bao login -method=oidc -address='https://openbao.internal.admin.swh.network'
-
-   # After login, you can use the CLI normally
-   bao kv get -address='https://openbao.internal.admin.swh.network' \
-        secrets-test-staging-rke2/some-very-secret-stuff
+From the `comfort of your own shell<howto-manage-secrets-in-openbao>`_.

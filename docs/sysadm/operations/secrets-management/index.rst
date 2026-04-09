@@ -10,3 +10,4 @@ Secrets Management
    openbao
    architecture
    howto-configure-openbao-with-keycloak-authentication
+   howto-manage-secrets-in-openbao
