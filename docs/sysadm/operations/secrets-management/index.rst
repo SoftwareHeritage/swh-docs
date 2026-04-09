@@ -8,3 +8,4 @@ Secrets Management
 
 .. toctree::
    openbao
+   architecture
