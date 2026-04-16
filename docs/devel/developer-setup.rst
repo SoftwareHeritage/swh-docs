@@ -163,8 +163,8 @@ don't need them started globally (this will save you some RAM):
 
   sudo systemctl disable --now cassandra postgresql
 
-You must also have ``nodejs >= 20`` in your development environment.
-You can install node 18 using these commands:
+You must also have ``nodejs >= 22`` in your development environment.
+You can install it using these commands:
 
 .. tab-set::
   :sync-group: distribution
@@ -174,7 +174,7 @@ You can install node 18 using these commands:
 
     .. code-block:: console
 
-      curl -fsSL https://deb.nodesource.com/setup_20.x | sudo bash -
+      curl -fsSL https://deb.nodesource.com/setup_22.x | sudo bash -
 
       sudo apt install -y nodejs
 
@@ -194,14 +194,6 @@ You can install node 18 using these commands:
 
 |swh| uses the ``yarn`` package manager to retrieve frontend dependencies and development tools.
 You must install its latest classic version using this command:
-
-Download and install ``rust`` compiler:
-
-.. code-block:: console
-
-    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-
-for more details, see the `rust documentation <https://rust-lang.org/tools/install/>`_
 
 .. tab-set::
   :sync-group: distribution
@@ -226,6 +218,15 @@ for more details, see the `rust documentation <https://rust-lang.org/tools/insta
     .. code-block:: console
 
       sudo corepack enable
+
+Some |swh| packages like :ref:`swh-graph <swh-graph>` also require the ``rust`` compiler, you can download and
+install it using the command below:
+
+.. code-block:: console
+
+    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+
+for more details, see the `rust documentation <https://rust-lang.org/tools/install/>`_
 
 If you intend to work on |swh| archive search features, Elasticsearch must also be
 present in your development environment. Proceed as follows to install it:
