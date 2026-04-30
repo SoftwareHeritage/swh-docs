@@ -9,32 +9,3 @@ all:
 
 clean:
 	make -C docs clean
-
-# inline *build* dependencies to allow installing requirements-swh-dev.txt without build
-# isolation
-BUILD_DEPS :=
-
-# swh.shard
-BUILD_DEPS += pybind11 scikit_build_core\>=0.10
-
-# swh.search
-BUILD_DEPS += tree-sitter\<0.22.0
-
-# swh.loader.bzr>breezy
-BUILD_DEPS += configobj
-
-# swh.docs
-BUILD_DEPS += pifpaf
-
-# psycopg-c
-BUILD_DEPS += tomli
-
-# docutils >= 0.21
-BUILD_DEPS += flit-core
-
-pip-install-swh-dev:
-	python3 -m pip install --upgrade pip wheel setuptools setuptools-scm
-	python3 -m pip install --upgrade $(BUILD_DEPS)
-
-	python3 -m pip install -r requirements-swh-dev.txt --no-build-isolation
-	python3 -m pip install .
