@@ -107,7 +107,7 @@ It also ensures automatic renewal through the VSO reconciliation loop.
 
 
 3. Deployment
-==============
+=============
 
 .. image:: ../../images/secrets-management/architecture/03-deployment.png
    :alt: Global architecture
@@ -148,7 +148,7 @@ including:
 
 
 4. Infrastructure With OpenBao
-===============================
+==============================
 
 .. image:: ../../images/secrets-management/architecture/04-infrastructure-with-openbao.png
    :alt: Global architecture
@@ -188,7 +188,7 @@ applications.
 
 
 5. Secret management workflow
-==========
+=============================
 
 #. **Creation**
 
