@@ -86,9 +86,9 @@ The operational flow is fully automated by the VSO.
 
 The operator continuously watches ``VaultStaticSecret`` objects in the
 ``app`` namespace. Upon detection, it uses ``VaultAuth`` to
-authenticate against OpenBao via AppRole, then uses
-``VaultConnection`` to resolve the address and establish a secure TLS
-connection through the Ingress.
+authenticate against OpenBao via AppRole (which uses the
+``VaultConnection`` to connect to openbao).
+
 
 It then queries the secrets engine at the path specified in
 ``VaultStaticSecret``. Once the data is retrieved, the VSO creates or
@@ -121,10 +121,11 @@ On the **admin cluster**, ArgoCD instantiates OpenBao and then
 executes an **initialization Job**. This Job performs the following
 tasks:
 
-- Creates an **AppRole** in OpenBao, defining access rights to the
-  secret.
-- Deposits the associated ``SecretID`` into a Kubernetes secret within
-  the **production cluster**.
+- Creates an **AppRole** in OpenBao, defining permission to
+  openbao secrets through the role's access policy.
+  
+- Creates the associated ``SecretID`` into a Kubernetes secret within
+  the openbao **client cluster** (**production cluster** in this schema).
 
 ArgoCD then deploys the application together with the
 **Vault Secrets Operator (VSO)** in the production cluster.
@@ -165,13 +166,8 @@ OpenBao, deployed in the admin cluster, becomes the single source of
 truth for all infrastructure secrets.
 
 Authentication for all automation tools, including **Terraform**,
-**Ansible**, and **ArgoCD**, is unified through the **AppRole**
-mechanism, eliminating hardcoded credentials.
-
-The **Vault Secrets Operator (VSO)** automatically synchronizes secrets
-to Kubernetes clusters, while the
-``community.hashi_vault`` module enables Ansible to retrieve them
-dynamically for servers and virtual machines.
+**Puppet**, and **ArgoCD**, is unified through the **AppRole**
+mechanism, eliminating hardcoded credentials..
 
 Git-based credential repositories (whether GPG-encrypted or plaintext)
 are decommissioned in favor of OpenBao.
