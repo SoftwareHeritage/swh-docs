@@ -123,7 +123,7 @@ tasks:
 
 - Creates an **AppRole** in OpenBao, defining permission to
   openbao secrets through the role's access policy.
-  
+
 - Creates the associated ``SecretID`` into a Kubernetes secret within
   the openbao **client cluster** (**production cluster** in this schema).
 
