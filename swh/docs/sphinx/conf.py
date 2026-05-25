@@ -331,11 +331,34 @@ def set_django_settings(app, env, docname):
             force_django_settings(settings)
 
 
+def get_package_source_path(package):
+    from importlib.metadata import PackageNotFoundError, files
+    import json
+
+    try:
+        package_files = files(package)
+        if package_files:
+            direct_url_file = [
+                f for f in package_files if str(f).endswith("direct_url.json")
+            ]
+            if direct_url_file:
+                return (
+                    json.loads(direct_url_file[0].read_text())
+                    .get("url", "")
+                    .replace("file://", "")
+                )
+    except PackageNotFoundError:
+        pass
+
+    return None
+
+
 # when building local package documentation with tox, insert glossary
 # content at the end of the index file in order to resolve references
 # to the terms it contains
 def add_glossary_to_index(app, docname, source):
     if docname == "index":
+        # include global glossary
         lookup = (
             Path(sys.prefix) / "share/swh-docs/docs/devel/glossary.rst",
             Path(sys.prefix) / "local/share/swh-docs/docs/devel/glossary.rst",
@@ -351,6 +374,50 @@ def add_glossary_to_index(app, docname, source):
                     break
         else:
             raise EnvironmentError("glossary file not found")
+
+        # SWH_PACKAGE_DOC_INCLUDE_GLOSSARIES env variable can contain a comma separated list
+        # of swh package names whose glossaries must be included when building the standalone
+        # documentation of a swh package
+        include_swh_package_glossaries = os.environ.get(
+            "SWH_PACKAGE_DOC_INCLUDE_GLOSSARIES"
+        )
+        if include_swh_package_glossaries:
+            for swh_package in include_swh_package_glossaries.split(","):
+                swh_package = swh_package.strip()
+                # include graph glossary if explicitly requested
+                swh_package_glossary = ""
+
+                # check if graph glossary is locally available when swh-graph was installed
+                # from local source repository
+                swh_package_source_path = get_package_source_path(
+                    swh_package.replace("-", ".")
+                )
+                if swh_package_source_path:
+                    swh_package_glossary_path = (
+                        Path(swh_package_source_path) / "docs/glossary.rst"
+                    )
+                    if swh_package_glossary_path.exists():
+                        swh_package_glossary = swh_package_glossary_path.read_text()
+
+                # fetch graph glossary from gitlab otherwise
+                if not swh_package_glossary:
+                    import requests
+
+                    for main_branch_name in ("master", "main"):
+                        response = requests.get(
+                            f"https://gitlab.softwareheritage.org/swh/devel/{swh_package}/-/raw/{main_branch_name}/docs/glossary.rst"
+                        )
+                        if response.ok:
+                            swh_package_glossary = response.text
+                            break
+
+                if swh_package_glossary:
+                    print(f"Injecting {swh_package_glossary} glossary in index")
+                    source[0] += "\n" + swh_package_glossary
+                else:
+                    raise ValueError(
+                        f"Failed to fetch {swh_package} glossary from GitLab"
+                    )
 
 
 def get_sphinx_warning_handler():
@@ -419,7 +486,7 @@ def setup(app):
     # insert a custom filter in the warning log handler of sphinx
     get_sphinx_warning_handler().filters.insert(0, ParallelReadWarningFilter())
 
-    if swh_package_doc_tox_build:
+    if swh_package_doc_tox_build or "standalone_package_doc" in app.tags:
         # ensure glossary will be available in package doc scope
         app.connect("source-read", add_glossary_to_index)
 
