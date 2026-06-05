@@ -1,4 +1,3 @@
-.. _roadmap-current:
 .. _roadmap-2025:
 
 Roadmap 2025
@@ -838,4 +837,3 @@ from Software Heritage for a dataset of vulnerabilities
 - Introducing commits detection ratio
 - Fixing commits detection ratio
 - Number of CVEs supported
-

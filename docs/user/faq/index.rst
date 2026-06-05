@@ -16,7 +16,7 @@ Roadmap
 Where can I find the SWH roadmap?
 ---------------------------------
 
-The roadmap is accessible on the :ref:`development docs <roadmap-2021>`.
+The roadmap is accessible on the :ref:`development docs <roadmap-current>`.
 
 .. _faq_savecodenow:
 
