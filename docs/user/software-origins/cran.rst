@@ -15,7 +15,7 @@ Then for each package, it creates an origin with
 :file:`https://cran.r-project.org/package={package_name}` as URL.
 
 R packages have intrinsic metadata, mostly the :file:`DESCRIPTION` file in their root
-directory, in the `deb822 <https://manpages.debian.org/bookworm/dpkg-dev/deb822.5.en.html>`__
+directory, in the `deb822 <https://manpages.debian.org/dpkg-dev/deb822.5.html>`__
 format.
 |swh|'s R loader parses it to extract authorship information, but this file is otherwise
 not parsed yet.
