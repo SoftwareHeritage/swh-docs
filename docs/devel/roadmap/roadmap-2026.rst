@@ -43,10 +43,10 @@ Projects
 
 We are involved in several funded projects this year:
 
-* [CodeCommons](https://codecommons.org/)
-* [OSPO-Radar](https://www.softwareheritage.org/2025/04/02/ospo-radar-project-launch/)
-* [SWH-Sec](https://www.softwareheritage.org/2023/04/07/enhancing-cybersecurity-through-swh/)
-* [Sec4AI4Sec](https://www.sec4ai4sec-project.eu)
+* `CodeCommons <https://codecommons.org/>`__
+* `OSPO-Radar <https://www.softwareheritage.org/2025/04/02/ospo-radar-project-launch/>`__
+* `SWH-Sec <https://www.softwareheritage.org/2023/04/07/enhancing-cybersecurity-through-swh/>`__
+* `Sec4AI4Sec <https://www.sec4ai4sec-project.eu>`__
 
 Growth projects
 ===============
@@ -70,7 +70,7 @@ This helps them showcase their contributions and analyze their output.
 Vulnerability Graph
 ^^^^^^^^^^^^^^^^^^^
 
-Last year, in the projects SWH-Sec and Sec4AI4Sec, we developed ways to map vulnerabilities to elements of the archive. For instance, we studied methods for identifying revisions that introduce a CVE from the fixing revision using the [SZZ algorithm](https://www.st.cs.uni-saarland.de/papers/msr2005/). We want to continue this work and make it available in the archive. Then we will think about how to make it available, for instance, through the [scanner](https://docs.softwareheritage.org/devel/swh-scanner/).
+Last year, in the projects SWH-Sec and Sec4AI4Sec, we developed ways to map vulnerabilities to elements of the archive. For instance, we studied methods for identifying revisions that introduce a CVE from the fixing revision using the `SZZ algorithm <https://www.st.cs.uni-saarland.de/papers/msr2005/>`__. We want to continue this work and make it available in the archive. Then we will think about how to make it available, for instance, through the `scanner <https://docs.softwareheritage.org/devel/swh-scanner/>`__.
 
 Dataset Factory
 ^^^^^^^^^^^^^^^^
@@ -101,7 +101,7 @@ We will adopt a more DevOps-oriented process and start allowing developers to de
 Automation
 ^^^^^^^^^^
 
-We continue to streamline our development and infrastructure by automating what can be automated. This quarter, we continue to work on automating the graph compression process and evaluate using [Renovate](https://docs.renovatebot.com/) to manage the maintenance of dependencies.
+We continue to streamline our development and infrastructure by automating what can be automated. This quarter, we continue to work on automating the graph compression process and evaluate using `Renovate <https://docs.renovatebot.com/>`__ to manage the maintenance of dependencies.
 
 Documentation
 ^^^^^^^^^^^^^

@@ -443,7 +443,7 @@ Evaluate the storage of indexed metadata in a triple-store
 
 Evaluate the opportunity of storing indexed metadata in a triple store, instead of the actual ElasticSearch architecture, to prevent crashes due to embedded JSON-LD documents treated as regular JSON, and add support of relations between documents.
 
-Therefore, I would like to try using a proper triple-store. [Virtuoso](https://virtuoso.openlinksw.com) in particular looks promising, as it support both SPARQL and full-text search.
+Therefore, I would like to try using a proper triple-store. `Virtuoso <https://virtuoso.openlinksw.com>`__ in particular looks promising, as it support both SPARQL and full-text search.
 
 **Includes work:**
 

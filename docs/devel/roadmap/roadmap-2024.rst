@@ -319,7 +319,7 @@ Mirror tooling for takedown
 
 **Description:**
 
-Setup SWH mirrors tooling for takedown requests in accordance with the [documented process](https://docs.softwareheritage.org/sysadm/mirror-operations/takedown-notices.html).
+Setup SWH mirrors tooling for takedown requests in accordance with the `documented process <https://docs.softwareheritage.org/sysadm/mirror-operations/takedown-notices.html>`__.
 
 **Includes work:**
 
