@@ -32,7 +32,7 @@ Adding a new external puppet module
 In the *puppet-environment* repository, the ``bin/import-puppet-module`` takes care of
 the following tasks:
 
-- Getting metadata from the `Puppet forge <https://forge.puppetlabs.com/>`_ for the
+- Getting metadata from the `Puppet forge <https://forge.puppetlabs.com/>`__ for the
   module (description, upstream git URL)
 - Cloning the repository
 - Creating a mirror repository on the Software Heritage forge, with the proper
@@ -43,12 +43,12 @@ the following tasks:
 To be able to use the script, you need:
 
 - Be a member of the `System Administrators
-  <https://gitlab.softwareheritage.org/groups/teams/sysadmin>`_ gitlab group
+  <https://gitlab.softwareheritage.org/groups/teams/sysadmin>`__ gitlab group
 - Have the gitlab API key setup
 - A few python dependencies: ``python3-click``, ``python3-gitlab`` and ``python3-requests``.
 
 Example usage to pull the `elastic/elasticsearch
-<https://forge.puppetlabs.com/elastic/elasticsearch>`_ module
+<https://forge.puppetlabs.com/elastic/elasticsearch>`__ module
 
 ::
 
@@ -59,7 +59,7 @@ Example usage to pull the `elastic/elasticsearch
    git push
 
 Once the module is added, you need to register it in the *swh-site* `Puppetfile
-<https://gitlab.softwareheritage.org/infra/puppet/puppet-swh-site/-/blob/production/Puppetfile>`_.
+<https://gitlab.softwareheritage.org/infra/puppet/puppet-swh-site/-/blob/production/Puppetfile>`__.
 
 You should also check in the module metadata whether any dependencies need importing as
 well, which you should do using the same procedure.

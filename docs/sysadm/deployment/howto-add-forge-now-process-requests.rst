@@ -15,11 +15,11 @@ Introduction
 ------------
 
 A forge ticket (`see for example the forge.inrae.fr ticket
-<https://gitlab.softwareheritage.org/swh/infra/add-forge-now-requests/-/issues/1431>`_) should
+<https://gitlab.softwareheritage.org/swh/infra/add-forge-now-requests/-/issues/1431>`__) should
 have been created.
 
 Meaning the `moderation process is ongoing
-<https://archive.softwareheritage.org/admin/add-forge/request/1904/>`_ and the upstream
+<https://archive.softwareheritage.org/admin/add-forge/request/1904/>`__ and the upstream
 forge (to be ingested) has been notified we will start the ingestion soon.
 
 Note that there exists roughly 2 kinds of forges, either the technology used by the
@@ -83,7 +83,7 @@ Registering the new lister task
        register-lister <lister-type> \
          instance=<instance>
 
-For example, forge `forge.inrae.fr <https://forge.inrae.fr/>`_ which
+For example, forge `forge.inrae.fr <https://forge.inrae.fr/>`__ which
 is a gitlab instance, we'd run:
 
 .. code::
@@ -107,7 +107,7 @@ is a gitlab instance, we'd run:
        max_origins_per_page: 5
        max_pages: 2
 
-``instance`` is the parameter used in the `pipeline <https://gitlab.softwareheritage.org/swh/infra/add-forge-now-requests/-/blob/main/.gitlab-ci/bash-functions.sh?ref_type=heads#L121>`_.
+``instance`` is the parameter used in the `pipeline <https://gitlab.softwareheritage.org/swh/infra/add-forge-now-requests/-/blob/main/.gitlab-ci/bash-functions.sh?ref_type=heads#L121>`__.
 It may be necessary to use ``url`` parameter instead of the ``instance`` one:
 
 - for forges which support only http protocol;
@@ -158,7 +158,7 @@ Checking the listed origins
 
    swh scheduler origin check-listed-origins <lister-type> <instance-name> -l
 
-For our example, `forge.inrae.fr <https://forge.inrae.fr/>`_:
+For our example, `forge.inrae.fr <https://forge.inrae.fr/>`__:
 
 .. code::
 
@@ -193,7 +193,7 @@ those origins:
        --lister-name <lister> \
        --lister-instance-name <lister-instance-name>
 
-For our example, `forge.inrae.fr <https://forge.inrae.fr/>`_:
+For our example, `forge.inrae.fr <https://forge.inrae.fr/>`__:
 
 .. code::
 
@@ -230,7 +230,7 @@ Checking the ingested origins
 
    swh scheduler origin check-ingested-origins <lister-type> <instance-name>
 
-For our example, `forge.inrae.fr <https://forge.inrae.fr/>`_:
+For our example, `forge.inrae.fr <https://forge.inrae.fr/>`__:
 
 .. code::
 

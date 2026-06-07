@@ -84,11 +84,11 @@ Codemeta/citation.cff to BibTeX mapping
 A ``citation.cff`` file will be first converted into a ``codemeta.json``
 document. The ``CFF`` to ``CodeMeta`` mapping can be found in the
 `codemeta
-repository <https://github.com/codemeta/codemeta/blob/master/crosswalks/Citation%20File%20Format%201.2.0.csv>`_.
+repository <https://github.com/codemeta/codemeta/blob/master/crosswalks/Citation%20File%20Format%201.2.0.csv>`__.
 
 The ``CodeMeta`` to ``BibTeX`` mapping, used for the converter, is
 `currently under
-review <https://github.com/codemeta/codemeta/pull/363>`_.
+review <https://github.com/codemeta/codemeta/pull/363>`__.
 
 Note on BibTeX ``@software``, ``@softwareversion`` and ``@codefragment`` usage
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

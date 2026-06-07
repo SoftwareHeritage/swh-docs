@@ -32,7 +32,7 @@ Those pods use a ceph persistent volume. That makes their output artifacts store
 
 The configuration of swh-alter in the different environments is managed in the
 repository `swh-charts
-<https://gitlab.softwareheritage.org/swh/infra/ci-cd/swh-charts/-/blob/a8c6ea7db39be02c78d2eeed24e993ec1025deb2/swh/values/production/swh-cassandra.yaml#L3010>`_.
+<https://gitlab.softwareheritage.org/swh/infra/ci-cd/swh-charts/-/blob/a8c6ea7db39be02c78d2eeed24e993ec1025deb2/swh/values/production/swh-cassandra.yaml#L3010>`__.
 
 A pod `alter` is deployed and ready to be used in each environment.
 

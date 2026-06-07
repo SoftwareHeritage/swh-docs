@@ -81,7 +81,7 @@ Processes
 ---------
 
 The necessary tooling to implement this policy is `not yet available
-<https://gitlab.softwareheritage.org/swh/meta/-/issues/4976>`_.
+<https://gitlab.softwareheritage.org/swh/meta/-/issues/4976>`__.
 Until then, the process to propagate takedown requests to mirrors will be the following:
 
 - When the Software Heritage team acts on a takedown request, an email will be

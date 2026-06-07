@@ -21,7 +21,7 @@ repositories come from other sources and have an *upstream* remote allowing upda
 
 Our puppet workflow is documented in `the README.md file in the puppet-environment
 repository
-<https://gitlab.softwareheritage.org/infra/puppet/puppet-environment/-/blob/master/README.md>`_.
+<https://gitlab.softwareheritage.org/infra/puppet/puppet-environment/-/blob/master/README.md>`__.
 
 .. _configure_octocatalog_diff:
 
@@ -29,7 +29,7 @@ Configure octocatalog-diff to ease testing
 ------------------------------------------
 
 *puppet-environment* contains the whole scaffolding to be able to use `octocatalog-diff
-<https://github.com/github/octocatalog-diff>`_ on our manifests. This allows for
+<https://github.com/github/octocatalog-diff>`__ on our manifests. This allows for
 quick(er) local iterations while developing complex puppet manifests.
 
 Dependencies
@@ -63,4 +63,4 @@ Limitations
 Our setup for octocatalog-diff doesn't support exported resources, so you won't see your
 fancy icinga checks there. For more evolved checks as those, use our `vagrant vms
 definitions
-<https://gitlab.softwareheritage.org/infra/puppet/puppet-environment/-/blob/master/README.md?plain=1#L187>`_.
+<https://gitlab.softwareheritage.org/infra/puppet/puppet-environment/-/blob/master/README.md?plain=1#L187>`__.

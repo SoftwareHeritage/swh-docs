@@ -22,8 +22,8 @@ Dependencies
 
 The easiest way to run a Software Heritage instance is to use Docker.
 Please `ensure that you have a working recent installation first
-<https://docs.docker.com/engine/install/>`_ (including the
-`Compose <https://docs.docker.com/compose/>`_ plugin).
+<https://docs.docker.com/engine/install/>`__ (including the
+`Compose <https://docs.docker.com/compose/>`__ plugin).
 
 Quick start
 -----------

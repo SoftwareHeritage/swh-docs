@@ -25,12 +25,12 @@ Administrative
 - Inria access badge and office keys
 - Sign PV d'installation
 - Create Inria account
-- `cantine card <https://intranet.softwareheritage.org/wiki/Cantine_card>`_
-- `transportation expenses <https://intranet.softwareheritage.org/wiki/Transportation_expenses>`_
+- `cantine card <https://intranet.softwareheritage.org/wiki/Cantine_card>`__
+- `transportation expenses <https://intranet.softwareheritage.org/wiki/Transportation_expenses>`__
 - Add picture (150x150px) and short bio to the `people page
-  <https://www.softwareheritage.org/people/>`_
+  <https://www.softwareheritage.org/people/>`__
 
-- Review the `team charter <https://intranet.softwareheritage.org/wiki/Team_charter>`_
+- Review the `team charter <https://intranet.softwareheritage.org/wiki/Team_charter>`__
 
 .. _onboarding_technical_setup:
 
@@ -41,7 +41,7 @@ Technical setup
 
    - Set \*nix password for the account (swh-private-data puppet repository)
 
-- Set up email forwarding on `gandi <https://admin.gandi.net/dashboard>`_
+- Set up email forwarding on `gandi <https://admin.gandi.net/dashboard>`__
 
 - Configure printer:
 
@@ -53,15 +53,15 @@ Technical setup
 
 - Create `Phabricator`_ account
 
-   - add user to phabricator `projects <https://forge.softwareheritage.org/project/>`_:
+   - add user to phabricator `projects <https://forge.softwareheritage.org/project/>`__:
      Developers, Staff, Reviewers, Interns (if applicable)
 
 - Create `Gitlab`_ account
 
-    - add user to the `Staff group <https://gitlab.softwareheritage.org/groups/teams/staff/-/group_members>`_
+    - add user to the `Staff group <https://gitlab.softwareheritage.org/groups/teams/staff/-/group_members>`__
     - TODO: Define further group memberships for new users
 
-- `VPN <https://intranet.softwareheritage.org/wiki/VPN>`_ access
+- `VPN <https://intranet.softwareheritage.org/wiki/VPN>`__ access
 - HTTP auth credentials for the `intranet wiki`_
 - Create account on the `intranet wiki`_ and ask someone to give you the shared auth credentials
 - Create account on the `public wiki`_
@@ -82,10 +82,10 @@ Communication
 - Invite to `IRC channels`_
 - Give staff role on IRC (`/msg ChanServ FLAGS #swh-team <username> Staff`, which applies on all channels)
 - Create user page on the intranet (see `example
-  <https://intranet.softwareheritage.org/wiki/User:StefanoZacchiroli>`_) with personal
+  <https://intranet.softwareheritage.org/wiki/User:StefanoZacchiroli>`__) with personal
   contact information
 - Subscribe to `team calendar
-  <https://intranet.softwareheritage.org/wiki/Team_calendar>`_
+  <https://intranet.softwareheritage.org/wiki/Team_calendar>`__
 
 .. _onboarding_training:
 
@@ -94,9 +94,9 @@ Training
 
 - Read  `data model <data-model>`_
 - Read `python modules structure
-  <https://docs.softwareheritage.org/devel/#dependencies>`_
+  <https://docs.softwareheritage.org/devel/#dependencies>`__
 - Follow `getting started tutorial
-  <https://docs.softwareheritage.org/devel/getting-started.html>`_
+  <https://docs.softwareheritage.org/devel/getting-started.html>`__
 - Have ``make check`` and ``make test`` pass there in swh-environment
 - `Configure arcanist <arcanist-configuration>`_ and submit a first diff
   following the `code review <code-review>`_ workflow

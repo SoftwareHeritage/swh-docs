@@ -161,7 +161,7 @@ Make a release
 
 Releases are made automatically by Jenkins when a tag is pushed to a module repository.
 
-We are using the `semantic versioning <https://semver.org>`_ scheme to name our
+We are using the `semantic versioning <https://semver.org>`__ scheme to name our
 releases, please ensure that the name of your tag correctly indicates its compatibility
 with the previous version.
 

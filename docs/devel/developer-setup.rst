@@ -226,7 +226,7 @@ install it using the command below:
 
     curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 
-for more details, see the `rust documentation <https://rust-lang.org/tools/install/>`_
+for more details, see the `rust documentation <https://rust-lang.org/tools/install/>`__
 
 If you intend to work on |swh| archive search features, Elasticsearch must also be
 present in your development environment. Proceed as follows to install it:
@@ -314,7 +314,7 @@ To install ``postgresql-autodoc``, proceed as follows:
       sudo make install
 
 
-See the `installation instructions <https://github.com/cbbrowne/autodoc#installation>`_ for more details.
+See the `installation instructions <https://github.com/cbbrowne/autodoc#installation>`__ for more details.
 
 
 To install ``dia``, you can run one of the following commands:

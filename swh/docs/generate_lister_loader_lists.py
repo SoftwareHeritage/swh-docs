@@ -43,7 +43,7 @@ def write_table(data, lister_or_loader: Literal["lister", "loader"], file) -> No
         f"{lister_or_loader.capitalize()} name",
         "Related links",
         "Current status",
-        "Related `grants <https://www.softwareheritage.org/grants/>`_",
+        "Related `grants <https://www.softwareheritage.org/grants/>`__",
     )
     table = []
     for forge_id, forge in sorted(data["forges"].items()):

@@ -45,7 +45,7 @@ commands as well as Celery workers.
 
 The contents of this configuration key follow the `"lowercase settings" schema from
 Celery upstream
-<https://docs.celeryq.dev/en/stable/userguide/configuration.html#new-lowercase-settings>`_.
+<https://docs.celeryq.dev/en/stable/userguide/configuration.html#new-lowercase-settings>`__.
 
 Some default values can be found in :mod:`swh.scheduler.celery_backend.config`.
 
@@ -137,7 +137,7 @@ The :ref:`storage <swh-storage>` has four possible classes:
         # ...
       # ...
 
-* ``postgresql``, which takes a `libpq connection string <https://www.postgresql.org/docs/current/libpq-connect.html#LIBPQ-CONNSTRING>`_::
+* ``postgresql``, which takes a `libpq connection string <https://www.postgresql.org/docs/current/libpq-connect.html#LIBPQ-CONNSTRING>`__::
 
     storage:
       cls: postgresql

@@ -252,7 +252,7 @@ Several users are used:
 
 - `swh-rw`: The main user used by swh-storage to manage the content in the database
 - `swh-ro`: A read-only user used for read-only storages (webapp, ...) or humans
-- `reaper`: A read-write user on the `reaper` keyspace. `Reaper <http://cassandra-reaper.io/>`_ is the tool in charge of managing the repairs
+- `reaper`: A read-write user on the `reaper` keyspace. `Reaper <http://cassandra-reaper.io/>`__ is the tool in charge of managing the repairs
 
 The command line will use the staging environment as examples. The configuration is for a medium
 data volume, with a Replication factor (RF) of 3. Adapt according to your own needs.

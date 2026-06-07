@@ -21,7 +21,7 @@ Therefore, origin URLs are Gogs's canonical URLs for the corresponding Git
 repository: :file:`https://{domain}/{owner}/{name}.git``
 
 New Gogs instances can be submitted to |swh| through the
-`Add Forge Now <https://archive.softwareheritage.org/add-forge/request/create/>`_
+`Add Forge Now <https://archive.softwareheritage.org/add-forge/request/create/>`__
 interface.
 
 |swh| does not yet archive extrinsic project metadata (eg. project description) from Gogs.

@@ -9,6 +9,6 @@ Request an account
    email to helpdesk@softwareheritage.org
 
 Once you have an account, you will receive a ``token`` to authenticate all calls to our
-`staging COAR Notify service <https://inbox.staging.swh.network>`_.
+`staging COAR Notify service <https://inbox.staging.swh.network>`__.
 
 You are now ready to :doc:`mention`.

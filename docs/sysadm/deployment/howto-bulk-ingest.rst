@@ -85,11 +85,11 @@ clusters.
 
 - Deploy the loader stack with a queue configuration <prefix>:<usual queue names>
 
-  - for example `Activate oneshot loaders <https://gitlab.softwareheritage.org/swh/infra/ci-cd/swh-charts/-/commit/f478419e4f350f3710ad4d32b3c8875bcf0db812>`_
+  - for example `Activate oneshot loaders <https://gitlab.softwareheritage.org/swh/infra/ci-cd/swh-charts/-/commit/f478419e4f350f3710ad4d32b3c8875bcf0db812>`__
 
 - If not provided, sort the origins per loader type (git/svn/hg/cvs/...)
 
-  - A quick and dirty helper script could help: `snippets bulk import directory <https://gitlab.softwareheritage.org/swh/devel/snippets/-/tree/master/sysadmin/bulk_import>`_
+  - A quick and dirty helper script could help: `snippets bulk import directory <https://gitlab.softwareheritage.org/swh/devel/snippets/-/tree/master/sysadmin/bulk_import>`__
 
 - Prepare your local environment, the next commands are for staging, adapt according to your needs
 

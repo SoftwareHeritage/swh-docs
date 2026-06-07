@@ -31,7 +31,7 @@ On Keycloak UI
    :class: screenshot
 
 - Configure it **roughly** as described in the first section of the
-  `OpenBao documentation <https://openbao.org/docs/auth/jwt/oidc-providers/keycloak/>`_.
+  `OpenBao documentation <https://openbao.org/docs/auth/jwt/oidc-providers/keycloak/>`__.
 
 .. image:: ../../images/secrets-management/02-add-client-role-to-openbao-client.png
    :alt: Add client role to keycloak openbao-client

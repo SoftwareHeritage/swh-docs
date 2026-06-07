@@ -6,7 +6,7 @@ Code review
 This page documents code review practices used for Software Heritage development.
 
 `GitLab has many useful features
-<https://docs.gitlab.com/ee/user/project/merge_requests/reviews/>`_ to ease
+<https://docs.gitlab.com/ee/user/project/merge_requests/reviews/>`__ to ease
 reviewing the changes, communicating around questions or comments, and making
 suggestions. Learning how to use them will help you and the team.
 
@@ -23,13 +23,13 @@ When submitting changes:
 - The :ref:`code submission workflow <patch-submission>` is implemented using
   merge requests sent to our GitLab instance.
 - The `assignee
-  <https://docs.gitlab.com/ee/user/project/issues/managing_issues.html#assignee>`_
+  <https://docs.gitlab.com/ee/user/project/issues/managing_issues.html#assignee>`__
   in the context of merge request is the person supposed to drive it to
   completion. **In almost all cases, you should assign yourself to merge requests you
   create.**
 - If your changes are meant to address a specific issue, you should `prefix the
   branch name with the issue number
-  <https://docs.gitlab.com/ee/user/project/repository/branches/index.html#naming>`_.
+  <https://docs.gitlab.com/ee/user/project/repository/branches/index.html#naming>`__.
 - Feel free to explicitly **mention one or more specific
   reviewer** from people most knowledgeable with the target code. You can also
   assign a single person [#multiple-reviewers]_ as reviewer using the relevant
@@ -60,7 +60,7 @@ Notifications
 To be sure to receive notifications of new merge requests:
 
 1. Open the `notification controls
-   <https://gitlab.softwareheritage.org/-/profile/notifications>`_ for your
+   <https://gitlab.softwareheritage.org/-/profile/notifications>`__ for your
    GitLab account.
 2. Locate the *Platform* group.
 3. Select *Custom* in the list of notification levels.
@@ -78,24 +78,24 @@ a view with all merge requests waiting for action across multiple projects. To
 have a better view of pending merge requests, you should consider using:
 
 - `GitLab Notify Extension
-  <https://github.com/Mikescops/gitlab-notify-extension>`_ available for Chrome
+  <https://github.com/Mikescops/gitlab-notify-extension>`__ available for Chrome
   and Firefox. It can list all merge requests you are assigned to and all merge
   requests you created.
 
-- `gitlab-revq <https://gitlab.softwareheritage.org/vlorentz/gitlab-revq/>`_, a
+- `gitlab-revq <https://gitlab.softwareheritage.org/vlorentz/gitlab-revq/>`__, a
   command-line tool listing all actionable pending requests.
 
 Recommended readings
 --------------------
 
-* `Best practices (Palantir) <https://medium.com/palantir/code-review-best-practices-19e02780015f>`_ ← comprehensive and recommended read, especially if you're short on time
-* `Best practices (Thoughtbot) <https://github.com/thoughtbot/guides/tree/master/code-review>`_
-* `Best practices (Smart Bear) <https://smartbear.com/learn/code-review/best-practices-for-peer-code-review/>`_
-* `Review checklist <https://www.codeproject.com/Articles/524235/Codeplusreviewplusguidelines>`_ (Code Project)
-* `Motivation: code quality <https://blog.codinghorror.com/code-reviews-just-do-it/>`_ (Coding Horror)
-* `Motivation: team culture <https://blog.fullstory.com/what-we-learned-from-google-code-reviews-arent-just-for-catching-bugs/>`_ (Google & FullStory)
-* `Motivation: humanizing peer reviews <http://www.processimpact.com/articles/humanizing_reviews.pdf>`_ (Wiegers)
-* `Motivation: sharing knowledge <https://www.atlassian.com/agile/software-development/code-reviews>`_ (Atlassian)
+* `Best practices (Palantir) <https://medium.com/palantir/code-review-best-practices-19e02780015f>`__ ← comprehensive and recommended read, especially if you're short on time
+* `Best practices (Thoughtbot) <https://github.com/thoughtbot/guides/tree/master/code-review>`__
+* `Best practices (Smart Bear) <https://smartbear.com/learn/code-review/best-practices-for-peer-code-review/>`__
+* `Review checklist <https://www.codeproject.com/Articles/524235/Codeplusreviewplusguidelines>`__ (Code Project)
+* `Motivation: code quality <https://blog.codinghorror.com/code-reviews-just-do-it/>`__ (Coding Horror)
+* `Motivation: team culture <https://blog.fullstory.com/what-we-learned-from-google-code-reviews-arent-just-for-catching-bugs/>`__ (Google & FullStory)
+* `Motivation: humanizing peer reviews <http://www.processimpact.com/articles/humanizing_reviews.pdf>`__ (Wiegers)
+* `Motivation: sharing knowledge <https://www.atlassian.com/agile/software-development/code-reviews>`__ (Atlassian)
 
 See also
 --------

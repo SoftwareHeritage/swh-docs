@@ -8,9 +8,9 @@ How to configure OpenVPN
 
    staff members
 
-The `Software Heritage <https://wiki.softwareheritage.org/wiki/Software_Heritage>`_
+The `Software Heritage <https://wiki.softwareheritage.org/wiki/Software_Heritage>`__
 server and the VMs running on it are severely firewalled. To get onto their network
-unrestricted, a VPN based on `OpenVPN <https://openvpn.net/>`_ is available.
+unrestricted, a VPN based on `OpenVPN <https://openvpn.net/>`__ is available.
 
 The setup is client-server, with per-client certificates.
 
@@ -85,8 +85,8 @@ Excerpt of a successful start:
     Loaded: loaded (/lib/systemd/system/openvpn@.service; indirect; vendor preset: enabled)``
     Active: active (running) since Thu 2020-12-17 19:03:29 UTC; 22min ago``
       Docs: man:openvpn(8)``
-            ``\ ```https://community.openvpn.net/openvpn/wiki/Openvpn24ManPage`` <https://community.openvpn.net/openvpn/wiki/Openvpn24ManPage>`_
-            ``\ ```https://community.openvpn.net/openvpn/wiki/HOWTO`` <https://community.openvpn.net/openvpn/wiki/HOWTO>`_
+            ``\ ```https://community.openvpn.net/openvpn/wiki/Openvpn24ManPage`` <https://community.openvpn.net/openvpn/wiki/Openvpn24ManPage>`__
+            ``\ ```https://community.openvpn.net/openvpn/wiki/HOWTO`` <https://community.openvpn.net/openvpn/wiki/HOWTO>`__
     Main PID: 12302 (openvpn)``
       Status: "Initialization Sequence Completed"``
        Tasks: 1 (limit: 4915)``
@@ -143,7 +143,7 @@ For admins
    openssl req -noout -text -in test.csr
    openssl req -noout -text -in test.csr | awk '/Subject:/'
 
-- On the firewall (192.168.50.1), go to the `System / Trust / Certificates page <https://192.168.50.1/ui/trust/cert>`_
+- On the firewall (192.168.50.1), go to the `System / Trust / Certificates page <https://192.168.50.1/ui/trust/cert>`__
 - Click on the ``+`` button on the bottom right
 
 .. figure:: ../../images/openvpn/opnsense_trust_certificates_page.png
@@ -164,10 +164,10 @@ For admins
 Revoking a client certificate
 -----------------------------
 
-On the firewall (master) `1 <https://192.168.50.1>`_:
+On the firewall (master) `1 <https://192.168.50.1>`__:
 
 - go to the `https://192.168.50.1/system_crlmanager.php System / Trust / Revocation
-  <https://192.168.50.1/system_crlmanager.php_System_/_Trust_/_Revocation>`_ page
+  <https://192.168.50.1/system_crlmanager.php_System_/_Trust_/_Revocation>`__ page
 - edit the "OpenVPN certificate revocation list" CRL
 
 .. figure:: ../../images/openvpn/vpn-ctrl-list.png

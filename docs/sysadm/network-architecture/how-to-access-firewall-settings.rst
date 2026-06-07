@@ -8,9 +8,9 @@ How to access firewall settings
 
    sysadm staff members
 
-The firewalls are 2 `OPNsense <https://opnsense.org>`_ VMs deployed on the PROXMOX
+The firewalls are 2 `OPNsense <https://opnsense.org>`__ VMs deployed on the PROXMOX
 cluster with an `High Availability
-<https://docs.opnsense.org/manual/hacarp.html?highlight=high%20availability>`_
+<https://docs.opnsense.org/manual/hacarp.html?highlight=high%20availability>`__
 configuration.
 
 They are sharing a virtual IP on each VLAN to act as the gateway. Only one of the 2
@@ -23,11 +23,11 @@ firewalls is owning all the GW ips at the same time. The owner is called the ``P
     - name (link to the inventory)
     - login page
   * - PRIMARY
-    - `pushkin <https://inventory.internal.softwareheritage.org/virtualization/virtual-machines/75/>`_
-    - `https://pushkin.internal.softwareheritage.org <https://pushkin.internal.softwareheritage.org>`_
+    - `pushkin <https://inventory.internal.softwareheritage.org/virtualization/virtual-machines/75/>`__
+    - `https://pushkin.internal.softwareheritage.org <https://pushkin.internal.softwareheritage.org>`__
   * - BACKUP
-    - `glyptotek <https://inventory.internal.softwareheritage.org/virtualization/virtual-machines/86/>`_
-    - `https://glyptotek.internal.softwareheritage.org <https://glyptotek.internal.softwareheritage.org>`_
+    - `glyptotek <https://inventory.internal.softwareheritage.org/virtualization/virtual-machines/86/>`__
+    - `https://glyptotek.internal.softwareheritage.org <https://glyptotek.internal.softwareheritage.org>`__
 
 Access to the gui of the secondary firewall
 -------------------------------------------
@@ -47,8 +47,8 @@ Configuration backup
 --------------------
 
 The configuration is automatically committed on a `git repository
-<https://gitlab.softwareheritage.org/infra-private/iFWCFG/-/tree/master/>`_. Each
+<https://gitlab.softwareheritage.org/infra-private/iFWCFG/-/tree/master/>`__. Each
 firewall regularly pushes its configuration on a dedicated branch of the repository.
 
 The configuration is visible on the `System / Configuration / Backups
-<https://pushkin.internal.softwareheritage.org/diag_backup.php>`_ page of each one.
+<https://pushkin.internal.softwareheritage.org/diag_backup.php>`__ page of each one.

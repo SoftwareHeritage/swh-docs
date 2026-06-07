@@ -23,7 +23,7 @@ or Mercurial repository: :file:`https://{domain}/{owner}/{name}.git`` and
 :file:`https://{domain}/{owner}/{name}` respectively.
 
 New Gitlab/Heptapod instances can be submitted to |swh| through the
-`Add Forge Now <https://archive.softwareheritage.org/add-forge/request/create/>`_
+`Add Forge Now <https://archive.softwareheritage.org/add-forge/request/create/>`__
 interface.
 
 |swh| currently does not archive extrinsic metadata from Gitlab or Heptapod due to

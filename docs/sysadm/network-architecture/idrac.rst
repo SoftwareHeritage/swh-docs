@@ -32,8 +32,8 @@ Connection how to
 
 You will need to install the following packages on your local machine:
 
-* `sshuttle <https://tracker.debian.org/pkg/sshuttle>`_
-* `icedtea-8-plugin <https://tracker.debian.org/pkg/icedtea-web>`_
+* `sshuttle <https://tracker.debian.org/pkg/sshuttle>`__
+* `icedtea-8-plugin <https://tracker.debian.org/pkg/icedtea-web>`__
 
 On debian like machines:
 
@@ -54,7 +54,7 @@ To be able to use UDP (e.g. for the IPMI SoL), you need to run sshuttle as root 
 tproxy method.
 
 This may need some `specific routing setup
-<https://sshuttle.readthedocs.io/en/stable/tproxy.html>`_ to work; for instance, in
+<https://sshuttle.readthedocs.io/en/stable/tproxy.html>`__ to work; for instance, in
 ``/etc/network/interfaces``:
 
 .. code::
@@ -98,7 +98,7 @@ Management network
 ------------------
 
 Look up the hostname of the management interface you want to access in the `inventory
-<https://inventory.internal.softwareheritage.org/ipam/prefixes/9/ip-addresses/>`_.
+<https://inventory.internal.softwareheritage.org/ipam/prefixes/9/ip-addresses/>`__.
 
 The machines hosted in the main Software Heritage bay at Rocquencourt use the
 128.93.134.0/26 network.

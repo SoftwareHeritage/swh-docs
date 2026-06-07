@@ -5,4 +5,4 @@ Backup infrastructure
 
 .. todo::
    This page is a work in progress. Please refer to the `existing documentation
-   <https://intranet.softwareheritage.org/wiki/Backups>`_.
+   <https://intranet.softwareheritage.org/wiki/Backups>`__.

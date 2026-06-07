@@ -13,13 +13,13 @@ staging
 
 In the staging environment, dedicated postgresql clusters are now running in
 kubernetes. They are managed by the `CloudNativePG
-operator <https://cloudnative-pg.io/documentation/current/>`_.
+operator <https://cloudnative-pg.io/documentation/current/>`__.
 
 Each postgresql cluster are running a version 17 of postgresql.
 
 Each postgresql cluster manages its own database with `one primary and one
 stand-by for high
-availability <https://cloudnative-pg.io/documentation/current/replication/>`_.
+availability <https://cloudnative-pg.io/documentation/current/replication/>`__.
 
 The primary is running in one node of the kubernetes cluster and the stand-by
 in another node. Should one node go down (for maintenance or a plain crash),
@@ -28,7 +28,7 @@ occurs between the primary and the replica.
 
 Backups are configured to happen daily (over night). The wals and the backups
 are stored in our `minio instance
-<https://minio-console.internal.admin.swh.network/>`_ in a dedicated bucket
+<https://minio-console.internal.admin.swh.network/>`__ in a dedicated bucket
 *s3://backup-cnpg/archive-staging-rke2/cnpg/<db-name>*.
 
 They are configured with a retention policy of 7 days for most of them.

@@ -149,7 +149,7 @@ Provenance
 * ``swh_provenance_storage_rabbitmq_duration_seconds_sum``
 
 `Index of Provenance dashboards
-<https://grafana.softwareheritage.org/dashboards/f/eKOFn6y7k/provenance>`_
+<https://grafana.softwareheritage.org/dashboards/f/eKOFn6y7k/provenance>`__
 
 .. _swh_statsd_metrics_replayers:
 
@@ -258,7 +258,7 @@ Webapp
 * ``swh_web_submitted_save_requests_from_webhooks``
 
 Dashboard: `Save Code Now
-<https://grafana.softwareheritage.org/d/WXRVVc_Mz/save-code-now>`_
+<https://grafana.softwareheritage.org/d/WXRVVc_Mz/save-code-now>`__
 
 .. _swh_statsd_metrics_misc:
 

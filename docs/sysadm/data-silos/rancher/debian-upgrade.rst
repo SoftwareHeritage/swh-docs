@@ -45,7 +45,7 @@ Rancher snapshot
 ~~~~~~~~~~~~~~~~
 
 To disable Rancher etcd snapshots go to ``Cluster Management`` from
-`Rancher UI <https://rancher.euwest.azure.internal.softwareheritage.org/dashboard/>`_,
+`Rancher UI <https://rancher.euwest.azure.internal.softwareheritage.org/dashboard/>`__,
 choose a cluster then there are two methods:
 
 1. edit the YAML configuration:
@@ -145,7 +145,7 @@ Check the clusters leases and configmaps used by Rancher snapshots:
               ConfigMap  rke2-etcd  "holderIdentity":"rancher-node-test-rke2-mgmt1"
               Lease      rke2-etcd  rancher-node-test-rke2-mgmt1
 
-`https://www.suse.com/support/kb/doc/?id=000021447 <https://www.suse.com/support/kb/doc/?id=000021447>`_
+`https://www.suse.com/support/kb/doc/?id=000021447 <https://www.suse.com/support/kb/doc/?id=000021447>`__
 
 Step 1: Migrate to the next debian suite
 ----------------------------------------

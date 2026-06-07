@@ -20,7 +20,7 @@ Therefore, origin URLs are Gitea's canonical URLs for the corresponding Git
 repository: :file:`https://{domain}/{owner}/{name}.git``
 
 New Gitea instances can be submitted to |swh| through the
-`Add Forge Now <https://archive.softwareheritage.org/add-forge/request/create/>`_
+`Add Forge Now <https://archive.softwareheritage.org/add-forge/request/create/>`__
 interface.
 
 |swh| also archives extrinsic project metadata (eg. project description) from Gitea.

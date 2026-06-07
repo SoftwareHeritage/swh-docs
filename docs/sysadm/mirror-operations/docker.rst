@@ -10,7 +10,7 @@ Deploy a Software Heritage stack with docker deploy
 
 This documentation aims at guiding a mirror operator in deploying a **test**
 mirror setup using the `example deployment stack
-<https://gitlab.softwareheritage.org/swh/infra/swh-mirror.git>`_ provided by
+<https://gitlab.softwareheritage.org/swh/infra/swh-mirror.git>`__ provided by
 Software Heritage. This example deployment stack is based on docker swarm. It
 should allow you to deploy a complete mirror within a few minutes, allowing you
 to have a working set of configuration files for all the services involved in
@@ -42,7 +42,7 @@ Prerequisites
 
 We assume that you have a properly set up docker swarm cluster with support for
 the `docker stack deploy
-<https://docs.docker.com/engine/reference/commandline/stack_deploy/>`_ command,
+<https://docs.docker.com/engine/reference/commandline/stack_deploy/>`__ command,
 e.g.:
 
 .. code-block:: console
@@ -61,9 +61,9 @@ available storage space in a couple of hours.
 
 Note: on some systems (centos for example), making docker swarm work requires
 some permission tuning regarding the firewall and `selinux
-<https://en.wikipedia.org/wiki/Security-Enhanced_Linux>`_. Please refer to `the
+<https://en.wikipedia.org/wiki/Security-Enhanced_Linux>`__. Please refer to `the
 upstream docker-swarm documentation
-<https://docs.docker.com/engine/swarm/swarm-tutorial/>`_. Deploying a docker
+<https://docs.docker.com/engine/swarm/swarm-tutorial/>`__. Deploying a docker
 swarm cluster on top of LXC/LXD has also been proven to be difficult.
 
 .. warning:: Check your docker setup with a simple example
@@ -132,7 +132,7 @@ Retrieve the deployment code
 ----------------------------
 
 First step is to clone the `swh-mirror
-<https://gitlab.softwareheritage.org/swh/infra/swh-mirror>`_ git repository:
+<https://gitlab.softwareheritage.org/swh/infra/swh-mirror>`__ git repository:
 
   https://gitlab.softwareheritage.org/swh/infra/swh-mirror.git
 
@@ -171,12 +171,12 @@ example, the ``objstorage`` service uses a volume named ``<STACK>_objstorage``:
 
 If you want to deploy services like the ``objstorage`` on several hosts, you
 will need a shared storage area in which blob objects will be stored. Typically
-a `NFS <https://en.wikipedia.org/wiki/Network_File_System>`_ storage can be
+a `NFS <https://en.wikipedia.org/wiki/Network_File_System>`__ storage can be
 used for this, or any existing docker volume driver like `REX-Ray
-<https://rexray.readthedocs.io/>`_. This is not covered in this documentation.
+<https://rexray.readthedocs.io/>`__. This is not covered in this documentation.
 
 Please read the `documentation of docker volumes
-<https://docs.docker.com/engine/storage/volumes/>`_ to learn how to use such a
+<https://docs.docker.com/engine/storage/volumes/>`__ to learn how to use such a
 device/driver as volume provider for docker.
 
 
@@ -277,7 +277,7 @@ Spawning the swh base services
 .. note::
 
    These manifests use a set of docker images `published in the docker hub
-   <https://hub.docker.com/repository/docker/softwareheritage/mirror/tags>`_.
+   <https://hub.docker.com/repository/docker/softwareheritage/mirror/tags>`__.
    The compose file uses the ``SWH_IMAGE_TAG`` variable to specify which
    version of the docker image file is to be used for Software Heritage
    services, with a default value hardwritten in the compose files. You
@@ -530,7 +530,7 @@ Then you can revert to the previous setup using:
    swh:~/swh-mirror$ docker service update --rollback swh_storage
 
 See the documentation of the `swh service update
-<https://docs.docker.com/engine/reference/commandline/service_update/>`_
+<https://docs.docker.com/engine/reference/commandline/service_update/>`__
 command for more details.
 
 Updating an image
@@ -728,7 +728,7 @@ The overall throughput of the mirroring process will depend heavily on the
 :ref:`swh-storage` service, and on the performance of the underlying
 ``storage-db`` database or ``cassandra`` cluster. You will need to make sure
 that your database is `properly tuned
-<https://wiki.postgresql.org/wiki/Tuning_Your_PostgreSQL_Server>`_ (if
+<https://wiki.postgresql.org/wiki/Tuning_Your_PostgreSQL_Server>`__ (if
 relevant).
 
 You may also want to deploy your database or cassandra cluster directly to
@@ -780,7 +780,7 @@ essential that the persons in charge of mirror deployment and operations has a
 reasonably good understanding of its architecture.
 
 Make sure to make yourself familiar with the `architecture of Winery
-<https://docs.softwareheritage.org/devel/swh-objstorage/winery.html>`_.
+<https://docs.softwareheritage.org/devel/swh-objstorage/winery.html>`__.
 
 It also essential to review the ``objstorage.yml`` configuration file,
 especially **ensure to tune the shard ``max_size``** to a *reasonable value*.
@@ -827,7 +827,7 @@ You may want to use a prometheus server running directly on one of the docker
 swarm nodes so that it can easily also monitor the swarm cluster itself and the
 running docker services.
 
-See the `prometheus guide <https://prometheus.io/docs/guides/dockerswarm>`_ on
+See the `prometheus guide <https://prometheus.io/docs/guides/dockerswarm>`__ on
 how to configure a Prometheus server to monitor a docker swarm cluster.
 
 In this case, the ``prometheus`` service should be removed from the docker

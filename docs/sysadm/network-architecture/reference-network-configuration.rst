@@ -24,7 +24,7 @@ VLAN1300 - Public network
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The detail of this range is available in this `VLAN1300 inventory page
-<https://inventory.internal.softwareheritage.org/ipam/prefixes/6/>`_
+<https://inventory.internal.softwareheritage.org/ipam/prefixes/6/>`__
 
 All the inbound traffic is firewalled by the INRIA gateway. The detail of the opened
 ports is visible on the private archive in the file
@@ -44,7 +44,7 @@ VLAN440 - Production network
 All the nodes dedicated to the main archive are deployed in this network.
 
 The detail of this range is available in this `VLAN440 inventory page
-<https://inventory.internal.softwareheritage.org/ipam/prefixes/2/>`_
+<https://inventory.internal.softwareheritage.org/ipam/prefixes/2/>`__
 
 For historical reasons, some admin nodes are deployed in this range (monitoring, ci,
 ...) and will be progressively moved into the admin network.
@@ -58,7 +58,7 @@ All the nodes dedicated to the staging version of the archive are deployed on th
 network (POCs and temporary nodes as well).
 
 The detail of this range is visible in this `VLAN443 inventory page
-<https://inventory.internal.softwareheritage.org/ipam/prefixes/8/>`_
+<https://inventory.internal.softwareheritage.org/ipam/prefixes/8/>`__
 
 The internal domain associated to this vlan is ``.internal.staging.swh.network``
 
@@ -69,7 +69,7 @@ This network is dedicated for admin and support nodes (e.g firewall, grafana, se
 ...).
 
 The detail of this range is visible in this `VLAN442 inventory page
-<https://inventory.internal.softwareheritage.org/ipam/prefixes/10/>`_.
+<https://inventory.internal.softwareheritage.org/ipam/prefixes/10/>`__.
 
 The internal domain associated to this vlan is ``.internal.admin.swh.network``
 

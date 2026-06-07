@@ -38,7 +38,7 @@ use. Currently, all databases are using the version 17.
 
 Major or minor version, it's up to the cloudnative-pg operator to manage the
 `database upgrades
-<https://cloudnative-pg.io/documentation/current/postgres_upgrades/>`_
+<https://cloudnative-pg.io/documentation/current/postgres_upgrades/>`__
 properly.
 
 minor version
@@ -47,14 +47,14 @@ minor version
 Minor upgrade can happen when we update the image catalog.
 
 To upgrade such ImageCatalog, retrieve the `latest version
-<https://raw.githubusercontent.com/cloudnative-pg/postgres-containers/main/Debian/ClusterImageCatalog-bookworm.yaml>`_
+<https://raw.githubusercontent.com/cloudnative-pg/postgres-containers/main/Debian/ClusterImageCatalog-bookworm.yaml>`__
 and merge it in `swh-charts's repository file
-<https://gitlab.softwareheritage.org/swh/infra/ci-cd/swh-charts/-/blob/production/cluster-components/templates/cloudnative-pg/clusterImageCatalog.yaml?ref_type=heads#L2-20>`_.
+<https://gitlab.softwareheritage.org/swh/infra/ci-cd/swh-charts/-/blob/production/cluster-components/templates/cloudnative-pg/clusterImageCatalog.yaml?ref_type=heads#L2-20>`__.
 Commit and push the commit changes. At the next argocd sync, this will trigger
 a rollout update of the postgresql clusters.
 
 See the `official documentation on minor version upgrades
-<https://cloudnative-pg.io/documentation/current/postgres_upgrades/#minor-version-upgrades>`_
+<https://cloudnative-pg.io/documentation/current/postgres_upgrades/#minor-version-upgrades>`__
 for more information.
 
 major version
@@ -62,13 +62,13 @@ major version
 
 The major version is declared in `swh-charts' repository and can be managed
 per cluster declaration
-<https://gitlab.softwareheritage.org/swh/infra/ci-cd/swh-charts/-/blob/production/cluster-components/values.yaml?ref_type=heads#L255>`_. It's
+<https://gitlab.softwareheritage.org/swh/infra/ci-cd/swh-charts/-/blob/production/cluster-components/values.yaml?ref_type=heads#L255>`__. It's
 currently declared globally but can be overridden per instance. Commit and
 push the commit changes. At the next argocd sync, this will trigger a rollout
 update of the postgresql clusters.
 
 See the `official documentation on major version upgrades
-<https://cloudnative-pg.io/documentation/current/postgres_upgrades/#major-version-upgrades>`_
+<https://cloudnative-pg.io/documentation/current/postgres_upgrades/#major-version-upgrades>`__
 for more information.
 
 Postgresql Operator upgrade
@@ -76,9 +76,9 @@ Postgresql Operator upgrade
 
 The cloudnative-pg operator is managed through the swh-charts repository, with
 the cluster-configuration chart. `Update the version key entry either globally
-<https://gitlab.softwareheritage.org/swh/infra/ci-cd/swh-charts/-/blob/production/cluster-configuration/values.yaml?ref_type=heads#L108>`_
+<https://gitlab.softwareheritage.org/swh/infra/ci-cd/swh-charts/-/blob/production/cluster-configuration/values.yaml?ref_type=heads#L108>`__
 or `in the specific cluster version first
-<https://gitlab.softwareheritage.org/swh/infra/ci-cd/swh-charts/-/blob/01d129c93f3a252939302e5cc090eabf18fcbea7/cluster-configuration/values/archive-staging-rke2.yaml#L66>`_
+<https://gitlab.softwareheritage.org/swh/infra/ci-cd/swh-charts/-/blob/01d129c93f3a252939302e5cc090eabf18fcbea7/cluster-configuration/values/archive-staging-rke2.yaml#L66>`__
 (to restrict changes).
 
 In the same way described previously, there will be an update of the

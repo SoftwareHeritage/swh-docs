@@ -13,8 +13,8 @@ Webhooks Svix
 
    For the following page, unless specified otherwise, the commands are executed from the sysadm computer.
 
-* `Svix Overview <https://docs.svix.com/overview>`_
-* `Svix Default Configuration <https://github.com/svix/svix-webhooks/blob/main/server/svix-server/config.default.toml>`_
+* `Svix Overview <https://docs.svix.com/overview>`__
+* `Svix Default Configuration <https://github.com/svix/svix-webhooks/blob/main/server/svix-server/config.default.toml>`__
 
 .. _webhooks-svix-components:
 

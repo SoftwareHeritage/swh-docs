@@ -28,9 +28,9 @@ Kubernetes clusters
 Upgrading Kubernetes
 --------------------
 
-| The Kubernetes supported version in AKS can be checked on this `release calendar <https://learn.microsoft.com/en-us/azure/aks/supported-kubernetes-versions?tabs=azure-cli#aks-kubernetes-release-calendar>`_.
-| For the Rancher cluster, check the `supported versions <https://www.suse.com/suse-rancher/support-matrix/all-supported-versions/>`_.
-| For the GitLab clusters, check which versions are supported by the `operator <https://docs.gitlab.com/operator/installation.html#cluster>`_.
+| The Kubernetes supported version in AKS can be checked on this `release calendar <https://learn.microsoft.com/en-us/azure/aks/supported-kubernetes-versions?tabs=azure-cli#aks-kubernetes-release-calendar>`__.
+| For the Rancher cluster, check the `supported versions <https://www.suse.com/suse-rancher/support-matrix/all-supported-versions/>`__.
+| For the GitLab clusters, check which versions are supported by the `operator <https://docs.gitlab.com/operator/installation.html#cluster>`__.
 
 .. admonition:: Get the current GitLab operator version
    :class: tip
@@ -117,5 +117,5 @@ Repeat the same operations for each minor version.
 
    Once you are done with the cluster upgrade, update the ``kubernetes_version``
    variable in the ``azure/terraform/gitlab.tf`` file
-   in the `sysadm-provisioning <https://gitlab.softwareheritage.org/swh/infra/swh-sysadmin-provisioning>`_
+   in the `sysadm-provisioning <https://gitlab.softwareheritage.org/swh/infra/swh-sysadmin-provisioning>`__
    repository.

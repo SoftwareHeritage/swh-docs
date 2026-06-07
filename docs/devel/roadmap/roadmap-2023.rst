@@ -10,7 +10,7 @@ Heritage initiative for the year 2023.
 
 Live tracking of the roadmap implementation progress during the year is
 available from a dedicated `GitLab board
-<https://gitlab.softwareheritage.org/groups/swh/-/milestones?sort=name_asc>`_.
+<https://gitlab.softwareheritage.org/groups/swh/-/milestones?sort=name_asc>`__.
 
 .. contents::
    :depth: 3

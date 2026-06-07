@@ -8,14 +8,14 @@ How to manage the credentials store
 
    Staff members
 
-We use `pass <https://www.passwordstore.org/>`_, lightweight directory-based password
+We use `pass <https://www.passwordstore.org/>`__, lightweight directory-based password
 manager, as our password manager.
 
 Repository
 ^^^^^^^^^^
 
 The repository location is `in the forge
-<https://gitlab.softwareheritage.org/swh/infra/credentials>`_.
+<https://gitlab.softwareheritage.org/swh/infra/credentials>`__.
 
 Configuration
 ^^^^^^^^^^^^^
@@ -41,4 +41,4 @@ Information
 ^^^^^^^^^^^
 
 More information can be found at `the repository
-<https://gitlab.softwareheritage.org/swh/infra/credentials/-/blob/master/README>`_.
+<https://gitlab.softwareheritage.org/swh/infra/credentials/-/blob/master/README>`__.

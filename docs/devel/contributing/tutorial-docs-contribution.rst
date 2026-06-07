@@ -94,8 +94,8 @@ We are following Divio's approach with four major types of documentation:
   explain different decisions, including background and context.
 
 
-For more information see `the divio documentation <https://documentation.divio.com/>`_
-and/or `Daniele Procida's presentation <https://www.youtube.com/watch?v=t4vKPhjcMZg>`_
+For more information see `the divio documentation <https://documentation.divio.com/>`__
+and/or `Daniele Procida's presentation <https://www.youtube.com/watch?v=t4vKPhjcMZg>`__
 
 .. note::
     We propose using in the following naming scheme depending on the type of document:
@@ -135,7 +135,7 @@ Empty page template
       add the audience target(s) of this page
 
    .. todo::
-      This page is a work in progress. For now, please refer to the `existing documentation <https://...>`_.
+      This page is a work in progress. For now, please refer to the `existing documentation <https://...>`__.
 
 Empty subsection template
 ^^^^^^^^^^^^^^^^^^^^^^^^^

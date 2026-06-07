@@ -8,7 +8,7 @@ ArgoCD
 
    sysadm staff members
 
-The CD is run by `ArgoCD <https://argo-cd.readthedocs.io>`_ on argocd.softwareheritage.org.
+The CD is run by `ArgoCD <https://argo-cd.readthedocs.io>`__ on argocd.softwareheritage.org.
 
 The repositories
 ----------------
@@ -16,11 +16,11 @@ The repositories
 To manage the kubernetes clusters and ArgoCD, 2 git repositories are used:
 
 - `k8s-clusters-conf
-  <https://gitlab.softwareheritage.org/infra/ci-cd/k8s-clusters-conf>`_: Kubernetes
+  <https://gitlab.softwareheritage.org/infra/ci-cd/k8s-clusters-conf>`__: Kubernetes
   yaml files deployed on the clusters, it contains the configurations to apply directly
   on the clusters. The ArgoCD configuration is also committed in this repository.
 - `k8s-private data
-  <https://gitlab.softwareheritage.org/infra/ci-cd/k8s-swh-private-data/>`_: private
+  <https://gitlab.softwareheritage.org/infra/ci-cd/k8s-swh-private-data/>`__: private
   repository with the yaml files to configure the secrets per cluster
 
 **Except during the bootstrap phase, the configuration files are automatically applied
@@ -28,9 +28,9 @@ on the clusters by ArgoCD.**
 
 2 others deployment services related are indirectly related to deployments:
 
-- `swh-apps <https://gitlab.softwareheritage.org/infra/swh-apps>`_:
+- `swh-apps <https://gitlab.softwareheritage.org/infra/swh-apps>`__:
   Image definitions (version and dependencies, docker images definitions)
-- `swh-charts <https://gitlab.softwareheritage.org/infra/ci-cd/swh-charts>`_:
+- `swh-charts <https://gitlab.softwareheritage.org/infra/ci-cd/swh-charts>`__:
   Application definitions, mostly helm charts defining the way to deploy an application.
   The public configurations per environment are also in this repository due to argocd
   constraints. The deployment of these applications is done by ArgoCD.
@@ -48,15 +48,15 @@ Install ArgoCD
 TODO: Detail how it was done in the swh environment
 
   Some working notes are available in a `Readme.md in the k8s-clusters-conf repository
-  <https://gitlab.softwareheritage.org/infra/ci-cd/k8s-clusters-conf/-/blob/master/Readme.md>`_.
+  <https://gitlab.softwareheritage.org/infra/ci-cd/k8s-clusters-conf/-/blob/master/Readme.md>`__.
   It's based on the official `ArgoCD documentation
-  <https://argo-cd.readthedocs.io/en/stable/cli_installation/>`_
+  <https://argo-cd.readthedocs.io/en/stable/cli_installation/>`__
 
 Upgrade ArgoCD
 ~~~~~~~~~~~~~~
 
 Follow the `official ArgoCD document procedure
-<https://argo-cd.readthedocs.io/en/stable/operator-manual/upgrading/overview/>`_
+<https://argo-cd.readthedocs.io/en/stable/operator-manual/upgrading/overview/>`__
 
 Bootstrap the self configuration management
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -67,7 +67,7 @@ To do so, some manual installation steps are needed:
 
 - Clone the ``k8s-private-data`` and ``k8s-clusters-conf`` repositories locally (or
   directly the `sysadm-environment repository
-  <https://gitlab.softwareheritage.org/infra/sysadm-environment>`_)
+  <https://gitlab.softwareheritage.org/infra/sysadm-environment>`__)
 - Configure the ``k8s-private-data`` repository credentials in ArgoCD:
 
 .. code:: bash
@@ -151,7 +151,7 @@ an alert triggered by the monitoring
 
 * Credentials and tokens for the argocd service user are managed through
   terraform in the `sysadm-provisioning
-  <https://gitlab.softwareheritage.org/swh/infra/swh-sysadmin-provisioning>`_
+  <https://gitlab.softwareheritage.org/swh/infra/swh-sysadmin-provisioning>`__
   repository (in the ``proxmox/terraform/admin`` directory).
 * After following the readme steps to provision credentials in your runtime
   environment (particularly the argocd user and your proxmox token), run
@@ -174,7 +174,7 @@ an alert triggered by the monitoring
 
 * Update the value for the token in the cluster declarations of the
   `k8s-private-data
-  <https://gitlab.softwareheritage.org/infra-private/k8s-swh-private-data>`_
+  <https://gitlab.softwareheritage.org/infra-private/k8s-swh-private-data>`__
   repository, for example in the ``argocd/clusters/test-staging-rke2.yaml`` file
 
 Rancher token expiry is set to 90 days by default. One can disable this expiry
@@ -203,13 +203,13 @@ repository.
 
 More information about the application configuration can also be found in the `official
 ArgoCD documentation
-<https://argo-cd.readthedocs.io/en/stable/operator-manual/declarative-setup/>`_
+<https://argo-cd.readthedocs.io/en/stable/operator-manual/declarative-setup/>`__
 
 Manage users
 ------------
 
 This documentation is based on the `official user management documentation
-<https://archive.softwareheritage.org/swh:1:cnt:c0a70eae47429de31f5eb3eb707ad2a498bee0ab;origin=https://github.com/argoproj/argo-cd;visit=swh:1:snp:2ea44c7c86241d081851907e778a41260304d898;anchor=swh:1:rev:a773b1effb6f59be14176c6402a9a69c4b480275;path=/docs/operator-manual/user-management/index.md>`_
+<https://archive.softwareheritage.org/swh:1:cnt:c0a70eae47429de31f5eb3eb707ad2a498bee0ab;origin=https://github.com/argoproj/argo-cd;visit=swh:1:snp:2ea44c7c86241d081851907e778a41260304d898;anchor=swh:1:rev:a773b1effb6f59be14176c6402a9a69c4b480275;path=/docs/operator-manual/user-management/index.md>`__
 (archived link)
 
 Prerequisite
@@ -221,10 +221,10 @@ Add a user
 ~~~~~~~~~~
 
 - Add the user on the `argo-cm.yaml
-  <https://gitlab.softwareheritage.org/infra/ci-cd/k8s-clusters-conf/-/blob/87aa53624d61601b31697d312254aa3c57a6227d/argocd/configmaps/argocd-cm.yaml>`_
+  <https://gitlab.softwareheritage.org/infra/ci-cd/k8s-clusters-conf/-/blob/87aa53624d61601b31697d312254aa3c57a6227d/argocd/configmaps/argocd-cm.yaml>`__
   file
 - Add the user role on the `argocd-rbac-cm.yaml
-  <https://gitlab.softwareheritage.org/infra/ci-cd/k8s-clusters-conf/-/blob/87aa53624d61601b31697d312254aa3c57a6227d/argocd/configmaps/argocd-rbac-cm.yaml>`_
+  <https://gitlab.softwareheritage.org/infra/ci-cd/k8s-clusters-conf/-/blob/87aa53624d61601b31697d312254aa3c57a6227d/argocd/configmaps/argocd-rbac-cm.yaml>`__
   file
   If no role is specified, the user will only have a read-only access
 
@@ -253,7 +253,7 @@ Disable a user
 ~~~~~~~~~~~~~~
 
 - Add the following line in the `argocd-cm.yaml
-  <https://gitlab.softwareheritage.org/infra/ci-cd/k8s-clusters-conf/-/blob/87aa53624d61601b31697d312254aa3c57a6227d/argocd/configmaps/argocd-cm.yaml>`_
+  <https://gitlab.softwareheritage.org/infra/ci-cd/k8s-clusters-conf/-/blob/87aa53624d61601b31697d312254aa3c57a6227d/argocd/configmaps/argocd-cm.yaml>`__
   file
 
 .. code:: yaml

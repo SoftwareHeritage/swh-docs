@@ -10,9 +10,9 @@ Add-forge-now automation
 
 When a request status is updated to ``Accepted``, a Gitlab pipeline is triggered to process the request.
 
-* `Add-forge-now Archive <https://archive.softwareheritage.org/admin/add-forge/requests/>`_
-* `Add-forge-now-requests Repository <https://gitlab.softwareheritage.org/swh/infra/add-forge-now-requests>`_
-* `Add-forge-now-requests CI/CD Analytics <https://gitlab.softwareheritage.org/swh/infra/add-forge-now-requests/-/pipelines/charts>`_
+* `Add-forge-now Archive <https://archive.softwareheritage.org/admin/add-forge/requests/>`__
+* `Add-forge-now-requests Repository <https://gitlab.softwareheritage.org/swh/infra/add-forge-now-requests>`__
+* `Add-forge-now-requests CI/CD Analytics <https://gitlab.softwareheritage.org/swh/infra/add-forge-now-requests/-/pipelines/charts>`__
 
 .. _add-forge-now-pipeline:
 
@@ -20,9 +20,9 @@ Pipeline
 --------
 
 | To overview the pipelines,
-  see the `pipelines <https://gitlab.softwareheritage.org/swh/infra/add-forge-now-requests/-/pipelines>`_ page.
+  see the `pipelines <https://gitlab.softwareheritage.org/swh/infra/add-forge-now-requests/-/pipelines>`__ page.
 | To see only the running pipelines,
-  see the `running pipelines <https://gitlab.softwareheritage.org/swh/infra/add-forge-now-requests/-/pipelines?page=1&scope=all&status=running>`_ page.
+  see the `running pipelines <https://gitlab.softwareheritage.org/swh/infra/add-forge-now-requests/-/pipelines?page=1&scope=all&status=running>`__ page.
 | To view the pipeline details, click on the pipeline status.
 | To view the job details, click on the stage and choose a job.
 
@@ -48,7 +48,7 @@ Pre stage
 
 | The first job create a Gitlab issue with the forge URL in the title.
 | To overview the issues,
-  see the `issues, <https://gitlab.softwareheritage.org/swh/infra/add-forge-now-requests/-/issues>`_ page.
+  see the `issues, <https://gitlab.softwareheritage.org/swh/infra/add-forge-now-requests/-/issues>`__ page.
 | The second job check the SWH components ports,
   the forge URL (https) availability and the webapp token validity (recreate it if needed).
 | The last job of the ``pre`` stage add a comment on the webapp request with the Gitlab issue URL.
@@ -118,9 +118,9 @@ A non-exhaustive list of common pipeline errors is:
     - cause: the token used to interact with gitlab is incorrect or has expired
     - solution:
         - With the  `add-forge-now` user, generate a new
-          `Pipeline trigger token <https://gitlab.softwareheritage.org/swh/infra/add-forge-now-requests/-/settings/ci_cd#js-pipeline-triggers>`_ in gitlab
+          `Pipeline trigger token <https://gitlab.softwareheritage.org/swh/infra/add-forge-now-requests/-/settings/ci_cd#js-pipeline-triggers>`__ in gitlab
         - Update the ``gitlab_afn_token`` in the
-          `webapp credentials <https://gitlab.softwareheritage.org/infra-private/k8s-swh-private-data/-/blob/master/archive-production-rke2/common-secrets.yaml>`_
+          `webapp credentials <https://gitlab.softwareheritage.org/infra-private/k8s-swh-private-data/-/blob/master/archive-production-rke2/common-secrets.yaml>`__
         - The token can be tested in command line with the command described in the readme of the project
 - Stage `pre`, job `02_check_ports_and_token`:
     - error: the network ports checks failed;
@@ -149,7 +149,7 @@ Gitlab-runner
 -------------
 
 | The Gitlab-runner is dedicated to the add-forge-now-requests project.
-| The `CI/CD settings <https://gitlab.softwareheritage.org/swh/infra/add-forge-now-requests/-/settings/ci_cd>`_ page contains:
+| The `CI/CD settings <https://gitlab.softwareheritage.org/swh/infra/add-forge-now-requests/-/settings/ci_cd>`__ page contains:
 | - the ``Runners`` section to check the runner's status and update the runner configuration;
 
 |afnr_gitlab-runner|
@@ -169,13 +169,13 @@ Gitlab-runner
    :class: note
 
    This project token is used to create, comment and close the GitLab issues and to commit the request status in the
-   `requests processing history <https://gitlab.softwareheritage.org/swh/infra/add-forge-now-requests#requests-processing-history>`_.
-   The project token can be generated on page `access token <https://gitlab.softwareheritage.org/swh/infra/add-forge-now-requests/-/settings/access_tokens>`_
+   `requests processing history <https://gitlab.softwareheritage.org/swh/infra/add-forge-now-requests#requests-processing-history>`__.
+   The project token can be generated on page `access token <https://gitlab.softwareheritage.org/swh/infra/add-forge-now-requests/-/settings/access_tokens>`__
    and requires an ``api`` scope and a ``maintainer`` role. Once created the value must be stored in the variable ``ADD_FORGE_NOW_ISSUE_TOKEN`` [1]_.
    The bot user is automatically created the first time the token is used. Project token has a lifetime of one year.
    When the project token has expired, the bot user is deleted [2]_.
 
-| - the `Pipeline trigger tokens <https://gitlab.softwareheritage.org/swh/infra/add-forge-now-requests/-/settings/ci_cd#js-pipeline-triggers>`_ section to check or change the pipeline token.
+| - the `Pipeline trigger tokens <https://gitlab.softwareheritage.org/swh/infra/add-forge-now-requests/-/settings/ci_cd#js-pipeline-triggers>`__ section to check or change the pipeline token.
 | This token is stored in a Kubernetes secret ``gitlab_afn_token`` (repository: ``k8s-swh-private-data``; file: ``archive-production-rke2/common-secrets.yaml``).
 |
 | It runs on **runner0** virtual machine with a docker executor.

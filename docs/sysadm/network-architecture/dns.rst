@@ -177,7 +177,7 @@ not need any specific configuration.
 
 All other hosts (``*.internal.softwareheritage.org``,
 ``*.internal.staging.swh.network``, ``*.internal.admin.swh.network``) are only (but
-directly) accessible through the `VPN <https://wiki.softwareheritage.org/wiki/VPN>`_.
+directly) accessible through the `VPN <https://wiki.softwareheritage.org/wiki/VPN>`__.
 
 *Note:* the default ssh port on ``tate.internal.softwareheritage.org`` is used for the
 sandboxed access to phabricator. Access to the system goes through port 2222. In

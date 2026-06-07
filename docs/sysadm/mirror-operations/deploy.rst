@@ -26,8 +26,8 @@ stack:
     :ref:`swh-objstorage-replayer` package)
 
 Each service consists in an HTTP-based RPC served by a `gunicorn
-<https://gunicorn.org/>`_ `WSGI
-<https://fr.wikipedia.org/wiki/Web_Server_Gateway_Interface>`_ server.
+<https://gunicorn.org/>`__ `WSGI
+<https://fr.wikipedia.org/wiki/Web_Server_Gateway_Interface>`__ server.
 
 .. Note:: It is **not** recommended to try to deploy each |swh| service
           individually. You should rather start from the example docker-based
@@ -39,7 +39,7 @@ Docker-based deployment
 
 This represents a lot of services to configure and orchestrate. In order to
 help to start the configuration of a mirror, a `docker-swarm
-<https://docs.docker.com/engine/swarm/>`_ based deployment solution is provided
+<https://docs.docker.com/engine/swarm/>`__ based deployment solution is provided
 as a working example of the mirror stack:
 
   https://gitlab.softwareheritage.org/swh/infra/swh-mirror

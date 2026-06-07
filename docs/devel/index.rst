@@ -103,7 +103,7 @@ of the corresponding Python module.
     low-level library used by modules needing keycloak authentication
 
 :ref:`swh.coarnotify <swh-coarnotify>`
-    a `COAR Notify <https://coar-notify.net>`_ server implementation in Django
+    a `COAR Notify <https://coar-notify.net>`__ server implementation in Django
 
 :ref:`swh.core <swh-core>`
     low-level utilities and helpers used by almost all other modules in the
@@ -131,7 +131,7 @@ swh.docs
 
 :ref:`swh.fuse <swh-fuse>`
     Virtual file system to browse the Software Heritage archive, based on
-    `FUSE <https://github.com/libfuse/libfuse>`_
+    `FUSE <https://github.com/libfuse/libfuse>`__
 
 :ref:`swh.graph <swh-graph>`
     Fast, compressed, in-memory representation of the archive, with tooling to
@@ -156,24 +156,24 @@ swh.docs
     low-level loading utilities and helpers used by all other loaders
 
 :ref:`swh.loader-bzr <swh-loader-bzr>`
-    loader for `Bazaar <http://bazaar.canonical.com/en/>`_ and
-    `Breezy <https://www.breezy-vcs.org/>`_ repositories
+    loader for `Bazaar <http://bazaar.canonical.com/en/>`__ and
+    `Breezy <https://www.breezy-vcs.org/>`__ repositories
 
 :ref:`swh.loader-git <swh-loader-git>`
-    loader for `Git <https://git-scm.com/>`_ repositories
+    loader for `Git <https://git-scm.com/>`__ repositories
 
 :ref:`swh.loader-mercurial <swh-loader-mercurial>`
-    loader for `Mercurial <https://www.mercurial-scm.org/>`_ repositories
+    loader for `Mercurial <https://www.mercurial-scm.org/>`__ repositories
 
 :ref:`swh.loader-metadata <swh-loader-metadata>`
     pseudo-loader, which fetches :term:`extrinsic metadata` from forges instead
     of software artifacts
 
 :ref:`swh.loader-svn <swh-loader-svn>`
-    loader for `Subversion <https://subversion.apache.org/>`_ repositories
+    loader for `Subversion <https://subversion.apache.org/>`__ repositories
 
 :ref:`swh.loader-cvs <swh-loader-cvs>`
-    loader for `CVS <https://savannah.nongnu.org/projects/cvs>`_ repositories
+    loader for `CVS <https://savannah.nongnu.org/projects/cvs>`__ repositories
 
 :ref:`swh.model <swh-model>`
     implementation of the :ref:`data-model` to archive source code artifacts

@@ -28,7 +28,7 @@ Prepare the notification payload
 --------------------------------
 
 To announce that the scientific paper ``https://your-organization.tld/item/12345/``
-mentions the software `parmap <https://github.com/rdicosmo/parmap>`_. The notification
+mentions the software `parmap <https://github.com/rdicosmo/parmap>`__. The notification
 will look like:
 
 .. code-block:: json

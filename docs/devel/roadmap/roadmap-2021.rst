@@ -8,7 +8,7 @@ Roadmap 2021
 This document provides an overview of the technical roadmap of Software Heritage for
 2021.
 
-The `Kanban board <https://forge.softwareheritage.org/project/board/160/query/all/>`_
+The `Kanban board <https://forge.softwareheritage.org/project/board/160/query/all/>`__
 is seen through our forge.
 
 
@@ -24,7 +24,7 @@ Faster and more reliable save code now
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 - tags: openscience
-- task: `T3082 <https://forge.softwareheritage.org/T3082>`_
+- task: `T3082 <https://forge.softwareheritage.org/T3082>`__
 - lead: ardumont
 - effort: 1 PM
 
@@ -37,20 +37,20 @@ Improve deposit integration, management and display
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 - tags: openscience
-- task: `T3128 <https://forge.softwareheritage.org/T3128>`_
+- task: `T3128 <https://forge.softwareheritage.org/T3128>`__
 - lead: moranegg
 - effort: 3 PM
 
 Includes work:
 
--  full invenioRDM integration `T2344 <https://forge.softwareheritage.org/T2344>`_
--  metadata only deposit `T2540 <https://forge.softwareheritage.org/T2540>`_
+-  full invenioRDM integration `T2344 <https://forge.softwareheritage.org/T2344>`__
+-  metadata only deposit `T2540 <https://forge.softwareheritage.org/T2540>`__
 
 Save forge now
 ^^^^^^^^^^^^^^
 
 - tags: expand
-- task: `T1538 <https://forge.softwareheritage.org/T1538>`_
+- task: `T1538 <https://forge.softwareheritage.org/T1538>`__
 - lead: ardumont
 - effort: 1 PM - tooling & process
 
@@ -58,7 +58,7 @@ Admin tooling for takedown notices (URLs)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 - tags: contract, compliance
-- task: `T3087 <https://forge.softwareheritage.org/T3087>`_
+- task: `T3087 <https://forge.softwareheritage.org/T3087>`__
 - lead: anlambert
 - effort: 2 PM
 
@@ -75,7 +75,7 @@ Complete and up-to-date archive copy on S3
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 - tags: stability
-- task: `T3085 <https://forge.softwareheritage.org/T3085>`_
+- task: `T3085 <https://forge.softwareheritage.org/T3085>`__
 - lead: douardda
 - effort: 1 PM
 
@@ -88,20 +88,20 @@ Scale-out graph storage in production
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 - tags: scalability
-- task: `T2214 <https://forge.softwareheritage.org/T2214>`_
+- task: `T2214 <https://forge.softwareheritage.org/T2214>`__
 - lead: vlorentz
 - effort: 3 PM
 
 Includes work:
 
 
-- Cassandra: `T1892 <https://forge.softwareheritage.org/T1892>`_ (*maybe with external help*)
+- Cassandra: `T1892 <https://forge.softwareheritage.org/T1892>`__ (*maybe with external help*)
 
 Scale-out object storage prototype
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 - tags: stability, scalability, *externalized*
-- task: `T3054 <https://forge.softwareheritage.org/T3054>`_
+- task: `T3054 <https://forge.softwareheritage.org/T3054>`__
 - lead: dachary
 - effort: 3 PM
 
@@ -109,7 +109,7 @@ Cold storage archive in Vitam instance at CINES
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 - tags: contract
-- task: `T3113 <https://forge.softwareheritage.org/T3113>`_
+- task: `T3113 <https://forge.softwareheritage.org/T3113>`__
 - lead: douardda
 - effort: 4 PM
 
@@ -118,7 +118,7 @@ Mirrors
 
 - tags: stability, scalability
 - depends: scale-out object storage
-- task: `T3116 <https://forge.softwareheritage.org/T3116>`_
+- task: `T3116 <https://forge.softwareheritage.org/T3116>`__
 - lead: douardda
 - effort: 3 PM
 
@@ -130,7 +130,7 @@ SWHID v2
 ^^^^^^^^
 
 - tags: stability, evolution, datamodel
-- task: `T3134 <https://forge.softwareheritage.org/T3134>`_
+- task: `T3134 <https://forge.softwareheritage.org/T3134>`__
 - lead: zack
 - effort: 6 PM
 
@@ -147,14 +147,14 @@ Integrity
 ^^^^^^^^^
 
 - tags: stability, reliability
-- task: `T3135 <https://forge.softwareheritage.org/T3135>`_
+- task: `T3135 <https://forge.softwareheritage.org/T3135>`__
 - lead: olasd
 - effort: 2 PM
 
 Includes work:
 
-- making sure objects aren’t corrupted before insertion `T399 <https://forge.softwareheritage.org/T399>`_
-- ... and that existing ones are not part of `T75 <https://forge.softwareheritage.org/T75>`_
+- making sure objects aren’t corrupted before insertion `T399 <https://forge.softwareheritage.org/T399>`__
+- ... and that existing ones are not part of `T75 <https://forge.softwareheritage.org/T75>`__
 - make corruption check periodically
 
 
@@ -165,7 +165,7 @@ swh-graph in production
 ^^^^^^^^^^^^^^^^^^^^^^^
 
 - tags: scalability
-- task: `T2220 <https://forge.softwareheritage.org/T2220>`_
+- task: `T2220 <https://forge.softwareheritage.org/T2220>`__
 - lead: zack
 - effort: 2 PM
 
@@ -173,7 +173,7 @@ Efficient and reliable Vault download
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 - tags: stability
-- task: `T3096 <https://forge.softwareheritage.org/T3096>`_
+- task: `T3096 <https://forge.softwareheritage.org/T3096>`__
 - lead: vlorentz
 - effort: 3 PM
 
@@ -185,7 +185,7 @@ Web API 2.0
 ^^^^^^^^^^^
 
 - tags: reliability, interoperability
-- task: `T2194 <https://forge.softwareheritage.org/T2194>`_
+- task: `T2194 <https://forge.softwareheritage.org/T2194>`__
 - lead: anlambert
 - effort: 4 PM
 
@@ -197,21 +197,21 @@ Expose metadata and make them searchable
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 - tags: openscience
-- task: `T3097 <https://forge.softwareheritage.org/T3097>`_
+- task: `T3097 <https://forge.softwareheritage.org/T3097>`__
 - lead: vlorentz
 - effort: 3 PM
 
 Includes work:
 
-- index extrinsic metadata in swh-search/Elasticsearch from the journal `T2073 <https://forge.softwareheritage.org/T2073>`_
-- create API endpoint to access raw_extrinsic_metadata `T2938 <https://forge.softwareheritage.org/T2938>`_
-- show metadata in the web UI `T2088 <https://forge.softwareheritage.org/T2088>`_
+- index extrinsic metadata in swh-search/Elasticsearch from the journal `T2073 <https://forge.softwareheritage.org/T2073>`__
+- create API endpoint to access raw_extrinsic_metadata `T2938 <https://forge.softwareheritage.org/T2938>`__
+- show metadata in the web UI `T2088 <https://forge.softwareheritage.org/T2088>`__
 
 Full text search prototype
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 - tags: feature, wishlist
-- task: `T2204 <https://forge.softwareheritage.org/T2204>`_
+- task: `T2204 <https://forge.softwareheritage.org/T2204>`__
 - lead: anlambert
 - effort: 3 PM
 
@@ -226,7 +226,7 @@ Collect extrinsic metadata
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 - tags: compliance
-- task: `T2202 <https://forge.softwareheritage.org/T2202>`_
+- task: `T2202 <https://forge.softwareheritage.org/T2202>`__
 - lead: vlorentz
 - effort: 3 PM
 
@@ -239,7 +239,7 @@ Provenance in production
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
 - tags: contract, feature
-- task: `T3112 <https://forge.softwareheritage.org/T3112>`_
+- task: `T3112 <https://forge.softwareheritage.org/T3112>`__
 - lead: zack
 - effort: 6 PM
 
@@ -248,7 +248,7 @@ Prior art
 
 - tags: compliance
 - depends: provenance \| swh-graph in production
-- task: `T3136 <https://forge.softwareheritage.org/T3136>`_
+- task: `T3136 <https://forge.softwareheritage.org/T3136>`__
 - lead: zack
 - effort: 3 PM
 
@@ -264,7 +264,7 @@ Efficient archive counters (HyperLogLog)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 - tags: measure, comm
-- task: `T2912 <https://forge.softwareheritage.org/T2912>`_
+- task: `T2912 <https://forge.softwareheritage.org/T2912>`__
 - lead: vsellier
 - effort: 1 PM
 
@@ -272,7 +272,7 @@ Distribution of origins by forge
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 - tags: measure, comm
-- task: `T3127 <https://forge.softwareheritage.org/T3127>`_
+- task: `T3127 <https://forge.softwareheritage.org/T3127>`__
 - lead: anlambert
 - effort: 1 PM
 
@@ -280,7 +280,7 @@ Stats on regular crawling by forge
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 - tags: measure, comm
-- task: `T1363 <https://forge.softwareheritage.org/T1363>`_
+- task: `T1363 <https://forge.softwareheritage.org/T1363>`__
 - lead: olasd
 - effort: 1 PM
 
@@ -292,7 +292,7 @@ View deposits per user (admin and user)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 - tags: measure, support
-- task: `T3128 <https://forge.softwareheritage.org/T3128>`_
+- task: `T3128 <https://forge.softwareheritage.org/T3128>`__
 - lead: ardumont
 - effort: 1 PM
 
@@ -300,7 +300,7 @@ Reliable user-level monitoring of services
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 - tags: stability
-- task: `T3129 <https://forge.softwareheritage.org/T3129>`_
+- task: `T3129 <https://forge.softwareheritage.org/T3129>`__
 - lead: vsellier
 - effort: 2 PM
 
@@ -315,7 +315,7 @@ Write use case-specific documentation
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 - tags: comm, web, doc
-- task: `T2234 <https://forge.softwareheritage.org/T2234>`_
+- task: `T2234 <https://forge.softwareheritage.org/T2234>`__
 - lead: moranegg
 - effort: 2 PM
 
@@ -337,7 +337,7 @@ Documentation strategy
 ^^^^^^^^^^^^^^^^^^^^^^
 
 - tags: doc
-- task: `T2624 <https://forge.softwareheritage.org/T2624>`_
+- task: `T2624 <https://forge.softwareheritage.org/T2624>`__
 - lead: moranegg
 - effort: 1 PM
 
@@ -352,7 +352,7 @@ Tooling for fundraising campaigns
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 - tags: web
-- task: `T3077 <https://forge.softwareheritage.org/T3077>`_
+- task: `T3077 <https://forge.softwareheritage.org/T3077>`__
 - lead: anlambert
 - effort: 1 PM
 
@@ -360,13 +360,13 @@ Dedicated page to list status of supported listers/loaders
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 - tags: web, doc
-- task: `T3117 <https://forge.softwareheritage.org/T3117>`_
+- task: `T3117 <https://forge.softwareheritage.org/T3117>`__
 - lead: anlambert
 - effort: 1 PM
 
 Includes work:
 
-- `T1870 <https://forge.softwareheritage.org/T1870>`_
+- `T1870 <https://forge.softwareheritage.org/T1870>`__
 - design web page
 - process to maintain up to date
 - make clearly visible and link to Sloan subgrants
@@ -378,7 +378,7 @@ Migration to GitLab
 ^^^^^^^^^^^^^^^^^^^
 
 - tags: forge, development
-- task: `T2225 <https://forge.softwareheritage.org/T2225>`_
+- task: `T2225 <https://forge.softwareheritage.org/T2225>`__
 - lead: olasd
 - effort: 1PM
 

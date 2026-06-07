@@ -9,8 +9,8 @@ Request an account
    deposit@softwareheritage.org
 
 With the agreement signed you will be able to register an account on our
-`production <https://archive.softwareheritage.org/oidc/login/>`_ and
-`staging <https://webapp.staging.swh.network/oidc/login/>`_ instances.
+`production <https://archive.softwareheritage.org/oidc/login/>`__ and
+`staging <https://webapp.staging.swh.network/oidc/login/>`__ instances.
 
 Once you have an account, you will get a set of access credentials as a login, a
 password and a collection name (identified as ``USERNAME``, ``PASSWORD`` and

@@ -77,11 +77,11 @@ XML Entry
 As we're using the SWORD v2 standard to handle the deposits the format we used for the
 metadata file is XML. Used namespaces:
 
-- `atom <http://www.w3.org/2005/Atom>`_ (required)
-- `Software Heritage deposit <https://www.softwareheritage.org/schema/2018/deposit>`_
+- `atom <http://www.w3.org/2005/Atom>`__ (required)
+- `Software Heritage deposit <https://www.softwareheritage.org/schema/2018/deposit>`__
   (required)
-- `CodeMeta v2 <https://doi.org/10.5063/schema/codemeta-2.0>`_ (recommended)
-- `schema <http://schema.org/>`_ (optional)
+- `CodeMeta v2 <https://doi.org/10.5063/schema/codemeta-2.0>`__ (recommended)
+- `schema <http://schema.org/>`__ (optional)
 
 .. code-block:: xml
 
@@ -150,7 +150,7 @@ to describe what *kind* of deposit the you are doing:
 CodeMeta
 ~~~~~~~~
 
-We're using `CodeMeta <https://codemeta.github.io/>`_ terms to describe the metadata.
+We're using `CodeMeta <https://codemeta.github.io/>`__ terms to describe the metadata.
 For example:
 
 .. code-block:: xml
@@ -195,7 +195,7 @@ For example:
    * - codemeta:license
      - The license(s) of the software
 
-See the `full CodeMeta terms list <https://codemeta.github.io/terms/>`_ for a complete
+See the `full CodeMeta terms list <https://codemeta.github.io/terms/>`__ for a complete
 reference of the available properties.
 
 Versioning
@@ -229,11 +229,11 @@ is the object the metadata is coming from.
 
 For example, when the metadata is coming from Wikidata, then the
 provenance should be the page of a
-`Q-entity <https://www.wikidata.org/wiki/Wikidata:Identifiers>`_ or when the
+`Q-entity <https://www.wikidata.org/wiki/Wikidata:Identifiers>`__ or when the
 metadata is coming from a curated repository like HAL, then it should be the HAL
 project.
 
-For example, to deposit metadata on `GNU Hello <https://archive.softwareheritage.org/browse/origin/directory/?origin_url=https://ftp.gnu.org/gnu/hello/>`_:
+For example, to deposit metadata on `GNU Hello <https://archive.softwareheritage.org/browse/origin/directory/?origin_url=https://ftp.gnu.org/gnu/hello/>`__:
 
 .. code:: xml
 
@@ -262,9 +262,9 @@ Tools
 To use the deposit services you will need to make API calls or use our command line
 interface (CLI):
 
-- software used to make API calls: `curl <https://curl.se/>`_,
-  `httpie <https://httpie.io/>`_, etc.
-- `swh-deposit <https://pypi.org/project/swh.deposit/>`_ CLI: ``pip install swh-deposit``
+- software used to make API calls: `curl <https://curl.se/>`__,
+  `httpie <https://httpie.io/>`__, etc.
+- `swh-deposit <https://pypi.org/project/swh.deposit/>`__ CLI: ``pip install swh-deposit``
 
 Next step
 ---------

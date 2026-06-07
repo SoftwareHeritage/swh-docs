@@ -29,7 +29,7 @@ Build the ISO image
       sudo apt build-dep ipxe
       sudo apt install whois j2cli isolinux
 
-Clone the SWH `ipxe <https://gitlab.softwareheritage.org/swh/infra/ipxe>`_
+Clone the SWH `ipxe <https://gitlab.softwareheritage.org/swh/infra/ipxe>`__
 repository (in the branch ``swh``). Then place yourself at the top-level
 directory of the checkout.
 
@@ -40,7 +40,7 @@ directory of the checkout.
 
 Create the variables template in ``ipxe/configs`` (you can find the
 `IPADDRESS` in the `inventory
-<https://inventory.internal.admin.swh.network/ipam/ip-addresses/>`_).
+<https://inventory.internal.admin.swh.network/ipam/ip-addresses/>`__).
 
 ``ipxe/configs/cassandra07.yaml``
 
@@ -165,7 +165,7 @@ Post installation
 -----------------
 
 The temporary root password is generated and stored in `ipxe
-<https://gitlab.softwareheritage.org/swh/infra/ipxe>`_ repository under the
+<https://gitlab.softwareheritage.org/swh/infra/ipxe>`__ repository under the
 ``gitignored`` file ``configs/passwords``.
 
 Reference it in the credentials repository under ``infra/$HOSTNAME/root``.

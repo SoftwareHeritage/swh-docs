@@ -44,7 +44,7 @@ Each server has a physical link plugged to 2 different switches with LACP activa
 network.
 
 The details of the installation is available in the
-`internal inventory <https://inventory.internal.admin.swh.network/dcim/rack-elevations/?site_id=7>`_
+`internal inventory <https://inventory.internal.admin.swh.network/dcim/rack-elevations/?site_id=7>`__
 
 The network is composed of several ip ranges:
 

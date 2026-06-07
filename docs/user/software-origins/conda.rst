@@ -5,9 +5,9 @@ Conda
 
 .. include:: dynamic/conda_status.inc
 
-`Conda <https://conda.io/>`_ is an alternative package manager for Python, used
-in particular by the `Anaconda <https://www.anaconda.com/>`_ and
-`conda-forge <https://anaconda.org/conda-forge/>`_ distributions,
+`Conda <https://conda.io/>`__ is an alternative package manager for Python, used
+in particular by the `Anaconda <https://www.anaconda.com/>`__ and
+`conda-forge <https://anaconda.org/conda-forge/>`__ distributions,
 with support for other language ecosystems.
 
 |swh| currently has a lister and a loader for Archlinux packages, but they load

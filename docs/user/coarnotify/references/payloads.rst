@@ -2,7 +2,7 @@ Payloads
 ========
 
 Our COAR Notify Server is an implementation of the
-`COAR Notify Protocol v1.0.1 <https://coar-notify.net/specification/1.0.1/>`_, please
+`COAR Notify Protocol v1.0.1 <https://coar-notify.net/specification/1.0.1/>`__, please
 refer to their specification to identify all the required keys and their meanings.
 
 This documentation will provide extra requirements for the kind of COAR Notifications

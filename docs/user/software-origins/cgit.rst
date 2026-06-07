@@ -5,7 +5,7 @@ Cgit
 
 .. include:: dynamic/cgit_status.inc
 
-`CGit <https://git.zx2c4.com/cgit/about/>`_ is a lightweight front-end for Git.
+`CGit <https://git.zx2c4.com/cgit/about/>`__ is a lightweight front-end for Git.
 
 |swh|'s archives CGit instances by scrapping their HTML, starting from the index page,
 then looking for Git URLs in each project's page, embedded as ``<link rel='vcs-git'``
@@ -21,7 +21,7 @@ The "summary" page of CGit projects display the last update of each of their bra
 the lister uses this information to pass a ``last_update`` date to the scheduler.
 
 New CGit instances can be submitted to |swh| through the
-`Add Forge Now <https://archive.softwareheritage.org/add-forge/request/create/>`_
+`Add Forge Now <https://archive.softwareheritage.org/add-forge/request/create/>`__
 interface.
 
 Project description, owner information, and mapping between CGit projects and

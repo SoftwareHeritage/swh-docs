@@ -14,12 +14,12 @@ How to run the swh stack in a local kubernetes cluster
 Requirements
 ------------
 
-- `helm <https://helm.sh/>`_ the package manager for kubernetes
-- a local kubernetes environment, we assume `kind <https://kind.sigs.k8s.io>`_
+- `helm <https://helm.sh/>`__ the package manager for kubernetes
+- a local kubernetes environment, we assume `kind <https://kind.sigs.k8s.io>`__
   in this document (another could be `minikube
-  <https://minikube.sigs.k8s.io>`_)
+  <https://minikube.sigs.k8s.io>`__)
 - one up-to-date local checkout of the `swh charts
-  <https://gitlab.softwareheritage.org/swh/infra/ci-cd/swh-charts.git>`_
+  <https://gitlab.softwareheritage.org/swh/infra/ci-cd/swh-charts.git>`__
 
 Place yourselves in the root folder of your local checkout of swh-charts.
 
@@ -252,5 +252,5 @@ correctly named or nothing will get installed.
 The full local-cluster configuration can be found in their respective values
 files (and you can override more than just the enabled flag):
 
-- `cluster-components/values/local-cluster.yaml <https://gitlab.softwareheritage.org/swh/infra/ci-cd/swh-charts/-/blob/production/cluster-components/values/local-cluster.yaml?ref_type=heads>`_
-- `swh/values/local-cluster.yaml <https://gitlab.softwareheritage.org/swh/infra/ci-cd/swh-charts/-/blob/production/swh/values/local-cluster.yaml?ref_type=heads>`_
+- `cluster-components/values/local-cluster.yaml <https://gitlab.softwareheritage.org/swh/infra/ci-cd/swh-charts/-/blob/production/cluster-components/values/local-cluster.yaml?ref_type=heads>`__
+- `swh/values/local-cluster.yaml <https://gitlab.softwareheritage.org/swh/infra/ci-cd/swh-charts/-/blob/production/swh/values/local-cluster.yaml?ref_type=heads>`__

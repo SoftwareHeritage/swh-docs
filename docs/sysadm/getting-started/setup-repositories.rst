@@ -49,7 +49,7 @@ repositories managed by myrepos:
      done
 
 (the *mr* command is in the `myrepos Debian package
-<https://packages.debian.org/buster/myrepos>`_).
+<https://packages.debian.org/buster/myrepos>`__).
 
 .. _puppet-environment: https://gitlab.softwareheritage.org/infra/puppet/puppet-environment
 .. _sysadm-environment: https://gitlab.softwareheritage.org/infra/sysadm-environment

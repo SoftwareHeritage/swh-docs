@@ -63,8 +63,8 @@ Publish artifacts
 ~~~~~~~~~~~~~~~~~
 
 Out of the annotated tag just pushed, Jenkins is in charge of publishing the new python
-release to `PyPI <https://pypi.org>`_ or the crate release in `crates.io
-<https://crates.io>`_.
+release to `PyPI <https://pypi.org>`__ or the crate release in `crates.io
+<https://crates.io>`__.
 
 It then builds container images with the new artifact in our :ref:`gitlab registry
 <gitlab-registry>`.
@@ -192,9 +192,9 @@ Depending on the :ref:`services
 <deployment-upgrade-swh-service-distinct-services>` to package, other existing
 applications can serve as template:
 
-- loader: use `git loader <https://gitlab.softwareheritage.org/swh/infra/swh-apps/-/blob/master/apps/swh-loader-git/>`_.
-- rpc service: use `graphql <https://gitlab.softwareheritage.org/swh/infra/swh-apps/-/blob/master/apps/swh-graphql/>`_
-- journal client: use `storage replayer <https://gitlab.softwareheritage.org/swh/infra/swh-apps/-/blob/master/apps/swh-storage-replayer>`_
+- loader: use `git loader <https://gitlab.softwareheritage.org/swh/infra/swh-apps/-/blob/master/apps/swh-loader-git/>`__.
+- rpc service: use `graphql <https://gitlab.softwareheritage.org/swh/infra/swh-apps/-/blob/master/apps/swh-graphql/>`__
+- journal client: use `storage replayer <https://gitlab.softwareheritage.org/swh/infra/swh-apps/-/blob/master/apps/swh-storage-replayer>`__
 
 It's time to build and publish a docker image. It's a multiple steps process
 that can be executed locally starting with the :ref:`frozen set of
@@ -224,7 +224,7 @@ Build and publish docker image (recommended)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Use the `dedicated jenkins job
-<https://jenkins.softwareheritage.org/job/swh-apps/job/build-docker-image/build?delay=0sec>`_
+<https://jenkins.softwareheritage.org/job/swh-apps/job/build-docker-image/build?delay=0sec>`__
 to update the app's frozen requirements, build the docker image with that set and
 publish that image to the swh gitlab registry.
 
@@ -238,7 +238,7 @@ Update impacted chart
 ~~~~~~~~~~~~~~~~~~~~~
 
 In the `swh-chart`_ repository, update the `values file
-<https://gitlab.softwareheritage.org/swh/infra/ci-cd/swh-charts/-/blob/production/values-swh-application-versions.yaml>`_
+<https://gitlab.softwareheritage.org/swh/infra/ci-cd/swh-charts/-/blob/production/values-swh-application-versions.yaml>`__
 with the corresponding new changed version.
 
 Check that the nodes are properly labelled to receive the application. Then :ref:`ArgoCD
@@ -298,7 +298,7 @@ Gitlab registry
 
 You must have a gitlab account and generate a personal access token with at least
 `write` access to the `gitlab registry
-<https://gitlab.softwareheritage.org/swh/infra/swh-apps/container_registry/>`_.
+<https://gitlab.softwareheritage.org/swh/infra/swh-apps/container_registry/>`__.
 
 .. _deployment-upgrade-swh-service-publish-image:
 

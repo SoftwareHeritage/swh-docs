@@ -26,12 +26,12 @@ This is the nominal status of the firewalls:
 Preparation
 ^^^^^^^^^^^
 
-* Connect to the `principal <https://pushkin.internal.softwareheritage.org>`_ (pushkin
+* Connect to the `principal <https://pushkin.internal.softwareheritage.org>`__ (pushkin
   here)
 * Check the `CARP status
-  <https://pushkin.internal.softwareheritage.org/carp_status.php>`_ to ensure the
+  <https://pushkin.internal.softwareheritage.org/carp_status.php>`__ to ensure the
   firewall is the principal (must have the status MASTER for all the IPS)
-* Connect to the `backup <https://glyptotek.internal.softwareheritage.org>`_ (glytotek
+* Connect to the `backup <https://glyptotek.internal.softwareheritage.org>`__ (glytotek
   here)
 * Check the `CARP status
   <https://glyptotek.internal.softwareheritage.org/carp_status.php>`__ to ensure the
@@ -39,7 +39,7 @@ Preparation
 * Ensure the 2 firewalls are in sync:
 
   * On the principal, go to the `High availability status
-    <https://pushkin.internal.softwareheritage.org/status_habackup.php>`_ and force a
+    <https://pushkin.internal.softwareheritage.org/status_habackup.php>`__ and force a
     synchronization
   * click on the button on the right of ``Synchronize config to backup``
 
@@ -49,7 +49,7 @@ Preparation
   transparent from the user perspective and can be done without service interruption)
 
   * [1] On the principal, go to the `Virtual IPS status
-    <https://pushkin.internal.softwareheritage.org/carp_status.php>`_ page
+    <https://pushkin.internal.softwareheritage.org/carp_status.php>`__ page
   * Activate the CARP maintenance mode
 
   .. image:: ../images/infrastructure/network/carp_maintenance.png
@@ -80,7 +80,7 @@ Before starting this section, the firewall statuses should be:
 If not, be sure of what you are doing and adapt the links accordingly
 
 * [2] go to the `System Firmware: status
-  <https://pushkin.internal.softwareheritage.org/ui/core/firmware#status>`_ page
+  <https://pushkin.internal.softwareheritage.org/ui/core/firmware#status>`__ page
   (pushkin here)
 * Click on the ``Check for upgrades`` button
 
@@ -95,7 +95,7 @@ If not, be sure of what you are doing and adapt the links accordingly
 * Switch the principal/backup to restore ``pushkin`` as the principal:
 
   * on the current backup (pushkin here) go to `Virtual IPS status
-    <https://pushkin.internal.softwareheritage.org/carp_status.php>`_
+    <https://pushkin.internal.softwareheritage.org/carp_status.php>`__
   * [3] click on `Leave Persistent CARP Maintenance Mode`
 
   .. image:: ../images/infrastructure/network/reactivate_carp.png

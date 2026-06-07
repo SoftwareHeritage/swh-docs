@@ -4,8 +4,8 @@ Sphinx gotchas
 ==============
 
 Here is a list of common gotchas when formatting Python docstrings for `Sphinx
-<https://www.sphinx-doc.org/en/stable/>`_ and the `Napoleon
-<https://www.sphinx-doc.org/en/stable/ext/napoleon.html>`_ style.
+<https://www.sphinx-doc.org/en/stable/>`__ and the `Napoleon
+<https://www.sphinx-doc.org/en/stable/ext/napoleon.html>`__ style.
 
 .. highlight:: rst
 
@@ -17,7 +17,7 @@ Lists
 +++++
 
 All sorts of `lists
-<https://www.sphinx-doc.org/en/stable/rest.html#lists-and-quote-like-blocks>`_
+<https://www.sphinx-doc.org/en/stable/rest.html#lists-and-quote-like-blocks>`__
 require an empty line before the first bullet and after the last one, to be
 properly interpreted as list. No indentation is required for list elements
 w.r.t. surrounding text, and line continuations should be indented like the
@@ -70,7 +70,7 @@ Good::
 Verbatim source code
 ++++++++++++++++++++
 
-Verbatim `code blocks <https://www.sphinx-doc.org/en/stable/rest.html#source-code>`_,
+Verbatim `code blocks <https://www.sphinx-doc.org/en/stable/rest.html#source-code>`__,
 e.g., for code examples, requires double colon at the end of a line,
 then an empty line, and then the code block itself, indented:
 
@@ -108,7 +108,7 @@ Good::
 ``**kwargs``, ``**args``
 +++++++++++++++++++++++++
 
-`Asterisks needs to be escaped <https://www.sphinx-doc.org/en/stable/rest.html#inline-markup>`_
+`Asterisks needs to be escaped <https://www.sphinx-doc.org/en/stable/rest.html#inline-markup>`__
 to avoid capture by emphasis markup.
 In case of multiple adjacent asterisks, escaping the first one is enough.
 
@@ -125,8 +125,8 @@ Code cross-references
 
 Backquotes are not enough to cross-reference a Python entity
 (class, function, module, etc.); you need to use
-`Sphinx domains <https://www.sphinx-doc.org/en/stable/domains.html>`_ for that,
-and in particular the `Python domain <https://www.sphinx-doc.org/en/stable/domains.html#the-python-domain>`_
+`Sphinx domains <https://www.sphinx-doc.org/en/stable/domains.html>`__ for that,
+and in particular the `Python domain <https://www.sphinx-doc.org/en/stable/domains.html#the-python-domain>`__
 
 Bad::
 
@@ -143,7 +143,7 @@ Good::
    you can avoid a long, fully-qualified anchor setting an
    :func:`explicit label <swh.long.namespace.function>` for a link
 
-See also: the `list of Python roles <https://www.sphinx-doc.org/en/stable/domains.html#cross-referencing-python-objects>`_
+See also: the `list of Python roles <https://www.sphinx-doc.org/en/stable/domains.html#cross-referencing-python-objects>`__
 that you can use to cross-reference Python objects.
 Note that you can (and should) omit the <code>:py:</code> prefix,
 as Python is the default domain.
@@ -160,7 +160,7 @@ Napoleon
 Docstring sections
 ++++++++++++++++++
 
-See the `list of docstring sections <https://www.sphinx-doc.org/en/stable/ext/napoleon.html#docstring-sections>`_
+See the `list of docstring sections <https://www.sphinx-doc.org/en/stable/ext/napoleon.html#docstring-sections>`__
 supported by Napoleon.
 Everything else will *not* be typeset with a dedicated heading,
 you will have to do so explicitly using reStructuredText markup.

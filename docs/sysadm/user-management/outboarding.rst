@@ -36,7 +36,7 @@ Technical setup
 - phabricator: remove user from groups Developers, Members, Interns (if
   applicable)
 - revoke `VPN
-  <https://intranet.softwareheritage.org/wiki/VPN#Revoking_a_client_certificate>`_
+  <https://intranet.softwareheritage.org/wiki/VPN#Revoking_a_client_certificate>`__
   certificate
 - remove "staff" role (and others) from production and staging user accounts on Keycloak
 
@@ -45,7 +45,7 @@ Technical setup
 Development
 -----------
 
-- review open and assigned tasks in `Phabricator <https://forge.softwareheritage.org>`_
+- review open and assigned tasks in `Phabricator <https://forge.softwareheritage.org>`__
   and unassign them as needed.
 
 .. _outboarding_communication:
@@ -54,9 +54,9 @@ Communication
 -------------
 
 - unsubscribe from `mailing lists
-  <https://intranet.softwareheritage.org/wiki/Mailing_lists>`_: swh-team
+  <https://intranet.softwareheritage.org/wiki/Mailing_lists>`__: swh-team
 - uninvite/kick from `IRC channels
-  <https://intranet.softwareheritage.org/wiki/IRC_channels>`_: #swh-team
+  <https://intranet.softwareheritage.org/wiki/IRC_channels>`__: #swh-team
 
 .. _outboarding_see_also:
 

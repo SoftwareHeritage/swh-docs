@@ -32,7 +32,7 @@ def write_table(data, file) -> None:
         "Software origins",
         "Related links",
         "Current status",
-        "Related `grants <https://www.softwareheritage.org/grants/>`_",
+        "Related `grants <https://www.softwareheritage.org/grants/>`__",
     )
     table = []
     for forge_id, forge in sorted(data["forges"].items()):

@@ -22,7 +22,7 @@ Namely, hosting a mirror requires:
   <mirror_takedown_requests>`
 
 The mirror operator is not required to run the Software Heritage `full software
-stack <https://docs.softwareheritage.org/devel>`_, however it is possible to
+stack <https://docs.softwareheritage.org/devel>`__, however it is possible to
 use it.
 
 .. Warning::
@@ -62,28 +62,28 @@ Core services
 ^^^^^^^^^^^^^
 
 - a database for the storage; this can be either a
-  `Postgresql <https://postgresql.org>`_ database (single machine)
-  or a `Cassandra <https://cassandra.apache.org>`_ cluster (at least 3 nodes),
+  `Postgresql <https://postgresql.org>`__ database (single machine)
+  or a `Cassandra <https://cassandra.apache.org>`__ cluster (at least 3 nodes),
 - an object storage system; this can be any
   :py:mod:`supported backend <swh.objstorage.backends>`
   -- a public cloud-based obstorage (e.g. s3), any private supported object storage,
   an ad-hoc filesystem storage system, etc.
-- an `Elasticsearch <https://www.elastic.co>`_ instance,
+- an `Elasticsearch <https://www.elastic.co>`__ instance,
 - a few nodes for backend applications
   (:py:mod:`swh-storage <swh.storage>`, :py:mod:`swh-objstorage <swh.objstorage>`)
 - the web frontend (:py:mod:`swh-web <swh.web>`)
   serving the main web app and the `public
-  API <https://docs.softwareheritage.org/devel/swh-web/uri-scheme-api.html>`_)
+  API <https://docs.softwareheritage.org/devel/swh-web/uri-scheme-api.html>`__)
 
 
 Replaying services
 ^^^^^^^^^^^^^^^^^^
 
 - `graph
-  replayers <https://docs.softwareheritage.org/devel/swh-storage/cli.html#swh-storage-replay>`_
+  replayers <https://docs.softwareheritage.org/devel/swh-storage/cli.html#swh-storage-replay>`__
   as mirroring workers (increase parallelism to increase speed)
 - `content
-  replayers <https://docs.softwareheritage.org/devel/swh-objstorage-replayer/cli.html>`_
+  replayers <https://docs.softwareheritage.org/devel/swh-objstorage-replayer/cli.html>`__
   as mirroring workers (id.)
 
 

@@ -278,7 +278,7 @@ Setting up the repository on Phabricator
 The repository on Phabricator needs the following settings:
 
 - Callsign: non-empty; prefix should be P according to `Phabricator callsign convention
-  <https://wiki.softwareheritage.org/wiki/Phabricator_callsign_naming_convention>`_
+  <https://wiki.softwareheritage.org/wiki/Phabricator_callsign_naming_convention>`__
 - Short name: non-empty (used to make pretty git clone URLs; ideally matching the source
   package name)
 - Repository tags: "Has debian packaging branches" (allows Jenkins to push on the
@@ -321,11 +321,11 @@ Setting up the Jenkins jobs
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The Jenkins `jobs are accessible through the ui
-<https://jenkins.softwareheritage.org/view/Debian%20dependency%20packages/>`_:
+<https://jenkins.softwareheritage.org/view/Debian%20dependency%20packages/>`__:
 
 
 They are declared in the `swh-jenkins-jobs repository
-<https://gitlab.softwareheritage.org/swh/infra/ci-cd/swh-jenkins-jobs>`_.
+<https://gitlab.softwareheritage.org/swh/infra/ci-cd/swh-jenkins-jobs>`__.
 
 Jobs for dependency packages are configured in ``jobs/dependency-packages.yaml``. You
 can add a section as follows:
@@ -355,8 +355,8 @@ For example:
 
 Other samples can be found in the dedicated repository.
 
-- usual swh package: `swh.core <https://gitlab.softwareheritage.org/swh/infra/ci-cd/swh-jenkins-jobs/-/blob/master/jobs/swh-packages.yaml#L15-22>`_
-- peculiar swh package (with name divergences): `swh.icinga_plugins <https://gitlab.softwareheritage.org/swh/infra/ci-cd/swh-jenkins-jobs/-/blob/master/jobs/swh-packages.yaml#L88-95>`_
+- usual swh package: `swh.core <https://gitlab.softwareheritage.org/swh/infra/ci-cd/swh-jenkins-jobs/-/blob/master/jobs/swh-packages.yaml#L15-22>`__
+- peculiar swh package (with name divergences): `swh.icinga_plugins <https://gitlab.softwareheritage.org/swh/infra/ci-cd/swh-jenkins-jobs/-/blob/master/jobs/swh-packages.yaml#L88-95>`__
 
 Use the regular review process to land your changes. Once your changes are pushed, a
 dedicated Jenkins job will generate the jobs from the configuration.

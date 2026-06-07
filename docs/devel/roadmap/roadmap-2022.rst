@@ -10,7 +10,7 @@ Heritage initiative for the year 2022.
 
 Live tracking of the roadmap implementation progress during the year is
 available from a dedicated `Kanban board
-<https://forge.softwareheritage.org/project/view/176/>`_.
+<https://forge.softwareheritage.org/project/view/176/>`__.
 
 .. contents::
    :depth: 3

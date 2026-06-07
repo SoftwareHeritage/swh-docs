@@ -219,7 +219,7 @@ forges:
 
   gitlab:
     name: GitLab
-    notes: "Also supports `Heptapod <https://heptapod.net/>`_"
+    notes: "Also supports `Heptapod <https://heptapod.net/>`__"
     lister:
       status: prod
       supports_last_update: true

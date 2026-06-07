@@ -16,7 +16,7 @@ It's currently configured to be a stateful environment. But we may need to
 reset it once in a while to avoid consuming too much resources.
 
 We will need a local-checkout of the `swh-charts repository
-<https://gitlab.softwareheritage.org/swh/infra/ci-cd/swh-charts/>`_.
+<https://gitlab.softwareheritage.org/swh/infra/ci-cd/swh-charts/>`__.
 
 1. First, we close the 'swh-next-version' `merge request
 <https://gitlab.softwareheritage.org/swh/infra/ci-cd/swh-charts/-/merge_requests>` if
@@ -175,7 +175,7 @@ configuration entries: rabbitmq, kafka, cassandra, elasticsearch, cloudnativePg,
            serviceMonitor:
 
 3. In the `argocd application 'archive-staging-rke2-cluster-components'
-<https://argocd.internal.admin.swh.network/applications/archive-staging-rke2-cluster-components>`_
+<https://argocd.internal.admin.swh.network/applications/archive-staging-rke2-cluster-components>`__
 , hit the 'Refresh' button and then the 'Sync' button. Check the "prune" checkbox so it
 can effectively remove the various deactivated instance backends. When removing those,
 this will also remove their persistent volume (pv) configured (with a retention policy

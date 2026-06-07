@@ -5,7 +5,7 @@ Launchpad
 
 .. include:: dynamic/launchpad_status.inc
 
-`Launchpad <https://launchpad.net/>`_ is a Bazaar and Git hosting platform.
+`Launchpad <https://launchpad.net/>`__ is a Bazaar and Git hosting platform.
 
 It provides a ``bzr_date_last_modified``/``git_date_last_modified`` field for each
 repository, matching the last time the repository was updated;

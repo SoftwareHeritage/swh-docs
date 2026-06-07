@@ -5,11 +5,11 @@ Golang
 
 .. include:: dynamic/golang_status.inc
 
-The `Go programming language <https://go.dev/>`_ identifies modules using URL-like
+The `Go programming language <https://go.dev/>`__ identifies modules using URL-like
 strings, called the "module path".
 Module paths start with a domain and path to a VCS repository (usually Git) and
 optionally path of a directory within that repository. See the
-`Go Modules Reference <https://go.dev/ref/mod>`_ for details.
+`Go Modules Reference <https://go.dev/ref/mod>`__ for details.
 
 |swh| follows the convention of the Golang ecosystem of proxying through the
 proxy.golang.org rather than accessing these repositories directly in order to be
@@ -22,7 +22,7 @@ For example, the origin URL for module ``github.com/gofiber/fiber`` is
 In the Golang ecosystem, it is customary to handle breaking changes in a module by
 publishing the new module version at a different path; for example
 ``github.com/gofiber/fiber/v2``.
-See `Module version numbering <https://go.dev/doc/modules/version-numbers>`_ for details.
+See `Module version numbering <https://go.dev/doc/modules/version-numbers>`__ for details.
 |swh| follows this convention, and uses different origin URLs for new major versions,
 such as ``https://pkg.go.dev/github.com/gofiber/fiber/v2`` (`see it in the archive <https://archive.softwareheritage.org/browse/origin/directory/?origin_url=https://pkg.go.dev/github.com/gofiber/fiber/v2>`__)
 

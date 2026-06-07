@@ -64,7 +64,7 @@ configuration file:
 This ensure there are always at least 32 volumes used for writing.
 
 See `the SeaweedFS optimization page
-<https://github.com/seaweedfs/seaweedfs/wiki/Optimization>`_ for more details.
+<https://github.com/seaweedfs/seaweedfs/wiki/Optimization>`__ for more details.
 
 Having multiple masters is a good idea. The number of masters must be an even
 number.
@@ -104,7 +104,7 @@ initiated by the master. It is typically set up using this piece of
 For replication, you can choose between different replication strategies:
 number of copies, placement constraints for copies (server, rack, datacenter);
 see `the documentation
-<https://github.com/seaweedfs/seaweedfs/wiki/Replication>`_ for more details.
+<https://github.com/seaweedfs/seaweedfs/wiki/Replication>`__ for more details.
 
 
 Filer
@@ -180,9 +180,9 @@ directory. For instance a file with SHA1
 Note that using the slicer also comes with a slight performance hit.
 
 See `this page
-<https://github.com/seaweedfs/seaweedfs/wiki/Filer-Redis-Setup#super-large-directories>`_
+<https://github.com/seaweedfs/seaweedfs/wiki/Filer-Redis-Setup#super-large-directories>`__
 for more details on the ``redis3`` filer backend, and `this one
-<https://github.com/seaweedfs/seaweedfs/wiki/Super-Large-Directories>`_ for a
+<https://github.com/seaweedfs/seaweedfs/wiki/Super-Large-Directories>`__ for a
 more general discussion about handling super large directories in seaweedfs
 filer.
 
@@ -254,7 +254,7 @@ lead to a few problems when the number of volumes increases:
 
 In the context of a |swh| mirror, it's a good idea to have `volume servers
 using a leveldb index
-<https://github.com/seaweedfs/seaweedfs/wiki/Optimization#use-leveldb>`_. This
+<https://github.com/seaweedfs/seaweedfs/wiki/Optimization#use-leveldb>`__. This
 can be done using ``weed volume -index=leveldb`` command line argument (note
 there are 3 possible index arguments: ``leveldb``, ``leveldbMedium`` and
 ``leveldbLarge``; see the seaweedfs documentation for more details).

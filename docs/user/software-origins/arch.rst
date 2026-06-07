@@ -6,9 +6,9 @@ Archlinux
 .. include:: dynamic/arch_status.inc
 
 This page documents how |swh| archives source packages from the
-`Archlinux <https://archlinux.org/>`_ and `Archlinux ARM <https://archlinuxarm.org>`_
+`Archlinux <https://archlinux.org/>`__ and `Archlinux ARM <https://archlinuxarm.org>`__
 distribution.
-The `AUR (Archlinux User Repository) <https://aur.archlinux.org/>`_ is
+The `AUR (Archlinux User Repository) <https://aur.archlinux.org/>`__ is
 :ref:`described in its own dedicated documentation <user-software-origins-aur>`,
 as it uses a very different packaging architecture.
 
@@ -25,4 +25,4 @@ not need to store them as :term:`extrinsic metadata`.
 
 Resources:
 
-* `HTTP API documentation <https://wiki.archlinux.org/title/Official_repositories_web_interface>`_
+* `HTTP API documentation <https://wiki.archlinux.org/title/Official_repositories_web_interface>`__

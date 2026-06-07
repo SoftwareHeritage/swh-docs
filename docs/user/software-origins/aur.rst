@@ -7,7 +7,7 @@ AUR
 
 This page documents how |swh| archives source packages from the
 `AUR (Archlinux User Repository) <https://aur.archlinux.org/>`.
-The `Archlinux <https://archlinux.org/>`_ and `Archlinux ARM <https://archlinuxarm.org>`_
+The `Archlinux <https://archlinux.org/>`__ and `Archlinux ARM <https://archlinuxarm.org>`__
 distributions are
 :ref:`described in their own dedicated documentation <user-software-origins-arch>`,
 as they uses a very different packaging architecture.
@@ -28,4 +28,4 @@ not need to store them as :term:`extrinsic metadata`.
 
 Resources:
 
-* `HTTP API documentation <https://wiki.archlinux.org/title/Aurweb_RPC_interface>`_
+* `HTTP API documentation <https://wiki.archlinux.org/title/Aurweb_RPC_interface>`__

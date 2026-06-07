@@ -22,7 +22,7 @@ repository: :file:`https://bitbucket.org/{owner}/{name}.git`.
 Bitbucket does not support :ref:`Mercurial <user-software-origins-mercurial>` anymore;
 but Mercurial repositories used to be loaded with the Mercurial loader and are
 `available in the archive <https://archive.softwareheritage.org/browse/search/?q=bitbucket.org&with_visit=true&with_content=true&visit_type=hg>`__.
-Additionally, |swh| provides a `dump of raw Mercurial repositories <https://bitbucket-archive.softwareheritage.org/>`_.
+Additionally, |swh| provides a `dump of raw Mercurial repositories <https://bitbucket-archive.softwareheritage.org/>`__.
 
 Bitbucket provides extrinsic metadata on repositories (owner, description,
 ``created_on``, size, language, fork policy, parent repository, ...) which are currently

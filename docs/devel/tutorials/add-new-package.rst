@@ -17,7 +17,7 @@ Create a project
 
 Creating the project from swh-py-template_ can be done using the
 ``bin/init-py-repo`` tool. This script uses the ``gitlab`` command-line tool
-provided by the `python-gitlab <https://python-gitlab.readthedocs.io/>`_
+provided by the `python-gitlab <https://python-gitlab.readthedocs.io/>`__
 module. Before running ``init-py-repo``, please make sure that the ``gitlab``
 command is working and configured with an access token of scope ``api``.
 

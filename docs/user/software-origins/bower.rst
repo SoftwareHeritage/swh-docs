@@ -5,7 +5,7 @@ Bower
 
 .. include:: dynamic/bower_status.inc
 
-`Bower <https://bower.io/>`_ is a package manager for the Javascript ecosystem,
+`Bower <https://bower.io/>`__ is a package manager for the Javascript ecosystem,
 which doesn't host its own packages.
 Instead, it points to Git repositories hosted externally (eg. on GitHub).
 
@@ -18,4 +18,4 @@ It then dispatches loading tasks to the :ref:`Git loader <user-software-origins-
 
 Resources:
 
-* `Source code of the Bower registry <https://github.com/bower/registry>`_
+* `Source code of the Bower registry <https://github.com/bower/registry>`__

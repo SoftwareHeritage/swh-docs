@@ -10,7 +10,7 @@ How to upgrade a cassandra cluster
 
 
 This page document the actions to `upgrade an online cassandra
-cluster <https://docs.datastax.com/en/luna-cassandra/guides/upgrade/overview.html>`_. The
+cluster <https://docs.datastax.com/en/luna-cassandra/guides/upgrade/overview.html>`__. The
 overall plan is to upgrade each node of the cluster one at a time, in a rolling upgrade
 fashion.
 
@@ -47,9 +47,9 @@ Connect to pergamon and deploy those changes.
    :class: warning
 
    | All scheduled jobs must be paused and all running jobs must be stopped and aborted.
-   | You can perform these actions from the web UI `reaper <https://cassandra-reaper.io/docs/>`_.
-   | - `Reaper production <https://reaper.internal.softwareheritage.org/webui/login.html>`_
-   | - `Reaper staging <https://reaper.internal.staging.swh.network/webui/login.html>`_
+   | You can perform these actions from the web UI `reaper <https://cassandra-reaper.io/docs/>`__.
+   | - `Reaper production <https://reaper.internal.softwareheritage.org/webui/login.html>`__
+   | - `Reaper staging <https://reaper.internal.staging.swh.network/webui/login.html>`__
 
 .. admonition:: Grafana tag
    :class: Note

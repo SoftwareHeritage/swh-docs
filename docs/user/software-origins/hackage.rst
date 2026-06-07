@@ -5,7 +5,7 @@ Hackage
 
 .. include:: dynamic/hackage_status.inc
 
-`Hackage <https://hackage.haskell.org/>`_ is the main package manager for the
+`Hackage <https://hackage.haskell.org/>`__ is the main package manager for the
 Haskell ecosystem.
 
 |swh| archives Hackage by querying ``https://hackage.haskell.org/packages/search``, which
@@ -19,6 +19,6 @@ Metadata from Hackage is archived as part of each package (in ``.cabal`` files).
 
 Resources:
 
-* `Source code of Hackage <https://github.com/haskell/hackage-server>`_
+* `Source code of Hackage <https://github.com/haskell/hackage-server>`__
 
 Source code from Hackage is currently only archived on |swh|'s staging infrastructure.
