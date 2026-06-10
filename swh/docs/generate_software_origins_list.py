@@ -177,7 +177,7 @@ def main(input_path: Path, output_path: Path) -> None:
 
 if __name__ == "__main__":
     try:
-        (_, input_path, output_path) = sys.argv
+        _, input_path, output_path = sys.argv
     except ValueError:
         print(
             f"Syntax: {sys.argv[0]} docs/devel/forge-support.yml "

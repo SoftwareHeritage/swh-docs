@@ -213,7 +213,7 @@ def main(input_path: Path, lister_output_path: Path, loader_output_path: Path) -
 
 if __name__ == "__main__":
     try:
-        (_, input_path, lister_output_path, loader_output_path) = sys.argv
+        _, input_path, lister_output_path, loader_output_path = sys.argv
     except ValueError:
         print(
             f"Syntax: {sys.argv[0]} docs/devel/forge-support.yml "

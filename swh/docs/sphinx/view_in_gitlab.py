@@ -1,4 +1,4 @@
-# Copyright (C) 2021-2023  The Software Heritage developers
+# Copyright (C) 2021-2026  The Software Heritage developers
 # See the AUTHORS file at the top-level directory of this distribution
 # License: GNU General Public License version 3, or any later version
 # See top-level LICENSE file for more information
@@ -16,7 +16,7 @@ def html_page_context(app, pagename, templatename, context, doctree):
         return
     elif pagename.startswith("swh-"):
         # .rst from a package's docs/ directory
-        (repository, _, path) = pagename.partition("/")
+        repository, _, path = pagename.partition("/")
     else:
         # .rst from swh-docs/docs/
         repository = "swh-docs"
