@@ -178,6 +178,10 @@ swh.docs
 :ref:`swh.model <swh-model>`
     implementation of the :ref:`data-model` to archive source code artifacts
 
+:ref:`swh.mosaic <swh-mosaic>`
+    MOdular Storage of Archived and Indexed Contents: a file format designed to
+    efficiently store and randomly read archived contents.
+
 :ref:`swh.objstorage <swh-objstorage>`
     content-addressable object storage
 
@@ -186,7 +190,7 @@ swh.docs
 
 :ref:`swh.shard <swh-shard>`
     Low level management for read-only content-addressable object storage
-    indexed with a perfect hash table
+    indexed with a perfect hash table. To be replaced by :ref:`swh.mosaic <swh-mosaic>`.
 
 :ref:`swh.provenance <swh-provenance>`
     query service for questions like: “where does this given object come

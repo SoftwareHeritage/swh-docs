@@ -33,6 +33,7 @@ by components:
    swh.lister <swh-lister/index>
    swh.loader <swh-loader>
    swh.model <swh-model/index>
+   swh.mosaic <swh-mosaic/index>
    swh.objstorage <swh-objstorage/index>
    swh.objstorage.replayer <swh-objstorage-replayer/index>
    swh.provenance <swh-provenance/index>

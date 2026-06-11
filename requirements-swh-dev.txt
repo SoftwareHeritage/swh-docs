@@ -28,6 +28,7 @@
 ../swh-loader-metadata
 ../swh-loader-svn
 ../swh-model
+../swh-mosaic
 ../swh-objstorage-replayer
 ../swh-objstorage[testing]
 ../swh-provenance
