@@ -10,13 +10,14 @@ swh-deposit: 5006
 # swh-indexer's storage api
 swh-indexer: 5007
 swh-scheduler: 5008
-swh-graph: 5009
+swh-graph: 5009 and 50091
 swh-search: 5010
 swh-counters: 5011
 swh-winery: 5012
 swh-graphql: 5013
 swh-provenance: 5014
 swh-coarnotify: 5015
+swh-vulns: 5016 and 50161
 
 # Edit this line with your nick to get a merge conflict if there's an overlap
-# Next available ID (rboyer): 5016
+# Next available ID (vlorentz): 5017
