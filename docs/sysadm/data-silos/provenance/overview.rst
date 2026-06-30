@@ -19,7 +19,7 @@ There is no writing, only read-only queries.
 Its backend relies on parquet files.
 
 Authentication
-^^^^^^^^^^^^^^
+--------------
 
 Through the standard web api authentication mechanism.
 
@@ -29,7 +29,7 @@ Web api users have access to the provenance api when they are affected the
 Staff members have direct access to the provenance api.
 
 Datasets
-^^^^^^^^
+--------
 
 The provenance needs 2 datasets:
 
@@ -51,7 +51,7 @@ Note: The version of the graph files should be the same version as the graph whi
 generated the provenance parquet files.
 
 Internal Domains
-^^^^^^^^^^^^^^^^
+----------------
 
 As the provenance will be used through the webapi, there is no public domain, only
 internal.
@@ -61,15 +61,17 @@ For each environment, the hostnames will be:
 - production: `provenance.internal.softwareheritage.org`
 
 Architecture
-^^^^^^^^^^^^
+------------
 
-### Staging
+Staging
+^^^^^^^
 
 .. figure:: ../../images/provenance/provenance.staging.svg
    :alt: Provenance setup in staging
    :width: 600px
 
-### Production
+Production
+^^^^^^^^^^
 
 .. figure:: ../../images/provenance/provenance.production.svg
    :alt: Provenance setup in production
