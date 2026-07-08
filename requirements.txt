@@ -15,5 +15,4 @@ sphinx-click
 myst-parser
 sphinx-celery
 tabulate
-typing-extensions
 requests

@@ -9,9 +9,9 @@ summarizing the status of loaders ands listers."""
 from pathlib import Path
 import sys
 import textwrap
+from typing import Literal
 
 import tabulate
-from typing_extensions import Literal
 
 from .software_origins import parse
 
