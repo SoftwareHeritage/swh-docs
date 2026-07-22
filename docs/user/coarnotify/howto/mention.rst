@@ -28,7 +28,7 @@ Prepare the notification payload
 --------------------------------
 
 To announce that the scientific paper ``https://your-organization.tld/item/12345/``
-mentions the software `parmap <https://github.com/rdicosmo/parmap>`__. The notification
+cites the software `parmap <https://github.com/rdicosmo/parmap>`__. The notification
 will look like:
 
 .. code-block:: json
@@ -68,7 +68,7 @@ will look like:
     "id": "urn:uuid:6908e2d0-ab41-4fbf-8b27-e6d6cf1f7b95",
     "object": {
       "as:subject": "https://your-organization.tld/item/12345/",
-      "as:relationship": "https://w3id.org/codemeta/3.0#citation",
+      "as:relationship": "https://schema.datacite.org/linked-data/vocab/relationType/Cites",
       "as:object": "https://github.com/rdicosmo/parmap",
       "id": "urn:uuid:74FFB356-0632-44D9-B176-888DA85758DC",
       "type": "Relationship"

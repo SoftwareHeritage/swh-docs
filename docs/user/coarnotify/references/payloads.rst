@@ -23,7 +23,34 @@ Mention of a software in a scientific publication
 - ``context`` identifies the resource on the ``origin`` which is the subject of the
   relationship
 
-Here's an example payload:
+Valid relationship types
+------------------------
+
+To describe the relationship between a scientific publication and software, we utilize
+the `DataCite relation type vocabulary <datacite-relations>`_ alongside Schema.org's
+``citation`` and CodeMeta's ``referencePublication``:
+
+- ``https://schema.org/citation``
+- ``https://codemeta.github.io/terms/referencePublication``
+- ``https://schema.datacite.org/linked-data/vocab/relationType/Cites``
+- ``https://schema.datacite.org/linked-data/vocab/relationType/Continues``
+- ``https://schema.datacite.org/linked-data/vocab/relationType/IsSupplementTo``
+- ``https://schema.datacite.org/linked-data/vocab/relationType/Describes``
+- ``https://schema.datacite.org/linked-data/vocab/relationType/References``
+- ``https://schema.datacite.org/linked-data/vocab/relationType/Documents``
+- ``https://schema.datacite.org/linked-data/vocab/relationType/Compiles``
+- ``https://schema.datacite.org/linked-data/vocab/relationType/Reviews``
+- ``https://schema.datacite.org/linked-data/vocab/relationType/IsSourceOf``
+- ``https://schema.datacite.org/linked-data/vocab/relationType/Requires``
+- ``https://schema.datacite.org/linked-data/vocab/relationType/Obsoletes``
+- ``https://schema.datacite.org/linked-data/vocab/relationType/Collects``
+
+Inverted relationships (eg. ``IsCitedBy`` instead of ``Cites``) are not allowed.
+
+.. _datacite-relations: https://datacite-metadata-schema.readthedocs.io/en/4.7/appendices/appendix-1/relationType/
+
+Example payload
+---------------
 
 .. code-block:: json
 
@@ -71,7 +98,7 @@ Here's an example payload:
     },
     "object": {
       "as:subject": "https://your-organization.tld/item/12345/",
-      "as:relationship": "https://w3id.org/codemeta/3.0#citation",
+      "as:relationship": "https://schema.datacite.org/linked-data/vocab/relationType/Cites",
       "as:object": " https://github.com/rdicosmo/parmap",
       "id": "urn:uuid:74FFB356-0632-44D9-B176-888DA85758DC",
       "type": "Relationship"
@@ -82,4 +109,5 @@ Here's an example payload:
       "type": "Service"
     }
   }
+
 
