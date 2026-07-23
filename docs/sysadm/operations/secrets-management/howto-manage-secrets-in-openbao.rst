@@ -21,21 +21,8 @@ Or you can create secrets from your own machine with the bao cli installed.
 Secret engines
 ^^^^^^^^^^^^^^
 
-In openbao secrets are stored in k/v secret engines.
-
-In our infrastructure, we have one per kubernetes cluster named
-'secrets-${cluster-name}' plus one for our puppet manifests secrets named
-'secrets-puppet'.
-
-That makes 8:
-- secrets-admin-rk2
-- secrets-archive-production-rke2
-- secrets-gitlab-production
-- secrets-archive-staging-rke2
-- secrets-test-staging-rke2
-- secrets-gitlab-staging
-- secrets-rancher
-- secrets-puppet
+Secrets in openbao are stored in :ref:`secrets engines
+<openbao-secrets-engines-and-secrets-structure>`.
 
 Prepare
 ^^^^^^^
@@ -83,6 +70,9 @@ Read secrets
 
 Use `bao kv read` to read a secret.
 
+In the following example , we will read the test-staging-rke2 cluster's secret named
+``test`` in the secrets engine ``secrets-test-staging-rke2``.
+
 .. code-block:: bash
 
    $ bao kv get secrets-test-staging-rke2/test
@@ -107,6 +97,9 @@ Write secrets
 ^^^^^^^^^^^^^
 
 Use `bao kv put` to write a secret.
+
+In the following example , we will create/update a new secret ``test2`` in the
+test-staging-rke2 cluster (secrets engine ``secrets-test-staging-rke2``).
 
 .. code-block:: bash
 
@@ -143,4 +136,4 @@ Use `bao kv put` to write a secret.
    ---    -----
    bar    foo
 
-Notes: secrets-test-staging-rke2 is an actual secret store, adapt accordingly.
+Notes: ``secrets-test-staging-rke2`` is one secret engine, adapt according to your use.
