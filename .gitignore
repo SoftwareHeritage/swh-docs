@@ -14,3 +14,14 @@ docs/README.md
 # this should be a symlink for people who want to build the sphinx doc
 # without using tox, generally created by the swh-env/bin/update script
 docs/Makefile.sphinx
+# files and directories generated during documentation build
+_build
+*-stamp
+errors.log
+docs/devel/apidoc
+docs/devel/images/
+docs/devel/sources
+docs/devel/swh-*
+docs/sysadm/images/network.svg
+docs/sysadm/images/staging-environment.svg
+docs/user/software-origins/dynamic/*.inc
