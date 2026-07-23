@@ -16,15 +16,6 @@ classifiers = [
 ]
 dynamic = ["version", "dependencies", "optional-dependencies"]
 
-[tool.setuptools.packages.find]
-include = ["swh.*"]
-
-[tool.setuptools.dynamic]
-dependencies = { file = ["requirements.txt"] }
-
-[tool.setuptools.dynamic.optional-dependencies]
-testing = { file = ["requirements-test.txt"] }
-building = { file = ["requirements-swh.txt"] }
 
 [project.urls]
 "Homepage" = "https://gitlab.softwareheritage.org/swh/devel/swh-docs"
@@ -34,11 +25,27 @@ building = { file = ["requirements-swh.txt"] }
 "Source" = "https://gitlab.softwareheritage.org/swh/devel/swh-docs.git"
 
 [build-system]
-requires = ["setuptools", "setuptools-scm"]
-build-backend = "setuptools.build_meta"
+requires = ["hatchling", "hatch-requirements-txt", "hatch-vcs"]
+build-backend = "hatchling.build"
 
-[tool.setuptools_scm]
-fallback_version = "0.0.1"
+[tool.hatch.metadata.hooks.requirements_txt]
+files = ["requirements.txt", "requirements-swh.txt"]
+
+[tool.hatch.metadata.hooks.requirements_txt.optional-dependencies]
+testing = ["requirements-test.txt"]
+
+[tool.hatch.build.targets.wheel]
+packages = ["swh"]
+
+[tool.hatch.build.targets.wheel.shared-data]
+"docs/devel/glossary.rst" = "share/swh-docs/docs/devel/glossary.rst"
+"docs/Makefile" = "share/swh-docs/docs/Makefile"
+"Makefile.sphinx" = "share/swh-docs/Makefile.sphinx"
+
+
+[tool.hatch.version]
+source = "vcs"
+fallback-version = "0.0.1"
 
 [tool.black]
 target-version = ['py311', 'py312', 'py313']
