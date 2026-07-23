@@ -18,6 +18,25 @@ vpn<howto_configure_openvpn>`).
 
 Or you can create secrets from your own machine with the bao cli installed.
 
+Secret engines
+^^^^^^^^^^^^^^
+
+In openbao secrets are stored in k/v secret engines.
+
+In our infrastructure, we have one per kubernetes cluster named
+'secrets-${cluster-name}' plus one for our puppet manifests secrets named
+'secrets-puppet'.
+
+That makes 8:
+- secrets-admin-rk2
+- secrets-archive-production-rke2
+- secrets-gitlab-production
+- secrets-archive-staging-rke2
+- secrets-test-staging-rke2
+- secrets-gitlab-staging
+- secrets-rancher
+- secrets-puppet
+
 Prepare
 ^^^^^^^
 
