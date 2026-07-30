@@ -33,6 +33,7 @@ files = ["requirements.txt", "requirements-swh.txt"]
 
 [tool.hatch.metadata.hooks.requirements_txt.optional-dependencies]
 testing = ["requirements-test.txt"]
+building = ["requirements-swh.txt"]
 
 [tool.hatch.build.targets.wheel]
 packages = ["swh"]
