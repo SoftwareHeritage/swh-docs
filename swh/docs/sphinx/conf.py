@@ -3,12 +3,12 @@
 # License: GNU Affero General Public License version 3, or any later version
 # See top-level LICENSE file for more information
 
+import datetime
 import logging
 import os
 from pathlib import Path
 import re
 import sys
-from typing import Dict
 
 from sphinx import addnodes
 from sphinx.ext import autodoc
@@ -17,8 +17,9 @@ from sphinx.transforms import SphinxTransform
 from swh.docs.django_settings import force_django_settings
 
 # General information about the project.
+current_year = datetime.datetime.now(tz=datetime.UTC).date().year
 project = "Software Heritage"
-copyright = "2015-2025 The Software Heritage developers"
+copyright = f"2015-{current_year} The Software Heritage developers"
 author = "The Software Heritage developers"
 
 # -- General configuration ------------------------------------------------
@@ -229,7 +230,7 @@ redirects = {
     "devel/apidoc/swh.dataset": "swh.export.html",
     "infrastructure/index": "../sysadm/network-architecture/index.html",
     "infrastructure/network": "../sysadm/network-architecture/index.html",
-    "infrastructure/service-urls": "../sysadm/network-architecture/service-urls.html",  # noqa
+    "infrastructure/service-urls": "../sysadm/network-architecture/service-urls.html",
     "architecture": "devel/architecture/overview.html",
     "architecture/mirror": "../../sysadm/mirror-operations/index.html",
     "keycloak": "../../sysadm/user-management/keycloak/index.html",
@@ -260,7 +261,7 @@ todo_include_todos = True
 _swh_web_base_url = "https://archive.softwareheritage.org"
 
 # for the extlinks extension, sub-projects should fill that dict
-extlinks: Dict = {
+extlinks: dict = {
     "swh_web": (f"{_swh_web_base_url}/%s", None),
     "swh_web_api": (f"{_swh_web_base_url}/api/1/%s", None),
     "swh_web_browse": (f"{_swh_web_base_url}/browse/%s", None),
@@ -373,7 +374,7 @@ def add_glossary_to_index(app, docname, source):
                     source[0] += "\n" + f.read()
                     break
         else:
-            raise EnvironmentError("glossary file not found")
+            raise OSError("glossary file not found")
 
         # SWH_PACKAGE_DOC_INCLUDE_GLOSSARIES env variable can contain a comma separated list
         # of swh package names whose glossaries must be included when building the standalone
