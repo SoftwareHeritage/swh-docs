@@ -159,6 +159,16 @@ For admins
 .. figure:: ../../images/openvpn/opnsense_sign_csr.png
    :alt: opnsense_sign_csr.png
 
+- Retrieve the signed csr and provide it to the user through secured medium
+
+  - Filter the newly created certificate entry on the user
+  - Click on the "cloudy" download button
+  - Select "Certificate"
+  - Click on "Download" button
+
+.. figure:: ../../images/openvpn/vpn-download-csr.png
+   :alt: vpn-download-csr.png
+
 .. _revoking_a_client_certificate:
 
 Revoking a client certificate
