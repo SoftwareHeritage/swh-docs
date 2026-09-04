@@ -9,4 +9,4 @@ Software Heritage graph labeling with vulnerabilities
    This page is a work in progress.
 
 .. toctree::
-   overview
+   grpc-overview

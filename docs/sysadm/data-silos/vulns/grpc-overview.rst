@@ -1,14 +1,14 @@
-.. _vulns-overview:
+.. _vulns-grpc-overview:
 
-Vulns Overview
-==============
+Vulns Grpc Overview
+===================
 
 .. admonition:: Intended audience
    :class: important
 
    staff members
 
-The vulns application is a standalone grpc server. It does not depend on other swh
+The vulns grpc application is a standalone server. It does not depend on other swh
 services. It depends on the graph dataset files and a specifically generated dataset for
 the vulnerabilities.
 
