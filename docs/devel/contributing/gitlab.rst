@@ -191,4 +191,12 @@ Next, deployment container images are updated.
 And finally a new merge request will automatically be created in
 `Helm charts for swh packages`_ so that the devops team can proceed with deployment.
 
+.. important::
+
+   It can happen the release process performed by Jenkins fail for various reasons
+   (transient network errors, flaky tests, ...). In that case, you must trigger
+   again the ``Incoming tag`` job on Jenkins to guarantee all the jobs involved
+   in the release process (Upload to PyPI, builds of docker images for deployment
+   on Kubernetes) will be triggered.
+
 .. _Helm charts for swh packages: https://gitlab.softwareheritage.org/swh/infra/sysadm-environment
