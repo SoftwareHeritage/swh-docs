@@ -116,6 +116,12 @@ Sample |pg_service|
   port=5432
   user=guest
 
+  [staging-swh-vulns]
+  dbname=swh-vulns-osv
+  host=db.internal.staging.swh.network
+  port=5432
+  user=guest
+
   [staging-swh-web]
   dbname=swh-web
   host=db.internal.staging.swh.network
