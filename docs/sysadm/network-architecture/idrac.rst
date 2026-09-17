@@ -79,7 +79,7 @@ can do its work:
    $ username=<user-name>
    $ sudo SSH_AUTH_SOCK="$SSH_AUTH_SOCK" sshuttle --python python3 \
        --method tproxy \
-       -r ${username}@sesi-ssh.inria.fr 128.93.162.142 128.93.134.0/26
+       -r ${username}@sesi-ssh.inria.fr 128.93.162.142 128.93.134.0/24
 
 .. _idrac_authentication:
 
