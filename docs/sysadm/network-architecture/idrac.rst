@@ -13,7 +13,6 @@ servers (e.g DELL, ...).
 
 A non-exhaustive list of :ref:`iDRACs <network_configuration>`:
 
-* banco
 * hypervisor3
 * mucem
 * orsay
@@ -79,7 +78,7 @@ can do its work:
    $ username=<user-name>
    $ sudo SSH_AUTH_SOCK="$SSH_AUTH_SOCK" sshuttle --python python3 \
        --method tproxy \
-       -r ${username}@sesi-ssh.inria.fr 128.93.162.142 128.93.134.0/24
+       -r ${username}@sesi-ssh.inria.fr 128.93.134.0/25
 
 .. _idrac_authentication:
 
