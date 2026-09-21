@@ -130,6 +130,23 @@ Then start the server and let the installation complete.
 
 .. _ipmi_serial_console_access:
 
+
+Required external firmwares
+---------------------------
+
+Some machines may need specific (eg. nonfree) firmwares to complete the
+installation process. As of now, this is true of:
+
+* the Intel E810-XXV NIC, used in some 2026-… servers (eg. cassandra21-23).
+
+In the `ipxe <https://gitlab.softwareheritage.org/swh/infra/ipxe>`__
+repository, the ``firmwares`` directory contains a script to generate a
+``firmware.img`` image file that contains firmwares.
+
+This image can then be loaded as a virtual floppy disk from the IPMI web
+console. The preseeded Debian installer will attempt to load required firmwares
+from there.
+
 IPMI serial console access
 --------------------------
 
