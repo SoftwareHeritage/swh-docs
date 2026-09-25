@@ -62,6 +62,12 @@ Sample |pg_service|
   port=5432
   user=guest
 
+  [swh-vulns]
+  dbname=swh-vulns-osv
+  host=db.internal.softwareheritage.org
+  port=5432
+  user=guest
+
   [swh-scrubber]
   dbname=swh-scrubber
   host=db.internal.softwareheritage.org
