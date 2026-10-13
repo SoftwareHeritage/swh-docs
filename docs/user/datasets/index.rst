@@ -6,9 +6,11 @@ Software Heritage Datasets
 How to guides
 -------------
 
-To assist users with using datasets.
+To assist users with using `datasets <https://datasets.softwareheritage.org>`_.
+
 
 .. toctree::
    :maxdepth: 2
 
-   howto/index
+   howto/use.rst
+   howto/add.rst
