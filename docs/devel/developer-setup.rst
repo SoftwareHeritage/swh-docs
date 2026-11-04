@@ -50,7 +50,8 @@ package manager.
           libpython3-dev libsystemd-dev libsvn-dev libffi-dev librdkafka-dev \
           fuse3 libfuse3-dev libleveldb-dev \
           git myrepos graphviz plantuml inkscape \
-          postgresql libpq-dev cassandra redis-server
+          postgresql libpq-dev cassandra redis-server \
+	  protobuf-compiler
 
   .. tab-item:: Fedora
     :sync: fedora
