@@ -65,7 +65,7 @@ package manager.
           python3.11-devel systemd-devel subversion-devel libffi-devel \
           librdkafka fuse3 fuse3-devel leveldb-devel git myrepos graphviz \
           plantuml inkscape postgresql-server postgresql-contrib libpq \
-          libpq-devel redis
+          libpq-devel redis protobuf-compiler
 
     Install Java-specific repository and JDK
 
