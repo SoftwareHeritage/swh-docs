@@ -51,7 +51,7 @@ package manager.
           fuse3 libfuse3-dev libleveldb-dev \
           git myrepos graphviz plantuml inkscape \
           postgresql libpq-dev cassandra redis-server \
-	  protobuf-compiler
+          protobuf-compiler
 
   .. tab-item:: Fedora
     :sync: fedora
@@ -412,7 +412,7 @@ For example, running unit tests for the swh-loader-git_ package:
 
     (swh) ~/swh-environment$ cd swh-loader-git
     (swh) ~/swh-environment/swh-loader-git$ pytest
-	=========================== test session starts ============================
+    =========================== test session starts ============================
     platform linux -- Python 3.5.3, pytest-3.8.2, py-1.6.0, pluggy-0.7.1
     hypothesis profile 'default' -> database=DirectoryBasedExampleDatabase('/home/ddouard/src/swh-environment/swh-loader-git/.hypothesis/examples')
     rootdir: /home/ddouard/src/swh-environment/swh-loader-git, inifile: pytest.ini
@@ -425,8 +425,8 @@ For example, running unit tests for the swh-loader-git_ package:
     swh/loader/git/tests/test_tasks.py ...                               [ 88%]
     swh/loader/git/tests/test_utils.py ...                               [100%]
     ============================= warnings summary =============================
-	[...]
-	================== 25 passed, 12 warnings in 6.66 seconds ==================
+    [...]
+    ================== 25 passed, 12 warnings in 6.66 seconds ==================
 
 Running the same test, plus code linting and static analysis, using tox:
 
@@ -499,7 +499,7 @@ For example, running pytest in the swh-core package:
 .. code-block:: console
 
     (swh) ~/swh-environment$ cd swh-core
-	(swh) ~/swh-environment/swh-core$ pifpaf run postgresql -- pytest
+    (swh) ~/swh-environment/swh-core$ pifpaf run postgresql -- pytest
     =========================== test session starts ============================
     platform linux -- Python 3.5.3, pytest-3.8.2, py-1.6.0, pluggy-0.7.1
     hypothesis profile 'default' -> database=DirectoryBasedExampleDatabase('/home/ddouard/src/swh-environment/swh-core/.hypothesis/examples')
