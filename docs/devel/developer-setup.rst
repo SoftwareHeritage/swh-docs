@@ -113,7 +113,7 @@ package manager.
         git myrepos \
         graphviz plantuml inkscape \
         postgresql arrow \
-        db
+        db protobuf
 
     **Then install packages from the AUR with your favorite AUR helper (don't forget to read all the PKGBUILDs):**
 
