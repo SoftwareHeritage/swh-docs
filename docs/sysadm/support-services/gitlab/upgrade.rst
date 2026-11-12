@@ -1,3 +1,11 @@
+.. _gitlab_upgrade:
+
+.. admonition:: Intended audience
+   :class: important
+
+   sysadm staff members
+
+
 GitLab upgrade procedure
 ========================
 

@@ -7,4 +7,4 @@ Gitlab
    :maxdepth: 1
 
    installation
-
+   upgrade
