@@ -19,6 +19,7 @@ Cycle a user's password
 On a kafka node or on ``getty.internal.softwareheritage.org``, execute
 
 .. code::
+
     /opt/kafka/bin/kafka-configs.sh \
         --bootstrap-server "kafka1.internal.softwareheritage.org:9092" \
         --alter \
